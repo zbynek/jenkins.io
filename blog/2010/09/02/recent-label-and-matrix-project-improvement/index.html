@@ -1,0 +1,247 @@
+<html>
+<head>
+<title>
+Recent label and matrix project improvement
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2010/09/02/recent-label-and-matrix-project-improvement/' title='Recent label and matrix project improvement'>
+Recent label and matrix project improvement
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-09-02T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>Today, I’d highlight two recent improvements to the label and matrix projects.</p>
+
+<p>When you have multiple slaves in your Hudson build farm, you can use labels to classify slaves by their capability/environment/architecture/etc. For example, your one slave might have “32bit” and “windows” label, while another one might have “linux”, “ubuntu”, and “64bit.” (with plugins like &lt;a href=”http://wiki.hudson-ci.org/display/HUDSON/PlatformLabeler+Plugin”&gt;platform-labeler plugin&lt;/a&gt;, you can attach labels automatically, too.) Or if you do Selenium testing, you might add browser names as labels to indicate which slave has which browser available.</p>
+
+<p>With such set up, you then specify that such and such jobs can be only run on such and such labels. For example, you might say your “test-foo” job requires the “windows” label, while your “compile-bar” job might require the “macos” label.
+<!--break-->
+Starting 1.372, Hudson now lets you use boolean expressions here, instead of just specifying one label as the requirement. For example, your “seleniumTest-zot” job can now say it requires “windows&amp;&amp;firefox” since it’s meant to run on Windows with Firefox. Or if your job requires a shell script, you might say “!windows” to indicate that it has to be run somewhere that’s not Windows.</p>
+
+<p>Labels are also often used in the context of the multi-configuration project (a.k.a. matrix project.) In a multi-configuration project, you specify what to execute to build your project, then specify a number of “axes” that represents the variable and their possible values to execute a build. There are several different kinds of axes (and this is of course extensible), and one of them is the label axis.</p>
+
+<p>For example, say you have a test suite that you want to run on Windows, Linux, and Solaris, to make sure it works correctly under all these environments. In such a case, you define one label axis, and tell Hudson that you have three possible values “windows”, “linux”, and “solaris.” When you build this project, Hudson will run your build three times by finding appropriate slave that carries the specified label.</p>
+
+<p>In 1.373, you can now specify multiple label axes. For example, you might have a C++ project that needs to be compiled on various platforms. In such a case, you can define one label axis to be “windows”, “linux”, “solaris”, and you can define another label axis to be “32bit” and “64bit”. This will generate 3x2=6 combinations to be executed.</p>
+
+<p>Sometimes the exhaustive combinations do not make sense. In such a case, you can use a filter boolean expression to eliminate some values. You can also use the same mechanism to create a sparse matrix — that is, you tell Hudson to reduce the coverage to 33%, and Hudson will eliminate every 2 out of 3 combinations.</p>
+
+<p>Finally, I’d like to thank <a href="http://www.sandia.gov/">Sandia National Laboratories</a> for sponsoring this work, which made it possible for <a href="http://infradna.com">InfraDNA</a> to provide this feature to the community. People often think that contributing code is the only way to give back to the project, but sponsoring features like this is another great way to do it.</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<html>
+<head>
+<title>
+Live Blog: John Smart demos advanced Hudson usage
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2010/09/21/live-blog-john-smart-demos-advanced-hudson-usage/' title='Live Blog: John Smart demos advanced Hudson usage'>
+Live Blog: John Smart demos advanced Hudson usage
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-09-21T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p><strong>Editor's Note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/wakeleo">John Ferguson Smart's</a> presentation at JavaOne 2010. Unlike <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">Kohsuke's presentation</a>, John spent a lot of time in demos which made live-blogging a bit difficult.</em></p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5012383102/" title="John Smart (@wakeleo) talking about advanced Hudson use by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4129/5012383102_cf258075a6.jpg" width="500" height="375" alt="John Smart (@wakeleo) talking about advanced Hudson use" /></a></center>
+
+<p>John takes the stage at 9:30, this presentation is <em>totally</em> different from yesterday's presentation from Kohsuke</p>
+
+<p>Taking Hudson a little further, beyond just scheduling a build job.</p>
+
+<p>Who is <strong>not</strong> using Hudson, less than 10% raise hands.</p>
+
+<p>Focusing on the more technical/nitty-gritty things with Hudson. Looking at:</p>
+
+<ul>
+  <li>CI Basics</li>
+  <li>Notification strategies</li>
+  <li>Quality metrics</li>
+  <li>Build promotions</li>
+  <li>Automated deployment
+<!--break-->
+Who knows what build promotions? Who uses build promotions? Very few in the audience use build promotions.</li>
+</ul>
+
+<p>Who uses Hudson for automated deployment, a handful raise their hands. Plenty of Tomcat and JBOSS users automating deployment. John going to use Tomcat for the automated deployment demo in this presentation.</p>
+
+<p>John mentions he's authoring the "Continuous Integration with Hudson" book, which will be available for download as it comes out.</p>
+
+<p>Let's talk about Continuous Integration! Summing up what CI is in three words: <strong>feedback, visibility</strong> and <strong>delivery</strong>. CI is about <em>snappy feedback</em>. You want feedback in <strong>minutes</strong>.</p>
+
+<p>Visibility should be associated with continuous integration, getting everybody in the product life cycle into the loop with continuous integration (product people, QA, developers, etc).</p>
+
+<p><strong>What makes Hudson so great?</strong> (according to John)</p>
+
+<ul>
+  <li>Easy to use</li>
+  <li>Plenty of plugins/the ecosystem around Hudson for extending/integrating Hudson</li>
+  <li>Reporting/coverage features</li>
+  <li>Distributed builds</li>
+</ul>
+
+<p>First demo, the Hudson dashboard (starring the Nested View plugin). Starting with a basic dashboard filled with some unstable and stable builds. Cloudy builds thanks to Cobertura coverage grading.</p>
+
+<p>Using the Nested View plugin to group views to make the dashboard more useflu for a <strong>ton</strong> of jobs.</p>
+
+<p>Covering build radiators, not enough of the audience uses radiators. John advocates commandeering big monitors for radiators as part of your "notification strategy"</p>
+
+<p>Covering the basic version control integration, John <strong>highly</strong> recommneds using a "Repository Browser". "The point is, you want one" John starts improvising with making some changes, pops over to Eclipse and refactors some code, commits and kicks off a build. Navigates to the source changes for the newly broken build in "Sventon", his repository browser of choice which was connected to the job</p>
+
+<p>John shows the job using Maven integration and deploying artifacts to the Maven repository he's set up on his local machine.</p>
+
+<p>Hudson will automatically keep track of jar files/war files, so enable the "Discard Old Builds" checkbox to prevent Hudson from eating all kinds of disk space. Useful to only discard the artifacts for the last X builds instead of the test results/code coverage.</p>
+
+<p>Desktop build notifiers are quite useful, email can tend to get clutter/lost in the mess with everything else coming into your inbox.</p>
+
+<h4 id="test-results-integration">Test results integration</h4>
+
+<p>Going into the test results dashboard per-build and the test-result and build time trends for a specific job.</p>
+
+<p>Why is the build time trend useful? If the build suddenly takes a <em>huge</em> amount of time to run, you've likely got performance issues that need fixing.</p>
+
+<h4 id="publishing-html-reports">Publishing HTML reports</h4>
+
+<p>Starring the HTML Publisher plugin! Using the plugin to publish HTML reports generated from easyb for publishing acceptance test results for more wide-spread consumption.</p>
+
+<p>Bouncing from HTML reports to integrating with Sonar for code quality metrics</p>
+
+<h4 id="build-promotion">Build Promotion</h4>
+
+<p>Starring the Promoted Builds plugin! Covering some similar concepts to Kohsuke's talk yesterday but literally going into the Hudson configuration and setting it up.</p>
+
+<p>Time is running out, John's flipping back and forth between the M2 release plugin and his automatic deployment to his local Tomcat environment.</p>
+
+<h4 id="qa">Q&amp;A</h4>
+
+<p>"Can Hudson be used for other environments". Yes! Supports a number of build plugins, MSBuild, NAnt, CMake, in addition to the freestyle build. "Maven 3 support" Sonatype is apparently working on an integrated version of Hudson with Maven 3, Hudson core planning support "eventually."</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

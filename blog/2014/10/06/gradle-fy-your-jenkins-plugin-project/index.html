@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>
+Gradle-fy your Jenkins Plugin Project
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2014/10/06/gradle-fy-your-jenkins-plugin-project/' title='Gradle-fy your Jenkins Plugin Project'>
+Gradle-fy your Jenkins Plugin Project
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-10-06T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>(This is a guest post from <a href="http://www.daniel-spilker.com/">Daniel Spilker</a>)</p>
+
+<p>Jenkins supports building plugins using <a href="http://www.gradle.org/">Gradle</a> for a while now. Last week a new version of the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+JPI+Plugin">Gradle JPI plugin</a> has been released to iron out some <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/0.6.0/CHANGELOG.md">issues</a>.</p>
+
+<p>The Gradle JPI plugin enables a 100% groovy plugin development environment with Groovy as primary programming language, <a href="https://code.google.com/p/spock/">Spock</a> for writing tests and Gradle as build system. Have a look at the <a href="https://github.com/jenkinsci/job-dsl-plugin">Job DSL plugin</a> for an example.</p>
+
+<p>An existing Maven build can be converted to Gradle by using the build.gradle template from the Gradle JPI plugin's <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/master/README.md">README</a>. For instance, the <a href="https://github.com/jenkinsci/gradle-plugin/blob/763256601be20c30d238179c1ed3965011d6dfd5/pom.xml">POM</a> from the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin">Gradle plugin</a> translates to this build.gradle file:</p>
+
+<pre><code>buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://repo.jenkins-ci.org/releases/'
+        }
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.6.0'
+    }
+}
+
+apply plugin: 'jpi'
+
+group = 'org.jenkins-ci.plugins'
+version = '1.25-SNAPSHOT'
+
+jenkinsPlugin {
+    coreVersion = '1.480'
+    displayName = 'Jenkins Gradle plugin'
+    url = 'https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin'
+    gitHubUrl = 'https://github.com/jenkinsci/gradle-plugin'
+
+    developers {
+        developer {
+            id 'gbois'
+            name 'Gregory Boissinot'
+            timezone '+1'
+        }
+    }                           
+}
+
+dependencies {
+    compile 'org.jenkins-ci.lib:dry-run-lib:0.1'
+}
+</code></pre>
+
+<p>Usage of the Gradle JPI plugin is similar to working with the Maven HPI plugin. Use <code>gradle jpi</code> to build the plugin file. <code>gradle check</code> runs the tests, <code>gradle install</code> copies the plugin into the local Maven repository, <code>gradle uploadArchives</code> deploys the plugin to the Jenkins Maven repository and <code>gradle server</code> starts a Jenkins development server with the plugin installed.</p>
+
+<p>It is recommended to use Gradle 1.8 because that is the version used to build and test the Gradle JPI plugin.</p>
+
+<p>For the next release it is planned to do some maintenance like fixing code style issues and adding tests. After that more issues need to be addressed to bring the plugin on par with the Maven HPI plugin, most notably fixing the test dependencies (<a href="https://issues.jenkins-ci.org/browse/JENKINS-17129">JENKINS-17129</a>) and publishing the plugin's JAR (<a href="https://issues.jenkins-ci.org/browse/JENKINS-25007">JENKINS-25007</a>). Updating Gradle to 2.x and getting the plugin on the <a href="http://plugins.gradle.org/">Gradle plugin portal</a> is also on the wishlist.</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

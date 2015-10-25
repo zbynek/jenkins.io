@@ -1,0 +1,284 @@
+<html>
+<head>
+<title>
+Hudson 1.349 Released
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2010/03/08/hudson-1-349-released/' title='Hudson 1.349 Released'>
+Hudson 1.349 Released
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-03-08T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>Last Friday, March 5th, Hudson 1.349 was pushed out into the wild with an even split of bug fixes and enhancements. Included in this release is Alan Harder's (a.k.a <code>mindless</code>) old data monitor code, discussed previously in the post "<a href="http://blog.hudson-ci.org/content/call-testers-older-better">Call for Testers: The older the better</a>." Included in this release were further updates to the japanese and german localizations of Hudson; if you're interested in helping localize Hudson into more languages you can join the effort via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Internationalization">Internationalization page on the wiki</a>.</p>
+
+<p>Now for the breakdown of the 1.349 release:</p>
+
+<h4 id="bug-fixes">Bug fixes</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    Fix deserialization problem with fields containing double underscore.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5768">issue 5768</a>)
+  &lt;li class=bug&gt; 
+    Fix deserialization problem for Exception objects where the XML has bad/old data.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5769">issue 5769</a>)
+  &lt;li class=bug&gt; 
+    Fix serialization problem with empty CopyOnWriteMap.Tree.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5776">issue 5776</a>)
+  &lt;li class=bug&gt; 
+    Fixed a bug that can cause 404 in the form validation check.
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt; 
+    Remote build result submission shouldn't hang forever even if Hudson goes down.
+  &lt;li class=rfe&gt; 
+    Added a monitor for old or unreadable data in XML files and a manage screen to assist
+    in updating files to the current data format and/or removing unreadable data from plugins
+    that are no longer active.  "Manage Hudson" page will show a link if any old/unreadable
+    data was detected.
+  &lt;li class=rfe&gt; 
+    Added a mechanism to bundle <tt>init.groovy</tt> inside the war for OEM.
+    (<a href="http://n4.nabble.com/preconfigured-hudson-war-tp1575216p1575216.html">report</a>)
+  &lt;li class=rfe&gt; 
+    Added an extension point to annotate console output.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2137">issue 2137</a>)</ul>
+
+<p><br clear="all" />
+#### Contributors
+Hudson 1.349 contains <strong>43</strong> commits from 6 contributors, due to the merging in of Alan Harder's old-data-monitor branch the commit count is a bit off from the amount of code change that actually went out in 1.349.</p>
+
+<ul>
+  <li><a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a></li>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+  <li>swiest</li>
+  <li><a id="aptureLink_VY2dBrA1mQ" href="http://twitter.com/wyukawa">wyukawa</a></li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+<!--break-->
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

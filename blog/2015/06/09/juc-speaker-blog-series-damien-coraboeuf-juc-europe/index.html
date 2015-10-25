@@ -1,0 +1,297 @@
+<html>
+<head>
+<title>
+JUC Speaker Blog Series: Damien Coraboeuf, JUC Europe
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/06/09/juc-speaker-blog-series-damien-coraboeuf-juc-europe/' title='JUC Speaker Blog Series: Damien Coraboeuf, JUC Europe'>
+JUC Speaker Blog Series: Damien Coraboeuf, JUC Europe
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-06-09T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128/><br/>
+</div><br/>
+<br/>
+<p><h3>Scaling and maintenance of thousands of Jenkins jobs</h3></p><br/>
+<br/>
+<p><h4>How to avoid creating of a jungle of jobs when dealing with thousands of them?</h4></p><br/>
+<br/>
+<p>In our organisation, we have one framework, which is used to develop products. Those products are themselves used to develop end user projects. Maintenance and support are needed at each level of delivery and we use branches for this. This creates hundreds of combinations.</p><br/>
+<br/>
+<p>Now, for each product or project version (or branch), we have a delivery pipeline. We start by compiling, testing, packaging, publishing. Then we deploy the application on the different supported platforms and go through different levels of validation, until we’re ready for delivery. Aside from a few details and configuration elements, most of the pipelines are identical from one branch to the other, from one project to the other.</p><br/>
+<br/>
+<p>So, one framework, some products, several projects, maintenance branches, complex pipelines… We end up having many many jobs to create, duplicate and maintain. Before even going into this direction, we saw this as a blocking issue - there was no way we could maintain manually thousands of jobs on a day to day basis.</p><br/>
+<br/>
+<p>The solution we were looking for should have the following characteristics:</p><br/>
+<br/>
+<ul><br/>
+<li>Self service - our goal being to delegate the job and branch administration in Jenkins to the projects, in order to reduce the support time</li><br/>
+<li>Security - we didn’t want to open Jenkins to the projects at configuration level - not acceptable in our context</li><br/>
+<li>Simplicity - the solution should be simple enough to be manageable by people not knowledgeable about the core technologies of Jenkins</li><br/>
+<li>Extensibility - the solution must be flexible enough to allow extensions when needed</li><br/>
+</ul><br/>
+<br/>
+<p>When we thought about using the Job DSL plug-in, delegating the creation of the pipeline to the project teams was OK from a self service point of view, but was not secure and definitely not simple for people not knowing Jenkins.</p><br/>
+<br/>
+<p>In the end, we opted for a solution where:</p><br/>
+<br/>
+<ul>The Jenkins team develops, maintains and versions several <i>pipeline libraries</i><br/>
+<li>A project team would edit a simple property file listing the characteristics of the current branch, like which type of platform is supported, which version of the <i>pipeline library</i> to use, etc.</li><br/>
+<li>Upon commit of this shopping list, the complete branch pipeline is regenerated using the given version of the <i>pipeline library</i></li><br/>
+<li>The <i>pipeline library</i> code reads the “shopping list” property file and runs a Job DSL script to generate the branch pipeline according to those parameters</li><br/>
+</ul><br/>
+<br/>
+<p>By default, the pipeline library generates a classic pipeline, suitable for most needs. It is also possible to define and use extensions, like having additional jobs in the pipelines.</p><br/>
+<br/>
+<p>In case of new features or defects, we develop or branch a new version of the pipeline library and projects or branches can use it by changing the version of their shopping list file.</p><br/>
+<br/>
+<p>A project gets injected into the system by having only a project seed being generated. From it, the authorised members can generate the branch seed and any branch pipeline at any time. Those seed jobs and the pipelines themselves can also be driven directly from the SCM using our plugin.</p><br/>
+<br/>
+<p>The project teams are now autonomous and can pilot their pipelines without requesting any support. They act in a secure and isolated way, and cannot compromise the shared environment. The “shopping list” file is simple and well documented. The system is not rigid and allows for extensions.</p><br/>
+<br/>
+<p>This platform has been developed initially for a very specific framework and a set of projects which depend on it, but has been extended since to be able to support other stacks. It is structured in two different parts:</p><br/>
+<br/>
+<ul><br/>
+<li>The seed platform itself - generation of branch structures in Jenkins and trigger end points for being piloted from the SCM</li><br/>
+<li>The pipeline libraries, referenced from the shopping list files</li><br/>
+</ul><br/>
+<br/>
+<p>We still allow some small tools and applications to define directly their pipeline by providing a Job DSL script.</p><br/>
+<br/>
+<p>Using the same principle, we can also pilot other tools in the ecosystem - like Artifactory or Ontrack.</p><br/>
+<br/>
+<p>I'll talk about this seed platform on June 24th, in the Jenkins User Conference in London.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/dcoraboeuf_0.preview.jpg" width=150 height=180/><br/>
+</div><br/>
+<br/>
+<p>This post is by Damien Coraboeuf, Continuous Delivery Expert at Clear2Pay. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-03-1515-coraboeuf">"Scaling of Jenkins Pipeline Creation and Maintenance"</a> on Day 2.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</b></p><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579/><br/>
+</div>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

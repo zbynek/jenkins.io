@@ -1,0 +1,522 @@
+<html>
+<head>
+<title>
+Jenkins Blog
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/15/advancing-the-jenkins-gui-configuring-items-in-jenkins/'>
+Advancing the Jenkins GUI: Configuring Items in Jenkins
+</a>
+</h1>
+<div class='content'>
+<p><b><a href="http://youtu.be/1Qn4jEwAeGc">http://youtu.be/1Qn4jEwAeGc</a></b><br /><br/>
+Above is the screencast associated with this blog post<br /><br/>
+<br /><br/>
+If you have ever used Jenkins you are familiar with what I am about to described, wading your way through job configuration page, looking for the settings that are important, and, depending on your plugin use, wondering where all these other setting came from and what they do.<br/>
+</p><p><br/>
+Depending on how long you have used Jenkins, your negative opinion of this experience may vary. If you are a long-time user, you might even view the configuration page with that same reassuring nostalgia seeing a Facebook post from your ugly room mate induces. ‘Yup,he is still ugly and backwards, but we had some good times, back then.’ If you are a newer Jenkins user, it may well send you off to search the web for a viable alternative tool.<br/>
+</p><p><br/>
+The good news is that CloudBees, in cooperation with the greater Jenkins community, is looking to make some long overdue progress sorting through this user interaction in a way that is both approachable to new users and amenable to existing users who have grown comfortable with a great tool and a ‘stalwart friend’ in a world of otherwise clunky world of IT tools. ( that really is the swiss army knife of build automation.)<br/>
+</p><br/>
+<p>If you happen to have had the opportunity to have attended any of the recent Jenkins User Conferences in Washington, DC, or London, you may have seen Tom and my presentation, which served as our initial introduction of this effort to the Jenkins Community. In this article and the associated video, I will be focusing specifically on the Create and Configuration screens in Jenkins, discussing some of the larger proposed changes, providing some context for the changes and examining their possible repercussions on existing plugins and future plugin development. </p><br/>
+<br/>
+<h3>History of Jenkins</h3><br/>
+<p><br/>
+For newer Jenkins users, I have found the following visual a helpful guide to understanding the history of Jenkins and how its graphical user interfaces has evolved:</p><br/>
+<br/>
+<img src="/sites/default/files/images/history-jenkins_590.jpg" alt="Jenkins timeline: a long history" /><br/>
+<p><br/>
+The first thing to notice here, is that Jenkins has been around for a long time and in a lot of ways is really fundamental to the art of creating software. Back in 2005, the then Hudson project was using pretty much the same cave chalk as everyone else. 6 years later, the code and community underwent its most substantial transformation to date, as Jenkins emerged as the dominant fork of the Hudson project. If you look closely, you will see the GUI reflected that transformation by….. changing the picture of the butler. In recent times, the interface has taken a few additional steps forward, most notably by moving to a responsive CSS driven layout from its table based origin, but the pace of these changes has been very much akin to the pace of evolution. Slow.<br/>
+</p><p><br/>
+In our next phase of graphic interface development, however, Tom and I are looking to be a little more directed in our efforts and push the GUI toward a blend of strategic and tactical advancements that will help Jenkins take advantage of some of the advances in web design and browser technologies that have happened over the last 10 years. Our first major push will be in the job creation and configuration tasks.<br/>
+</p><br/>
+<h3>Creating and Configuring</h3><br/>
+<p>[image]</p><br/>
+<p><br/>
+[image]</p><br/>
+<p>In addition to a bit of a refresh of the look of these forms, this new effort focuses on the importance of dividing information and presentation into clear categories that ideally are meaningful to both new and veteran users of Jenkins alike. </p><br/>
+<br/>
+<p>In some cases, Jenkins has these categories already in the GUI, but misses the mark in clarification and emphasis. In other cases, additional categorizing concepts will need to be added. Compare the above screens to the existing screens.<br/>
+</p><br/>
+<p>[image]</p><br/>
+<p>[image]</p><br/>
+<p>The first thing you are likely to notice when comparing these two sets of screens is that in the existing screens, there is very little in the way of visual markers segmenting the form input choices on either the item type selection screens (fig 4 vs 2) or the configuration pages (fig 5 vs 3). Adding each new plugin progressively aggravates the situation, and consequently, as your Jenkins installation grows in sophistication and robustness, the average users ability to find the fundamental configuration settings in the sea of ad-hoc options diminishes. While adding functionality typically adds some amount of additional complexity to a UI, by giving each configuration option a visually distinguishable space in the form, the challenge can be greatly diminished and the pattern of creating an ever growing scrolling of toilet paper list of form elements can be avoided.</p><br/>
+<p>For figures 2 and 4, you might also notice that I have chosen Jenkins instances that already have several plugins installed as the basis for my example screens. You might rightly argue that for a basic install, there are not a lot of item types to create, so categorizing them adds a needless layer of complexity. Fair enough. It is my belief, though, that our software can be smart enough to count the item types available for creation and count the number within each category and handle the categorization as necessary. Counting and sorting is something that computers do incredibly well and is not the sort of thing busy people need to be overly burdened with.</p><br/>
+<p>In addition to the code being intelligent about when to present grouping categories to the user, The screen interaction can be similarly intelligent in how it enables the user to selectively show and hide the categories of interest. The following screenshot shows the configuration page focused in on CVS a particular option configuration in the source code management section of the configuration page. It, in turn, has its own sub settings for additional modules and locations (see fig 6).</p><br/>
+<p>[image]</p><br/>
+<p>...and wait for it... ...for comparison, here is today’s CVS settings page...</p><br/>
+<p>[image]</p><br/>
+<p>Despite some serious indentation, the existing page offers significantly less clarity about which settings pertain specifically to CVS instead of other aspects of a Jenkins job.</p><br/>
+<p>[image]</p><br/>
+<p>Identifying which settings go with which segment becomes all the more confusing when sub-sections can be re-ordered. To show you what I mean and fit the screen on a single printed page, I am needing to muck with the aspect ratio of today’s screen.</p><br/>
+<p>The image on the left (fig 7) shows a 2 step build process, each with sub parameters.</p><br/>
+<p>There are some fascinating looking red delete buttons in here, I hope I know exactly what part of the build step I am about to blow away.... Did I mention these segments can be re-ordered? Care to guess which form inputs will move with which steps?</p><br/>
+<p>[image]</p><br/>
+<p>By contrast, the above screen shows the same 2 build steps with the same parameters. We still have our friend, Mr. Red Delete button, but now it is a good bit clearer who will get blown away.<br/>
+Also, it is considerably clearer which block will be reordered, should I choose to do so.</p><br/>
+<h3>What about plugins?</h3><br/>
+<p>If you are a long-time Jenkins user, you may have a guess as to why some of these changes have been slow in coming, and if you are a plugin developer, you definitely know. These input controls have a lot of extension points in them that allow plugins to influence the content of this configuration screen. As a result, how plugins will respond to even the most minor layout changes is somewhat of a mystery. Further, the GUI control elements that make up the form are available to plugin authors to embed as they see fit in their own GUI elements. As a consequence, we have some serious compatibility issues ahead. These challenges are not at all trivial.</p><br/>
+<p>Fortunately, however, I believe with some careful manipulation and diligent testing we can overcome these challenges. The first set of changes are likely to revolve around a file called “hudson-behavior.js”. This file does most of the Jenkins client-side UI magic. If there is data to be bound to a control, this is the file that is likely to handle it. The difficulty with this file stems from two factors, its age (it is written following Yahoo UI framework patterns  which have since been abandoned by Yahoo and the rest of the industry), and a presumption that the page layout will be governed by a single giant HTML table (likely due to the table renaissance happening around the same time, thanks to the emergence of GWT). Regardless of this bit of history trivia, these two issues combine to make changes to the HTML DOM structure of any Jenkins page problematic. Methods such as “findFollowingTR” assume a very rigid parent-child element positioning based on page layout rather than on the logical relationship between the data elements. The good news here is that despite some of their unfortunate names, can be refactored to both find the relevant element based on today’s table structure as well as a future logical nesting of related elements. With that change in place, Jenkins will continue to function as it always has and a future configuration DOM structure can share the same infrastructure.</p><br/>
+<p><br/>
+The second step here will be finding efficient ways to integrate more modern Javascript libraries, such as JQuery and Bootstrap into the Jenkins GUI.  We will want these libraries to be easier and cleaner for plugin authors to access than PrototypeJS and Yahoo UI are today. Likely this will involve using a Browserify/Requirejs like pattern to control script inclusion in page to avoid naming conflicts, excessively file attachment and global space pollution.</p><br/>
+<p>The final step would then be to begin amending, replacing and augmenting the Jelly based form control set, and thus, transforming the look and behavior of the Jenkins UI. As always, Jenkins is an open community, and we at CloudBees view that as a cherished cornerstone of our own corporate culture. Thus, at every phase of this undertaking we are eager to solicit feedback from and encourage participation by you the members of the community. Feel free to comment directly on this article. Additionally, I am maintaining and active thread on the Jenkins Developer group (<a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/6BdWZt35dTQ">https://groups.google.com/forum/#!topic/jenkinsci-dev/6BdWZt35dTQ</a>). I am looking forward to hearing from you.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/14/juseppe-a-custom-update-site-for-jenkins/'>
+Juseppe, a custom update site for Jenkins
+</a>
+</h1>
+<div class='content'>
+<p><em>This is a guest post by Kirill Merkushev at Yandex. I met him at JUC Europe where he showed me the project he was working on: Juseppe. It looked really interesting, so I asked him to write this guest post.</em></p>
+
+<p>When you write your first custom Jenkins plugin for internal use, it's easy enough to deploy it on one or maybe two Jenkins instances. You can save it on your local drive and upload the HPI file via the Jenkins Plugin Manager as needed. It's easy to do this for a few releases. But as your experience grows, the number of plugins and their releases grows as well. The plugins directory on your local drive soon looks like a garbage dump, and it's difficult to find that most recent version of any plugin. And if you have a lot of Jenkins instances coordinating updates of your plugins may cause a lot of pain.</p>
+
+<p>A similar situation is when you contribute a much-needed patch to an existing plugin, but you don't have the time to wait until your pull request is be merged and a new release is cut. Or you may need to patch a plugin in ways not suitable for distribution, and decide to effectively fork the plugin for use on your Jenkins instances. How are you going to do this?</p>
+
+<p>A solution avoiding the problems from these situations is to set up your own update site to serve your private plugin builds. Juseppe allows you to do this quickly and easily.</p>
+
+<h2 id="what-is-juseppe">What is Juseppe?</h2>
+
+<p><em>Juseppe</em> is an acronym for <em>Jenkins Update Site Embedded for Plugin Publishing Easily</em>. Juseppe can help you set up a Jenkins update site in just a few minutes.</p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>Generates signed <code>update-center.json</code> and <code>release-history.json</code></li>
+  <li>Works with HPI files directly (stored in one folder), no need to set up a Maven repository</li>
+  <li>Watches for changes in the plugin folder and regenerates JSON files when changes are detected</li>
+  <li>Serves generated files and plugin files with built-in Jetty web server</li>
+  <li>Can be run in a "generate-only" mode when you want to use a different web server for these files.</li>
+</ul>
+
+<h3 id="how-can-i-get-juseppe">How can I get Juseppe?</h3>
+
+<p>It ships as a Docker container, or can be built from source. Visit <a href="https://github.com/yandex-qatools/juseppe">the GitHub project page</a> to learn more. The complete user guide is available in <a href="https://github.com/yandex-qatools/juseppe/wiki/Complete-Guide-of-own-update-center-using-Juseppe">the GitHub project wiki</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/09/jenkins-user-event-scandinavia-2015/'>
+Jenkins User Event Scandinavia 2015
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/jues_0.png" width=270 height=181><br/>
+</div><br/>
+<br/>
+<p><i>For the 4th consecutive year the Jenkins CI community is gathering in Scandinavia.</i> <a href="http://www.code-conf.com/jues15/">JUES</a> inspires both current as well as soon-to-be Jenkins users to network and harness inspiration from peers and experts on best practice and implementation of Continuous Integration, Continuous Delivery, and agile development with Jenkins.</p><br/>
+<br/>
+<p><i>As always we’ll precede the JUES conference with a <a href="http://www.code-conf.com/jues15/codecamp/">Code Camp</a> on the day before.</i> The Code Camp is a full day community event where developers learn from fellow developers on coding and plugin enhancement, all delivered back to the community.</p><br/>
+<br/>
+<p>We welcome you and other leading Jenkins developers, QA, DevOps, and operations personnel to this years Scandinavian Jenkins CI festival hoping to continuously support the growth of the Jenkins Open Source community.</p><br/>
+<br/>
+<p><b><a href="http://www.code-conf.com/jues15/">REGISTER FOR JUES HERE</a></b></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/22/new-wiki-url-requirement-for-plugins/'>
+New Wiki URL Requirement for Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Let's say you're browsing the 'Available' tab in the Jenkins plugin manager for interesting-looking plugins. How do you learn more about them, preferably without installing them on your production instance? You click the plugin's name, which usually links to the plugin's wiki page, of course!</p>
+
+<p>Unfortunately, it's possible for plugins to be published without a wiki page, or any other documentation aside from what's provided in the plugin itself. This is really unfortunate, as users rely on wiki pages and similar documentation to learn more about a plugin before installing or upgrading it, like its features, limitations, or recent changes. Additionally, plugin wiki pages have a special section at the top that provides an automatically generated technical overview of the plugin, such as dependencies to other plugins, the minimum compatible Jenkins version, a list of developers, and links to the source code repository and issue tracker component. Everyone learning about or using a plugin benefits from a plugin wiki page and luckily, almost all plugins have one!</p>
+
+<p>To ensure that <em>every</em> plugin has at least a basic wiki page with some documentation, we decided to only publish plugins in the Jenkins update center that have and link to a wiki page. To keep the impact to a minimum, we're implementing this plan in several stages.</p>
+
+<p>The first stage went live on June 1: All existing plugins that don't have a (valid) wiki link got a wiki link <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">assigned by the update center</a> (a so-called 'override'), either to an existing wiki page if there was one, or a generic <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing">"This plugin has no documentation" wiki page</a> otherwise. This ensures that no currently existing plugins get dropped from the update center at this point. Of course, <em>new</em> plugins that don't provide a wiki URL and don't have an override URL will not show up at all.</p>
+
+<p>The second stage will be enabled later this year: We're planning to remove all the overrides mentioned above. At this point, plugins may get removed from the update center if they still don't specify a wiki URL. Of course this isn't our goal, and we'll try to work with plugin authors to prevent this from happening.</p>
+
+<p>So what can you do? Check the <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">current overrides list</a> to see whether the plugins you care about are affected, and if so, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing#PluginDocumentationMissing-HowcanIhelp%3F">see the landing page in the wiki</a> to learn what you can do. If you have any questions about this process not covered by the wiki, ask us on the <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">Jenkins developers mailing list</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/16/juc-speaker-blog-series-martin-hobson-juc-u-s-east/'>
+JUC Speaker Blog Series: Martin Hobson, JUC U.S. East
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p>I’ve been using Jenkins for some time now as the build server for the various projects that are assigned to our four-person software development team, but recently I had exposure to how things were done in a much larger team, and I came away with a better understanding of the kinds of demands that are placed on a build pipeline in these environments. It was quite an education – while the CI pipelines that I administer in our small team might require a handful of virtual machines in our corporate cloud, the pipeline in this team supported over one hundred developers and required several hundred VM instances at any given time.</p><br/>
+<br/>
+<p>When operating at this scale, efficiency does become important, as the Amazon cloud charges add up and become significant at this level. Using some relatively simple techniques, I was able to gain insight into what actually happened in the more complex build jobs and learned just how these VM instances were utilized. These build jobs configured over a dozen virtual machines each, and understanding the startup and execution flows was critical to making changes and improving efficiencies. I will be discussing how to instrument and analyze these complex builds in my Lightning Talk: <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1615-hobson">"Visualizing VM Provisioning with Jenkins and Google Charts”</a> and hope to see you all there!</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/01-02-1615-hobson_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Martin Hobson, Senior Software Developer at Agilex Technologies. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his lightning talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1615-hobson">"Visualizing VM Provisioning with Jenkins and Google Charts"</a> on Day 1.</p><br/>
+<br/>
+<p><i>JUC IS HERE! JUC U.S. East will begin with registration at 7AM, Thursday June 18. The two day conference is sure to be a blast! If you have not registered, you can still get a ticket! <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">Check out the agenda for JUC U.S. East here and find the link to register.</a></i></p><br/>
+<br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/15/juc-speaker-blog-series-stephan-hochdrfer-juc-europe/'>
+JUC Speaker Blog Series: Stephan Hochdörfer, JUC Europe
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p>I am very much looking forward to the <a href="https://www.cloudbees.com/jenkins/juc-2015/europe">Jenkins User Conference in London</a> where I will present our insights on how to use Jenkins in a PHP related environment. Moving to Jenkins about 5 years ago bitExpert gained a lot of experience in running and managing a distributed Jenkins infrastructure. bitExpert builds custom applications for our clients which means that we have to deal with different project infrastructures, e.g. different PHP versions. We heavily rely on the build nodes concept of Jenkins which I will briefly outline in the session. Besides that I will give some in-depth insights on how we use Jenkins on a daily basis for the "traditional" CI related tasks (e.g. linting code, checking code style, running tests) as well as how Jenkins is used to power our integration tests. Last but not least I will cover how Jenkins acts as a kind of backbone for our Satis server which allows us to host the metadata of our company's private Composer packages. Throughout the talk I will point out which Jenkins plugins we use in the different contexts to give you a good starting point if you are new in the Jenkins ecosystem.<br/>
+</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/bitExpert-logo_0.png" width=220 height=76><br/>
+</div><br/>
+<br/>
+<p>This post is by Stephan Hochdoerfer, Head of Technology at bitExpert AG. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/01-01-1130-hochdoerfer">"Jenkins for PHP Projects"</a> on Day 2.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/09/juc-speaker-blog-series-damien-coraboeuf-juc-europe/'>
+JUC Speaker Blog Series: Damien Coraboeuf, JUC Europe
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128/><br/>
+</div><br/>
+<br/>
+<p><h3>Scaling and maintenance of thousands of Jenkins jobs</h3></p><br/>
+<br/>
+<p><h4>How to avoid creating of a jungle of jobs when dealing with thousands of them?</h4></p><br/>
+<br/>
+<p>In our organisation, we have one framework, which is used to develop products. Those products are themselves used to develop end user projects. Maintenance and support are needed at each level of delivery and we use branches for this. This creates hundreds of combinations.</p><br/>
+<br/>
+<p>Now, for each product or project version (or branch), we have a delivery pipeline. We start by compiling, testing, packaging, publishing. Then we deploy the application on the different supported platforms and go through different levels of validation, until we’re ready for delivery. Aside from a few details and configuration elements, most of the pipelines are identical from one branch to the other, from one project to the other.</p><br/>
+<br/>
+<p>So, one framework, some products, several projects, maintenance branches, complex pipelines… We end up having many many jobs to create, duplicate and maintain. Before even going into this direction, we saw this as a blocking issue - there was no way we could maintain manually thousands of jobs on a day to day basis.</p><br/>
+<br/>
+<p>The solution we were looking for should have the following characteristics:</p><br/>
+<br/>
+<ul><br/>
+<li>Self service - our goal being to delegate the job and branch administration in Jenkins to the projects, in order to reduce the support time</li><br/>
+<li>Security - we didn’t want to open Jenkins to the projects at configuration level - not acceptable in our context</li><br/>
+<li>Simplicity - the solution should be simple enough to be manageable by people not knowledgeable about the core technologies of Jenkins</li><br/>
+<li>Extensibility - the solution must be flexible enough to allow extensions when needed</li><br/>
+</ul><br/>
+<br/>
+<p>When we thought about using the Job DSL plug-in, delegating the creation of the pipeline to the project teams was OK from a self service point of view, but was not secure and definitely not simple for people not knowing Jenkins.</p><br/>
+<br/>
+<p>In the end, we opted for a solution where:</p><br/>
+<br/>
+<ul>The Jenkins team develops, maintains and versions several <i>pipeline libraries</i><br/>
+<li>A project team would edit a simple property file listing the characteristics of the current branch, like which type of platform is supported, which version of the <i>pipeline library</i> to use, etc.</li><br/>
+<li>Upon commit of this shopping list, the complete branch pipeline is regenerated using the given version of the <i>pipeline library</i></li><br/>
+<li>The <i>pipeline library</i> code reads the “shopping list” property file and runs a Job DSL script to generate the branch pipeline according to those parameters</li><br/>
+</ul><br/>
+<br/>
+<p>By default, the pipeline library generates a classic pipeline, suitable for most needs. It is also possible to define and use extensions, like having additional jobs in the pipelines.</p><br/>
+<br/>
+<p>In case of new features or defects, we develop or branch a new version of the pipeline library and projects or branches can use it by changing the version of their shopping list file.</p><br/>
+<br/>
+<p>A project gets injected into the system by having only a project seed being generated. From it, the authorised members can generate the branch seed and any branch pipeline at any time. Those seed jobs and the pipelines themselves can also be driven directly from the SCM using our plugin.</p><br/>
+<br/>
+<p>The project teams are now autonomous and can pilot their pipelines without requesting any support. They act in a secure and isolated way, and cannot compromise the shared environment. The “shopping list” file is simple and well documented. The system is not rigid and allows for extensions.</p><br/>
+<br/>
+<p>This platform has been developed initially for a very specific framework and a set of projects which depend on it, but has been extended since to be able to support other stacks. It is structured in two different parts:</p><br/>
+<br/>
+<ul><br/>
+<li>The seed platform itself - generation of branch structures in Jenkins and trigger end points for being piloted from the SCM</li><br/>
+<li>The pipeline libraries, referenced from the shopping list files</li><br/>
+</ul><br/>
+<br/>
+<p>We still allow some small tools and applications to define directly their pipeline by providing a Job DSL script.</p><br/>
+<br/>
+<p>Using the same principle, we can also pilot other tools in the ecosystem - like Artifactory or Ontrack.</p><br/>
+<br/>
+<p>I'll talk about this seed platform on June 24th, in the Jenkins User Conference in London.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/dcoraboeuf_0.preview.jpg" width=150 height=180/><br/>
+</div><br/>
+<br/>
+<p>This post is by Damien Coraboeuf, Continuous Delivery Expert at Clear2Pay. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-03-1515-coraboeuf">"Scaling of Jenkins Pipeline Creation and Maintenance"</a> on Day 2.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</b></p><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579/><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/08/juc-speaker-blog-series-will-soula-juc-u-s-east/'>
+JUC Speaker Blog Series: Will Soula, JUC U.S. East
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p><h3>Chat Ops and Jenkins</h3></p><br/>
+<br/>
+<p>I am very excited to be attending the <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">Jenkins User Conference on the East Coast</a> this year. This will be my third presentation at a JUC and fourth time to attend, but my first on the East Coast. I have learned about a lot of cool stuff in the past, which is why I started presenting, to tell people about the cool stuff we are doing at Drilling Info. One of the cooler things we have implemented in the last year is Chat Ops and our bot Sparky. It started as something neat to play with ("Oooo lots of kittens") but quickly turned into something more serious.</p><br/>
+<br/>
+<p>Ever get asked the same questions over and over? What jobs to run to deploy your code? What is the status of the build? These question and more can all be automated so you do not have to keep answering them. Furthermore, when you do get asked you can show them, and everyone else, how to get the information by issuing the proper commands in a chat room for everyone to see. With chat rooms functioning as the 21st century water coolers, putting the information in the middle of the conversation is a powerful teaching technique. You are not sending people to some out dated documentation on how to get their code deployed, nor are you showing them the steps today only to be forgotten tomorrow. Instead you can deploy your code and they see the exact steps needed to get their code deployed.</p><br/>
+<br/>
+<p>Even more impressive is the way ChatOps can bring your company together. Recently our CTO got a hipchat account so he could interact with Sparky. This gave me the idea that if we extend Sparky to deliver information useful to the other teams (Sales, Marketing, Finance, etc) then we would be able to get these wildly disparate teams in the same chat room together and hopefully they will talk and learn from each other. Where DevOps is the bringing together of Dev and Ops, ChatOps can be the bridge across the entire organization. Come see my presentation Day 1: Track 1 at 4:00 PM to learn how ChatOps can enrich your team, how Drilling Info is using it, and what our future plans entail for ChatOps.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/01-01-1600-soula_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Will Soula,  Senior Configuration Management/Build Engineer at Drilling Info. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-01-1600-soula">"Chat Ops and Jenkins"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/4.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/4.html" class="page-link">4</a> <span class="current-page">5</span> <a href="/node/page/6.html" class="page-link">6</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/6.html" class="next-link">Next</a> </div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

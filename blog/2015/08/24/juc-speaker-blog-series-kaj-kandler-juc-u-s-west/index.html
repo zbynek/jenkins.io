@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>
+JUC Speaker Blog Series: Kaj Kandler, JUC U.S. West
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/08/24/juc-speaker-blog-series-kaj-kandler-juc-u-s-west/' title='JUC Speaker Blog Series: Kaj Kandler, JUC U.S. West'>
+JUC Speaker Blog Series: Kaj Kandler, JUC U.S. West
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-08-24T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p><h3>Developing Enterprise-Ready Plugins</h3></p><br/>
+<br/>
+<p>My greatest surprise at JUC 2014 in Boston was how many enterprise Jenkins CI users had developed plugins for their own use. I had not pictured enterprise release managers as plugin developers. Here at <a href="https://www.blackducksoftware.com/">Black Duck Software</a>, we developed Jenkins plugins for four years running. Fabrice Solami, a sales engineer, wanted to do more than automate our code scanning tool via a shell script step in the Jenkins job. He wrote a first plugin that added a build step to run the tool and configure the job more comfortably. The plugin became quickly popular, and when customers asked for it to also support maven builds and run on slaves, it was time for help from the engineering team, particularly the integration team I lead.</p><br/>
+<br/>
+<p>Over the years we developed four more plugins and overhauled the original one with the user community (aka paying customers) growing to >75 organizations, mostly large or really large development organizations. In the process, we received lots of feedback and discovered some Jenkins features we feel are essential for good plugin design for the enterprise. Let me share these insights so that you can consider them in your plugin development.</p><br/>
+<br/>
+<p><h3>Credentials Plugin</h3></p><br/>
+<br/>
+<p>Our plugins connect to our web applications and need authentication to utilize our SDK. The first plugins used username and password fields in every job configuration. That made tedious configuration work and stores the passwords in clear text in the configuration files on disk. Ouch!</p><br/>
+<br/>
+<p>We did wise up and started using the credentials plugin to manage username/passwords centrally and securely. It even allows setting authorization roles in such a way that the maintainer of a job can use the credentials without seeing the password. With that in place, our plugins are fit for banks and insurance companies and any other security-conscious organization.</p><br/>
+<br/>
+<p><h3>Support the REST API</h3></p><br/>
+<br/>
+<p>Did you know that Jenkins talks REST? We found it to be an easy way to create and update jobs. It is a really handy tool. The REST API is easy to script for all sorts of external interactions.</p><br/>
+<br/>
+<p>However, plugins need to do a little effort to support it on their part; yet it is almost trivial to do. So from our experience it should not be left out.</p><br/>
+<br/>
+<p>We wrote a small Java program that reads, creates, updates job configurations, and can trigger job runs. It reads the jobs and commits them to a file for easy mass editing and updates the jobs afterwards.</p><br/>
+ <br/>
+<p>Our internal use case is to manage regression tests. We have medium-sized lists of jobs that run regression tests. With this tooling we can create a new set of jobs for a given plugin that runs against a new target server, that is, a server version under QA. It all happens in less than 15 minutes.</p><br/>
+<br/>
+<p>We also made this part of our migration from our first plugin to its successor with all the enterprise capabilities, but incompatible configuration. Using the REST API and some more Java programs we can create a csv file / Excel spreadsheet with jobs that are configured with the previous plugin. The user can filter the list with the spreadsheet application as needed, and then use the resulting list as input to the batch upgrade tool. This makes the upgrade a gradual affair and not a tedious exercise in UI configuration changes.</p><br/>
+<br/>
+<p><h3>UpdateSites Manager Plugin</h3></p><br/>
+<br/>
+<p>If you are developing plugins for in-house use, you have the option to install/update those through file upload. However, in an enterprise you likely have multiple Jenkins servers for different divisions, development groups, or regions. The notification of updates becomes tedious at best. Wouldn’t it be nice to run your own update site, so that your plugin(s) become discoverable in the “Available” tab of the “Manage plugins” screen? Wouldn’t it be a dream if available new versions show up automatically in the “Updates” tab, including Jenkins version compatibility check?</p><br/>
+<br/>
+<p>UpdateSites Manager plugin by IKEDA Yasuyuki is the answer to your prayers. It is easy to install, and the process to create and publish an update site is not too complicated and can become part of your Jenkins job building/releasing the plugin.</p><br/>
+<br/>
+<p>In <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1400">my presentation at JUC 2015 West</a>, I’ll share more details on how this makes a difference and how you can use these techniques to make your plugins enterprise-grade. As a bonus, I’ll show you how to get a <a href="https://www.blackducksoftware.com/vulnerability-plugin">free vulnerability report</a> for your Maven or Gradle builds.</p><br/>
+ <br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/Kandler_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Kaj Kandler, Integration Manager atBlack Duck Software, Inc. If you have your ticket to <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1400">"Making Plugins that are Enterprise Ready"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
+<br/>
+<br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>
+FreeBSD project use of Jenkins for OS testing
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2014/10/20/freebsd-project-use-of-jenkins-for-os-testing/' title='FreeBSD project use of Jenkins for OS testing'>
+FreeBSD project use of Jenkins for OS testing
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-10-20T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>This is a guest post by Craig Rodrigues</p>
+
+<hr />
+
+<p>The <a href="http://www.freebsd.org">FreeBSD project</a> produces a modern operating system derived from <a href="http://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD Unix</a>.</p>
+
+<p>In the past 6 months, we have set up Jenkins at <a href="http://jenkins.freebsd.org/">http://jenkins.freebsd.org/</a>, to continuously build FreeBSD as developers add new code to the project. This has helped us identify and fix build breaks very quickly.</p>
+
+<p>We have gone even farther by integrating Jenkins, <a href="https://github.com/jmmv/kyua#readme">Kyua</a>,
+and <a href="http://bhyve.org/">Bhyve</a>.
+<a href="https://github.com/jmmv/kyua#readme">Kyua</a> is a testing framework for infrastructure software.
+<a href="http://bhyve.org/">Bhyve</a> is the native hypervisor that comes with FreeBSD (similar to KVM on Linux).</p>
+
+<p>We use the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Flow+Plugin">Build Flow plugin</a> in this <a href="https://jenkins.freebsd.org/jenkins/view/FreeBSD_src_stable/job/FreeBSD_stable_10/848/BuildGraph/">example Build flow</a>	 to do the following:</p>
+
+<ol>
+  <li>Build the FreeBSD kernel and userland on amd64 whenever someone checks in new code to http://svn.freebsd.org</li>
+  <li>Create a bootable FreeBSD disk image with <a href="https://www.freebsd.org/cgi/man.cgi?query=makefs">makefs</a></li>
+  <li>Boot the image under bhyve</li>
+  <li>Run these commands inside the bhyve VM:</li>
+</ol>
+
+<p><code>
+    cd /usr/tests; kyua test; kyua report-junit --output=test-output.xml
+</code></p>
+
+<ol>
+  <li>Shut down the bhyve VM</li>
+  <li>Imports test-output.xml into Jenkins.</li>
+  <li>Produces a <a href="https://jenkins.freebsd.org/jenkins/job/FreeBSD_stable_10-tests/4/testReport/">full native test report in Jenkins</a></li>
+</ol>
+
+<p>The results of this work were presented at the <a href="http://bafug.org">Bay Area FreeBSD Users Group</a>
+in <a href="http://www.slideshare.net/CraigRodrigues1/kyua-jenkins">this presentation</a> in October 2014.</p>
+
+<p>Jenkins has been very easy to set up and use under FreeBSD.   We hope that by using
+Jenkins to run OS-level unit tests, we will be able to improve the quality of FreeBSD.
+For further information, please feel free to contact us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;">&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;</a> .</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

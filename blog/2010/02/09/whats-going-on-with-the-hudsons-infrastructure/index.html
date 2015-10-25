@@ -1,0 +1,244 @@
+<html>
+<head>
+<title>
+What's going on with the Hudson's infrastructure
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2010/02/09/whats-going-on-with-the-hudsons-infrastructure/' title="What's going on with the Hudson's infrastructure">
+What's going on with the Hudson's infrastructure
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-02-09T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>A lot has changed in the Hudson development and distribution infrastructure since last summer - we've made a distinct effort to get the quality of our infrastructure to match the quality of Hudson itself. We owe a special thanks to the wonderful folks over at <a href="http://atlassian.com/">Atlassian</a> - we're taking advantage of their generous <a href="http://www.atlassian.com/opensource/">open source license</a> for our bug tracking (<a href="http://www.atlassian.com/software/jira/">JIRA</a>), wiki (<a href="http://www.atlassian.com/software/confluence/">Confluence<a>), and source repository browser (<a href="http://www.atlassian.com/software/fisheye/">FishEye</a>). Obviously, there's a lot more we can improve going forward - I'll have another post up soon, looking at some of the ideas we're kicking around. But for now, take a look at what we've already done, below the fold.
+<!--break--></a></a></p>
+<li>The Hudson war and plugin downloads have all moved off of the unreliable java.net to our own [hudson-ci.org](http://hudson-ci.org) with the downloads being powered by the same system used for distributing Java, OpenSolaris, and NetBeans. Downloading Hudson and/or plugins is now easier and more reliable.</li>
+<li>We've moved issue tracking from java.net's system to our own JIRA instance, at [issues.hudson-ci.org](http://issues.hudson-ci.org). As with moving downloads off java.net, we've made reporting and browsing Hudson's issues much faster, easier and more reliable, while still using the same authentication on the back-end as our Subversion and Maven repositories. We're still working out some kinks in the system but since we're running our own issue tracker now, rather than using one we didn't have control over, we've got the flexibility we need to adapt our tools to best serve the developer and user communities.</li>
+<li>Speaking of tools we now run ourselves, we've put up our own FishEye instance at [fisheye.hudson-ci.org](http://fisheye.hudson-ci.org) - until that was in place, we'd been relying on Atlassian's public FishEye instance, which has many other open source projects' repositories available. Getting our own server up means we don't have to bug the generous folks over at Atlassian every time the java.net SVN server confuses FishEye into failing to update. It also opens the door for us to use <a href="http://www.atlassian.com/software/crucible/">Crucible</a> for code review in the future.</li>
+<li>Hudson's moved onto Twitter more and more over the last 6-9 months - we've got the always fabulous <a href="http://twitter.com/hudsonci">@hudsonci</a>, tweeting new releases, Hudson-related tweets, and more, as well as the <a class="apturenoenhance" href="http://twitter.com/search?q=%23hudsonci">#hudsonci</a> hashtag.
+<li>This may not strictly be infrastructure but it's worth mentioning that we've now got native packages and distribution for Hudson for <a href="http://hudson-ci.org/debian/">Ubuntu/Debian</a>, <a href="http://hudson-ci.org/redhat/">Red Hat/Fedora/CentOS</a>, <a href="http://hudson-ci.org/opensuse/">openSUSE</a>, <a href="http://pkg.hudson-ci.org/">OpenSolaris/Nevada</a>, and <a href="http://www.freshports.org/www/hudson/">FreeBSD</a>.</li>
+<li>This is all in addition to key parts of our infrastructure that haven't changed: our <a href="http://wiki.hudson-ci.org/display/HUDSON/Home">official wiki</a>, our <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">user and developer mailing lists</a>, our <a href="https://hudson.dev.java.net/svn/hudson/trunk/hudson/">Subversion repository</a> (and a <a href="http://github.com/kohsuke/hudson/">Git mirror</a> on GitHub) and our <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">IRC channel over on Freenode</a>.</li>
+
+Oh, and I hear there's a blog now too.
+
+----
+**Editor's Note:** Andrew Bayer (`abayer`) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at [issues.hudson-ci.org](http://issues.hudson-ci.org).
+</li>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

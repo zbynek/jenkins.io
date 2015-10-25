@@ -1,0 +1,434 @@
+<html>
+<head>
+<title>
+Jenkins Blog
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/08/a-python-love-story-virtualenv-and-hudson/'>
+A Python Love Story: Virtualenv and Hudson
+</a>
+</h1>
+<div class='content'>
+Over the past year Hudson has grown tremendously, both within the Java community and outside of it. Partially thanks to [Titus Brown](http://twitter.com/ctitusbrown)'s PyCon 2010 Atlanta coverage of continuous integration for Python (which we've [covered before](http://www.hudson-labs.org/content/hudson-pycon)), Hudson has made great strides within the Python community as well.
+
+In my experience, the majority of Python developers are not using Hudson to **build** anything, unless they have C extensions, but rather to *test* their packages, which presents its own set of specific requirements for jobs. Jobs for testing Python code need to be able to reliaby reproduce an environment with the same set of dependencies from one run to the next in order to provide consistent testing. Unlike their Java counterparts, Python developers cannot rely on a powerful system like <a id="aptureLink_5i6m9B8BGf" href="http://maven.apache.org/">Maven2</a> for enumerating build/test targets or defining their project's dependencies in their jobs; fortunately, w
+e can have something close: [virtualenv](http://pypi.python.org/pypi/virtualenv) and [pip](http://pypi.python.org/pypi/pip).
+
+Virtualenv does exactly what you might expect it to, it creates a "virtual environment" with custom `site-packages` directory, and modified `python` executable. Using virtualenv you can create a staged environment to use for running unit and integration tests. Adding pip alongside that and you have a **fantastic** Python package manager/installer to use with the virtual environment.
+
+Below, I've outlined the steps required to use virtualenv and pip to *automatically* manage a custom environment for your Python jobs.
+<!--break-->
+### The Recipe
+
+For this recipe to work, you should make sure that your slave machines all have `virtualenv` and `pip` installed and accessible from your slave agent's `$PATH`. For Mac OS X users, `sudo easy_install virtualenv` should do the trick, Linux users should be able to run `sudo [aptitude/yum/zypper] install python-virtualenv` with your respective package manager.
+
+You will also need the [SetEnv Plugin](http://wiki.hudson-ci.org/display/HUDSON/Setenv+Plugin) installed in Hudson.
+
+#### Step 1
+
+Inside of the job's configuration page ([http;//hudson/job/configure](http://hudson/job/configure)), we need to define an environment variable for the job. Using the SetEnv plugin, define a new `$PATH`:
+
+<code type="bash">
+    PATH=.env/bin:$PATH</code>
+
+What this will do is modify the `$PATH` environment variable for all of the "Execute shell" build steps in your job. As you might have guessed, we're going to install the virtualenv in `.env` in the workspace root directory.
+
+#### Step 2
+
+To set up the virtualenv, you want to add a build step of type "Execute shell" and paste the following commands into the text area:
+
+<code type="bash">
+    if [ -d ".env" ]; then
+        echo "**> virtualenv exists"
+    else
+        echo "**> creating virtualenv"
+        virtualenv .env
+    fi
+</code>
+
+This will create a virtualenv the first time the job runs on a particular slave, a virtualenv that will persist until the workspace is cleared. Since we're going to install dependencies in the virtualenv, we want to keep it around between jobs to reduce the amount of network hits to download packages.
+
+#### Step 3
+
+With our virtualenv and our `$PATH` properly set up, the job can now properly install dependencies into its virtualenv, this is where `pip` shines. A little known feature of `pip` allows you to define a "requirements file" which enumerates the packages to install. In my example project, I defined the following requirements in a file called `pip-requires.txt`
+
+<code type="bash">
+    eventlet>=0.9.9
+    nose>=0.11.3
+    MySQL-python>=1.2.3c1
+</code>
+
+In my hypothetical example, I'll need `nose` to run my tests, while `eventlet` and `MySQL-python` are required for my project to properly run. With the `pip-requires.txt` file in the root of my source repository, I can add an additional "Execute shell" build step that does the following:
+
+<code type="bash">
+    pip install -r pip-requires.txt
+</code>
+
+Assuming the `$PATH` environment variable was properly defined, this will use the virtualenv's version of `pip` and it will install the packages defined in `pip-requires.txt` **into** the virtualenv!
+
+With the dependencies all properly installed in the virtualenv, I can now configure the remainder of my job to build my project and execute the tests. Pretty snazzy if you ask me!
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/07/gee-thanks/'>
+Gee Thanks
+</a>
+</h1>
+<div class='content'>
+<p><code>Squee-D</code> had some nice things to say in the <code>#hudson</code> <a href="http://www.hudson-labs.org/content/chat">IRC channel</a> yesterday that I thought I would share:</p>
+
+<blockquote>
+  <p>Just to sing some praise again, make sure you all know how appreciated it is, we absolutely love hudson, and appreciate everyone who develops and maintains it.</p>
+</blockquote>
+
+<p>Positive feedback (and negative really) is always appreciated; have you thanked your plugin maintainer today?</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/06/security-fix-hudson-1-365-released/'>
+Security Fix! Hudson 1.365 Released
+</a>
+</h1>
+<div class='content'>
+<p>The Hudson team has released Hudson 1.365 which contains a critical security fix! A security advisory <a href="http://infradna.com/content/security-advisory-2010-07-05">released yesterday by InfraDNA</a> goes on to explain the hole with more detail:</p>
+
+<blockquote>
+  <p>This vulnerability allows an attacker to read arbitrary files in the
+server file system whose path names are known, by sending malicious
+HTTP GET requests. While such access is still subject to the normal
+access control enforced by the operating system, Hudson can still leak
+"secrets" possessed by Hudson</p>
+</blockquote>
+
+<p>The vulnerability inside of Hudson affects Hudson instances running inside the embedded Winstone container, instances behind Glasshfish or Jetty (for example) are not subject to this vulnerability. Instances running behind a reverse proxy such as mod_proxy or Nginx.</p>
+
+<p>Hudson system administrators should subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a></p>
+
+<hr />
+
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.363/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/05/so-youve-found-a-vulnerability-now-what/'>
+So you've found a vulnerability, now what?
+</a>
+</h1>
+<div class='content'>
+<p>Hudson, like all web applications, is not immune from vulnerabilities that could open up attack vectors for malicious use. What puts Hudson in a league of its own compared to others is its ability to execute arbitrary commands on slave machines, or in the case of the EC2 plugin, execute arbitrary commands "in the cloud." In light of all this, Hudson is quite secure and offers a variety of mechanisms to reduce the potential for exploits. <img src="http://www.thinkgeek.com/images/products/zoom/hacker-hat.jpg" width="150" align="right" /></p>
+
+<p>Despite Hudson's security track record, you've managed to find a vulnerability in Hudson, and decide to don your white hat and inform the Hudson team. First off, let me commend you on your brilliant decision to report the vulnerability, you are truly a leader among men.</p>
+
+<p>Generally immediate public disclosure of vulnerabilities is frowned upon as it doesn't give us much time to react, investigate and patch the hole. For this reason there is the "<a href="http://issues.hudson-ci.org/browse/SECURITY">SECURITY</a>" project in Hudson's JIRA. The SECURITY project is a more locked down section of JIRA than the other projects and allows you to submit issues and have them reviewed by the Hudson core developers who can assess the vulnerability. When reporting the issue, it will be helpful to include information regarding the environment the Hudson instance is running in (such as the servlet container) as well as any pertinent reproduction steps so the team can reproduce, fix and verify with as little wheel-spinning as possible.</p>
+
+<p>What happens next wholly determines on the severity of the issue, if it's a highly critical vulnerability, the team will likely make an out-of-schedule release and advise users to upgrade. If it's a less critical hole, the fix will be included in an upcoming scheduled release. Either way, the Hudson team has a good track record of correct potential security holes in a timely fashion.</p>
+
+<p>After the hole you've discovered has been patched and released, you can revel in the fact that you helped make Hudson better, thanks!</p>
+
+<hr />
+
+<p><em>Image courtesy of <a href="http://www.thinkgeek.com/tshirts-apparel/hats-ties/6345/">ThinkGeek</a></em></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/05/links-for-2010-07-05/'>
+Links for 2010-07-05
+</a>
+</h1>
+<div class='content'>
+<p>It's been quite a while since I posted a Hudson links-roundup post, so without further ado, here goes nothing</p>
+
+<ul>
+  <li>Max tells us about using <a href="http://techmodblog.blogspot.com/2010/01/hudson-and-codescanner.html">Hudson with Symbian's CodeScanner</a> tool.</li>
+  <li>Running slaves on Mac OS X? Mirko has <a href="http://illegalstateexception.blogspot.com/2010/07/using-launchctl-to-restart-hudson-mac.html">some handy launchctl foo</a> for keeping his JNLP slaves online</li>
+  <li>Scott threw up a great configuration sample for running <a href="http://sleeplesscoding.blogspot.com/2010/07/hudson-ci-behind-nginx-reverse-proxy.html">Hudson with an Nginx reverse proxy with SSL</a></li>
+  <li>Mark walks us through using Xvfb to run <a href="http://markgandolfo.com/2010/07/01/hudson-ci-server-running-cucumber-in-headless-mode-xvfb">headless cucumber/selenium tests with Hudson</a></li>
+  <li>Our friends behind Build Doctor wrote <a href="http://www.build-doctor.com/2010/07/01/announcing-xfd">an interesting build radiator</a> that works seamlessly with Hudson.</li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/29/11th-international-free-software-forum-in-brazil/'>
+11th International Free Software Forum in Brazil
+</a>
+</h1>
+<div class='content'>
+<p>Last week, friend-of-Hudson <a href="http://leandron.wordpress.com/">Leandro Nunes</a> sent the following message to the <code>users</code> <a href="http://www.hudson-labs.org/content/mailing-lists">mailing list</a> regarding his upcoming talk on continuous integration and Hudson:</p>
+
+<blockquote>
+  <p>Next month I will present <a href="http://verdi.softwarelivre.org/papers_ng/activity/view?activity_id=44">a talk about Hudson</a> in the 11th
+International Free Software Forum (<a href="http://softwarelivre.org/fisl11">FISL 11</a>), held in Porto Alegre
+Brazil (detailed time and date of the talk are not yet scheduled so).</p>
+</blockquote>
+
+<p>FISL 11 is one of the biggest free software events in Latin America and will quite literally attract <em>thousands</em> of free software users, hackers, and enthusiasts. It will be held from the 21st to the 24th of July in Porto Alegre, if you're in Central or South America, you should <em>definitely</em> try to attend.</p>
+
+<p>Leandro will have Hudson stickers on hand to give out and will surely do a fantastic job presenting Hudson to all those future Hudson users, I hope you can make it!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/28/digg-technical-talk/'>
+Digg Technical Talk
+</a>
+</h1>
+<div class='content'>
+<p>Recently our fearless leader, Kohsuke Kawaguchi, was invited by the nice folks over at Digg to give a <a href="http://about.digg.com/blog/digg-technical-talks-kohsuke-kawaguchi">tech talk about continuous integration</a> and automated testing. The Digg engineering team is full of believers in continuous integration, including our very own Andrew Bayer (<code>abayer</code>). Being big users of the <a id="aptureLink_mtfp40hfVE" href="http://twitter.com/saucelabs">Sauce Labs</a> service to drive their vast Selenium test suite, the house was packed with Selenium hackers/users and Hudson users, the stage was set for Kohsuke to give a great presentation.</p>
+
+<center>
+<object width="400" height="225"><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12859357&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" /><embed src="http://vimeo.com/moogaloop.swf?clip_id=12859357&amp;server=vimeo.com&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color=&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="400" height="225" /></object><p><a href="http://vimeo.com/12859357">Digg Technical Talks - Kohsuke Kawaguchi</a> from <a href="http://vimeo.com/digg">Digg Development</a> on <a href="http://vimeo.com">Vimeo</a>.</p>
+</center>
+
+<p>You can find slides of the presentation <a href="http://about.digg.com/files/HudsonDigg.ppt">here</a>
+<!--break-->
+—-</p>
+
+<p>For those not familiar with Digg's peripheral involvement in the Hudson community, they've graciously donated a build machine to help run Hudson builds on <a href="http://ci.hudson-labs.org/">ci.hudson-labs.org</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/23/stickers-starting-to-arrive/'>
+Stickers starting to arrive
+</a>
+</h1>
+<div class='content'>
+<p>Way back in March, I asked you all: <a href="http://www.hudson-labs.org/content/want-some-hudson-stickers">Want some Hudson stickers?</a></p>
+
+<p>Turns out, a <strong>lot</strong> of you do! Thanks to a huge amuont of help by <a href="http://agentdero.cachefly.net/erinandtylerswedding.com/images/gallery/mq/img-9.jpg">my future wife </a>, the <em>first</em> shipment of Hudson stickers went into the mail last week. <img src="http://farm3.static.flickr.com/2743/4425921960_a056d816f1_m.jpg" align="right" hspace="5" vspace="5" /> This first shipment was only to United States addresses! If you live outside of the U.S., or if you requested more than 50-ish stickers, I've not yet been able to send you stickers. I expect to start sending out international shipments later this week and early next week.
+<!--break-->
+To those of you that have received your stickers, I'd like to remind you of the terms of our agreement:</p>
+
+<ul>
+  <li><strong>Conferences</strong>: The only condition being that you tell me all about the event and how Hudson was received after the fact (this may involve an interview).</li>
+  <li><strong>Companies</strong>: I always appreciate stickers, pens, branded bouncy balls, etc (see: swag) in return!</li>
+  <li><strong>Nice People</strong>: If you're just a fan of Hudson, stickers, or both, I'll still gladly mail you a few stickers with the condition that you take pictures of where the stickers end up (and maybe of your Hudson install) and either email me some cool pictures or post them to  Flickr (tagged: "hudsonstickers")</li>
+</ul>
+
+<p><a href="http://twitter.com/decriptor/status/16737013469" id="aptureLink_YCzhbwFB5t" style="margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; text-align: center; display: block; padding-top: 0px; padding-right: 6px; padding-bottom: 0px; padding-left: 6px; "><img style="border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; " src="http://placeholder.apture.com/ph/355x210_TwitterArticle/" width="355px" height="210px" title="Tweet by Stephen Shaw" /></a></p>
+
+<p>To be honest, I <em>really</em> just want to see some pictures of Hudson stickers slapped all over cool stuff: laptops, bosses, servers, desks, stop signs, coworkers, cats, you name it.</p>
+
+<p><strong>If you did not request stickers, but want some now:</strong> please refer to the <a href="http://www.hudson-labs.org/content/want-some-hudson-stickers">original post</a> for directions. I do still have stickers left, but there are some "bulk requests" I've not yet filled. I will do my best to send out as many stickers as I can.</p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/35.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/35.html" class="page-link">35</a> <span class="current-page">36</span> <a href="/node/page/37.html" class="page-link">37</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/37.html" class="next-link">Next</a> </div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

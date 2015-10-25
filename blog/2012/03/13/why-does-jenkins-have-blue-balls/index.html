@@ -1,0 +1,268 @@
+<html>
+<head>
+<title>
+Why does Jenkins have blue balls?
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2012/03/13/why-does-jenkins-have-blue-balls/' title='Why does Jenkins have blue balls?'>
+Why does Jenkins have blue balls?
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2012-03-13T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/images/japanese-traffic-light.png" align="right" alt="A japanese traffic light" /> It is interesting having an open source project that is sufficiently old to start generating "lore" of some form or another. Jenkins is starting to get to be that age, having been started over 6 years ago.</p>
+
+<p>One of the most commonly asked questions, is about Jenkins' use of "blue balls" to indicate success by default. This is enough of an "issue" for some users that the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Green+Balls">Green Balls</a> plugin is in the <a href="http://imod.github.com/jenkins-stats/svg/201201-top-plugins1000.svg">list of top 10 installed plugins</a>.</p>
+
+<p>The reason behind our use of blue to indicate success has its basis in <a href="https://github.com/kohsuke">Kohsuke's</a> Japanese upbringing. The cultural differences were enumerated in a bug report comically titled "s/blue/green/g" (<a href="https://issues.jenkins-ci.org/browse/JENKINS-369">JENKINS-369</a>):</p>
+
+<p>This response Kohsuke cited was taken <a href="http://groups.yahoo.com/group/ParthenonWeekly/message/232">from this Q&amp;A thread</a></p>
+
+<blockquote>
+  <p><strong>Q.</strong> "<em>Why do Japanese people say that they have blue traffic lights when they are really green?</em>" –Question submitted by John Sypal</p>
+
+  <p><strong>A:</strong> According to the book, Japan From A to Z: Mysteries of Everyday
+Life Explained by James and Michiko Vardaman, the first traffic
+signals in Japan were blue instead of green, but the blue lights were difficult to see from a long distance away so they were replaced with green ones. Vardaman says that the custom of referring to traffic lights is a holdover from those days.</p>
+
+  <p>This sounds like a good explanation, but the problem with it is that you will hear Japanese people refer to other green things (like
+cucumbers, spinach, and sometimes grass) as being blue as well. This
+is because historically, Japanese people considered green to be a
+shade of blue. For example, the Chinese character for blue,
+pronounced ao is made up of two characters, iki (life) and i (well)
+and refers to the colour of plants which grow around a well, a colour between green and blue. When Chinese people see the character, they say it means green, but Japanese people say it means blue.</p>
+
+  <p>Japanese books on colours tell us that there are four tertiary colours: red, blue, white and black, and that all others are shades of those four main ones. Ao, therefore, is a sort of ideal blue, halfway between green and blue. The sky is said to be blue, but it is a different shade of ao than a traffic light is. Tree leaves are said to be green, but green is a shade of ao, like crimson is a shade of red.</p>
+
+  <p>In another interesting cultural difference relating
+to colour, Japanese children always colour the sun red instead of
+yellow.</p>
+</blockquote>
+
+<p>(<em>here's a <a href="https://issues.jenkins-ci.org/browse/JENKINS-369?focusedCommentId=120769&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-120769">direct link to Kohsuke's comment</a></em>)</p>
+
+<p>Unfortunately it's not for color blind users, although that's a pretty convincing explanation. Jenkins has blue balls because in Japan, red means stop and blue means go!</p>
+
+<!--break-->
+
+<hr />
+
+<p>Image courtesy of <a href="http://portal.nifty.com/cs/catalog/portal_koneta/detail/1.htm?aid=090509099530">this site</a></p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+<html>
+<head>
+<title>
+Hudson 1.346 Released
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2010/02/15/hudson-1-346-released/' title='Hudson 1.346 Released'>
+Hudson 1.346 Released
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-02-15T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>After some scrambling earlier in the week to get <a href="http://blog.hudson-ci.org/content/breaking-hudson-1345-released">1.345 out the door</a>, correcting some regressions in 1.344, the Hudson team still rolled out a 1.346 release last Friday, February 12th, 2010. Similar to the past couple releases, 1.346 had a good number of bug fixes, including a a performance fix when dealing with larger build submissions and a substantial revision of the SCM polling code to fix a long-standing issue with the quiet period blocking the build from running (<a href="http://issues.hudson-ci.org/browse/HUDSON-2180">issue 2180</a>), there were also some additionally memory improvements made to <a id="aptureLink_sglHnjrHm5" href="http://en.wikipedia.org/wiki/Apache%20Jelly">Jelly</a>, the library with which the majority of Hudson's web interface is rendered, that Kohsuke will detail in a later post.</p>
+
+<p>Here's the breakdown:</p>
+
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt;
+    Maven modules should not be buildable when the parent project is disabled.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1375">issue 1375</a>)
+  &lt;li class=bug&gt;</p>
+
+<pre><code>Fixed the broken quiet period implementation when polling interval is shorter than
+the quiet period.  (Changes in SCM impls are needed for this to take effect.) 
+(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-2180"&gt;issue 2180&lt;/a&gt;)
+</code></pre>
+<p>&lt;li class=bug&gt;
+    Escape username in URLs in case it contains special characters such as "#".
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2610">issue 2610</a>)
+  &lt;li class=bug&gt;
+    Fix sidepanel link for People to be visible and show view-specific info when appropriate.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5443">issue 5443</a>)
+  &lt;li class=bug&gt;
+    Improved HTML rendering, not using closing tags that do not exist in HTML.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5458">issue 5458</a>)
+  &lt;li class=bug&gt;</p>
+
+<pre><code>Show better error message for missing view type selection when creating a view.
+(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-5469"&gt;issue 5469&lt;/a&gt;)
+</code></pre>
+<p>&lt;li class=bug&gt;
+    Hudson wasn't properly streaming a large external build submission,
+    which can result in OOME and unresponsiveness.
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt;
+    Use fixed-width font in text area for shell/batch build steps.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5471">issue 5471</a>)
+  &lt;li class=rfe&gt;
+    Use user selected icon size on People page.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5447">issue 5447</a>)
+  &lt;li class=rfe&gt;
+    Speed/footprint improvement in the HTML rendering.
+</ul>
+
+<p><br clear="all" />
+#### Contributors 
+This release of Hudson contained 37 commits from 3 different contributors to "core":</p>
+
+<ul>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+<p><strong>Updated:</strong> Added the "official" changelog notes
+<!--break--></p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>

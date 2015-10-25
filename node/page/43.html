@@ -1,0 +1,768 @@
+<html>
+<head>
+<title>
+Jenkins Blog
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/24/hudson-at-pycon/'>
+Hudson at PyCon
+</a>
+</h1>
+<div class='content'>
+<p>This past week <a id="aptureLink_z1tlMXupZM" href="http://twitter.com/pycon">PyCon</a> has been going on in Atlanta, where <a id="aptureLink_WLsRDsy9yw" href="http://twitter.com/ctitusbrown">Titus Brown</a> gave a talk titled:</p>
+
+<blockquote>
+  <p>Why not run all your tests all the time? A study of continuous integration systems</p>
+</blockquote>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/just_use_hudson.png" alt="Just use Hudson" width="500" /></center>
+
+<p>Titus has some notable quotes "just use Hudson" but overall a good introduction of CI and a breakdown of some of the challenges behind continuous integration. He also does a good job going over getting started with Hudson, setting up a basic Python project that incorporates JUnit XML reporting and slaves.</p>
+
+<blockquote>
+  <p>"Yeah, we used Buildbot until recently, then I switched us to Hudson and my life got a lot better"</p>
+</blockquote>
+
+<p>If you're using Python with Hudson, I highly recommend watching the talk (embedded below).</p>
+
+<center><embed src="http://blip.tv/play/g4VigciTVwI%2Em4v" type="application/x-shockwave-flash" width="480" height="350" allowscriptaccess="always" allowfullscreen="true" /></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/23/would-you-run-hudson-in-the-cloud/'>
+Would you run Hudson in the cloud?
+</a>
+</h1>
+<div class='content'>
+<p>One of my favorite bloggers on the subject of continuous integration, <a id="aptureLink_e9BNkKIorq" href="http://twitter.com/builddoctor">The Build Doctor</a>, posed this question in <a href="http://www.build-doctor.com/2010/02/23/continuous-integration-in-the-cloud-good-idea/">a recent post</a>:</p>
+
+<blockquote>
+  <p>Continuous Integration in the cloud: good idea?</p>
+</blockquote>
+
+<p>The topic of running a CI server in a virtualized environment, such as with <a id="aptureLink_nJiKPqGQ1T" href="http://en.wikipedia.org/wiki/Amazon%20Elastic%20Compute%20Cloud">Amazon's EC2 service</a>, is an interesting issue, particularly in the Hudson community. About 10 months ago Kohsuke <a href="http://weblogs.java.net/blog/2009/05/18/hudson-ec2-plugin">announced the Hudson EC2 plugin</a> which has seen slow, but steady development since then, including support for the <a href="http://www.ubuntu.com/cloud/private">Ubuntu Enterprise Cloud</a> which was added to the plugin in a release last Monday.</p>
+
+<p>As The Build Doctor and his readers point out, continuous integration is a difficult task to offload into the cloud because of the immense hardware demands constant building and testing presents. That said, Hudson <em>does</em> very effectively manage spinning slaves up and down on demand if you've configured it as such. Implication being: running Hudson in the cloud may be more efficient to meet peak demands without needing to run a large farm of machines.<img src="http://agentdero.cachefly.net/continuousblog/hudson_in_the_cloud.png" align="right" /></p>
+
+<p>If you're interested in trying out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">EC2 plugin</a>, check out <a id="aptureLink_6E30Ex9PTT" href="http://www.sonatype.com/">Sonatype's</a> post on <a href="http://www.sonatype.com/people/2009/06/nexus-open-source-and-hudson-on-ec2/">Nexus Open Source and Hudson on EC2</a> might be a good start.</p>
+
+<p>Would you run Hudson in the cloud?</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/22/hudson-1-347-released/'>
+Hudson 1.347 Released
+</a>
+</h1>
+<div class='content'>
+<p>The release of Hudson 1.347 last friday, February 19th, was a relatively "minor" one insofar that it contained an assortment of smaller fixes instead of fixes to major regressions (they weren't any to be fixed) or major features added. There were however some notable commits in this release cycle that didn't make the changelog just yet, for example <a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a> committed an <a id="aptureLink_HxZkmWKjTi" href="http://en.wikipedia.org/wiki/Ebuild">ebuild</a> which will allow for a native package of Hudson for <a id="aptureLink_uU6StMFk4O" href="http://en.wikipedia.org/wiki/Gentoo%20Linux">Gentoo Linux</a>, joining the ranks of the existing packages for Debian/Ubuntu, FreeBSD, OpenSolaris, openSUSE and RedHat/Fedora Linux. The bundled Subversion plugin was updated and thanks to <a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a> and <a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a> the Japanese translations for Hudson got some updates as well.</p>
+
+<p>For Hudson developers, both plugin and core, this release contains some notable changes from <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a> (a.k.a Alan Harder), a number of calls which have been deprecated for over <strong>two years</strong> have finally been pruned from the code base:</p>
+
+<ul>
+  <li><code>Hudson.addListener(JobListener)</code>, <code>Hudson.removeListener(JobListener)</code></li>
+  <li>Entire <code>listeners.JobListener</code> class (replaced by <code>ItemListener</code>)</li>
+  <li>One form of <code>DirectoryBrowser</code> constructor</li>
+  <li>One form of <code>Descriptor.configure()</code> (with <code>HttpServletRequest</code> param)</li>
+  <li><code>Descriptor.convert(Map)</code> and 4 implementations of this method, and code calling it in <code>Descriptor.readResolve()</code> (this code called <code>save()</code> whenever updating data, so there should be no remaining cases out there)</li>
+</ul>
+
+<p>Alan's quest for removing deprecated code will likely continue for a while, but this is a good step in the right direction, keeping Hudson's internals in good working order. Worth mentioning, the influx of plugin releases in the <a href="http://blog.hudson-ci.org/content/week-plugins-0">This Week in Plugins</a> from a couple weeks ago, was driven largely by Alan, rummaging through the code of older plugins, updating plugins left and right.
+<!--break-->
+Now the breakdown for this release:</p>
+
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    Fix javascript problem showing test failure detail for test name with a quote character.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1544">issue 1544</a>)
+  &lt;li class=bug&gt; 
+    Hudson can incorrectly configure labels for the master when bleeding edge EC2 plugin is used.
+  &lt;li class=bug&gt; 
+    Fixed the regression wrt the whitespace trimming caused by 1.346.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5633">issue 5633</a>)
+  &lt;li class=bug&gt; 
+    Under some circumstances, Hudson can incorrectly delete the temporary directory itself.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5642">issue 5642</a>)
+  &lt;li class=bug&gt; 
+    Newlines in MAVEN_OPTS environment variable can cause problems in other contexts.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5651">issue 5651</a>)
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt; 
+    Improved the form validation mechanism to support multiple controls.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5610">issue 5610</a>)
+  &lt;li class=rfe&gt; 
+    Added message to slave log when it has successfully come online.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5630">issue 5630</a>)
+</ul>
+
+<p><br clear="all" />
+#### Contributors 
+This release of Hudson contained 36 commits from <strong>7</strong> different contributors to "core":</p>
+
+<ul>
+  <li><a id="aptureLink_YFkDO3e779" href="http://twitter.com/abayer">abayer</a></li>
+  <li><a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a></li>
+  <li><a id="aptureLink_BJgeHDF4sh" href="http://www.linkedin.com/in/thuybrechts">huybrechts</a></li>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+  <li><a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a></li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/19/this-week-in-plugins/'>
+This Week in Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Last week's TWIP enumerated the release of <strong>26</strong> different plugin, this past week has seen 19 unique releases in comparison. You might be tempted to assume that <em>less</em> plugin development has occurred over the past week, which isn't the case. Last week a number of the releases were "code updates", i.e. plugins being rebuilt against the latest Hudson plugin API as opposed to new features or bug-fixes. With the releases of plugins this past week, it seems a large number of the releases contained new features and bug fixes, including <strong>three new plugins!</strong></p>
+
+<p>Making their Hudson debut are the following</p>
+
+<ul>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average</a></li>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin</a></li>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin</a></li>
+</ul>
+
+<p>If you're interested in contributing to an existing plugin, or building your own, I highly recommend checking out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and joining the <a href="https://hudson.dev.java.net/servlets/ProjectMailingListList">dev@ mailing list</a>. That said, here are this week's releases, starting with last Friday.</p>
+
+<ul>
+  <li><strong>Feb 12th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM 1.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JIRA+Plugin">JIRA plugin 1.19 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JobConfigHistory+Plugin">Job Configuration History Plugin 1.2 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin">MSTest plugin 0.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average 1.1 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Template+Project+Plugin">Template Project plugin 1.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 13th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin">xUnit plugin 0.5.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 14th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">Amazon EC2 plugin 1.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Build+Secret+Plugin">Build Secret plugin 1.5 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dependency+Analyzer+Plugin">Dependency Analyzer Plugin 0.5 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/DocLinks+Plugin">DocLinks plugin 0.3 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Grails+Plugin">Grails plugin 1.1 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin 1.0 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 15th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Artifactory+Plugin">Artifactory Plugin 1.0.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dimensions+Plugin">Dimensions SCM plugin 0.6.8 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin 1.0.20 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 16th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/HTML+Publisher+Plugin">HTML Publisher plugin 0.2.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 17th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin 1.0 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JBoss+Management+Plugin">JBoss Management Plugin 1.0.2 released</a>
+<!--break--></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/18/spotlight-on-visfleet/'>
+Spotlight on: VisFleet
+</a>
+</h1>
+<div class='content'>
+<p>For this week's user spotlight, I'm talking to Rasheed Abdul-Aziz of
+VisFleet Ltd. out of New Zealand. This being our second "spotlight" on a particular company, the format can still be considered <em>beta</em>; if you have any additional questions for Rasheed, feel free to ask them in the comments and I'll try to get Rasheed to answer.</p>
+
+<p>Similar to the spotlight on ITA Software from last week, VisFleet builds business software helping their customers operate their businesses more effectively through web applications in tandem with mobile applications. While I could endlessly discuss the power and flexibility of Hudson, particularly for building web software, I'll let Rasheed do the majority of the talking, so let's get to it.
+<!--break--></p>
+<table border="0">
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+Rasheed, thanks for talking with me today, I think I did a poor enough job
+introducing <a id="aptureLink_qn9wDVslnL" href="http://twitter.com/visfleet">VisFleet</a>, would you mind explaining a bit more of what you guys do and some of the challenges it presents?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+It's a pleasure. VisFleet has changed it's direction somewhat, moving from
+services into product development. As we move into product, we want to be
+responsive to our customers. Agile development is becoming core to how we
+operate, and as such, continuous builds and integration became a major
+factor. We now plan to offer two products for work planning and and vehicle
+tracking. We want to present these systems with a SaaS model. The world of
+online, pay as you go software, has a culture of frequent improvements and
+responsiveness to user feedback. If we want to do well in this space, it's
+important that we can code, test, release and feed back in
+tight iterations.
+</td></tr>
+<tr><td><br /></td></tr>
+
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+How long has VisFleet been using Hudson?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+About 14 months now.
+</td></tr>
+<tr><td><br /></td></tr>
+
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+Did you guys work with continuous integration prior to starting to use
+Hudson? If so, what system was VisFleet using and what compelled the switch
+to
+Hudson?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+We didn't actually, but certainly everyone I knew who was doing continuous
+integration recommended Hudson.
+
+</td></tr>
+<tr><td><br /></td></tr>
+
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+That's good to hear! How lucky you are to know so many smart people :)<br /><br />
+What kinds of projects is VisFleet building with Hudson?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+We build and test Ruby On Rails service layer applications. We also build <a id="aptureLink_hbiB8O3Dwj" href="http://en.wikipedia.org/wiki/Adobe%20Flex">Flex</a> applications using the Flex SDK for our web-deployed RIA offering. Lastly, we build our iPhone applications using Hudson.
+</td></tr>
+<tr><td><br /></td></tr>
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+I'd say building and testing web applications alone with Hudson would be quite notable, but to add Flex and iPhone applications into the mix as well is certainly interesting! Anything specific that's interesting about VisFleet's use of Hudson?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+It runs multiple slave types, and automates deploys to different cloud
+infrastructures. At the moment we have 2 Flex build slaves running Ubuntu, A
+Mac Mini building our iPhone app, and several Ubuntu Servers testing our web
+tier. We currently deploy to Citrix Xen servers, and soon to <a id="aptureLink_Xq08IAbEb1" href="http://twitter.com/RackCloud">Rackspace Cloud</a> as well.
+<br />
+<br />
+In the near future, we will automate integration by first updating an
+integration system on the cloud, deploying our system and then running our
+tests. All very quickly.
+<br />
+<br />
+We have very little metric and reporting output from Hudson, and this is
+noteworthy in it's absence. It's very important  to use to provide clear
+development metrics and integrate those into our <a id="aptureLink_ZAd2AShPj0" href="http://en.wikipedia.org/wiki/Scrum%20%28development%29">Scrum</a>/<a id="aptureLink_U9x9KuaN08" href="http://en.wikipedia.org/wiki/Kanban">Kanban</a> approach. What
+Hudson has done for us is educate us about the possibilities in
+visualisation and reporting, and is informing the way we structure our
+codebase going forward. Soon, we expect to have a premium test driven
+development environment and workflow.
+</td></tr>
+<tr><td><br /></td></tr>
+
+
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+We all know Hudson isn't perfect but there's a lot of room for extending it to meet your demands if need be, what additional tools have you written to glue everything together behind
+the scenes?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+We are using '<a id="aptureLink_dcU0BLKBi3" href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad the Deployer</a>' and in legacy, '<a id="aptureLink_CMeh4NNwSI" href="http://www.capify.org/">Capistrano</a>' for a lot of
+our deployment and build tasks. These are merely infrastructure specific
+scripts to ensure we can bring up live environments in the shortest amount
+of time possible.
+</td></tr>
+<tr><td><br /></td></tr>
+
+
+
+<tr><td align="center">
+<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
+<strong>Hudson</strong>
+</td><td>
+So it sounds like you guys are all on board with Hudson, on a 1-10 scale, how important would you rate Hudson's importance to VisFleet's workflow?
+</td></tr>
+
+<tr><td align="center" valign="top">
+<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
+<strong>Rasheed</strong>
+</td><td>
+7, aiming at 10. The missing points are just a matter of time :)
+</td></tr>
+<tr><td><br /></td></tr>
+</table>
+
+<hr />
+
+<p>Thanks again to Rasheed for chatting with me about how Hudson helps VisFleet keep cranking on what they do best. If you would like to discuss your company's use of Hudson for Continuous Blog, you can contact me at <code>tyler</code> at <code>linux.com</code></p>
+
+<hr />
+<p><strong>Editor's Note:</strong> Rasheed Abdul-Aziz is a Software Architect at VisFleet Ltd. Rasheed specializes in Flex RIA development, but also loves a good build script and manages Hudson for VisFleet. Find out more about VisFleet and Rasheed on the <a href="http://devblog.visfleet.com/">VisFleet devblog</a> and <a href="http://squeedee.tumblr.com">Rasheed's blog</a></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/17/getting-started-building-android-apps-with-hudson/'>
+Getting started: Building Android apps with Hudson
+</a>
+</h1>
+<div class='content'>
+<p><img src="/sites/default/files/hvisser_android_project.png" align="right" />In this post I'll show a very basic tips on how to compile an Android project using Hudson. Specifically how  I use Hudson to create release versions of my apps.</p>
+
+<h2 id="debug-vs-release">Debug vs Release</h2>
+<p>I'm assuming that you are using <a id="aptureLink_s44SkgAX9H" href="http://en.wikipedia.org/wiki/Eclipse%20%28software%29">Eclipse</a> with the <a id="aptureLink_MtfIHO5Nxu" href="http://developer.android.com/guide/developing/tools/adt.html">ADT plugin</a>. During development you can test your app on the emulator or a device and resources like R.java and aidl files are compiled for you automatically by the plugin. When it's time to release your app, you'll need to go through some steps:</p>
+
+<ul>
+  <li>You must sign your app using a certificate</li>
+  <li>You must update your AndroidManifest.xml to remove the android:debuggable attribute</li>
+  <li>Replace your Google Maps API debug key with the one belonging to your release certificate (if you are using a MapView)</li>
+  <li>Generate an apk package for the release and test it on a device or emulator</li>
+</ul>
+
+<p>It would be nice to automate a few of these steps, and this is where Hudson comes in.</p>
+
+<h2 id="automated-builds-ant">Automated builds: Ant</h2>
+<p>For automated builds the Android SDK uses <a id="aptureLink_THdW39aNW6" href="http://en.wikipedia.org/wiki/Apache%20Ant">Apache Ant</a>, which Hudson has great support for. To generate a template build.xml you can use the android tool from the SDK using the following command:
+&lt;code linenumbers=off&gt;
+android create project -n template -t android-7 -p template -k dummy.pkg -a Dummy
+&lt;/code&gt;
+The target is specified as "android-7" meaning that we are building for Android 2.1. For apps that use MapView we would use "Google Inc.:Google APIs:7". It is a good idea to always <a href="http://d.android.com/guide/practices/screens_support.html#strategies">target the latest SDK</a>. From this template project we'll grab the <em>build.properties</em> and the <em>build.xml</em> and copy those to the Android project that we want to build. Edit <em>build.xml</em> and set the project name to your Android project name.</p>
+
+<p>The <em>local.properties</em> file contains the path to the SDK root and shouldn't be checked in to version control. For our use we'll set the properties that are in that file on the Hudson job configuration page.</p>
+
+<h2 id="running-the-build-in-hudson">Running the build in Hudson</h2>
+<p>This part is easy: create a new freestyle job and let it be build with ant. The targets that we want to execute are <code>clean release</code>. Release will compile, package and sign your apk. Now to get this working right, some custom properties should be set (use the Advanced button).</p>
+
+<center><img src="/sites/default/files/hvisser_android_properties.png" /></center>
+
+<hr />
+<p><code>
+sdk.dir=/Users/hugo/Code/android-sdk-mac
+target=Google Inc.:Google APIs:7
+key.store=certs/rd-release.keystore
+key.alias=rainydays
+key.store.password=thisisnotmypassword
+key.alias.password=thisisnotmypassword
+</code>
+The <em>sdk.dir</em> should point to the Android SDK root on your Hudson node. In my case I'm running Hudson locally on my machine.  The <em>target</em> property refers to the SDK we want to use as mentioned earlier.  The <em>key.** properties are related to signing of the apk. My <a href="http://d.android.com/guide/publishing/app-signing.html#strategies">strategy</a> is to have a separate key store and private key for each application that I develop. <img src="/sites/default/files/hvisser_android_archive.png" align="right" /> I also check that keystore in to SVN. I also archive the **-release.apk</em> artifact so that I can download the latest release apk directly from Hudson.  After completing these steps, you should be able to build your Android app with Hudson.</p>
+
+<p><br clear="all" />
+## Updating the AndroidManifest for release
+…But we're not done yet :) Remember what I said about updating the AndroidManifest.xml? For that we need to edit the build.xml, which by default contains nothing more then a <code><setup></setup></code> tag to pull in the Android SDK ant target definitions. For my Rainy Days application, I adjusted build.xml like this:
+<code>
+   ...</code></p>
+<setup />
+
+<property environment="env" />
+
+<target name="preprocess" if="env.BUILD_TAG">
+      <echo>Removing debug attribute from AndroidManifest.xml</echo>
+      <replaceregexp file="AndroidManifest.xml" match="android:debuggable=&quot;.*?&quot;" replace="" />
+      <echo>Setting release maps key</echo>
+      <replaceregexp file="res/layout/maplayout.xml" match="android:apiKey=&quot;.*?&quot;" replace="android:apiKey=&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;" />			
+   </target>
+
+<p><!-- this target is only hooking release processing of the manifest --></p>
+<target name="-package-resources" depends="preprocess, android_rules.-package-resources">
+   </target>
+<p>&lt;/code&gt;</p>
+
+<p>What the above snippet does is removing the <em>android:debuggable</em> attribute from the <em>AndroidManifest.xml</em> and replacing the maps API key in <em>res/layout/maplayout.xml</em> with the correct key for release. The <code>-package-resources</code> target is pulled in from the Android <em>android_rules.xml</em> file.</p>
+
+<p>Now when Hudson builds my app I get a ready to release apk that I can install on my device or emulator, which is pretty nice.</p>
+
+<p>There is are some issues with this approach however. As you might have noticed:</p>
+
+<ul>
+  <li>Replacements are done in the workspace, we are not really building <strong>exactly</strong> what's in svn</li>
+  <li>Each new build should start out fresh for that reason, for example by using the svn revert option.</li>
+</ul>
+
+<p>Additionally I can not yet tag the release version with the updated files, because the <a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Tagging+Plugin">subversion tagging plugin</a> doesn't support this by design. This could be worked around by adding svn statements in the build.xml however.  For now I don't really mind as I make minor changes to the resource files, but I'll be looking at improving this situation.</p>
+
+<h2 id="things-to-add-unit-testing-coverage">Things to add: unit testing, coverage…</h2>
+<p>One thing that I'd really like to add is unit testing. This is a little bit more complicated though, since unit tests require a running emulator and a running emulator requires a gui. The Hudson <a href="http://wiki.hudson-ci.org/display/HUDSON/Xvnc+Plugin">Xvnc</a> plugin could be very helpful here.</p>
+
+<p>The Android build scripts for test projects already include <a href="http://emma.sourceforge.net/">EMMA</a> output, it shouldn't be to hard to use the Hudson <a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">plugin</a> for that.</p>
+
+<p>When Hudson is running on a local machine, the <a href="http://wiki.hudson-ci.org/display/HUDSON/Batch+Task+Plugin">Batch task</a> plugin can automate installing the apk on a device to automate things further.</p>
+
+<h2 id="summary">Summary</h2>
+<p>Building Android applications with Hudson is not that hard, since the builds are based on Ant. By hooking in to the standard Android build targets it's easy to update files like <em>AndroidManifest.xml</em> which in turn makes sure the release process is controlled and predictable.<br />
+Android unit tests depend on the emulator which is a little bit more challenging to set up, but Hudson already has some plugins available to make this easier.</p>
+
+<hr />
+<p><strong>Editor's Note:</strong> Hugo Visser is the developer of <a href="http://code.neenbedankt.com/my-first-published-android-app-rainy-days">Rainy Days</a> and <a href="http://code.neenbedankt.com/monitor-your-app-engine-application-from-your">Engine Watch</a> for Android. You can
+follow him <a href="http://twitter.com/botteaap">on Twitter</a> and <a href="http://code.neenbedankt.com">on his blog</a>.
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/16/performance-improvements-in-1-346/'>
+Performance improvements in 1.346
+</a>
+</h1>
+<div class='content'>
+<p>From time to time, we get a report of out of memory problems in Hudson. It's frequent enough that <a href="http://wiki.hudson-ci.org/display/HUDSON/I'm+getting+OutOfMemoryError">we have a dedicated Wiki page</a> that talks about how to obtain information to help devs work on the problem.</p>
+
+<p>So <a href="http://n4.nabble.com/Restarting-hudson-every-day-memory-leaks-td1311161.html">the latest thread</a> from <a id="aptureLink_RTb6QLKuCh" href="http://www.linkedin.com/in/davidwoon">David Woon</a> was assumed to be one of those ordinary trouble-shooting sessions, but thanks to Gustaf Lundh, it turned out to be a very interesting exercise.</p>
+
+<p>What we discovered was that the profiler I was using (<a id="aptureLink_VKTrt70n5i" href="http://www.yourkit.com/">Your Kit Profiler</a>), was basically eliminating all the weak/soft references from the picture entirely. If we are looking for leaks, this was the right thing, as those references will be cleared before VM chokes with <tt>OutOfMemoryError</tt>. But because of this elimination, I was completely blind to the wasteful memory usage in Jelly, which are only reachable via soft references.</p>
+
+<p>So I used <a href="http://www.eclipse.org/mat/">Eclipse Memory Analyzer</a> and YJP side by side to look into Jelly's memory usage, and based on that insight, I was able to substantially improve the memory usage and speed of Jelly.</p>
+
+<p>I monitor my production Hudson deployment with <a href="http://java.sun.com/performance/jvmstat/visualgc.html">VisualGC</a>, and the result was quite noticable. And I hope you'll notice that the response from Hudson is also snappier.</p>
+
+<p>All these changes are a part of the latest 1.346 release.</p>
+
+<hr />
+<p><strong>Editor's Note:</strong> Kohsuke Kawaguchi a senior engineer at Oracle (formerly Sun) and is the founder and author of the Hudson project. To learn more about Kohsuke, you can <a href="http://twitter.com/kohsukekawa">follow him on Twitter</a> or subscribe to <a href="http://weblogs.java.net/blog/kohsuke/">his blog</a>.
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/15/hudson-1-346-released/'>
+Hudson 1.346 Released
+</a>
+</h1>
+<div class='content'>
+<p>After some scrambling earlier in the week to get <a href="http://blog.hudson-ci.org/content/breaking-hudson-1345-released">1.345 out the door</a>, correcting some regressions in 1.344, the Hudson team still rolled out a 1.346 release last Friday, February 12th, 2010. Similar to the past couple releases, 1.346 had a good number of bug fixes, including a a performance fix when dealing with larger build submissions and a substantial revision of the SCM polling code to fix a long-standing issue with the quiet period blocking the build from running (<a href="http://issues.hudson-ci.org/browse/HUDSON-2180">issue 2180</a>), there were also some additionally memory improvements made to <a id="aptureLink_sglHnjrHm5" href="http://en.wikipedia.org/wiki/Apache%20Jelly">Jelly</a>, the library with which the majority of Hudson's web interface is rendered, that Kohsuke will detail in a later post.</p>
+
+<p>Here's the breakdown:</p>
+
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt;
+    Maven modules should not be buildable when the parent project is disabled.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1375">issue 1375</a>)
+  &lt;li class=bug&gt;</p>
+
+<pre><code>Fixed the broken quiet period implementation when polling interval is shorter than
+the quiet period.  (Changes in SCM impls are needed for this to take effect.) 
+(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-2180"&gt;issue 2180&lt;/a&gt;)
+</code></pre>
+<p>&lt;li class=bug&gt;
+    Escape username in URLs in case it contains special characters such as "#".
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2610">issue 2610</a>)
+  &lt;li class=bug&gt;
+    Fix sidepanel link for People to be visible and show view-specific info when appropriate.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5443">issue 5443</a>)
+  &lt;li class=bug&gt;
+    Improved HTML rendering, not using closing tags that do not exist in HTML.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5458">issue 5458</a>)
+  &lt;li class=bug&gt;</p>
+
+<pre><code>Show better error message for missing view type selection when creating a view.
+(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-5469"&gt;issue 5469&lt;/a&gt;)
+</code></pre>
+<p>&lt;li class=bug&gt;
+    Hudson wasn't properly streaming a large external build submission,
+    which can result in OOME and unresponsiveness.
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt;
+    Use fixed-width font in text area for shell/batch build steps.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5471">issue 5471</a>)
+  &lt;li class=rfe&gt;
+    Use user selected icon size on People page.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5447">issue 5447</a>)
+  &lt;li class=rfe&gt;
+    Speed/footprint improvement in the HTML rendering.
+</ul>
+
+<p><br clear="all" />
+#### Contributors 
+This release of Hudson contained 37 commits from 3 different contributors to "core":</p>
+
+<ul>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+<p><strong>Updated:</strong> Added the "official" changelog notes
+<!--break--></p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/42.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/42.html" class="page-link">42</a> <span class="current-page">43</span> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/44.html" class="next-link">Next</a> </div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+</body>
+</html>
