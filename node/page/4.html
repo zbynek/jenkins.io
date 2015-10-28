@@ -177,6 +177,107 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/08/05/juc-speaker-blog-series-carlo-cadet-juc-u-s-west/'>
+JUC Speaker Blog Series: Carlo Cadet, JUC U.S. West
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p><h3>Mobile is Joining the Party At This Year’s Jenkins User Conference</h3></p><br/>
+<br/>
+<p>Consider this as a shout out to mobile app developers: You are invited! For the first time, there’s a mobile track at this year’s Jenkins User Conference to discuss the best ways to extend CI/CD to mobile application testing.</p><br/>
+<br/>
+<p>As agile practices take hold, enterprises are expecting more collaboration between dev and test teams. Dev teams are doing more testing while QA teams are becoming more skilled at coding. This is happening now, and as a result open-source test automation frameworks like Selenium and Appium are flourishing. At the same time, CI/CD adoption is growing. This is happening more so for web development rather than mobile. It’s no secret that incorporating mobile test automation and CI comes with challenges. Mobile UI testing on real devices is still a manual process for many organizations. Manual testing is perhaps a path of least resistance, but it also commits teams to the longest delivery path.  Some argue they lack the environment, resources or skilled people to create test automation. While the argument rages, its clear other teams are solving the challenge.  Teams are prioritizing the requirement to build a test framework and aligning disparate tools into an effective CI workflow.  Recent webinars with <a href="http://www.perfectomobile.com/ni/support/resources/webinars/test-automation-works-for-paychex">Paychex</a> and <a href="http://www.perfectomobile.com/ni/support/resources/webinars/journey-devops-replay">RaboBank</a> demonstrate CI/CD best practices can effectively extend to mobile app programs using real devices.  Particularly when the lab is moved to the cloud and teams can focus on building robust test automation suites.</p><br/>
+<br/>
+<p>But overall, the transition to an agile SDLC for mobile apps is happening too slowly. Yet the mobile market demands constant updates. An essential part of an agile SDLC is utilizing automated testing and continuous integration. To test builds using a CI server requires automation which is key to agile development in a fast-paced mobile world because it allows testing to be done by developers early in the lifecycle.</p><br/>
+<br/>
+<p>Extending CI to mobile programs is easy with Perfecto Mobile’s support for open source frameworks such as Selenium Remote Web Driver, <a href="http://www.perfectomobile.com/Company/Media_Room/PRs/perfecto-makes-appium-enterprise-grade">Appium</a> and Calabash where existing CI plugins are available. Support for commercial tools like HP UFT is also available.  With the <a href="http://www.perfectomobile.com/integrations/jenkins">Perfecto Mobile Jenkins Plugin</a>, you can perform automated functional testing every build. The result is obvious, discover defects earlier, deliver faster feedback and increase release frequency and, ultimately, have better performing apps.</p><br/>
+<br/>
+<p>Learn more about extending your CI practice to mobile projects in our  upcoming JUC mobile session: <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-03-1130">“Fast Feedback: Jenkins and Functional Mobile App Testing Without Pulling Your Hair Out.”</a> The session will share suggested coding practices along with planning guidance on maximizing the quality coverage during daily, nightly and weekly builds.</p><br/>
+<br/>
+<p>The Jenkins User Conference US West takes place in Santa Clara, CA on Sep 2-3, 2015.</p><br/>
+<br/>
+<p>Stop by the Perfecto Mobile booth and share your story.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/cadet_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Carlo Cadet, Director of Product Marketing at Perfecto Mobile. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-03-1130">"Fast Feedback: Jenkins + Functional & Non Functional Mobile App Testing, Without pulling your Hair out!"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/'>
+Wiki and issue tracker outage over the weekend
+</a>
+</h1>
+<div class='content'>
+<p>As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?</p>
+
+<p>We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.</p>
+
+<p>The databases for the wiki and issue tracker became <a href="https://twitter.com/osuosl/status/626903003203637248">inaccessible around midnight/12 AM Thu/Fri night</a> (all times UTC). Due to the large number and size of databases on that server, <a href="https://twitter.com/osuosl/status/626946293663821824">pulling from backups</a>, <a href="https://twitter.com/osuosl/status/627027620845129729">restoring from backup</a> and <a href="https://twitter.com/osuosl/status/627237502420561920">replaying the binlogs</a> took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).</p>
+
+<p>The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.</p>
+
+<p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/08/04/bay-area-jenkins-area-meet-up-kick-off-gathering-today/'>
+Bay Area Jenkins Area Meet-up kick-off gathering today
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+  <a href="https://en.wikipedia.org/wiki/Fruit_preserves"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Welovejam_blenheim_apricot_jam.jpg"/></a><br/>
+</div><br/>
+<br/>
+<p><br/>
+A week ago <a href="http://jenkins-ci.org/content/bay-area-jenkins-area-meet-looking-you">we reported that Uday is looking at organizing a regular Jenkins meet-up in Silicon Valley</a>. This has made a progress since then, and this evening we'll get together to figure out logistics for the first meet-up:</p><br/>
+<br/>
+<dl><br/>
+<dt><b>Time</b></dt><br/>
+<dd>August 5th, Wednesday 6:30 PM - 7:30 PM</dd><br/>
+<dt><b>Location</b></dt><br/>
+<dd>Starbucks, <a href="https://www.google.com/maps/place/750+Castro+St,+Mountain+View,+CA+94041">750 Castro St, Mountain View, CA 94041</a><br/>
+</dd><br/>
+</dl><br/>
+<br/>
+<p><br/>
+The agenda is:</p><br/>
+<br/>
+<ul><br/>
+<li>Determine the date for the first meet up</li><br/>
+<li>Speakers for the second slot. Kohsuke will be presenting first.</li><br/>
+<li>Future topics of interest for JAM</li><br/>
+<li>Sponsors / Volunteers </li><br/>
+<li>Ideas to make the JAM relevant and interesting for the extended community to participate and share their implementations</li><br/>
+<li>Q &amp; A</li><br/>
+</ul><br/>
+<br/>
+<p><br/>
+Uday and I will be there, and Uday told me that he heard from another guy who will join us. If you are around and is willing to come over, we'd love to see you. If you are interested, I'd also encourage you to join <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-events">the Jenkins events list</a>, where a discussion is happening.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/08/03/just-a-month-left-until-juc-u-s-west/'>
 Just a month left until JUC U.S. West
 </a>
@@ -296,76 +397,6 @@ If you are in the Peninsula, South Bay, East Bay, etc., please send some encoura
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/24/juc-u-s-east-slides-and-video-are-now-available-online/'>
-JUC U.S. East slides and video are now available online
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/dc_0.jpg" width=200 height=149><br/>
-</div><br/>
-<br/>
-<p><a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">Slides and video from JUC U.S. East</a> are now available online!</p><br/>
-<br/>
-<p>If you attended the conference, <b>THANK YOU</b>, and I'm sure you had fun, learned a lot and met many people from the Jenkins community. Now you can revisit your <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1400-glick">favorite talks</a> or "attend" the ones that you missed.</p><br/>
-<br/>
-<p>If you were unable to attend JUC U.S. East, you now have the <a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">slides and video</a> so you can "attend" anyways! If you like what you see and would like to attend a JUC this year, there is <b>ONE</b> date left in the 2015 Jenkins User Conference World Tour: <b>JUC U.S. West is September 2-3 in Santa Clara, CA. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here.</a></b></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/24/integrating-kubernetes-and-jenkins/'>
-Integrating Kubernetes and Jenkins
-</a>
-</h1>
-<div class='content'>
-<p><a href="http://kubernetes.io/">Kubernetes</a> is an open-source project by Google that provides a platform for managing Docker containers as a cluster. In their own words:</p>
-
-<blockquote>
-  <p>Kubernetes is an open source orchestration system for Docker containers. It handles scheduling onto nodes in a compute cluster and actively manages workloads to ensure that their state matches the users declared intentions. Using the concepts of "labels" and "pods", it groups the containers which make up an application into logical units for easy management and discovery.</p>
-</blockquote>
-
-<p>Kubernetes-related services by Google are the <a href="https://cloud.google.com/container-engine/">Google Container Engine</a>, a Kubernetes-powered platform for hosting and managing Docker containers, and the <a href="https://cloud.google.com/tools/container-registry/#overview">Google Container Registry</a>, a private Docker image registry.</p>
-
-<p>Several new Jenkins plugins allow you to make use of Kubernetes and these services:</p>
-
-<ul>
-  <li>The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Google+Container+Registry+Auth+Plugin">Google Cloud Registry Auth Plugin</a> allows users to authenticate with the Google Cloud Registry so they can push/pull images. This allows you to use the Google Cloud Registry with existing Docker-related plugins, like <a href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+build+step+plugin">Docker build step plugin</a> or <a href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Custom+Build+Environment+Plugin">CloudBees Docker Custom Build Environment Plugin</a>.</li>
-  <li>The <a href="https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin">Kubernetes Plugin</a> implements a cloud provider for Jenkins, and can create slaves based on Docker images on-demand on your Kubernetes cluster or the Google Cloud Platform.</li>
-</ul>
-
-<p><a href="https://www.youtube.com/watch?v=PFCSSiT-UUQ&amp;index=21&amp;list=PL69nYSiGNLP0Ljwa9J98xUd6UlM604Y-l">Watch Kohsuke demoing Jenkins/Kubernetes integration at OSCON earlier this week.</a></p>
-
-<p>For a more in-depth look at how you can use Kubernetes with Jenkins, check out these posts on the CloudBees blog by Tracy Kennedy:</p>
-
-<ul>
-  <li><a href="http://blog.cloudbees.com/2015/07/orchestrating-deployments-with-jenkins.html">Orchestrating deployments with Jenkins Workflow and Kubernetes</a></li>
-  <li><a href="http://blog.cloudbees.com/2015/07/on-demand-jenkins-slaves-with.html">On-demand Jenkins slaves with Kubernetes and the Google Container Engine</a></li>
-  <li><a href="http://blog.cloudbees.com/2015/07/clustering-jenkins-with-kubernetes-in.html">Clustering Jenkins with Kubernetes in the Google Container Engine</a></li>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/23/office-hours-are-back/'>
-Office hours are back
-</a>
-</h1>
-<div class='content'>
-<p>After several months of inactivity, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">office hours</a>, the bi-weekly meeting of Jenkins users and developers to learn more about Jenkins, are back.</p>
-
-<p>I'll host the first session <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&amp;iso=20150729T11&amp;p1=283&amp;ah=1">next Wednesday at 11 am PDT</a>. This session will be about Stapler, focusing on what Jenkins plugin authors need to know about it, e.g. request routing, form submission handling, or how Jelly/Groovy views work.</p>
-
-<p>While this is going to be a developer-focused session, future session topics will also have Jenkins users as target audience.</p>
-
-<p>For general information on office hours, and how to join, see the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">wiki</a>.</p>
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/3.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <a href="/node/page/3.html" class="page-link">3</a> <span class="current-page">4</span> <a href="/node/page/5.html" class="page-link">5</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/5.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -384,12 +415,9 @@ Office hours are back
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

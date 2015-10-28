@@ -177,6 +177,163 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/09/20/tweet-of-the-day/'>
+Tweet of the Day
+</a>
+</h1>
+<div class='content'>
+<p>Some of you may have been following all the photos posted to the <a href="http://www.flickr.com/photos/hudsonlabs/">hudsonlabs Flickr account</a> from this year's JavaOne conference in San Francisco.</p>
+
+<p><a href="http://twitter.com/a1o1">Alan O'Leary</a> responded to this photo with one of the <a href="http://twitter.com/a1o1/status/25032555850">funniest comments</a> of the day:</p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5008009575/" title="This way to JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4151/5008009575_52e7f18fdf.jpg" width="500" height="375" alt="This way to JavaOne" /></a><br clear="all" /><strong><em>"Java and Oracle - 'In Opposite Directions'"</em></strong></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/20/pre-javaone-hudson-meetup-redux/'>
+Pre-JavaOne Hudson Meetup Redux
+</a>
+</h1>
+<div class='content'>
+<p>Yesterday Digg was kind enough to host and "sponsor" (read: free drinks and
+pizza!) a Hudson meetup at their offices in San Francisco. While Digg has been
+the source of some controversy and press due to their recent redesign and corporate
+shake-ups, as far as the Hudson community goes they've been largely responsible for
+a <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">great case study on continuous deployment</a> using Hudson and <a href="http://code.google.com/p/gerrit">Gerrit</a>.</p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5005123971/" title="Thanks to @digg for hosting the #HudsonCI meetup by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4130/5005123971_403f24733d.jpg" width="500" height="375" alt="Thanks to @digg for hosting the #HudsonCI meetup" /></a></center>
+
+<p>Attendees included all of InfraDNA (Kohsuke and Kedar), some folks from CloudBees, a
+number of local users/developers like <a href="http://twitter.com/LewisHam">LewisHam</a> and myself, and
+to top off the list a couple Oracle employees including <a href="http://twitter.com/wjprakash">Winston Prakash</a> who is now hacking on Hudson inside of Oracle.</p>
+
+<p>As folks started arriving there was a lot of discussion around "Hudson at Scale", specifically
+regarding Hudson "in the cloud". We also got to hear about one of the most interesting Hudson
+use-cases I've ever seen by <a href="http://edwardmgoldberg.com">Edward M. Goldberg</a> who I'll post an
+interview with shortly, imagine using Hudson with <strong>thousands</strong> of machines, it's that interesting.</p>
+
+<p>Through the afternoon there were a number of great discussions concerning Hudson stability,
+engaging more of the community and nitty-gritty details regarding Hudson's internals such
+as the plugin API.</p>
+
+<p>I've posted <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624992088468/">photos from the event</a> on
+Flickr for posterity in case you're interested. Overall I'd judge the meetup to be a success, it was a
+lot of fun and a great way to spend a Sunday with Hudson.</p>
+
+<p>If you're going to be at JavaOne, come track me down and let's talk about Hudson, if you're not in San Francisco for the event, you can always follow my updates on <a href="http://twitter.com/hudsonci">Twitter</a> or hit up <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624996965000/">Flickr</a></p>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/20/live-blog-kohsukes-presentation-at-javaone/'>
+Live Blog: Kohsuke's Presentation at JavaOne
+</a>
+</h1>
+<div class='content'>
+<p><strong>Editor's note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi's</a> presentation at JavaOne 2010.</em></p>
+
+<p><a href="http://www.flickr.com/photos/hudsonlabs/5008629375/" title="Kohsuke talks to a packed room at #JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4083/5008629375_6f603b6093_m.jpg" width="180" height="240" alt="Kohsuke talks to a packed room at #JavaOne" align="right" /></a></p>
+
+<p>Kohsuke takes the stage, asks "who uses's Hudson" the majority of
+audience raises their hands</p>
+
+<p>Discussing the great ecosystem using Hudson across the wide-variety of platforms/languages.
+330+ community written plugins. Last year at JavaOne we had 230+ plugins</p>
+
+<p>Eclipse Community Survey, Hudson adoption from 9.1% in 2009 to 21.8%</p>
+
+<p>Discussing Hudson adoption, going over Hudson job postings on indeed.com going up compared to a stagnant Cruise Control.</p>
+
+<p>Kohsuke introduces himself and InfraDNA, started Hudson in 2004/2005.</p>
+
+<p>First steps to CI, 10,000 foot overview of SCM monitoring/build/testing. Delving into using Hudson
+for automating <strong>everything</strong> to get "more out of your Hudson deployment.</p>
+
+<h3 id="interconnecting-jobs-aka-workflows">"Interconnecting Jobs aka Workflows"</h3>
+
+<p>Hudson allows for hosting many projects on one Hudson deployment, meaning you need a smaller number of administrators for a larger number of jobs compared to Cruise Control.</p>
+
+<p>Building Block #1: Triggering. Using "upstream" and "downstream" jobs ot interconnect jobs to form a workflow in Hudosn. Triggering is asynchronoys in Hudson, useful for separating builds and multiple test jobs. Splitting the build and test jobs so you build quickly test many tests in parallel.</p>
+
+<p>Avoid recompiling compilation/builds in the "downstream" test runs. "Copy Artifact" plugin very useful for passing built executables to test jobs.</p>
+
+<p>Upstream/downstream separation also highly useful for separating build and deployment into a continuous workflow.</p>
+
+<p>Building Block #2: Join plugin. Fan downstream jobs out and then bring everything back together for final
+steps.</p>
+
+<p>Shows Join plugin configuration screen because "perhaps the configuration is a little unintuitive".</p>
+
+<p>Building block #3: Fingerprints. Using MD5 checksums from artifacts to learn more about those artifacts in your
+Hudson, tying together artifacts from different jobs/builds. Letting Hudson recording these fingerprints of those artifacts in your lifecycle allows Hudson to help you find out where/when those executables came from.</p>
+
+<p>Fingerprinting mechanism good for tracking dependencies from third parties, Hudson uses 3rd party fingerprints to compute additional information. Also useful for aggregating reports.</p>
+
+<p>Going a bit further using the "build promotion plugin" to weed out which builds are "better than others." Taking fingerprints from a build job all the way through the life cycle and passing that fingerprint around test/smoke test jobs, if that passes, build passes on to more rigorous testing, only if it's passed base-level testing. Basic model of promotion maps to a "confidence level", 1st level passes compilation, 2nd level passes smoke test, 3rd level passes expensive/time-consuming tests.</p>
+
+<p>One of the reasons to use promotion in your lifecycle to ensure that artifacts meet a minimum "confidence level" so you're not expending resources running the longer tests )think about a promotion hierarchy)</p>
+
+<p><strong>Demo time!</strong></p>
+
+<p>Kohsuke demoing build promotion live with fingerprinting of sample jar files. Creating a "component-X" build and a "test-X" build. test-X job using the "Copy Artifact" plugin to grab artifacts from the component-X build.</p>
+
+<p>Defining the promotion criteria in "component-X", "test-X" promoted, indicates that certain builds promoted a build.</p>
+
+<p><strong>End demo time!</strong></p>
+
+<h3 id="maven-integration">Maven Integration</h3>
+
+<p>Maven integration highlights. Going over POM comprehension and simplified configuration due to more information
+getting inferred from the POMs. Building dependency chains with Maven integration.</p>
+
+<p>"That's the basics, let's talk about advanced integration with Maven"</p>
+
+<p>Parallel-module builds! Letting Hudson builds modules with a single checkbox, meaning wherever possible Hudson will try to build your modules in parallel when possible.</p>
+
+<p>Incremental builds! Only building changed modules in a build run to be more efficient, preventing the need to rebuild the whole project from scratch every time. Hudson's SCM integration to determine what the mapping between files changed and modules needing to be built.</p>
+
+<p>Private Maven repositories! Avoiding artifacts being overwritten by others, telling Hudson to create a Maven repository <strong>per-project</strong> (at the expense of more bandwidth/disk space needed), helps segregate builds to avoid them stomping on each other.</p>
+
+<p>After-the-fact deployment, avoiding deploying modules unless the whole build is successful (all modules properly built). Instead of using <code>mvn deploy</code>, you tell Hudson to deploy to your Maven repository with a single checkbox.</p>
+
+<h3 id="matrix-project">Matrix Project</h3>
+
+<p>No longer alpha! Production-ready!</p>
+
+<p>Often used to build/test across slight variations of build environments such as different platforms for a C++ project. Conceptually it's like running your build in a for loop.</p>
+
+<p>Hudson supports a number of different axes, most popular of which being a "slave axis" which allows you to use different labels or specific slaves for the build. Hudson also supports arbirtrary text fields as axes to be passed along to the build steps as environment variables.</p>
+
+<p>Touching on "filtering" in the matrix project support to remove parts of an axis that you do not need. I.e if you have a "platform" and a "browser" axes for web testing, you can exclude the "iexplore" value of the "browser" axis when the "platform" axis is "mac".</p>
+
+<p><strong>Demo time!</strong></p>
+
+<p>Defining two axes, "slave" axis and the "JDK" axis to build against different JDK versions on linux, solaris and windows. Excluding "touchstone builds" to avoid rebuilding a large number of matrix builds unless a limited subset of the combinations successfully build. Used to avoid spending a lot of time spinning cycles on very obvious errors that the first few builds "recognize" immediately.</p>
+
+<p><strong>End demo time</strong></p>
+
+<h3 id="doing-selenium-testing-on-hudson">Doing Selenium testing on Hudson</h3>
+
+<p>Use "Selenium Grid plugin" to install Selenium binaries on all slaves and prepares them all to talk to each other. Useful for "overloading" an existing Hudson cluster as a Selenium cluster.</p>
+
+<p>Using labels in Hudson to better determine which node has which browser.</p>
+
+<p>Selenium integration is <strong>very</strong> powerful when combined with the join plugin and the matrix configuration support in Hudson for web testing across a large number of platforms and browsers.</p>
+
+<p>The Hudson project has invested heavily in getting great cluster support which helps tremendously with Selenium which has invested as heavily in clustering.</p>
+
+<p>How to you deal with Selenium needing a GUI while Hudson slaves are largely headless. Use the Xvnc plugin! On Windows things are bit trickier, easier to let Hudson slave/service "interact with desktop" such that it can access dialogs/etc. Failing everything else, configuring Windows for auto-login and then have JNLP slaves autostart at login will work for allowing the slave to use the GUI and network resources.</p>
+
+<p>The rest of the session was dedicated to some good Q&amp;A. Great session by Hudson's founder.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/09/17/javaone-taking-shape/'>
 JavaOne taking shape
 </a>
@@ -298,78 +455,6 @@ Starting 1.372, Hudson now lets you use boolean expressions here, instead of jus
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/01/copenhagen-hudson-user-meetup/'>
-Copenhagen Hudson User Meetup
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Kopenhagen_Innenstadt.JPG/280px-Kopenhagen_Innenstadt.JPG" style="float:right; margin-left:1em">September is turning into a meetup month for the Hudson community. In parallel to <a href="http://hudson-labs.org/content/hudson-javazone-meetup-oslo">the meetup in Oslo</a> and <a href="http://hudson-labs.org/content/pre-javaone-hudson-meetup">the meetup in JavaOne</a>, <a href="http://www.nokia.com/">Nokia</a> and <a href="http://infradna.com/">InfraDNA</a> are hosting a meetup in Copenhagen on September 6th, Monday. Read on for the details.<br/>
-<!--break--><br/>
-<p><br/>
-The current tentative plan is to do a short "state of the union / what's new" kind of presentation, then use the rest of the time for open mic Q&amp;A, but if you have other ideas, or better yet if you want to do some talks, please let me know. I think the event will be fun.<br/>
-<br/>
-<p><br/>
-If you plan on coming, please <a href="mailto:event@infradna.com">drop me a note</a>, so that we can get some sense of the attendance.<br/>
-<br/>
-<ul><br/>
-<li><b>When:</b> September 6th, 18:30<br/>
-<li><b>Where:</b> Auditorium 1, Nokia Denmark A/S, København (<a href="http://maps.google.dk/maps?f=q&source=s_q&hl=da&geocode=&q=Nokia+Danmark+A/S,+K%C3%B8benhavn&sll=55.869147,11.228027&sspn=9.259564,26.367188&ie=UTF8&hq=Nokia+Danmark+A/S,&hnear=K%C3%B8benhavn&t=h&ll=55.649606,12.541698&spn=0.000284,0.000805&z=21">map</a>)<br/>
-<li>Food will be provided.<br/>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/31/hudson-at-javazone-meetup-in-oslo/'>
-Hudson at JavaZone, Meetup in Oslo 
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-<a href="http://jz10.java.no/">JavaZone</a> is a big Java conference in Scandinavia, and Hudson is well represented there. On September 8th, Håkon Snøtun will be presenting "Top 5 plugins for Hudson and Chuck Norris." and on September 9th, I'll be presenting "Getting more out of your Hudson."<br/>
-<br/>
-<p><br/>
-But more importantly, what is a conference without drinking!? So in that spirit, <a href="http://infradna.com/">InfraDNA</a> will be organizing a Hudson User Meetup at <a href="http://maps.google.com/maps?hl=en&q=Oslo&ie=UTF8&hq=&hnear=Oslo,+Norway&ll=59.912614,10.743604&spn=0.001589,0.004823&t=h&z=18">The Scotsman</a> from Sep 8th 19:30 (<a href="http://www.scotsman.no/">website</a>.) We'll get together, have some drinks, and enjoy geeky conversations.<br/>
-<br/>
-<br/>
-<p><br/>
-So if you are local or visiting Oslo for JavaZone, come join us. If you plan to join us at The Scotsman, please <a href="mailto:kohsuke@infradna.com">RSVP</a>, and watch out for <a href="http://twitter.com/kohsukekawa">my twitter updates</a> for any last minute time/location changes.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/30/pre-javaone-hudson-meetup/'>
-Pre-JavaOne Hudson Meetup
-</a>
-</h1>
-<div class='content'>
-<p>As we near autumn up here in the Northern Hemisphere, the wind is starting to blow a bit chillier and here in the Bay Area that can only mean one thing: <strike>Oracle is suing everybody!</strike> it's time for JavaOne!</p>
-
-<p>A whole lot has changed since last year, Sun Microsystems was acquired by Oracle, <a href="http://kohsuke.org/">Kohsuke</a> left Snoracle to found <a href="http://www.infradna.com">InfraDNA</a> and Hudson has continued to <a href="http://www.hudson-labs.org/content/cloudbees-announce-hudson-service">power on</a> as the single <strong>best</strong> continuous integration server on the planet.</p>
-
-<p>While the tickets for Oracle OpenWorld/JavaOne are just as outrageously expensive as they were last year, we <strong>are</strong> hosting a meetup/hackathon/continuous-drinking-contest at <a href="http://about.digg.com/opensource">Digg</a> the Sunday prior. We have not yet set any kind of agenda, but some core Hudson hackers and plenty of plugin developers should be in town so it should be a great time hacking on and/or with Hudson.</p>
-
-<p><big><a href="http://www.meetup.com/hudsonmeetup/calendar/14515128/">RSVP Here!</a></big>
-<!--break-->
-* <strong>When:</strong> September 19th, 1:00 p.m.
-* <strong>Location:</strong> Digg's Office: 1040 Mariposa St - Suite 100, San Francisco, CA 94107</p>
-
-<center>
-<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small></center>
-
-<hr />
-
-<p><em>Note:</em> Unlike last year, we're trying to organize this with <a href="http://meetup.com">Meetup.com</a>, if you experience any difficulties RSVPing let us know</p>
-
-<hr />
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/32.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/32.html" class="page-link">32</a> <span class="current-page">33</span> <a href="/node/page/34.html" class="page-link">34</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/34.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -388,12 +473,9 @@ Pre-JavaOne Hudson Meetup
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

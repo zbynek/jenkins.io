@@ -177,6 +177,89 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/05/13/new-download-link-test/'>
+New download link test
+</a>
+</h1>
+<div class='content'>
+<p>I'm testing the new download page.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/12/the-state-of-the-jenkins-project/'>
+The State of the Jenkins Project
+</a>
+</h1>
+<div class='content'>
+<p>A few weeks ago our very own <a href="http://www.twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> gave a presentation at the <a href="http://events.linkedin.com/Silicon-Valley-Continuous-Integration/pub/591454">Silicon Valley CI Summit</a> held in Mountain View.</p>
+
+<p>Within the presentation, Kohsuke included a collection of numbers about the vibrancy of the Jenkins project that certainly hasn't gotten enough attention. While the slideshow is embedded below, here's some good high-level points:</p>
+
+<ul>
+  <li>Over 170 <a href="https://github.com/jenkinsci">GitHub</a> pull requests in the past four months, with more being sent every day.</li>
+  <li>Formalization of a "Jenkins Stable" branch of development with longer release cycles and back-ported bugfixes.</li>
+  <li>Over 280 tickets in <a href="https://issues.jenkins-ci.org">JIRA</a> have been resolved.</li>
+  <li>After posting a "special" release of Hudson which presents users with a choice, <strong>87.25%</strong> are choosing to upgrade to Jenkins.</li>
+  <li>Over 500 tickets have been created</li>
+  <li>Roughly 13,000 downloads of <code>jenkins.war</code> and native packages a week</li>
+  <li><strong>New</strong> and vibrant community-driven initiatives like <a href="http://twitter.com/fcamblor">Frederic Camblor's</a> plugin compatibility tester and <a href="http://twitter.com/cowboyd">Charles Lowell's</a> JRuby plugin support project.</li>
+  <li>We've crossed 1500 participants on the <code>jenkinsci-user</code> mailing list, and are over 900 participants on the <code>jenkinsci-dev</code> list.</li>
+  <li>The <a href="http://twitter.com/jenkinsci">@jenkinsci</a> twitter account recently crossed the 4,000 follower threshold.</li>
+</ul>
+
+<p>On a personal note, I think this speaks all to the level of unbridled enthusiasm about the future of Jenkins by contributors both new and old.</p>
+
+<p>Without further delay, the slides:</p>
+
+<center><div style="width:425px" id="__ss_7835978"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/kohsuke/current-state-of-jenkins" title="Current state of Jenkins">Current state of Jenkins</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7835978" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/kohsuke">Kohsuke Kawaguchi</a> </div> </div></center>
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
+Ruby Plugins Hack Session 5/12/2011
+</a>
+</h1>
+<div class='content'>
+<p>[<strong>Editor's Note:</strong> <em>For the past few weeks Jenkins community member <a href="http://twitter.com/cowboyd">Charles Lowell</a> has been working with <a href="http://twitter.com/kohsukekawa">Kohsuke</a> on adding support for building plugins in Ruby. As part of this effort, <a href="http://twitter.com/cowboyd">Charles</a> has been hosting weekly hack sessions via WebEx</em>]</p>
+
+<p>As always, last night's Ruby Plugins hack session was a pleasure. Below is a quick notation of what items were discussed and/or accomplished followed by next steps to be taken my those in attendance.</p>
+
+<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
+
+<ul>
+  <li>Ruby Plugin project structure and how to bundle into an .hpi file.</li>
+  <li>Review of the new XSTREAM serialization method</li>
+  <li>API for marking fields as transient</li>
+  <li>What mods, if any, are required to get .hpl to work with Ruby plugin</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<h3 id="charles">Charles</h3>
+
+<ul>
+  <li>to research what can be shared between JRuby <code>ScriptingContainer</code>s</li>
+  <li>API for unmarshaling hooks on serialized ruby objects</li>
+  <li>Change the name of the repo :)</li>
+  <li>Document… something!</li>
+</ul>
+
+<h3 id="kohsuke">Kohsuke</h3>
+<ul>
+  <li>test more view functions</li>
+  <li>add debug mode outside of hpi:run
+<!--break--></li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/05/04/hamburg-hackathon-a-great-success/'>
 Hamburg hackathon a great success!
 </a>
@@ -288,178 +371,6 @@ San Francisco Jenkins Meetup - Wednesday, April 13th
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/03/23/windows-installers-are-now-available/'>
-Windows installers are now available
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Good portion of Java developers use Windows, so we tend to think the opposite is true, that a good portion of Windows folks use Java. But this is not true.<br/>
-<br/>
-<p><br/>
-As Jenkins gains traction among .NET developers, it's becoming increasingly clear that Java is very alien to them. They naturally have no idea of what a war file means, and often don't even have Java installed, and so it was <i>just not easy enough</i> for them to start using Jenkins.<br/>
-<br/>
-<p><br/>
-I'm happy to report that I've finally fixed this problem with the new Windows installer. It is primarily packaged as <a href="http://en.wikipedia.org/wiki/Windows_Installer">an MSI file</a> &mdash; a common format that seasoned Windows devs/admins are familiar with. It can, for example, be deployed remotely on a large number of servers via Active Directory remotely. Or you can just double-click it to install it interactively. It bundles JRE, so no separate Java installation is needed.<br/>
-<br/>
-<p><br/>
-The package also contains the bootstrap <tt>setup.exe</tt>, to install .NET 2.0 runtime if it's not installed yet. Between that and JRE, it got all the dependencies covered. I tested that by installing it on a fresh Windows XP install.<br/>
-<br/>
-<p><br/>
-So I hope this makes Jenkins more attractive to .NET and other developers who live and die by Windows.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/03/21/the-polls-are-open-for-the-jenkins-logo-contest/'>
-The polls are open for the Jenkins Logo Contest!
-</a>
-</h1>
-<div class='content'>
-<p>After a number of <strong>absolutely</strong> fantastic logo submissions from a number of designers, I'm extremely pleased to open the polls on the vote for the <strong><em>brand new Jenkins logo!</em></strong></p>
-
-<p>The thumbnails do not do any of these logos justice in my opinion, so I recommend opening each logo up in its own tab to get the full effect :)</p>
-
-<p>I plan to end voting <strong>March 28th at 12:01 UTC</strong>.</p>
-
-<h3 id="the-logos">The Logos</h3>
-
-<table>
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_matthias_cullman.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_christopher_getschmann.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_emily_bertelson.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-1">Logo #1</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-2">Logo #2</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-3">Logo #3</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_tomas_ekeli.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_vimil_saju.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_akiko_takano.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-4">Logo #4</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-5">Logo #5</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-6">Logo #6</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_jeremy_murray.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_2.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-7">Logo #7</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-8">Logo #8</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-9">Logo #9</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_ben_minne.thumbnail.png" />
-        </td>
-        <td align="center">
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-10">Logo #10</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-11">Logo #11</a>
-        </td>
-        <td align="center">
-        </td>
-    </tr>
-</table>
-<!--break-->
-<p>### The Vote</p>
-
-<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ">the form in a new window</a></p>
-
-<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ" width="760" height="734" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/03/13/jenkins-hits-1-400/'>
-Jenkins hits 1.400
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-<a href="http://jenkins-ci.org/">Jenkins</a> is now at 1.400 (as of last Monday, yes, I know. But better late than never...). As with <a href="http://weblogs.java.net/blog/2009/04/22/hudson-hits-1300?force=752">1.300</a> and <a href="http://weblogs.java.net/blog/kohsuke/archive/2008/03/hudson_hits_120.html?force=824">1.200</a>, this release doesn't particularly signify any substantial major release, but nonetheless it is a milestone for those of us who are involved in the project &mdash; I think repeating something 400 times is something one can be proud of. It's a bit like climbing a mountain. Left foot, right foot, left foot, right foot, ... and when you look up, voila!<br/>
-<br/>
-<p><br/>
-In 2 years since 1.300, which was April 2009, we've added a lot of features. We now have a CLI to manipulate the server, auto-installation of JDK/Ant/Maven to simplify cluster management, concurrent builds of the same job, community-contributed localizations to 20+ languages, boolean expression over the job/label assignment control, parallel initialization based on a dynamically built acyclic directed graph, console annotations to enrich the build output, far more extensible queue (that enabled a lot of plugins), Windows 7 / Vista support, improved master/slave communication stability, Maven 3 support, and then all around performance improvements, in memory footprint, in startup time, and in page rendering speed.<br/>
-<br/>
-<p><br/>
-And of course, we had to change the name of the project. That was a real distraction, but now that the divorce is over, things have been <a href="http://bobbickel.blogspot.com/2011/03/jenkins-vs-hudson-time-to-upgrade.html">moving well</a> for Jenkins. I guess any organization (including any sizable OSS project) is really more than sum of all individuals. If you take a store of Target and replace all its workers by those of nearby Staples, it'll probably not work out well. I think <a href="http://jenkins-ci.org/why">people understand that</a>. <br/>
-<br/>
-<p><br/>
-And on the positive side, I do think we came out stronger. We are now running <a href="http://jenkins-ci.org/node/280">governance meetings on IRC</a>, we now have <a href="http://jenkins-ci.org/content/jenkins">somewhat more formal governance structure</a>. The core development is actually accelarating with the help of <a href="https://github.com/jenkinsci/jenkins/graphs/impact">many new developers</a>, such as Olivier Lamy, (scroll to the right), and <a href="http://twitter.com/#!/jenkins_release">plugin releases kept coming at amazing rate</a> &mdash; we are now at 350+ plugins, more than doubled since 1.300.<br/>
-<br/>
-<p><br/>
-Looking at future, we are working on a number of new initiatives in the community, too. For example, Arnaud Héritier is working on revisiting <a href="http://issues.jenkins-ci.org/">our JIRA project structure</a>, Andrew Bayer is running a contest for new logo, Tyler is in process of getting additional hardwares at OSUOSL for the project. I'm also doing a lot of things, but for example, I'm going to write a proposal to start a stable patch releases of Jenkins that only consists of backported important bug fixes, in addition to the current weekly release model. Several large users maintain private branches of Jenkins, and so I think it makes a lot of sense for those folks to align their efforts around this release line. I'm also thinking that we could launch a community acceptance testing (CAT) effort around this, much like <a href="http://qa.netbeans.org/processes/cat/67/faqs.html">NetBeans</a> and <a href="http://glassfish.java.net/quality/portal/">GlassFish</a> have done it. I think the first stable release line would branch off from 1.400, so if anything that's another reason you should upgrade to 1.400.<br/>
-<br/>
-<p><br/>
-When I reflect on the project, I'm surprised at just how much work there is to be done, after so much that has been achived. But I'm still excited at what we can do with this platform. I thank everyone for their continued patoronage of Jenkins, and I hope to see more of you in the mailing lists, in the chat rooms, and in the meet-up events. And here is <a href="http://en.wikipedia.org/wiki/Buzz_Lightyear">to infinity and beyond!</a><br/>
-<br/>
-<p><br/>
-(Cross-posted to <a href="http://kohsuke.org/2011/03/13/jenkins-hits-1-400/">Kohsuke's blog</a>)
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/28.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/28.html" class="page-link">28</a> <span class="current-page">29</span> <a href="/node/page/30.html" class="page-link">30</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/30.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -478,12 +389,9 @@ When I reflect on the project, I'm surprised at just how much work there is to b
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

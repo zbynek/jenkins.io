@@ -177,6 +177,95 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/06/10/two-weeks-till-jenkins-user-conference-berlin/'>
+Two Weeks Till Jenkins User Conference Berlin
+</a>
+</h1>
+<div class='content'>
+Following right on the heels of our <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">US-East Jenkins User Conference in Boston</a>, we have JUC Europe in Berlin on June 25. Like the East Coast conference, the Berlin one is almost full, so <a href="http://www.eventbrite.com/e/jenkins-user-conference-europe-berlin-june-25-2014-tickets-10557974185">sign up while you can.</a><br/>
+<br/>
+Our venue in Berlin is <a href="http://www.kosmos-berlin.de/en/home.html">KOSMOS</a>, a building with <a href="http://www.kosmos-berlin.de/en/history.html">a fascinating history</a>. The building was inaugurated as a cinema in 1961. With 1001 seats, it was the largest, most modern and most popular film theatre in the former GDR and has since been extensively modernized in line with the requirements of historically listed buildings. <br/>
+<br/>
+We have <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">an excellent line-up of speakers</a> filling up two conference tracks.<br/>
+<br/>
+Once again, we have some fabulous sponsors to thank. Without them, there would be no JUC.<br/>
+<br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/JUC-Berlin-Sponsors.png" /> <br/>
+<br/>
+This year we’ve introduced a new Community sponsorship level, which allows non-corporate groups like JUGSs to help support the conference as well. (Drop a note to juc-oc-ext AT cloudbees DOT com if your group is interested).<br/>
+<br/>
+We are very grateful to all of our sponsors – thank you! Hopefully see everyone at JUC.<br/>
+<br/>
+PS – if you are coming to Berlin for JUC, check out the <a href="http://www.cloudbees.com/cdsummit/berlin">CD Summit on June 24</a> at the same venue. There’s also <a href="http://www.cloudbees.com/cdsummit/nyc">one on June 19 in NYC</a>. The summit will focus on how continuous integration with Jenkins streamlines processes and automates testing and deployment, providing the foundation you need for continuous delivery.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/09/thinking-about-moving-on-to-servlet-3-0/'>
+Thinking about moving on to Servlet 3.0
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+  <a href="http://en.wikipedia.org/wiki/Subaru_Legacy"><br/>
+    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Subaru_Legacy_V_Kombi_rear_20100402.jpg/320px-Subaru_Legacy_V_Kombi_rear_20100402.jpg" width=240 height=156><br/>
+  </a><br/>
+</div><br/>
+<br/>
+<p><br/>
+One of the current efforts under way in the dev list is driven by <a href="https://github.com/tfennelly">Tom Fennelly</a> et al, who is working on introducing a series of small ball improvements to the user interface in Jenkins. If this is something you are interested in (and who aren't?), you should see <a href="https://gist.github.com/kevinburke/9d4f127a7005eaa9d970">Kevin Burke's manifest</a> that sets out the plan of attack, and <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/zDaX4yiWLLw">This mega thread on the dev list</a> for the discussion.<br/>
+<br/>
+<p><br/>
+There are numerous sub-conversations born out of this, and one of them is the minimum required servlet spec version for Jenkins.<br/>
+<br/>
+<p><br/>
+Jenkins devs are thinking about ways to update page contents post load, for example so that the list view will keep updating as stuff happens. <a href="http://en.wikipedia.org/wiki/Websocket">WebSocket</a> was discussed as an option, and then <a href="http://en.wikipedia.org/wiki/Server-sent_events">server-side events</a>, which seems to be the current favorite.<br/>
+<br/>
+<p><br/>
+To use any of those async HTTP features, we need servlet 3.0. Unfortunately, if we are to do it, Jenkins will not run on earlier versions of the container. There's no graceful fallback that works with servlet 2.5 containers due to the way servlet 3.0 is written.<br/>
+<br/>
+<p><br/>
+So I looked into <a href="https://docs.google.com/spreadsheets/d/14YzFgKBB6BvbRU_1OjChC3efECWPs77TEGTU09t3KGw/edit#gid=873989456">the impact of this change to the users</a>.<br/>
+<br/>
+It turns out that the most users run Jenkins through <tt>java -jar jenkins.war</tt>, which are already running servlet 3.0 compatible Winstone 2.x (based on Jetty 8.) And people running newer version of Jenkins tends to run newer version of containers. When I look at people who are running >=1.509 and later, 70% of them run on servlet 3 compatible container. The number for >=1.532 is 84%, then for >=1.554 it's 94%.<br/>
+<br/>
+<p><br/>
+When I look at which container is dragging us down as of >= 1.554, you see that there's a sizable Tomcat6 deployments (2.5%). If we start requiring Servlet 3.0 these people will be in a nasty surprise. Then there's about 1.8% who claims to be running on Winstone 0.9.10, which is really puzzling, but I'm assuming these people are getting OEM-ed Jenkins of a sort (multiple large companies are known to do this), so these people will likely be able to update to Winstone 2.x automatically by virtue of getting a new jenkins.war from their upstream. So all in all I'd say if we start requiring servlet 3.0 today, there'll be about 3% user base who will be impacted.<br/>
+<br/>
+<p><br/>
+This post is a trial balloon to see the community reaction to this idea. If you have reasons to argue against us moving to servlet 3.0, we'd like to hear from you &mdash; <a href="https://issues.jenkins-ci.org/browse/JENKINS-23378">please share your thoughts on our issue tracker</a>!<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/06/other-events-for-juc-visitors-cd-seminar/'>
+Other events for JUC visitors: CD seminar
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Circus"><br/>
+<img width=240 height=180 src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CircusTent02.jpg/320px-CircusTent02.jpg"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+If you will be on the US East Coast or in Berlin for JUC, some of the JUC sponsors are organizing separate events called <a href="http://www.cloudbees.com/cdsummit">Continuous Delivery Seminar</a>, which might be of interest to you. These events focus more on higher-level business value questions as well as vendor solutions that are difficult in community-focused JUC.<br/>
+<br/>
+<ul><br/>
+<li><a href="http://www.cloudbees.com/cdsummit/nyc">New York City on June 19</a>, the day after JUC US East &mdash; headlined by Forrester Research analyst Kurt Bittner<br/>
+<br/>
+<li><a href="http://www.cloudbees.com/cdsummit/berlin">Berlin on June 24</a>, the day before JUC Europe &mdash; headlined by Jan Hagen, author of <i>Confronting Mistakes: Lessons from the Aviation Industry when Dealing with Errors</i><br/>
+<br/>
+</ul><br/>
+<br/>
+<p><br/>
+Read more about the events <a href="http://blog.cloudbees.com/2014/06/cd-summit-learn-from-continuous.html">here</a>. The events are free and I've heard that there'll be some souveniors. I'm one of the speakers, and I'll be talking about Jenkins, as always!<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/06/05/get-drunk-on-the-code-in-juc-boston/'>
 Get drunk on the code in JUC-Boston
 </a>
@@ -317,82 +406,6 @@ I think we all agree that this is an important effort/ Looking forward to joinin
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/05/19/jenkins-office-hour-tutorial-on-writing-an-acceptance-test/'>
-Jenkins Office Hour: Tutorial on writing an acceptance test
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img width="200" src="https://wiki.jenkins-ci.org/download/attachments/57181939/hangout.png?version=1&modificationDate=1361998218000"><br/>
-</div><br/>
-<br/>
-<p><br/>
-This week I'm going to do an office hour on how to write an acceptance test in <a href="https://github.com/jenkinsci/acceptance-test-harness">Jenkins acceptance test harness</a>. The event is on <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&iso=20140519T11&p1=283&ah=1">Wednesday 11am PT</a>.<br/>
-<br/>
-<p><br/>
-This new Selenium-based test harness is full of page objects and other abstractions that let you write blackbox integration tests on Jenkins and its plugins, as well as how they behave under various environments. <br/>
-<br/>
-<p><br/>
-Unlike our regular office hours, <a href="https://plus.google.com/u/0/events/cpr7lhq3d544rj5uqid4rin3deg">the event is done through Hangout on air</a>. But I do want at least several people to join Hangout interactively, not just watch the event in a read-only mode.<br/>
-<br/>
-<p><br/>
-To join the event interactively (as opposed to read-only), I think you need to <a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYeeXozAE_RiZWtTfX-O-sEtxJ3qhu4Asnfy7tZOZf3hs3jX1Q">come here</a> (but since Hangout URL can change, please check back on this post right before the office hour begins, so that I can post an up-to-date URL.)<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/05/08/another-big-thank-you-to-rackspace/'>
-Another big thank you to Rackspace
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-As the Jenkins project grows, <a href="https://jenkins-ci.org/content/come-join-infra-team">the need for our infrastructure has been growing</a>. <a href="https://ci.jenkins-ci.org/">Our Jenkins-on-Jenkins</a> needs more build slaves, we need more servers to run our infrastructure services.<br/>
-<br/>
-<p><br/>
-And it was <a href="https://jenkins-ci.org/content/big-thanks-rackspace">once again</a> Rackspace who stepped up to the plate; they have kindly donated us more <a href="http://www.rackspace.com/cloud/servers/">cloud servers</a>. I also use Rackspace for one of my personal servers, and when I went back to their admin console this time, I noticed that they've added <a href="http://www.rackspace.com/cloud/">a lot more services</a> to their offering.<br/>
-<br/>
-<div align=center><br/>
-<img src="http://agentdero.cachefly.net/continuousblog/rackspace.jpg" width=200 height=200><br/>
-</div><br/>
-<br/>
-<p><br/>
-I am setting up these boxes as I write this. A huge thank you for Rackspace for their support of this project. And if you are interested in using Rackspace cloud servers as elastic build slaves, <a href="https://wiki.jenkins-ci.org/display/JENKINS/JClouds+Plugin">jclouds plugin</a> is your friend.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/24/juc-agenda-posted/'>
-JUC agenda posted
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Kevin_Allen_(author)"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/The_Hidden_Agenda_3D.png/181px-The_Hidden_Agenda_3D.png"/><br/>
-</a><br/>
-</div><br/>
-<p><br/>
-Agenda is posted for Jenkins User Conference <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">Boston</a> and <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">Berlin</a>.<br/>
-<br/>
-<p><br/>
-For Boston, my favorite would be the <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#JesseGlick">workflow in Jenkins</a> talk that will cover the new workflow job type Jesse and I are working on. As of this writing it is still very much a work in progress, but that talk is our way of putting a stake on the ground that we WILL have something we can talk about by then. There's also some talks that describes how they've put together pieces (including Jenkins) to create a broad automation, such as <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#HoiTsang">Distributed Scrum Development with Jenkins, Vagrant, Fabric and Selenium</a> and <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#JimCrossley">Moving Existing Enterprise Systems to Continuous Integration and Deployment with Jenkins</a>.<br/>
-<br/>
-<p><br/>
-For Berlin, it turns out that we have steller line up of the speakers far beyond my expectation. You have a number of key community contributors/developers like <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/speakers#ChristopherOrr">Christopher Orr</a> talking about <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/sessions#ChristopherOrr">how he does mobile build/test/deploy</a>, or <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/speakers#VincentLatombe">Vincent</a> talking about <a href="https://wiki.jenkins-ci.org/display/JENKINS/Literate+Plugin">literate plugin</a>. I'm also looking forward to the <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/sessions#JulienPivotto">Puppetizing Jenkins Pipelines</a> from Julien Pivotto, which (if I understand correctly) is about deploying Jenkins and its jobs through Puppet &mdash; That is something I notice many people are very interested in nowadays.<br/>
-<br/>
-<p><br/>
-All of them are looking forward to meeting you and hearing your thoughts and feedbacks, and I'm sure this is going to be a great learning/networking oppotunities.<br/>
-<br/>
-<p><br/>
-<a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-18-2014-tickets-10558652213">Registration for Boston is here</a>, and <a href="http://www.eventbrite.com/e/jenkins-user-conference-berlin-germany-june-25-2014-tickets-10557974185">registration for Berlin is here</a>. Seats are starting to fill up now, so don't procrastinate too much!
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/12.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/12.html" class="page-link">12</a> <span class="current-page">13</span> <a href="/node/page/14.html" class="page-link">14</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/14.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -411,12 +424,9 @@ All of them are looking forward to meeting you and hearing your thoughts and fee
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

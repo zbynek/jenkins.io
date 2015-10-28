@@ -177,6 +177,110 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2013/07/24/faster-slave-classloading/'>
+Faster slave classloading
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Chloride"><br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Calcium_chloride_CaCl2.jpg/320px-Calcium_chloride_CaCl2.jpg"></a><br/>
+</div><br/>
+<br/>
+<p><br/>
+Jenkins comes with <a href="https://github.com/jenkinsci/remoting">the remoting library</a> that it uses to communicate between a master and slaves. This is a pretty awesome library, I think, which served us well.<br/>
+<br/>
+<p><br/>
+One of the things this remoting layer does it to transfer the Java byte code on demand from the master to slaves on demand. This approach helps us keep slave deployment simple, as you don't have to keep the master and all the slaves in sync, but it also made the slave start-up slower, because none of the byte code loaded to slaves are kept around. It was all forgotten once the slave gets disconnected.<br/>
+<br/>
+<p><br/>
+When slaves are static and stays online for hours, this wasn't a problem at all. But as more and more slaves become elastic (think EC2 or CloudBees DEV@cloud), This delay is becoming more and more noticeable. A similar issue happens when the Maven project type, which uses the same remoting library to talk to the running Maven build.<br/>
+<br/>
+<p><br/>
+Another related performance bottleneck is the round-trip latency. When your slave is far away from a master, every classloading would incur a network round-trip, and it can add up quickly. This is because Java classloading abstraction is funamentally chatty.<br/>
+<br/>
+<p><br/>
+Jesse and I <a href="https://issues.jenkins-ci.org/browse/JENKINS-15120">started seriously thinking about this problem</a> last year, and we've <a href="https://github.com/jenkinsci/remoting/pull/10">kept a branch going</a> to address this problem.<br/>
+<br/>
+<p><br/>
+After several trans-atlantic hacking during flights, we were finally able to release this in 1.519.<br/>
+<br/>
+<p><br/>
+Starting this version, the remoting layer uses a local jar file cache to store jar files that were downloaded from the master. This pretty much eliminated the need to send class files over the wire.<br/>
+<br/>
+<p><br/>
+In addition, the master will analyze class files as a slave request them and "push down" information about how related other classes should be loaded by the slave. This speculative "prefetching" saves the slave from making an expensive network round trip to the master.<br/>
+<br/>
+<p><br/>
+In <a href="http://jenkins-ci.361315.n4.nabble.com/Efficient-class-jar-prefetching-in-remoting-td4665943.html">my benchmark using Maven builds, the prefetching cut the # of roundtrips to about half</a>.<br/>
+<br/>
+<p><br/>
+If you do a lot of Maven builds, or if you have elastic slaves, we highly encourage you to upgrade.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/07/11/jenkins-user-conference-israel-summary/'>
+Jenkins User Conference Israel Summary
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-israel.cb">Jenkins User Conference in Israel</a> was held this year on a different venue than the last year, because we have grown! I believe Shlomi Ben-Haim of JFrog said in his opening speech that the attendance has grown more than 50%, despite the ticket price increase.<br/>
+<br/>
+<p><br/>
+This year, the event was held at a former Kibbutz turned into an event facility. This was rather fit for Jenkins for both emphasizes the community. The auditorium was big, the sky was bright & clear, and it was a wonderful day. JFrog folks even made a few Jenkins drapes (that I eventually brought back with me, so expect to see them)<br/>
+<br/>
+<div align="center"><a href="http://www.flickr.com/photos/12508267@N00/sets/72157634590095116/"><br/>
+  <img src="http://farm4.staticflickr.com/3792/9260327854_40e0e95e48_n.jpg"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+For me, talks like one from Haggai are more interesting, as it shows me how Jenkins works in a domain that I’m not familiar with (in this case, .NET). And if you are Jenkins users, there are all sorts of talks, ranging from talks on CLI/XML interface of Jenkins (stuff for those who are writing tools and scripts that interface with Jenkins) to how someone managed user interface automation testing with Jenkins. Another talk that I got hooked was a talk from <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-israel-abstracts.cb#YardenaMeymann">Yardena Meymann</a> about the review board Jenkins plugin that she wrote that lets you test out code change under the review, much the same way <a href="http://buildhive.cloudbees.com/">BuildHive</a> or <a href="https://wiki.jenkins-ci.org/display/JENKINS/Github+pull+request+builder+plugin">GitHub pull request builder plugin</a> does it for GitHub pull requests, but for Subversion. I also liked the 45 minutes format better, which helps cut the fat and take people straight to the point.<br/>
+<br/>
+<p><br/>
+Outside talks, Israeli people kept me busy! They cornered me on multiple occasions and we had a lot of interesting conversations, so much so that I missed about half the talks! I just wish we had coordinated this upfront so that I could have visited them while I was there. This also made me wonder what if we designate one corner of the site and did a series of birds-of-feather around specific topics. This led me to try <a href="http://www.meetup.com/jenkinsmeetup/events/126595572/">Jenkins Scalability Summit</a> in the upcoming JUC Palo Alto.<br/>
+<br/>
+<p><br/>
+<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-israel.cb">All the slides and videos are available</a>, if you want to take a look --- be forewarned that some of them are in Hebrew.<br/>
+<br/>
+<p><br/>
+If you aren’t in Israel but like the concept of JUC, looking forward to seeing you in the upcoming <a href="http://www.eventbrite.com/event/6367028955">Jenkins User Conference in Palo Alto</a> this October.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/07/01/office-hours-this-week-git-plugin-refactoring/'>
+Office hours this week: Git plugin refactoring
+</a>
+</h1>
+<div class='content'>
+<p>This Wednesday's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Jenkins office hours</a> is all about the Git plugin refactoring that's going on.</p>
+
+<div style="float:right; margin:1em">
+<img width="250" src="http://git-scm.com/images/logos/2color-lightbg@2x.png" />
+</div>
+
+<p><a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git plugin</a> is one of the most popular plugins out there, and it's been around for quite some time. Combine that with the fact that there are so many different ways to use Git, it was inevitable that Git plugin became quite a capable but complex plugin over time. It has more than a dozen options and switches, and it was becoming harder to use and harder to maintain.</p>
+
+<p>As early as 2010, some of us have already been saying that we should refactor this plugin, but none of us have managed. The good news is, I finally started tackling this problem last month while I was in London, and I've made a steadily progress since then and I'm ready for a wider review.</p>
+
+<p>So we'll spend this Wednesday going over the changes. I'll show you how the new version looks, what changes are made internally, and what it'll enable us in the future.</p>
+
+<p>If the Git plugin is important to you, and you want to see what's cooking, please join us in <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">the office hours</a> on Google Hangout.</p>
+
+<p>Looking forward to seeing you!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2013/06/21/reducing-the-of-threads-in-jenkins-ssh-slaves/'>
 Reducing the # of threads in Jenkins: SSH slaves
 </a>
@@ -370,97 +474,6 @@ Registration & Call for Papers Open for JUC Palo Alto
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/04/25/munich-hackathon/'>
-Munich Hackathon
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Munchen_collage.jpg/300px-Munchen_collage.jpg"/><br/>
-</div><br/>
-<br/>
-<p><br/>
-It's been a while we had a hackathon in Germany. Let's get together, get some coding done, and get to know fellow Jenkins developers! The date is June 15th Saturday.<br/>
-<br/>
-<p><br/>
-TNG Technology Consulting, where <a href="https://github.com/wolfs">Stefan Wolf</a> (dependency graph viewer plugin, etc) works, will be hosting us (thanks!)<br/>
-<br/>
-<p><br/>
-We'll try to arrange some themes or agenda, based on who's coming and how many of us will be there. For example,<br/>
-<br/>
-<ul><br/>
-<li> If there are many people who have never done a plugin development, we can do a plugin development tutorial.<br/>
-<li> If we see a concentration of devs in a specific area of Jenkins (say mobile), we can try some focused development in a specific area.<br/>
-<li> If you have things you need from the core to do what you want, this is the chance to get that implemented on the spot!<br/>
-<li> If you want to see a certain development happen in Jenkins but don't know how, please make a pitch to us in the form of presentations (short or long) would be welcome<br/>
-</ul><br/>
-<br/>
-<p><br/>
-Finally, assuming there's interest, we'll head out somewhere for a dinner afterward.<br/>
-<br/>
-<p><br/>
-If you are interested in coming, <a href="http://www.meetup.com/jenkinsmeetup/events/116074032/">please RSVP at meetup.com</a> so that we can prepare accordingly.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/04/19/neuroscientists-embrace-continuous-integration-served-by-jenkins/'>
-Neuroscientists embrace continuous integration served by Jenkins
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-<i><br/>
-Guest post by Yury V. Zaytsev and Abigail Morrison. To download the PDF file of the journal article mentioned below, <a href="http://www.frontiersin.org/Neuroinformatics/10.3389/fninf.2012.00031/abstract">click here</a>!</i><br/>
-<br/>
-<div style="float:right; margin:1em"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Gray739.png/250px-Gray739.png"><br/>
-</div><br/>
-<br/>
-<p><br/>
-As recently exemplified by several reports on this blog, automation tools such as continuous integration servers, that help to defuse the exploding complexity of software under the ever-increasing pressure to deliver, are steadily gaining well-deserved mindshare in the industry. <br/>
-<br/>
-<p><br/>
-However, it is not just developers of enterprise software who need solutions to the complexity problem. Scientists are arguably even worse off: most of them are not trained as software engineers, yet, in the last decades, creating custom software has become an integral part of virtually any research activity, be it data analysis, simulation or experiments. Frequently, there is a great emphasis on numerical accuracy and reproducibility of results, which requires extensive testing. As a coup de grâce, most publicly funded research projects are running on tight budgets, excluding the possibility of hiring professional contractors to outsource required software development work.<br/>
-<br/>
-<p><br/>
-Enter Jenkins the Butler!<br/>
-<br/>
-<p><br/>
-Back in 2011, Yury V. Zaytsev, a doctoral candidate now working at Jülich Research Center, Germany was supported by a Google Summer of Code stipend to design a continuous integration infrastructure for <a href="http://www.nest-initiative.org">NEST</a>, a spiking neuronal network simulator for neuroscientific research released under the GPL license. An overwhelmingly positive experience with this new setup motivated him to write up <a href="http://www.frontiersin.org/Neuroinformatics/10.3389/fninf.2012.00031/abstract">a case study</a>, which was recently published in "Frontiers in Neuroinformatics", an open access scientific journal.<br/>
-<br/>
-<p><br/>
-"The new CI system boosts our productivity, because it helps us find and fix breakages very quickly, even when they only occur for obscure combinations of configuration options. Automated integration testing is a major breakthrough for NEST, as it ensures that developing new features does not come at the cost of reliability or accuracy" - said Markus Diesmann, director of the Institute of Neuroscience and Medicine (INM-6) at the Jülich Research Center, Germany and NEST Initiative board member.<br/>
-<br/>
-<p><br/>
-We hope that through a peer-reviewed publication in a prominent scientific journal we will be able to reach the scientific community more efficiently, as compared to the materials targeting professional software developers. However, we likewise believe that our case study might be of interest to the readers of this blog, especially those who are still only considering implementing continuous integration.<br/>
-<br/>
-<p><br/>
-Lastly, we would like to thank all developers and users of Jenkins whose contributions throughout the years made it the versatile and robust continuous integration server it is today!
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/03/12/coming-to-gdc-join-us-for-a-jenkins-drink-up-at-21st-amendment/'>
-Coming to GDC? Join us for a Jenkins Drink-Up at 21st Amendment
-</a>
-</h1>
-<div class='content'>
-<div style="float: right"><br/>
-<a href="http://en.wikipedia.org/wiki/Twenty-first_Amendment_to_the_United_States_Constitution"><img src="http://www.nationalreview.com/sites/default/files/nfs/uploaded/u23105/2012/12/amendment%2021%202.jpeg" style="width:200px"></a><br/>
-</div><br/>
-<br/>
-If you are coming to <a href="http://www.gdconf.com/">Game Developers Conference</a> in the week of 25th, or if you are local to San Francisco bay area, come join us to the small drink up in the evening of 26th at <a href="http://21st-amendment.com/">21st amendment</a>.<br/>
-<br/>
-<p><br/>
-If you are coming, <a href="http://www.meetup.com/jenkinsmeetup/events/108919962/">please RSVP</a> so that we know how many to expect, and we can stay connected.
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/17.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/17.html" class="page-link">17</a> <span class="current-page">18</span> <a href="/node/page/19.html" class="page-link">19</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/19.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -479,12 +492,9 @@ If you are coming, <a href="http://www.meetup.com/jenkinsmeetup/events/108919962
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

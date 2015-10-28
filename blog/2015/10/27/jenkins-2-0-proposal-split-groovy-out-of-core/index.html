@@ -1,0 +1,289 @@
+<html>
+<head>
+<title>
+Jenkins 2.0 Proposal: Split Groovy out of "core"
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/10/27/jenkins-2-0-proposal-split-groovy-out-of-core/' title='Jenkins 2.0 Proposal: Split Groovy out of "core"'>
+Jenkins 2.0 Proposal: Split Groovy out of "core"
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-27T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>As I mentioned in <a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">yesterday's post</a>, there's been a lot of discussion recently about what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" means. In a recent "Office Hours" session, <a href="https://github.com/kohsuke">Kohsuke Kawaguchi</a> presented his
+vision for <strong>Jenkins 2.0</strong> in a <a href="https://www.youtube.com/watch?v=2eVyc_n8i1c">office
+hours</a> session, the slides for
+which can be found <a href="https://docs.google.com/presentation/d/12ikbbQoMvus_l_q23BxXhYXnW9S5zsVNwIKZ9N8udg4">in this Google
+Presentation</a>.
+Roughly paraphrasing Kohsuke's vision, 2.0 is primarily about making things
+better for the thousands of users out there.</p>
+
+<p>This week, we'll be reviewing some <em>key areas</em> of the "Jenkins 2.0" proposal.
+Asking you, the user community, to provide feedback on these proposals, going
+from Jenkins internals to user interface.</p>
+
+<p>Thus far we've covered:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+</ul>
+
+<p>Today's post involves a proposal originally from community member <a href="https://github.com/jglick">Jesse Glick</a> who has proposed in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">JENKINS-29068</a></strong> that <a href="http://groovy-lang.org">Groovy</a> be split out from the "core" Jenkins distribution. The linked issue expands on what the problem is here:</p>
+
+<blockquote>
+  <p>Currently Jenkins embeds a distribution of Groovy into "core" for a variety of scripting and management tasks. This version of Groovy is locked into core in such a way that users cannot upgrade Groovy independently from Jenkins itself. If the Jenkins-bundled version were upgraded to a different major version, it may break users' custom scripts as well as plugins that use Groovy due to API changes.</p>
+</blockquote>
+
+<p>The proposal is relatively straight-forward and affects the many different users and use-cases for the embedded Groovy scripting support in Jenkins:</p>
+
+<blockquote>
+  <p>For ease of maintenance and modularity it would be useful to split Jenkins' use of Groovy into a library plugin; different clients could request 1.x and 2.x simultaneously by using different versions of the library, etc.</p>
+
+  <p>Stuff in core using Groovy that would need to either be put in this library (if infrastructure for other features) or put in another plugin depending on it (if first-class features themselves):</p>
+</blockquote>
+
+<p>I selected this proposal to feature on this blog, despite its rather technical underpinnings, it will affect core developers, plugin developers, power and casual users alike. I encourage everybody to read through the proposal and its potential impact <a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">on the issue tracker</a>.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the proposal in
+<a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">JENKINS-29068</a> and provide
+feedback if you have it.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned for the rest of the week as we keep with our theme of going "from the inside out" and help us make Jenkins 2.0 great!</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+<div id='github'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blog/2015/2015-10-27-jenkins-2-0-proposal-split-groovy-out-of-core.md' title='Edit /blog/2015/2015-10-27-jenkins-2-0-proposal-split-groovy-out-of-core.md on GitHub'>
+Improve this page
+</a>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>

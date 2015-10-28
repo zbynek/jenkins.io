@@ -177,6 +177,89 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/06/16/jenkins-long-term-support-release/'>
+Jenkins Long-Term Support Release
+</a>
+</h1>
+<div class='content'>
+<p>We have released <a href="http://jenkins-ci.org/">1.409.1, our first long-term support (LTS) release</a>, from the Jenkins project.</p>
+
+<p>The idea of the LTS release is to provide a second release line the favors more stability and bug fix only maintenance. This release line branches off from a bit old Jenkins release (in this case 1.409), and we will only put important backported bug fixes. We'll keep releasing 1.409.2, 1.409.3, and so on, as such bugs appear, and in several months (our current thinking is 3 months) we'll designate another release and repeat this process all over again. I think it provides more comfortable upgrade path for larger deployments. For more about this, <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">see Wiki</a>.</p>
+
+<p>In large companies that use Jenkins in a large scale, there often is a team of people who looks at incoming Jenkins release, tests it with their environments and their plugins, and then let their internal group consume them. With this release line, I'm calling for them to join the effort on this branch. Vojtech Juranek from Red Hat is already helping us tremendously, so is Yahoo in choosing the base release line and backporting. But it'd be great to get more people on board, as I think it'll benefit everyone to have a larger number of eyeballs on the same code. You'll also have a say on what bugs need to be backcported, etc. If you are interested in this effort, please let us know.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/06/14/upcoming-events-in-june-and-early-july/'>
+Upcoming Events in June and early July
+</a>
+</h1>
+<div class='content'>
+<p>I've just added three events coming up in the next few weeks to <a href="http://jenkins-ci.org/calendar">the Jenkins calendar</a>. Conveniently, they are all events I'll be attending while traveling around Western Europe!</p>
+
+<ul>
+  <li>
+    <p><a href="http://jugcologne.org">The Cologne JUG</a> is having a meetup on Saturday, June 25th, starting at 2pm. We'll be talking about Jenkins, maybe doing some coding, and then heading out for drinks and more talk! You can find more information and sign up at <a href="https://www.xing.com/events/jugc-jenkins-town-763587">Xing</a>.</p>
+  </li>
+  <li>
+    <p>A few days later, TNG Technology Consulting is generously hosting a meetup in Munich, on Wednesday, June 30th, starting at 3pm. I'll be giving a quick talk on the state of the Jenkins project, followed by Ullrich Haffner (the author of the static analysis plugins for Jenkins) giving a quick talk on how those plugins are used. After that, we'll be having a hackathon, and then more beer! Again, you can find more information and sign up at <a href="https://www.xing.com/events/jenkins-treffen-munchen-30-06-2011-776226">Xing</a>.</p>
+  </li>
+  <li>
+    <p>A week later, the London CI meetup group is hosting a meetup as well, on Wednesday, July 6th, starting at 6:30pm. We'll be meeting up at the Royal Festival Hall for discussion and drinking. You can find more information and sign up at <a href="http://www.meetup.com/Continuous-Integration-London/events/21752121/">Meetup</a>.</p>
+  </li>
+</ul>
+
+<p>Do you have a Jenkins event you'd like to have added to <a href="http://jenkins-ci.org/calendar">our calendar</a>? Let us know!</p>
+
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/06/09/a-big-thanks-to-rackspace/'>
+A big thanks to Rackspace
+</a>
+</h1>
+<div class='content'>
+<p>This post is long over-due and I really apologize for that.</p>
+
+<p>Some months ago we put out the call for "more slave machines!" through the
+mailing lists, sky-writers and twitter. We had a serious problem, for a
+continuous integration project, a <strong>large</strong> number of our plugins and
+dependencies weren't being built in a continuous and automated fashion!</p>
+
+<p>We had some builds on a couple of flakey machines on home connections
+contributed by various individuals, until Rackspace stepped up in a <strong>big</strong>
+way and donated an infrastructure server for the project to use.</p>
+
+<center><a href="http://rackspace.com/?jenkins" target="_blank"><img src="http://agentdero.cachefly.net/continuousblog/rackspace.jpg" width="200" border="0" /></a></center>
+
+<p>For months now, just about all plugins and core have been built and tested on <code>spinach</code>,
+the always-on machine in the Rackspace Cloud. Dutifully chugging away building
+core, plugin after plugin and occasionally getting flooded with work from <a href="http://twitter.com/fcamblor">Frederic
+Camblor's</a> plugin compatibility tester!</p>
+
+<p>In hindsight, having a powerful infrastructure machine for nothing other than
+builds has helped us build great software faster; I can't imagine how difficult
+things might be otherwise.</p>
+
+<p>I've personally had a lot of interaction with Rackspace engineers through the <a href="http://www.openstack.org/">OpenStack
+project</a> and have a number of friends who operate businesses on
+Rackspace/Rackspace Cloud hybrid infrastructures.</p>
+
+<p>The folks at Rackspace are
+top notch and I can't thank them enough for contributing to the Jenkins
+project.</p>
+
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/06/08/release-candidate/'>
 Release Candidate
 </a>
@@ -357,89 +440,6 @@ Ruby Plugins Hack Session 5/27/2011
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/05/13/new-download-link-test/'>
-New download link test
-</a>
-</h1>
-<div class='content'>
-<p>I'm testing the new download page.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/05/12/the-state-of-the-jenkins-project/'>
-The State of the Jenkins Project
-</a>
-</h1>
-<div class='content'>
-<p>A few weeks ago our very own <a href="http://www.twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> gave a presentation at the <a href="http://events.linkedin.com/Silicon-Valley-Continuous-Integration/pub/591454">Silicon Valley CI Summit</a> held in Mountain View.</p>
-
-<p>Within the presentation, Kohsuke included a collection of numbers about the vibrancy of the Jenkins project that certainly hasn't gotten enough attention. While the slideshow is embedded below, here's some good high-level points:</p>
-
-<ul>
-  <li>Over 170 <a href="https://github.com/jenkinsci">GitHub</a> pull requests in the past four months, with more being sent every day.</li>
-  <li>Formalization of a "Jenkins Stable" branch of development with longer release cycles and back-ported bugfixes.</li>
-  <li>Over 280 tickets in <a href="https://issues.jenkins-ci.org">JIRA</a> have been resolved.</li>
-  <li>After posting a "special" release of Hudson which presents users with a choice, <strong>87.25%</strong> are choosing to upgrade to Jenkins.</li>
-  <li>Over 500 tickets have been created</li>
-  <li>Roughly 13,000 downloads of <code>jenkins.war</code> and native packages a week</li>
-  <li><strong>New</strong> and vibrant community-driven initiatives like <a href="http://twitter.com/fcamblor">Frederic Camblor's</a> plugin compatibility tester and <a href="http://twitter.com/cowboyd">Charles Lowell's</a> JRuby plugin support project.</li>
-  <li>We've crossed 1500 participants on the <code>jenkinsci-user</code> mailing list, and are over 900 participants on the <code>jenkinsci-dev</code> list.</li>
-  <li>The <a href="http://twitter.com/jenkinsci">@jenkinsci</a> twitter account recently crossed the 4,000 follower threshold.</li>
-</ul>
-
-<p>On a personal note, I think this speaks all to the level of unbridled enthusiasm about the future of Jenkins by contributors both new and old.</p>
-
-<p>Without further delay, the slides:</p>
-
-<center><div style="width:425px" id="__ss_7835978"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/kohsuke/current-state-of-jenkins" title="Current state of Jenkins">Current state of Jenkins</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7835978" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/kohsuke">Kohsuke Kawaguchi</a> </div> </div></center>
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
-Ruby Plugins Hack Session 5/12/2011
-</a>
-</h1>
-<div class='content'>
-<p>[<strong>Editor's Note:</strong> <em>For the past few weeks Jenkins community member <a href="http://twitter.com/cowboyd">Charles Lowell</a> has been working with <a href="http://twitter.com/kohsukekawa">Kohsuke</a> on adding support for building plugins in Ruby. As part of this effort, <a href="http://twitter.com/cowboyd">Charles</a> has been hosting weekly hack sessions via WebEx</em>]</p>
-
-<p>As always, last night's Ruby Plugins hack session was a pleasure. Below is a quick notation of what items were discussed and/or accomplished followed by next steps to be taken my those in attendance.</p>
-
-<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
-
-<ul>
-  <li>Ruby Plugin project structure and how to bundle into an .hpi file.</li>
-  <li>Review of the new XSTREAM serialization method</li>
-  <li>API for marking fields as transient</li>
-  <li>What mods, if any, are required to get .hpl to work with Ruby plugin</li>
-</ul>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<h3 id="charles">Charles</h3>
-
-<ul>
-  <li>to research what can be shared between JRuby <code>ScriptingContainer</code>s</li>
-  <li>API for unmarshaling hooks on serialized ruby objects</li>
-  <li>Change the name of the repo :)</li>
-  <li>Document… something!</li>
-</ul>
-
-<h3 id="kohsuke">Kohsuke</h3>
-<ul>
-  <li>test more view functions</li>
-  <li>add debug mode outside of hpi:run
-<!--break--></li>
-</ul>
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/27.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/27.html" class="page-link">27</a> <span class="current-page">28</span> <a href="/node/page/29.html" class="page-link">29</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/29.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -458,12 +458,9 @@ Ruby Plugins Hack Session 5/12/2011
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
-<small>
-(/node/index.html.haml)
-</small>
 </div>
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
