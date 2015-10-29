@@ -177,6 +177,26 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/01/27/office-hours-tomorrow-workflow-security-model-and-plugin-compatibility/'>
+Office Hours tomorrow: workflow security model & plugin compatibility
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+<a href="https://plus.google.com/events/c4eagqodepqojlrv7glhc1ctg48">In tomorrow's Jenkins office hours</a>, Jesse Glick will talk about two topics in the workflow plugin that he has been asked about:<br/>
+<br/>
+<ul><br/>
+<li>Security model: script security, permissions<br/>
+<li>Plugin compatibility: SimpleBuildStep and friends, custom steps, etc.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+The session should be interesting to anyone using workflow or thinking about using workflow. Jesse is one of the top contributors in the community, so it'd be definitely worth your time!<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/01/27/2015-jenkins-user-conferences-call-for-papers/'>
 2015 Jenkins User Conferences - Call for Papers
 </a>
@@ -427,38 +447,6 @@ dependencies {
 <p>It is recommended to use Gradle 1.8 because that is the version used to build and test the Gradle JPI plugin.</p>
 
 <p>For the next release it is planned to do some maintenance like fixing code style issues and adding tests. After that more issues need to be addressed to bring the plugin on par with the Maven HPI plugin, most notably fixing the test dependencies (<a href="https://issues.jenkins-ci.org/browse/JENKINS-17129">JENKINS-17129</a>) and publishing the plugin's JAR (<a href="https://issues.jenkins-ci.org/browse/JENKINS-25007">JENKINS-25007</a>). Updating Gradle to 2.x and getting the plugin on the <a href="http://plugins.gradle.org/">Gradle plugin portal</a> is also on the wishlist.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/09/25/cve-2014-6271-impact-on-jenkins/'>
-CVE-2014-6271 impact on Jenkins
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Road_signs_in_Singapore"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Singapore_Road_Signs_-_Restrictive_Sign_-_Stop_-_Security_Check.svg/240px-Singapore_Road_Signs_-_Restrictive_Sign_-_Stop_-_Security_Check.svg.png"><br/>
-</a></div><br/>
-<br/>
-<p><br/>
-I suspect many of you have been impacted by <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271">CVE-2014-6271</a> (aka "shellshock" bash vulnerability.) We had our share of updates to do for various *.jenkins-ci.org servers.<br/>
-<br/>
-<p><br/>
-Java application servers in general (including one that ships in Jenkins) do not fork off processes like Apache does to serve requests, so the kind of CGI attacks you see on Apache does not apply. We are currently unaware of any vulnerabilities in Jenkins related to CVE-2014-6271, and no plan to issue a patch for that.<br/>
-<br/>
-<p><br/>
-That said, we did come up with one possible way attackers can exploit vulnerable bash through Jenkins, that you might want to be aware of.<br/>
-<br/>
-<p><br/>
-When a build is parameterized, parameters are passed to the processes Jenkins launch as environment variables. So if you have a shell step (which uses <tt>bash</tt> by default), and if Eve only has a BUILD permission but not CONFIGURE permission, then Eve can exploit this vulnerability by carefully crafting parameter values, and have the bash runs arbitrary processes on the slave that run the build.<br/>
-<br/>
-<p><br/>
-In most such scenarios, Eve would have to be an authenticated user on Jenkins. Jenkins also leaves the record of who triggered what build with what parameters, so there's an audit trail. But if your Jenkins fits this description, hopefully this serves as one more reason to update your bash.<br/>
-<br/>
-<p><br/>
-Finally, to get notified of future security advisories from Jenkins, see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">this Wiki page</a>.
 
 </div>
 </div>

@@ -177,6 +177,52 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/09/19/2011-donation-drive/'>
+2011 Donation Drive
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/images/tip-jar.png" align="right" /></p>
+
+<p>Since the end of April, Jenkins has been officially part of the
+<a href="http://www.spi-inc.org">SPI</a> (Software
+in the Public Interest), an umbrella organization which offers a useful level
+of legal status for the project.</p>
+
+<p>Up until recently we had not taken proper advantage of this new legal
+umbrella, thankfully that's changed as we're now capable of <strong><a href="https://wiki.jenkins-ci.org/display/JENKINS/Donation">accepting
+donations!</a></strong></p>
+
+<p>For the project this is a big step forward as it will allow us to offset the
+cost of servers for the project, bandwidth, SSL certificates and other costs
+incurred as part of running such a large open source project.</p>
+
+<hr />
+
+<p><em>Trivia:</em> The machine that this page is being served from originally started
+out as "hudson labs", purchased and colocated by
+<a href="https://twitter.com/abayer">abayer</a>,
+<a href="https://twitter.com/kohsukekawa">kohsuke</a> and
+<a href="https://twitter.com/agentdero">myself</a>.</p>
+
+<hr />
+
+<p><br clear="all" /></p>
+
+<p>Since we're now able to accept donations, we're kicking off a donation drive to
+help recover some of the costs incurred this summer (<a href="/content/mirror-mirror-wall">which I've discussed
+previously</a>). Our immediate goal is to raise $5130
+to recoup bandwidth costs, if you can spare some change, head on over to the
+<a href="https://co.clickandpledge.com/advanced/default.aspx?wid=46160">SPI online donation
+page</a> and help
+us out :)</p>
+
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/09/14/jenkins-long-term-release-1-409-2-is-out/'>
 Jenkins Long-Term Release 1.409.2 is out
 </a>
@@ -391,49 +437,6 @@ The <a href="https://wiki.jenkins-ci.org/display/JENKINS/User+Office+Hours+Week+
 <br/>
 <p><br/>
 So the Jenkins office hours will be bi-weekly events, starting this Wednesday (6/29). <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">See the wiki page</a> for details and agenda</a>. Looking forward to seeing you!<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/24/ruby-plugins-hack-session-notes-6-23-2011/'>
-Ruby Plugins Hack Session Notes 6/23/2011
-</a>
-</h1>
-<div class='content'>
-<p>You know that the night is going to be productive whenever @kohsukekawa shows up, and last night was no exception. We talked about problems on the horizon, potential solutions, and then I spent the last half hour ripping a bit of code.</p>
-
-<p>The truth of the matter is that most of the changes that have to be done to Jenkins core have already been made, so now the bulk of the heavy lifting falls to the Ruby side of things (right now, me).</p>
-
-<p>Anyhow, on to the notes!</p>
-
-<h2 id="attendees">Attendees</h2>
-
-<p>@kohsukekawa, @cowboyd</p>
-
-<h3 id="extract-more-stuff-into-the-jenkins-pluginsrb-support-library-cowboyd">extract more stuff into the jenkins-plugins.rb support library (@cowboyd)</h3>
-
-<p>We're in the process of extracting, normalizing, documenting all the goop that's currently residing in the <a href="https://github.com/cowboyd/jenkins-ruby-plugins-playground">ruby plugins playground</a> into a formal plugin support gem called jenkins-plugins <a href="https://github.com/cowboyd/jenkins-plugins.rb">https://github.com/cowboyd/jenkins-plugins.rb</a></p>
-
-<h3 id="recruit-rubyists-to-implement-non-jenkins-specific-code-kohsukekawa">recruit Rubyists to implement non-Jenkins specific code (@kohsukekawa)</h3>
-
-<p>If you know Ruby and would like to be able to write Jenkins plugins with it, but don't know the first thing about Jenkins and/or JRuby, that's OK. You can help by implementing some of the <a href="https://github.com/cowboyd/jenkins-plugins.rb/tree/master/features">cucumber features</a> found in that repo</p>
-
-<p>@kohsukekawa is going to be knocking on your door to ask if you're ready to step up, so I hope you've been nice this year!</p>
-
-<h3 id="testing-strategy-cowboyd-kohsukekawa">testing strategy (@cowboyd, @kohsukekawa)</h3>
-
-<p>Ruby folk love their tests, and a plugin develompent solution won't be complete unless testing is a breeze. That means that as we extract the plugin support library, we take make sure you can test plugin classes in isolation.</p>
-
-<p>On the Jenkins side, KK will think about how to run tests that require a full Jenkins environment. A system like this exists currently for testing java plugins, but some thought might be required on how to do this for Ruby.</p>
-
-<h3 id="packaging-reloaded-kohsukekawa">packaging reloaded (@kohsukekawa)</h3>
-
-<p>KK is going to jump in and write some rake tasks to take a ruby plugin structure and package it into a valid .hpi file, and with no maven involved.  According to him, Ruby plugins aren't the only system that wants to run maven-free. There is desire to be able to do plugin development with Gradle (another Java build system), so this could be a double win.</p>
-
-<h3 id="different-schedule-kohsukekawa">different schedule (@kohsukekawa)</h3>
-
-<p>8:30pm Central in North America, doesn't seem to be a very good time. Especially for hackers in Asia Pacific. KK will investigate a new time that works for everybody and encourages more participation.</p>
 
 </div>
 </div>

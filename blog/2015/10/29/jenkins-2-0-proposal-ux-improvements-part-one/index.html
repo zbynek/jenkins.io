@@ -1,0 +1,271 @@
+<html>
+<head>
+<title>
+Jenkins 2.0 Proposal: UX Improvements (Part One)
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/' title='Jenkins 2.0 Proposal: UX Improvements (Part One)'>
+Jenkins 2.0 Proposal: UX Improvements (Part One)
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-29T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>We have been featuring a few proposals this week for what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" is going to include. Today we'll be diving into the most noticeable changes being proposed for Jenkins 2.0: the User Experience (UX) improvements</p>
+
+<p>Thus far in this blog series we have reviewed proposals covering:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
+</ul>
+
+<p>The UX improvements being proposed aren't necessarily as uniform as the proposals from earlier in the week but represent a large amount of prototype and exploratory work done by folks like <a href="https://github.com/tfennelly">Tom Fennelly</a>, <a href="https://github.com/gusreiber">Gus Reiber</a> and a few others. Those following the dev list may have already seen some of these proposals in some of the "mega threads" that we have had discussing potential UI/UX improvements previously.</p>
+
+<p>The improvements proposed for 2.0 can be found under <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31156">JENKINS-31156</a></strong>. The most promising proposal under this issue is to update the <a href="https://issues.jenkins-ci.org/browse/JENKINS-9802">plugin manager experience</a>.</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/9vPUMe3lzfo?rel=0" frameborder="0" allowfullscreen=""></iframe><br /><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/jf5s0sqIYBY?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<p>Another very important proposal for 2.0 worth mentioning is the proposal to <a href="https://issues.jenkins-ci.org/browse/JENKINS-21092">update UI work well on mobile devices</a>.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31156">JENKINS-31156</a> and comment and vote on those issues accordingly.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned for tomorrow's post covering the remainder of the proposed user experience changes!</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+<div id='github'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blog/2015/2015-10-29-jenkins-2-0-proposal-ux-improvements-part-one.md' title='Edit /blog/2015/2015-10-29-jenkins-2-0-proposal-ux-improvements-part-one.md on GitHub'>
+Improve this page
+</a>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>

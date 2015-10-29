@@ -177,6 +177,39 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/06/09/welcome-to-hudson-labs/'>
+Welcome to Hudson Labs!
+</a>
+</h1>
+<div class='content'>
+<p><img src="/sites/default/files/images/scientist.thumbnail.gif" align="right" /> Hello again! It's been a long time since I've written for the Hudson community, but now I'm back and ready to tackle some of the latest developments in the Hudson community.</p>
+
+<h3 id="what-is-hudson-labs">What is Hudson Labs?</h3>
+
+<p>As you may have <a href="http://www.hudson-labs.org/content/kohsuke-leaves-sun">read in April</a>, Kohsuke left Oracle to found <a href="http://www.infradna.com/">InfraDNA</a>, a company specializing around Hudson. The departure meant the Hudson community would no longer have access to some of the hardware and services that Kohsuke had accumulated over the years working on Hudson at Sun Microsystems. While we are still happily part of the <a href="http://java.net/">Java.net</a> community, we've recognized the need for some community-owned resources and Hudson Labs was born.</p>
+
+<p>Over the past couple months, a group within the Hudson community, "infra" (short for "infrastructure"), has been working to get machines set up and build the foundation for a more open Hudson project infrastructure.</p>
+
+<h3 id="what-does-hudson-labs-provide">What does Hudson Labs provide?</h3>
+<!--break-->
+<p>##### Builds</p>
+
+<p>One of the first tasks we set upon when building out Hudson Labs was to start improving the build and release process of Hudson by moving as much of it into a <a href="http://ci.hudson-labs.org">public Hudson instance</a>. Building Hudson itself, plugins and dependencies of the Hudson project, the Hudson Labs instance will help improve the reliability of the Hudson ecosystem across the board, and should serve as a useful tool for core and plugin developers.</p>
+
+<h5 id="mirroring">Mirroring</h5>
+
+<p>Thanks to the great team over at the <a href="http://www.osuosl.org">Oregon State University Open Source Lab</a> (<a id="aptureLink_oz4HIIQKJD" href="http://twitter.com/osuosl">OSUOSL</a>), we've been able to build out <a href="http://ftp.osuosl.org/pub/hudson/">mirroring infrastructure</a> for Hudson to provide fast access to native packages and wars alike. Currently the OSUOSL only has mirrors inside the continental United States, so we're reaching out to friends in Asia and Europe to extend the mirroring system.</p>
+
+<h5 id="information">Information</h5>
+
+<p>I'm currently working on re-working some of the blog posts you may have read over four months as more structured tutorials. I hope to provide an easily accessible knowledge-base for developing Hudson along with configuring Hudson for various platforms and development environments; this is a more difficult task so all the pieces aren't entirely in place for this just yet.</p>
+
+<p>To be honest, I'm very enthusiastic about Hudson's future. Now that InfraDNA is up and running, Kohsuke's renewed focus combined with the foundation of Hudson Labs and the uncommonly hospitable Hudson developer and user communities, the future is looking bright!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/05/31/about-jenkins-ci/'>
 About Jenkins CI
 </a>
@@ -348,32 +381,6 @@ Mailing Lists
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/05/31/chat/'>
-Chat
-</a>
-</h1>
-<div class='content'>
-<p>The Jenkins community congregates in the <code>#jenkins</code> channel on the <a href="http://www.freenode.net">Freenode</a> IRC network.</p>
-
-<h3 id="connect">Connect</h3>
-
-<p>In order to connect to the Freenode network, you can use a local client or the <a href="http://webchat.freenode.net/?channels=jenkins">Freenode web client</a> to connect. If you're using an IRC client, connect to the Freenode network (<a href="irc://irc.freenode.net">irc://irc.freenode.net</a>) and <code>/join #jenkins</code>.</p>
-
-<h3 id="backlog">Backlog</h3>
-
-<p>The <code>echelog</code> bot in the <code>#jenkins</code> channel is responsible for logging the conversation for archival purposes, the archives can be <a href="http://echelog.matzon.dk/?jenkins">viewed here</a></p>
-
-<h3 id="etiquette">Etiquette</h3>
-
-<p>"Core" members of the community (such as <code>kohsuke</code>) will have "ops" in the channel and most developers will have "voice".</p>
-
-<p>If you're looking for help, go ahead and <em>ask</em> your question, there's plenty of helpful people idling while their builds finish.
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2010/05/31/home-page/'>
 Home Page
 </a>
@@ -404,6 +411,32 @@ Home Page
 		</tr> <br/>
 	</table> <br/>
 </div> 
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/05/31/chat/'>
+Chat
+</a>
+</h1>
+<div class='content'>
+<p>The Jenkins community congregates in the <code>#jenkins</code> channel on the <a href="http://www.freenode.net">Freenode</a> IRC network.</p>
+
+<h3 id="connect">Connect</h3>
+
+<p>In order to connect to the Freenode network, you can use a local client or the <a href="http://webchat.freenode.net/?channels=jenkins">Freenode web client</a> to connect. If you're using an IRC client, connect to the Freenode network (<a href="irc://irc.freenode.net">irc://irc.freenode.net</a>) and <code>/join #jenkins</code>.</p>
+
+<h3 id="backlog">Backlog</h3>
+
+<p>The <code>echelog</code> bot in the <code>#jenkins</code> channel is responsible for logging the conversation for archival purposes, the archives can be <a href="http://echelog.matzon.dk/?jenkins">viewed here</a></p>
+
+<h3 id="etiquette">Etiquette</h3>
+
+<p>"Core" members of the community (such as <code>kohsuke</code>) will have "ops" in the channel and most developers will have "voice".</p>
+
+<p>If you're looking for help, go ahead and <em>ask</em> your question, there's plenty of helpful people idling while their builds finish.
+<!--break--></p>
 
 </div>
 </div>
@@ -509,27 +542,6 @@ The release of 1.354 contains a total of 51 commits to the "core" part of the tr
 <hr />
 
 <p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/16/a-new-blog-for-kohsuke/'>
-A new blog for Kohsuke
-</a>
-</h1>
-<div class='content'>
-<p>Historically, our fearless leader Kohsuke has blogged <a href="http://www.java.net/blog/kohsuke">on Java.net</a>. The setup made a whole lot of sense when Kohsuke was employed by Sun, then Oracle, which sponsors and runs <a href="http://java.net">Java.net</a>. In a post earlier this week discussing <a href="http://www.java.net/blog/kohsuke/archive/2010/04/14/hudson-console-markups">console markups</a>, Kohsuke casually pointed out that he will be cross-posting to Java.net, and his personal blog located at <a href="http://kohsuke.org">kohsuke.org</a>. The <a href="http://kohsuke.org/2010/04/12/hello/">first post</a> over on Kohsuke.org welcomes us:</p>
-
-<blockquote>
-  <p>For the longest time I haven’t really done anything about kohsuke.org, but as I left Sun/Oracle, I decided to put a bit more effort into it. So this is the new home.</p>
-
-  <p>For the time being, I plan to post my blogs both on java.net and here.</p>
-</blockquote>
-
-<p>If you're a reader of feeds, I recommend adding the <a href="http://kohsuke.org/feed/">rss feed</a> for the blog to your list of interesting continuous integration/hacker feeds.</p>
 
 <hr />
 

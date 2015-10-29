@@ -177,6 +177,37 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/05/18/juc-speaker-blog-series-andrew-bayer-juc-europe/'>
+JUC Speaker Blog Series: Andrew Bayer, JUC Europe
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<p>In the fall of 2011, the very first Jenkins User Conference was held in San Francisco. Over 250 people showed up. It was, to be completely honest, a bit shocking to me - that little project I’d gotten involved with less than three years earlier was big enough, interesting enough, important enough for 250 people to travel from around the world to spend a day talking about it? That’s an amazing feeling, and it was an amazing day. Since then, there’ve been three more JUCs in the Bay Area, three in Israel and two in Europe, with more talks on more Jenkins subjects and an ever-increasing number of attendees. This year, there are another four scheduled - three of them for two days each this time! Find out more about the first two, JUC US East and JUC Europe, below!</p> <br/>
+<br/>
+<p>Not only are there enough worthy talks to merit a full day a few times a year - now there are enough to merit two days! At JUC US East 2015 outside Washington, DC on June 18 and 19, you can see talks on the Workflow plugin for Jenkins, test automation, mobile testing, plugin development, and a few talks on new and fascinating ways people are using Jenkins - even driving big data workflows! And then, just a few days later, on June 23 and 24 in London, there’s JUC Europe 2015, with talks covering things like the fantastic Job DSL plugin, reproducible build environments, Jenkins and Docker together, and my personal favorite, the 2015 edition of my Seven Habits of Highly Effective Jenkins Users talk.</p><br/>
+<br/>
+<p>Whether you’re interested in the latest innovations in continuous integration and delivery, or you’re a Jenkins plugin developer wanting to learn how to make your plugins more mature and useful, or you’re a Jenkins administrator trying to understand how to provide your users with a great platform for their builds and testing, or even if you’ve just heard about CI/CD and you want to find out more, the Jenkins User Conferences are a great opportunity to see all those things and meet with other Jenkins users and developers. I’m excited to attend my fifth JUC in London, and I hope to see you there!</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/smallerme.jpeg" width=150 height=188><br/>
+</div><br/>
+<p>This post is by Andrew Bayer, build and tools architect at Cloudera and longtime Jenkins contributor. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/01-01-1030-bayer">"Seven Habits of Highly Effective Jenkins Users"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? Early bird pricing ends May 15. Also, if you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/05/14/juc-speaker-blog-series-lorelei-mccollum-juc-u-s-east/'>
 JUC Speaker Blog Series: Lorelei McCollum, JUC U.S. East
 </a>
@@ -354,34 +385,6 @@ JUC World Tour 2015 - Keynote Speaker News and Early Bird Tickets
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2015/04/06/confluence-migration-this-weekend/'>
-Confluence migration this weekend
-</a>
-</h1>
-<div class='content'>
-<div style="float:right;margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Structure_relocation"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/GMC_U-Haul_truck_front_1.JPG/320px-GMC_U-Haul_truck_front_1.JPG"><br/>
-</a></div><br/>
-<p><br/>
-For the past few weeks, I've burnt a lot of midnight oil to <a href="https://github.com/jenkins-infra/confluence">get Confluence containerized</a>. The goal is to make Confluence upgrade more manageable and testable. In the proces, I've not only containerized Confluence, but also containerized <a href="https://github.com/jenkins-infra/confluence-cache">some other services</a>, including <a href="https://github.com/jenkins-infra/mock-ldap">mock LDAP server</a>, to be able to test the copy of the production Confluence dataset against newer versions of Confluence before upgrading production.<br/>
-<br/>
-<p><br/>
-The infra team is currently <a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/2015-April/000292.html">targeting this weekend</a> to migrate our current Confluence instance to this new container, and use the opportunity to move the service to a bigger system. Currently JIRA and Confluence has to live within 2.5GB RAM from the same host, and it's really stretching both services. The new box has 4GB of RAM, and we are splitting JIRA and Confluence to two different servers. So there's a lot of head room.<br/>
-<br/>
-<p><br/>
-So please expect some Wiki outage over the next weekend.<br/>
-<br/>
-<P><br/>
-As always, our sincere thank you to <a href="http://osuosl.org/">Oregon State University Open Source Lab</a> for generously hosting our servers. Please donate to them to show your support. Similarly, thank you <a href="http://atlassian.com/">Atlassian</a> for generously providing the license for running Confluence.<br/>
-<br/>
-<p><br/>
-If this goes well, JIRA will follow suit.
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2015/04/06/good-bye-java6/'>
 Good bye Java6
 </a>
@@ -419,28 +422,29 @@ To put this into context, <a href="https://www.java.com/en/download/faq/java_7.x
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2015/03/25/registration-for-juc-2015-is-open/'>
-Registration for JUC 2015 is Open!
+<a href='/blog/2015/04/06/confluence-migration-this-weekend/'>
+Confluence migration this weekend
 </a>
 </h1>
 <div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://pbs.twimg.com/media/Bqbz9JQIIAA9gKG.jpg" width=300 height=225><br/>
-</div><br/>
-<br/>
-<p>It's that time of the year again: <a href="http://www.cloudbees.com/jenkins/juc-2015/">2015 Jenkins User Conference Registration is OPEN for all cities.</a> This year, we are making some changes to JUC &mdash; JUC will be a two-day event in three out of the four cities across the globe. You will get opportunities to network with other users and developers in the community, learn more about how other people are using Jenkins and attacking broader continuous delivery problem. As always, we love to meet &amp; talk to you to learn what you are doing with Jenkins. To get the sense of how JUC is like, take a look at our past JUC reports like <a href="http://jenkins-ci.org/content/juc-berlin-summary">this</a> and <a href="http://jenkins-ci.org/content/juc-boston-what-day">this</a>.</p><br/>
-<br/>
-<p>Early Bird pricing for JUC tickets is available until May 1.</p><br/>
-<br/>
-<ul><li><b><a href="https://www.regonline.com/register/checkin.aspx?EventId=1698436&MethodId=0&EventSessionId=&startnewreg=1">East Coast US: June 18-19</a></b><br/>
-<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1698435">Europe: June 23-24</a></b><br/>
-<li><b><a href="https://www.eventbrite.com/e/jenkins-user-conference-israel-tlv-david-inter-continental-july-16-2015-tickets-16393557572">Israel: July 16</a></b><br/>
-<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214">West Coast US: September 2-3</a></b></ul><br/>
-<br/>
-<p>You can learn a lot more information <a href="http://www.cloudbees.com/jenkins/juc-2015/">here</a> about the 2015 Jenkins User Conference World Tour. As always, we are tweaking JUC to make it better, based on feedback. I'll post about those in coming months. Make sure to follow or tweet at <a href="https://twitter.com/jenkinsconf">@jenkinsconf</a> to stay up to date on JUC news or to share which JUC you will be attending!</p><br/>
+<div style="float:right;margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Structure_relocation"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/GMC_U-Haul_truck_front_1.JPG/320px-GMC_U-Haul_truck_front_1.JPG"><br/>
+</a></div><br/>
+<p><br/>
+For the past few weeks, I've burnt a lot of midnight oil to <a href="https://github.com/jenkins-infra/confluence">get Confluence containerized</a>. The goal is to make Confluence upgrade more manageable and testable. In the proces, I've not only containerized Confluence, but also containerized <a href="https://github.com/jenkins-infra/confluence-cache">some other services</a>, including <a href="https://github.com/jenkins-infra/mock-ldap">mock LDAP server</a>, to be able to test the copy of the production Confluence dataset against newer versions of Confluence before upgrading production.<br/>
 <br/>
 <p><br/>
-See you there!</p>
+The infra team is currently <a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/2015-April/000292.html">targeting this weekend</a> to migrate our current Confluence instance to this new container, and use the opportunity to move the service to a bigger system. Currently JIRA and Confluence has to live within 2.5GB RAM from the same host, and it's really stretching both services. The new box has 4GB of RAM, and we are splitting JIRA and Confluence to two different servers. So there's a lot of head room.<br/>
+<br/>
+<p><br/>
+So please expect some Wiki outage over the next weekend.<br/>
+<br/>
+<P><br/>
+As always, our sincere thank you to <a href="http://osuosl.org/">Oregon State University Open Source Lab</a> for generously hosting our servers. Please donate to them to show your support. Similarly, thank you <a href="http://atlassian.com/">Atlassian</a> for generously providing the license for running Confluence.<br/>
+<br/>
+<p><br/>
+If this goes well, JIRA will follow suit.
 
 </div>
 </div>

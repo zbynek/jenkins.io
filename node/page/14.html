@@ -177,6 +177,36 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/05/27/acceptance-test-project-progress-report/'>
+Acceptance test project progress report
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Over the past 30 days or so, <a href="https://github.com/jenkinsci/acceptance-test-harness/">the acceptance test project</a> has made a great progress.<br/>
+<br/>
+<p><br/>
+This project consists of a reusable harness that can be used by plugin developers and users to write functional test cases. These tests can be run against Jenkins instances that are deployed in <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/CONTROLLER.md">all sorts of different ways</a>, and can interact with <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/FIXTURES.md">complex real fixtures</a>. These tests can be also run with specific version of Jenkins core and a combination of plugins.<br/>
+<br/>
+<p><br/>
+The number of tests have <a href="https://jenkins.ci.cloudbees.com/job/core/job/acceptance-test-harness/">steadily increased to above 300</a>. Several of those are by <a href="https://github.com/eidottermihi">Michael Prankl</a>, where he tests <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/src/test/java/plugins/LdapPluginTest.java">the LDAP plugin with the real OpenLDAP server instance</a> that runs inside Docker &mdash; a kind of test that just wasn't possible before can be now easily written.<br/>
+<br/>
+<p><br/>
+<a href="https://github.com/jenkinsci/acceptance-test-harness/graphs/contributors">More than a dozen people</a> have contributed. <a href="https://github.com/jenkinsci/acceptance-test-harness/commits/master">A dozen changes are going in every single day</a>, and more are coming &mdash; for example, Stephen is working on modularizing this harness and adding new pieces that allow people to do scalability and load testing. That'll be a part of this effort soon.<br/>
+<br/>
+<p><br/>
+If you are one of the large scale users who are interested in automating some of your Jenkins acceptance testing, please <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">drop us a note at the DEV list</a> so that we can work together. You can also watch the recording of our last <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">office hours</a> where I demoed how you'd develop a test on top of this:<br/>
+<br/>
+<iframe width="560" height="315" src="//www.youtube.com/embed/ZHAiywgMG-M" frameborder="0" allowfullscreen></iframe><br/>
+<br/>
+<p><br/>
+I think we all agree that this is an important effort/ Looking forward to joining the efforts with more people in the community!<br/>
+<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/05/19/jenkins-office-hour-tutorial-on-writing-an-acceptance-test/'>
 Jenkins Office Hour: Tutorial on writing an acceptance test
 </a>
@@ -359,33 +389,6 @@ Starting with the next 1.554.x LTS, the release model will <a href="https://wiki
 <br/>
 <p><br/>
 You can see <a href="http://jenkins-ci.org/content/event-calendar">the scheduled dates in our event calendar</a>. Backporting window for 1.554.1 is almost closing, so if you want to have your favorite issues nominated for it, please see <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">the process</a> in the Wiki and hurry!
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/11/infoq-ci-survey-2014/'>
-InfoQ CI survey 2014
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-InfoQ has been <a href="http://www.infoq.com/research/ci-server">running a CI server survey</a> for more than a month now, and here is the current result:<br/>
-<br/>
-<div><br/>
-<a href="http://www.infoq.com/research/ci-server"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/infoq.preview.png"><br/>
-</a><br/>
-</div><br/>
-<br/>
-<p><br/>
-Jenkins has gotten more than 70% of the votes, once again proving the wide adoption among developers. If you are one of those who picked Cruise Control into the "considering" section, I'd encourage you to look around a bit more.<br/>
-<br/>
-<p><br/>
-You can still <a href="http://www.infoq.com/research/ci-server">vote from their website or leave comments if you want</a>.<br/>
-<br/>
-<p><br/>
-By the way, the design of two axes make no sense to me; for example, I'd order the adoption axis to "considering -> migrating to -> using now -> moving away from", and the circle seems to imply two axes are somehow interchangeable, when it should probably be just in a checkerboard to indicate those are independent axes.
 
 </div>
 </div>
