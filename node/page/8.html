@@ -177,6 +177,103 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/04/13/juc-world-tour-2015-keynote-speaker-news-and-early-bird-tickets/'>
+JUC World Tour 2015 - Keynote Speaker News and Early Bird Tickets
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/The-Phoenix-Project-border_2.png" width=99 height=144/><br/>
+</div><br/>
+<br/>
+<p>The 2015 JUC World Tour dates are rapidly approaching. Since the community has grown so tremendously since last year, the JUC in each city will be the largest gathering of Jenkins users in that region.</p><br/>
+<br/>
+<p><a href="https://twitter.com/kohsukekawa"> Kohsuke </a>will, as always, be the opening keynote speaker at each JUC. But, with the conference going from one to two days, I am happy to announce that <a href="http://www.realgenekim.me/"> Gene Kim </a> will be another keynote on the second day! He is the author of <a href="http://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592/ref=tmm_hrd_swatch_0?_encoding=UTF8&sr=8-1&qid=1428523232"> The Phoenix Project </a> and a thought leader in DevOps.</p><br/>
+<br/>
+<p>To have these two experts in one place will provide a great opportunity to talk about Jenkins as the foundation of continuous delivery and DevOps practices.</p><br/>
+<br/>
+<p>Another exciting announcement: the 2015 Jenkins World Tour will run alongside the CD Summit conferences for both days (at the U.S. East, Europe and U.S. West locations only). Attendees of either conference can attend any of the talks and presentations at both events. Learn more about what <a href="https://www.cloudbees.com/cdsummit"> CD Summit 2014 </a> was like to get an idea for <a href="http://www.cloudbees.com/cdsummit-2015/"> this year's event.</a></p><br/>
+<br/>
+<p><b>Registration for all 2015 JUC locations is open. Early bird pricing ends May 1!</b></p><br/>
+<br/>
+<ul><li><b><a href="https://www.regonline.com/register/checkin.aspx?EventId=1698436&MethodId=0&EventSessionId=&startnewreg=1">East Coast US: June 18-19</a></b></li><br/>
+<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1698435">Europe: June 23-24</a></b></li><br/>
+<li><b><a href="https://www.eventbrite.com/e/jenkins-user-conference-israel-tlv-david-inter-continental-july-16-2015-tickets-16393557572">Israel: July 16</a></b></li><br/>
+<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214">West Coast US: September 2-3</a></b></li></ul><br/>
+<br/>
+<p><b>The Call for Papers for JUC is still open for Israel and U.S. West. Submit your own proposal or convince your favorite speaker/Jenkins user to submit one if speaking is not your thing!</b></p><br/>
+<ul><li><a href="https://www.cloudbees.com/jenkins-user-conference-call-papers">East Coast US: June 18-19</a></li><br/>
+<li><b><a href="https://www.cloudbees.com/jenkins-user-conference-call-papers">Israel: July 16</a></b></li></ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/04/06/good-bye-java6/'>
+Good bye Java6
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/6_(number)"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/62/U%2B2678_DejaVu_Sans.svg/200px-U%2B2678_DejaVu_Sans.svg.png"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+About two years ago, we bumped our runtime JRE requirement <a href="http://jenkins-ci.org/commit/core/3431a7cba">from Java5 to Java6</a>. And so the time has come once again for us to finally move on to Java7. Because of all the new language features, <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/sw_WepGw0Pk">many of us the developers really wanted to move right on to Java8</a>, but after much discussion we settled to move to Java7 first and then to Java8.<br/>
+<br/>
+<p><br/>
+So here is the plan:<br/>
+<br/>
+<ul><br/>
+<li>Starting Jenkins 1.608, we start advertising that we will be moving on to Java7, which is why you are reading this.<br/>
+<li>Starting Jenkins 1.610 (2 weeks from now), we will ship so-called 51.0 class files that will only load on Java7+. This gives some more warnings to those who don't read our blog.<br/>
+<li>Unless we hear uproar from users, starting around 1.614 (6 weeks from now), core developers will start linking directly to new Java7 APIs. <a href="http://jenkins-ci.org/content/thinking-about-moving-servlet-30">We will move on to servlet 3.0 at this time as well</a>.<br/>
+<li>The current 1.596 line of LTS will remain compatible with Java6, and most likely the next LTS line will also remain compatible with Java6. So LTS users have additional 3 months before upgrading to Java7.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+Java7 has more NIO improvements that allow us to do some file I/O in more portable manner. Similarly, servlet 3.0 will help us build more interactive UI.<br/>
+<br/>
+<p><br/>
+Your Jenkins master and all the build slaves need to be running on Java7+. Similarly, those who are using the Maven2 job type must also run Maven with Java7+. However, this does not prevent you from using Jenkins to build your applications that are targeted to earlier versions of Java. According to our research, most platforms people run Jenkins on has been already shipping Java7 for quite some time now. But if you have a good reason why we shouldn't force everyone to Java7, please let us know ASAP.<br/>
+<br/>
+<p><br/>
+To put this into context, <a href="https://www.java.com/en/download/faq/java_7.xml">Oracle will not release updates to Java7 past April 2015</a>. We have always recommended users to run the latest general release according to Oracle, which is currently Java8. As I said, I suspect we will be requiring Java8 pretty soon. So if you are still running Java6, you should definitely upgrade to Java8.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/04/06/confluence-migration-this-weekend/'>
+Confluence migration this weekend
+</a>
+</h1>
+<div class='content'>
+<div style="float:right;margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Structure_relocation"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/GMC_U-Haul_truck_front_1.JPG/320px-GMC_U-Haul_truck_front_1.JPG"><br/>
+</a></div><br/>
+<p><br/>
+For the past few weeks, I've burnt a lot of midnight oil to <a href="https://github.com/jenkins-infra/confluence">get Confluence containerized</a>. The goal is to make Confluence upgrade more manageable and testable. In the proces, I've not only containerized Confluence, but also containerized <a href="https://github.com/jenkins-infra/confluence-cache">some other services</a>, including <a href="https://github.com/jenkins-infra/mock-ldap">mock LDAP server</a>, to be able to test the copy of the production Confluence dataset against newer versions of Confluence before upgrading production.<br/>
+<br/>
+<p><br/>
+The infra team is currently <a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/2015-April/000292.html">targeting this weekend</a> to migrate our current Confluence instance to this new container, and use the opportunity to move the service to a bigger system. Currently JIRA and Confluence has to live within 2.5GB RAM from the same host, and it's really stretching both services. The new box has 4GB of RAM, and we are splitting JIRA and Confluence to two different servers. So there's a lot of head room.<br/>
+<br/>
+<p><br/>
+So please expect some Wiki outage over the next weekend.<br/>
+<br/>
+<P><br/>
+As always, our sincere thank you to <a href="http://osuosl.org/">Oregon State University Open Source Lab</a> for generously hosting our servers. Please donate to them to show your support. Similarly, thank you <a href="http://atlassian.com/">Atlassian</a> for generously providing the license for running Confluence.<br/>
+<br/>
+<p><br/>
+If this goes well, JIRA will follow suit.
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/03/25/registration-for-juc-2015-is-open/'>
 Registration for JUC 2015 is Open!
 </a>
@@ -313,107 +410,6 @@ We got carried away and the recording became longer than we all planned. But it 
   <source src="http://mirrors.jenkins-ci.org/podcast/100k.mp3" type="audio/mpeg"><br/>
 </audio><br/>
 </div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/24/100k-celebration-podcast-recording/'>
-100K Celebration Podcast Recording
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-In preparation for <a href="http://jenkins-ci.org/content/jenkins-celebration-day-february-26">Jenkins 100K celebration</a>, I'm going to record a one-time podcast with Dean Yu, Andrew Bayer, and R. Tyler Croy.<br/>
-<br/>
-<p><br/>
-My current plan is to go over the history of the project, how big the community was back then, how we grow, where we are now, and maybe a bit about future.<br/>
-<br/>
-<p><br/>
-But if you have any other suggestions/questions that you'd like us to discuss, you have 3 or 4 more hours to send in that suggestion! Your feedback would help us make a better recording, so please don't hesitate to tell us.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/19/jenkins-100k-celebration-pictures/'>
-Jenkins 100K celebration pictures
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-In preparation of the celebration of 100K installations, 1000 plugins, and 10 years of Jenkins, we've got these images created.<br/>
-<br/>
-<p><br/>
-I hope folks can use these images to mark the occasion! <a href="https://www.flickr.com/photos/131462214@N04/sets/72157650510081118/">The full size pictures are here</a>.<br/>
-<br/>
-<div align=center><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/jenkins100k_1.jpeg" width=379 height=479><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/09/jenkins-celebration-day-is-february-26/'>
-Jenkins Celebration Day is February 26
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Congratulations! The Jenkins project officially went over the 100K active users mark sometime in January. As of January 31, <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/total-jenkins.svg">we were at 102,992</a>. YOU are one of the 100K active users!<br/>
-<br/>
-<p><br/>
-As discussed on <a href="http://meetings.jenkins-ci.org/jenkins/2015/">a couple recent project meetings</a>, we have designated <b>February 26</b> as Jenkins Celebration Day.<br/>
-<br/>
-<p><br/>
-To make some noise, here is what we are doing starting NOW:<br/>
-<br/>
-<ul><br/>
-<li><br/>
-Write a blog about anything related to Jenkins. Post your blog and Tweet out a link to it. Include the hashtag <b>#Jenkins100K</b> in your post.<br/>
-<br/>
-<li><br/>
-On February 26, we will hold a raffle and pick four names at random.  The grand prize winner will get a <a href="http://jenkins-ci.org/content/jenkins-figure-available-shapeways">3D Jenkins Butler model</a>. Five others will get their pick of Jenkins swag (up to $20) from <a href="http://www.cafepress.com/jenkinsci">the Jenkins online store</a>.<br/>
-<br/>
-</ul><br/>
-<br/>
-<h2>OTHER WAYS TO CELEBRATE</h2><br/>
-<br/>
-<p><br/>
-There are a number of other things planned and we want YOU to be involved. This blog post is the central place to come for all things related to the celebration. <br/>
-<br/>
-<ul><br/>
-<li><br/>
-<b>Recording – Jenkins Governance Board</b><br/>
-Dean, Tyler, Andrew and I will get together this month and record some thoughts about the Jenkins project. We will share that recording with you from this page on February 26.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/sites/default/files/images/jenkins-100k-profile_4.jpg">Twitter Badge</a></b><br/>
-For those of us on social media that want to proudly celebrate our community, we will have a special badge that you can use for your profile image on Twitter or any of the other social media forums. Feel free to use the badge as long as you want – but let’s get as many of us using it as possible between now and February 27.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/content/jenkins-100k-celebration-pictures">Social Media Images</a></b><br/>
-<ul><br/>
-<li>CloudBees is donating a series of images that we can all push out on social media (whatever platform(s) you use). <br/>
-<li>Pick your favorite(s) and push them out on Twitter, Facebook, G+<br/>
-</ul><br/>
-<br/>
-<li><br/>
-<b>Certificate</b> (available on this blog post soon)<br/>
-Download your very own “I am part of the Jenkins 100K” certificate. Print it out and proudly display it on the wall of your cube or office.<br/>
-<br/>
-<li><br/>
-<b>Visibility</b><br/>
-The Community will also issue a press release on February 26 announcing our milestone news.<br/>
-<br/>
-<li><br/>
-<b>Sign the “card”</b><br/>
-Consider this blog a Congratulations card to the entire community. Share your thoughts in a comment on this blog about anything Jenkins-related that you wish!<br/>
-</ul><br/>
-<br/>
-<p><br/>
-This is a big milestone for the Community and one you should be proud to be part of! Let’s make some noise…<br/>
 
 </div>
 </div>

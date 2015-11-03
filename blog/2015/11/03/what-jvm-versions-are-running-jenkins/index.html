@@ -1,0 +1,266 @@
+<html>
+<head>
+<title>
+What JVM versions are running Jenkins?
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/' title='What JVM versions are running Jenkins?'>
+What JVM versions are running Jenkins?
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-03T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<div class='content'>
+<p>Preceding some of last week's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0</a> discussions, there had been <a href="https://groups.google.com/d/msg/jenkinsci-dev/sw_WepGw0Pk/0gO2V9UXy-8J">some threads</a> on whether we should move Jenkins to require Java 8. The introduction of <a href="http://www.oracle.com/events/us/en/java8/index.html">Java 8</a> last year brought performance improvements and highly desirable API changes, which make developing Java-based applications (arguably) much easier than before. The release was followed earlier this year by the <a href="https://www.java.com/en/download/faq/java_7.xml">end-of-life announcement</a> for Java 7; the writing is on the wall: upgrade to Java 8.</p>
+
+<p>I wanted to answer the question "does it even make sense to force an upgrade to Java 8?" There are plenty of technical discussions that we can have in the community on whether or not this is the right approach, but my goal was to try and measure the current Jenkins install base for Java 8 preparedness.</p>
+
+<!--break-->
+
+<p>While we do not currently (to my knowledge) collect Java runtime versions in our <a href="http://stats.jenkins-ci.org/jenkins-stats/">anonymous usage statistics</a>, we do have access logs from our <a href="http://mirrors.jenkins-ci.org">mirror redirector</a> which might provide some insight.</p>
+
+<p>With some access logs data, I went through the millions of requests made to Jenkins infrastructure in 2015 and started filtering out the user agent which made those requests.</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> This data is totally not scientific and is only meant to provide a coarse insight into what versions of Java access Jenkins web infrastructure.</p>
+</blockquote>
+
+<p>When Jenkins hits the mirror network, it's not overriding the default user agent from the Java runtime, so many of the user agents for the HTTP request are something like <code>Java/1.7.0_75</code>. This indicates that the request came from a Java Runtime version 1.7.0 (update 75).</p>
+
+<p>Looking at the major JVM versions making (non-unique) requests to Jenkins infrastructure we have:</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/major-jvm-versions.png" /></center>
+
+<ul>
+  <li><strong>1.8.0</strong>: 21,278,960</li>
+  <li><strong>1.7.0</strong>: 27,340,214</li>
+  <li><strong>1.6.0</strong>: 4,148,833</li>
+</ul>
+
+<p>This breaks down across various updates as well, which is also particularly interesting to me because many of these Java versions have long since had security advisories posted against them.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/jvm-versions-with-updates.png" width="600" /></center>
+
+<p>As I mentioned before, this is not a rigorous analysis of the access log data and is also not filtered by unique IP addresses. What I found most interesting though is that the Java 8 upgrade numbers are actually <em>fairly strong</em>, which I didn't expect. I expect that piece of the pie will continue to grow. Hopefully so much so that we're able to move over to Java 8 before the end of 2016!</p>
+
+</div>
+</div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+<div id='github'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blog/2015/2015-11-03-what-jvm-versions-are-running-jenkins.md' title='Edit /blog/2015/2015-11-03-what-jvm-versions-are-running-jenkins.md on GitHub'>
+Improve this page
+</a>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>

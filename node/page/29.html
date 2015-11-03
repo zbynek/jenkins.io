@@ -177,6 +177,103 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/06/08/lts-release-candidate/'>
+LTS Release Candidate
+</a>
+</h1>
+<div class='content'>
+<p>
+LTS Release candidate is the build intended for the upcoming LTS release of Jenkins. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Release+Process">See Wiki for more about what it means.</a>
+</p>
+<p>Upcoming version: <b><?php include "/srv/releases/jenkins/version-stable-rc.txt"?></b></p>
+
+
+  <style>
+    #download DT {
+      font-size: 2em;
+      font-weight: bold;
+      padding-bottom: 0.5em;
+    }
+  </style>
+  
+  <dl id=download> 
+    <dt>Download multi-platform war file</dt> 
+    <dd style="margin-bottom:1em"> 
+      <div>
+        <a href="http://mirrors.jenkins-ci.org/war-stable-rc/latest/jenkins.war"><strong>jenkins.war</strong></a>
+      </div> 
+      <!-- TODO: changelog
+      <div class="release-block-small" style="text-align:right"> 
+       <a href="/changelog" class=release-block-soft>changelog</a> | <a href="http://mirrors.jenkins-ci.org/war/" class=release-block-soft>past releases</a> 
+      </div> 
+      -->
+    </dd> 
+    
+    <dt>Or native package</dt> 
+    <dd class="release-block-platforms"> 
+      <div> 
+        <img src="/images/os/win_other.png"> 
+        <a class="release-block-soft" href="http://mirrors.jenkins-ci.org/windows-stable-rc/latest">Windows</a> 
+      </div> 
+      <div> 
+        <img src="/images/os/ubuntu.png"> 
+        <a class="release-block-soft" href="http://pkg.jenkins-ci.org/debian-stable-rc/">Ubuntu/Debian</a> 
+      </div> 
+      <div> 
+        <img src="/images/os/redhat.png"> 
+        <a class=release-block-soft href="http://pkg.jenkins-ci.org/redhat-stable-rc/">Red Hat/Fedora/CentOS</a> 
+      </div>
+      <div> 
+        <img src="/images/os/os_macosx.png"> 
+        <a class=release-block-soft href="http://mirrors.jenkins-ci.org/osx-stable-rc/latest">Mac OS X</a> 
+      </div>
+      <div> 
+        <img src="/images/os/opensuse.png"> 
+        <a class=release-block-soft href="http://pkg.jenkins-ci.org/opensuse-stable-rc/">openSUSE</a> 
+      </div> 
+    </dd> 
+  </dl> 
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/06/08/lts-changelog/'>
+LTS Changelog
+</a>
+</h1>
+<div class='content'>
+<?php
+  readfile("/var/www/jenkins-ci.org/changelog-stable.html")
+?>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/06/08/building-a-software-diamond-with-jenkins/'>
+Building a software diamond with Jenkins
+</a>
+</h1>
+<div class='content'>
+<p>[<strong>Editor's Note:</strong> <em>This is a guest post from Jenkins community member <a href="http://www.linkedin.com/in/tomrini">Tom Rini</a></em>]</p>
+
+<p>Alternatively: <strong>How to make your parallel jobs kick one last job at the end</strong></p>
+
+<p>Many of us have had occasion to think: "<em>I could make this project build quicker if I could just run parts in parallel and then one final job to wrap it up.</em>"</p>
+
+<p>Well, good news! Jenkins is here to help!  With the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Join+Plugin">Join Plugin</a> you can do just that.  Over on the confluence page it’s got a number of examples and fancy flow charts.  But the take-away is that if you can describe the flow, you can make it happen.  But you’re saying "wait, I need to pass information around between the jobs."</p>
+
+<p>We’ve got that one covered for you too with the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Parameterized+Trigger+Plugin">Parameterized Trigger Plugin</a>.  And here’s the best part, these two can work together!  With both plugins installed you can follow the steps listed in the Build Parameters section of the Join Plugin.</p>
+
+<center><a href="http://agentdero.cachefly.net/continuousblog/join_trigger.png" target="_blank"><img alt="Click to enlarge" title="Click to enlarge" src="http://agentdero.cachefly.net/continuousblog/join_trigger.png" width="540" /></a></center>
+
+<p>And as they say, <em>now you're cooking with gas!</em></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/05/27/ruby-plugins-hack-session-5-27-2011/'>
 Ruby Plugins Hack Session 5/27/2011
 </a>
@@ -302,86 +399,6 @@ Strong coffee and engaged conversations kept me awake all day, although German k
 <br/>
 <p><br/>
 The next hackathon is planned in Paris toward the end of the month. I'm looking forward to another productive Hackathon, so if you are nearby, please <a href="http://www.meetup.com/jenkinsmeetup/events/17178842/">RSVP and join us</a>.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/04/14/mit-license/'>
-MIT License
-</a>
-</h1>
-<div class='content'>
-<p>Copyright (c) 2011, contributors of the Jenkins project</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/04/14/jenkins-new-look/'>
-Jenkins' New Look
-</a>
-</h1>
-<div class='content'>
-<p>As you might have noticed <a href="http://twitter.com/jenkinsci/">Jenkins</a> finally has
-a <strong>brand spankin' new logo!</strong> Over the past couple weeks we've run two series
-of votes, <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">one for the initial 11 logo
-submissions</a>
-and then a final, run-off election, for the <a href="http://jenkins-ci.org/content/final-two-run-vote-new-jenkins-logo">two most popular
-choices</a>.
-I'd like to take this opportunity to thank everybody that submitted logos! It
-is incredibly flattering to have so many people passionate about the project
-and willing to spend the time creating new art for us.</p>
-
-<center><img src="http://agentdero.cachefly.net/continuousblog/images/runoff_election_piechart.png" alt="Runoff election pie chart" /></center>
-
-<p>At the end of the votes, there was a clear winner though, everybody seems to
-really love the submission by the folks over at <a href="http://thefrontside.net/">The
-FrontSide</a> which you can see adorning this very page.</p>
-
-<p>If you'd like to download the SVG version of the logo, or the variants in different sizes, I've gone ahead and uploaded a tarball and all the variants to <a href="http://mirrors.jenkins-ci.org/art/">this directory</a>, there is also a good <a href="http://mirrors.jenkins-ci.org/art/jenkins_colors.pdf">color palette here</a> (<em>obligatory PDF warning</em>).</p>
-
-<p>Once again, thank you to <strong>everybody</strong> that participated!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/04/04/the-final-two-run-off-vote-for-the-new-jenkins-logo/'>
-The final two: run-off vote for the new Jenkins logo
-</a>
-</h1>
-<div class='content'>
-<p>A <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">little over a week ago</a> we opened the polls to the larger user-base to vote for the <strong><em>new and improved</em></strong> Jenkins logo. After receiving hundreds of votes, we are now ready to enter the final round of voting (click images to see larger versions in a new window).</p>
-
-<p>Voting will <strong>end</strong> April 9th at 23:59 UTC, so make sure to tell your friends, coworkers and bus drivers to get their votes in as soon as possible!</p>
-
-<center>
-<table><tr><td align="center">
-
-<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-10"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" /><br /><strong>Logo #1</strong></a>
-</td>
-<td align="center">
-<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-9"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" /><br /><strong>Logo #2</strong></a></td></tr></table>
-</center>
-
-<h3 id="the-vote">The Vote</h3>
-
-<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ">the form in a new window</a></p>
-
-<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ" width="760" height="443" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-<!--break-->
-<hr />
-
-<p>If you're interested in the results for the first round, you can find them in <a href="https://gist.github.com/900991">this gist</a></p>
-
-<hr />
 
 </div>
 </div>

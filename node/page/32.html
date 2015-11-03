@@ -177,6 +177,182 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/01/11/hudsons-future/'>
+Hudson's future
+</a>
+</h1>
+<div class='content'>
+<p>First, my apologies for the lack of updates on the <a href="http://hudson-labs.org/content/whos-driving-thing">Hudson/Oracle situation</a> for
+the last few weeks. While talks have been ongoing, the holidays have slowed
+things down, and we didn't want to send out information that would later turn
+out not to be true. We've been waiting for the talks to reach a resolution -
+and I believe they now have.</p>
+
+<p>Since the <a href="http://www.java.net">java.net</a> migration problems, Oracle and representatives from the
+Hudson community have been involved in talks on the future of the project in a
+number of areas. The Hudson representatives have been <a href="http://twitter.com/abayer">myself</a>, <a href="http://twitter.com/kohsukekawa">Kohsuke
+Kawaguchi</a>, and <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a>  (CEO of CloudBees and Kohsuke's boss), who was
+brought in to help provide experience with discussions on a corporate/executive
+level which neither Kohsuke nor I have, with Alan Harder and <a href="http://twitter.com/agentdero">R. Tyler Croy</a>
+advising on the side.</p>
+
+<p>These talks have in many ways been fruitful - we came to working agreements
+with Oracle on the project infrastructure (such as mailing lists and SCM
+repository location), code review policy for Hudson core, and perhaps most
+significantly, a governance structure for the project going forward. Some
+issues are not yet entirely resolved, such as questions on restrictions on
+third party dependency licenses. But one issue, which we feel is the most
+significant issue of all, one for which we now believe no resolution is
+possible: the rights to the name <strong>Hudson</strong>.</p>
+
+<p>Oracle has told us that they have trademark applications filed in both the EU
+and US for Hudson, based on Hudson's creation by Kohsuke while working at Sun.
+The problem is that this trademark ownership gives Oracle the ability to revoke
+the Hudson project's right to call itself Hudson at any time, and while Oracle
+has made an attempt to offer some guarantees (most notably, that binary
+releases of Hudson, once they've been released with the name Hudson attached,
+will always retain the right to the name), they are not offering any binding
+guarantee that the Hudson project will be able to retain its use of the name in
+perpetuity.</p>
+
+<p>Therefore, to continue using the name Hudson means ceding some of the project's
+independence to Oracle - if the project and its governance board opted to go in
+a direction Oracle disapproved of, Oracle would be able to take away the naming
+rights. Or, in a less dramatic scenario, Oracle could insist on certain changes
+to the code, infrastructure decisions, process, etc, regardless of opposition
+from the Hudson development community, in order to retain the rights to the
+name.</p>
+
+<p>In short, we'd be living under a sword of <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Damocles">Damocles</a>, regardless of the goodwill
+of the individuals we've been negotiating with at Oracle - Hudson as a project
+would be beholden to Oracle's whims for its continued use of its own name, and
+we believe that's not viable.
+<!--break-->
+As I see it, the only viable option facing the project now is to rename it, in
+order to free it from the burden of Oracle's ownership of its name. This is not
+a first choice, not by a long shot, but I don't see any other choice available
+to us that would preserve the integrity of the project going forward. Oracle
+will be presenting their proposal for the project continuing under their
+umbrella - I encourage you to read it when it becomes available and weigh it
+accordingly. I'll just focus on what Kohsuke, other prominent Hudson community
+members and I have endorsed.</p>
+
+<h3 id="the-proposal">The Proposal</h3>
+
+<p>First, we rename the project - the choice for a new name is <strong>Jenkins</strong>, which we
+think evokes the same sort of English butler feel as Hudson. We've already
+registered domains, Twitter users, etc for the new name, and have done our best
+to verify that there are no existing trademarks which would conflict with it.
+Kohsuke will be registering the trademark for Jenkins in his name, with the
+intent of transferring ownership of the trademark to the umbrella of the
+<a href="http://www.sfconservancy.org/">Software Freedom Conservancy</a> once the Jenkins project has been admitted to it
+(which, I should add, is very much our plan, hopefully in their next round of
+new projects in a few months - we've already had preliminary contacts with
+SFC). We still invite Oracle to remain involved with the project, on equal
+terms with all other contributors, and hope they'll take us up on this
+invitation.</p>
+
+<p>Second, out of respect for Oracle's trademark claim on Hudson, we will move our
+infrastructure off of Oracle-owned and hosted servers, and we will rename
+existing independent components of the infrastructure to no longer use "Hudson"
+- i.e., mailing lists, Github repos, etc. This would be a gradual process,
+obviously.</p>
+
+<p>Third, we will put in place an interim governance board for the project,
+consisting of three members - myself, Kohsuke and, if Oracle elects to remain
+involved, Winston Prakash, the Oracle engineer working on Hudson. The interim
+board members will serve for the next 3-6 months, until the governance
+structure can be nailed down securely enough to hold elections for the board
+members.</p>
+
+<p>Obviously, such a move could not be undertaken without the agreement and
+support of the Hudson community. We believe this proposal is the best choice
+for the project in the situation it's currently in, but we aren't closing off
+discussion, questions, etc, and we encourage your feedback and comments. If
+there's anything you need clarified, please ask and we'll do our best to
+answer.</p>
+
+<p>Once Oracle's proposal is available later this week (hopefully Wednesday,
+possibly Thursday, from what I've been told), which I strongly advise you all to 
+read and consider, we'll be putting up a poll to determine the position of the 
+community. Once that vote is done, assuming the consensus is to rename, we'll 
+put the mechanisms in motion and switch over as fast we can.</p>
+
+<p>There may be some confusion as to whether we're proposing to fork Hudson, or
+rename the existing project. I firmly believe we are proposing the latter - for
+me, the project's key component is Kohsuke himself. If the community decides to
+support renaming the project to Jenkins, and Oracle chooses to continue
+development themselves under the name Hudson, they are, obviously, entirely
+welcome to do so. But with Kohsuke working on Jenkins, that's the true home and
+the future of the project for me, regardless of the name.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/01/08/installing-plugins-has-always-been-easy-now-its-fast-too/'>
+Installing plugins has always been easy, now it's fast too!
+</a>
+</h1>
+<div class='content'>
+<p>As one of the "men behind the scenes" of the Hudson project, a lot of my contributions tend to be in writing articles or handling infrastructure, anything to ensure folks like <a href="http://twitter.com/kohsukekawa">Kohsuke</a> can continue to make Hudson great without being distracted by inane system administration tasks. This past week, one of my long-running infrastructure projects has finally "gone live," making downloads of plugins and packages faster than ever!</p>
+
+<p>Some number of months ago I became frustrated with the download speeds reported by our international users, while the majority of Hudson's infrastructure is all colocated inside of the United States, there is a <strong>huge</strong> number of Hudson users and developers who are both in Europe and Asia.</p>
+
+<p>After discussing things with some of the folks that run <a href="http://download.opensuse.org">download.opensuse.org</a>, a <a href="http://mirrorbrain.org">MirrorBrain</a> powered redirector, I set out to build something similar. A mirroring network which could be easily managed and help direct users' downloads to the geographically closest and fastest mirror available.</p>
+
+<h4 id="where-are-we-mirrored">Where are we mirrored?</h4>
+
+<p>Currently we have mirrors in a few locations within the United States, and one overseas:</p>
+
+<ul>
+  <li>Southwest U.S. (Utah) - <em>Thanks to <a href="http://www.xmission.com">XMission</a></em></li>
+  <li>Midwest U.S. (Chicago) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
+  <li>Northeast U.S. (New York City) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
+  <li>Germany - <em>Thanks to <a href="http://www.aragost.com/">aragost Trifork ag</a></em></li>
+</ul>
+
+<h4 id="using-the-mirrors">Using the mirrors</h4>
+
+<p>If you've updated or installed plugins from within Hudson lately, guess what! You're already using mirrors! In fact, since we flipped the switch on January 7th, over <strong>800</strong> plugins and <strong>600</strong> <code>hudson.war</code> updates have been downloaded from the mirroring network!
+<!--break-->
+If you'd like to download directly from the mirrors, you can browse on over to <a href="http://mirrors.hudson-labs.org">mirrors.hudson-labs.org</a>, which will redirect your request for specific files to the appropriate mirror based on your IP address. It's just that easy!</p>
+
+<p>We are currently working with more providers to add additional mirrors, hopefully we'll have an Asian mirror online within the next two weeks and if we're lucky, we'll find some more European mirrors too.</p>
+
+<hr />
+
+<p>I would like to thank the <strong>immensely</strong> helpful and supportive engineers over at the <a href="http://www.osuosl.org">OSUOSL</a> for offering gratis tech support, suggestions, and bandwidth to serve as our <em>primary</em> mirror.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/12/05/weekend-update-with-andrew-bayer/'>
+Weekend Update with Andrew Bayer
+</a>
+</h1>
+<div class='content'>
+<p>[<strong>Ed. note</strong> <em>Andrew was not involved in selecting this post's title - rtyler</em>]</p>
+
+<p>I wanted to give the Hudson community a quick update on the current status of the issues Tyler has <a href="http://hudson-labs.org/content/whos-driving-thing">discussed in the earlier posts</a> here.</p>
+
+<p>Friday afternoon, <a href="http://twitter.com/kohsukekawa">Kohsuke</a>, <a href="http://www.cloudbees.com">CloudBees</a> CEO <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a> and myself jumped on a conference call with Hudson contributor/Oracle employee <a href="http://twitter.com/wjprakash">Winston Prakash</a>, Oracle manager Denis Tyrell and of course Ted Farrell.</p>
+
+<p>We discussed a wide range of issues relating to the Hudson project, such as governance, the rights to the name Hudson, and the infrastructure hosting the Hudson project. While we didn't agree on resolutions to all issues, I feel real progress was made towards a framework that provides what the Hudson community needs while also preventing the sort of conflicts we've seen the last week or two.</p>
+
+<p>More work has to be done - we'll be talking again next week, and I'm hoping we can reach agreement on the contentious issues by the end of the week.</p>
+
+<p>Thanks for your patience.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/12/01/a-brief-update/'>
 A brief update
 </a>
@@ -509,122 +685,6 @@ After the discussion, we went out for a nice dinner in a restraunt inside one of
 <br/>
 <p><br/>
 One of my concerns before starting this world-wide spontaneous Hudson users meetups was if enough people show up, but I'm starting to feel comfortable now that I've done several. Hudson appears to be entrenched everywhere, and people are interested in finding out their neighbors who are using them. So stay tuned for future Hudson meetups around the world &mdash; it might be in your city!
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/22/javaone-day-two-in-pictures/'>
-JavaOne: Day Two in Pictures
-</a>
-</h1>
-<div class='content'>
-<p>On the off chance you've not seen some of the photos posted to the <a href="http://twitter.com/hudsonci">@hudsonci Twitter stream</a>, here's some of the photos from day two of JavaOne.</p>
-
-<center><object width="400" height="300"> <param name="flashvars" value="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2F&amp;set_id=72157625004467040&amp;jump_to=" /> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649" /> <param name="allowFullScreen" value="true" /><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowfullscreen="true" flashvars="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2F&amp;set_id=72157625004467040&amp;jump_to=" width="400" height="300" /></object></center>
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
-Video: Kohsuke talks Hudson on OTN
-</a>
-</h1>
-<div class='content'>
-<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
-
-<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
-
-<center>
-<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
-</center>
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/21/live-blog-john-smart-demos-advanced-hudson-usage/'>
-Live Blog: John Smart demos advanced Hudson usage
-</a>
-</h1>
-<div class='content'>
-<p><strong>Editor's Note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/wakeleo">John Ferguson Smart's</a> presentation at JavaOne 2010. Unlike <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">Kohsuke's presentation</a>, John spent a lot of time in demos which made live-blogging a bit difficult.</em></p>
-
-<center><a href="http://www.flickr.com/photos/hudsonlabs/5012383102/" title="John Smart (@wakeleo) talking about advanced Hudson use by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4129/5012383102_cf258075a6.jpg" width="500" height="375" alt="John Smart (@wakeleo) talking about advanced Hudson use" /></a></center>
-
-<p>John takes the stage at 9:30, this presentation is <em>totally</em> different from yesterday's presentation from Kohsuke</p>
-
-<p>Taking Hudson a little further, beyond just scheduling a build job.</p>
-
-<p>Who is <strong>not</strong> using Hudson, less than 10% raise hands.</p>
-
-<p>Focusing on the more technical/nitty-gritty things with Hudson. Looking at:</p>
-
-<ul>
-  <li>CI Basics</li>
-  <li>Notification strategies</li>
-  <li>Quality metrics</li>
-  <li>Build promotions</li>
-  <li>Automated deployment
-<!--break-->
-Who knows what build promotions? Who uses build promotions? Very few in the audience use build promotions.</li>
-</ul>
-
-<p>Who uses Hudson for automated deployment, a handful raise their hands. Plenty of Tomcat and JBOSS users automating deployment. John going to use Tomcat for the automated deployment demo in this presentation.</p>
-
-<p>John mentions he's authoring the "Continuous Integration with Hudson" book, which will be available for download as it comes out.</p>
-
-<p>Let's talk about Continuous Integration! Summing up what CI is in three words: <strong>feedback, visibility</strong> and <strong>delivery</strong>. CI is about <em>snappy feedback</em>. You want feedback in <strong>minutes</strong>.</p>
-
-<p>Visibility should be associated with continuous integration, getting everybody in the product life cycle into the loop with continuous integration (product people, QA, developers, etc).</p>
-
-<p><strong>What makes Hudson so great?</strong> (according to John)</p>
-
-<ul>
-  <li>Easy to use</li>
-  <li>Plenty of plugins/the ecosystem around Hudson for extending/integrating Hudson</li>
-  <li>Reporting/coverage features</li>
-  <li>Distributed builds</li>
-</ul>
-
-<p>First demo, the Hudson dashboard (starring the Nested View plugin). Starting with a basic dashboard filled with some unstable and stable builds. Cloudy builds thanks to Cobertura coverage grading.</p>
-
-<p>Using the Nested View plugin to group views to make the dashboard more useflu for a <strong>ton</strong> of jobs.</p>
-
-<p>Covering build radiators, not enough of the audience uses radiators. John advocates commandeering big monitors for radiators as part of your "notification strategy"</p>
-
-<p>Covering the basic version control integration, John <strong>highly</strong> recommneds using a "Repository Browser". "The point is, you want one" John starts improvising with making some changes, pops over to Eclipse and refactors some code, commits and kicks off a build. Navigates to the source changes for the newly broken build in "Sventon", his repository browser of choice which was connected to the job</p>
-
-<p>John shows the job using Maven integration and deploying artifacts to the Maven repository he's set up on his local machine.</p>
-
-<p>Hudson will automatically keep track of jar files/war files, so enable the "Discard Old Builds" checkbox to prevent Hudson from eating all kinds of disk space. Useful to only discard the artifacts for the last X builds instead of the test results/code coverage.</p>
-
-<p>Desktop build notifiers are quite useful, email can tend to get clutter/lost in the mess with everything else coming into your inbox.</p>
-
-<h4 id="test-results-integration">Test results integration</h4>
-
-<p>Going into the test results dashboard per-build and the test-result and build time trends for a specific job.</p>
-
-<p>Why is the build time trend useful? If the build suddenly takes a <em>huge</em> amount of time to run, you've likely got performance issues that need fixing.</p>
-
-<h4 id="publishing-html-reports">Publishing HTML reports</h4>
-
-<p>Starring the HTML Publisher plugin! Using the plugin to publish HTML reports generated from easyb for publishing acceptance test results for more wide-spread consumption.</p>
-
-<p>Bouncing from HTML reports to integrating with Sonar for code quality metrics</p>
-
-<h4 id="build-promotion">Build Promotion</h4>
-
-<p>Starring the Promoted Builds plugin! Covering some similar concepts to Kohsuke's talk yesterday but literally going into the Hudson configuration and setting it up.</p>
-
-<p>Time is running out, John's flipping back and forth between the M2 release plugin and his automatic deployment to his local Tomcat environment.</p>
-
-<h4 id="qa">Q&amp;A</h4>
-
-<p>"Can Hudson be used for other environments". Yes! Supports a number of build plugins, MSBuild, NAnt, CMake, in addition to the freestyle build. "Maven 3 support" Sonatype is apparently working on an integrated version of Hudson with Maven 3, Hudson core planning support "eventually."</p>
 
 </div>
 </div>

@@ -177,6 +177,123 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
+What JVM versions are running Jenkins?
+</a>
+</h1>
+<div class='content'>
+<p>Preceding some of last week's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0</a> discussions, there had been <a href="https://groups.google.com/d/msg/jenkinsci-dev/sw_WepGw0Pk/0gO2V9UXy-8J">some threads</a> on whether we should move Jenkins to require Java 8. The introduction of <a href="http://www.oracle.com/events/us/en/java8/index.html">Java 8</a> last year brought performance improvements and highly desirable API changes, which make developing Java-based applications (arguably) much easier than before. The release was followed earlier this year by the <a href="https://www.java.com/en/download/faq/java_7.xml">end-of-life announcement</a> for Java 7; the writing is on the wall: upgrade to Java 8.</p>
+
+<p>I wanted to answer the question "does it even make sense to force an upgrade to Java 8?" There are plenty of technical discussions that we can have in the community on whether or not this is the right approach, but my goal was to try and measure the current Jenkins install base for Java 8 preparedness.</p>
+
+<!--break-->
+
+<p>While we do not currently (to my knowledge) collect Java runtime versions in our <a href="http://stats.jenkins-ci.org/jenkins-stats/">anonymous usage statistics</a>, we do have access logs from our <a href="http://mirrors.jenkins-ci.org">mirror redirector</a> which might provide some insight.</p>
+
+<p>With some access logs data, I went through the millions of requests made to Jenkins infrastructure in 2015 and started filtering out the user agent which made those requests.</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> This data is totally not scientific and is only meant to provide a coarse insight into what versions of Java access Jenkins web infrastructure.</p>
+</blockquote>
+
+<p>When Jenkins hits the mirror network, it's not overriding the default user agent from the Java runtime, so many of the user agents for the HTTP request are something like <code>Java/1.7.0_75</code>. This indicates that the request came from a Java Runtime version 1.7.0 (update 75).</p>
+
+<p>Looking at the major JVM versions making (non-unique) requests to Jenkins infrastructure we have:</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/major-jvm-versions.png" /></center>
+
+<ul>
+  <li><strong>1.8.0</strong>: 21,278,960</li>
+  <li><strong>1.7.0</strong>: 27,340,214</li>
+  <li><strong>1.6.0</strong>: 4,148,833</li>
+</ul>
+
+<p>This breaks down across various updates as well, which is also particularly interesting to me because many of these Java versions have long since had security advisories posted against them.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/jvm-versions-with-updates.png" width="600" /></center>
+
+<p>As I mentioned before, this is not a rigorous analysis of the access log data and is also not filtered by unique IP addresses. What I found most interesting though is that the Java 8 upgrade numbers are actually <em>fairly strong</em>, which I didn't expect. I expect that piece of the pie will continue to grow. Hopefully so much so that we're able to move over to Java 8 before the end of 2016!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/01/adopt-a-plugin/'>
+Adopt a plugin!
+</a>
+</h1>
+<div class='content'>
+<p>With more than a thousand public plugins in the Jenkins community now, it should come as no surprise that some of them are no longer actively maintained. Plugin authors move on when they change jobs, or lose interest in the plugin, and that's fine. Plugins are hosted on the Jenkins project infrastructure after all, and when a maintainer moves on, others can continue their work.</p>
+
+<p>The major problem of course is that it's often difficult to tell whether a plugin is still maintained (and there's just not a lot going on), or whether its maintainer has lost interest. Most plugins don't get released every few weeks, or even every few months, and still do their job just fine.</p>
+
+<p>To connect plugins that aren't actively maintained with potential maintainers, we recently implemented the "Adopt-a-plugin" initiative: We built a list of plugins that are up for "adoption", and display a prominent message on the plugins' wiki pages. Anyone interested in taking over as a plugin maintainer can then contact us, and we'll set you up.</p>
+
+<p>Are you interested in becoming a plugin maintainer? Maybe one of your favorite plugins isn't actively maintained right now. Check out the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adopt+a+Plugin">Adopt a Plugin wiki page</a> for more details on this program, and a list of plugins that would benefit from your help.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/'>
+Jenkins 2.0 Proposal: Improved "Out of the box" user experience
+</a>
+</h1>
+<div class='content'>
+<p>This week we have featured a number of proposals for what we would like to see in "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>", the vision of which is to make Jenkins users more efficient, productive and happy. We started with some more internally facing changes and have slowly progressed from the "inside-out" to today's topic: improving the out of the box user experience. That is to say, the experience that a brand-new Jenkins user has when getting started with the server.</p>
+
+<p>Just to recap, so far we've reviewed:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
+  <li><a href="/content/jenkins-20-proposal-ux-improvements-part-one">User experience improvements (part one)</a></li>
+</ul>
+
+<p>The subject of today's proposal is captured in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a></strong>, which, like yesterday's <a href="/content/jenkins-20-proposal-ux-improvements-part-one">proposal</a>, contains a few issues linked from it with more details.</p>
+
+<p>At a high level, the problem aiming to be solved is:</p>
+
+<blockquote>
+  <p>When a new user installs Jenkins, they are greeted with the main, empty, dashboard which suggests that they "create jobs." This makes no mention of plugins or the configuration options that are relevant to helping the user make Jenkins match their needs.</p>
+</blockquote>
+
+<p>In past and current versions of Jenkins, if you know what you're looking for it's relatively easy to move around the interface. If you've never used Jenkins before, it can be very challenging to find your way around or even know <em>what it is possible</em> to do with Jenkins.</p>
+
+<p>The proposed changes aim to address this initial confusion:</p>
+
+<blockquote>
+  <p>Instead of changing the post-install defaults, which may not properly represent the user's needs, the first-time user experience should help guide the user through configuration and plugin installation quickly so they can use Jenkins for their needs. Effectively it should be as easy as possible for a user to arrive at a good configuration for their usage.</p>
+</blockquote>
+
+<p>Jenkins contributor <a href="https://github.com/tfennelly">Tom Fennelly</a>, who has led this discussion on the mailing lists in the past, has posted a good prototype screencast of what some of this might entail:</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/kzRR8XR8hu4?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a> and comment and vote on those issues accordingly.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>This concludes this week's blog series highlighting some of the Jenkins 2.0 proposals we felt were important to discuss with the broader Jenkins user audience. Many of these, and other minor proposals, can be found on the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0 wiki page</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/'>
 Jenkins 2.0 Proposal: UX Improvements (Part One)
 </a>
@@ -460,82 +577,6 @@ Upcoming in office hours: FOSDEM Planning Session
 
 <p>Please join us on <a href="https://hangouts.google.com/call/m5tymcvzqdudu7r7cvvylqn4hya">this Google Hangout</a> at 11:00 a.m. PDT this Wednesday (Oct 21)</p>
 
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/09/cooking-up-jams/'>
-Cooking Up JAMs
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/Seville-JAM_logo_1024px_0.png" width=250/><br/>
-</div><br/>
-<br/>
-<p>There's been some active discussions and planning around <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">Jenkins Area Meetups (JAMs)</a> specifically in the following cities:<br/>
-<ul><br/>
-<li><a href="http://www.meetup.com/Rennes-Jenkins-Area-Meetup/">Rennes, France</a></li> <br/>
-<li>Seville, Spain </li><br/>
-<li>Seattle, Washington </li><br/>
-<li>Barcelona,Spain</li><br/>
-<li><a href="http://www.meetup.com/Raleigh-Jenkins-Area-Meetup/">Raleigh, North Carolina</a></li><br/>
-<li><a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/">Atlanta, Georgia</a></li><br/>
-</ul></p><br/>
-<br/>
-<p>I wanted to gauge Jenkins interests in these cities, so let us know at <a href="mailto:jenkinsci-jam@googlegroups.com">jenkinsci-jam@googlegroups.com</a> if you live in one of these areas, and if you would be interested in becoming a member or be involved in JAM one way or another!</p><br/>
-<br/>
-<p>Of course, if the city you live in currently does not have a JAM and you're interested in paying it forward, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">here's HOW YOU can become a JAM organizer.</a></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/02/winners-of-docker-global-hack-day-3-are/'>
-Winners of Docker Global Hack Day #3 are...
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/docker-hack-day_0.preview.jpg" width=320><br/>
-</div><br/>
-<br/>
-<p>Over 2,000 members of the Docker community attended <a href="https://www.docker.com/community/hackathon">Docker Hack Day</a> events around the world. One of the forty-two Docker Hacks has some familiar names attached...</p><br/>
-<br/>
-<p><a href="https://twitter.com/ndeloof">Nicolas De Loof</a> and <a href="https://twitter.com/yoanndubreuil">Yoann Dubreuil</a> from <a href="http://www.meetup.com/docker-rennes">Docker Rennes</a>, who are also active in our community, waved the Jenkins flag in this event and produced <a href="https://github.com/ndeloof/docker-slaves-plugin">Jenkins docker slaves plugin</a>.</p><br/>
-<br/>
-<p><br/>
-This plugin lets you run builds inside containers, and in that sense it's similar to <a href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">the Docker plugin</a> and <a href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Custom+Build+Environment+Plugin">the Docker custom build environment plugin</a>. But internally it uses a quite interesting approach.<br/>
-</p><br/>
-<br/>
-<blockquote><br/>
-This fresh new implementation relies on a set of docker containers (aka ‘pod’) to setup a build executor, letting development team customize the build environment for their need without any constraint or prerequisite, and relying on docker containers to host test resources.</blockquote><br/>
-<br/>
-<p><br/>
-This project <a href="https://blog.docker.com/2015/09/docker-global-hack-day-3-winners/">won the 3rd place in the Freestyle category of Docker Hack Day</a>.  Congratulations to Nicolas and Yoann on their win!  Jenkins + Docker is a winning pair and this plugin will make a huge difference in your projects.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/01/upcoming-in-office-hours-jenkins-2-0/'>
-Upcoming in office hours: Jenkins 2.0
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-I hope many of you have had a chance to see <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/vbXK7JJekFw">the Jenkins 2.0 thread</a>.<br/>
-I'm going to use <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">the office hours next Wednesday</a> to go through this proposal.<br/>
-</p><br/>
-<br/>
-<p><br/>
-This is still primarily for developers in the project, as it's "just" a proposal with lots of details unspecified. It's more meant to help people understand where I'm coming from and what goals I have in mind for this effort.<br/>
-</p><br/>
-<br/>
-<p><br/>
-As always, this will be on Hangout on air. The event page is <a href="https://plus.google.com/events/co46heshe6i4io1dsaaj1h3th2c">here</a>, and if you want to participate in the discussion, join <a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYfvk_ZBO4dCmxysNPfi-R5_xlkgscU-r9WDq_8zXDv6VnN3kg">here</a>. Read-only viewers should use <a href="https://www.youtube.com/watch?v=fl5xfqtiNko">YouTube</a> to watch, and you can still send questions in real time to IRC and I'll make sure to <a href="http://jenkins-ci.org/content/chat">go through them</a>.<br/>
-</p>
 
 </div>
 </div>

@@ -177,6 +177,88 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/04/16/active-directory-plugin-improvements/'>
+Active Directory plugin improvements
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Active_Directory"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Active-directory.svg/170px-Active-directory.svg.png"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+One of the few plugins that I still personally maintain is <a href="https://wiki.jenkins-ci.org/display/JENKINS/Active+Directory+plugin">Active Directory plugin</a>. In the past few months, I've been making steady improvements in this plugin, thanks to various inputs and bug reports given to me from the ClodBees customers.<br/>
+<br/>
+<p><br/>
+One of the recent fixes was to get <a href="http://issues.jenkins-ci.org/browse/JENKINS-9258">the "remember me" feature</a> finally working for Active Directory. This requires a relatively new Jenkins 1.556, but it eliminates the need to having to constantly type the password in. <br/>
+<br/>
+<p><br/>
+Then I've rebumped the version of <a href="http://github.com/kohsuke/com4j">COM4J</a>, which was <a href="http://issues.jenkins-ci.org/browse/JENKINS-16429">causing a thread leak</a> when Jenkins runs on Windows. If you are running a Windows deployment with lots of active users, this probably would have contributed to the instability of Jenkins.<br/>
+<br/>
+<p><br/>
+And then lastly, a small but crucial improvement was made to the way we search group membership, so that we can avoid recursively searching AD. This should result in a significant speed improvement when you are logging into Jenkins through AD.<br/>
+<br/>
+<p><br/>
+The latest version of the plugin as of writing is 1.37. I hope you'll have a chance to update the plugin soon.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/04/15/upcoming-jenkins-office-hours-acceptance-test-harness/'>
+Upcoming Jenkins Office Hours: Acceptance Test Harness
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://clsdf.com/wp-content/uploads/2011/06/tumblr_lkzltkxTmF1qersu1.gif" style="width:100px"><br/>
+</div><br/>
+<p><br/>
+One of the new efforts in Jenkins this year is <a href="https://github.com/jenkinsci/acceptance-test-harness">the acceptance test harness</a> for Jenkins.<br/>
+<br/>
+<p><br/>
+We will be doing the Jenkins office hours next week to go over this and sync up and coordinate between people in the community that are trying to work on this. <br/>
+<br/>
+<p><br/>
+It'll be <b>April 23rd 11am PT</b> (<a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Governance+Meeting&iso=20140423T11&p1=224&ah=1&sort=1">see what this time is in your time zone</a>) on Google Hangout at <a href="http://jenkins-ci.org/hangout">http://jenkins-ci.org/hangout</a>. If you are intereste in hacking Jenkins or if you are a large user of Jenkins who have acceptance tests, we are looking forward to seeing you there.<br/>
+<br/>
+<p><br/>
+For those of you who haven't looked, this test harness allows you to write blackbox tests of Jenkins and its plugins. It was originally used to test LTS releases, but over the time, it acquired a number of features, such as ...:<br/>
+<br/>
+<ul><br/>
+<li>Docker support for launching complex fixtures to test Jenkins with.<br/>
+<li>Pluggability to launch Jenkins under test (JUT) in many different environments<br/>
+<li>Pluggability to provision Jenkins and slaves from EC2 to test large deployments<br/>
+<li>Choice of cucumber or JUnit to write test scripts<br/>
+</ul><br/>
+<br/>
+<p><br/>
+We are working on porting over existing test cases, but we'd like to work with users to move their acceptance tests on top of this same harness. The idea is to pool those test cases in the community so that we can test Jenkins and its plugins as we develop them. For this to work, we want tests to have lots of metadata (such as what plugins it touches), and for the harness to have sufficient modularity that different people can run the same scenario against different deployments, including existing instance.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/04/11/jenkins-1-532-3-lts-is-released/'>
+Jenkins 1.532.3 LTS is released
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+The final LTS release of the 1.532.x line is out today. You can download it from <a href="http://mirrors.jenkins-ci.org/">the usual location</a>. Changelog is <a href="http://jenkins-ci.org/changelog-stable">here</a>.<br/>
+<br/>
+<p><br/>
+Starting with the next 1.554.x LTS, the release model will <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">switch to the train model</a>, where we commit to dates and get whatever we can ship by that date. <br/>
+<br/>
+<p><br/>
+You can see <a href="http://jenkins-ci.org/content/event-calendar">the scheduled dates in our event calendar</a>. Backporting window for 1.554.1 is almost closing, so if you want to have your favorite issues nominated for it, please see <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">the process</a> in the Wiki and hurry!
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/04/11/infoq-ci-survey-2014/'>
 InfoQ CI survey 2014
 </a>
@@ -355,100 +437,6 @@ We hope to see you at a JUC this year!
 
 *PS - <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Registration just opened for Boston </a> and early-bird tickets are only $59.
 </li></li></li></li></li></li></ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/03/19/jenkins-user-conferences-this-year/'>
-Jenkins User Conferences This Year
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Over the past three years, the Jenkins User Conference is held annually in the <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto-abstracts.cb#FlorianLier">Bay Area</a> with a few events in different locations around the world. The Jenkins User Conference has established a reputation as a focal point for the Jenkins community to come together to share new ideas and best practices. Each year we have experienced the growth and expansion within the Jenkins community. This year we are taking this platform to other regions of the world, offering regional gatherings of Jenkins users and developers.<br/>
-<br/>
-<p><br/>
-At the moment, we are working on the following JUCs and events for 2014:<br/>
-<br/>
-<ul><br/>
-<li><a href="http://www.cloudbees.com/content/jenkins-user-conference-boston.cb">JUC Boston</a> - June 18<br/>
-<li>JUC Berlin - June 25<br/>
-<li>JUC Israel - July 16<br/>
-<li>JUC San Francisco Bay Area - October (TBD)<br/>
-<li>JUC Australia/New Zealand - November/Dec (TBD)<br/>
-</ul><br/>
-<br/>
-<p><br/>
-Jenkins Events<br/>
-<br/>
-<ul><br/>
-<li>Copenhagen - September<br/>
-<li>Brazil - November/December (TBD)<br/>
-</ul><br/>
-<br/>
-<p><br/>
-There are a few different ways to get involved:<br/>
-<br/>
-<ul><br/>
-<li>Register Now to Attend: <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">JUC Boston</a>. Registration pages for other JUCs/events are coming soon. Please check back <a href="http://www.cloudbees.com/jenkins/juc-2014">here</a> often.<br/>
-<li><a href="http://www.cloudbees.com/forms/sponsor-juc-2014.cb">Be a Sponsor</a>: There are a few ways to become a sponsor. <br/>
-<li>Submit a <a href="http://www.cloudbees.com/forms/jenkins-user-conference-call-papers.cb">Talk Proposal</a>: deadline is March 30 <br/>
-<li>Submit a great idea for t-shirt design in the comment box below or email <a href="mailto:atong@cloudbees.com">atong@cloudbees.com</a><br/>
-<li>Submit ideas for swag in the comment box below or email <a href="mailto:atong@cloudbees.com">atong@cloudbees.com</a><br/>
-<li>Be part of the JUC committee: contact <a href="mailto:atong@cloudbees.com">atong@cloudbees.com</a><br/>
-</ul><br/>
-<br/>
-<p><br/>
-Learn more:<br/>
-<br/>
-<ul><br/>
-<li>Learn more about <a href="http://www.cloudbees.com/jenkins/juc-2014">Jenkins User Conferences</a><br/>
-<li><a href="http://www.cloudbees.com/jenkins/jenkins-ci/jenkins-newsletter.cb">Sign up</a> and stay up to date with the latest <a href="http://www.cloudbees.com/jenkins/jenkins-ci/jenkins-newsletter.cb">Jenkins newsletter</a><br/>
-</ul><br/>
-<br/>
-<p><br/>
-Looking forward to seeing you at a local JUC near you!  :o)<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/01/25/jenkins-at-fosdem-2014/'>
-Jenkins at FOSDEM 2014
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/fosdem.png"><br/>
-</div><br/>
-<p><br/>
-<a href="http://en.wikipedia.org/wiki/FOSDEM">FOSDEM</a> is probably the biggest open-source developers' conference in Europe.<br/>
-<br/>
-<p><br/>
-This year will be the 3rd year for us to be present in FOSDEM. There will be <a href="https://wiki.jenkins-ci.org/display/JENKINS/FOSDEM">a bunch of community people</a>, handing out flyers and stickers, showing Jenkins, and generally be available to talk to people! This year, we'll bring some Jenkins T-shirts to sell, and hopefully some bobble heads as well. So please be sure to drop by.<br/>
-<br/>
-<p><br/>
-And if you are already involved in the Jenkins project and willing to help us man the booth, that'd be awesome! Looking forward to seeing you!<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/12/05/jenkins-sao-paulo-meetup-this-weekend/'>
-Jenkins Sao Paulo Meetup this weekend
-</a>
-</h1>
-<div class='content'>
-<p>I'm going to visit Sao Paulo once again this weekend to attend <a href="http://www.meetup.com/jenkinsmeetup/events/133598002/">the second annual Jenkins users meet-up</a>. It's a whole day free event Saturday full of Jenkins goodness.</p>
-
-<p>You'll hear from a number of active Jenkins folks, and I'll be presenting about what CloudBees (where I currently work) has contributed to the Jenkins project, including recent new OSS plugins and some services. I'm also stuffing my suitcase with lots of give-aways, including Jenkins stickers and <a href="https://jenkins-ci.org/content/behind-scenes-jenkins-user-conference-palo-alto">popular Jenkins bobble heads</a>. I don't intend to bring anything back to the U.S.</p>
-
-<p><img src="http://farm3.staticflickr.com/2878/9725573715_fa056b6652_n.jpg" alt="Bobble head" /></p>
-
-<p>The morning half of the event is a cross-atlantic hackathon between Brazil and Copenhagen. you can check what's being planned on <a href="https://trello.com/b/1U1mRKhG/jenkins-user-event-sp-13">the western side of the ocean</a> and <a href="http://www.eventbrite.com/e/jenkins-ci-hackaton-the-sao-paulo-connection-registration-9552811717">the eastern side of the ocean</a>. The afternoon half is a series of presentations. Please <a href="http://www.meetup.com/jenkinsmeetup/events/133598002/">come join us</a>. I'm really looking forward to seeing you!</p>
-
-<p>I'll be in Sao Paulo for the whole Sunday and Monday as well. If you are interested in talking to me, please feel free to <a href="http://kohsuke.org/about/">drop me a note</a>.</p>
 
 </div>
 </div>

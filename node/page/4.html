@@ -177,6 +177,89 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/08/20/upcoming-office-hour-on-kubernetes/'>
+Upcoming office hour on Kubernetes
+</a>
+</h1>
+<div class='content'>
+<p><a href="https://github.com/ndeloof">Nicolas De Loof</a> will host an <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">office hour</a> <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&amp;iso=20150826T11&amp;p1=283&amp;ah=1">next Wednesday 11 AM PDT</a> on integrating Kubernetes with Jenkins. <a href="http://kubernetes.io/">Kubernetes</a> is an open-source project by Google that provides a platform for managing <a href="http://docker.io/">Docker</a> containers as a cluster.</p>
+
+<p>During this session, Nicolas will introduce Kubernetes, explain how it can benefit Jenkins and demonstrate the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin">Kubernetes Plugin</a>.
+Then he will discuss the design of the Kubernetes plugin and plans he has for future improvements.</p>
+
+<p><a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYcKf7LmLtXgek2Fjdj8ZUQ5ruOxwTbuLmC_ivKmHYyrHFOJqA?hl=en">Participate in the Hangout on Air</a> or <a href="https://www.youtube.com/watch?v=95WduGqvLRA">watch live on YouTube</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/08/18/juc-speaker-blog-series-andrew-phillips-juc-u-s-west/'>
+JUC Speaker Blog Series: Andrew Phillips, JUC U.S. West
+</a>
+</h1>
+<div class='content'>
+<p><h3>Join Me at JUC West to Discuss Building an Enterprise Continuous Delivery Machine with Jenkins</h3></p><br/>
+<br/>
+<div style="float:right; margin:1em"><br/>
+<img src="http://blog.xebialabs.com/wp-content/uploads/2015/05/JUc.png" width=333 height=90><br/>
+</div><br/>
+<br/>
+<p>After <a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">a great event on the East Coast</a> in June, now over to the West Coast for another exciting <a href="https://www.cloudbees.com/jenkins/juc-2015/">Jenkins User Conference!</a> I'll be there for <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC West</a> on September 2-3 with the <a href="http://www.xebialabs.com/">XebiaLabs</a> team, and am looking forward to talking to the Jenkins users, partners, developers and community members that will be coming together.</p><br/>
+<br/>
+<p>At JUC East, I <a href="https://www.youtube.com/embed/NMZOnsEuums">talked about the importance of Automated Testing</a> in your Continuous Delivery pipeline, and I was really pleased by the number of interesting discussions and comments that came about as a result.</p><br/>
+<br/>
+<p>For JUC West, I'll be taking a broader view, and will talk about building an "Enterprise Continuous Delivery Machine" around Jenkins. I'm going to focus on the challenge of identifying and choosing solutions for the many "adjacent problem spaces" to Continuous Integration that you run into when trying to move to Continuous Delivery: artifact management, feature tracking, environment provisioning, deployment automation, test management, pipeline orchestration, production feedback and more.</p><br/>
+<br/>
+<p>We'll discuss some of the options available for each category, with a special focus on app deployment, test result management and pipeline orchestration. We'll also present a couple of real-world Continuous Delivery Machine architectures, and analyze some of the motivations for each organization's choices.</p><br/>
+<br/>
+<p>Most of our users use XebiaLabs tools/products in combination with Jenkins to build out their Continuous Delivery stack. If you’re scaling out your Jenkins usage too, stop by the XebiaLabs booth to see if you can pick up some tips and to say hello.</p><br/>
+<br/>
+<p>Look forward to seeing you <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-03-1400">at the event</a>, or check the slides or recording we will post after the event. Hope to see  you there!</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/phillips_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Andrew Phillips, VP, Product Management at XebiaLabs. If you have your ticket to <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-03-1400">"Sometimes Even the Best Butler Needs a Footman: Building an Enterprise Continuous Delivery Machine Around Jenkins"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
+<br/>
+<br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/08/13/update-wiki-and-issue-tracker-outage/'>
+Update: Wiki and issue tracker outage
+</a>
+</h1>
+<div class='content'>
+<p><a href="https://jenkins-ci.org/content/wiki-and-issue-tracker-outage-over-weekend">I recently wrote about the two day outage of our wiki and issue tracker</a>:</p>
+
+<blockquote>
+  <p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all.</p>
+</blockquote>
+
+<p><a href="http://osuosl.org/blog/mysql1-vip-post-mortem">OSUOSL have since published their post mortem</a>. I was <em>really</em> wrong about not losing any data:</p>
+
+<blockquote>
+  <p>A further complication was that our backups were pointed at mysql2, which was out-of-date with mysql1, due to the initial synchronization failures. Fortunately, we had the binary logs from the 17th through the 30th. This means that though most data could be restored, some data from between the 15th and the 17th was lost.</p>
+</blockquote>
+
+<p>For our issue tracker, that means that issues JENKINS-29432 to JENKINS-29468 were lost, as well as comments posted from about July 15 12:20 PM to July 17 2 AM (UTC). We know this thanks to the <a href="http://groups.google.com/group/jenkinsci-issues/topics">jenkinsci-issues</a> mailing list where the lost issues and comments can be looked up for reposting.</p>
+
+<p>We unfortunately don't have such a record from our wiki.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/08/10/upcoming-office-hour-on-workflow/'>
 Upcoming office hour on Workflow
 </a>
@@ -243,25 +326,6 @@ JUC Speaker Blog Series: Carlo Cadet, JUC U.S. West
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/'>
-Wiki and issue tracker outage over the weekend
-</a>
-</h1>
-<div class='content'>
-<p>As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?</p>
-
-<p>We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.</p>
-
-<p>The databases for the wiki and issue tracker became <a href="https://twitter.com/osuosl/status/626903003203637248">inaccessible around midnight/12 AM Thu/Fri night</a> (all times UTC). Due to the large number and size of databases on that server, <a href="https://twitter.com/osuosl/status/626946293663821824">pulling from backups</a>, <a href="https://twitter.com/osuosl/status/627027620845129729">restoring from backup</a> and <a href="https://twitter.com/osuosl/status/627237502420561920">replaying the binlogs</a> took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).</p>
-
-<p>The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.</p>
-
-<p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2015/08/04/bay-area-jenkins-area-meet-up-kick-off-gathering-today/'>
 Bay Area Jenkins Area Meet-up kick-off gathering today
 </a>
@@ -301,6 +365,25 @@ Uday and I will be there, and Uday told me that he heard from another guy who wi
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/'>
+Wiki and issue tracker outage over the weekend
+</a>
+</h1>
+<div class='content'>
+<p>As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?</p>
+
+<p>We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.</p>
+
+<p>The databases for the wiki and issue tracker became <a href="https://twitter.com/osuosl/status/626903003203637248">inaccessible around midnight/12 AM Thu/Fri night</a> (all times UTC). Due to the large number and size of databases on that server, <a href="https://twitter.com/osuosl/status/626946293663821824">pulling from backups</a>, <a href="https://twitter.com/osuosl/status/627027620845129729">restoring from backup</a> and <a href="https://twitter.com/osuosl/status/627237502420561920">replaying the binlogs</a> took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).</p>
+
+<p>The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.</p>
+
+<p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/08/03/just-a-month-left-until-juc-u-s-west/'>
 Just a month left until JUC U.S. West
 </a>
@@ -317,84 +400,6 @@ Just a month left until JUC U.S. West
 <p>If you're interested in the upcoming Jenkins UI overhaul, make sure to attend <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1500">Gus and Tom's talk</a> about it. Don't want to wait until JUC to learn more about this? <a href="https://groups.google.com/d/msg/jenkinsci-dev/Tiz-LSqCJmg/3CuYzuBXJpsJ">Follow the discussion on the developers mailing list</a> and contribute through early testing.</p>
 
 <p>This JUC will again have an <em>Ask The Experts</em> booth with several Jenkins experts and developers available there throughout the event. If you want to discuss <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-01-1130">Workflow</a> with Jesse, or pitch your UI ideas to Gus, this is where you'll be able to do that.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/30/juc-u-s-west-news-agenda-is-up/'>
-JUC U.S. West News: Agenda is up
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/butler-kk-gk_0.jpg" width=250 height=194><br/>
-</div><br/>
-<br/>
-<p>It seems a bit unreal, but the <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">last JUC agenda</a> for 2015 is now online. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Jenkins User Conference U.S. West</a> is the last JUC of the year running from September 2-3 in Santa Clara, CA. So, if you haven't attended JUC yet this year, <a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214"><b>this is your chance!</b></a></p><br/>
-<br/>
-<p><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214">Register</a> with a friend to take advantage of the community's 2-for-1 deal and get two tickets for the price of one.</p><br/>
-<br/>
-<p><i>Which talk are you looking forward to most? Check out the agenda and tweet your choice to <a href="https://twitter.com/jenkinsconf">@jenkinsconf!</a></i></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/29/juc-europe-slides-and-video-are-now-available-online/'>
-JUC Europe slides and video are now available online
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/london_0.jpg" width=250 height=165><br/>
-</div><br/>
-<br/>
-<p><a href="https://www.cloudbees.com/jenkins/juc-2015/europe">Slides and video from JUC Europe</a> are now available online!</p><br/>
-<br/>
-<p>If you made it to London to attend this year's JUC Europe, <a href="https://flic.kr/p/uER3fe"><b>I hope you enjoyed the conference</b></a>, met plenty of community members and learned more about Jenkins. Now that the slides and video are up, you can revisit your <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-02-1130-cruz">favorite talks</a> or "attend" the ones that you missed...all at your leisure.</p><br/>
-<br/>
-<p>If you were unable to attend JUC Europe, well, now you can! The slides and video are <a href="https://www.cloudbees.com/jenkins/juc-2015/europe">here</a> so you can "attend" any time you want. If JUC LIVE seems more appealing to you, there is <b>one</b> date left in the 2015 Jenkins User Conference World Tour: <b>JUC U.S. West is September 2-3 in Santa Clara, CA. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here.</a></b></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/28/reinforcements-for-the-subversion-plugin/'>
-Reinforcements for the Subversion Plugin
-</a>
-</h1>
-<div class='content'>
-<p><em>This is a guest post by Manuel Recena Soto (aka recena).</em></p>
-
-<p>Users of the plug-in know that it has undergone <a href="https://wiki.jenkins-ci.org/display/JENKINS/Subversion+Plugin#SubversionPlugin-ChangeLog">very important changes</a> in the last two years.</p>
-
-<p>Unfortunately, some of these changes resulted in regressions for some users that weren’t properly addressed in subsequent releases. Many users were therefore forced to keep using an older release of the plugin to keep their instances running.</p>
-
-<p>To fix this difficult situation I've decided to dedicate my spare time to improving the plug-in and attempting to restore the stability that an essential plug-in like this requires.</p>
-
-<p>In order to do so, <a href="https://github.com/recena/">me</a>, my colleague <a href="https://github.com/christ66">Steven Christou</a> and other members of the community have drawn up a plan.</p>
-
-<p>In the coming weeks we will be focusing our efforts on:</p>
-
-<ul>
-  <li>Going through the Jira tickets
-    <ul>
-      <li>Checking whether they are duplicated</li>
-      <li>Checking whether they are still relevant</li>
-      <li>Asking for more information from the people who reported them</li>
-      <li>Establishing their priority</li>
-    </ul>
-  </li>
-  <li>Reviewing pull requests</li>
-  <li>Investigating bug reports and try to reproduce them</li>
-  <li>Fixing serious bugs</li>
-  <li>Refactoring the plugin to improve its maintainability.</li>
-</ul>
-
-<p>We’re planning to publish a new 2.5.x bugfix release once a fortnight. We are not considering the inclusion of new features or improvements. The priority now must be to obtain a stable and reliable plug-in, one that will allow us to take things up again in the future with greater security and peace of mind.</p>
-
-<p><em>Interested in helping? Just send us a message!</em></p>
 
 </div>
 </div>

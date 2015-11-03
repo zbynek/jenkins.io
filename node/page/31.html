@@ -177,6 +177,94 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/02/14/upcoming-jenkins-events-in-tokyo/'>
+Upcoming Jenkins events in Tokyo
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src=http://farm4.static.flickr.com/3280/2964930888_6a91b9ddda_m.jpg><br/>
+</div><br/>
+<br/>
+<p><br/>
+I'll be visiting Tokyo again for the week of 2/21 for a number of events.<br/>
+<br/>
+<h3>Tokyo Jenkins User Meetup</h3><br/>
+<p><br/>
+The Japanese Jenkins user community may not be as visible from outside but very strong. This is the 2nd meet up in Tokyo, and once again we maxed out the 80 people room capacity in just a few days (but you can <a href="http://kokucheese.com/event/index/6710/">still RSVP for the social event</a> after the meetup.) This meetup is focused on Java & Jenkins, so we have a number of speakers lined up to discuss hwo they use Jenkins in their Java projects. This will be the first user meetup event after the name has changed to Jenkins.<br/>
+<br/>
+<br/>
+<h3>CloudBees Jenkins training in Tokyo</h3><br/>
+<p><br/>
+I'll deliver this one-day training course, all about Jenkins from the setup to continuous deployment to code analysis. If you are interested, you can find <a href="http://www.cloudbees.com/training_ja.cb">more details about this</a>.<br/>
+<br/>
+<br/>
+<h3>Japan Grails/Groovy User Group (JGGUG)</h3><br/>
+<p><br/>
+Jenkins internally use Groovy a lot in many places (as well as some of its peripheral tools depend on Groovy.) So I'll be speaking in the JGGUG meetup event, on behalf of the Jenkins project, and highlight those usages and how much we all love Groovy. Yes, I do.<br/>
+<!--break--><br/>
+<p><br/>
+Aside from these public events, I have a few visits planned to various companies. If you are interested in having me over and look at your Jenkins, or want to discuss something, please let me know at kk at kohsuke dot org.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/02/05/first-governance-meeting-recap/'>
+First Governance Meeting Recap
+</a>
+</h1>
+<div class='content'>
+<p>As mentioned <a href="/content/governance-meeting-today">on Friday</a> the Jenkins project held it's first meeting on the <a href="/content/chat">IRC channel</a> at the request of the interim board. In the interest of transparency, we recorded meeting minutes and tried to involve as many folks as possible.</p>
+
+<h4 id="topics-covered">Topics Covered</h4>
+
+<ul>
+  <li><strong>Proposal/Discussion of Jenkins project governance structure</strong></li>
+  <li><strong>What to do about the logo</strong></li>
+  <li><strong>Registering the Jenkins trademark</strong></li>
+  <li><strong>Moving Jenkins under an umbrella organization</strong></li>
+  <li><strong>What shall we do with a new CLA?</strong></li>
+  <li><strong>Logistics for the next project meeting</strong></li>
+</ul>
+
+<p>If you're interested, you can read through the <a href="http://meetings.jenkins-ci.org/jenkins/2011/jenkins.2011-02-04-23.02.log.html">full logs</a> or just look over the high-level <a href="http://meetings.jenkins-ci.org/jenkins/2011/jenkins.2011-02-04-23.02.html">meeting minutes</a>.</p>
+
+<p>This first meeting went a bit long due to the massive amount of items needing to be discussed, so the project has scheduled another meeting for <strong>Wednesday Feb 9, 11am PST (19:00 UTC)</strong>; mark your calendars!</p>
+
+<p>Thanks to everybody who participated, we'll see you again next time.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/02/04/the-first-24-hours-in-downloads/'>
+The first 24 hours in downloads
+</a>
+</h1>
+<div class='content'>
+<p>As I had mentioned in <a href="http://jenkins-ci.org/content/installing-plugins-has-always-been-easy-now-its-fast-too">a previous post</a> back when Jenkins was called something else, who can remember what anymore, I spent a lot of time working on a mirroring network. With our departure from any and all Oracle infrastructure, this mirroring network has now become our sole distribution mechanism for pushing out <strong>all</strong> releases and <strong>all</strong> plugins, in short, <strong>lots and lots of bits</strong>.</p>
+
+<p>Just how much data are we now distributing through the Jenkins mirror network?</p>
+
+<p><strong><big>Over 52GB in 24 hours</big></strong></p>
+
+<p>Here's the following in terms of a loose breakdown of the number of files served over the past day:</p>
+
+<ul>
+  <li>788 <code>.war</code></li>
+  <li>447 <code>.deb</code></li>
+  <li>290 <code>.rpm</code></li>
+  <li>1759 <code>.hpi</code> (plugins)</li>
+</ul>
+
+<p>We're off to a great start! I'd like to extend my thanks again to the <a href="http://www.osuosl.org">OSUOSL</a> and <a href="http://mirrors.xmission.com">XMission</a> for their help getting the Jenkins mirrors functional as soon as possible
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/02/04/meetings/'>
 Meetings
 </a>
@@ -329,182 +417,6 @@ Account
 </h1>
 <div class='content'>
 <iframe style="border:0px; width:100%; height: 80em" src="/account/"></iframe>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/11/hudsons-future/'>
-Hudson's future
-</a>
-</h1>
-<div class='content'>
-<p>First, my apologies for the lack of updates on the <a href="http://hudson-labs.org/content/whos-driving-thing">Hudson/Oracle situation</a> for
-the last few weeks. While talks have been ongoing, the holidays have slowed
-things down, and we didn't want to send out information that would later turn
-out not to be true. We've been waiting for the talks to reach a resolution -
-and I believe they now have.</p>
-
-<p>Since the <a href="http://www.java.net">java.net</a> migration problems, Oracle and representatives from the
-Hudson community have been involved in talks on the future of the project in a
-number of areas. The Hudson representatives have been <a href="http://twitter.com/abayer">myself</a>, <a href="http://twitter.com/kohsukekawa">Kohsuke
-Kawaguchi</a>, and <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a>  (CEO of CloudBees and Kohsuke's boss), who was
-brought in to help provide experience with discussions on a corporate/executive
-level which neither Kohsuke nor I have, with Alan Harder and <a href="http://twitter.com/agentdero">R. Tyler Croy</a>
-advising on the side.</p>
-
-<p>These talks have in many ways been fruitful - we came to working agreements
-with Oracle on the project infrastructure (such as mailing lists and SCM
-repository location), code review policy for Hudson core, and perhaps most
-significantly, a governance structure for the project going forward. Some
-issues are not yet entirely resolved, such as questions on restrictions on
-third party dependency licenses. But one issue, which we feel is the most
-significant issue of all, one for which we now believe no resolution is
-possible: the rights to the name <strong>Hudson</strong>.</p>
-
-<p>Oracle has told us that they have trademark applications filed in both the EU
-and US for Hudson, based on Hudson's creation by Kohsuke while working at Sun.
-The problem is that this trademark ownership gives Oracle the ability to revoke
-the Hudson project's right to call itself Hudson at any time, and while Oracle
-has made an attempt to offer some guarantees (most notably, that binary
-releases of Hudson, once they've been released with the name Hudson attached,
-will always retain the right to the name), they are not offering any binding
-guarantee that the Hudson project will be able to retain its use of the name in
-perpetuity.</p>
-
-<p>Therefore, to continue using the name Hudson means ceding some of the project's
-independence to Oracle - if the project and its governance board opted to go in
-a direction Oracle disapproved of, Oracle would be able to take away the naming
-rights. Or, in a less dramatic scenario, Oracle could insist on certain changes
-to the code, infrastructure decisions, process, etc, regardless of opposition
-from the Hudson development community, in order to retain the rights to the
-name.</p>
-
-<p>In short, we'd be living under a sword of <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Damocles">Damocles</a>, regardless of the goodwill
-of the individuals we've been negotiating with at Oracle - Hudson as a project
-would be beholden to Oracle's whims for its continued use of its own name, and
-we believe that's not viable.
-<!--break-->
-As I see it, the only viable option facing the project now is to rename it, in
-order to free it from the burden of Oracle's ownership of its name. This is not
-a first choice, not by a long shot, but I don't see any other choice available
-to us that would preserve the integrity of the project going forward. Oracle
-will be presenting their proposal for the project continuing under their
-umbrella - I encourage you to read it when it becomes available and weigh it
-accordingly. I'll just focus on what Kohsuke, other prominent Hudson community
-members and I have endorsed.</p>
-
-<h3 id="the-proposal">The Proposal</h3>
-
-<p>First, we rename the project - the choice for a new name is <strong>Jenkins</strong>, which we
-think evokes the same sort of English butler feel as Hudson. We've already
-registered domains, Twitter users, etc for the new name, and have done our best
-to verify that there are no existing trademarks which would conflict with it.
-Kohsuke will be registering the trademark for Jenkins in his name, with the
-intent of transferring ownership of the trademark to the umbrella of the
-<a href="http://www.sfconservancy.org/">Software Freedom Conservancy</a> once the Jenkins project has been admitted to it
-(which, I should add, is very much our plan, hopefully in their next round of
-new projects in a few months - we've already had preliminary contacts with
-SFC). We still invite Oracle to remain involved with the project, on equal
-terms with all other contributors, and hope they'll take us up on this
-invitation.</p>
-
-<p>Second, out of respect for Oracle's trademark claim on Hudson, we will move our
-infrastructure off of Oracle-owned and hosted servers, and we will rename
-existing independent components of the infrastructure to no longer use "Hudson"
-- i.e., mailing lists, Github repos, etc. This would be a gradual process,
-obviously.</p>
-
-<p>Third, we will put in place an interim governance board for the project,
-consisting of three members - myself, Kohsuke and, if Oracle elects to remain
-involved, Winston Prakash, the Oracle engineer working on Hudson. The interim
-board members will serve for the next 3-6 months, until the governance
-structure can be nailed down securely enough to hold elections for the board
-members.</p>
-
-<p>Obviously, such a move could not be undertaken without the agreement and
-support of the Hudson community. We believe this proposal is the best choice
-for the project in the situation it's currently in, but we aren't closing off
-discussion, questions, etc, and we encourage your feedback and comments. If
-there's anything you need clarified, please ask and we'll do our best to
-answer.</p>
-
-<p>Once Oracle's proposal is available later this week (hopefully Wednesday,
-possibly Thursday, from what I've been told), which I strongly advise you all to 
-read and consider, we'll be putting up a poll to determine the position of the 
-community. Once that vote is done, assuming the consensus is to rename, we'll 
-put the mechanisms in motion and switch over as fast we can.</p>
-
-<p>There may be some confusion as to whether we're proposing to fork Hudson, or
-rename the existing project. I firmly believe we are proposing the latter - for
-me, the project's key component is Kohsuke himself. If the community decides to
-support renaming the project to Jenkins, and Oracle chooses to continue
-development themselves under the name Hudson, they are, obviously, entirely
-welcome to do so. But with Kohsuke working on Jenkins, that's the true home and
-the future of the project for me, regardless of the name.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/08/installing-plugins-has-always-been-easy-now-its-fast-too/'>
-Installing plugins has always been easy, now it's fast too!
-</a>
-</h1>
-<div class='content'>
-<p>As one of the "men behind the scenes" of the Hudson project, a lot of my contributions tend to be in writing articles or handling infrastructure, anything to ensure folks like <a href="http://twitter.com/kohsukekawa">Kohsuke</a> can continue to make Hudson great without being distracted by inane system administration tasks. This past week, one of my long-running infrastructure projects has finally "gone live," making downloads of plugins and packages faster than ever!</p>
-
-<p>Some number of months ago I became frustrated with the download speeds reported by our international users, while the majority of Hudson's infrastructure is all colocated inside of the United States, there is a <strong>huge</strong> number of Hudson users and developers who are both in Europe and Asia.</p>
-
-<p>After discussing things with some of the folks that run <a href="http://download.opensuse.org">download.opensuse.org</a>, a <a href="http://mirrorbrain.org">MirrorBrain</a> powered redirector, I set out to build something similar. A mirroring network which could be easily managed and help direct users' downloads to the geographically closest and fastest mirror available.</p>
-
-<h4 id="where-are-we-mirrored">Where are we mirrored?</h4>
-
-<p>Currently we have mirrors in a few locations within the United States, and one overseas:</p>
-
-<ul>
-  <li>Southwest U.S. (Utah) - <em>Thanks to <a href="http://www.xmission.com">XMission</a></em></li>
-  <li>Midwest U.S. (Chicago) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Northeast U.S. (New York City) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Germany - <em>Thanks to <a href="http://www.aragost.com/">aragost Trifork ag</a></em></li>
-</ul>
-
-<h4 id="using-the-mirrors">Using the mirrors</h4>
-
-<p>If you've updated or installed plugins from within Hudson lately, guess what! You're already using mirrors! In fact, since we flipped the switch on January 7th, over <strong>800</strong> plugins and <strong>600</strong> <code>hudson.war</code> updates have been downloaded from the mirroring network!
-<!--break-->
-If you'd like to download directly from the mirrors, you can browse on over to <a href="http://mirrors.hudson-labs.org">mirrors.hudson-labs.org</a>, which will redirect your request for specific files to the appropriate mirror based on your IP address. It's just that easy!</p>
-
-<p>We are currently working with more providers to add additional mirrors, hopefully we'll have an Asian mirror online within the next two weeks and if we're lucky, we'll find some more European mirrors too.</p>
-
-<hr />
-
-<p>I would like to thank the <strong>immensely</strong> helpful and supportive engineers over at the <a href="http://www.osuosl.org">OSUOSL</a> for offering gratis tech support, suggestions, and bandwidth to serve as our <em>primary</em> mirror.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/12/05/weekend-update-with-andrew-bayer/'>
-Weekend Update with Andrew Bayer
-</a>
-</h1>
-<div class='content'>
-<p>[<strong>Ed. note</strong> <em>Andrew was not involved in selecting this post's title - rtyler</em>]</p>
-
-<p>I wanted to give the Hudson community a quick update on the current status of the issues Tyler has <a href="http://hudson-labs.org/content/whos-driving-thing">discussed in the earlier posts</a> here.</p>
-
-<p>Friday afternoon, <a href="http://twitter.com/kohsukekawa">Kohsuke</a>, <a href="http://www.cloudbees.com">CloudBees</a> CEO <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a> and myself jumped on a conference call with Hudson contributor/Oracle employee <a href="http://twitter.com/wjprakash">Winston Prakash</a>, Oracle manager Denis Tyrell and of course Ted Farrell.</p>
-
-<p>We discussed a wide range of issues relating to the Hudson project, such as governance, the rights to the name Hudson, and the infrastructure hosting the Hudson project. While we didn't agree on resolutions to all issues, I feel real progress was made towards a framework that provides what the Hudson community needs while also preventing the sort of conflicts we've seen the last week or two.</p>
-
-<p>More work has to be done - we'll be talking again next week, and I'm hoping we can reach agreement on the contentious issues by the end of the week.</p>
-
-<p>Thanks for your patience.</p>
 
 </div>
 </div>

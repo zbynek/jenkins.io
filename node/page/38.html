@@ -177,6 +177,120 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/06/14/hudson-1-362-released/'>
+Hudson 1.362 Released
+</a>
+</h1>
+<div class='content'>
+<p><img src="/sites/default/files/images/hudson.gif" height="150" align="right" /> The 1.362 release of Hudson has a few bug-fixes and a few minor enhancements, all together a good stabilization release. Not too much interesting to discuss so straight on to the changelog!</p>
+
+<h4 id="bugs">Bugs</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    Restored optional container-based authentication for CLI.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6587">issue 6587</a>)
+  &lt;li class=bug&gt; 
+    Fix javascript error when a plugin uses an empty <tt>dropdownList</tt>, resulting in LOADING overlay being left up.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6542">issue 6542</a>)
+&lt;/ul&gt;</p>
+
+<h4 id="enhancements">Enhancements</h4>
+<ul>
+  &lt;li class=rfe&gt; 
+    Add setting so job views may show only enabled or disabled jobs.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6673">issue 6673</a>)
+  &lt;li class=rfe&gt; 
+    File parameters can now be downloaded from the build Parameters page.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6719">issue 6719</a>)
+  &lt;li class=rfe&gt; 
+    Added an ability to point to different update sites.
+  &lt;li class=rfe&gt; 
+    Added a new extension point to plug in custom utility to kill processes.
+  &lt;li class=rfe&gt; 
+    Added a proactive error diagnostics to look for a broken reverse proxy setup.
+    (<a href="http://wiki.hudson-ci.org/display/HUDSON/Running+Hudson+behind+Apache#RunningHudsonbehindApache-modproxywithHTTPS">report</a>)
+</ul>
+<!--break-->
+<hr />
+
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.362/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+
+<p><br clear="all" />
+<small>Image courtesy of <a href="http://hudsonsgrill.com/">Hudson's Grill</a></small></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/11/casual-fridays-directing-traffic-with-hudson/'>
+Casual Fridays: Directing traffic with Hudson
+</a>
+</h1>
+<div class='content'>
+<p>Intrepid Hudson user Christian Pelster posted a little project of his this week to the "users" <a href="/content/mailing-lists">mailing list</a> called: <strong><a href="http://code.google.com/p/hudsontrafficlights/">hudsontrafficlights</a></strong>.</p>
+
+<p>Christian describes the project as:</p>
+
+<blockquote>
+  <p>This Java based daemon aggregates the status of one or more jobs from a Hudson continous integration server into a single status (red, yellow, green) and invokes a shell script on status change.</p>
+</blockquote>
+
+<p>You can use hudsontrafficlights to control a USB traffic light (such as this <a href="http://www.cleware.de/catalog/product_info.php?cPath=23&amp;products_id=118&amp;language=en">USB Traffic Light</a> from Cleware, GmbH) to give you and your colleagues nearly instant feedback on jobs in Hudson, without ever needing to leave your text editor!</p>
+
+<center><img src="http://hudsontrafficlights.googlecode.com/files/CIMG1635.JPG" width="500" alt="hudsontrafficlights in action with a Cleware Traffic Light" /></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/10/subversion-repository-change-notification-push-vs-pull/'>
+Subversion repository change notification: push vs pull
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+People often configure <a id="aptureLink_XD1hbqM4Nj" href="http://en.wikipedia.org/wiki/Hudson%20%28software%29">Hudson</a> to start a new build whenever a change is made to the repository. In fact, this is often considered central to the practice of continuous integration.<br/>
+<br/>
+<p><br/>
+There are two ways to achieve this. One is the "pull" model, where Hudson periodically reaches out to a Subversion repository to see if there is any changes. The other is the "push" model, where you make the Subversion repository reach out to Hudson.<br/>
+<br/>
+<p><br/>
+Both approaches have trade-offs. The pull model is easier to configure, since you can do this entirely from Hudson. But this comes at the expense of increased load to the Subversion server. Even though the overhead of Subversion polling is relatively low, as you add more projects to Hudson and increase the polling frequency, the overhead may get non-trivial (imagine the number of Hudson pollings that the poor <a href="http://java.net" target="_blank">java.net</a> Subversion server gets, for example.) A more serious downside, in my opinion, is that this increases the delay from your commit to a build. For example, if your build just takes 5 mins, then even if you poll every minute, you pay on average 30 seconds delay before a build starts &mdash; a 10% overhead!<br/>
+<br/>
+<p><br/>
+The push approach eliminates those two downsides, but it requires a post-commit hook configuration in the Subversion repository, which has to be done manually by the administrator, because those scripts are not exposed to external systems like Hudson.<br/>
+<br/>
+<p><br/>
+With that said, if you do have an access to the Subversion repository post-commit hook, I highly recommend the push approach, and in Hudson we made it as easy as possible to configure the set up. Here's the script you'll need in your post-commit hook:<br/>
+<br/>
+<code type="bash"><br/>
+REPOS="$1"<br/>
+REV="$2"<br/>
+UUID=`svnlook uuid $REPOS`<br/>
+/usr/bin/wget \<br/>
+  --header "Content-Type:text/plain;charset=UTF-8" \<br/>
+  --post-data "`svnlook changed --revision $REV $REPOS`" \<br/>
+  --output-document "-" \<br/>
+  http://server/hudson/subversion/${UUID}/notifyCommit?rev=$REV<br/>
+</code><br/>
+<br/>
+<p><br/>
+This script basically just tells Hudson that there was a change in a repository. Hudson will then check this information against all the jobs that have a polling configured, and schedule the builds accordingly. The beauty of this approach is two-folds:<br/>
+<br/>
+<ul><br/>
+<li>The script doesn't change when you add/remove/rename jobs.<br/>
+<li>The overhead is constant regardless of the number of jobs.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+If you haven't configured a push setup yet, now is the time to do so!<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/06/09/welcome-to-hudson-labs/'>
 Welcome to Hudson Labs!
 </a>
@@ -411,139 +525,6 @@ Home Page
 		</tr> <br/>
 	</table> <br/>
 </div> 
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/05/31/chat/'>
-Chat
-</a>
-</h1>
-<div class='content'>
-<p>The Jenkins community congregates in the <code>#jenkins</code> channel on the <a href="http://www.freenode.net">Freenode</a> IRC network.</p>
-
-<h3 id="connect">Connect</h3>
-
-<p>In order to connect to the Freenode network, you can use a local client or the <a href="http://webchat.freenode.net/?channels=jenkins">Freenode web client</a> to connect. If you're using an IRC client, connect to the Freenode network (<a href="irc://irc.freenode.net">irc://irc.freenode.net</a>) and <code>/join #jenkins</code>.</p>
-
-<h3 id="backlog">Backlog</h3>
-
-<p>The <code>echelog</code> bot in the <code>#jenkins</code> channel is responsible for logging the conversation for archival purposes, the archives can be <a href="http://echelog.matzon.dk/?jenkins">viewed here</a></p>
-
-<h3 id="etiquette">Etiquette</h3>
-
-<p>"Core" members of the community (such as <code>kohsuke</code>) will have "ops" in the channel and most developers will have "voice".</p>
-
-<p>If you're looking for help, go ahead and <em>ask</em> your question, there's plenty of helpful people idling while their builds finish.
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/24/hudson-1-355-released/'>
-Hudson 1.355 Released
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_street.jpg" align="right" hspace="3" width="150" /> The release of 1.355 came out earlier this week but I hadn't had the chance to write anything up about it. Of course, the work never stops on Hudson so we almost have 1.356 ready to roll out the door, but then Kohsuke tweeted this:</p>
-
-<blockquote>
-  <p>Because of the data center migration going on, I won't be able to release #hudsonci today.</p>
-</blockquote>
-
-<p>I won't go into details on some of the infrastructure changes we have lined up just yet, so here's the breakdown of 1.355
-<!--break-->
-#### Bugs fixed
-  &lt;li class=bug&gt; 
-    Colored ball image at top of build pages was broken for Hudson in some web
-    containers (fixed by removing workaround for a Firefox bug fixed since 3.0.5/Dec2008).
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2341">issue 2341</a>)
-  &lt;li class=bug&gt; 
-    Console page while build is running did not wrap lines when viewed in IE.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5869">issue 5869</a>)
-  &lt;li class=bug&gt; 
-    Fixed build history to indicate test failure for MavenBuild and MavenModuleSetBuild.
-  &lt;li class=bug&gt; 
-    Make <tt>dropdownList</tt> work in repeatable content, such as a build step.
-  &lt;li class=bug&gt; 
-    Fixed a bug where a job created via XML didn't properly receive upstream/downstream computation.
-    (<a href="http://n4.nabble.com/Hudson-API-td1747758.html#a1747758">report</a>)
-  &lt;li class=bug&gt; 
-    Argument masking wasn't working correctly for commands run on slaves
-    (<a href="http://n4.nabble.com/Password-masking-when-running-commands-on-a-slave-tp1753033p1753033.html">report</a>)
-&lt;/ul&gt;</p>
-
-<h4 id="enhancements">Enhancements</h4>
-<ul>
-  &lt;li class=rfe&gt; 
-    Added the slave retention strategy based on a schedule.
-  &lt;li class=rfe&gt; 
-    Added to configure charset option of Mailer.
-</ul>
-
-<hr />
-
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/16/hudson-1-354-released/'>
-Hudson 1.354 Released
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/scenic_hudson.png" align="right" hspace="3" />Hear ye, hear ye! Behold, the first release of Hudson <em>ever</em> made by a not-employed-by-Sun <a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">Kohsuke</a> (as we <a href="http://blog.hudson-ci.org/content/kohsuke-leaves-sun">covered last week</a>). This iteration of Hudson contains only bug fixes, check the listing below for the specifics on which bugs have been fixed (1.355 is looking like it will contain a number of fixes as well). The release of 1.354 comes slightly later than usual given some of the logistics that needed to, or still need to be resolved.</p>
-
-<p>One of the infrastructure issues that's half-way resolved is the question of Debian/Ubuntu packages. Kohuske has packages uploaded in an experimental <a href="http://hudson-labs.org/debian/">apt repository on hudson-labs.org</a> which you can try out. That said, it's not entirely clear whether this is going to be the preferred means of distributing native Debian/Ubuntu packages in the future (your mileage may vary).
-<!--break-->
-#### Bugs fixed
-&lt;ul class=image&gt;
-  &lt;li class=bug&gt; 
-    POM parsing was still using the module root as the base for relative paths for alternate settings files.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6080">issue 6080</a>)
-  &lt;li class=bug&gt; 
-    Fix dynamic updates of build history table when <a id="aptureLink_MAx8CeZUo3" href="http://en.wikipedia.org/wiki/Cross-site%20request%20forgery">CSRF</a> protection is turned on.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6072">issue 6072</a>)
-  &lt;li class=bug&gt; 
-    Improved the error reporting mechanism in LDAP setting.
-  &lt;li class=bug&gt; 
-    Raw console output contains garbage.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6034">issue 6034</a>)
-  &lt;li class=bug&gt; 
-    Fixed a file handle leak in the slave connection.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6137">issue 6137</a>)
-  &lt;li class=bug&gt; 
-    Quiet period wasn't taking effect properly when doing parameterized builds.
-&lt;/ul&gt;</p>
-
-<p><br clear="all" />
-### Contributors
-The release of 1.354 contains a total of 51 commits to the "core" part of the tree, from 9 different contributors</p>
-
-<ul>
-  <li>abayer</li>
-  <li>drulli</li>
-  <li>kohsuke</li>
-  <li>manuel_carrasco</li>
-  <li>mindless</li>
-  <li>sogabe</li>
-  <li>swiest</li>
-  <li>vlatombe</li>
-  <li>wyukawa
-<br clear="all" /></li>
-</ul>
-
-<hr />
-
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
 
 </div>
 </div>

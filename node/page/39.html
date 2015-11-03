@@ -177,6 +177,139 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/05/31/chat/'>
+Chat
+</a>
+</h1>
+<div class='content'>
+<p>The Jenkins community congregates in the <code>#jenkins</code> channel on the <a href="http://www.freenode.net">Freenode</a> IRC network.</p>
+
+<h3 id="connect">Connect</h3>
+
+<p>In order to connect to the Freenode network, you can use a local client or the <a href="http://webchat.freenode.net/?channels=jenkins">Freenode web client</a> to connect. If you're using an IRC client, connect to the Freenode network (<a href="irc://irc.freenode.net">irc://irc.freenode.net</a>) and <code>/join #jenkins</code>.</p>
+
+<h3 id="backlog">Backlog</h3>
+
+<p>The <code>echelog</code> bot in the <code>#jenkins</code> channel is responsible for logging the conversation for archival purposes, the archives can be <a href="http://echelog.matzon.dk/?jenkins">viewed here</a></p>
+
+<h3 id="etiquette">Etiquette</h3>
+
+<p>"Core" members of the community (such as <code>kohsuke</code>) will have "ops" in the channel and most developers will have "voice".</p>
+
+<p>If you're looking for help, go ahead and <em>ask</em> your question, there's plenty of helpful people idling while their builds finish.
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/24/hudson-1-355-released/'>
+Hudson 1.355 Released
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_street.jpg" align="right" hspace="3" width="150" /> The release of 1.355 came out earlier this week but I hadn't had the chance to write anything up about it. Of course, the work never stops on Hudson so we almost have 1.356 ready to roll out the door, but then Kohsuke tweeted this:</p>
+
+<blockquote>
+  <p>Because of the data center migration going on, I won't be able to release #hudsonci today.</p>
+</blockquote>
+
+<p>I won't go into details on some of the infrastructure changes we have lined up just yet, so here's the breakdown of 1.355
+<!--break-->
+#### Bugs fixed
+  &lt;li class=bug&gt; 
+    Colored ball image at top of build pages was broken for Hudson in some web
+    containers (fixed by removing workaround for a Firefox bug fixed since 3.0.5/Dec2008).
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2341">issue 2341</a>)
+  &lt;li class=bug&gt; 
+    Console page while build is running did not wrap lines when viewed in IE.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5869">issue 5869</a>)
+  &lt;li class=bug&gt; 
+    Fixed build history to indicate test failure for MavenBuild and MavenModuleSetBuild.
+  &lt;li class=bug&gt; 
+    Make <tt>dropdownList</tt> work in repeatable content, such as a build step.
+  &lt;li class=bug&gt; 
+    Fixed a bug where a job created via XML didn't properly receive upstream/downstream computation.
+    (<a href="http://n4.nabble.com/Hudson-API-td1747758.html#a1747758">report</a>)
+  &lt;li class=bug&gt; 
+    Argument masking wasn't working correctly for commands run on slaves
+    (<a href="http://n4.nabble.com/Password-masking-when-running-commands-on-a-slave-tp1753033p1753033.html">report</a>)
+&lt;/ul&gt;</p>
+
+<h4 id="enhancements">Enhancements</h4>
+<ul>
+  &lt;li class=rfe&gt; 
+    Added the slave retention strategy based on a schedule.
+  &lt;li class=rfe&gt; 
+    Added to configure charset option of Mailer.
+</ul>
+
+<hr />
+
+<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/16/hudson-1-354-released/'>
+Hudson 1.354 Released
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/scenic_hudson.png" align="right" hspace="3" />Hear ye, hear ye! Behold, the first release of Hudson <em>ever</em> made by a not-employed-by-Sun <a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">Kohsuke</a> (as we <a href="http://blog.hudson-ci.org/content/kohsuke-leaves-sun">covered last week</a>). This iteration of Hudson contains only bug fixes, check the listing below for the specifics on which bugs have been fixed (1.355 is looking like it will contain a number of fixes as well). The release of 1.354 comes slightly later than usual given some of the logistics that needed to, or still need to be resolved.</p>
+
+<p>One of the infrastructure issues that's half-way resolved is the question of Debian/Ubuntu packages. Kohuske has packages uploaded in an experimental <a href="http://hudson-labs.org/debian/">apt repository on hudson-labs.org</a> which you can try out. That said, it's not entirely clear whether this is going to be the preferred means of distributing native Debian/Ubuntu packages in the future (your mileage may vary).
+<!--break-->
+#### Bugs fixed
+&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    POM parsing was still using the module root as the base for relative paths for alternate settings files.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6080">issue 6080</a>)
+  &lt;li class=bug&gt; 
+    Fix dynamic updates of build history table when <a id="aptureLink_MAx8CeZUo3" href="http://en.wikipedia.org/wiki/Cross-site%20request%20forgery">CSRF</a> protection is turned on.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6072">issue 6072</a>)
+  &lt;li class=bug&gt; 
+    Improved the error reporting mechanism in LDAP setting.
+  &lt;li class=bug&gt; 
+    Raw console output contains garbage.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6034">issue 6034</a>)
+  &lt;li class=bug&gt; 
+    Fixed a file handle leak in the slave connection.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6137">issue 6137</a>)
+  &lt;li class=bug&gt; 
+    Quiet period wasn't taking effect properly when doing parameterized builds.
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+### Contributors
+The release of 1.354 contains a total of 51 commits to the "core" part of the tree, from 9 different contributors</p>
+
+<ul>
+  <li>abayer</li>
+  <li>drulli</li>
+  <li>kohsuke</li>
+  <li>manuel_carrasco</li>
+  <li>mindless</li>
+  <li>sogabe</li>
+  <li>swiest</li>
+  <li>vlatombe</li>
+  <li>wyukawa
+<br clear="all" /></li>
+</ul>
+
+<hr />
+
+<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/04/16/a-new-blog-for-kohsuke/'>
 A new blog for Kohsuke
 </a>
@@ -312,94 +445,6 @@ Some notable points from Kohsuke's announcement with regards to the Hudson 2.0 r
 <p>Hudson 2.0 is expected to follow in the intrepid footsteps of other major revamps such as <a href="http://en.wikipedia.org/wiki/Netscape_5">Netscape 5</a> and <a id="aptureLink_LVKY9sDfJM" href="http://en.wikipedia.org/wiki/Perl%206">Perl 6</a> in its ambitiousness and innovation.</p>
 
 <hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/31/screencast-python-on-hudson-part-1/'>
-Screencast: Python on Hudson (Part 1)
-</a>
-</h1>
-<div class='content'>
-<p>After Hudson got some major publicity <a href="http://blog.hudson-ci.org/content/hudson-pycon">at PyCon Atlanta 2010</a> I haven't been as quick as I would have liked with Python-related posts and tutorials. I use Hudson to build and test a number of pure Python modules and C extensions across numerous Python versions (covering 2.4 - 3.1). For most beginners, or those simply looking to get started with Python on Hudson, starting with my job configurations is too much at once, so instead I wanted to start at the "beginning" so to speak.</p>
-
-<p>The trouble with getting people started with Hudson, given how simple and visual it is to use, is that articles with sample configurations are not particularly useful; a screencast however is a good medium for visually walking somebody through Hudson. The screencast below (<a href="http://www.youtube.com/watch?v=5d-P4j5n_No">also on YouTube</a>) is the <em>first</em> in a series of screencasts I'll be doing, not only for Python on Hudson, but for Hudson overall. It is just over four minutes long, and covers setting up a simple continuous integration job for the <a href="http://eventlet.net">Eventlet</a> library (which is hosted <a href="http://bitbucket.org/which_linden/eventlet/">on Bitbucket</a>)</p>
-
-<center><object width="480" height="295"><param name="movie" value="http://www.youtube-nocookie.com/v/5d-P4j5n_No&amp;hl=en_US&amp;fs=1&amp;rel=0" /><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><embed src="http://www.youtube-nocookie.com/v/5d-P4j5n_No&amp;hl=en_US&amp;fs=1&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295" /></object></center>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/31/hudson-1-353-released/'>
-Hudson 1.353 Released
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_soap.jpg" align="left" width="170" hspace="4" vspace="4" /> This week's release comes slightly later than usual and is mostly a clean-up of a few bugs. Due to a problem with the Kohsuke's <a href="http://github.com/kohsuke/hudson">GitHub mirror</a> of Hudson's core, I can't mine the commits for interesting information as per usual so you'll just have to trust that Hudson 1.353 is chock full of good, wholesome bug fixes. If the problem persists next week, I'll find a better way to dig up information on particularly releases that doesn't depend on the GitHub mirror.</p>
-
-<p><br clear="all" />
-#### Bugs fixed
-&lt;ul class=image&gt;
-  &lt;li class=bug&gt;
-    Tagging a repository can result in NPE.
-  &lt;li class=bug&gt;
-    Fix possible form submission error when using multiple combobox elements.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6025">issue 6025</a>)
-  &lt;li class=bug&gt;
-    Better escaping of test case names in test results pages.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5982">issue 5982</a>)
-  &lt;li class=bug&gt;
-    Make radio buttons work in repeatable content, such as a build step.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5028">issue 5028</a>)
-  &lt;li class=bug&gt;</p>
-
-<pre><code>Fixed the handling of verifying that the POM path entered for Maven projects exists.
-(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-4693"&gt;issue 4693&lt;/a&gt;)
-</code></pre>
-<p>&lt;/ul&gt;</p>
-
-<h4 id="enhancements">Enhancements</h4>
-<ul>
-  &lt;li class=rfe&gt;
-    Added link to builds in buildTimeTrend
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-3993">issue 3993</a>)
-</ul>
-
-<hr />
-
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/30/resurgence-of-releng/'>
-Resurgence of Releng
-</a>
-</h1>
-<div class='content'>
-<p>A few weeks ago I passed a job listing that I had found through one of my <strong>many</strong> Google Alerts for Hudson-related queries to Andrew (<code>abayer</code>), following up on one of those job listings Andrew recently signed an offer to join the nice folks over at Digg to be their resident "build guy." On its own I thought "great for Andrew!" and nothing more, then I saw <a href="http://www.reddit.com/r/programming/comments/bi58m/anyone_here_a_build_engineer_or_part_of_the_build/">this thread</a> on reddit which poses the question:</p>
-
-<blockquote>
-  <p>Anyone here a build engineer, or part of the build team? Could you please share your experience?</p>
-</blockquote>
-
-<p>It seems, to me at least, the notion of "release engineering" is making a come-back, particularly in the aging "Web 2.0" world where companies like Digg, Facebook, Reddit, Twitter, etc are anywhere from five to ten years old. As these companies have aged a couple of important things have happened, their code-base has aged increasing the possibility of bitrot, but they have also expanded in terms of headcount. Start-ups that might have once slighted larger corporations like Oracle, Cisco VMWare and IBM for their burdensome process and longer release schedules now find themselves ensnared with massive code bases, larger development teams and complicated deployments.</p>
-
-<center><a href="http://agentdero.cachefly.net/continuousblog/hudson_vs_buildbot.png"><img src="http://agentdero.cachefly.net/continuousblog/hudson_vs_buildbot.png" width="555" /></a></center>
-
-<p>Over the past few months we've seen Hudson being used in a number of different contexts, it was <a href="http://blog.hudson-ci.org/content/hudson-pycon">pitched at PyCon</a> as part of a larger appeal to the Python community to get on the continuous integration bandwagon, we've seen a few posts from developers using Hudson for testing and packaging <a href="http://blog.hudson-ci.org/content/getting-started-building-android-apps-hudson">Android</a> and <a href="http://manicwave.com/blog/2010/03/01/that-feels-better-cocoa-hudson-and-running-green/">iPhone apps</a>, .NET developers are <a href="http://blog.bobcravens.com/2010/03/01/GettingStartedWithCIUsingHudsonForYourNETProjects.aspx">jumping on board as well</a>. Across the board it feels like Hudson is being more and more widely used, it is no longer the mainstay of the Java shop's toolkit, it's become a must have for <em>all</em> developers.</p>
-
-<p>With the allure of <a href="http://timothyfitz.wordpress.com/2009/02/10/continuous-deployment-at-imvu-doing-the-impossible-fifty-times-a-day/">continuous deployment</a> and Hudson's lowered barrier to entry for testing, packaging and automating releases, is release engineering making a comeback?</p>
-
-<hr />
-
 
 </div>
 </div>

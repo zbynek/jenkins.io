@@ -177,6 +177,60 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/08/26/cloudbees-announce-hudson-as-a-service/'>
+CloudBees announce Hudson-as-a-Service
+</a>
+</h1>
+<div class='content'>
+<a href="http://hudson-labs.org/sites/default/files/usage-stats.gif"><img style="float:right; width:300px" src="http://hudson-labs.org/sites/default/files/usage-stats.gif"></a><a href="http://cloudbees.com/">CloudBees</a> announced the beta availability of their new Hudson-as-a-service "HaaS" today. I see this as <a href="http://labs.creativecommons.org/2010/08/12/welcome-hudson-to-creative-commons/">yet</a> <a href="http://hudson-mobi.com/">another</a> <a href="http://about.digg.com/blog/digg-technical-talks-kohsuke-kawaguchi">validation</a> to Hudson, and as such, I welcome this new addition to the community and wish them well! &mdash; more companies betting on Hudson means we'll get more investment to the project, which is all goodness for Hudson users. It's been 5 months since I left Oracle to start <a href="http://infradna.com/">InfraDNA</a>, and I was initially worried about a possible negative impact on adoption, but instead Hudson has shown with no sign of slowing down (see picture on the right, from Andrew's report, which shows # of estimated active installations that participates to our usage stats survey).  And <a href="http://infradna.com/">InfraDNA</a> is going well too - we've helped <a href="http://infradna.com/customers">companies big and small</a> to improve their Hudson usage/adoption, and <a href="http://infradna.com/ichci">our commercial value-add Hudson distribution</a> is getting plenty of interest.<br/>
+<br/>
+Hosted Hudson offers an interesting trade-off, compared to on-premise Hudson. On the plus side, given the current hourly pricing of public clouds like EC2 and Rackspace, you get a better pricing model, as CloudBees charge by minutes. You also get rid of machines and upfront cost, which is great for small business. On top of that, you can also expect them to gradually develop more value-adds and better integration to various other pieces, which can get really interesting.<br/>
+<br/>
+On the down side, you have less control over the environment that runs the builds, and you do not have access back to your intranet environment (think databases that you need to talk to, for example.) Also, in the current pricing (8.5 cents/hour of EC2 vs 1 cent/minute of CB), if your build takes longer than 9 minutes, you'll save more by just using Hudson EC2 plugin.<br/>
+<br/>
+On a related note, I think one of the sweet spots is Hudson that's well integrated with on-premise cloud solution. As you can see in <a href="http://www.liferay.com/web/brian.chan/blog/-/blogs/improving-quality-with-100-hudson-test-servers">the discussion with Liferay Hudson setup</a>, with sufficient load it gets cheaper to have your own hardware, and many companies need some degree of control to the build/test environment that matches with their production environment. Plus with those on-premise virtualized environments, you can do <a href="http://www.govirtual.org/docs/DOC-1510">snapshots and forks</a>, which can be made to do <b>very</b> interesting things.<br/>
+<br/>
+<br/>
+Finally, I think the part that everyone can agree on is that the elasticity of build environment is hugely useful to the CI environment, as <a href="http://java.sun.com/javaone/2009/articles/gen_hudson.jsp">I discussed in my JavaOne 2009 talk</a> (<a href="http://wiki.hudson-ci.org/download/attachments/37323793/Hudson+J1+2009.ppt?version=1&modificationDate=1244127211000">slides</a>.) I'm very happy to see that the foundation work we've made in Hudson for this is getting validated more and more, and I think the added elasticity will drive a lot more changes in Hudson and more broadly into the way we develop software. It is an exciting time!<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/20/hudson-sauce-ondemand-webinar/'>
+Hudson / Sauce OnDemand webinar
+</a>
+</h1>
+<div class='content'>
+<p>On September 1st, I'll be <a href="http://saucelabs.com/about/webinars#webinar-hudson">presenting in a Sauce Labs webinar about Hudson and Sauce OnDemand</a>. The talk will discuss how Hudson can be used with Sauce OnDemand, naturally, but it'll also cover broader Hudson/Selenium integrations.</p>
+
+<p>Please <a href="https://www1.gotomeeting.com/register/789261128">register to this free event</a>, and looking forward to seeing to you virtually.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/17/hudson-anonymous-usage-data/'>
+Hudson Anonymous Usage Data
+</a>
+</h1>
+<div class='content'>
+In late 2008, the Hudson team released version 1.264 which added an anonymous reporting feature (you can opt-out in the "Manage Hudson" screen). The reporting feature has been sending information back to the Hudson team to help us understand how Hudson is used in aggregate; the info being reported includes the number of jobs configured, slave configurations, what plugins (and what versions of those plugins) are installed, and more. This data has not been available publicly until now! The raw data needed to be decrypted and scrubbed of any potentially identifying information, such as non-public plugin names or usernames in snapshot versions. We've finally scrubbed the data and are <strong>making it available</strong>!<br/>
+<br/>
+The data is currently in monthly JSON bundles, organized by unique install key. We've filtered out reports of installations without any jobs configured, as well as any installations with only one report in a given month. <br/>
+<br/>
+If you'd like access to the data, please send an email to dev@hudson.dev.java.net or jump onto the <A href="http://hudson-labs.org/content/chat">IRC channel</a> and ask - we'll send you the URL and a private username/password which you'll need to access the info. We're also planning to do more analysis of the data ourselves, for now feast your eyes on <a href="http://bit.ly/aC6wIo">this spreadsheet</a>, which shows the total number of unique installations seen per month and the number of unique installations of each publicly available plugin per month.<br/>
+<br/>
+<br/>
+<hr/><br/>
+(Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)<br/>
+<br/>
+<hr/><br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/08/17/hudson-1-372-sets-sail/'>
 Hudson 1.372 sets sail
 </a>
@@ -293,108 +347,6 @@ We're currently running all those builds on a dedicated Linux slave, generously 
 <br/>
 <hr/><br/>
 (Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/31/changelog/'>
-Changelog
-</a>
-</h1>
-<div class='content'>
-<?php
-  readfile("/var/www/jenkins-ci.org/changelog.html")
-?>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/28/hosting-your-hudson-plugin-at-github/'>
-Hosting your Hudson plugin at Github
-</a>
-</h1>
-<div class='content'>
-For as long as Hudson's had a plugin model and development community, we've provided <a href="http://wiki.hudson-ci.org/display/HUDSON/Hosting+Plugins">source code and binary hosting</a> through our Subversion repo at <a href="http://java.net">java.net</a>. But what if you're a plugin developer and you don't want to use Subversion? Well, we have an alternative for your source code: host it with <a href="http://github.com/hudson">Hudson on GitHub<a>.<br/>
-<br/>
-<img src="http://www.hudson-labs.org/sites/default/files/octocat.png" align="right" hspace="10" alt="Octocat!" width="180"/><br/>
-<br/>
-To get this in place, send an email to <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">dev@hudson.dev.java.net</a> (or ask in <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">the IRC channel</a>) asking to get a repository created for your plugin at Github. Make sure to include the name of the plugin and your Github username (and the Github usernames of any other developers who'll be pushing to your plugin's repo). If your plugin is already in Github, include the URL for the existing repo so that we can fork it. One of the Hudson admins will create the repository (forking if appropriate) and add the user(s) to the list of users with push access to the Hudson-hosted repositories at Github. Once you hear back from them, you'll be able to push code to the new repository.<br/>
-<br/>
-You will need to make a few changes to your plugin's POM, as compared to what works for a plugin POM in the java.net Subversion tree.<br/>
-<!--break--><br/>
-<strong>First</strong>, add the following to the <code><build><plugins></code> section:<br/>
-<br/>
-<code><br/>
-      <plugin><br/>
-        <groupId>org.apache.maven.plugins</groupId><br/>
-        <artifactId>maven-release-plugin</artifactId><br/>
-        <version>2.0</version><br/>
-        <dependencies><br/>
-          <dependency><br/>
-            <groupId>org.apache.maven.scm</groupId><br/>
-            <artifactId>maven-scm-provider-gitexe</artifactId><br/>
-            <version>1.3</version><br/>
-          </dependency><br/>
-        </dependencies><br/>
-      </plugin><br/>
-</code><br/>
-<br/>
-This is needed to make sure we're overriding the parent POM's SCM provider settings. Next, add the following to the <code><build></code> section:<br/>
-<br/>
-<code><br/>
-    <extensions><br/>
-      <extension><br/>
-        <groupId>org.jvnet.wagon-svn</groupId><br/>
-        <artifactId>wagon-svn</artifactId><br/>
-        <version>1.9</version><br/>
-      </extension><br/>
-    </extensions><br/>
-</code><br/>
-<br/>
-This is needed because we're still going to be using wagon-svn to deploy the artifacts in the release process. Lastly, add an <code><scm></code> section, within the <code><project></code> section of the POM, like the following:<br/>
-<br/>
-<code><br/>
-  <scm><br/>
-    <connection>scm:git:git://github.com/hudson/your-plugin-repo.git</connection><br/>
-    <developerConnection>scm:git:git@github.com:hudson/your-plugin-repo.git</developerConnection><br/>
-    <url>http://github.com/hudson/your-plugin-repo</url><br/>
-  </scm><br/>
-</code><br/>
-<br/>
-As with the first section, this is needed to override the default SCM settings in the parent POM. Make sure to change "your-plugin-repo" to your actual plugin repository name, of course! It'd also be a good idea to put a link to your Github repo on your plugin's wiki page at <a href="http://wiki.hudson-ci.org">the Hudson wiki</a>, since the default source link will go to Subversion.<br/>
-<br/>
-Now, with these changes in place, committed and pushed to the master branch in your plugin's repository, you should be able to run "mvn release:prepare release:perform" just as you would if the plugin were hosted in Subversion, with your plugin showing up in the Update Center within a few hours. Be sure that you've configured the login information for the java.net Maven repository, as detailed <a href="https://javanettasks.dev.java.net/nonav/maven/config.html">here</a> - this is still needed for plugins hosted at and released from Github, since Hudson's Maven repository still lives at java.net. If you run into any issues releasing your plugin from Github, first be sure to review the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hosting+Plugins">wiki page on plugin hosting</a>, which addresses many of the issues you may encounter when running the Maven release plugin. <br/>
-<br/>
-<br/>
-If you're still stumped, feel free to email <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">the Hudson developer list</a> or ask in <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">the IRC channel</a> for help.<br/>
-<br/>
-<hr/><br/>
-(Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/27/hudson-1-368-released/'>
-Hudson 1.368 Released!
-</a>
-</h1>
-<div class='content'>
-<p>Regular readers will recognize that I've been slacking off quite a bit lately with my release announcements, my apologies. With the release of 1.368 on Sunday, which fixed a few fairly important bugs, I figured I'd dusty off my blogging fedora and give this a shot.</p>
-
-<p>This release has three bug fixes in it which were causing some issues for some users, particularly those deploying Hudson inside the recently released <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">Tomcat 7.0</a> (see <a href="http://issues.hudson-ci.org/browse/HUDSON-6738">issue 6738</a>).</p>
-
-<p>Hudson users utilizing the <a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Auto-Installation">JDK auto-installation</a> feature between different platforms may have been affected by <a href="http://issues.hudson-ci.org/browse/HUDSON-6880">issue 6880</a> which was also fixed in this release.</p>
-
-<p>Bringing up the rear is the fix to <a href="http://issues.hudson-ci.org/browse/HUDSON-7004">issue 7004</a> which detailed a few discrepencies between the <code>/buildWithParameters</code> and the <code>/build</code> remote APIs.</p>
-
-<p>If you're not affected by these issues, you may want to wait for the soon-to-be-released 1.369 which has <strong>even more</strong> juicy bug fixes in it (with a dash of enhancements) to upgrade.
-<!--break-->
-—-</p>
-
-<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.368/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
 
 </div>
 </div>

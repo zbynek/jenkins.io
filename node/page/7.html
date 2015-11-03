@@ -177,6 +177,160 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/06/02/juc-speaker-blog-series-peter-vilim-juc-u-s-east/'>
+JUC Speaker Blog Series: Peter Vilim, JUC U.S. East
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128/><br/>
+</div><br/>
+<br/>
+<p>In this talk I will be focusing on plugin development for Jenkins. I aim to capture some of the lessons that we have learned at Delphix and that I learned while I was in graduate school. At Delphix we have been large users of Jenkins for over four years which is most of the history of our startup. We currently run thousands of jobs per day. We have been quite happy with the experience and expect these numbers to grow significantly as our business scales beyond our current 300 head count.</p><br/>
+<br/>
+<p>The core concept of <a href="http://www.delphix.com/">Delphix</a> is Data as a Service. Our software allows businesses to virtualize databases and data associated with their applications then provision these on demand to developers and others who need virtual copies of them. Our development for this software spans the entire stack. We have quite a few kernel developers, including the original team for the ZFS filesystem who work on developing the open source application, OpenZFS, which underpins our product. Further up the stack we have a large java application that interacts with ZFS to perform virtualization operations, provides user<br/>
+facing webservices, and interfaces with our internal Postgres metadata store which stores the state of our system. Finally above this we have a modern Javascript front end for user interaction. Our full software product ships as a virtual machine on a variety of hypervisors. As a result of these numerous components, end to end integration testing is very important to us. This integration testing is the primary use of Jenkins for us. Before any developer checks in code to either our operating system or application repository, it must undergo several hours of automated integration testing. We also have nightly runs which go for far longer and tests a much more extensive set of functionality. In addition, we use Jenkins for the build process of our software as well as final packaging for release. Because Jenkins serves as a hub for our development processes, having a well designed system is very important to us and saves us significant time.</p><br/>
+<br/>
+<p>Below are some of the key points I will be discussing at my talk. I hope you attend to learn more about the areas that I find very interesting.</p><br/>
+<br/>
+<ul><li>I'm planning to discuss the structure of a Jenkins plugin. I'll also cover a few of the more advanced areas of plugins such as distributed builds that I see less frequently in plugins. In addition, I'll briefly cover unit testing, which is something missing in many open source plugins.</li><br/>
+<li>I'll talk about some good patterns to use in plugins as well as some areas where a plugin is not a good idea. I'm planning to pull from my own personal experience developing plugins, the experience of other people at Delphix working with Jenkins, and our experience using other open source plugins to talk about what works and what doesn't.</li><br/>
+<li>I'll give an overview of the current plugin development at Delphix. I'll cover some of the lessons that we have learned along the way. We have also started to take a "dogfooding" approach to some of our development where we use plugins internally to help our test process and open source them since our customers find features used for testing our product to often be useful in their production environments. This has an added bonus of making it easier to justify our development time spent on making these plugins, since they are also features requested by our customers.</li><br/>
+<li>I'll discuss the trade-offs between using an already developed plugin or group of plugins, writing some scripts, and building your own plugin. Being able to figure out when to do which can lead to major time savings as well as a better user experience.</li></ul><br/>
+<br/>
+<p>I hope you attend. Even if you have no immediate plans to write your own plugins, hopefully you'll be able to learn about what makes plugins tick and how to better evaluate plugins when picking them for your own projects. Plugins were what originally got me excited about Jenkins and they allowed me to see its true potential as a build and test system. I hope to share some of that inspiration.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/01-01-1400-vilim_0.jpg" width=152 height=182/><br/>
+</div><br/>
+<br/>
+<p>This post is by Peter Vilim, Member of Technical Staff at Delphix. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-01-1400-vilim">"Providing a First Class User Experience with Jenkins Plugins"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</b></p><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579/><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/01/juc-speaker-blog-series-nobuaki-ogawa-juc-europe/'>
+JUC Speaker Blog Series: Nobuaki Ogawa, JUC Europe
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p>On the 23rd and 24th June, I’ll attend <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">Jenkins User Conference 2015 Europe</a> in London. And I’ll present a lightning talk about Continuous Delivery with Jenkins.</p><br/>
+<br/>
+<p>Here is short overview of what I’d like to talk about there.</p><br/>
+<br/>
+<p><h3>1. Continuous Build</p></h3><br/>
+<br/>
+<p>My starting point was to get to know JenkinsCI. Our developers used JenkinsCI to make the Continuous Build of our software.<br/>
+So, our developing environment was quite Jenkins friendly from the beginning.</p><br/>
+<br/>
+<p><h3>2. Continuous Deploy</p></h3><br/>
+<br/>
+<p><h4><i>--- Virtual Machine ---</p></h4></i><br/>
+<br/>
+<p>We had to have an environment where we could deploy our new build. As we are big fans of Microsoft, we decided to use Azure as our environment to make Continuous Testing.</p><br/>
+<br/>
+<p>How do we control it? We use <a href="https://odehne.wordpress.com/2013/12/01/dealing-with-virtual-machines-in-windows-azure-using-powershell/">Powershell</a>, which can be executed with JenkinsCI.</p><br/>
+<br/>
+<p><h4><i>--- Product Deployment ---</p></h4></i><br/>
+<br/>
+<p>How did we achieve the Continuous Deploy? Actually, my boss, who is DirectSmile’s Yoda developed a very powerful tool called <a href="https://odehne.wordpress.com/2012/03/26/continuous-deployment-of-directsmile-products/">“DirectSmile Installation Service”</a> to enable this.</p><br/>
+<br/>
+<p>So we integrated this tool within JenkinsCI, and now Jenkins can deploy DirectSmile products on any target server with just one-button-click!</p><br/>
+<br/>
+<p><h3>3. Continuous Testing</p></h3><br/>
+<br/>
+<p>Of course, we use JenkinsCI to make the Continuous Testing.<br/>
+How do we do that?<br/>
+We use <a href="http://www.seleniumhq.org/">Selenium</a> to make and run tests. So we can cover most features and we can execute it at anytime.</p><br/>
+<br/>
+<p>We are doing it after every new version build, to obtain Continuous Delivery.</p><br/>
+<br/>
+<p><h3>4. Continuous Sharing</p></h3><br/>
+<br/>
+<p>I think it’s important to share all knowledge and experiences I have had with others, especially those whom have just started with Continuous Delivery.</p><br/>
+<br/>
+<p>Don’t worry, it is probably much easier than you think.</p><br/>
+<br/>
+<p>As a part of this practice, I’d like to share all my knowledge and experiences with how easy it is to achieve Continuous Delivery with Jenkins at JUC 2015.</p><br/>
+<br/>
+<p>I’m really exciting to meet and talk about this there! See you at JUC 2015 in London!</p><br/>
+<br/>
+<p><h3>About Me</p></h3><br/>
+<br/>
+<p>My name is Nobuaki Ogawa, from Japan, and I currently work in Berlin, Germany for the software company <a href="http://directsmile.com/">DirectSmile</a> as a DevOps QA Manager.</p><br/>
+<br/>
+<p>From the very first time I used JenkinsCI, it helped me a lot. Almost all the work I did last year was mainly with Continuous Delivery with Jenkins.</p><br/>
+<br/>
+<p>From Build to Deploy, Test, and even Maintenance and Monitoring, my Jenkins takes care of everything.</p><br/>
+<br/>
+<p>It was super easy to achieve Continuous Delivery in the DirectSmile world with the help of JenkinsCI.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/02-03-1530-ogawa_0.jpg" width=152 height=182><br/>
+</div><br/>
+<br/>
+<p>This post is by Nobuaki Ogawa, DevOps QA Manager at DirectSmile. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-03-1530-ogawa">"Jenkins Made Easy"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/05/20/juc-speaker-blog-series-david-dang-juc-u-s-east/'>
+JUC Speaker Blog Series:  David Dang, JUC U.S. East
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
+</div><br/>
+<br/>
+<p>I’ve implemented numerous test automation projects for clients, but recently I had a unique request. Jenkins plays a critical role.</p><br/>
+<br/>
+<p>The “digital channel” is an industry buzzword for many companies these days. The digital channel represents a company’s content that is delivered by websites and mobile devices. Companies want the same website to work across any channel in multiple browsers and different operating systems. They also want that same website to work across an explosion of mobile devices. Add the new generation of smart watches showing up and testing is becoming a huge challenge for IT departments. One big issue is there is too much duplication of testing efforts.</p><br/>
+<br/>
+<p>In a perfect world, you would create a core set of test automation scripts that work across all digital channels. A client recently requested that my team and I create this perfect-world scenario, and we are doing just that. Jenkins pulls it all together by managing the execution and reporting.</p><br/>
+<br/>
+<p>Join me for my talk to learn how I’m using Jenkins, Selenium, TestNG, and Perfecto Mobile to solve the digital channel testing challenges for one client.</p><br/>
+<br/>
+<div style="float:left; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/01-02-1030-dang_0.jpg" width=149 height=180><br/>
+</div><br/>
+<br/>
+<p>This post is by David Dang, VP of Automation Solutions at Zenergy Technologies. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1030-dang">"Integrating Mobile Automation with Jenkins: A Case Study Using Perfecto Mobile with Jenkins"</a> on Day 1.</p><br/>
+<br/>
+<p><i>Still need your ticket to JUC? Early bird pricing has been extended! Also, if you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
+<br/><br/><br/><br/>
+<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
+<br/>
+<div style="float:left; margin:0em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
+</div>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/05/18/juc-speaker-blog-series-andrew-bayer-juc-europe/'>
 JUC Speaker Blog Series: Andrew Bayer, JUC Europe
 </a>
@@ -348,103 +502,6 @@ Jenkins User Conference - Agenda News
 <p><a href="http://www.cloudbees.com/jenkins/juc-2015/">JUC</a> is such a great opportunity for the community to come together and network face-to-face. You can meet <a href="https://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>, creator of the Jenkins project, <a href="https://twitter.com/realgenekim">Gene Kim</a>, author of <a href="http://www.amazon.com/The-Phoenix-Project-Helping-Business/dp/0988262592">The Phoenix Project</a> and DevOps expert, but you will also have the opportunity to meet Jenkins users, just like you, from all over the world. And this year, with the Jenkins project at <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/total-jenkins.svg?mkt_tok=3RkMMJWWfF9wsRokvKrNZKXonjHpfsX%2B7ekkX7Hr08Yy0EZ5VunJEUWy3IYFTdQ%2FcOedCQkZHblFnVwASa2lV7oNr6QP">well over 100K active installations</a>, JUC as a whole will be the largest gathering of Jenkins users ever.</p><br/>
 <br/>
 <p>Early bird pricing for JUC U.S. East and Europe ends May 1, so <b><a href="http://www.cloudbees.com/jenkins/juc-2015/#">REGISTER NOW</a></b> to take advantage of the lower pricing. </p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/04/13/juc-world-tour-2015-keynote-speaker-news-and-early-bird-tickets/'>
-JUC World Tour 2015 - Keynote Speaker News and Early Bird Tickets
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/The-Phoenix-Project-border_2.png" width=99 height=144/><br/>
-</div><br/>
-<br/>
-<p>The 2015 JUC World Tour dates are rapidly approaching. Since the community has grown so tremendously since last year, the JUC in each city will be the largest gathering of Jenkins users in that region.</p><br/>
-<br/>
-<p><a href="https://twitter.com/kohsukekawa"> Kohsuke </a>will, as always, be the opening keynote speaker at each JUC. But, with the conference going from one to two days, I am happy to announce that <a href="http://www.realgenekim.me/"> Gene Kim </a> will be another keynote on the second day! He is the author of <a href="http://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592/ref=tmm_hrd_swatch_0?_encoding=UTF8&sr=8-1&qid=1428523232"> The Phoenix Project </a> and a thought leader in DevOps.</p><br/>
-<br/>
-<p>To have these two experts in one place will provide a great opportunity to talk about Jenkins as the foundation of continuous delivery and DevOps practices.</p><br/>
-<br/>
-<p>Another exciting announcement: the 2015 Jenkins World Tour will run alongside the CD Summit conferences for both days (at the U.S. East, Europe and U.S. West locations only). Attendees of either conference can attend any of the talks and presentations at both events. Learn more about what <a href="https://www.cloudbees.com/cdsummit"> CD Summit 2014 </a> was like to get an idea for <a href="http://www.cloudbees.com/cdsummit-2015/"> this year's event.</a></p><br/>
-<br/>
-<p><b>Registration for all 2015 JUC locations is open. Early bird pricing ends May 1!</b></p><br/>
-<br/>
-<ul><li><b><a href="https://www.regonline.com/register/checkin.aspx?EventId=1698436&MethodId=0&EventSessionId=&startnewreg=1">East Coast US: June 18-19</a></b></li><br/>
-<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1698435">Europe: June 23-24</a></b></li><br/>
-<li><b><a href="https://www.eventbrite.com/e/jenkins-user-conference-israel-tlv-david-inter-continental-july-16-2015-tickets-16393557572">Israel: July 16</a></b></li><br/>
-<li><b><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214">West Coast US: September 2-3</a></b></li></ul><br/>
-<br/>
-<p><b>The Call for Papers for JUC is still open for Israel and U.S. West. Submit your own proposal or convince your favorite speaker/Jenkins user to submit one if speaking is not your thing!</b></p><br/>
-<ul><li><a href="https://www.cloudbees.com/jenkins-user-conference-call-papers">East Coast US: June 18-19</a></li><br/>
-<li><b><a href="https://www.cloudbees.com/jenkins-user-conference-call-papers">Israel: July 16</a></b></li></ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/04/06/good-bye-java6/'>
-Good bye Java6
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/6_(number)"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/62/U%2B2678_DejaVu_Sans.svg/200px-U%2B2678_DejaVu_Sans.svg.png"><br/>
-</a><br/>
-</div><br/>
-<br/>
-<p><br/>
-About two years ago, we bumped our runtime JRE requirement <a href="http://jenkins-ci.org/commit/core/3431a7cba">from Java5 to Java6</a>. And so the time has come once again for us to finally move on to Java7. Because of all the new language features, <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/sw_WepGw0Pk">many of us the developers really wanted to move right on to Java8</a>, but after much discussion we settled to move to Java7 first and then to Java8.<br/>
-<br/>
-<p><br/>
-So here is the plan:<br/>
-<br/>
-<ul><br/>
-<li>Starting Jenkins 1.608, we start advertising that we will be moving on to Java7, which is why you are reading this.<br/>
-<li>Starting Jenkins 1.610 (2 weeks from now), we will ship so-called 51.0 class files that will only load on Java7+. This gives some more warnings to those who don't read our blog.<br/>
-<li>Unless we hear uproar from users, starting around 1.614 (6 weeks from now), core developers will start linking directly to new Java7 APIs. <a href="http://jenkins-ci.org/content/thinking-about-moving-servlet-30">We will move on to servlet 3.0 at this time as well</a>.<br/>
-<li>The current 1.596 line of LTS will remain compatible with Java6, and most likely the next LTS line will also remain compatible with Java6. So LTS users have additional 3 months before upgrading to Java7.<br/>
-</ul><br/>
-<br/>
-<p><br/>
-Java7 has more NIO improvements that allow us to do some file I/O in more portable manner. Similarly, servlet 3.0 will help us build more interactive UI.<br/>
-<br/>
-<p><br/>
-Your Jenkins master and all the build slaves need to be running on Java7+. Similarly, those who are using the Maven2 job type must also run Maven with Java7+. However, this does not prevent you from using Jenkins to build your applications that are targeted to earlier versions of Java. According to our research, most platforms people run Jenkins on has been already shipping Java7 for quite some time now. But if you have a good reason why we shouldn't force everyone to Java7, please let us know ASAP.<br/>
-<br/>
-<p><br/>
-To put this into context, <a href="https://www.java.com/en/download/faq/java_7.xml">Oracle will not release updates to Java7 past April 2015</a>. We have always recommended users to run the latest general release according to Oracle, which is currently Java8. As I said, I suspect we will be requiring Java8 pretty soon. So if you are still running Java6, you should definitely upgrade to Java8.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/04/06/confluence-migration-this-weekend/'>
-Confluence migration this weekend
-</a>
-</h1>
-<div class='content'>
-<div style="float:right;margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Structure_relocation"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/GMC_U-Haul_truck_front_1.JPG/320px-GMC_U-Haul_truck_front_1.JPG"><br/>
-</a></div><br/>
-<p><br/>
-For the past few weeks, I've burnt a lot of midnight oil to <a href="https://github.com/jenkins-infra/confluence">get Confluence containerized</a>. The goal is to make Confluence upgrade more manageable and testable. In the proces, I've not only containerized Confluence, but also containerized <a href="https://github.com/jenkins-infra/confluence-cache">some other services</a>, including <a href="https://github.com/jenkins-infra/mock-ldap">mock LDAP server</a>, to be able to test the copy of the production Confluence dataset against newer versions of Confluence before upgrading production.<br/>
-<br/>
-<p><br/>
-The infra team is currently <a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/2015-April/000292.html">targeting this weekend</a> to migrate our current Confluence instance to this new container, and use the opportunity to move the service to a bigger system. Currently JIRA and Confluence has to live within 2.5GB RAM from the same host, and it's really stretching both services. The new box has 4GB of RAM, and we are splitting JIRA and Confluence to two different servers. So there's a lot of head room.<br/>
-<br/>
-<p><br/>
-So please expect some Wiki outage over the next weekend.<br/>
-<br/>
-<P><br/>
-As always, our sincere thank you to <a href="http://osuosl.org/">Oregon State University Open Source Lab</a> for generously hosting our servers. Please donate to them to show your support. Similarly, thank you <a href="http://atlassian.com/">Atlassian</a> for generously providing the license for running Confluence.<br/>
-<br/>
-<p><br/>
-If this goes well, JIRA will follow suit.
 
 </div>
 </div>

@@ -177,6 +177,79 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/12/02/community-contributed-localizations-to-be-bundled-in-jenkins-1-443/'>
+Community-contributed localizations to be bundled in Jenkins 1.443
+</a>
+</h1>
+<div class='content'>
+<a href="http://en.wikipedia.org/wiki/Tower_of_Babel"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Brueghel-tower-of-babel.jpg/350px-Brueghel-tower-of-babel.jpg" style="float:right; margin:1em; height:100px"></a><br/>
+<br/>
+<p><br/>
+In 1.430, we added <a href="https://wiki.jenkins-ci.org/display/JENKINS/Translation+Assistance+Plugin">the translation assistance plugin</a> in the hope of increasing the contribution from the community. It's been 3 months, and I've finally took the opportunity to integrate them into Jenkins.<br/>
+<br/>
+<p><br/>
+The result is pretty amazing. Before this, we had 26 languages, with wildly varying degree of completeness, such as French, Japanese, German, etc. This is still pretty good, but this integration added updates to 40 languages, including 17 brand-new languages, pushing the total up to whopping 43 languages. Among the newly added languages are Arabic (sorry, no right-to-left support yet), Esperanto, Hebrew, as well as large amount of Chinese (both simplified and traditional) and Korean.<br/>
+<br/>
+<p><br/>
+While working with this, I've also discovered an issue that prevented Jenkins from correctly showing Hebrew, Indonesian, and Yedish localizations. All these changes will be in 1.443. And going forward, I'll be integrating changes more frequently to reduce the delay.<br/>
+<br/>
+<p><br/>
+So big thank you for everyone who contributed localizations, and please keep them coming! <a href="https://wiki.jenkins-ci.org/display/JENKINS/Translation+Assistance+Plugin">Contributing localization is very easy</a>. If you are interested in more seriously working on localizations, please see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Internationalization#Internationalization-Whattranslatorsneedtoknow%2Fdo">this Wiki page</a> and request the committership in the project. This is yet another way people can contribute to OSS without writing code.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/11/15/the-beginning-of-a-new-era-ruby-plugins-now-a-reality/'>
+The beginning of a new era: Ruby plugins now a reality
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/jruby.png" align="right" width="180" alt="Yay JRuby!" /> It's not often that I get to use <em>that</em> much hyperbole in a Jenkins blog post, but I think in this case it's allowable. A journey that started over a year ago by <a href="https://twitter.com/cowboyd">Charles Lowell</a> has reached a new level, thanks to lots of help from <a href="https://twitter.com/kohsukekawa">Kohsuke</a> along with <a href="https://twitter.com/nahi">Hiroshi Nakamura</a> and <a href="https://twitter.com/jorgenpt">Jørgen Tjernø</a>.</p>
+
+<p>As of today, with Jenkins 1.438, you can now <strong>download and install Ruby plugins from the update center</strong> (the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Pathignore+Plugin">Path Ignore plugin</a> being the first).</p>
+
+<p>Words simply can't express what a monumental achievement this is for the Jenkins project, both from the technical perspective but also in terms of what this means for the future of the project.</p>
+
+<p>According to the <a href="https://github.com/languages">languages dashboard on GitHub</a>, Ruby is over two times as popular as Java on the site. I do not intend to start a language popularity contest here, but if we pretend just for a minute that the GitHub ecosystem is all that exists. Can you then imagine how powerful it would be to engage and include a community of open source developers that would be two times the size of the current pool of contributors? That's <strong>tremendous</strong> potential!</p>
+
+<h3 id="great-where-do-i-start">Great! Where do I start?</h3>
+
+<p>For those that are curious, the first officially released Ruby plugin for Jenkins is Jørgen's <a href="https://github.com/jenkinsci/pathignore-plugin">pathignore-plugin</a> which can be found in the update center. If you're looking for a reference project, this is currently the most up-to-date plugin.</p>
+
+<p>There is also a <strong><a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+plugin+development+in+Ruby">wiki page covering Ruby plugin development</a></strong>, which might be a little out-of-date but covers most of the essentials.</p>
+
+<p>Additionally you might find the <a href="https://github.com/cowboyd/jenkins-prototype-ruby-plugin">jenkins-prototype-plugin</a> an interesting resource as it is practically a kitchen sink of demo/test Ruby plugin code.</p>
+
+<p>Currently only a few extension points (BuildStep, Publisher, BuildWrapper) are mapped in a Ruby-friendly manner. Don't let that scare you though! If you dig around in the <a href="https://github.com/cowboyd/jenkins-plugin-runtime">jenkins-plugin-runtime</a> you can see how the existing extension points are mapped from Java into Ruby, because Ruby plugins are running under JRuby, if you need to access some Java APIs, you can do so without too much trouble.</p>
+
+<h3 id="the-thank-yous">The Thank Yous</h3>
+
+<p>Great efforts like this one don't just happen without support, which is why I'd like to call out and thank <a href="http://thefrontside.net/">The FrontSide</a> for their <strong>wonderful</strong> support, helping to cover costs of WebEx for Office Hours and covering Charles' time while he worked with Kohsuke on the internal plumbing needed to make Ruby plugins possible within Jenkins core. If the name "The FrontSide" looks familiar to you, that might be because they also created and donated the Jenkins logo!</p>
+
+<p>We should also thank <a href="http://www.mylookout.com">Lookout, Inc</a> (<em>full disclosure: Lookout is my employer</em>) and <a href="http://www.cloudbees.com">CloudBees</a> for affording some employee time for Jørgen and Kohsuke respectively to work on the project.</p>
+
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/11/10/jenkins-conference-slides-and-videos-online/'>
+Jenkins Conference Slides and Videos Online
+</a>
+</h1>
+<div class='content'>
+<p><img src="/sites/default/files/images/headshot.png" align="right" />It is just turning into a video heavy week isn't it? First the <a href="/content/jenkins-meetup-munich-videos">videos from the Munich Meetup</a> were made available, and now the videos from the <em>first</em> ever <a href="/content/jenkins-user-conference">Jenkins User Conference</a>.</p>
+
+<p>The full list of slides and videos can be found <strong><a href="https://www.cloudbees.com/jenkins-user-conference-2011-session-abstracts.cb">on this page</a></strong>, hosted by <a href="https://www.cloudbees.com/">CloudBees</a> who  did a phenomenal job helping to organize and host the conference.</p>
+
+<p>I want to thank everybody else involved once again, the fantastic speakers, the enthusiastic attendees and of course the sponsors for making it possible (CloudBees, Red Hat, LifeRay, New Relic, Sauce Labs, Chariot Solutions and eXo).</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/11/07/jenkins-meetup-munich-videos/'>
 Jenkins Meetup Munich Videos
 </a>
@@ -262,75 +335,6 @@ Andrew Bayer discusses Jenkins with Tim O'Brien
 <p>You can watch the video <a href="http://www.youtube.com/watch?v=0p815FUCK_g">on YouTube</a> or via the embed below.</p>
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/0p815FUCK_g" frameborder="0" allowfullscreen=""></iframe>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/10/05/ci-dinner-wednesday-at-630/'>
-CI Dinner Wednesday at 6:30
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://s3-media2.ak.yelpcdn.com/bphoto/fFGPBtsutYpn3A155Sf75Q/l.jpg" align="right" width="200" alt="Photo from inside Cafe Chaat" />Apologies for the late notice, I think most of us have been pre-occupied with <a href="http://www.cloudbees.com/jenkins-user-conference-2011.cb">that fantastic Jenkins User Conference</a>. While there are plenty of folks in town for JavaOne, I wanted to host a meetup/dinner at <strong><a href="http://www.yelp.com/biz/cafe-chaat-san-francisco-4">Cafe Chaat</a></strong> here in San Francisco.</p>
-
-<p>If you're coming from JavaOne directly, use <a href="http://g.co/maps/dwwzj">these directions</a></p>
-
-<p>If you're coming from Oracle OpenWorld, use <a href="http://g.co/maps/2db79">these directions</a></p>
-
-<p><a href="https://twitter.com/kohsukekawa">Kohsuke</a> will be in attendance as will some other Jenkins User Conference speakers, so if you still have left-over questions, I'm sure you can get them answered before the last of the <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Lassi#Mango_lassi">Mango Lassi</a> is finished!</p>
-
-<p>Look forward to seeing you there!</p>
-
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/10/01/jenkins-next-week-juc-javaone-and-oh-my/'>
-Jenkins next week: JUC, JavaOne, and oh my!
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Next two weeks are busy weeks for Jenkins!<br/>
-<br/>
-<p><br/>
-The biggest event is of course the world's first ever <a href="http://www.cloudbees.com/jenkins-user-conference-2011.cb">Jenkins User Conference</a> at San Francisco, Sunday. The event is full now, but the talks will be recorded.<br/>
-<br/>
-<p><br/>
-On Monday from 12:30pm (Embarcadero room at Parc 55), Kohsuke will be talking about pre-tested commits in Jenkins (not just for Git but also for Subversion!), as well as the quick recap of the current project status. On the same day in the evening, from 8pm, there will be a community meetup BOF. Andrew and I will be there. Andrew has some slides that he can go over, but it's really up to the attendees to decide what they want us to talk about.<br/>
-<br/>
-<p><br/>
-I'll be also at the CloudBees booth in the vendor expo in JavaOne, so if you are around, please drop by and say hello!<br/>
-<br/>
-<p><br/>
-After that, I'll be heading to Tokyo, where 14 people will have <a href="https://wiki.jenkins-ci.org/pages/viewpage.action?pageId=58000691">the first ever 3-day Jenkins hack camp</a>, complete with a hot spring, the traditional Japanese style. I'll be hosting a short plugin development course there as well.<br/>
-<br/>
-<p><br/>
-On that same week, there'll be <a href="http://kokucheese.com/event/index/16114/">another Tokyo user meetup</a>, where all 75 seats have sold out. There'll be announcement about <a href="http://d.hatena.ne.jp/lino/20110929/1317298261">the first Japanese Jenkins book</a>. I'll be also delivering <a href="http://www.cloudbees.com/training.cb">CloudBees' one-day Jenkins training</a> there as well.<br/>
-<br/>
-<p><br/>
-Looking forward to seeing as many of you!<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/09/20/ips-packages-of-jenkins-for-solaris-openindiana/'>
-IPS Packages of Jenkins for Solaris/OpenIndiana
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Solaris_OS_logo.svg/220px-Solaris_OS_logo.svg.png"><br/>
-</div><br/>
-<p><br/>
-Image Packaging System (IPS) is a new package manager Sun has developed for OpenSolaris. While I have my doubts about whether a brand-new package manager was a good way of spending engineering resources, OpenSolaris had a number of very nice features that made it a convincing platform to run Jenkins, thanks to SMF, ZFS, and zones. So I used to produce IPS packages for Jenkins. I lost the ability to do this as I left Oracle and lost access to a Solaris system, but <a href="http://www.dev-eth0.de/jenkins-continuous-integration-on-opensolaris/">a recent blog post</a> renewed my interest.<br/>
-<br/>
-<p><br/>
-So I'm happy to announce that the Jenkins project has started producing <a href="http://ips.jenkins-ci.org/">IPS packages for the releases</a>. With this addition, the Jekins project now produces 9 packages on different platforms (10, if you count <a href="https://rubygems.org/gems/jenkins-war">Ruby as a separate platform</a> :-)<br/>
 
 </div>
 </div>

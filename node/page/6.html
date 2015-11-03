@@ -177,6 +177,83 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/07/14/juseppe-a-custom-update-site-for-jenkins/'>
+Juseppe, a custom update site for Jenkins
+</a>
+</h1>
+<div class='content'>
+<p><em>This is a guest post by Kirill Merkushev at Yandex. I met him at JUC Europe where he showed me the project he was working on: Juseppe. It looked really interesting, so I asked him to write this guest post.</em></p>
+
+<p>When you write your first custom Jenkins plugin for internal use, it's easy enough to deploy it on one or maybe two Jenkins instances. You can save it on your local drive and upload the HPI file via the Jenkins Plugin Manager as needed. It's easy to do this for a few releases. But as your experience grows, the number of plugins and their releases grows as well. The plugins directory on your local drive soon looks like a garbage dump, and it's difficult to find that most recent version of any plugin. And if you have a lot of Jenkins instances coordinating updates of your plugins may cause a lot of pain.</p>
+
+<p>A similar situation is when you contribute a much-needed patch to an existing plugin, but you don't have the time to wait until your pull request is be merged and a new release is cut. Or you may need to patch a plugin in ways not suitable for distribution, and decide to effectively fork the plugin for use on your Jenkins instances. How are you going to do this?</p>
+
+<p>A solution avoiding the problems from these situations is to set up your own update site to serve your private plugin builds. Juseppe allows you to do this quickly and easily.</p>
+
+<h2 id="what-is-juseppe">What is Juseppe?</h2>
+
+<p><em>Juseppe</em> is an acronym for <em>Jenkins Update Site Embedded for Plugin Publishing Easily</em>. Juseppe can help you set up a Jenkins update site in just a few minutes.</p>
+
+<h3 id="features">Features</h3>
+
+<ul>
+  <li>Generates signed <code>update-center.json</code> and <code>release-history.json</code></li>
+  <li>Works with HPI files directly (stored in one folder), no need to set up a Maven repository</li>
+  <li>Watches for changes in the plugin folder and regenerates JSON files when changes are detected</li>
+  <li>Serves generated files and plugin files with built-in Jetty web server</li>
+  <li>Can be run in a "generate-only" mode when you want to use a different web server for these files.</li>
+</ul>
+
+<h3 id="how-can-i-get-juseppe">How can I get Juseppe?</h3>
+
+<p>It ships as a Docker container, or can be built from source. Visit <a href="https://github.com/yandex-qatools/juseppe">the GitHub project page</a> to learn more. The complete user guide is available in <a href="https://github.com/yandex-qatools/juseppe/wiki/Complete-Guide-of-own-update-center-using-Juseppe">the GitHub project wiki</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/09/jenkins-user-event-scandinavia-2015/'>
+Jenkins User Event Scandinavia 2015
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/jues_0.png" width=270 height=181><br/>
+</div><br/>
+<br/>
+<p><i>For the 4th consecutive year the Jenkins CI community is gathering in Scandinavia.</i> <a href="http://www.code-conf.com/jues15/">JUES</a> inspires both current as well as soon-to-be Jenkins users to network and harness inspiration from peers and experts on best practice and implementation of Continuous Integration, Continuous Delivery, and agile development with Jenkins.</p><br/>
+<br/>
+<p><i>As always we’ll precede the JUES conference with a <a href="http://www.code-conf.com/jues15/codecamp/">Code Camp</a> on the day before.</i> The Code Camp is a full day community event where developers learn from fellow developers on coding and plugin enhancement, all delivered back to the community.</p><br/>
+<br/>
+<p>We welcome you and other leading Jenkins developers, QA, DevOps, and operations personnel to this years Scandinavian Jenkins CI festival hoping to continuously support the growth of the Jenkins Open Source community.</p><br/>
+<br/>
+<p><b><a href="http://www.code-conf.com/jues15/">REGISTER FOR JUES HERE</a></b></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/06/22/new-wiki-url-requirement-for-plugins/'>
+New Wiki URL Requirement for Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Let's say you're browsing the 'Available' tab in the Jenkins plugin manager for interesting-looking plugins. How do you learn more about them, preferably without installing them on your production instance? You click the plugin's name, which usually links to the plugin's wiki page, of course!</p>
+
+<p>Unfortunately, it's possible for plugins to be published without a wiki page, or any other documentation aside from what's provided in the plugin itself. This is really unfortunate, as users rely on wiki pages and similar documentation to learn more about a plugin before installing or upgrading it, like its features, limitations, or recent changes. Additionally, plugin wiki pages have a special section at the top that provides an automatically generated technical overview of the plugin, such as dependencies to other plugins, the minimum compatible Jenkins version, a list of developers, and links to the source code repository and issue tracker component. Everyone learning about or using a plugin benefits from a plugin wiki page and luckily, almost all plugins have one!</p>
+
+<p>To ensure that <em>every</em> plugin has at least a basic wiki page with some documentation, we decided to only publish plugins in the Jenkins update center that have and link to a wiki page. To keep the impact to a minimum, we're implementing this plan in several stages.</p>
+
+<p>The first stage went live on June 1: All existing plugins that don't have a (valid) wiki link got a wiki link <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">assigned by the update center</a> (a so-called 'override'), either to an existing wiki page if there was one, or a generic <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing">"This plugin has no documentation" wiki page</a> otherwise. This ensures that no currently existing plugins get dropped from the update center at this point. Of course, <em>new</em> plugins that don't provide a wiki URL and don't have an override URL will not show up at all.</p>
+
+<p>The second stage will be enabled later this year: We're planning to remove all the overrides mentioned above. At this point, plugins may get removed from the update center if they still don't specify a wiki URL. Of course this isn't our goal, and we'll try to work with plugin authors to prevent this from happening.</p>
+
+<p>So what can you do? Check the <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">current overrides list</a> to see whether the plugins you care about are affected, and if so, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing#PluginDocumentationMissing-HowcanIhelp%3F">see the landing page in the wiki</a> to learn what you can do. If you have any questions about this process not covered by the wiki, ask us on the <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">Jenkins developers mailing list</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/06/16/juc-speaker-blog-series-martin-hobson-juc-u-s-east/'>
 JUC Speaker Blog Series: Martin Hobson, JUC U.S. East
 </a>
@@ -377,160 +454,6 @@ JUC Speaker Blog Series: Andrew Phillips, JUC U.S. East
 <br/>
 <p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
 <br/><br/><br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/06/02/juc-speaker-blog-series-peter-vilim-juc-u-s-east/'>
-JUC Speaker Blog Series: Peter Vilim, JUC U.S. East
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128/><br/>
-</div><br/>
-<br/>
-<p>In this talk I will be focusing on plugin development for Jenkins. I aim to capture some of the lessons that we have learned at Delphix and that I learned while I was in graduate school. At Delphix we have been large users of Jenkins for over four years which is most of the history of our startup. We currently run thousands of jobs per day. We have been quite happy with the experience and expect these numbers to grow significantly as our business scales beyond our current 300 head count.</p><br/>
-<br/>
-<p>The core concept of <a href="http://www.delphix.com/">Delphix</a> is Data as a Service. Our software allows businesses to virtualize databases and data associated with their applications then provision these on demand to developers and others who need virtual copies of them. Our development for this software spans the entire stack. We have quite a few kernel developers, including the original team for the ZFS filesystem who work on developing the open source application, OpenZFS, which underpins our product. Further up the stack we have a large java application that interacts with ZFS to perform virtualization operations, provides user<br/>
-facing webservices, and interfaces with our internal Postgres metadata store which stores the state of our system. Finally above this we have a modern Javascript front end for user interaction. Our full software product ships as a virtual machine on a variety of hypervisors. As a result of these numerous components, end to end integration testing is very important to us. This integration testing is the primary use of Jenkins for us. Before any developer checks in code to either our operating system or application repository, it must undergo several hours of automated integration testing. We also have nightly runs which go for far longer and tests a much more extensive set of functionality. In addition, we use Jenkins for the build process of our software as well as final packaging for release. Because Jenkins serves as a hub for our development processes, having a well designed system is very important to us and saves us significant time.</p><br/>
-<br/>
-<p>Below are some of the key points I will be discussing at my talk. I hope you attend to learn more about the areas that I find very interesting.</p><br/>
-<br/>
-<ul><li>I'm planning to discuss the structure of a Jenkins plugin. I'll also cover a few of the more advanced areas of plugins such as distributed builds that I see less frequently in plugins. In addition, I'll briefly cover unit testing, which is something missing in many open source plugins.</li><br/>
-<li>I'll talk about some good patterns to use in plugins as well as some areas where a plugin is not a good idea. I'm planning to pull from my own personal experience developing plugins, the experience of other people at Delphix working with Jenkins, and our experience using other open source plugins to talk about what works and what doesn't.</li><br/>
-<li>I'll give an overview of the current plugin development at Delphix. I'll cover some of the lessons that we have learned along the way. We have also started to take a "dogfooding" approach to some of our development where we use plugins internally to help our test process and open source them since our customers find features used for testing our product to often be useful in their production environments. This has an added bonus of making it easier to justify our development time spent on making these plugins, since they are also features requested by our customers.</li><br/>
-<li>I'll discuss the trade-offs between using an already developed plugin or group of plugins, writing some scripts, and building your own plugin. Being able to figure out when to do which can lead to major time savings as well as a better user experience.</li></ul><br/>
-<br/>
-<p>I hope you attend. Even if you have no immediate plans to write your own plugins, hopefully you'll be able to learn about what makes plugins tick and how to better evaluate plugins when picking them for your own projects. Plugins were what originally got me excited about Jenkins and they allowed me to see its true potential as a build and test system. I hope to share some of that inspiration.</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/01-01-1400-vilim_0.jpg" width=152 height=182/><br/>
-</div><br/>
-<br/>
-<p>This post is by Peter Vilim, Member of Technical Staff at Delphix. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-01-1400-vilim">"Providing a First Class User Experience with Jenkins Plugins"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
-<br/><br/><br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</b></p><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579/><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/06/01/juc-speaker-blog-series-nobuaki-ogawa-juc-europe/'>
-JUC Speaker Blog Series: Nobuaki Ogawa, JUC Europe
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
-</div><br/>
-<br/>
-<p>On the 23rd and 24th June, I’ll attend <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">Jenkins User Conference 2015 Europe</a> in London. And I’ll present a lightning talk about Continuous Delivery with Jenkins.</p><br/>
-<br/>
-<p>Here is short overview of what I’d like to talk about there.</p><br/>
-<br/>
-<p><h3>1. Continuous Build</p></h3><br/>
-<br/>
-<p>My starting point was to get to know JenkinsCI. Our developers used JenkinsCI to make the Continuous Build of our software.<br/>
-So, our developing environment was quite Jenkins friendly from the beginning.</p><br/>
-<br/>
-<p><h3>2. Continuous Deploy</p></h3><br/>
-<br/>
-<p><h4><i>--- Virtual Machine ---</p></h4></i><br/>
-<br/>
-<p>We had to have an environment where we could deploy our new build. As we are big fans of Microsoft, we decided to use Azure as our environment to make Continuous Testing.</p><br/>
-<br/>
-<p>How do we control it? We use <a href="https://odehne.wordpress.com/2013/12/01/dealing-with-virtual-machines-in-windows-azure-using-powershell/">Powershell</a>, which can be executed with JenkinsCI.</p><br/>
-<br/>
-<p><h4><i>--- Product Deployment ---</p></h4></i><br/>
-<br/>
-<p>How did we achieve the Continuous Deploy? Actually, my boss, who is DirectSmile’s Yoda developed a very powerful tool called <a href="https://odehne.wordpress.com/2012/03/26/continuous-deployment-of-directsmile-products/">“DirectSmile Installation Service”</a> to enable this.</p><br/>
-<br/>
-<p>So we integrated this tool within JenkinsCI, and now Jenkins can deploy DirectSmile products on any target server with just one-button-click!</p><br/>
-<br/>
-<p><h3>3. Continuous Testing</p></h3><br/>
-<br/>
-<p>Of course, we use JenkinsCI to make the Continuous Testing.<br/>
-How do we do that?<br/>
-We use <a href="http://www.seleniumhq.org/">Selenium</a> to make and run tests. So we can cover most features and we can execute it at anytime.</p><br/>
-<br/>
-<p>We are doing it after every new version build, to obtain Continuous Delivery.</p><br/>
-<br/>
-<p><h3>4. Continuous Sharing</p></h3><br/>
-<br/>
-<p>I think it’s important to share all knowledge and experiences I have had with others, especially those whom have just started with Continuous Delivery.</p><br/>
-<br/>
-<p>Don’t worry, it is probably much easier than you think.</p><br/>
-<br/>
-<p>As a part of this practice, I’d like to share all my knowledge and experiences with how easy it is to achieve Continuous Delivery with Jenkins at JUC 2015.</p><br/>
-<br/>
-<p>I’m really exciting to meet and talk about this there! See you at JUC 2015 in London!</p><br/>
-<br/>
-<p><h3>About Me</p></h3><br/>
-<br/>
-<p>My name is Nobuaki Ogawa, from Japan, and I currently work in Berlin, Germany for the software company <a href="http://directsmile.com/">DirectSmile</a> as a DevOps QA Manager.</p><br/>
-<br/>
-<p>From the very first time I used JenkinsCI, it helped me a lot. Almost all the work I did last year was mainly with Continuous Delivery with Jenkins.</p><br/>
-<br/>
-<p>From Build to Deploy, Test, and even Maintenance and Monitoring, my Jenkins takes care of everything.</p><br/>
-<br/>
-<p>It was super easy to achieve Continuous Delivery in the DirectSmile world with the help of JenkinsCI.</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/02-03-1530-ogawa_0.jpg" width=152 height=182><br/>
-</div><br/>
-<br/>
-<p>This post is by Nobuaki Ogawa, DevOps QA Manager at DirectSmile. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/europe">JUC Europe</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-03-1530-ogawa">"Jenkins Made Easy"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
-<br/><br/><br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/05/20/juc-speaker-blog-series-david-dang-juc-u-s-east/'>
-JUC Speaker Blog Series:  David Dang, JUC U.S. East
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
-</div><br/>
-<br/>
-<p>I’ve implemented numerous test automation projects for clients, but recently I had a unique request. Jenkins plays a critical role.</p><br/>
-<br/>
-<p>The “digital channel” is an industry buzzword for many companies these days. The digital channel represents a company’s content that is delivered by websites and mobile devices. Companies want the same website to work across any channel in multiple browsers and different operating systems. They also want that same website to work across an explosion of mobile devices. Add the new generation of smart watches showing up and testing is becoming a huge challenge for IT departments. One big issue is there is too much duplication of testing efforts.</p><br/>
-<br/>
-<p>In a perfect world, you would create a core set of test automation scripts that work across all digital channels. A client recently requested that my team and I create this perfect-world scenario, and we are doing just that. Jenkins pulls it all together by managing the execution and reporting.</p><br/>
-<br/>
-<p>Join me for my talk to learn how I’m using Jenkins, Selenium, TestNG, and Perfecto Mobile to solve the digital channel testing challenges for one client.</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/01-02-1030-dang_0.jpg" width=149 height=180><br/>
-</div><br/>
-<br/>
-<p>This post is by David Dang, VP of Automation Solutions at Zenergy Technologies. If you have your ticket to <a href="http://www.cloudbees.com/jenkins/juc-2015/us-east">JUC U.S. East</a>, you can attend his talk <a href="http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1030-dang">"Integrating Mobile Automation with Jenkins: A Case Study Using Perfecto Mobile with Jenkins"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? Early bird pricing has been extended! Also, if you register with a friend you can get 2 tickets for the price of 1! <a href="http://www.cloudbees.com/jenkins/juc-2015/">Register here for a JUC near you.</a></i></p><br/>
-<br/><br/><br/><br/>
 <p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
 <br/>
 <div style="float:left; margin:0em"><br/>

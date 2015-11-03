@@ -177,6 +177,168 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/02/23/would-you-run-hudson-in-the-cloud/'>
+Would you run Hudson in the cloud?
+</a>
+</h1>
+<div class='content'>
+<p>One of my favorite bloggers on the subject of continuous integration, <a id="aptureLink_e9BNkKIorq" href="http://twitter.com/builddoctor">The Build Doctor</a>, posed this question in <a href="http://www.build-doctor.com/2010/02/23/continuous-integration-in-the-cloud-good-idea/">a recent post</a>:</p>
+
+<blockquote>
+  <p>Continuous Integration in the cloud: good idea?</p>
+</blockquote>
+
+<p>The topic of running a CI server in a virtualized environment, such as with <a id="aptureLink_nJiKPqGQ1T" href="http://en.wikipedia.org/wiki/Amazon%20Elastic%20Compute%20Cloud">Amazon's EC2 service</a>, is an interesting issue, particularly in the Hudson community. About 10 months ago Kohsuke <a href="http://weblogs.java.net/blog/2009/05/18/hudson-ec2-plugin">announced the Hudson EC2 plugin</a> which has seen slow, but steady development since then, including support for the <a href="http://www.ubuntu.com/cloud/private">Ubuntu Enterprise Cloud</a> which was added to the plugin in a release last Monday.</p>
+
+<p>As The Build Doctor and his readers point out, continuous integration is a difficult task to offload into the cloud because of the immense hardware demands constant building and testing presents. That said, Hudson <em>does</em> very effectively manage spinning slaves up and down on demand if you've configured it as such. Implication being: running Hudson in the cloud may be more efficient to meet peak demands without needing to run a large farm of machines.<img src="http://agentdero.cachefly.net/continuousblog/hudson_in_the_cloud.png" align="right" /></p>
+
+<p>If you're interested in trying out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">EC2 plugin</a>, check out <a id="aptureLink_6E30Ex9PTT" href="http://www.sonatype.com/">Sonatype's</a> post on <a href="http://www.sonatype.com/people/2009/06/nexus-open-source-and-hudson-on-ec2/">Nexus Open Source and Hudson on EC2</a> might be a good start.</p>
+
+<p>Would you run Hudson in the cloud?</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/22/hudson-1-347-released/'>
+Hudson 1.347 Released
+</a>
+</h1>
+<div class='content'>
+<p>The release of Hudson 1.347 last friday, February 19th, was a relatively "minor" one insofar that it contained an assortment of smaller fixes instead of fixes to major regressions (they weren't any to be fixed) or major features added. There were however some notable commits in this release cycle that didn't make the changelog just yet, for example <a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a> committed an <a id="aptureLink_HxZkmWKjTi" href="http://en.wikipedia.org/wiki/Ebuild">ebuild</a> which will allow for a native package of Hudson for <a id="aptureLink_uU6StMFk4O" href="http://en.wikipedia.org/wiki/Gentoo%20Linux">Gentoo Linux</a>, joining the ranks of the existing packages for Debian/Ubuntu, FreeBSD, OpenSolaris, openSUSE and RedHat/Fedora Linux. The bundled Subversion plugin was updated and thanks to <a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a> and <a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a> the Japanese translations for Hudson got some updates as well.</p>
+
+<p>For Hudson developers, both plugin and core, this release contains some notable changes from <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a> (a.k.a Alan Harder), a number of calls which have been deprecated for over <strong>two years</strong> have finally been pruned from the code base:</p>
+
+<ul>
+  <li><code>Hudson.addListener(JobListener)</code>, <code>Hudson.removeListener(JobListener)</code></li>
+  <li>Entire <code>listeners.JobListener</code> class (replaced by <code>ItemListener</code>)</li>
+  <li>One form of <code>DirectoryBrowser</code> constructor</li>
+  <li>One form of <code>Descriptor.configure()</code> (with <code>HttpServletRequest</code> param)</li>
+  <li><code>Descriptor.convert(Map)</code> and 4 implementations of this method, and code calling it in <code>Descriptor.readResolve()</code> (this code called <code>save()</code> whenever updating data, so there should be no remaining cases out there)</li>
+</ul>
+
+<p>Alan's quest for removing deprecated code will likely continue for a while, but this is a good step in the right direction, keeping Hudson's internals in good working order. Worth mentioning, the influx of plugin releases in the <a href="http://blog.hudson-ci.org/content/week-plugins-0">This Week in Plugins</a> from a couple weeks ago, was driven largely by Alan, rummaging through the code of older plugins, updating plugins left and right.
+<!--break-->
+Now the breakdown for this release:</p>
+
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    Fix javascript problem showing test failure detail for test name with a quote character.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1544">issue 1544</a>)
+  &lt;li class=bug&gt; 
+    Hudson can incorrectly configure labels for the master when bleeding edge EC2 plugin is used.
+  &lt;li class=bug&gt; 
+    Fixed the regression wrt the whitespace trimming caused by 1.346.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5633">issue 5633</a>)
+  &lt;li class=bug&gt; 
+    Under some circumstances, Hudson can incorrectly delete the temporary directory itself.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5642">issue 5642</a>)
+  &lt;li class=bug&gt; 
+    Newlines in MAVEN_OPTS environment variable can cause problems in other contexts.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5651">issue 5651</a>)
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt; 
+    Improved the form validation mechanism to support multiple controls.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5610">issue 5610</a>)
+  &lt;li class=rfe&gt; 
+    Added message to slave log when it has successfully come online.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5630">issue 5630</a>)
+</ul>
+
+<p><br clear="all" />
+#### Contributors 
+This release of Hudson contained 36 commits from <strong>7</strong> different contributors to "core":</p>
+
+<ul>
+  <li><a id="aptureLink_YFkDO3e779" href="http://twitter.com/abayer">abayer</a></li>
+  <li><a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a></li>
+  <li><a id="aptureLink_BJgeHDF4sh" href="http://www.linkedin.com/in/thuybrechts">huybrechts</a></li>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+  <li><a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a></li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/19/this-week-in-plugins/'>
+This Week in Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Last week's TWIP enumerated the release of <strong>26</strong> different plugin, this past week has seen 19 unique releases in comparison. You might be tempted to assume that <em>less</em> plugin development has occurred over the past week, which isn't the case. Last week a number of the releases were "code updates", i.e. plugins being rebuilt against the latest Hudson plugin API as opposed to new features or bug-fixes. With the releases of plugins this past week, it seems a large number of the releases contained new features and bug fixes, including <strong>three new plugins!</strong></p>
+
+<p>Making their Hudson debut are the following</p>
+
+<ul>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average</a></li>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin</a></li>
+  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin</a></li>
+</ul>
+
+<p>If you're interested in contributing to an existing plugin, or building your own, I highly recommend checking out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and joining the <a href="https://hudson.dev.java.net/servlets/ProjectMailingListList">dev@ mailing list</a>. That said, here are this week's releases, starting with last Friday.</p>
+
+<ul>
+  <li><strong>Feb 12th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM 1.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JIRA+Plugin">JIRA plugin 1.19 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JobConfigHistory+Plugin">Job Configuration History Plugin 1.2 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin">MSTest plugin 0.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average 1.1 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Template+Project+Plugin">Template Project plugin 1.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 13th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin">xUnit plugin 0.5.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 14th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">Amazon EC2 plugin 1.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Build+Secret+Plugin">Build Secret plugin 1.5 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dependency+Analyzer+Plugin">Dependency Analyzer Plugin 0.5 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/DocLinks+Plugin">DocLinks plugin 0.3 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Grails+Plugin">Grails plugin 1.1 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin 1.0 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 15th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Artifactory+Plugin">Artifactory Plugin 1.0.6 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dimensions+Plugin">Dimensions SCM plugin 0.6.8 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin 1.0.20 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 16th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/HTML+Publisher+Plugin">HTML Publisher plugin 0.2.2 released</a></li>
+    </ul>
+  </li>
+  <li><strong>Feb 17th, 2010</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin 1.0 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JBoss+Management+Plugin">JBoss Management Plugin 1.0.2 released</a>
+<!--break--></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/02/18/spotlight-on-visfleet/'>
 Spotlight on: VisFleet
 </a>
@@ -561,264 +723,6 @@ Thanks for the help!
 <p><img src="/sites/default/files/javanetdouble.png" alt="Continuous Blog feature" /></p>
 
 <p>Of course, none of this would be possible without <a id="aptureLink_4cUre2louM" href="http://twitter.com/kohsukekawa">Kohsuke</a> and a large collection of contributors that have made Hudson what it is today.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/12/this-week-in-plugins/'>
-This Week in Plugins
-</a>
-</h1>
-<div class='content'>
-<p>Since this is the first "This Week in Plugins" (TWiP), I'm trying a fairly basic format out. I'm debating how much information I want to include in these, while I would like to include details on "what's changed" for each plugin over the course of the week, the means of fetching that information would be incredibly tedious (read: no fun) since there's not particularly any standard meta-data to be scraped from the <a href="http://wiki.hudson-ci.org">wiki</a>. Duplicates have been pruned from the list, meaning the latest release of a plugin is what's being shown; sorting is also by day of release then alphabetical.</p>
-
-<ul>
-  <li><strong>Feb 4th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/CodeScanner+Plugin">Codescanner Plug-in 0.9 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 5th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Centralized+Job(Re)Action+plugin">Centralized Job(Re)Action 1.1 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/PerfPublisher+Plugin">Performance Publisher plugin 7.95 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Selenium+AES+Plugin">Selenium Auto Exec Server(AES) plugin 0.3 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 6th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin">MSTest plugin 0.5 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Text-finder+Plugin">TextFinder plugin 1.8 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Windmill+Plugin">WindmillPlugin 1.5 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 7th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Configuration+Slicing+Plugin">Configuration Slicing plugin 1.16 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 8th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/ClearCase+UCM+Baseline+Plugin">ClearCase UCM Baseline Plug-in 1.2 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Join+Plugin">Join plugin 1.8 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 9th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Downstream-Ext+Plugin">Downstream-Ext 1.5 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Groovy+Postbuild+Plugin">Groovy Postbuild 1.1 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 10th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Batch+Task+Plugin">Batch task plugin 1.13 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Disk+Usage+Plugin">disk-usage plugin 0.10 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JBoss+Plugin">JBoss Management Plugin 1.0 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sidebar-Link+Plugin">Sidebar Link 1.3 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/slave-status">slave-status 1.4 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/SLOCCount+Plugin">SLOCCount Plug-in 1.4 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/StarTeam">StarTeam plugin 0.2 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Template+Project+Plugin">Template Project plugin 1.1 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/TuxDroid+Plugin">TuxDroid Plugin 1.6 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/ZenTimestamp+Plugin">Zentimestamp plugin 1.2 released</a></li>
-    </ul>
-  </li>
-  <li><strong>Feb 11th, 2010</strong>
-    <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Backup+Plugin">Backup plugin 1.4 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Promoted+Builds+Simple+Plugin">Promoted Builds (Simple) 1.2 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Python+Plugin">Python Plugin 1.1 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin">Subversion Plug-in 1.11 released</a>
-<!--break--></li>
-    </ul>
-  </li>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/11/spotlight-on-ita-software/'>
-Spotlight on: ITA Software
-</a>
-</h1>
-<div class='content'>
-<p><a href="http://itasoftware.com/?continuousblog" target="_blank"><img src="/sites/default/files/itasoftware_sm.png" alt="ITA Software" title="ITA Software" align="right" hspace="5" /></a>For the first "User Spotlight" interview <em>ever</em> on Continuous Blog, I am talking with Matt Girard of ITA Software, a Boston-based software company that produces travel industry software which is used by many of the major carriers in the U.S. and abroad. When I sent out <a href="http://twitter.com/hudsonci/status/8553593409">a message</a> asking for users of Hudson in the corporate space to ping me about doing a "spotlight" on them, ITA Software stuck out in particular; they're hiring a Hudson expert!</p>
-
-<p><a style="margin: 0pt auto; padding: 0px 6px; text-align: center; display: block;" id="aptureLink_oQPlXrRBHE" href="http://twitter.com/equalize/status/8338991375"><img title="Tweet by Matthew Girard" src="http://placeholder.apture.com/ph/355x210_TwitterArticle/" style="border: 0px none ;" width="355px" height="210px" /></a></p>
-
-<p>The format for the "spotlight" series isn't entirely nailed down yet so feel free to ask questions in the comments section and I'll follow-up with Matt after the fact if need be. That said, without further delay, Matt Girard from ITA Software, on Hudson.
-<!--break-->
-—-</p>
-
-<table border="0">
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Matt, appreciate you taking the time to answer some questions about Hudson at ITA Software, let's start with a simple one: How long has ITA been using Hudson?
-</td></tr>
-
-<tr><td align="center">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-My pleasure, glad to be a part of the community. We have been using Hudson in some form since early 2008. Predictably our usage has increased over time and now encompasses the majority of our automated build and test infrastructure.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Was continuous integration a part of ITA's workflow prior to adopting Hudson? If so: what did ITA switch to Hudson from, and why?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-Yes, though not to the degree that we have now. Prior to Hudson we were reliant on <a id="aptureLink_0DdF7ImGgA" href="http://en.wikipedia.org/wiki/BuildBot">BuildBot</a> for our automated builds, but we were not doing continuous integration
- across our components until after the transition to Hudson. The easy to understand UI and flexibility were primary features that compelled our switch. I should mention
- that when we decided to switch we also evaluated <a id="aptureLink_3DDvWBrYei" href="http://en.wikipedia.org/wiki/CruiseControl">CruiseControl</a> but Hudson came out on top for our needs.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-What kind of projects are you typically using Hudson for? What
-languages/build system(s)? What platforms is Hudson performing builds? What kinds of jobs primarily run on ITA's Hudson cluster?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-Our Hudson environments (yes, we have more than one) have been optimized for building C++, Java (all <a id="aptureLink_dkCKWMZxl1" href="http://en.wikipedia.org/wiki/Apache%20Maven">maven</a> based), Lisp (a surprise to some to be sure <a href="http://itasoftware.com/careers/l_e_t_lisp.html?catid=8" target="_blank">more about that here</a>), and Python on Linux build slaves (Fedora and CentOS).
-
-Our jobs are (loosely) grouped into one of three categories: rpm (we are primarily RedHat based), tests, and tools. The rpm jobs are the actual code builds and individual component unit tests. The test jobs (thank you <a id="aptureLink_ZDsnAh3cPt" href="http://wiki.hudson-ci.org/display/HUDSON/Parameterized+Trigger+Plugin">parameterized trigger plugin</a>!) are part of a larger cross-component integration testing and promotion scheme. The (handful of) tools jobs support us in tasks such as cleaning up stale sandbox database connections.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Given the flexibility of Hudson, it's safe to say that not everybody is using it in the exact same fashion, is there anything you would consider interesting or noteworthy about the use of Hudson at ITA?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-I think that our most interesting usage of Hudson has to be how we have combined parameterized builds with the parameterized trigger plugin in order to do cross-component testing of trunk code. More specifically, we pass a properties file (to us a "scoreboard" that tells the jobs what exact revisions of which projects to
- test together) to several jobs and only build a final promotion job if ALL of downstream jobs (with the same scoreboard) passed. In this way we create a hurdle that all of our code must clear before we even consider deploying it anywhere else.
-
-
-The next most interesting thing we are doing is using Hudson for continuous <em>deployment</em> of monitoring changes into our staging environment. It's quite rewarding to watch a check-in makes it's way through Hudson, into and rpm, and out to a server without a human being involved.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Are there any additional tools ITA has written to better integrate things "behind the scenes"?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-We evolved what became a very large build script (mostly derived from what we had for BuildBot) that handles all of the nitty-gritty details involved in the building, packaging, and testing of our software. Recently we have been working to refactor this into several smaller build tools each with a more focused purpose. The first of these is designed (largely as a wrapper to <a id="aptureLink_IpFANHwY8F" href="http://en.wikipedia.org/wiki/RPM%20Package%20Manager">rpmbuild</a>) to standardize our package building while leaving the .spec files (with the real specifics) living alongside the code where they belong.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-On a scale from 1-10, how important would you rate Hudson for ITA's
-day-to-day workflow?
-</td></tr>
-
-<tr><td align="center">
-<img src="/sites/default/files/itasoftware_tiny.png" alt="Matt @ ITA" /><br />
-<strong>Matt</strong>
-</td><td>
-ITA is a decent size company and there is plenty of work that goes on that does not involve Hudson in any way. Still since we rely on the building and testing that Hudson does in order to promote new code to production, I would say that we are somewhere around an 8.
-</td></tr>
-<tr><td><br /></td></tr>
-</table>
-
-<hr />
-
-<p>I'd like to thank Matt again for being a good sport as the very first in what I hope will be a long line of "spotlights" on companies using Hudson to help them work smart, better and faster. If you would like to discuss your company's use of Hudson for Continuous Blog, you can contact me at <code>tyler</code> at <code>linux.com</code></p>
-
-<hr />
-<p><strong>Editor's Note:</strong> Matt Girard is the Manager of Build and Integration at ITA Software and a passionate advocate for continuous integration and continuous deployment. He believes that release engineering exists to make developers lives easier – not harder – and can be found posting about such topics on Twitter as <a id="aptureLink_l9fKLQNx8b" href="http://twitter.com/equalize">@equalize</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/10/keeping-your-configuration-and-data-in-subversion/'>
-Keeping your configuration and data in Subversion
-</a>
-</h1>
-<div class='content'>
-<p>We all know that keeping important files in version control is critical, as it ensures problematic changes can be reverted and can serve as a backup mechanism as well. Code and resources are often kept in version control, but it can be easy to forget your continuous integration (CI) server itself! If a disk were to die or fall victim to a <a href="http://twitter.com/progrium/status/7646048501">misplaced</a> <code>rm -rf</code>, you could lose all the history and configuration associated with the jobs your CI server manages.</p>
-
-<p>It’s pretty simple to create a repository, but it isn’t obvious which parts of your $HUDSON_HOME you’ll want to backup. You’ll also want to have some automation so new projects get added to the repository, and deleted ones get removed. Luckily we have a great tool to handle this: Hudson!</p>
-
-<p>We have a Hudson job which runs nightly, performs the appropriate SVN commands, and checks in. The high-level overview of this job is basically:</p>
-
-<ol>
-  <li>Add any new jobs, users, plugin configurations, et cetera: <code>svn add -q --parents *.xml jobs/*/config.xml users/*/config.xml userContent/*</code></li>
-  <li>Remove anything from SVN that no longer exists (such as a deleted job): <code>svn status | grep '!' | awk '{print $2;}' | xargs -r svn rm</code></li>
-  <li>Check it in! <code>svn ci --non-interactive --username=mrhudson -m "automated commit of Hudson configuration"</code>
-You’ll want to make sure to use the <code>--non-interactive</code> option for any automated svn operations, as this ensures Subversion won’t hang asking a question but instead fail immediately. You may also need to provide your password with the <code>--password</code> option.</li>
-</ol>
-
-<p>To make such a Hudson job, create a new job, tie it to the master (since this is where the configuration files are), set it to build periodically (we use “@midnight”), and add an “Execute shell” build step. Here’s the full script we use, to put into the build step:</p>
-
-<p><code type="bash">
-# Change into your HUDSON_HOME.
-cd /opt/hudson
-# Add any new conf files, jobs, users, and content.
-svn add -q --parents *.xml jobs/*/config.xml users/*/config.xml userContent/*
-# Ignore things in the root we don't care about.
-echo -e "warnlogn*.logn*.tmpn*.oldn*.bakn*.jarn*.json" &gt; myignores
-svn propset svn:ignore -F myignores . &amp;&amp; rm myignores
-# Ignore things in jobs/* we don't care about.
-echo -e "buildsnlast*nnext*n*.txtn*.lognworkspace*ncoberturanjavadocnhtmlreportsnncoverndoclinks" &gt; myignores
-svn propset svn:ignore -F myignores jobs/* &amp;&amp; rm myignores
-# Remove anything from SVN that no longer exists in Hudson.
-svn status | grep '!' | awk '{print $2;}' | xargs -r svn rm
-# And finally, check in of course, showing status before and after for logging.
-svn st &amp;&amp; svn ci --non-interactive --username=mrhudson -m "automated commit of Hudson configuration" &amp;&amp; svn st
-</code></p>
-
-<p>You’ll notice this does some extra things like set the svn:ignores property to provide a relatively clean <code>svn st</code> which it shows before and after the commit for logging purposes. One thing this job <em>doesn’t</em> do is put the build results of your jobs in version control. Because historical build logs and artifacts will never change and are also potentially large, a periodic (daily or weekly) <code>cp</code> or <code>rsync</code> of the <strong>jobs</strong> directory will still give you restorability while keeping your repository lean.</p>
-
-<p>Now you can sleep well at night knowing that your CI server is safe and sound. If you are doing a similar thing with Hudson or another CI system, let us know about your solution!</p>
-
-<hr />
-<p><strong>Editor's Note:</strong> <a id="aptureLink_S8IC1qB8oH" href="http://twitter.com/MikeRooney">Mike Rooney</a> is a Software Engineer at <a id="aptureLink_tuyi7spa9e" href="http://twitter.com/Genius_com">Genius.com</a>, provider of real-time marketing automation software connecting marketing and sales. You can read more posts from Mike and other Geniuses at <a href="http://eng.genius.com">eng.genius.com</a></p>
-
 
 </div>
 </div>
