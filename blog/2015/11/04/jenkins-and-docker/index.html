@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>
-Jenkins
+Jenkins and Docker
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
@@ -172,168 +172,61 @@ Jenkins-on-Jenkins
 </div>
 
 
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Recent Blog Posts
-</h3>
-<div class='content'>
-<div class='item-list'>
-<ul>
-<li class='post'>
-<a href='/blog/2015/11/04/jenkins-and-docker/'>
-Jenkins and Docker
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
-What JVM versions are running Jenkins?
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/03/jenkins-2-0-proposals/'>
-Jenkins 2.0 Proposals
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/01/adopt-a-plugin/'>
-Adopt a plugin!
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/'>
-Jenkins 2.0 Proposal: Improved "Out of the box" user experience
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/'>
-Jenkins 2.0 Proposal: UX Improvements (Part One)
-</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
-<style>
-  /*kill off unwanted crafts */
-  #content H1, DIV.taxonomy {
-      display:none;
-  }
-  #content DIV.node {
-      border-bottom:none;
-  }
-  
-  #welcome #directory {
-      padding-top: 2em;
-  }
-  #welcome #directory A {
-      text-decoration: none !important;
-  }
-  #welcome #directory A:link {
-      text-decoration: none !important;
-  }
-  #welcome #directory A:hover {
-      text-decoration: underline;
-      color: black;
-  }
-  #welcome #directory .title {
-      color: black;
-      font-weight: bold;
-      font-size: 1.5em;
-  }
-  #welcome #directory TD {
-      vertical-align: middle;
-      padding-bottom: 3em;
-  }
-  #welcome #directory .description {
-      color: gray;
-  }
-  #welcome #directory .logo {
-      border: 0px;
-      margin-right: 1em;
-  }
-</style>
-<div id='welcome'>
-<div align='center' class='content'>
-<table id='directory' style='border: none;' valign='middle'>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins'>
-<img class='logo' src='/images/logo_head.png'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/11/04/jenkins-and-docker/' title='Jenkins and Docker'>
+Jenkins and Docker
 </a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins'>
-<div class='title'>
-Meet Jenkins
-</div>
-<div class='description'>
-Find out what Jenkins is and get started.
-</div>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-04T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
 </a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins'>
-<img class='logo' src='/images/user.gif'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins'>
-<div class='title'>
-Use Jenkins
 </div>
-<div class='description'>
-See how to get more out of your Jenkins
-</div>
-</a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Plugins'>
-<img class='logo' src='/images/plugin.png'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Plugins'>
-<div class='title'>
-Customize Jenkins
-</div>
-<div class='description'>
-Chose from hundrends of plugins to customize Jenkins to suit your needs
-</div>
-</a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins'>
-<img class='logo' src='/images/developer.gif'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins'>
-<div class='title'>
-Extend Jenkins
-</div>
-<div class='description'>
-Learn how to build or extend Jenkins by writing plugins
-</div>
-</a>
-</td>
-</tr>
-</table>
-</div>
-<div style='padding-top: 3em; text-align: right;'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Awards'>
-Awards
-</a>
-<img src='/images/award.png' style='vertical-align: middle;'>
+
+<div class='content'>
+<p>Combining Jenkins and <a href="https://www.docker.io">Docker</a> together can bring improved speed and consistency to your automation tasks, which is why we've collected some <em>hopefully</em> helpful resources on this page to get you started!</p>
+
+<h2 id="whats-docker">What's Docker?</h2>
+
+<blockquote>
+  <p><em><a href="https://en.wikipedia.org/wiki/Docker_%28software%29">Docker</a> is an open-source project that automates the deployment of applications inside software containers, by providing an additional layer of abstraction and automation of operating-system-level virtualization on Linux.</em>
+(<em>courtesy Wikipedia</em>)</p>
+</blockquote>
+
+<p>What this offers to Jenkins users is a means to isolate different jobs from one another, quickly clean a job's workspace or even dynamically deploy or schedule jobs with Docker containers to increase resource utilization and efficiency.</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md">Docker image for the Jenkins Workflow demo</a></li>
+</ul>
+
+<h2 id="presentations">Presentations</h2>
+
+<p>Below are some presentations which may serve to help introduce you to some of the concepts and current best practices when using Jenkins and Docker together.</p>
+
+<center><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/38SAyBLSHUM?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<center><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/e7N3jX2b1i0?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<h3 id="some-more-presentations">Some more presentations</h3>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=ppCzDDpcqRk">Continuous Integration with Jenkins and Docker</a> at Oxford University Press.</li>
+  <li><a href="https://www.youtube.com/watch?v=DrXkoyzQwi4">Setting up Jenkins with Docker to Test your Joomla! Extension</a></li>
+  <li><a href="https://www.youtube.com/watch?v=t2K50J1A9xA">Continuous Delivery at 'Cloud-Scale' with Jenkins and Docker</a></li>
+  <li><a href="https://www.youtube.com/watch?v=VZPbLUJnR68">Delivering eBay's CI solution with Apache Mesos and Docker</a></li>
+  <li><a href="https://www.youtube.com/watch?v=yt6QrwLs4HE">Lightweight PaaS for Jenkins CI Environments with Docker</a></li>
+</ul>
+
 </div>
 </div>
 
@@ -353,7 +246,7 @@ Awards
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//index.html.haml' title='Edit /index.html.haml on GitHub'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blog/2015/2015-11-04-jenkins-and-docker.md' title='Edit /blog/2015/2015-11-04-jenkins-and-docker.md on GitHub'>
 Improve this page
 </a>
 </div>

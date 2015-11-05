@@ -177,6 +177,83 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/08/09/jenkins-user-conference-call-for-papers/'>
+Jenkins User Conference: Call for Papers
+</a>
+</h1>
+<div class='content'>
+<a href="/content/jenkins-user-conference">As we announced yesterday</a>, we are organizing a Jenkins User Conference, and we are delighted to announce its Call for Papers is now open.  We are looking forward to receiving amazing proposals from infrastructure experts to novice developers in the Jenkins community. Use your creativity. Share and showcase your unique approach to utilizing Jenkins technology.<br/>
+<br/>
+We do not encourage overt marketing pitches. We encourage breakout sessions, work shops, good case studies with transferable, tangible lessons and other topics like:<br/>
+<br/>
+<ul><br/>
+<li>plug-in development<br/>
+<li>Specific Jenkins applications that solve testing/building problems in particular areas: mobility, enterprise/web/cloud applications, and UI testing<br/>
+<li>Beyond Java (i.e Jenkins w/ PHP, Ruby, etc)<br/>
+<li>Jenkins best practices, lessons learned, case studies, tips and tricks<br/>
+<li>Lightning Talks (10 min)<br/>
+</ul><br/>
+<br/>
+<p><br/>
+<b>IMPORTANT:</b> Submit your proposal as soon as possible to <a href="mailto:juc-cfp@cloudbees.com">CFP alias</a>.  Call for Papers closes Sept 1, 2011.<br/>
+<br/>
+<p><br/>
+Sessions are 50 min long. In your proposal pls include the following info:<br/>
+<br/>
+<ul><br/>
+<li>Name<br/>
+<li>Job Title<br/>
+<li>Email<br/>
+<li>twiter id<br/>
+<li>Company/website<br/>
+<li>Paper Title<br/>
+<li>Audience Level (General, Beginner, Intermediate, Advance)<br/>
+<li>Paper Abstract<br/>
+<li>Your bio<br/>
+</ul><br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/08/08/jruby-branch-merged/'>
+JRuby Branch merged!
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/jruby.png" align="right" width="150" /> Yesterday, <a href="http://twitter.com/kohsukekawa">Kohsuke</a> <a href="http://groups.google.com/group/jenkinsrb/msg/32815b1ea917355d">announced</a> that the 'jruby' branch of jenkins-core had been <a href="https://github.com/jenkinsci/jenkins/commit/f6373f7ada14a7914f4ae08b6af4c1b27d343c21">merged to master</a>.</p>
+
+<p>This doesn't mean that we're done and that you can go forth and write pure ruby plugins… not by any stretch of the imagination. Instead, what it <em>does</em> mean, is that the Jenkins mainline is much more friendly to runtime analysis of classes with which it is not familiar.</p>
+
+<h2 id="the-problem">The problem</h2>
+
+<p>When analyzing plugin classes, Jenkins uses just about every kind of metadata you can think of to get information about them: Class name, Field names, method names, member modifiers, annotations, you name it. It even uses the containing class relationship for inner classes to match Descriptors with what they describe.</p>
+
+<p>It's all a great example of convention over configuration (CoC). In fact, I've never really seen CoC implemented in a Java project before as successfully as it has been in Jenkins. Plugin authors don't have to duplicate any metadata that Jenkins can figure out for you – and it's alot! The drawback though, is that extensions depend very heavily on conforming to the structure of a conventional Java class.</p>
+
+<p>The changes in this merge, and in several of the modules on which Jenkins depends, allow more than ever to get this information by asking an object directly rather than querying its private class structure.</p>
+
+<h2 id="the-kicker">The Kicker</h2>
+
+<p>Many of theses changes aren't even JRuby specific! While they do enable JRuby integration, They're really just making things more friendly for dynamic languages in general. So, in theory, it should pave the way for others like JavaScript and Python.</p>
+
+<h2 id="where-now">Where now?</h2>
+
+<p>We're still working on the ruby runtime and tools which will provide as crisp a Ruby development experience as we can. I don't want to proffer an estimate of when those will begin to be useable, but it is important to mark this very important milestone and explain what it does and does not mean.</p>
+
+<h3 id="we-need-you">We need you!</h3>
+
+<p>There is still much work to be done to enable a writing Jenkins plugins in Ruby, we are looking for people who know Ruby and feel like pitching in: writing Rake tasks, improving the glue layer, documentation, etc.</p>
+
+<p>If you're interested, most of the action is happening on the <a href="http://groups.google.com/group/jenkinsrb">jenkinsrb@googlegroups.com</a> mailing list, so join us!</p>
+
+<hr />
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/08/08/jenkins-user-conference/'>
 Jenkins User Conference
 </a>
@@ -346,108 +423,7 @@ Upcoming Events in June and early July
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/09/a-big-thanks-to-rackspace/'>
-A big thanks to Rackspace
-</a>
-</h1>
-<div class='content'>
-<p>This post is long over-due and I really apologize for that.</p>
-
-<p>Some months ago we put out the call for "more slave machines!" through the
-mailing lists, sky-writers and twitter. We had a serious problem, for a
-continuous integration project, a <strong>large</strong> number of our plugins and
-dependencies weren't being built in a continuous and automated fashion!</p>
-
-<p>We had some builds on a couple of flakey machines on home connections
-contributed by various individuals, until Rackspace stepped up in a <strong>big</strong>
-way and donated an infrastructure server for the project to use.</p>
-
-<center><a href="http://rackspace.com/?jenkins" target="_blank"><img src="http://agentdero.cachefly.net/continuousblog/rackspace.jpg" width="200" border="0" /></a></center>
-
-<p>For months now, just about all plugins and core have been built and tested on <code>spinach</code>,
-the always-on machine in the Rackspace Cloud. Dutifully chugging away building
-core, plugin after plugin and occasionally getting flooded with work from <a href="http://twitter.com/fcamblor">Frederic
-Camblor's</a> plugin compatibility tester!</p>
-
-<p>In hindsight, having a powerful infrastructure machine for nothing other than
-builds has helped us build great software faster; I can't imagine how difficult
-things might be otherwise.</p>
-
-<p>I've personally had a lot of interaction with Rackspace engineers through the <a href="http://www.openstack.org/">OpenStack
-project</a> and have a number of friends who operate businesses on
-Rackspace/Rackspace Cloud hybrid infrastructures.</p>
-
-<p>The folks at Rackspace are
-top notch and I can't thank them enough for contributing to the Jenkins
-project.</p>
-
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/08/release-candidate/'>
-Release Candidate
-</a>
-</h1>
-<div class='content'>
-<p>
-Release candidate is the build intended for the upcoming release of Jenkins in a week. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Release+Process">See Wiki for more about what it means.</a>
-</p>
-
-
-  <style>
-    #download DT {
-      font-size: 2em;
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
-  </style>
-  
-  <dl id=download> 
-    <dt>Download multi-platform war file</dt> 
-    <dd style="margin-bottom:1em"> 
-      <div>
-        <a href="http://mirrors.jenkins-ci.org/war-rc/latest/jenkins.war"><strong>jenkins.war</strong></a>
-      </div> 
-      <!-- TODO: changelog
-      <div class="release-block-small" style="text-align:right"> 
-       <a href="/changelog" class=release-block-soft>changelog</a> | <a href="http://mirrors.jenkins-ci.org/war/" class=release-block-soft>past releases</a> 
-      </div> 
-      -->
-    </dd> 
-    
-    <dt>Or native package</dt> 
-    <dd class="release-block-platforms"> 
-      <div> 
-        <img src="/images/os/win_other.png"> 
-        <a class="release-block-soft" href="http://mirrors.jenkins-ci.org/windows-rc/latest">Windows</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/ubuntu.png"> 
-        <a class="release-block-soft" href="http://pkg.jenkins-ci.org/debian-rc/">Ubuntu/Debian</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/redhat.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/redhat-rc/">Red Hat/Fedora/CentOS</a> 
-      </div>
-      <div> 
-        <img src="/images/os/os_macosx.png"> 
-        <a class=release-block-soft href="http://mirrors.jenkins-ci.org/osx-rc/latest">Mac OS X</a> 
-      </div>
-      <div> 
-        <img src="/images/os/opensuse.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/opensuse-rc/">openSUSE</a> 
-      </div> 
-    </dd> 
-  </dl> 
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/27.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/27.html" class="page-link">27</a> <span class="current-page">28</span> <a href="/node/page/29.html" class="page-link">29</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/29.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/27.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/27.html" class="page-link">27</a> <span class="current-page">28</span> <a href="/node/page/29.html" class="page-link">29</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/29.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

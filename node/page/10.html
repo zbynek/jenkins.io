@@ -177,6 +177,52 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/12/03/workflow-plugin-is-1-0/'>
+Workflow plugin is 1.0
+</a>
+</h1>
+<div class='content'>
+<p>Jenkins started with a notion of jobs and builds at heart. One script is one job, and as you repeatedly execute jobs, it creates builds as records. As the use case of Jenkins gets more sophisticated, people started combining jobs to orchestrate ever more complex activities.</p>
+
+<p>A number of plugins have been developed to enable all sorts of different ways to compose jobs, and many are used quite successfully in production. But this resulted in a certain degree of complexity for users to figure out how to assemble these plugins.</p>
+
+<p>So we felt the need to develop a single unified solution that subsumes all these different ways to orchestrate activities that may span across multiple build slaves, code repositories, etc. Various inputs from users as well as other plugin developers played a key role.</p>
+
+<p>The result of this is <a href="https://github.com/jenkinsci/workflow-plugin">the workflow plugin</a>, which is what a number of us, including Jesse Glick an myself, are focused on in the past few months.</p>
+
+<p>The plugin approaches the problem by defining a DSL for you to describe an execution of a job. Various convenient primitives are available, such as executing shell scripts, checking out the source code, obtaining an executor or a build workspace, etc. All sorts of classic existing plugins contribute their functionalities into this DSL, such as recording test results, fingerprints, or calling into other existing jobs. This allows you to leverage higher-level functionalities and report comprehension capability into a workflow. Similarly, you can leverage the ability of Groovy, the host language of workflow DSL, to define control flows, abstractions, and reuse.</p>
+
+<p>A key feature of a workflow execution is that it's suspendable. That is, while the workflow is running your script, you can shut down Jenkins or lose a connectivity to a slave. When it comes back, Jenkins will still remember what it was doing, and your workflow script resumes execution as if it was never interrupted. A technique known as the "<a href="http://en.wikipedia.org/wiki/Continuation-passing_style">continuation-passing style</a>" execution plays a key role in achieving this.</p>
+
+<p>I'm very happy to report that the workflow plugin is finally 1.0. This version runs on the latest 1.580-based LTS. and <a href="https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md">we created a docker image for you to play with</a> too. There’s also <a href="https://www.cloudbees.com/event/topic/workflow-jenkins-0">a JUC presentation</a> that explains this. We are working toward 1.0 release within this year, and in the meantime, the syntax is stable enough to allow you to start designing workflows today.</p>
+
+<p>We've been hearing a lot of good feedbacks and enthusiasm for this new effort. Please let us know what you think.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/10/20/mobile-app-for-jenkins-user-conference-bay-area/'>
+Mobile App for Jenkins User Conference Bay Area
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Jenkins User Conference in Bay Area is this Thursday, and one of the new things this year is the mobile app.<br/>
+<br/>
+<div align="center"><br/>
+<a href="http://doubledutch.me/download/jenkins-user-conference"><br/>
+<img src="http://doubledutch.me/images/downloadiphone.png" width="253" height="532"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+There's an Android version as well as an iPhone version. I've installed it locally, and it's very handy for checking the agenda, get more info about speakers and sponsors.
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/10/20/freebsd-project-use-of-jenkins-for-os-testing/'>
 FreeBSD project use of Jenkins for OS testing
 </a>
@@ -392,47 +438,7 @@ And finally, <a href="https://oracleus.activeevents.com/2014/connect/sessionDeta
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/09/17/jenkins-workflow-summit-rsvp/'>
-Jenkins Workflow Summit RSVP
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-<a href="https://groups.google.com/forum/#!msg/jenkinsci-dev/qY387kOQlW8/vaBxacXYhGwJ">As was discussed some time ago</a>, the workflow summit is being organized, and it's open for RSVP.<br/>
-<br/>
-<p><br/>
-Due to the overwhelming demand, I've increased the capacity this time to 50, but this is an unconference where everyone needs to participate, which means we really cannot have too many people without changing the dynamics of the event.<br/>
-<br/>
-<p><br/>
-So please make sure you are willing to participate, as in not just listening and watching, but actually willing to speak. We expect you to bring something to the table &mdash; opinions, experiences, rants, presentations, feedbacks, etc. If you don't please let others take the seat, and rest assured we will give a presentation about workflow in <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+User+Conference+US+West+%28San+Francisco%29+Oct+23%2C+2014+-+Agenda">JUC Bay Area</a>.<br/>
-<br/>
-<p><br/>
-If you understand the criteria, <a href="http://www.meetup.com/jenkinsmeetup/events/203777932/">please RSVP is from here</a>. <br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/09/02/jenkins-user-meet-up-in-paris/'>
-Jenkins User Meet-up in Paris
-</a>
-</h1>
-<div class='content'>
-<div><a href="http://fr.wikipedia.org/wiki/Paris"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Paris_Night.jpg/640px-Paris_Night.jpg" width=590><br/>
-</a></div><br/>
-<br/>
-<p><br/>
-My apologies for the last minute announcement, but there will be a <a href="http://www.meetup.com/jenkinsmeetup/events/203261692/">Jenkins user meet-up in Paris on Sep 10th 7:00pm</a>, which is just next week. The event is hosted by Zenika. You'll hear from <a href="https://twitter.com/gboissinot">Gregory Boissinot</a> and <a href="https://twitter.com/alecharp">Adrien Lecharpentier</a> about plugin development, and I'll be talking about workflow.<br/>
-<br/>
-<p><br/>
-It's been a while we do a meet-up in Paris. Looking forward to seeing as many of you as possible. The event is free, but <a href="http://www.meetup.com/jenkinsmeetup/events/203261692/">please RSVP</a> so that we know what to expect.
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/9.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/9.html" class="page-link">9</a> <span class="current-page">10</span> <a href="/node/page/11.html" class="page-link">11</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/11.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/9.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/9.html" class="page-link">9</a> <span class="current-page">10</span> <a href="/node/page/11.html" class="page-link">11</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/11.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

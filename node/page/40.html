@@ -177,6 +177,65 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/04/01/regarding-the-start-of-april/'>
+Regarding the start of April
+</a>
+</h1>
+<div class='content'>
+<p>I had briefly contemplating what sort of silly posts I could write to celebrate April Fool's Day, when I sat down to write out some of them, I got a few sentences in and decided that they just weren't funny enough. Either I have very high standards, or I'm terribly unfunny.</p>
+
+<p>The web is awash with April Fool's articles, comics, headlines and everything else, so instead I'm going to just give you a few useful links.</p>
+
+<p><strong>A couple of Twitter links</strong></p>
+
+<p>Besides the <a href="http://twitter.com/hudsonci">@hudsonci</a> account, you can also follow a couple of Hudson's more notable (or was it notorious?) hackers, such as our benevolent dictator, <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>. <a href="http://twitter.com/bshine">Ben Shine</a> from Yahoo! who's been working pretty hard on making Hudson prettier. Then there's <a href="http://twitter.com/wakaleo">John Ferguson Smart</a> who's been working on a <a href="http://www.wakaleo.com/books/continuous-integration-with-hudson-the-book">Hudson book</a>. Of course I've tried to collect as many Hudson contributors as possible in the <a href="http://twitter.com/hudsonci/contributors">@contributors Twitter list</a>.</p>
+
+<p><strong>Hacking Hudson</strong></p>
+
+<p>When starting to hack Hudson, it's useful to start by understanding <a href="http://wiki.hudson-ci.org/display/HUDSON/Building+Hudson">how to build Hudson</a>. If hacking Hudson's core isn't your cup of tea, you can always start with the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and try your hand at writing another awesome Hudson plugin. If you find yourself struggling to find out what methods do what while you're hacking, you can always visit the regularly updated, <a href="https://hudson.dev.java.net/nonav/javadoc/">online Javadocs for Hudson</a></p>
+
+<p><strong>Communicate</strong>
+The two primary mediums for communicating with the Hudson community are through the <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">mailing lists</a> and the <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">IRC channel</a>. During "regular business hours" for the pacific standard time zone, you can usually get some decent real-time help or answers to most of your queries.</p>
+
+<p>I'd list more, but I'm too busy reading about <a href="http://techcrunch.com/2010/03/31/exclusive-google-to-go-nuclear/">Google's nuclear weapons program</a>. ;)
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/01/announcing-the-hudson-2-0-roadmap/'>
+Announcing the Hudson 2.0 Roadmap
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/java-evil-edition.png" align="right" />There have been numerous discussions on the <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">mailing lists</a> over the past couple months regarding memory issues, speed regressions and a number of other issues regarding performance of Hudson, particularly under high load. In an effort to address these concerns, the Hudson core team has <a href="http://agentdero.cachefly.net/continuousblog/just-kidding.jpg">announced</a> a roadmap for <strong>Hudson 2.0</strong>.</p>
+
+<p>In a <a href="http://agentdero.cachefly.net/continuousblog/just-kidding.jpg">message</a> to the <code>dev@</code> mailing list, Kohsuke said of Hudson 2.0:</p>
+
+<blockquote>
+  <p>As it stands now Hudson 1.0 is a good proof of concept, it's time to take the lessons learned and build a truly solid enterprise-ready continuous integration server
+<!--break-->
+Some notable points from Kohsuke's announcement with regards to the Hudson 2.0 roadmap, which is expected to ship late Q4 2011, are:</p>
+</blockquote>
+
+<ul>
+  <li>Implementation of <code>core</code> in portable C for greater speed and code readability</li>
+  <li>Selection of a better license, namely the <a id="aptureLink_WU0wj407g6" href="http://en.wikipedia.org/wiki/WTFPL">WTFPL</a></li>
+  <li>Revamped storage architecture around the <a href="http://www.oracle.com/database/standard_edition.html">Oracle 11g Database</a> to provide more optimal synergy over flat XML files.</li>
+  <li>Embedding the Mono, Python, V8 and Lua engines allowing plugins to be written in C#, Python, JavaScript or Lua.</li>
+  <li>Adoption of the Hudson <a href="http://randomfunnypicture.com/wp2/wp-content/uploads/2009/12/haters-gonna-hate-eagle.jpg">Eagle</a> as a mascot instead of the butler</li>
+  <li>"Social" support will be merged into <code>core</code>, integrating Hudson directly with Facebook so you can share test failures with your friends.</li>
+</ul>
+
+<p>Hudson 2.0 is expected to follow in the intrepid footsteps of other major revamps such as <a href="http://en.wikipedia.org/wiki/Netscape_5">Netscape 5</a> and <a id="aptureLink_LVKY9sDfJM" href="http://en.wikipedia.org/wiki/Perl%206">Perl 6</a> in its ambitiousness and innovation.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/03/31/screencast-python-on-hudson-part-1/'>
 Screencast: Python on Hudson (Part 1)
 </a>
@@ -437,47 +496,7 @@ This release contains 63 commits, from six different contributors including our 
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/19/recap-of-hackathon-part-one/'>
-Recap of Hackathon Part One
-</a>
-</h1>
-<div class='content'>
-<p><a id="aptureLink_pnjVAv8djU" href="http://twitter.com/kohsukekawa">Kohsuke</a> just posted a brief write-up on <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/03/19/hudson-hackathon-day-1">his personal blog</a> about the first day of the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Bay Area Hudson hackathon/meetup</a>. He writes:</p>
-
-<blockquote>
-  <p>Total of 9 people came and we had a great time talking about infrastructure issues, possible enhancements, design dicussions, exchanging tips and plugins that they've developed, and otherwise building personal relationships.</p>
-</blockquote>
-
-<p>A number of folks joined us on the <code>#Hudson</code> IRC channel on <a id="aptureLink_GzNHS5pDZN" href="http://freenode.net/">Freenode</a> and the WebEx conference, participating remotely. Since day one was primarily intended for hacking on Hudson itself, we're expecting more people tomorrow when we'll have a good mix of folks hacking <strong>on</strong> Hudson, folks hacking <strong>with</strong> Hudson and plain old folks.</p>
-
-<center><img src="http://agentdero.cachefly.net/continuousblog/HackathonDay1.jpeg" alt="The team, Day One" /></center>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/19/links-for-2010-03-19/'>
-Links for 2010-03-19
-</a>
-</h1>
-<div class='content'>
-<p>It's been quite a busy week, preparing for the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson hackathon/meetup</a> which starts today, receiving requests for <a href="http://blog.hudson-ci.org/content/want-some-hudson-stickers">crazy-awesome Hudson stickers</a> and my <a href="http://apture.com">day job</a>. Regardless, I've stumbled across a few links to share in this links roll-up.</p>
-
-<ul>
-  <li><a id="aptureLink_cSreeDO5Qz" href="http://twitter.com/wakaleo">John Ferguson Smart</a> discusses some of the gotchas with <strong><a href="http://www.wakaleo.com/blog/261-migrating-hudson-build-jobs-from-one-server-to-another">migrating Hudson build jobs from one server to another</a></strong></li>
-  <li>Learned a bit about how <a id="aptureLink_7d5BsCZ7q2" href="http://twitter.com/Kim_Moir">Kim Moir</a> and the Eclipse Foundation are <strong><a href="http://relengofthenerds.blogspot.com/2010/03/better-builds-with-hudson-hardware-and.html">"building better" with Hudson</a></strong></li>
-  <li><a id="aptureLink_arZM9ZIPrz" href="http://twitter.com/dbaktiar">dbaktiar</a> gave a quick overview of <strong><a href="http://dbaktiar.wordpress.com/2010/03/17/installation-of-hudson-in-karmic-koala-ubuntu-9-10/">installing Hudson on Ubuntu Karma Koala</a></strong></li>
-</ul>
-
-<p>Looking forward even more interesting things to read next week after the hackathon and meetup here in California.</p>
-
-<hr />
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/39.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/39.html" class="page-link">39</a> <span class="current-page">40</span> <a href="/node/page/41.html" class="page-link">41</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/41.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/39.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/39.html" class="page-link">39</a> <span class="current-page">40</span> <a href="/node/page/41.html" class="page-link">41</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/41.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

@@ -177,6 +177,120 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2013/09/11/behind-the-scenes-of-the-jenkins-user-conference-palo-alto/'>
+Behind the Scenes of the Jenkins User Conference Palo Alto!
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+The Jenkins User Conference (JUC) Palo Alto is less than two months away! <br/>
+The organizing committee, 13 sponsors and 16 speakers have been hard at work coordinating a fun and educational day for the Jenkins community on October 23. Check out the <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">agenda</a> and see for yourself! Speakers are traveling from around the globe to take part in this conference, including a number of usual suspects. Dedicated Jenkins experts are coming in from London, Israel, Estonia, Sweden, Taiwan, Boston,  Seattle, Texas and, of course, the local Bay Area. <br/>
+<br/>
+<p><br/>
+New this year, we’ll live stream an entire track, courtesy of our Silver sponsor, <a href="http://confreaks.com/">Confreaks</a>.<br/>
+<br/>
+<p><br/>
+In keeping with tradition, every year we create a one-of-a-kind Jenkins t-shirt for JUC attendees. This year we are sticking with the ever-popular landmark of Palo Alto, Stanford University. And we are going bright…hope you like (Jenkins) red!<br/>
+<br/>
+<div align=center><a href="http://www.flickr.com/photos/12508267@N00/9725574061/"><br/>
+<img src="http://farm6.staticflickr.com/5322/9725574061_d41998193e_n.jpg"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+We are always on the look out for unique and creative ideas for Jenkins t-shirt designs. If you have a cool design in mind please send it to <tt>events@lists.jenkins-ci.org</tt>. You may just see the Jenkins community wearing your design at next year’s conference.<br/>
+<br/>
+<p><br/>
+Also check out the great Jenkins collectible that <a href="http://www.cloudbees.com">CloudBees</a>, the Platinum sponsor, is giving out at the CloudBees table (I heard he looks even better in person).  Quantity is limited so be sure to pick one up at the CloudBees table. You might have to sing, dance, bark or just complete a survey in exchange for the Jenkins bobble head.  Most importantly, don’t forget to have Kohsuke sign it to make it official.<br/>
+<br/>
+<div style="float:right; margin:1em"><a href="http://www.flickr.com/photos/12508267@N00/9725573715/"><br/>
+<img src="http://farm3.staticflickr.com/2878/9725573715_fa056b6652_n.jpg"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+JUC isn’t complete without some good BEvERages.  Gold sponsor <a href="http://www.bds.com">Black Diamond Software</a> is ponying up a keg of beer after the conference.  Leave us a comment (below) about what kind of beer strikes your fancy and it might just be there.<br/>
+<br/>
+<p><br/>
+If you’ve read this entire blog and have not yet registered to <a href="https://www.eventbrite.com/event/6367028955">attend</a>, here’s additional incentive for you. Use discount code <b>BEE-JUC</b> to get early bird pricing, that’s a $26 saving off the current price of $80. Discount expires October 4, 2013.<br/>
+<br/>
+<p><br/>
+As JUC Conference Chair, I am always looking for ways to improve JUC.  Leave your comments below on ways we can make this ‘Your’ conference.<br/>
+<br/>
+<p><br/>
+Looking forward to seeing you at JUC on October 23.<br/>
+<br/>
+<p><br/>
+Alyssa Tong<br/>
+JUC Conference Chair 
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/09/09/loader-io-plugin-developer-interview/'>
+Loader.io plugin developer interview
+</a>
+</h1>
+<div class='content'>
+This is a guest post by <a href="https://twitter.com/mikerowan">Mike Rowan</a>, VP R&amp;D at SendGrid.<br/>
+<br/>
+<hr><br/>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/loaderio.png" width="150" height=150><br/>
+</div><br/>
+<br/>
+<p><br/>
+<b>Q: Tell us a bit about what your service and plugin do. Who is it for? What are the highlights of your plugin?</b><br/>
+<br/>
+<p><br/>
+A: <a href="http://loader.io">Loader.io</a> is a simple-to-use cloud-based load testing service.  The service is designed for developers and people who need to ensure applications are performing as they should.  It allows developers to perform large-scale load tests on demand, which lets them understand the scalability and performance of their applications.  We realize Jenkins is the preferred build service for a lot of our users, and we know providing a way for them to implement, measure and improve application performance during the continuous build cycle is important. So we wrote a Jenkins plugin that allows load testing to be brought into the continuous build and deployment process with ease.<br/>
+<br/>
+<p><b><br/>
+Q: Did you have to convince your boss/lawyers to open-source your plugin? What was the pitch?</b><br/>
+<br/>
+<p><br/>
+A: No, at SendGrid our focus is always to help make developers’ lives easier, and when we can, we like to  provide tools that they can hack on. Since the Jenkins platform is itself an open source project, following the same model to provide our plugin made perfect sense.  In addition, we encourage others to build on our work, help improve it and ultimately make it better for everyone using it.<br/>
+<br/>
+<p><b><br/>
+Q: How did you learn how to write a plugin?<br/>
+</b><br/>
+<br/>
+<p><br/>
+A: We use the Jenkins platform ourselves, and we leverage a number of the plugins available. Having access to these and the Jenkins documentation gave us a great head start. It was an easy decision to write the Jenkins plugin for loader.io, and the Jenkins community provided both detailed instructions as well as support when we needed it.  <br/>
+<br/>
+<p><b><br/>
+Q: Any gotchas in the experience of developing a plugin that you want to share?<br/>
+<br/>
+<p><br/>
+A: The overall process of developing the plugin was straightforward and simple, but we did run into some scope creep in the middle of the dev process. We found that since the platform was so easy to write for, it made us keep adding more and more features.  Usually this is good, but in the case of our project, we wanted to provide the most value as quickly as possible.  So we scaled back, focused on solid execution for the most important features, and are already preparing to launch a new version with the things we reserved for post v1 availability.<br/>
+<br/>
+<br/>
+<p><b><br/>
+Q: What is the reaction from users so far?<br/>
+</b><br/>
+<br/>
+<p><br/>
+A: The users we’ve spoken with love the plugin. In addition we’ve already gotten great feedback from some community members on “nice to have’s” in the plugin, some of which we’re already working on.<br/>
+<br/>
+<p><b><br/>
+Q: What tips do you share to those who are interested in writing plugins?<br/>
+</b><br/>
+<br/>
+<p><br/>
+A: If you have a service that provides value in the build, deployment and post deployment process, then you should be writing a Jenkins plugin.  Two things are  important for anyone writing a plugin: 1) be sure the plugin you’re writing is going to provide true value (if you need it yourself this is a good sign), and 2) make sure you understand the scope of the project and deliver core features and value first, then focus on some extra things.  Providing a valuable plugin sooner than later will help you identify all the right additional features to include, especially when collecting live community feedback.<br/>
+<br/>
+<p><br/>
+Some of the things we focused on early in the process were to identify the core features, and more importantly to make it very easy for users of Jenkins to install, use and interpret the loader.io plugin and results.  We wanted to allow users to leverage our plugin for multiple environments and builds with system and global credentials. To do this, we decided to make use of the Credentials plugin (https://wiki.jenkins-ci.org/display/JENKINS/Credentials+Plugin), which is a heavily-adopted plugin that provides a standardized API for plugins to store and retrieve credentials.  This plugin allows our users to add and use different credentials in one single Jenkins environment.  In addition, we created a new re-run feature which, when used with continuous build and testing, provides a deep view into the performance of an application over time. Finally, we wanted to bring the same UI experience users have in our environment into Jenkins, which we did by preserving the load test report model and making it function the same in the Jenkins UI. Doing this makes it easy for users to have consistency between the UIs and more easily understand the results regardless of where they’re viewing them.<br/>
+<br/>
+<p><br/>
+It’s very easy to write a Jenkins plugin - I hope these insights will encourage you to write your own. <br/>
+<br/>
+<p><br/>
+ps - We’d love your feedback too. Check out our newly-released <a href="https://wiki.jenkins-ci.org/display/JENKINS/loaderio">Jenkins plugin</a> for loader.io and let us know what you think. 
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2013/09/05/extreme-feedback-lamp-switch-gear-style/'>
 Extreme Feedback Lamp, Switch Gear style
 </a>
@@ -359,59 +473,7 @@ If you aren’t in Israel but like the concept of JUC, looking forward to seeing
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/07/01/office-hours-this-week-git-plugin-refactoring/'>
-Office hours this week: Git plugin refactoring
-</a>
-</h1>
-<div class='content'>
-<p>This Wednesday's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Jenkins office hours</a> is all about the Git plugin refactoring that's going on.</p>
-
-<div style="float:right; margin:1em">
-<img width="250" src="http://git-scm.com/images/logos/2color-lightbg@2x.png" />
-</div>
-
-<p><a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin">Git plugin</a> is one of the most popular plugins out there, and it's been around for quite some time. Combine that with the fact that there are so many different ways to use Git, it was inevitable that Git plugin became quite a capable but complex plugin over time. It has more than a dozen options and switches, and it was becoming harder to use and harder to maintain.</p>
-
-<p>As early as 2010, some of us have already been saying that we should refactor this plugin, but none of us have managed. The good news is, I finally started tackling this problem last month while I was in London, and I've made a steadily progress since then and I'm ready for a wider review.</p>
-
-<p>So we'll spend this Wednesday going over the changes. I'll show you how the new version looks, what changes are made internally, and what it'll enable us in the future.</p>
-
-<p>If the Git plugin is important to you, and you want to see what's cooking, please join us in <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">the office hours</a> on Google Hangout.</p>
-
-<p>Looking forward to seeing you!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/06/21/reducing-the-of-threads-in-jenkins-ssh-slaves/'>
-Reducing the # of threads in Jenkins: SSH slaves
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-As the usage of Jenkins expands, we started seeing users who run multiple 100s of slaves on one master, and thus it became a lot more important for us to scale well to even larger number of slaves.<br/>
-<br/>
-<p><br/>
-While I was looking at the thread dump of a large system, I started noticing that there are a large number of threads lying around pumping <tt>InputStream</tt> and writing to another <tt>OutputStream</tt>. On Linux, each thread occupies 2MB just for its stack size, so if we can eliminate some of them, it'd be a good saving.<br/>
-<br/>
-<p><br/>
-So this morning, I tackled one source of such waste.<br/>
-<br/>
-<p><br/>
-Jenkins has <a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">the ability to launch slave on a remote server via SSH</a> for the longest time, and to simplify this, we've been using a <a href="https://github.com/jenkinsci/trilead-ssh2">pure-Java implementation of SSH client</a>.<br/>
-<br/>
-<p><br/>
-To cut the long story short, I was able to eliminate two pump threads per every SSH connection. Furthermore, when it runs on the upcoming Jenkins 1.521, it'll save one more thread per every SSH connection. So if you have 100 slaves connected through SSH, this alone saves up 600MB of memory. That's pretty good for a few hours work!<br/>
-<br/>
-<p><br/>
-If you run a lot of slaves, be sure to pick up version 0.27 of <a href="https://wiki.jenkins-ci.org/display/JENKINS/SSH+Slaves+plugin">the SSH slaves plugin</a> to take advantages of this!<br/>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/17.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/17.html" class="page-link">17</a> <span class="current-page">18</span> <a href="/node/page/19.html" class="page-link">19</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/19.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/17.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/17.html" class="page-link">17</a> <span class="current-page">18</span> <a href="/node/page/19.html" class="page-link">19</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/19.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

@@ -177,6 +177,90 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/04/01/your-java-web-start-slaves-will-be-always-clean/'>
+Your Java Web Start slaves will be always clean
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Mr._Clean"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/en/thumb/7/73/Mr._Clean_logo.png/200px-Mr._Clean_logo.png"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+If you have slaves that connect through <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-LaunchslaveagentviaJavaWebStart">Java Web Start</a> (such as <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">slaves installed as Windows services</a>), we have a good news for you.<br/>
+<br/>
+<p><br/>
+In case of a connection loss, this type of slaves has been designed to automatically attempt to reconnect to the master. This makes sense because you want these slaves to remain online all the time, even if your janitor trips over the ethernet cable. Unfortunately, it also means that over the time, these slaves accumulate gunk, such as mutated static states, any left-over threads or memory leaks, or <a href="https://issues.jenkins-ci.org/browse/JENKINS-20913">native libraries that are loaded into JVM</a>.<br/>
+<br/>
+<p><br/>
+To prevent that, a better approach is to <a href="https://issues.jenkins-ci.org/browse/JENKINS-19055">restart the slave JVM (JENKINS-19055)</a> and have the new JVM reconnect, instead of having the same JVM reconnect. That would ensure that the slave always stays clean. I've planned to make this change for a while now, and I'm happy to report that this change is finally landing to the upcoming 1.559.<br/>
+<br/>
+<p><br/>
+Restarting JVM is easy on Unix, where I could just <a href="http://man7.org/linux/man-pages/man3/exec.3.html">exec(3)</a> to itself. We've been doing this for ages on masters, for example when you update a plugin and tell Jenkins to restart.<br/>
+<br/>
+<p><br/>
+The hard part is to do this for Windows, where the most of the time was spent. I had to improve <a href="https://github.com/kohsuke/winsw">windows service wrapper</a> to support self-restarting services, which turned out to be trickier because Windows service control manager doesn't provide "restart" as an atomic operation. It also kills not just the service process itself but all the processes in the group. So I had to double-fork the service wrapper into a separate process group just to restart a service from within itself.<br/>
+<br/>
+<p><br/>
+In any case, the end result is that if <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">you have installed a service through GUI</a>, be it on Windows, Unix, or OS X, slaves will restart themselves every time it gets disconnected from the master.<br/>
+<br/>
+<p><br/>
+I've also taken the opportunity to make <tt>jenkins-slave.exe</tt> on the slave self-updating. Every time it connects to the master, it gets the latest version from the master.<br/>
+<br/>
+<p><br/>
+If you have installed Web Start slaves as services, make sure to update the local copy of <tt>slave.jar</tt> on these slaves to 2.37 or later. This "restart on reconnect" feature only kicks in when you are running this very recent version of <tt>slave.jar</tt>. And yes, we realize it'd be nice for <tt>slave.jar</tt> to update itself, which is tracked as <a href="https://issues.jenkins-ci.org/browse/JENKINS-22454">JENKINS-22454</a>. But that's a work for another day.<br/>
+<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/03/21/call-for-sponsors-2014-jenkins-user-conferences/'>
+Call for Sponsors: 2014 Jenkins User Conferences
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em">
+
+<img src="https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png?version=1&amp;modificationDate=1302753947000" />
+
+</div>
+
+<p>Jenkins User Conference (JUC) season is upon us! It’s a busy year for the Butler – he’s hosting conferences all over and looking for sponsors to help:</p>
+<ul>
+<li> <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Boston – June 18</a> </li>
+<li> Berlin – June 25</li>
+<li> Herzelia, Israel – July 16 </li>
+<li> Bay Area (California) – October (date TBD) </li>
+</ul>
+
+<p><b>Mr. Jenkins and the JUC Organizing Committee want to invite you and your company to sponsor a JUC this year.</b> Show your support for the Jenkins community and help keep costs low for attendees*. The funds go to are put to good use: conferences are two full tracks. Lunch, light breakfast, coffee and a coveted Jenkins t-shirt are also included.</p>
+
+<p>Sponsors get all sorts of thanks from the Jenkins community:</p>
+<ul>
+<li> Your logo on the conference t-shirt and all other conference communication (emails, website, signage, etc.)
+<li> A blog featuring sponsors
+<li> Free passes
+<li> Silver and Gold sponsors get a table to talk to folks and hand out swag
+<li> Gold sponsors get either a speaking slot, happy hour sponsorship or a dedicated room for demos
+<li> And more, but most especially, you get to support JenkinsCI.
+
+
+Just <a href="http://www.cloudbees.com/jenkins/juc-2014/sponsorships"> let us know if you’re interested</a> to get the details. We’d love to have you join us.
+
+Friendly reminder: We are looking for speakers for all four cities. Call for Papers ends March 30 for Boston, Berlin and Israel. <a href="http://www.cloudbees.com/jenkins/juc-2014">Submit your abstract now</a> and come share your expertise with the Jenkins community.
+
+We hope to see you at a JUC this year!
+
+<i> Lisa, Alyssa and the JUC Organizing Committee </i>
+
+*PS - <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Registration just opened for Boston </a> and early-bird tickets are only $59.
+</li></li></li></li></li></li></ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/03/19/jenkins-user-conferences-this-year/'>
 Jenkins User Conferences This Year
 </a>
@@ -505,51 +589,7 @@ would be interested in joining the JUC OC or have ideas for a great JUC 2014 loc
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/11/17/dkim-and-spf-deployed/'>
-DKIM and SPF deployed
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-In the hope of streamlining account creation e-mail delivery and mailing list moderations, I have deployed <a href="http://en.wikipedia.org/wiki/Sender_Policy_Framework">SPF</a> and <a href="http://en.wikipedia.org/wiki/DomainKeys_Identified_Mail">DKIM</a> over the weekend for e-mails coming out of <tt>@jenkins-ci.org</tt>, which includes account appliations, Confluence, and JIRA.<br/>
-<br/>
-<p><br/>
-I've also used this opportunity to switch back the sender of JIRA notifications to <tt>noreply@jenkins-ci.org</tt>. It was originally this way, then changed to <tt>jenkinsci-no-reply@googlegroups.com</tt> when someone complained (on what ground I do not remember any more.)<br/>
-<br/>
-<p><br/>
-To the degree that I have tested the setup, it is working correctly, but if you notice anything strange, please let me know.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/11/08/jenkins-scalability-summit-recap/'>
-Jenkins Scalability Summit Recap
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Scale_(anatomy)"><br/>
-  <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Lepidoptera_wing.jpg/220px-Lepidoptera_wing.jpg"/><br/>
-</a></div><br/>
-<br/>
-<p><br/>
-The day after <a href="http://jenkins-ci.org/content/jenkins-user-conference-completely-full">Jenkins User Conference</a>, we held a smaller meet-up of serious large-scale Jenkins users dubbed as <a href="http://www.meetup.com/jenkinsmeetup/events/126595572/">"Jenkins Scalability Summit"</a>.<br/>
-<br/>
-<p><br/>
-In this <a href="http://en.wikipedia.org/wiki/Open_Space_Technology">Open Space Technology</a> style event, we went over war stories from users. Just to show the degree of seriousness, some of those people run 1500+ slaves, and others run Jenkins in HA configuration with a data center fail over! We then picked various topics in the afternoon and discussed what people would like to see to make Jenkins scale further. Slides and raw notes from this meeting is <a href="http://bit.ly/jss13">available here</a>.<br/>
-<br/>
-<p><br/>
-The event allowed me to rethink and revisit what I thought we should do in coming days in the area of scalability.<br/>
-<br/>
-<p><br/>
-The event was far more popular than we anticipated originally, and we had to turn down many folks. So I'm going to do a webinar to go over what we did, and what we talked about. If you are interested in this area, and want to see what's being considered and provide your thoughts, please join us on <a href="http://www.cloudbees.com/webinars/jenkins-scalability-summit-recap.cb">Nov 19th 10am PT</a>.
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/15.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/15.html" class="page-link">15</a> <span class="current-page">16</span> <a href="/node/page/17.html" class="page-link">17</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/17.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/15.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/15.html" class="page-link">15</a> <span class="current-page">16</span> <a href="/node/page/17.html" class="page-link">17</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/17.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

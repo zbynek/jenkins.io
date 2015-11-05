@@ -1,0 +1,315 @@
+<html>
+<head>
+<title>
+Jenkins Blog
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/css/style.css' media='screen' rel='stylesheet'>
+</head>
+<body>
+<a href='https://github.com/jenkinsci'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+<div class='clearfloat' id='head'>
+<div class='clearfloat'>
+<div id='logo'>
+<a href='/' title='Jenkins'>
+<img src='/images/header_logo.png'>
+</a>
+<div id='tagline'>
+An extendable open source automation server
+</div>
+</div>
+</div>
+<div class='clearfloat' id='navbar'>
+<div id='page-bar'>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/node' title='Blog landing page'>
+Blog
+</a>
+</li>
+<li class='expanded'>
+<a href='/' title=''>
+Connect
+</a>
+<ul class='menu'>
+<li class='leaf first'>
+<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
+Mailing Lists
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
+Chat
+</a>
+</li>
+<li class='leaf'>
+<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
+Twitter
+</a>
+</li>
+<li class='leaf'>
+<a href='/content/event-calendar' title='Calendar for Jenkins events'>
+Event Calendar
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
+Office Hours
+</a>
+</li>
+<li class='leaf last'>
+<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
+reddit
+</a>
+</li>
+</ul>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
+Bug Tracker
+</a>
+</li>
+<li class='leaf'>
+<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
+Wiki
+</a>
+</li>
+<li class='leaf'>
+<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
+CI
+</a>
+</li>
+<li class='leaf'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
+Donation
+</a>
+</li>
+<li class='leaf last'>
+<a href='/content/about-jenkins-ci' title='About Jenkins CI'>
+About
+</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+<div class='clearfloat' id='page'>
+<div class='clearfloat' id='top'>
+<div id='sidebar'>
+<div class='block block-block even' id='block-block-5'>
+<h3>
+What is Jenkins?
+</h3>
+<div class='content'>
+<p>
+In a nutshell, Jenkins is the leading open source automation server.
+Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation
+virtually any project
+</p>
+</div>
+</div>
+<div class='block block-block even' id='block-block-15'>
+<h3>
+Download
+</h3>
+<div class='content'>
+This is where download content goes
+</div>
+</div>
+
+<div class='block block-block even' id='block-block-15'>
+<div class='content'>
+<center>
+<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
+<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+</a>
+<br>
+<a href='http://oreilly.com/catalog/0636920010326'>
+<strong>
+Buy the book!
+</strong>
+</a>
+</center>
+</div>
+</div>
+
+<div class='block block-block odd' id='block-block-8'>
+<h3>
+Resources
+</h3>
+<div class='content'>
+<big>
+<p>
+<a href='/calendar'>
+Calendar
+</a>
+</p>
+<p>
+<a href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</p>
+<p>
+<a href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</p>
+<p>
+<a href='http://ci.jenkins-ci.org/'>
+Jenkins-on-Jenkins
+</a>
+</p>
+</big>
+</div>
+</div>
+
+
+</div>
+<div class='main-content with-sidebar' id='content'>
+<div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/08/hudson-1-344-released/'>
+Hudson 1.344 Released
+</a>
+</h1>
+<div class='content'>
+<p>The latest release of Hudson, 1.344, was released on February 5th, 2010. The release contains primarily bug-fixes but has a few enhancements baked into it as well. As mentioned in "<a href="http://blog.hudson-ci.org/content/incoming-more-translations">Incoming! More Translations</a>", 1.344 incorporates a number of community-driven translations (see the other post for more information). Additionally, 1.344 removes the "easter egg" background image I wrote about in a post to my personal blog: <a href="http://unethicalblogger.com/posts/2010/01/mourning_sun">Mourning Sun</a>.</p>
+
+<p>Enough of the small talk, here's the breakdown.</p>
+
+<h4 id="bugs-fixed">Bugs fixed</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt;
+    Removed the forced upper casing in parameterized builds.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5391">issue 5391</a>)
+  &lt;li class=bug&gt;
+    Password parameter on the disk should be encrypted.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5420">issue 5420</a>)
+  &lt;li class=bug&gt;
+    Duplicate entries on Upstream/Downstream project with "Build modules in parallel".
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5293">issue 5293</a>)
+  &lt;li class=bug&gt;</p>
+
+<pre><code>"Projects tied on" should be "Projects tied to".
+(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-5451"&gt;issue 5451&lt;/a&gt;)
+</code></pre>
+<p>&lt;li class=bug&gt;
+    Fixed the bug that prevents update center metadata retrieval in Jetty.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5210">issue 5210</a>)
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+#### Enhancements</p>
+<ul>
+  &lt;li class=rfe&gt;
+    Show which plugins have already been upgraded in Plugin Manager.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2313">issue 2313</a>)
+  &lt;li class=rfe&gt;
+    Show Hudson upgrade status on manage page instead of offering same upgrade again.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-3055">issue 3055</a>)
+  &lt;li class=rfe&gt;
+
+    Make badges in build history line up.
+    (<a href="http://n4.nabble.com/Align-lock-sign-of-keep-build-forever-td1016427.html">report</a>)
+</ul>
+
+<p><br clear="all" />
+#### Contributors 
+This release of Hudson contained 44 commits from 5 different contributors to "core":</p>
+
+<ul>
+  <li><a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a></li>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+  <li><a id="aptureLink_ihPia31Muh" href="http://www.linkedin.com/in/thuybrechts">huybrechts</a> (contributed a couple patches via <a href="http://github.com/huybrechts/hudson">his GitHub fork</a> of <a href="http://github.com/kohsuke/hudson">Kohsuke's hudson git repository</a>)</li>
+</ul>
+
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+<p><strong>Update:</strong> This post was written a day before <a href="http://issues.hudson-ci.org/browse/HUDSON-5536">issue 5536</a> was discovered. I recommend waiting until 1.345 to update any production Hudson instances.
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/02/welcome-to-continuous-blog/'>
+Welcome to Continuous Blog!
+</a>
+</h1>
+<div class='content'>
+<p>Hello and welcome to "Continuous Blog", the official Hudson weblog! If you don't mind me saying so, I think its arrival is long overdue. Since Hudson started in November of 2006, there hasn't been a central "voice" for the project. In just a few short years Hudson has grown into a substantial project with <strong>hundreds</strong> of plugins and thousands of users around the world. <a id="aptureLink_DLc9nSxCmm" href="http://twitter.com/kohsukekawa">Kohsuke</a>'s nice Java-based extensible continuous integration server has grown up into fantastic tool with a great community around it.</p>
+
+<h3 id="goals-for-this-weblog">Goals for this weblog</h3>
+<p>I think it is important to set out a couple of goals for this weblog, some simple items that should help guide the content and discussion around Continuous Blog and its future.</p>
+
+<p>Continuous Blog should:</p>
+
+<ul>
+  <li>Help advocate the use of Hudson to the larger internet community</li>
+  <li>Be a central source for tutorials and helpful information to Hudson users of all skill-levels</li>
+  <li>Recognize the numerous contributors to the Hudson project for their efforts</li>
+</ul>
+
+<p><br clear="all" />
+### What to expect
+As Continuous Blog grows and matures, you can expect to see a variety of Hudson-related content. Overviews of the latest releases of Hudson and its plugins, interviews and discussions with the developers who have contributed to Hudson over the years, guest posts by power-users on how Hudson fits into their workflow and much much more (really).</p>
+
+<p>If you look around the page you'll already see a good amount of content, in the sidebar to the right you'll notice the "Recently Released" section which aggregates recently released plugins via <a href="https://hudson.dev.java.net/servlets/ProjectRSS?type=news">this RSS feed</a> , the "Blogs" section which is an aggregation of Hudson community blogs (from <a href="http://feeds.feedburner.com/KohsukesHudsonBlogs">this RSS feed</a>) and <a href="http://twitter.com/hudsonci/lists/contributors" class="apturenoenhance">this Twitter list</a> of Hudson contributors.</p>
+
+<p>We're just starting out so make sure you <a href="http://feeds.feedburner.com/ContinuousBlog">subscribe to the RSS feed</a>, we've got a lot to talk about here on Continuous Blog.
+<!--break--></p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/45.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <span class="current-page">46</span> </div>
+
+<div id='content-bottom'>
+</div>
+</div>
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+</script>
+
+<div id='github'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+Improve this page
+</a>
+</div>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>

@@ -177,6 +177,54 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/03/02/what-new-features-do-you-want-to-see/'>
+What new features do you want to see?
+</a>
+</h1>
+<div class='content'>
+<p>Michael Donohue, a Hudson developer who has taken on the role of master bug triage guy for Hudson, does something regularly which I've really come to appreciate as a Hudson developer myself: he sends out emails to the dev list with the top 10 voted issues at that time. This gives those of us in the Hudson development community a good sense of what's really important to our users, which in turn helps us decide where to focus our efforts. If you're interested, you can see <a href="http://issues.hudson-ci.org/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10045">the top voted issues</a> over at <a href="http://issues.hudson-ci.org">our JIRA server.</a></p>
+
+<p>A good number of those issues have been high on the list for a while - I'm actually in the early stages of work on a plugin to answer <a href="http://issues.hudson-ci.org/browse/HUDSON-682">HUDSON-682</a>, the current #1 most voted-for issue, two and a half years after it was opened. But I'm sure there are some equally useful features Hudson users would like to see added which aren't on that list. So I'm asking you, dear readers: what are you looking for in Hudson that isn't already there? Take a look around the existing issues - you may find a request that fits what you want lurking just out of the top 10, needing only your vote to push it into the spotlight. If no one's yet created an issue requesting your desired feature, well, create one.</p>
+
+<p>Or, better still, write a plugin or contribute a patch yourself!</p>
+
+<hr />
+
+<p><strong>Editor's Note:</strong>  If you're interested in writing a plugin, you can check out <a href="http://wiki.hudson-ci.org">Hudson's wiki</a> and/or <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">this guide</a> on the subject.</p>
+
+<p>Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/02/call-for-testers-the-older-the-better/'>
+Call for Testers: The older the better
+</a>
+</h1>
+<div class='content'>
+<p>A couple weeks ago in the <a href="http://blog.hudson-ci.org/content/hudson-1347-released">post outlining the release of Hudson 1.347</a> I mentioned that Alan Harder (a.k.a. mindless) had undertaken a deprecation-crusade; that is to say Alan has taken it upon himself to rid Hudson's code-base, particularly in the plugin area, of older code. One of Alan's branches <code>old-data-monitor</code> was merged into trunk with <code>r28147</code> bringing with it some changes to help migrate older plugin datasets to newer formats.</p>
+
+<p>When I reached out to Alan earlier today on IRC (<code>#hudson</code> on the <a id="aptureLink_C8savgu6dL" href="http://en.wikipedia.org/wiki/Freenode">Freenode</a>) about the subject he agreed that polling the community for beta testers would be a good idea; <strong>this is where <em>you</em> come in</strong>. Per Alan's message to the <code>dev@</code> mailing list:</p>
+
+<blockquote>
+  <p>Visit your "Manage Hudson" screen to see if the notice about old/unreadable data appears. I'll be curious to see which of the old deprecated data structures are actually out there in people's XML files.</p>
+</blockquote>
+
+<p>Instead of waiting for the release candidate to be packaged Wednesday evening, I've gone ahead and published the artifact from <a href="http://hudson.glassfish.org/view/Hudson/job/hudson-trunk/4544">build #4544</a> which can be downloaded here: <a href="http://agentdero.cachefly.net/continuousblog/hudson_build4544.war">hudson.war</a></p>
+
+<p>If you have an <strong>old</strong> Hudson installation with, testing this build would be incredibly useful. Alan went on to say:</p>
+
+<blockquote>
+  <p>If people find issues with OldDataMonitor, they should file them at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> in "core" component and assign them to "mindless".</p>
+</blockquote>
+
+<p>This change does not mutate any data (or at least it shouldn't) so it should be safe, be on the look out for exceptions in Hudson's log on startup.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/03/01/learn-about-ci-with-hudson-sf-java-user-group/'>
 Learn about CI with Hudson (SF Java User Group)
 </a>
@@ -311,6 +359,37 @@ Links for 2010-02-25
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2010/02/25/links-for-2010-02-24/'>
+Links for 2010-02-24
+</a>
+</h1>
+<div class='content'>
+<p>Via the <a id="aptureLink_9cdmxFQb8l" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account I typically share or "retweet" a number of links during the day, I realize a number of people either do not use Twitter or do not constantly pay attention to it. A lot of the links I find quite interesting, so I'd like to try sharing them after the fact here.</p>
+
+<ul>
+  <li><a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">Java.net Maven Repository Rescue Mission on March 5th</a></li>
+  <li><a href="https://blog.coremedia.com/cm/post/14886341/Fighting_Problems_with_Hudson_Matrix_Jobs_and_Perforce_Plugin.html">Fighting Problems with Hudson Matrix Jobs and Perforce Plugin</a>
+    <ul>
+      <li>Working around issues with matrix jobs and the Perforce plugin (<a href="http://issues.hudson-ci.org/browse/HUDSON-1022">issue 1022</a>)</li>
+    </ul>
+  </li>
+  <li><a href="http://www.oracle.com/technology/pub/articles/adf-development-essentials/part7.html">Oracle ADF Development Essentials - Part 7 – Continuous Integration with Hudson</a>
+    <ul>
+      <li>Learn how to use Hudson in tandem with the Oracle Application Development Framework (with screenshots).</li>
+    </ul>
+  </li>
+  <li><a href="http://stackoverflow.com/questions/723322/what-is-the-best-version-control-for-visual-studio-2008-sp1/723326#723326">What is the best Version Control for Visual Studio 2008 SP1?</a>
+    <ul>
+      <li>Asked on Stack Overflow, guess what the chosen answer was?</li>
+    </ul>
+  </li>
+  <li><a href="http://technology.amis.nl/blog/7408/automatic-testing-oracle-service-bus-using-hudson-maven-and-soapui">Automatic testing Oracle Service Bus using Hudson, maven and SoapUI</a></li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/02/25/spotlight-on-springsource/'>
 Spotlight on: SpringSource
 </a>
@@ -432,83 +511,7 @@ I'd like to thank Doug again for giving us a peek behind the curtains at SpringS
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/25/sonatype-freeing-projects-from-java-nets-maven-repo/'>
-Sonatype freeing projects from java.net's Maven repo
-</a>
-</h1>
-<div class='content'>
-<p>Are you working on a project which uses java.net's <a id="aptureLink_L4MIM7mY1F" href="http://en.wikipedia.org/wiki/Apache%20Maven">Maven</a> repository for deploying its artifacts?</p>
-
-<p>Well, if so, there's a great opportunity opening up for you to get off that problematic repository: <a id="aptureLink_9b4lZR3Gq1" href="http://www.sonatype.com/">Sonatype</a> is <a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">helping java.net projects move to Sonatype's hosted OSS Nexus repository</a>, starting March 5th. We're looking into moving Hudson over but for most smaller projects, this should be a no-brainer. Problems with the java.net Maven repository are legendary and Sonatype's OSS Nexus repository is a great alternative.</p>
-
-<p>Take a look and see if this can work for you.</p>
-
-<hr />
-<p><strong>Editor's Note:</strong> Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/25/links-for-2010-02-24/'>
-Links for 2010-02-24
-</a>
-</h1>
-<div class='content'>
-<p>Via the <a id="aptureLink_9cdmxFQb8l" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account I typically share or "retweet" a number of links during the day, I realize a number of people either do not use Twitter or do not constantly pay attention to it. A lot of the links I find quite interesting, so I'd like to try sharing them after the fact here.</p>
-
-<ul>
-  <li><a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">Java.net Maven Repository Rescue Mission on March 5th</a></li>
-  <li><a href="https://blog.coremedia.com/cm/post/14886341/Fighting_Problems_with_Hudson_Matrix_Jobs_and_Perforce_Plugin.html">Fighting Problems with Hudson Matrix Jobs and Perforce Plugin</a>
-    <ul>
-      <li>Working around issues with matrix jobs and the Perforce plugin (<a href="http://issues.hudson-ci.org/browse/HUDSON-1022">issue 1022</a>)</li>
-    </ul>
-  </li>
-  <li><a href="http://www.oracle.com/technology/pub/articles/adf-development-essentials/part7.html">Oracle ADF Development Essentials - Part 7 – Continuous Integration with Hudson</a>
-    <ul>
-      <li>Learn how to use Hudson in tandem with the Oracle Application Development Framework (with screenshots).</li>
-    </ul>
-  </li>
-  <li><a href="http://stackoverflow.com/questions/723322/what-is-the-best-version-control-for-visual-studio-2008-sp1/723326#723326">What is the best Version Control for Visual Studio 2008 SP1?</a>
-    <ul>
-      <li>Asked on Stack Overflow, guess what the chosen answer was?</li>
-    </ul>
-  </li>
-  <li><a href="http://technology.amis.nl/blog/7408/automatic-testing-oracle-service-bus-using-hudson-maven-and-soapui">Automatic testing Oracle Service Bus using Hudson, maven and SoapUI</a></li>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/24/hudson-at-pycon/'>
-Hudson at PyCon
-</a>
-</h1>
-<div class='content'>
-<p>This past week <a id="aptureLink_z1tlMXupZM" href="http://twitter.com/pycon">PyCon</a> has been going on in Atlanta, where <a id="aptureLink_WLsRDsy9yw" href="http://twitter.com/ctitusbrown">Titus Brown</a> gave a talk titled:</p>
-
-<blockquote>
-  <p>Why not run all your tests all the time? A study of continuous integration systems</p>
-</blockquote>
-
-<center><img src="http://agentdero.cachefly.net/continuousblog/just_use_hudson.png" alt="Just use Hudson" width="500" /></center>
-
-<p>Titus has some notable quotes "just use Hudson" but overall a good introduction of CI and a breakdown of some of the challenges behind continuous integration. He also does a good job going over getting started with Hudson, setting up a basic Python project that incorporates JUnit XML reporting and slaves.</p>
-
-<blockquote>
-  <p>"Yeah, we used Buildbot until recently, then I switched us to Hudson and my life got a lot better"</p>
-</blockquote>
-
-<p>If you're using Python with Hudson, I highly recommend watching the talk (embedded below).</p>
-
-<center><embed src="http://blip.tv/play/g4VigciTVwI%2Em4v" type="application/x-shockwave-flash" width="480" height="350" allowscriptaccess="always" allowfullscreen="true" /></center>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/42.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/42.html" class="page-link">42</a> <span class="current-page">43</span> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/44.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/42.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/42.html" class="page-link">42</a> <span class="current-page">43</span> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/44.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

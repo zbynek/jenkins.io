@@ -177,6 +177,51 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/02/25/sonatype-freeing-projects-from-java-nets-maven-repo/'>
+Sonatype freeing projects from java.net's Maven repo
+</a>
+</h1>
+<div class='content'>
+<p>Are you working on a project which uses java.net's <a id="aptureLink_L4MIM7mY1F" href="http://en.wikipedia.org/wiki/Apache%20Maven">Maven</a> repository for deploying its artifacts?</p>
+
+<p>Well, if so, there's a great opportunity opening up for you to get off that problematic repository: <a id="aptureLink_9b4lZR3Gq1" href="http://www.sonatype.com/">Sonatype</a> is <a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">helping java.net projects move to Sonatype's hosted OSS Nexus repository</a>, starting March 5th. We're looking into moving Hudson over but for most smaller projects, this should be a no-brainer. Problems with the java.net Maven repository are legendary and Sonatype's OSS Nexus repository is a great alternative.</p>
+
+<p>Take a look and see if this can work for you.</p>
+
+<hr />
+<p><strong>Editor's Note:</strong> Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/24/hudson-at-pycon/'>
+Hudson at PyCon
+</a>
+</h1>
+<div class='content'>
+<p>This past week <a id="aptureLink_z1tlMXupZM" href="http://twitter.com/pycon">PyCon</a> has been going on in Atlanta, where <a id="aptureLink_WLsRDsy9yw" href="http://twitter.com/ctitusbrown">Titus Brown</a> gave a talk titled:</p>
+
+<blockquote>
+  <p>Why not run all your tests all the time? A study of continuous integration systems</p>
+</blockquote>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/just_use_hudson.png" alt="Just use Hudson" width="500" /></center>
+
+<p>Titus has some notable quotes "just use Hudson" but overall a good introduction of CI and a breakdown of some of the challenges behind continuous integration. He also does a good job going over getting started with Hudson, setting up a basic Python project that incorporates JUnit XML reporting and slaves.</p>
+
+<blockquote>
+  <p>"Yeah, we used Buildbot until recently, then I switched us to Hudson and my life got a lot better"</p>
+</blockquote>
+
+<p>If you're using Python with Hudson, I highly recommend watching the talk (embedded below).</p>
+
+<center><embed src="http://blip.tv/play/g4VigciTVwI%2Em4v" type="application/x-shockwave-flash" width="480" height="350" allowscriptaccess="always" allowfullscreen="true" /></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/02/23/would-you-run-hudson-in-the-cloud/'>
 Would you run Hudson in the cloud?
 </a>
@@ -632,101 +677,7 @@ Performance improvements in 1.346
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/15/hudson-1-346-released/'>
-Hudson 1.346 Released
-</a>
-</h1>
-<div class='content'>
-<p>After some scrambling earlier in the week to get <a href="http://blog.hudson-ci.org/content/breaking-hudson-1345-released">1.345 out the door</a>, correcting some regressions in 1.344, the Hudson team still rolled out a 1.346 release last Friday, February 12th, 2010. Similar to the past couple releases, 1.346 had a good number of bug fixes, including a a performance fix when dealing with larger build submissions and a substantial revision of the SCM polling code to fix a long-standing issue with the quiet period blocking the build from running (<a href="http://issues.hudson-ci.org/browse/HUDSON-2180">issue 2180</a>), there were also some additionally memory improvements made to <a id="aptureLink_sglHnjrHm5" href="http://en.wikipedia.org/wiki/Apache%20Jelly">Jelly</a>, the library with which the majority of Hudson's web interface is rendered, that Kohsuke will detail in a later post.</p>
-
-<p>Here's the breakdown:</p>
-
-<h4 id="bugs-fixed">Bugs fixed</h4>
-<p>&lt;ul class=image&gt;
-  &lt;li class=bug&gt;
-    Maven modules should not be buildable when the parent project is disabled.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1375">issue 1375</a>)
-  &lt;li class=bug&gt;</p>
-
-<pre><code>Fixed the broken quiet period implementation when polling interval is shorter than
-the quiet period.  (Changes in SCM impls are needed for this to take effect.) 
-(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-2180"&gt;issue 2180&lt;/a&gt;)
-</code></pre>
-<p>&lt;li class=bug&gt;
-    Escape username in URLs in case it contains special characters such as "#".
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2610">issue 2610</a>)
-  &lt;li class=bug&gt;
-    Fix sidepanel link for People to be visible and show view-specific info when appropriate.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5443">issue 5443</a>)
-  &lt;li class=bug&gt;
-    Improved HTML rendering, not using closing tags that do not exist in HTML.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5458">issue 5458</a>)
-  &lt;li class=bug&gt;</p>
-
-<pre><code>Show better error message for missing view type selection when creating a view.
-(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-5469"&gt;issue 5469&lt;/a&gt;)
-</code></pre>
-<p>&lt;li class=bug&gt;
-    Hudson wasn't properly streaming a large external build submission,
-    which can result in OOME and unresponsiveness.
-&lt;/ul&gt;</p>
-
-<p><br clear="all" />
-#### Enhancements</p>
-<ul>
-  &lt;li class=rfe&gt;
-    Use fixed-width font in text area for shell/batch build steps.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5471">issue 5471</a>)
-  &lt;li class=rfe&gt;
-    Use user selected icon size on People page.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5447">issue 5447</a>)
-  &lt;li class=rfe&gt;
-    Speed/footprint improvement in the HTML rendering.
-</ul>
-
-<p><br clear="all" />
-#### Contributors 
-This release of Hudson contained 37 commits from 3 different contributors to "core":</p>
-
-<ul>
-  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
-  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
-  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
-</ul>
-
-<p><br clear="all" />
-As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-<p><strong>Updated:</strong> Added the "official" changelog notes
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/14/thanks-for-the-help/'>
-Thanks for the help!
-</a>
-</h1>
-<div class='content'>
-<p>A great community of developers and users is one of the many things that make Hudson a great tool and a fun project to work with, after launching Continuous Blog as an extensions of that community earlier this week there are some thanks in order to those that helped spread the word about CB and in turn, Hudson. Thanks to:</p>
-
-<ul>
-  <li>Everybody on Twitter who retweeted the <a href="http://twitter.com/hudsonci/status/8796480478">Continuous Blog launch announcement</a></li>
-  <li><a href="http://www.juliansimpson.org/">Julian Simpson</a>, also known as <a href="http://www.build-doctor.com/">The Build Doctor</a> for helping <a href="http://www.build-doctor.com/2010/02/08/the-official-hudson-weblog/">spread the word</a></li>
-  <li><a href="http://twitter.com/kevin_farnham">Kevin Farnham</a> for featuring the launch of Continuous Blog on the <a href="http://java.net">Java.net</a> home page!</li>
-</ul>
-
-<p><img src="/sites/default/files/javanetdouble.png" alt="Continuous Blog feature" /></p>
-
-<p>Of course, none of this would be possible without <a id="aptureLink_4cUre2louM" href="http://twitter.com/kohsukekawa">Kohsuke</a> and a large collection of contributors that have made Hudson what it is today.</p>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/43.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <span class="current-page">44</span> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/45.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/43.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <span class="current-page">44</span> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/45.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

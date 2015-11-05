@@ -177,6 +177,64 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/04/24/juc-agenda-posted/'>
+JUC agenda posted
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Kevin_Allen_(author)"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/The_Hidden_Agenda_3D.png/181px-The_Hidden_Agenda_3D.png"/><br/>
+</a><br/>
+</div><br/>
+<p><br/>
+Agenda is posted for Jenkins User Conference <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">Boston</a> and <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">Berlin</a>.<br/>
+<br/>
+<p><br/>
+For Boston, my favorite would be the <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#JesseGlick">workflow in Jenkins</a> talk that will cover the new workflow job type Jesse and I are working on. As of this writing it is still very much a work in progress, but that talk is our way of putting a stake on the ground that we WILL have something we can talk about by then. There's also some talks that describes how they've put together pieces (including Jenkins) to create a broad automation, such as <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#HoiTsang">Distributed Scrum Development with Jenkins, Vagrant, Fabric and Selenium</a> and <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/sessions#JimCrossley">Moving Existing Enterprise Systems to Continuous Integration and Deployment with Jenkins</a>.<br/>
+<br/>
+<p><br/>
+For Berlin, it turns out that we have steller line up of the speakers far beyond my expectation. You have a number of key community contributors/developers like <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/speakers#ChristopherOrr">Christopher Orr</a> talking about <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/sessions#ChristopherOrr">how he does mobile build/test/deploy</a>, or <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/speakers#VincentLatombe">Vincent</a> talking about <a href="https://wiki.jenkins-ci.org/display/JENKINS/Literate+Plugin">literate plugin</a>. I'm also looking forward to the <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin/sessions#JulienPivotto">Puppetizing Jenkins Pipelines</a> from Julien Pivotto, which (if I understand correctly) is about deploying Jenkins and its jobs through Puppet &mdash; That is something I notice many people are very interested in nowadays.<br/>
+<br/>
+<p><br/>
+All of them are looking forward to meeting you and hearing your thoughts and feedbacks, and I'm sure this is going to be a great learning/networking oppotunities.<br/>
+<br/>
+<p><br/>
+<a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-18-2014-tickets-10558652213">Registration for Boston is here</a>, and <a href="http://www.eventbrite.com/e/jenkins-user-conference-berlin-germany-june-25-2014-tickets-10557974185">registration for Berlin is here</a>. Seats are starting to fill up now, so don't procrastinate too much!
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/04/18/come-join-the-infra-team/'>
+Come join the infra team!
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://puppetlabs.com/"><img src="http://puppetlabs.com/wp-content/uploads/2010/12/PL_logo_vertical_RGB_lg.jpg" width="100px"></a></div><br/>
+<p><br/>
+We are looking for volunteers to join the small infra team here at the Jenkins project. We are the butlers of the butler that get Mr.Jenkins going.<br/>
+<br/>
+<p><br/>
+We've been <a href="https://github.com/jenkinsci/infra-puppet">managing our servers through puppet</a>, and have been slowly folding pieces one at a time to puppet, but there's still a lot of snowflake services that need proper operationalization.<br/>
+<br/>
+<p><br/>
+So to fix them up, <a href="http://puppetlabs.com/">PuppetLabs</a> folks generously agreed to help us get going with a deployment of Puppet Enterprise. Tyler has managed to arrange a "rapid deployment" engagement. To kick start the effort, an instructor would come for one week (April 28th-May 2nd) to bring us up to speed on modern Puppet. we'll then spend some time on our own to puppt-ize more, and deploy Puppet Enterprise.<br/>
+<br/>
+<p><br/>
+The end goal is to ensure sustainability of our infrastructure, in case of unexpected server loss.<br/>
+<br/>
+<p><br/>
+As we are about to get this effort going, we think this is a good time to solicit a few more volunteers. We are looking for someone who could join this two week engagement in San Francisco, and keep their involvement beyond that. This is a part time volunteer work, and you'd get some visibility and exposure to the inner guts of open-source projects, not to mention the satisfaction of getting thanked for your work.<br/>
+<br/>
+<p><br/>
+If you are interested, please <a href="http://jenkins-ci.org/content/mailing-lists">drop us a note at the infra list</a>.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/04/16/active-directory-plugin-improvements/'>
 Active Directory plugin improvements
 </a>
@@ -356,91 +414,7 @@ Unfortunately, none of these are available for those who are on 1.532.x LTS, but
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/01/your-java-web-start-slaves-will-be-always-clean/'>
-Your Java Web Start slaves will be always clean
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Mr._Clean"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/en/thumb/7/73/Mr._Clean_logo.png/200px-Mr._Clean_logo.png"><br/>
-</a></div><br/>
-<br/>
-<p><br/>
-If you have slaves that connect through <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-LaunchslaveagentviaJavaWebStart">Java Web Start</a> (such as <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">slaves installed as Windows services</a>), we have a good news for you.<br/>
-<br/>
-<p><br/>
-In case of a connection loss, this type of slaves has been designed to automatically attempt to reconnect to the master. This makes sense because you want these slaves to remain online all the time, even if your janitor trips over the ethernet cable. Unfortunately, it also means that over the time, these slaves accumulate gunk, such as mutated static states, any left-over threads or memory leaks, or <a href="https://issues.jenkins-ci.org/browse/JENKINS-20913">native libraries that are loaded into JVM</a>.<br/>
-<br/>
-<p><br/>
-To prevent that, a better approach is to <a href="https://issues.jenkins-ci.org/browse/JENKINS-19055">restart the slave JVM (JENKINS-19055)</a> and have the new JVM reconnect, instead of having the same JVM reconnect. That would ensure that the slave always stays clean. I've planned to make this change for a while now, and I'm happy to report that this change is finally landing to the upcoming 1.559.<br/>
-<br/>
-<p><br/>
-Restarting JVM is easy on Unix, where I could just <a href="http://man7.org/linux/man-pages/man3/exec.3.html">exec(3)</a> to itself. We've been doing this for ages on masters, for example when you update a plugin and tell Jenkins to restart.<br/>
-<br/>
-<p><br/>
-The hard part is to do this for Windows, where the most of the time was spent. I had to improve <a href="https://github.com/kohsuke/winsw">windows service wrapper</a> to support self-restarting services, which turned out to be trickier because Windows service control manager doesn't provide "restart" as an atomic operation. It also kills not just the service process itself but all the processes in the group. So I had to double-fork the service wrapper into a separate process group just to restart a service from within itself.<br/>
-<br/>
-<p><br/>
-In any case, the end result is that if <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">you have installed a service through GUI</a>, be it on Windows, Unix, or OS X, slaves will restart themselves every time it gets disconnected from the master.<br/>
-<br/>
-<p><br/>
-I've also taken the opportunity to make <tt>jenkins-slave.exe</tt> on the slave self-updating. Every time it connects to the master, it gets the latest version from the master.<br/>
-<br/>
-<p><br/>
-If you have installed Web Start slaves as services, make sure to update the local copy of <tt>slave.jar</tt> on these slaves to 2.37 or later. This "restart on reconnect" feature only kicks in when you are running this very recent version of <tt>slave.jar</tt>. And yes, we realize it'd be nice for <tt>slave.jar</tt> to update itself, which is tracked as <a href="https://issues.jenkins-ci.org/browse/JENKINS-22454">JENKINS-22454</a>. But that's a work for another day.<br/>
-<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/03/21/call-for-sponsors-2014-jenkins-user-conferences/'>
-Call for Sponsors: 2014 Jenkins User Conferences
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em">
-
-<img src="https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png?version=1&amp;modificationDate=1302753947000" />
-
-</div>
-
-<p>Jenkins User Conference (JUC) season is upon us! It’s a busy year for the Butler – he’s hosting conferences all over and looking for sponsors to help:</p>
-<ul>
-<li> <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Boston – June 18</a> </li>
-<li> Berlin – June 25</li>
-<li> Herzelia, Israel – July 16 </li>
-<li> Bay Area (California) – October (date TBD) </li>
-</ul>
-
-<p><b>Mr. Jenkins and the JUC Organizing Committee want to invite you and your company to sponsor a JUC this year.</b> Show your support for the Jenkins community and help keep costs low for attendees*. The funds go to are put to good use: conferences are two full tracks. Lunch, light breakfast, coffee and a coveted Jenkins t-shirt are also included.</p>
-
-<p>Sponsors get all sorts of thanks from the Jenkins community:</p>
-<ul>
-<li> Your logo on the conference t-shirt and all other conference communication (emails, website, signage, etc.)
-<li> A blog featuring sponsors
-<li> Free passes
-<li> Silver and Gold sponsors get a table to talk to folks and hand out swag
-<li> Gold sponsors get either a speaking slot, happy hour sponsorship or a dedicated room for demos
-<li> And more, but most especially, you get to support JenkinsCI.
-
-
-Just <a href="http://www.cloudbees.com/jenkins/juc-2014/sponsorships"> let us know if you’re interested</a> to get the details. We’d love to have you join us.
-
-Friendly reminder: We are looking for speakers for all four cities. Call for Papers ends March 30 for Boston, Berlin and Israel. <a href="http://www.cloudbees.com/jenkins/juc-2014">Submit your abstract now</a> and come share your expertise with the Jenkins community.
-
-We hope to see you at a JUC this year!
-
-<i> Lisa, Alyssa and the JUC Organizing Committee </i>
-
-*PS - <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Registration just opened for Boston </a> and early-bird tickets are only $59.
-</li></li></li></li></li></li></ul>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/14.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/14.html" class="page-link">14</a> <span class="current-page">15</span> <a href="/node/page/16.html" class="page-link">16</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/16.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/14.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/14.html" class="page-link">14</a> <span class="current-page">15</span> <a href="/node/page/16.html" class="page-link">16</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/16.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

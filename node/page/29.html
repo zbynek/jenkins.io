@@ -177,6 +177,107 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/06/09/a-big-thanks-to-rackspace/'>
+A big thanks to Rackspace
+</a>
+</h1>
+<div class='content'>
+<p>This post is long over-due and I really apologize for that.</p>
+
+<p>Some months ago we put out the call for "more slave machines!" through the
+mailing lists, sky-writers and twitter. We had a serious problem, for a
+continuous integration project, a <strong>large</strong> number of our plugins and
+dependencies weren't being built in a continuous and automated fashion!</p>
+
+<p>We had some builds on a couple of flakey machines on home connections
+contributed by various individuals, until Rackspace stepped up in a <strong>big</strong>
+way and donated an infrastructure server for the project to use.</p>
+
+<center><a href="http://rackspace.com/?jenkins" target="_blank"><img src="http://agentdero.cachefly.net/continuousblog/rackspace.jpg" width="200" border="0" /></a></center>
+
+<p>For months now, just about all plugins and core have been built and tested on <code>spinach</code>,
+the always-on machine in the Rackspace Cloud. Dutifully chugging away building
+core, plugin after plugin and occasionally getting flooded with work from <a href="http://twitter.com/fcamblor">Frederic
+Camblor's</a> plugin compatibility tester!</p>
+
+<p>In hindsight, having a powerful infrastructure machine for nothing other than
+builds has helped us build great software faster; I can't imagine how difficult
+things might be otherwise.</p>
+
+<p>I've personally had a lot of interaction with Rackspace engineers through the <a href="http://www.openstack.org/">OpenStack
+project</a> and have a number of friends who operate businesses on
+Rackspace/Rackspace Cloud hybrid infrastructures.</p>
+
+<p>The folks at Rackspace are
+top notch and I can't thank them enough for contributing to the Jenkins
+project.</p>
+
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/06/08/release-candidate/'>
+Release Candidate
+</a>
+</h1>
+<div class='content'>
+<p>
+Release candidate is the build intended for the upcoming release of Jenkins in a week. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Release+Process">See Wiki for more about what it means.</a>
+</p>
+
+
+  <style>
+    #download DT {
+      font-size: 2em;
+      font-weight: bold;
+      padding-bottom: 0.5em;
+    }
+  </style>
+  
+  <dl id=download> 
+    <dt>Download multi-platform war file</dt> 
+    <dd style="margin-bottom:1em"> 
+      <div>
+        <a href="http://mirrors.jenkins-ci.org/war-rc/latest/jenkins.war"><strong>jenkins.war</strong></a>
+      </div> 
+      <!-- TODO: changelog
+      <div class="release-block-small" style="text-align:right"> 
+       <a href="/changelog" class=release-block-soft>changelog</a> | <a href="http://mirrors.jenkins-ci.org/war/" class=release-block-soft>past releases</a> 
+      </div> 
+      -->
+    </dd> 
+    
+    <dt>Or native package</dt> 
+    <dd class="release-block-platforms"> 
+      <div> 
+        <img src="/images/os/win_other.png"> 
+        <a class="release-block-soft" href="http://mirrors.jenkins-ci.org/windows-rc/latest">Windows</a> 
+      </div> 
+      <div> 
+        <img src="/images/os/ubuntu.png"> 
+        <a class="release-block-soft" href="http://pkg.jenkins-ci.org/debian-rc/">Ubuntu/Debian</a> 
+      </div> 
+      <div> 
+        <img src="/images/os/redhat.png"> 
+        <a class=release-block-soft href="http://pkg.jenkins-ci.org/redhat-rc/">Red Hat/Fedora/CentOS</a> 
+      </div>
+      <div> 
+        <img src="/images/os/os_macosx.png"> 
+        <a class=release-block-soft href="http://mirrors.jenkins-ci.org/osx-rc/latest">Mac OS X</a> 
+      </div>
+      <div> 
+        <img src="/images/os/opensuse.png"> 
+        <a class=release-block-soft href="http://pkg.jenkins-ci.org/opensuse-rc/">openSUSE</a> 
+      </div> 
+    </dd> 
+  </dl> 
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/06/08/lts-release-candidate/'>
 LTS Release Candidate
 </a>
@@ -340,69 +441,7 @@ The State of the Jenkins Project
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
-Ruby Plugins Hack Session 5/12/2011
-</a>
-</h1>
-<div class='content'>
-<p>[<strong>Editor's Note:</strong> <em>For the past few weeks Jenkins community member <a href="http://twitter.com/cowboyd">Charles Lowell</a> has been working with <a href="http://twitter.com/kohsukekawa">Kohsuke</a> on adding support for building plugins in Ruby. As part of this effort, <a href="http://twitter.com/cowboyd">Charles</a> has been hosting weekly hack sessions via WebEx</em>]</p>
-
-<p>As always, last night's Ruby Plugins hack session was a pleasure. Below is a quick notation of what items were discussed and/or accomplished followed by next steps to be taken my those in attendance.</p>
-
-<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
-
-<ul>
-  <li>Ruby Plugin project structure and how to bundle into an .hpi file.</li>
-  <li>Review of the new XSTREAM serialization method</li>
-  <li>API for marking fields as transient</li>
-  <li>What mods, if any, are required to get .hpl to work with Ruby plugin</li>
-</ul>
-
-<h2 id="next-steps">Next Steps</h2>
-
-<h3 id="charles">Charles</h3>
-
-<ul>
-  <li>to research what can be shared between JRuby <code>ScriptingContainer</code>s</li>
-  <li>API for unmarshaling hooks on serialized ruby objects</li>
-  <li>Change the name of the repo :)</li>
-  <li>Document… something!</li>
-</ul>
-
-<h3 id="kohsuke">Kohsuke</h3>
-<ul>
-  <li>test more view functions</li>
-  <li>add debug mode outside of hpi:run
-<!--break--></li>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/05/04/hamburg-hackathon-a-great-success/'>
-Hamburg hackathon a great success!
-</a>
-</h1>
-<div class='content'>
-<img style="float:right; margin:1em" src="http://farm6.static.flickr.com/5303/5686094521_c891761b7b_m.jpg"/><br/>
-<p><br/>
-Thanks to the kindness of <a href="http://www.bigpoint.net/">BigPoint GmbH</a> and Kutzi, we had the first Jenkins Hackathon in Europe, in a very large and airly conference room in their Hamburg campus, on a nice sunny Sunday of May 1st. About 10 people came, including the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins">static code analysis plugin</a> fame Ullrich Hafner, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Android+Emulator+Plugin">Androd emulator plugin</a> fame <a href="http://twitter.com/orrc">Christopher Orr</a>, the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Instant+Messaging+Plugin">instant messenger plugin</a> (and others) fame <a href="http://twitter.com/#!/kutzi">Christoph Kutzinski</a>. Some of us came from pretty far away places like Munich, Bonn, and Netherland. There was a good mix of existing developers and new developers, too.<br/>
-<br/>
-<p><br/>
-During the hackathon, new folks developed whopping three plugins &mdash; a security realm that connects to <a href="https://github.com/jenkinsci/kerberos-authenticator-plugin">Kerberos (password entering kind, not SSO)</a>, <a href="https://github.com/jenkinsci/builton-column-plugin">a plugin that adds a list view column to show where the last build was done</a>, and <a href="https://github.com/jenkinsci/extra-columns-plugin/">another plugin that attempts to collect small list view column implmentations</a>. German translations were improved, automated installation of Android SDKs are discussed and its implementation strategies explained. I've done my share of contribution by working on <a href="https://github.com/jenkinsci/jruby-xstream">XStream support for JRuby</a>, which is one of the ground work necessary for JRuby-based Jenkins plugin development, and I also showed the prototype Groovy-based templating that can potentially supercede Jelly. There were additional exchange of tips and tricks, how you do this and that.<br/>
-<br/>
-<p><br/>
-Strong coffee and engaged conversations kept me awake all day, although German keyboard layout (on top of usual IDE difference + Mac/PC difference) made it hard to code on other people's computers, but all in all it was a very productive hackathon. In fact, the best ever. We wrapped up around 7pm and headed to a seafood restaurant near Elbe river, stayed there until 11pm-ish.<br/>
-<br/>
-<p><br/>
-The next hackathon is planned in Paris toward the end of the month. I'm looking forward to another productive Hackathon, so if you are nearby, please <a href="http://www.meetup.com/jenkinsmeetup/events/17178842/">RSVP and join us</a>.<br/>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/28.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/28.html" class="page-link">28</a> <span class="current-page">29</span> <a href="/node/page/30.html" class="page-link">30</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/30.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/28.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/28.html" class="page-link">28</a> <span class="current-page">29</span> <a href="/node/page/30.html" class="page-link">30</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/30.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

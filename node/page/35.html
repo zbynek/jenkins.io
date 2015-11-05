@@ -177,6 +177,55 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/08/30/pre-javaone-hudson-meetup/'>
+Pre-JavaOne Hudson Meetup
+</a>
+</h1>
+<div class='content'>
+<p>As we near autumn up here in the Northern Hemisphere, the wind is starting to blow a bit chillier and here in the Bay Area that can only mean one thing: <strike>Oracle is suing everybody!</strike> it's time for JavaOne!</p>
+
+<p>A whole lot has changed since last year, Sun Microsystems was acquired by Oracle, <a href="http://kohsuke.org/">Kohsuke</a> left Snoracle to found <a href="http://www.infradna.com">InfraDNA</a> and Hudson has continued to <a href="http://www.hudson-labs.org/content/cloudbees-announce-hudson-service">power on</a> as the single <strong>best</strong> continuous integration server on the planet.</p>
+
+<p>While the tickets for Oracle OpenWorld/JavaOne are just as outrageously expensive as they were last year, we <strong>are</strong> hosting a meetup/hackathon/continuous-drinking-contest at <a href="http://about.digg.com/opensource">Digg</a> the Sunday prior. We have not yet set any kind of agenda, but some core Hudson hackers and plenty of plugin developers should be in town so it should be a great time hacking on and/or with Hudson.</p>
+
+<p><big><a href="http://www.meetup.com/hudsonmeetup/calendar/14515128/">RSVP Here!</a></big>
+<!--break-->
+* <strong>When:</strong> September 19th, 1:00 p.m.
+* <strong>Location:</strong> Digg's Office: 1040 Mariposa St - Suite 100, San Francisco, CA 94107</p>
+
+<center>
+<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small></center>
+
+<hr />
+
+<p><em>Note:</em> Unlike last year, we're trying to organize this with <a href="http://meetup.com">Meetup.com</a>, if you experience any difficulties RSVPing let us know</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/29/hudson-user-meet-up-in-copenhagen-oslo/'>
+Hudson User Meet-up in Copenhagen/Oslo
+</a>
+</h1>
+<div class='content'>
+<p>I'll be in Copenhagen from 9/5-9/7 and in Oslo 9/8-9/9 to present in JavaZone. I'd like to take advantage of the opportunities and have user meet-up events in those cities. Depending on the number of participants, it could be just a drink in a bar, or a talk in a meeting room.</p>
+
+<p>So if you are:</p>
+<ol>
+	<li>in those cities,</li>
+	<li>available in the evening of 9/6, 9/8, or 9/9, and</li>
+	<li>willing to attend such an event,</li>
+</ol>
+<p>... then please <a href="mailto:kohsuke@infradna.com">let me know.</a></p>
+<p>Also, if you have an office in those cities and willing to provide a space for an event, that would be extra appreciated!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/08/26/cloudbees-announce-hudson-as-a-service/'>
 CloudBees announce Hudson-as-a-Service
 </a>
@@ -311,46 +360,7 @@ Quiet Period Feature
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/10/big-security-fix-hudson-1-371-released/'>
-Big Security Fix! Hudson 1.371 Released
-</a>
-</h1>
-<div class='content'>
-<p>Hot on the heels of Hudson 1.370, which was released last Friday, the Hudson team released 1.371 which addresses a <strong>critical vulnerability</strong> in <strong>all</strong> Hudson versions prior to 1.371. The vulnerability was disclosed by <a href="http://infradna.com">InfraDNA</a> in the <a href="http://infradna.com/content/security-advisory-2010-08-09">following security advisory</a>, which details the issue:</p>
-
-<blockquote>
-  <p>This critical vulnerability allows an attacker to use CLI commands that they are otherwise unauthorized for. CLI commands can perform various administrative operations.</p>
-</blockquote>
-
-<p>It is advised that <strong>all</strong> Hudson instances be upgraded immediately to avoid data loss or other ill effects from this issue. If you're upgrading from a version earlier than 1.370, you can consult the <a href="/changelog">changelog</a> for details on the other bug fixes and enhancements covered by the upgrade of your version to 1.371.</p>
-
-<p>If you run a Hudson instance, it is recommended that Hudson system admins subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a>
-<!--break-->
-—-</p>
-
-<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.371/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/02/dogfooding-hudson-were-looking-for-slaves/'>
-Dogfooding Hudson - We're Looking for Slaves!
-</a>
-</h1>
-<div class='content'>
-As you may have noticed, thanks to the link on this and the other pages here at <a href="http://hudson-labs.org">hudson-labs.org</a>, the Hudson development community has recently introduced <a href="http://ci.hudson-labs.org">ci.hudson-labs.org</a>, the official Hudson-on-Hudson instance. We're currently building <a href="http://ci.hudson-labs.org/job/hudson_main_trunk/">Hudson proper</a>, the <a href="http://ci.hudson-labs.org/job/hudson_rc_branch/">Hudson core RC branch</a>, individual builds for <a href="http://ci.hudson-labs.org/view/Plugins/">the various Hudson plugins</a> and <a href="http://ci.hudson-labs.org/job/gerrit_master/">Gerrit</a>, as well as various <a href="http://ci.hudson-labs.org/view/Libraries/">libraries</a> and <a href="http://ci.hudson-labs.org/view/Infrastructure/">infrastructure jobs</a> Hudson depends on.<br/>
-<br/>
-We're currently running all those builds on a dedicated Linux slave, generously provided to the Hudson project by <a href="http://digg.com">Digg</a>, my employer. This has been great - except for the day when I'd just added all the individual plugin jobs for the first time, we haven't had real problems with capacity. But we are limited in the environments we can run our tests on as a result of only having a Linux slave. We're currently playing with a temporary Windows slave, but we'd really like to have at least one more permanent Windows slave, and a Mac slave as well, so that we can run Hudson's core integration tests on those platforms as well. Since this is Hudson we're talking about, we don't need the slave to be in any given physical location - we just need it to be running the slave process and talking to our server. If you're interested in helping us out with this, please contact me at andrew dot bayer at gmail dot com. Thanks!<br/>
-<br/>
-<hr/><br/>
-(Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/34.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/34.html" class="page-link">34</a> <span class="current-page">35</span> <a href="/node/page/36.html" class="page-link">36</a> <span class="skip">...</span><a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/36.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/34.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/34.html" class="page-link">34</a> <span class="current-page">35</span> <a href="/node/page/36.html" class="page-link">36</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/36.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
