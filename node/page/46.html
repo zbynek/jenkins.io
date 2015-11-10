@@ -177,6 +177,74 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/02/08/breaking-hudson-1-345-released/'>
+Breaking! Hudson 1.345 Released!
+</a>
+</h1>
+<div class='content'>
+<p>As I mentioned in the footer of the post on the <a href="http://blog.hudson-ci.org/content/hudson-1344-released">Hudson 1.344 release</a>, there were a couple big regressions in the 1.344 release that were causing a number of users issues (such as <a href="http://issues.hudson-ci.org/browse/HUDSON-5536">issue 5536</a> and <a href="http://issues.hudson-ci.org/browse/HUDSON-5546">issue 5546</a>).</p>
+
+<p>As a result, Kohsuke and the team have quickly pushed out a hot-fix release: 1.345. Here's the break down:</p>
+
+<h4 id="bugs-fixed">Bugs fixed:</h4>
+<p>&lt;ul class=image&gt;</p>
+<li class="major bug">
+    Update center retrieval, "build now" link, and real-time console update was broken in 1.344.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5536">issue 5536</a>)
+  &lt;li class=bug&gt;
+    Fixed the backward incompatibility introduced in HUDSON-5391 fix in 1.344.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5391">issue 5391</a>)
+
+
+
+
+If you have already updated to 1.344, your "Update Center" is most likely busted and you'll need to download the `hudson.war` file manually.
+
+
+You can go grab the [latest .war file](http://hudson-ci.org/latest/hudson.war) straight from `hudson-ci.org` or if you're using a native package, use your package manager to upgrade.
+</li>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/02/08/incoming-more-translations/'>
+Incoming! More Translations
+</a>
+</h1>
+<div class='content'>
+<p>As <a id="aptureLink_TBrShtrCPq" href="http://twitter.com/kohsukekawa">Kohsuke</a> mentioned on the dev@ <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">mailing list</a> on January 29th, another series of community translations of Hudson have been committed (<a href="http://hudson-ci.org/commit/26764">r26764</a>) and have been released with the Hudson 1.344 release.</p>
+
+<p>The locales included in this update are:</p>
+
+<ul>
+  <li>Czech</li>
+  <li>Spanish</li>
+  <li>Finnish</li>
+  <li>French</li>
+  <li>Hungarian</li>
+  <li>Japanese</li>
+  <li>Korean</li>
+  <li>Lithuanian</li>
+  <li>Norwegian</li>
+  <li>Dutch</li>
+  <li>Polish</li>
+  <li>Brazilian Portuguese</li>
+  <li>Russian</li>
+  <li>Slovenian</li>
+  <li>Swedish</li>
+  <li>Chinese (Simplified/Traditional)</li>
+</ul>
+
+<p>If you're fluent in any of the locales above, check out the latest release of Hudson to verify that the translations are correct, if there's translations that you feel are incorrect, you can report them in <a href="http://issues.hudson-ci.org">JIRA</a>.</p>
+
+<p>The Hudson <a href="http://wiki.hudson-ci.org/display/HUDSON/Internationalization">Internationalization</a> project could always use some more help whether it be from patches or via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Translation+Assistance+Plugin">Translation Assistance Plugin</a>.</p>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/02/08/hudson-1-344-released/'>
 Hudson 1.344 Released
 </a>

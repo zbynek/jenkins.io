@@ -177,6 +177,82 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2013/11/25/summary-report-git-repository-disruption-incident-of-nov-10th/'>
+Summary Report: Git Repository Disruption Incident of Nov 10th
+</a>
+</h1>
+<div class='content'>
+<p>As <a href="https://news.ycombinator.com/item?id=6713742">reported</a> in <a href="http://www.reddit.com/r/programming/comments/1qefox/jenkins_developers_accidentally_do_git_push_force/">various places</a>, there was an incident in early November where commits in our Git repositories have become misplaced temporarily by accident. By the mid next week we were able to resurrect all the commits and things are back to normal now.</p>
+
+<p>As there are many confusions and misunderstandings in people’s commentary, we wrote this post to clarify what exactly happened and what we are doing to prevent this.</p>
+
+<h2 id="timeline">Timeline</h2>
+<p>In the early morning of Nov 10th 2013, one of the 680 Jenkins developers had mistakenly launched <a href="http://code.google.com/p/gerrit/">Gerrit</a> with a partially misconfigured <a href="http://gerrit-documentation.googlecode.com/svn/Documentation/2.3/config-replication.html">Gerrit replication plugin</a>, while pointing Gerrit to his local directory that contains 186 Git repositories cloned from <a href="https://github.com/jenkinsci/">the Github Jenkins organization</a>. These repositories were checked out about 2 months ago and weren’t kept up to date. Gerrit replication plugin had then tried to “replicate” his local repositories back to GitHub, which it considers mirrors, by doing the equivalent of “<a href="https://www.kernel.org/pub/software/scm/git/docs/git-push.html">git push –force</a>” instead of regular push. Unfortunately, Gerrit replication plugin defaults to a forced push, which is the opposite of what Git normally does. The replication also happens automatically, which is why this mistake has impacted so many repositories in such a short time.</p>
+
+<p>As a result, these repositories have their branch heads rewinded to point to older commits, and in effect the newer commits were misplaced after the bad git-push.</p>
+
+<p>When we say commits were "misplaced", this is an interesting limbo state that's worth an explanation for people who don’t use Git. A Git commit is identified by its SHA1 hash, and these objects will never get overwritten. So the misplaced commits are actually very much on the server intact. What was gone was the pointer that associates a human-readable branch name (such as "rc") to the latest commit on the branch.</p>
+
+<p>By Nov 10th 12:54pm GMT, multiple developers had <a href="https://groups.google.com/d/msg/jenkinsci-dev/-myjRIPcVwU/qOAqXGaRioIJ">noticed this</a>, and within several hours, we <a href="https://groups.google.com/d/msg/jenkinsci-dev/-myjRIPcVwU/t4nkXONp8qgJ">figured out</a> what happened. From Gerrit log files and with the help of GitHub technical support, he was able to figure out all the affected repositories, and later <a href="https://github.com/jenkinsci/backend-git-pushf-finder">an independent script</a> was written to <a href="https://groups.google.com/d/msg/jenkinsci-dev/Lj_mPb7jMmo/qf_pdQVBHZUJ">verify the accuracy</a> of this list.</p>
+
+<p>Some of the Jenkins developers were closely following this development, and were able to restore branches to point to correct commits by simply pushing their up-to-date local workspaces back into the official repositories. Git makes it very easy to do this, and most of the popular plugins affected were restored in this manner within 24 hours.</p>
+
+<p>At the same time, we needed to systematically restore all the affected repositories, to make sure that we have not lost anything. For this, we contacted GitHub and asked for their help, and they were <a href="https://groups.google.com/d/msg/jenkinsci-dev/-myjRIPcVwU/6JVpAwau37AJ">able to mostly restore branch heads</a> to their correct positions. We have also independently developed a script to find out exactly what commits branch heads should be pointing to, based on the <a href="http://developer.github.com/v3/activity/events/">GitHub events API</a> that exposes the activities to Git repositories. This script <a href="https://groups.google.com/d/msg/jenkinsci-dev/Lj_mPb7jMmo/3N7AVQQed70J">found a dozen or so branches</a> that fell through the cracks of GitHub support, and we have <a href="https://groups.google.com/d/msg/jenkinsci-dev/Lj_mPb7jMmo/1f9Bs2TILEQJ">manually restored those</a>.</p>
+
+<h2 id="mitigation-in-the-future">Mitigation in the future</h2>
+<p>The level of support we got from GitHub and our ability to independently verify lost commits and subsequently restore them made us feel good about GitHub, and we have gained confidence in our ability to recover from future incidents.</p>
+
+<p>That said, what happened was a serious disruption, and it’s clear we’d better prepare ourselves both to reduce the chance of accidents like this and increase the ability to recover. To that end, we hope GitHub would expose a configuration option to disable forced ref updates. They <a href="https://enterprise.github.com/help/articles/disable-force-pushes">already do this</a> on GitHub Enterprise after all. Dariusz <a href="https://groups.google.com/d/msg/jenkinsci-dev/dD-sumd81pU/usnd7M77JvUJ">pointed out</a> that CollabNet takes this one step further and offers <a href="http://blogs.collab.net/git/protect-git-history">ability to track deleted branches, tags, and forced updates</a>. Something like that would have made the recovery a lot easier.</p>
+
+<p>We are going to make two improvements to our process so that we can recover from this kind of problems more easily in the future.</p>
+
+<p>Firstly, we’ll develop a script that continuously records the ref update events across the GitHub Jenkins organization. This will accurately track which branch/tag is created/updated/deleted by who. In case of an incident like this one, we can use this log to roll back the problematic push more systematically.</p>
+
+<p>Secondly, we’ll allow people to control access to individual Git repositories, as opposed to give them all or nothing access to the entire array of plugin repositories.</p>
+
+<p>The Jenkins developers decided to continue the current open commit policy despite the incident to preserve <a href="https://wiki.jenkins-ci.org/display/JENKINS/Governance+Document#GovernanceDocument-OurPhilosophy">our culture</a>, which helped us navigate through this incident without a single argument nor flame war.</p>
+
+<h2 id="faq">FAQ</h2>
+<p>### Does everyone in the organization have full commit privileges to all the repositories?
+Yes, with some exceptions. To encourage co-maintenance of plugins by different people, and to reduce the overhead of adding and removing people from our 1100+ repositories, we use one team that gives access to most repositories, and put committers in this team.</p>
+
+<h3 id="i-prevent-forced-push-in-my-git-repositories-im-safe-from-this-trouble-right">I prevent forced push in my Git repositories. I’m safe from this trouble, right?</h3>
+<p>No, unfortunately something like this <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=361707">can still happen to you</a>, as you can also accidentally delete branches. If you want to learn from our mistakes, you should definitely enable server-side <a href="https://www.kernel.org/pub/software/scm/git/docs/git-reflog.html">reflog</a>, to track ref updating activities. “git config core.logAllRefUpdates true” on the server will enable this.</p>
+
+<h3 id="cant-you-just-have-people-with-up-to-date-copy-push-their-repos-and-fix-it">Can’t you just have people with up-to-date copy push their repos and fix it?</h3>
+<p>This is indeed how some of the repositories got fixed right away, where some individuals are clearly in charge and are known to have the up-to-date local repositories. But this by itself was not sufficient for an incident of this magnitude. Some repositories are co-maintained by multiple people, and none of them are certain if he/she was the last one to push a change. Many plugin developers just scratch their own itch and do not closely monitor the Jenkins dev list. We needed to systematically ensure that all the commits are intact across all the branches in all the affected repositories.</p>
+
+<h3 id="cant-you-just-roll-back-the-problematic-change">Can’t you just roll back the problematic change?</h3>
+<p>Most mistakes in Git can be rolled back, but unfortunately ref update is the one operation in Git that’s not version controlled. As such Git has no general-purpose command to roll back arbitrary push operation. The closest equivalent is reflog, which offers the audit trail that Git offers for resolving those cases. But that requires direct access on the server, which is not available on GitHub. But yes, this problem would not have happened if we were hosting our own Git repositories, or using Subversion for example.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/11/20/juc-call-for-volunteers-to-join-the-organizing-committee-and-venues/'>
+JUC: Call for Volunteers to Join the Organizing Committee (and Venues!)
+</a>
+</h1>
+<div class='content'>
+<p>This is a guest post from Alyssa Tong, who drives JUC organizations around the world.</p>
+
+<hr />
+
+<p>If you missed JUC Palo Alto on Oct 23, 2013 the <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto-abstracts.cb">videos are now available</a>.</p>
+
+<p>We are off to planning JUC 2014. It is hard to believe this will be the 4th annual JUC in the Bay Area. The growth in the Jenkins community since the first JUC is astounding.</p>
+
+<p>Every year we are in search of a larger venue to accommodate the larger crowd. For 2014, the challenge of finding a venue for a capacity of 500+ attendees at a low cost will prove even more daunting. We would love to hear your suggestions for low cost venues (in the Bay Area) so that we may continue to keep entry cost low while providing convenience and the highest level of Jenkins education to attendees. Please send suggestion(s) to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#101;&#118;&#101;&#110;&#116;&#115;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#106;&#101;&#110;&#107;&#105;&#110;&#115;&#045;&#099;&#105;&#046;&#111;&#114;&#103;">&#101;&#118;&#101;&#110;&#116;&#115;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#106;&#101;&#110;&#107;&#105;&#110;&#115;&#045;&#099;&#105;&#046;&#111;&#114;&#103;</a></p>
+
+<p>We are proud to launch the call for volunteers to join the JUC organizing committee (OC). If you are interested in shaping the 4th edition of this great event, please send email to <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#101;&#118;&#101;&#110;&#116;&#115;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#106;&#101;&#110;&#107;&#105;&#110;&#115;&#045;&#099;&#105;&#046;&#111;&#114;&#103;">&#101;&#118;&#101;&#110;&#116;&#115;&#064;&#108;&#105;&#115;&#116;&#115;&#046;&#106;&#101;&#110;&#107;&#105;&#110;&#115;&#045;&#099;&#105;&#046;&#111;&#114;&#103;</a></p>
+
+<p>We encourage you to share this blog within your network in case other people
+would be interested in joining the JUC OC or have ideas for a great JUC 2014 location.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2013/11/17/dkim-and-spf-deployed/'>
 DKIM and SPF deployed
 </a>
@@ -581,58 +657,6 @@ mvn clean verify
 <p>(WARNING: shameless plug) You could also just fire up a Jenkins in the cloud using CloudBee's DEV@cloud service and follow <a href="http://developer-blog.cloudbees.com/2013/09/how-to-try-literate-builds-on-devcloud.html">these handy instructions</a> to enable access to the experimental plugins:</p>
 
 <p>The 10 best bug reports on literate builds before the Jenkins User Conference next month will receive a prise from CloudBees, Inc. I was able to get a commitment that the prise would be at least a T-shirt. I am hoping to get some more swag added to the prize pool. CloudBees employees or relatives of CloudBees employees are not eligible for the bug report prise!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/09/23/experimental-plugins-update-center/'>
-Experimental Plugins Update Center
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Oscilloscope"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Oscilloscope_num%C3%A9rique_9304.JPG/320px-Oscilloscope_num%C3%A9rique_9304.JPG"></a></div><br/>
-<br/>
-<p><br/>
-Lately there has been several cases where <a href="http://jenkins-ci.org/content/2-version-control-plugins-beta-testing-major-release">we wanted to deliver beta versions of the new plugins</a> to interested users.<br/>
-<br/>
-<p><br/>
-To simplify this, we have created a new "experimental" update center, where alpha and beta releases of plugins will be available. Users who are interested in downloading them can go to "Plugin Manager", then to the "advanced" tab, and type in <tt>http://updates.jenkins-ci.org/experimental/update-center.json</tt> in the update center URL field.<br/>
-<br/>
-<p><br/>
-When you are looking for the "available" tab, plugins that are experimental are marked accordingly to help you decide which ones to install. Once you install the beta plugins that you wanted, you can switch back to the default <tt>http://updates.jenkins-ci.org/update-center.json<tt> update center.<br/>
-<br/>
-<p><br/>
-If you are developing plugins and you want to distribute experimental plugins, all you have to do is to put "alpha" or "beta" in the version number of <tt>pom.xml</tt>. The backend infrastructure takes care of the rest.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/09/16/continuous-information-jenkins-newsletter-vol-5/'>
-Continuous Information - Jenkins Newsletter vol. 5
-</a>
-</h1>
-<div class='content'>
-<p><a href="http://pages.cloudbees.com/index.php/email/emailWebview?mkt_tok=3RkMMJWWfF9wsRonvanBZKXonjHpfsX%2B4%2B0uT%2Frn28M3109ad%2BrmPBy82IoIWp8na%2BqWCgseOrQ8kFQLV9C%2BRs0Vq6c%3D" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="152" src="http://pages.cloudbees.com/rs/cloudbees/images/CBMasthead.jpg" width="576" /></a></p><br/>
-<br/>
-The latest edition of Continuous Information is out for your reading pleasure.<br/>
-Highlights:<br/>
-<ul><br/>
-<li>Health Check-up for Jenkins: Kohsuke’s Tips on Keeping Jenkins Happy</li><br/>
-<li>Jenkins continues to take over the world, with more than 65,000 active installations and more than 800 plugins </li><br/>
-<li>Events: Jenkins User Conference – 10/23 in Palo Alto, CA (use discount code BEE-JUC); Jenkins Scalability Summit 10/24; and more </li><br/>
-<li>Jenkins made the SD Times 2013 Top 100! </li><br/>
-<li>What’s new in Jenkins? The hottest new Jenkins improvements… </li><br/>
-<li> How to build your own Jenkins Traffic Light </li><br/>
-</ul><br/>
-<br/>
-<a href="http://pages.cloudbees.com/index.php/email/emailWebview?mkt_tok=3RkMMJWWfF9wsRonvanBZKXonjHpfsX%2B4%2B0uT%2Frn28M3109ad%2BrmPBy82IoIWp8na%2BqWCgseOrQ8kFQLV9C%2BRs0Vq6c%3D">Read the whole newsletter</a>, and then <a href="http://www.cloudbees.com/jenkins/jenkins-ci/jenkins-newsletter.cb">sign up to receive it directly when it comes out</a>. <br/>
-<br/>
-<br/>
-PS - We love contributions to Continuous Information, so if you have a Jenkins tip, trick, or plugin you’d like to feature, please <a href="mailto:continuous-information@cloudbees.com">email us</a>. 
 
 </div>
 </div>

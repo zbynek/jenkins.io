@@ -177,6 +177,148 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/03/23/windows-installers-are-now-available/'>
+Windows installers are now available
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Good portion of Java developers use Windows, so we tend to think the opposite is true, that a good portion of Windows folks use Java. But this is not true.<br/>
+<br/>
+<p><br/>
+As Jenkins gains traction among .NET developers, it's becoming increasingly clear that Java is very alien to them. They naturally have no idea of what a war file means, and often don't even have Java installed, and so it was <i>just not easy enough</i> for them to start using Jenkins.<br/>
+<br/>
+<p><br/>
+I'm happy to report that I've finally fixed this problem with the new Windows installer. It is primarily packaged as <a href="http://en.wikipedia.org/wiki/Windows_Installer">an MSI file</a> &mdash; a common format that seasoned Windows devs/admins are familiar with. It can, for example, be deployed remotely on a large number of servers via Active Directory remotely. Or you can just double-click it to install it interactively. It bundles JRE, so no separate Java installation is needed.<br/>
+<br/>
+<p><br/>
+The package also contains the bootstrap <tt>setup.exe</tt>, to install .NET 2.0 runtime if it's not installed yet. Between that and JRE, it got all the dependencies covered. I tested that by installing it on a fresh Windows XP install.<br/>
+<br/>
+<p><br/>
+So I hope this makes Jenkins more attractive to .NET and other developers who live and die by Windows.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/03/21/the-polls-are-open-for-the-jenkins-logo-contest/'>
+The polls are open for the Jenkins Logo Contest!
+</a>
+</h1>
+<div class='content'>
+<p>After a number of <strong>absolutely</strong> fantastic logo submissions from a number of designers, I'm extremely pleased to open the polls on the vote for the <strong><em>brand new Jenkins logo!</em></strong></p>
+
+<p>The thumbnails do not do any of these logos justice in my opinion, so I recommend opening each logo up in its own tab to get the full effect :)</p>
+
+<p>I plan to end voting <strong>March 28th at 12:01 UTC</strong>.</p>
+
+<h3 id="the-logos">The Logos</h3>
+
+<table>
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_matthias_cullman.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_christopher_getschmann.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_emily_bertelson.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-1">Logo #1</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-2">Logo #2</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-3">Logo #3</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_tomas_ekeli.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_vimil_saju.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_akiko_takano.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-4">Logo #4</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-5">Logo #5</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-6">Logo #6</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_jeremy_murray.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_2.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-7">Logo #7</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-8">Logo #8</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-9">Logo #9</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_ben_minne.thumbnail.png" />
+        </td>
+        <td align="center">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-10">Logo #10</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-11">Logo #11</a>
+        </td>
+        <td align="center">
+        </td>
+    </tr>
+</table>
+<!--break-->
+<p>### The Vote</p>
+
+<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ">the form in a new window</a></p>
+
+<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ" width="760" height="734" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/03/13/jenkins-hits-1-400/'>
 Jenkins hits 1.400
 </a>
@@ -314,124 +456,6 @@ Meetings
 </h1>
 <div class='content'>
 <p>This page will be fleshed out further at another time :)</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/02/04/governance-meeting-today/'>
-Governance Meeting Today
-</a>
-</h1>
-<div class='content'>
-<p>Amongst all the work this week with setting up project infrastructure, <a href="http://mirrors.jenkins-ci.org/war/1.396/">the first release of Jenkins</a> and a <em>flood</em> of developer activity <a href="https://github.com/jenkinsci">on GitHub</a>, the interim governance board has decided to hold periodic virtual meetings.</p>
-
-<p>The first meeting will be held <strong>today</strong> at 3pm PST (23:00 UTC) in the <code>#jenkins</code> channel on IRC (<a href="http://jenkins-ci.org/content/chat">more details here</a>).</p>
-
-<p>In <a href="http://twitter.com/kohsukekawa/">Kohsuke's</a> post to the mailing list, he further explained the goals of such meetings:</p>
-
-<blockquote>
-  <p>We can use it to report/discuss various issues of the project (not bugs in code, but more project level stuff.) I also plan to report the infrastructure work that's done thus far.</p>
-
-  <p>We'd like to hear from you, and the point is to engage the broader community, so please join us.</p>
-
-  <p>This is a new thing, so it's not like we've figured this all out, but let's see how it goes.</p>
-</blockquote>
-
-<p>If you don't have an IRC client, you can use the Freenode <a href="http://webchat.freenode.net/">webchat client</a> to join in, hope to see you there!
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/31/welcome-to-jenkins-ci/'>
-Welcome to Jenkins CI!
-</a>
-</h1>
-<div class='content'>
-<div class="content" style="display:none">
-Jenkins is an open-source continuous integration server with 300+ plugins to support all kinds of software development
-</div>
-
-<div id=welcome>
-<style>
-/*kill off unwanted crafts */
-#content H1, DIV.taxonomy {
-    display:none; 
-}
-#content DIV.node {
-    border-bottom:none;
-}
-
-#welcome #directory {
-    padding-top: 2em;
-}
-#welcome #directory A {
-	text-decoration: none !important;
-}
-#welcome #directory A:link {
-	text-decoration: none !important;
-}
-#welcome #directory A:hover {
-	text-decoration: underline;
-	color: black;
-}
-#welcome #directory .title {
-	color: black;
-	font-weight: bold;
-	font-size: 1.5em;
-}
-#welcome #directory TD {
-	vertical-align: middle;
-    padding-bottom: 3em;
-}
-#welcome #directory .description {
-	color: gray;
-}
-#welcome #directory .logo {
-	border: 0px;
-	margin-right: 1em;
-}
-</style>
-<div align=center> 
-	<table valign=middle id=directory style="border:none"> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"><img src="/sites/default/files/images/headshot.png" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"> 
-			<div class=title>Meet Jenkins</div> 
-			<div class=description>Find out what Jenkins is and get started.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="http://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"><img src="/images/user.gif" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"> 
-			<div class=title>Use Jenkins</div> 
-			<div class=description>See how to get more out of your Jenkins.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"><img src="/sites/default/files/images/plugin.png" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"> 
-			<div class=title>Customize Jenkins</div> 
-			<div class=description>Choose from <strong><?php include "/var/www/updates2.jenkins-ci.org/pluginCount.txt"?></strong> plugins to customize Jenkins exactly to your needs.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"><img src="/images/developer.gif" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"> 
-			<div class=title>Extend Jenkins</div> 
-			<div class=description>Learn how to build Jenkins or extend Jenkins by writing plugins.</div> 
-			</a></td> 
-		</tr> 
-	</table> 
-</div> 
-</div> 
-</div>
-
-<div style="padding-top:3em; text-align:right">
-<a href="https://wiki.jenkins-ci.org/display/JENKINS/Awards">Awards</a> <img src="/images/award.png" style="vertical-align:middle">
-
 
 </div>
 </div>

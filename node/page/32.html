@@ -177,6 +177,124 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/02/04/governance-meeting-today/'>
+Governance Meeting Today
+</a>
+</h1>
+<div class='content'>
+<p>Amongst all the work this week with setting up project infrastructure, <a href="http://mirrors.jenkins-ci.org/war/1.396/">the first release of Jenkins</a> and a <em>flood</em> of developer activity <a href="https://github.com/jenkinsci">on GitHub</a>, the interim governance board has decided to hold periodic virtual meetings.</p>
+
+<p>The first meeting will be held <strong>today</strong> at 3pm PST (23:00 UTC) in the <code>#jenkins</code> channel on IRC (<a href="http://jenkins-ci.org/content/chat">more details here</a>).</p>
+
+<p>In <a href="http://twitter.com/kohsukekawa/">Kohsuke's</a> post to the mailing list, he further explained the goals of such meetings:</p>
+
+<blockquote>
+  <p>We can use it to report/discuss various issues of the project (not bugs in code, but more project level stuff.) I also plan to report the infrastructure work that's done thus far.</p>
+
+  <p>We'd like to hear from you, and the point is to engage the broader community, so please join us.</p>
+
+  <p>This is a new thing, so it's not like we've figured this all out, but let's see how it goes.</p>
+</blockquote>
+
+<p>If you don't have an IRC client, you can use the Freenode <a href="http://webchat.freenode.net/">webchat client</a> to join in, hope to see you there!
+<!--break--></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/01/31/welcome-to-jenkins-ci/'>
+Welcome to Jenkins CI!
+</a>
+</h1>
+<div class='content'>
+<div class="content" style="display:none">
+Jenkins is an open-source continuous integration server with 300+ plugins to support all kinds of software development
+</div>
+
+<div id=welcome>
+<style>
+/*kill off unwanted crafts */
+#content H1, DIV.taxonomy {
+    display:none; 
+}
+#content DIV.node {
+    border-bottom:none;
+}
+
+#welcome #directory {
+    padding-top: 2em;
+}
+#welcome #directory A {
+	text-decoration: none !important;
+}
+#welcome #directory A:link {
+	text-decoration: none !important;
+}
+#welcome #directory A:hover {
+	text-decoration: underline;
+	color: black;
+}
+#welcome #directory .title {
+	color: black;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+#welcome #directory TD {
+	vertical-align: middle;
+    padding-bottom: 3em;
+}
+#welcome #directory .description {
+	color: gray;
+}
+#welcome #directory .logo {
+	border: 0px;
+	margin-right: 1em;
+}
+</style>
+<div align=center> 
+	<table valign=middle id=directory style="border:none"> 
+		<tr> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"><img src="/sites/default/files/images/headshot.png" class=logo></a></td> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"> 
+			<div class=title>Meet Jenkins</div> 
+			<div class=description>Find out what Jenkins is and get started.</div> 
+			</a></td> 
+		</tr> 
+		<tr> 
+			<td><a href="http://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"><img src="/images/user.gif" class=logo></a></td> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"> 
+			<div class=title>Use Jenkins</div> 
+			<div class=description>See how to get more out of your Jenkins.</div> 
+			</a></td> 
+		</tr> 
+		<tr> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"><img src="/sites/default/files/images/plugin.png" class=logo></a></td> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"> 
+			<div class=title>Customize Jenkins</div> 
+			<div class=description>Choose from <strong><?php include "/var/www/updates2.jenkins-ci.org/pluginCount.txt"?></strong> plugins to customize Jenkins exactly to your needs.</div> 
+			</a></td> 
+		</tr> 
+		<tr> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"><img src="/images/developer.gif" class=logo></a></td> 
+			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"> 
+			<div class=title>Extend Jenkins</div> 
+			<div class=description>Learn how to build Jenkins or extend Jenkins by writing plugins.</div> 
+			</a></td> 
+		</tr> 
+	</table> 
+</div> 
+</div> 
+</div>
+
+<div style="padding-top:3em; text-align:right">
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Awards">Awards</a> <img src="/images/award.png" style="vertical-align:middle">
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/01/29/jenkins/'>
 Jenkins!
 </a>
@@ -415,222 +533,6 @@ participate in, and to build and improve the best continuous integration
 server available.</p>
 
 <p>Stay tuned :)
-<!--break-->
-—-</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/11/30/whos-driving-this-thing/'>
-Who's driving this thing?
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/health-60to79.gif" align="right" />There's been a lot of discussion on the <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">new mailing lists</a> as of late regarding some of the infrastructure and ownership of the Hudson project. In case you haven't been following along at home, I'll try to catch you up as impartially as possible.</p>
-
-<h2 id="the-facts">The Facts</h2>
-
-<ul>
-  <li><strong>2009.06.02</strong>: After substantial problems with Java.net infrastructure, the
-<a href="http://hudson.361315.n4.nabble.com/On-the-future-of-Hudson-hosting-and-infrastructure-td393278.html">dev community discusses new infrastructure
-options</a>,
-including SourceForge, Google Code, Kenai, Berlios, GitHub, etc. Instead of
-moving the entire project, some key components such as the
-<a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> are moved off of
-Java.net. Discussions about moving source code off of Java.net and onto other hosts like
-GitHub come up almost every four months on the mailing lists, typically
-coinciding with serious Java.net downtime or reliability issues..</li>
-  <li><strong>2010.11.01</strong>: A discussion occurs on the developers mailing list about
-adding <a href="http://twitter.com/wjprakash">Winston Prakash</a>, the Oracle engineer re-assigned to replace <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> (Hudson
-founder/lead developer), as a co-owner to the Java.net project. Winston
-mentions that his question was driven by Oracle management who felt he should
-"co-own the project." After a round of discussion, it's decided by the devs
-list that it's acceptable and grants Winston co-ownership of the project as a
-sign of good faith from the community towards Oracle.</li>
-  <li><strong>2010.11.17</strong>: <a href="http://twitter.com/abayer">Andrew Bayer</a>, core contributor
-and maintainer of numerous plugins emails the users and devs list with a
-proposal to move the mailing lists off of Java.net which has had notorious
-reliability issues within the Java ecosystem and was scheduled for a series of
-downtimes and migrations over the coming weeks. Google Groups is selected as the
-most reasonable by the community.</li>
-  <li><strong>2010.11.19</strong>: Hudson project is lumped into the same Java.net migration bucket as Glassfish. Emails are sent to project owners, the users and the developers list. The mail to users and developers never arrives due to the sender not being subscribed. Both project owners (Kohsuke, Winston) miss the message, leaving the Hudson community in the dark regarding the pending migration.</li>
-  <li><strong>2010.11.22</strong>: Shortly after midnight, Jacob Robertson reports that his
-SVN credentials no longer work, Kohsuke informs the developers list that the project is
-locked due to the migration, SVN is inaccessible and mailing lists fail shortly after that. <img src="http://agentdero.cachefly.net/continuousblog/health-40to59.gif" align="right" />The Hudson Java.net project
-begins its migration from the legacy infrastructure to the newer
-Java.net infrastructure (formerly known as "Kenai"). A group of core Hudson
-community members accelerate the move to Google Groups, pushing out
-announcements via <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">this
-blog</a> and
-<a href="http://twitter.com/hudsonci">twitter</a> hoping to keep as many members in the
-loop as possible.</li>
-  <li><strong>2010.11.23</strong>: Frustrated by the locking down of Hudson's source code,
-which sees between 3-8 commits to "core" a day, not counting the 300+
-plugins, Kohsuke <a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/8d3cf0ca1240280a">proposes moving to
-GitHub</a>
-on the new developers mailing list. The general consensus amongst the plugin
-and core developers was to go forward with moving to GitHub, no major
-objections were raised by the developer community.</li>
-  <li><strong>2010.11.27</strong>: After Thanksgiving, Andrew Bayer submits the "<a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/c935a4740af0b920">formal
-proposal</a>"
-for migrating over to GitHub, Sets a deadline of the following tuesday
-(2010.11.30) for raising any major objections before "flipping the switch."</li>
-</ul>
-
-<p>The Monday morning prior to the planned switchover to GitHub, Oracle Senior VP
-of Tools and Middleware <a href="http://www.oracle.com/us/corporate/press/Spokespeople/016474">Ted
-Farrell</a> sent <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">a
-message to the users list</a> expressing concerns he had regarding the migration of
-the Hudson codebase from Java.net to GitHub:
-<!--break-->
-&gt; <em>Oracle's goal is to grow the community and make hudson stronger.  You
-&gt; all might not be aware of this, but the actual hudson user base is
-&gt; very large.  Much bigger than what you see on the mailing lists or in
-&gt; the forums.  The unfortunate part of that is how many of these users
-&gt; do not contribute to the core, and do not participate in these
-&gt; discussions.  They want to do that, but don't feel like they can be
-&gt; heard.  We want them to be heard.  We need to make the hudson
-&gt; community a place that will welcome all the hudson users and encourage
-&gt; its growth and longevity.  We will be announcing some changes in the
-&gt; upcoming weeks that we believe will foster that.
-&gt;
-&gt; For now, however, we are going to stay on the java.net
-&gt; infrastructure.  We believe it is important for hudson to stay
-&gt; connected with the rest of the the java community, as well as take
-&gt; advantage of some of the cool changes we will have coming to
-&gt; java.net.  Moving to GIT can be done while staying on java.net.  It is
-&gt; not a requirement to move to github.
-&gt;
-&gt; …
-&gt;
-&gt; Because it is open source, we can't stop anybody from forking it.  We
-&gt; do however own the trademark to the name so you cannot use the name
-&gt; outside of the core community.  We acquired that as part of Sun.  We
-&gt; hope that everyone working on hudson today will do as they claim to
-&gt; want, and work with us to make hudson stronger.</em></p>
-
-<p>(Ted's message was rather long, you can read the <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">whole
-post here</a>)</p>
-
-<p>As one might expect, Ted's response to the thread was received with
-mixed responses ranging from general confusion to obvious frustration.</p>
-
-<p>Long time contributor to Hudson's Git plugin, <a href="https://github.com/magnayn">Nigel Magnay</a> tried to clarify the benefits of migrating to GitHub instead of using Git on the "new" Java.net as succinctly as possible:</p>
-
-<blockquote>
-  <p><em>Just having git support != git support on github. They work full time on
-providing the best community development tools; I doubt kenai could even
-catch up, let alone surpass what they're doing.</em></p>
-
-  <p>…</p>
-
-  <p>I'm confused.</p>
-
-  <p>What things are you saying you will not let the Hudson developer community
-do?</p>
-
-  <p>I.E: Are you saying that, as the holders of the Hudson 'name', you are
-prohibiting the developer community from choosing (for ourselves) to migrate
-the infrastructure (bug tracking / wiki)? The repositories ?</p>
-
-  <p>So far the response from the developers has been pretty strongly in favour
-of the migration to google groups for mail, to github for code repositories
-and collaboration, and to a self-hosted site for bug tracking and
-information.&lt;/em&gt;</p>
-</blockquote>
-
-<p><img src="http://agentdero.cachefly.net/continuousblog/health-20to39.gif" align="right" />
-Ted's response to Nigel contained one of the most important nugget of
-information for the whole discussion nestled in the middle of <a href="http://groups.google.com/group/hudson-users/msg/5540655e05ef2982">the message</a>:</p>
-
-<blockquote>
-  <p><em>Nigel, what I am saying is that I believe the <em>final</em> decision of what
-to do w.r.t. infrastructure belongs to Oracle and that decision should
-be made according to the will of the community as it makes sense</em></p>
-</blockquote>
-
-<h2 id="the-part-where-i-editorialize">The part where I editorialize</h2>
-
-<p>I readily admit, there is a lot of information to take in here, for clarification there are two distinct "communities" involved in Hudson:</p>
-
-<ul>
-  <li><strong>developers</strong>: the <em>hundreds</em> of developers actively communicating on the
-  <a href="http://groups.google.com/group/hudson-dev">developers list</a> and
-  contributing to the 300+ plugins</li>
-  <li><strong>users</strong>: tens of thousands of individuals and companies using Hudson
-either as a straight <code>.war</code> file, or using the native packages provided by
-the community</li>
-</ul>
-
-<p>The fundamental issue here is that the <strong>developers</strong> want to make a change in
-how <em>they</em> contribute to Hudson, and have made their voices heard to that end.
-From the users' perspective, such a change would have literally <strong>zero</strong> impact
-on them, which makes Oracle's conflation of the two sides of Hudson
-particularly frustrating.</p>
-
-<p>Part of the impasse between Oracle management and the developer community lies
-in an inherent meritocracy in any large open source project, whether it be the
-Linux kernel, the Python language and runtime, or the PostgreSQL database
-server, those that contribute carry more weight within the community
-<strong>because</strong> they are actively pushing things forward. On top of that, Oracle
-continues to cite a "larger community" that's apparently larger than those
-active committing to Hudson on a daily or weekly basis, without naming names or
-citing specific contributions.</p>
-
-<p>Ted, and in turn, Oracle's approach to the Hudson community seems to stem from
-a systematic misunderstanding of how most (if not all) major open source
-projects operate. Mentiong closed-door meetings between Sonatype and Oracle
-regarding "how to make Hudson better" do nothing to aid many developers'
-concerns about Oracle's commitment to Hudson as an open source project or a
-community.</p>
-
-<p>In my humble opinion, we are being told one thing while Oracle's actions speak
-to another. Insisting that Hudson development remain on Java.net, after the
-development community committed to GitHub, contradicts the words promising to
-work with the Hudson community and to help facilitate its growth. Asserting
-that Oracle isn't trying to exert unwelcome control over the project, while
-doing exactly that.</p>
-
-<p>Personally, I do want Oracle to continue to be involved, along with CloudBees,
-Sonatype and many other companies that contribute to the ever-growing Hudson
-ecosystem. The involvement of a plethora of different companies only helps
-emphasize the importance of Hudson to the developer community and underline the
-value of Hudson as a community owned and operated project.</p>
-
-<p>December will be an interesting month, stay tuned.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/11/23/new-hudson-mailing-lists/'>
-New Hudson Mailing Lists!
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/duke-construction.gif" alt="Duke is not amused :(" align="right" />As Kohsuke <a href="http://hudson-labs.org/content/javanet-migration-status-update">mentioned in this post</a>, the Java.net migration has caught just about everybody off-guard in the Hudson community.</p>
-
-<p>The tools we use hosted by Java.net are essentially locked from us until further notice (no ETA on the migration) which is, as you might imagine frustrating both for the core developers but <strong>hundreds</strong> of plugin developers that make Hudson the best damned CI server on the planet.</p>
-
-<p>For <strong>source code</strong> we're working on getting something in place for contributions on <a href="https://github.com/hudson/hudson">GitHub</a> thanks to some assistance from the GitHub team.</p>
-
-<p>For <strong>mailing lists</strong> we've gone ahead and dumped Java.net mailing lists in favor of a collection of Google Groups:</p>
-
-<ul>
-  <li><a href="http://groups.google.com/group/hudson-dev/">hudson-dev</a></li>
-  <li><a href="http://groups.google.com/group/hudson-users/">hudson-users</a></li>
-  <li><a href="http://groups.google.com/group/hudson-commits/">hudson-commits</a></li>
-  <li><a href="http://groups.google.com/group/hudson-issues/">hudson-issues</a></li>
-</ul>
-
-<p>Contrary to popular belief, you <strong>do not need a Google account</strong> to subscribe to these lists, else we wouldn't have chosen Google Groups. All you need to do is send an email to "hudson-users+subscribe@googlegroups.com" and you'll receive a confirmation email from the mailing list server shortly.</p>
-
-<p>Since our <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> isn't actually hosted on Java.net, but rather on a machine provided by Oracle, they <em>should</em> continue to function as per usual. The login for the systems is somewhat tied to Java.net so I am honestly not sure how stable they will be this week.</p>
-
-<p>I apologize sincerely for the confusion and frustration, you can trust that we're likely ten-times more frustrated with this situation right now.
 <!--break-->
 —-</p>
 

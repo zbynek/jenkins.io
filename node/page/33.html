@@ -177,6 +177,222 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/11/30/whos-driving-this-thing/'>
+Who's driving this thing?
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/health-60to79.gif" align="right" />There's been a lot of discussion on the <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">new mailing lists</a> as of late regarding some of the infrastructure and ownership of the Hudson project. In case you haven't been following along at home, I'll try to catch you up as impartially as possible.</p>
+
+<h2 id="the-facts">The Facts</h2>
+
+<ul>
+  <li><strong>2009.06.02</strong>: After substantial problems with Java.net infrastructure, the
+<a href="http://hudson.361315.n4.nabble.com/On-the-future-of-Hudson-hosting-and-infrastructure-td393278.html">dev community discusses new infrastructure
+options</a>,
+including SourceForge, Google Code, Kenai, Berlios, GitHub, etc. Instead of
+moving the entire project, some key components such as the
+<a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> are moved off of
+Java.net. Discussions about moving source code off of Java.net and onto other hosts like
+GitHub come up almost every four months on the mailing lists, typically
+coinciding with serious Java.net downtime or reliability issues..</li>
+  <li><strong>2010.11.01</strong>: A discussion occurs on the developers mailing list about
+adding <a href="http://twitter.com/wjprakash">Winston Prakash</a>, the Oracle engineer re-assigned to replace <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> (Hudson
+founder/lead developer), as a co-owner to the Java.net project. Winston
+mentions that his question was driven by Oracle management who felt he should
+"co-own the project." After a round of discussion, it's decided by the devs
+list that it's acceptable and grants Winston co-ownership of the project as a
+sign of good faith from the community towards Oracle.</li>
+  <li><strong>2010.11.17</strong>: <a href="http://twitter.com/abayer">Andrew Bayer</a>, core contributor
+and maintainer of numerous plugins emails the users and devs list with a
+proposal to move the mailing lists off of Java.net which has had notorious
+reliability issues within the Java ecosystem and was scheduled for a series of
+downtimes and migrations over the coming weeks. Google Groups is selected as the
+most reasonable by the community.</li>
+  <li><strong>2010.11.19</strong>: Hudson project is lumped into the same Java.net migration bucket as Glassfish. Emails are sent to project owners, the users and the developers list. The mail to users and developers never arrives due to the sender not being subscribed. Both project owners (Kohsuke, Winston) miss the message, leaving the Hudson community in the dark regarding the pending migration.</li>
+  <li><strong>2010.11.22</strong>: Shortly after midnight, Jacob Robertson reports that his
+SVN credentials no longer work, Kohsuke informs the developers list that the project is
+locked due to the migration, SVN is inaccessible and mailing lists fail shortly after that. <img src="http://agentdero.cachefly.net/continuousblog/health-40to59.gif" align="right" />The Hudson Java.net project
+begins its migration from the legacy infrastructure to the newer
+Java.net infrastructure (formerly known as "Kenai"). A group of core Hudson
+community members accelerate the move to Google Groups, pushing out
+announcements via <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">this
+blog</a> and
+<a href="http://twitter.com/hudsonci">twitter</a> hoping to keep as many members in the
+loop as possible.</li>
+  <li><strong>2010.11.23</strong>: Frustrated by the locking down of Hudson's source code,
+which sees between 3-8 commits to "core" a day, not counting the 300+
+plugins, Kohsuke <a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/8d3cf0ca1240280a">proposes moving to
+GitHub</a>
+on the new developers mailing list. The general consensus amongst the plugin
+and core developers was to go forward with moving to GitHub, no major
+objections were raised by the developer community.</li>
+  <li><strong>2010.11.27</strong>: After Thanksgiving, Andrew Bayer submits the "<a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/c935a4740af0b920">formal
+proposal</a>"
+for migrating over to GitHub, Sets a deadline of the following tuesday
+(2010.11.30) for raising any major objections before "flipping the switch."</li>
+</ul>
+
+<p>The Monday morning prior to the planned switchover to GitHub, Oracle Senior VP
+of Tools and Middleware <a href="http://www.oracle.com/us/corporate/press/Spokespeople/016474">Ted
+Farrell</a> sent <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">a
+message to the users list</a> expressing concerns he had regarding the migration of
+the Hudson codebase from Java.net to GitHub:
+<!--break-->
+&gt; <em>Oracle's goal is to grow the community and make hudson stronger.  You
+&gt; all might not be aware of this, but the actual hudson user base is
+&gt; very large.  Much bigger than what you see on the mailing lists or in
+&gt; the forums.  The unfortunate part of that is how many of these users
+&gt; do not contribute to the core, and do not participate in these
+&gt; discussions.  They want to do that, but don't feel like they can be
+&gt; heard.  We want them to be heard.  We need to make the hudson
+&gt; community a place that will welcome all the hudson users and encourage
+&gt; its growth and longevity.  We will be announcing some changes in the
+&gt; upcoming weeks that we believe will foster that.
+&gt;
+&gt; For now, however, we are going to stay on the java.net
+&gt; infrastructure.  We believe it is important for hudson to stay
+&gt; connected with the rest of the the java community, as well as take
+&gt; advantage of some of the cool changes we will have coming to
+&gt; java.net.  Moving to GIT can be done while staying on java.net.  It is
+&gt; not a requirement to move to github.
+&gt;
+&gt; …
+&gt;
+&gt; Because it is open source, we can't stop anybody from forking it.  We
+&gt; do however own the trademark to the name so you cannot use the name
+&gt; outside of the core community.  We acquired that as part of Sun.  We
+&gt; hope that everyone working on hudson today will do as they claim to
+&gt; want, and work with us to make hudson stronger.</em></p>
+
+<p>(Ted's message was rather long, you can read the <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">whole
+post here</a>)</p>
+
+<p>As one might expect, Ted's response to the thread was received with
+mixed responses ranging from general confusion to obvious frustration.</p>
+
+<p>Long time contributor to Hudson's Git plugin, <a href="https://github.com/magnayn">Nigel Magnay</a> tried to clarify the benefits of migrating to GitHub instead of using Git on the "new" Java.net as succinctly as possible:</p>
+
+<blockquote>
+  <p><em>Just having git support != git support on github. They work full time on
+providing the best community development tools; I doubt kenai could even
+catch up, let alone surpass what they're doing.</em></p>
+
+  <p>…</p>
+
+  <p>I'm confused.</p>
+
+  <p>What things are you saying you will not let the Hudson developer community
+do?</p>
+
+  <p>I.E: Are you saying that, as the holders of the Hudson 'name', you are
+prohibiting the developer community from choosing (for ourselves) to migrate
+the infrastructure (bug tracking / wiki)? The repositories ?</p>
+
+  <p>So far the response from the developers has been pretty strongly in favour
+of the migration to google groups for mail, to github for code repositories
+and collaboration, and to a self-hosted site for bug tracking and
+information.&lt;/em&gt;</p>
+</blockquote>
+
+<p><img src="http://agentdero.cachefly.net/continuousblog/health-20to39.gif" align="right" />
+Ted's response to Nigel contained one of the most important nugget of
+information for the whole discussion nestled in the middle of <a href="http://groups.google.com/group/hudson-users/msg/5540655e05ef2982">the message</a>:</p>
+
+<blockquote>
+  <p><em>Nigel, what I am saying is that I believe the <em>final</em> decision of what
+to do w.r.t. infrastructure belongs to Oracle and that decision should
+be made according to the will of the community as it makes sense</em></p>
+</blockquote>
+
+<h2 id="the-part-where-i-editorialize">The part where I editorialize</h2>
+
+<p>I readily admit, there is a lot of information to take in here, for clarification there are two distinct "communities" involved in Hudson:</p>
+
+<ul>
+  <li><strong>developers</strong>: the <em>hundreds</em> of developers actively communicating on the
+  <a href="http://groups.google.com/group/hudson-dev">developers list</a> and
+  contributing to the 300+ plugins</li>
+  <li><strong>users</strong>: tens of thousands of individuals and companies using Hudson
+either as a straight <code>.war</code> file, or using the native packages provided by
+the community</li>
+</ul>
+
+<p>The fundamental issue here is that the <strong>developers</strong> want to make a change in
+how <em>they</em> contribute to Hudson, and have made their voices heard to that end.
+From the users' perspective, such a change would have literally <strong>zero</strong> impact
+on them, which makes Oracle's conflation of the two sides of Hudson
+particularly frustrating.</p>
+
+<p>Part of the impasse between Oracle management and the developer community lies
+in an inherent meritocracy in any large open source project, whether it be the
+Linux kernel, the Python language and runtime, or the PostgreSQL database
+server, those that contribute carry more weight within the community
+<strong>because</strong> they are actively pushing things forward. On top of that, Oracle
+continues to cite a "larger community" that's apparently larger than those
+active committing to Hudson on a daily or weekly basis, without naming names or
+citing specific contributions.</p>
+
+<p>Ted, and in turn, Oracle's approach to the Hudson community seems to stem from
+a systematic misunderstanding of how most (if not all) major open source
+projects operate. Mentiong closed-door meetings between Sonatype and Oracle
+regarding "how to make Hudson better" do nothing to aid many developers'
+concerns about Oracle's commitment to Hudson as an open source project or a
+community.</p>
+
+<p>In my humble opinion, we are being told one thing while Oracle's actions speak
+to another. Insisting that Hudson development remain on Java.net, after the
+development community committed to GitHub, contradicts the words promising to
+work with the Hudson community and to help facilitate its growth. Asserting
+that Oracle isn't trying to exert unwelcome control over the project, while
+doing exactly that.</p>
+
+<p>Personally, I do want Oracle to continue to be involved, along with CloudBees,
+Sonatype and many other companies that contribute to the ever-growing Hudson
+ecosystem. The involvement of a plethora of different companies only helps
+emphasize the importance of Hudson to the developer community and underline the
+value of Hudson as a community owned and operated project.</p>
+
+<p>December will be an interesting month, stay tuned.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/11/23/new-hudson-mailing-lists/'>
+New Hudson Mailing Lists!
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/duke-construction.gif" alt="Duke is not amused :(" align="right" />As Kohsuke <a href="http://hudson-labs.org/content/javanet-migration-status-update">mentioned in this post</a>, the Java.net migration has caught just about everybody off-guard in the Hudson community.</p>
+
+<p>The tools we use hosted by Java.net are essentially locked from us until further notice (no ETA on the migration) which is, as you might imagine frustrating both for the core developers but <strong>hundreds</strong> of plugin developers that make Hudson the best damned CI server on the planet.</p>
+
+<p>For <strong>source code</strong> we're working on getting something in place for contributions on <a href="https://github.com/hudson/hudson">GitHub</a> thanks to some assistance from the GitHub team.</p>
+
+<p>For <strong>mailing lists</strong> we've gone ahead and dumped Java.net mailing lists in favor of a collection of Google Groups:</p>
+
+<ul>
+  <li><a href="http://groups.google.com/group/hudson-dev/">hudson-dev</a></li>
+  <li><a href="http://groups.google.com/group/hudson-users/">hudson-users</a></li>
+  <li><a href="http://groups.google.com/group/hudson-commits/">hudson-commits</a></li>
+  <li><a href="http://groups.google.com/group/hudson-issues/">hudson-issues</a></li>
+</ul>
+
+<p>Contrary to popular belief, you <strong>do not need a Google account</strong> to subscribe to these lists, else we wouldn't have chosen Google Groups. All you need to do is send an email to "hudson-users+subscribe@googlegroups.com" and you'll receive a confirmation email from the mailing list server shortly.</p>
+
+<p>Since our <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> isn't actually hosted on Java.net, but rather on a machine provided by Oracle, they <em>should</em> continue to function as per usual. The login for the systems is somewhat tied to Java.net so I am honestly not sure how stable they will be this week.</p>
+
+<p>I apologize sincerely for the confusion and frustration, you can trust that we're likely ten-times more frustrated with this situation right now.
+<!--break-->
+—-</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/11/23/java-net-migration-status-update/'>
 Java.net migration status update
 </a>
@@ -271,24 +487,6 @@ JavaOne: Day Two in Pictures
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
-Video: Kohsuke talks Hudson on OTN
-</a>
-</h1>
-<div class='content'>
-<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
-
-<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
-
-<center>
-<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
-</center>
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2010/09/21/live-blog-john-smart-demos-advanced-hudson-usage/'>
 Live Blog: John Smart demos advanced Hudson usage
 </a>
@@ -373,6 +571,24 @@ Who knows what build promotions? Who uses build promotions? Very few in the audi
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
+Video: Kohsuke talks Hudson on OTN
+</a>
+</h1>
+<div class='content'>
+<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
+
+<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
+
+<center>
+<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
+</center>
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/09/21/javaone-day-one-in-pictures/'>
 JavaOne: Day One in Pictures
 </a>
@@ -381,58 +597,6 @@ JavaOne: Day One in Pictures
 <p>In case you haven't been following the <a href="http://twitter.com/hudsonci">frequently updated @hudsonci</a> Twitter stream. Here's a collection of photos I've taken thus far.</p>
 
 <center><object width="400" height="300"> <param name="flashvars" value="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2F&amp;set_id=72157624996965000&amp;jump_to=" /> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649" /> <param name="allowFullScreen" value="true" /><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowfullscreen="true" flashvars="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2F&amp;set_id=72157624996965000&amp;jump_to=" width="400" height="300" /></object></center>
-
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/20/tweet-of-the-day/'>
-Tweet of the Day
-</a>
-</h1>
-<div class='content'>
-<p>Some of you may have been following all the photos posted to the <a href="http://www.flickr.com/photos/hudsonlabs/">hudsonlabs Flickr account</a> from this year's JavaOne conference in San Francisco.</p>
-
-<p><a href="http://twitter.com/a1o1">Alan O'Leary</a> responded to this photo with one of the <a href="http://twitter.com/a1o1/status/25032555850">funniest comments</a> of the day:</p>
-
-<center><a href="http://www.flickr.com/photos/hudsonlabs/5008009575/" title="This way to JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4151/5008009575_52e7f18fdf.jpg" width="500" height="375" alt="This way to JavaOne" /></a><br clear="all" /><strong><em>"Java and Oracle - 'In Opposite Directions'"</em></strong></center>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/20/pre-javaone-hudson-meetup-redux/'>
-Pre-JavaOne Hudson Meetup Redux
-</a>
-</h1>
-<div class='content'>
-<p>Yesterday Digg was kind enough to host and "sponsor" (read: free drinks and
-pizza!) a Hudson meetup at their offices in San Francisco. While Digg has been
-the source of some controversy and press due to their recent redesign and corporate
-shake-ups, as far as the Hudson community goes they've been largely responsible for
-a <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">great case study on continuous deployment</a> using Hudson and <a href="http://code.google.com/p/gerrit">Gerrit</a>.</p>
-
-<center><a href="http://www.flickr.com/photos/hudsonlabs/5005123971/" title="Thanks to @digg for hosting the #HudsonCI meetup by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4130/5005123971_403f24733d.jpg" width="500" height="375" alt="Thanks to @digg for hosting the #HudsonCI meetup" /></a></center>
-
-<p>Attendees included all of InfraDNA (Kohsuke and Kedar), some folks from CloudBees, a
-number of local users/developers like <a href="http://twitter.com/LewisHam">LewisHam</a> and myself, and
-to top off the list a couple Oracle employees including <a href="http://twitter.com/wjprakash">Winston Prakash</a> who is now hacking on Hudson inside of Oracle.</p>
-
-<p>As folks started arriving there was a lot of discussion around "Hudson at Scale", specifically
-regarding Hudson "in the cloud". We also got to hear about one of the most interesting Hudson
-use-cases I've ever seen by <a href="http://edwardmgoldberg.com">Edward M. Goldberg</a> who I'll post an
-interview with shortly, imagine using Hudson with <strong>thousands</strong> of machines, it's that interesting.</p>
-
-<p>Through the afternoon there were a number of great discussions concerning Hudson stability,
-engaging more of the community and nitty-gritty details regarding Hudson's internals such
-as the plugin API.</p>
-
-<p>I've posted <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624992088468/">photos from the event</a> on
-Flickr for posterity in case you're interested. Overall I'd judge the meetup to be a success, it was a
-lot of fun and a great way to spend a Sunday with Hudson.</p>
-
-<p>If you're going to be at JavaOne, come track me down and let's talk about Hudson, if you're not in San Francisco for the event, you can always follow my updates on <a href="http://twitter.com/hudsonci">Twitter</a> or hit up <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624996965000/">Flickr</a></p>
 
 
 </div>

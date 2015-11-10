@@ -177,6 +177,49 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/12/23/jenkins-survey-result-and-what-ui-improvement-would-you-like/'>
+Jenkins survey result and what UI improvement would you like?
+</a>
+</h1>
+<div class='content'>
+<div style="float:right;margin:1em"><a href="http://en.wiktionary.org/wiki/too_many_cooks_spoil_the_broth">
+&lt;img width=160 height=160 src="http://livinghealthy.typepad.com/photos/uncategorized/2007/07/11/toomanycooksblog.jpg"&gt;
+</a></div>
+<p><a href="http://blog.cloudbees.com/2011/12/jenkins-community-survey-results-82.html">Jenkins community survey result is in</a>, which shows a number of interesting stats for us developers, such as 82% of people saying their Jenkins is mission critical, or the spread of distributed builds, especially compared to <a href="http://weblogs.java.net/blog/kohsuke/archive/2009/01/hudson_usage_an.html">my earlier similar usage analytics</a>.</p>
+
+<p>But just as interesting is the free-form answers to questions like "If there was anything you could you change about Jenkins CI, what would it be?", and while the answer is colorful, there are a few common themes that one can easily spot.</p>
+
+<p>One of them is "nothing!", which made me feel good, but another is "UI improvement." And incidentally, Domi has started <a href="http://jenkins.361315.n4.nabble.com/Jenkins-UI-enhancements-td4196887.html">a thread in the Jenkins-users list</a> about this exact topic a week ago.</p>
+
+<p>The idea is to brainstorm what kind of concrete improvements people would like to see, then run them through some real user experience designers and decide which ones are good ideas and which ones are not.</p>
+
+<p>I find this thread useful — so much so that one of those ideas (always show the "Save" button at the bottom in the config page) is already implemented toward the next release of Jenkins. So if you have some thoughts to share, please chime in on that thread.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/12/20/thanks-for-the-support-pagerduty/'>
+Thanks for the support PagerDuty!
+</a>
+</h1>
+<div class='content'>
+<p>Over drinks this evening <a href="https://twitter.com/kohsukekawa">Kohsuke</a> pointed out that he never saw a blog post about <a href="http://www.pagerduty.com">PagerDuty</a>.</p>
+
+<center><a href="http://www.pagerduty.com"><img src="http://agentdero.cachefly.net/continuousblog/images/pagerduty_logo.png" width="360" alt="pagerduty.com" /></a></center>
+
+<p>If you've never worked in a sysadmin role or in any other position that would require an on-call rotation, then you may have never seen PagerDuty.</p>
+
+<p>In essence the service provides a great series of integration points with Pingdom or Nagios for handling monitoring. As an infrastructure guy (part time), I can honestly say it's a great tool and I'm grateful to PagerDuty for supporting Jenkins with our own account to help manage project infrastructure.</p>
+
+<p>A couple weekends ago I finished setting up <a href="http://nagios.jenkins-ci.org/nagios3/">Nagios</a> (read-only username/password: <code>jenkins</code>/<code>jenkins</code>) for critical project services which by itself is a good step forward. Combine that with PagerDuty's Nagios integration and a solid on-call rotation, and I'm more confident than I've ever been that Kohsuke or myself could actually take a vacation!</p>
+
+<p>Check them out, and be sure to thank them on Twitter at <a href="https://twitter.com/pagerduty">@PagerDuty</a> for supporting Jenkins!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/12/19/fundraising-drive-update-thank-you-everyone/'>
 Fundraising drive update: thank you everyone!
 </a>
@@ -306,49 +349,6 @@ Jenkins Meetup Munich Videos
 <p>You can view the videos on <a href="http://video.tngtech.com/veranstaltungen/2011/06-30Jenkins/#">this page</a> hosted by <a href="http://www.tngtech.com">TNG</a>.</p>
 
 <p><em>Thanks to Stefan Wolf for the heads up!</em></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/11/04/a-dead-bug-is-a-good-bug/'>
-A dead bug is a good bug
-</a>
-</h1>
-<div class='content'>
-<div style="float:left; margin-right: 1em; margin-bottom:1em"><br/>
-<img width=129 height=96 src="http://www.cloudbees.com/sites/default/files/imagefield_thumbs/Buggy_Code.png"><br/>
-</div><br/>
-<p><br/>
-As if <a href="http://jenkins-ci.org/content/report-bugs-and-win-kindle">getting a Kindle for reporting bugs</a> and <a href="http://jenkins-ci.org/content/jenkins-community-survey">getting an AppleTV for filing a survey</a> aren't enough, you can also <a href="http://www.cloudbees.com/jenkins-community-contests.cb#bugbounty">win an iPad for fixing an issue</a>.<br/>
-<br/>
-<p><br/>
-So if you've been thinking about tinkering with <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Repositories">Jenkins code base</a> but haven't done so yet, this is a great opportunity to get going. There's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins">documentation about how to get started</a>, and there's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Jenkins Office Hours</a> and <a href="http://jenkins-ci.org/content/chat">IRC channel</a> if you need some interactive help from existing devs. I think new features, not just bug fixes, would qualify, so long as it's recorded in the issue tracker. And similarly, I think the plugins would qualify, not just core. <br/>
-<br/>
-<br/>
-<p><br/>
-Aside from iPad, there's one $50 Amazon gift certificate going out every week, which is almost a steal! So be sure to submit your entry!<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/11/03/jenkins-community-survey/'>
-Jenkins Community Survey
-</a>
-</h1>
-<div class='content'>
-<div style="float:left; margin-right:1em; margin-bottom:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Census"><br/>
-<img height=140 wiedth=150 src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Volkstelling_1925_Census.jpg/300px-Volkstelling_1925_Census.jpg"><br/>
-</a><br/>
-</div><br/>
-<br/>
-<p><br/>
-There's currently <a href="http://bit.ly/rYnFy2">a survey running</a> to get a better sense of our use base. Those inputs help us steer the effort wisely, so we appreciate your taking time to fill it in. The result would be more useful if larger number of people participate, so feel free to encourage others to fill it in as well.<br/>
-<br/>
-<p><br/>
-In the same spirit of the fundraising drive in NPR, CloudBees is throwing in a "thank you gift" of AppleTV as an added incentive. See <a href="http://blog.cloudbees.com/2011/11/take-jenkins-survey.html">their blog post</a> for more details.
 
 </div>
 </div>

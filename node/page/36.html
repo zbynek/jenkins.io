@@ -177,6 +177,62 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/08/16/hudsonmobi-2-0-hits-the-android-market/'>
+HudsonMobi 2.0 hits the Android Market
+</a>
+</h1>
+<div class='content'>
+<p>The folks over at <a href="http://www.lmitsoftware.com/">LMT Software</a> just released their HudsonMobi <strong>2.0</strong> to the Android market. This release of HudsonMobi brings a lot of the features to Android that iPhone/iPad users of HudsonMobi have enjoyed for some time.</p>
+
+<center><img src="http://www.hudson-labs.org/sites/default/files/hudsonmobi-v2-0-android1.png" vspace="5" title="HudsonMobi 2.0 Job Listing" /></center>
+
+<p>Features unleashed to Android users in this revision of the app are:</p>
+
+<ul>
+  <li>Full Android user-experience with Menu and back controls</li>
+  <li><strong>Embedded artifact viewer!</strong> For archived build artifacts that are text-based, you can view them directly on your handset.</li>
+  <li>Access to the build history and changes for a job.</li>
+  <li>Quick and easy access to a job's last build\</li>
+  <li>Restyled and updated user-experience, making HudsonMobi "feel better" on an Android device</li>
+</ul>
+
+<p><br clear="all" /></p>
+
+<p><img src="http://www.hudson-labs.org/sites/default/files/hudsonmobi-qr_0.png" title="QR Code!" align="right" /></p>
+
+<p>If you want to get HudsonMobi for <strong>free</strong> from the Android Market, whip our your phone and take a picture of its QR code:</p>
+
+<p><br clear="all" /></p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/11/quiet-period-feature/'>
+Quiet Period Feature
+</a>
+</h1>
+<div class='content'>
+<p>Commits often come in a burst. This seems to happen mainly for two reasons — people sometimes forget to commit some files, and in the tranquility of waiting for your SCM to finish a commit, people sometimes realize the problems in the commit and they quickly make follow-up changes. The conventional wisdom is that the CI server should wait for the burst to finish before attempting a build. This is said to reduce the chance of having broken build, and it is also sometimes useful in reducing the average turn-around time for builds that take longer.</p>
+
+<p>As such, Hudson is capable of waiting for a commit burst to be over before it triggers a new build, and this feature is called "quiet period." There are two parts in Hudson that interacts with the quiet period. One is the SCM polling behavior and the other is the queue.</p>
+
+<p>The queue portion of the quiet period is straight-forward. When a build is scheduled into the queue with quiet period, the build will sit in the queue until the quiet period expires. If during this period, additional attempts are made to put the same build in the queue, the quiet period resets to its initial value. For example, if the quiet period is 5 minutes, and the build is put into the queue 9:00am and 9:03am, the actual build will only happen after 9:08am. Thus another way to think of the quiet period is that you are requiring a certain period of inactivity.</p>
+
+<p>The above applies to all the mechanisms in Hudson that puts builds into the queue. This includes REST API call, CLI call, downstream triggers, and SCM pollings. So if you implement some kind of a "push" mechanism in your SCM to notify Hudson of a new commit, then you get the desired effect by just setting the quiet period in Hudson, and those push scripts don't have to do anything tricky.</p>
+
+<p>It is also possible for some of those to override the quiet period configured in the project. For example, when you click "Build Now" button in your browser, your browser is making a REST API call, but with the quiet period of zero. I used to run a "push" script that looks into a commit message and overrides the quiet period by taking advantages of this feature.</p>
+
+<p>The other portion of the quiet period that often matters is the SCM polling behaviour. Up until Hudson 1.346, the way Hudson defined the SCM abstraction made it impossible for SCMs to correctly report newly detected commits since the last polling. Instead, it was only possible to report if the repository is newer than the workspace. As a result, if the polling interval is set shorter than the quiet period, the build stayed in the quiet period forever. This was tracked in HUDSON-2180.</p>
+
+<p>Hudson 1.346 fixed this issue, and so if you are using a newer version of Hudson and SCM plugins that take advantage of this improvement, then everything works as expected. Otherwise, avoid setting quiet period longer than the polling interval.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/08/10/big-security-fix-hudson-1-371-released/'>
 Big Security Fix! Hudson 1.371 Released
 </a>
@@ -326,36 +382,6 @@ Continuous Deployment on the new Digg
 In my capacity as Build Guy at <a href="http://digg.com">Digg</a>, I've written up a blog post on our new continuous deployment/code review/pre-tested commit workflow. We're using a combination of Hudson, Git and <a id="aptureLink_XCwvc3W24n" href="http://code.google.com/p/gerrit/">Gerrit</a>, <a id="aptureLink_6peu5fusib" href="http://seleniumhq.org/">Selenium</a> and more to make sure that every change going to Digg's <a href="http://new.digg.com">new site</a> has been thoroughly tested.<br/>
 <br/>
 <strong>Read the whole post, with all the juicy details over <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">on Digg's Technology Blog</a>!</strong>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/21/hudson-with-selenium-and-sauce-on-demand-videos/'>
-Hudson with Selenium and Sauce On-Demand Videos
-</a>
-</h1>
-<div class='content'>
-<p>A few weeks ago, Kohsuke stopped by the <a href="http://meetup.com/seleniumsanfrancisco">San Francisco Selenium Meetup</a> hosted by <a href="http://saucelabs.com">Sauce Labs</a> to talk about all things Selenium and Hudson related (with a bit of Sauce in there too).</p>
-
-<p>The good folks over at Sauce Labs have gotten around to posting some of the videos taken with Kohsuke.</p>
-
-<p>Instead of embed the videos, I wanted to directly <strong><a href="http://saucelabs.com/blog/index.php/2010/07/sfse-meetup-videos-hudson-with-selenium-sauce-ondemand/">link to the post</a></strong> and make sure that you all went over to check out Sauce Labs, they're up to some interesting things over there.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/13/monitor-hudson-from-your-android/'>
-Monitor Hudson from your Android
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-good.png" align="left" hspace="10" /> So you've got your fancy Android cell phone and you're thinking to yourself "besides feeling smugly superior to iPhone users, what can I do with this thing?" Perhaps you should be considering using it as a <em>phone</em> but if that's too boring, check out the new and improved <strong><em><a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Mood+widget+for+Android">Hudson Mood widget for Android</a></em></strong>! The latest release brings support for multiple servers and fancier graphics.</p>
-
-<p>If you're interested in installing the widget, search for "Hudson Mood" in the Android Market, and be sure to thank <a href="http://sdudzin.blogspot.com/">Siarhei Dudzin</a> for creating the widget!</p>
-
-<center><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-settings.png" /></center>
 
 </div>
 </div>

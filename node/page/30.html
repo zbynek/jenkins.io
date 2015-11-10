@@ -177,6 +177,49 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/05/13/new-download-link-test/'>
+New download link test
+</a>
+</h1>
+<div class='content'>
+<p>I'm testing the new download page.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/12/the-state-of-the-jenkins-project/'>
+The State of the Jenkins Project
+</a>
+</h1>
+<div class='content'>
+<p>A few weeks ago our very own <a href="http://www.twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> gave a presentation at the <a href="http://events.linkedin.com/Silicon-Valley-Continuous-Integration/pub/591454">Silicon Valley CI Summit</a> held in Mountain View.</p>
+
+<p>Within the presentation, Kohsuke included a collection of numbers about the vibrancy of the Jenkins project that certainly hasn't gotten enough attention. While the slideshow is embedded below, here's some good high-level points:</p>
+
+<ul>
+  <li>Over 170 <a href="https://github.com/jenkinsci">GitHub</a> pull requests in the past four months, with more being sent every day.</li>
+  <li>Formalization of a "Jenkins Stable" branch of development with longer release cycles and back-ported bugfixes.</li>
+  <li>Over 280 tickets in <a href="https://issues.jenkins-ci.org">JIRA</a> have been resolved.</li>
+  <li>After posting a "special" release of Hudson which presents users with a choice, <strong>87.25%</strong> are choosing to upgrade to Jenkins.</li>
+  <li>Over 500 tickets have been created</li>
+  <li>Roughly 13,000 downloads of <code>jenkins.war</code> and native packages a week</li>
+  <li><strong>New</strong> and vibrant community-driven initiatives like <a href="http://twitter.com/fcamblor">Frederic Camblor's</a> plugin compatibility tester and <a href="http://twitter.com/cowboyd">Charles Lowell's</a> JRuby plugin support project.</li>
+  <li>We've crossed 1500 participants on the <code>jenkinsci-user</code> mailing list, and are over 900 participants on the <code>jenkinsci-dev</code> list.</li>
+  <li>The <a href="http://twitter.com/jenkinsci">@jenkinsci</a> twitter account recently crossed the 4,000 follower threshold.</li>
+</ul>
+
+<p>On a personal note, I think this speaks all to the level of unbridled enthusiasm about the future of Jenkins by contributors both new and old.</p>
+
+<p>Without further delay, the slides:</p>
+
+<center><div style="width:425px" id="__ss_7835978"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/kohsuke/current-state-of-jenkins" title="Current state of Jenkins">Current state of Jenkins</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7835978" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/kohsuke">Kohsuke Kawaguchi</a> </div> </div></center>
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
 Ruby Plugins Hack Session 5/12/2011
 </a>
@@ -325,148 +368,6 @@ San Francisco Jenkins Meetup - Wednesday, April 13th
 </h1>
 <div class='content'>
 <p><img src="http://agentdero.cachefly.net/continuousblog/images/ey_logo.png" alt="Engine Yard!" align="right" />We're happy to announce that there'll be a Jenkins meetup in San Francisco on Wed., Apr 13th, generously hosted by <a href="http://www.engineyard.com/">Engine Yard</a>. The meetup will start at 6:30 - you can find more information <a href="http://www.meetup.com/jenkinsmeetup/events/17090726/">here</a>. <a href="http://twitter.com/drnic">Dr Nic Williams of Engine Yard</a> will talk about their use of Jenkins with Ruby, and Kohsuke will give an update on the JRuby plugin development work he and <a href="http://twitter.com/cowboyd">cowboyd</a> have been working on. If you're interesting in giving a short talk on your usage of Jenkins, plugin work, or whatever, there should be time for an open mic. Hope to see you there!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/03/23/windows-installers-are-now-available/'>
-Windows installers are now available
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Good portion of Java developers use Windows, so we tend to think the opposite is true, that a good portion of Windows folks use Java. But this is not true.<br/>
-<br/>
-<p><br/>
-As Jenkins gains traction among .NET developers, it's becoming increasingly clear that Java is very alien to them. They naturally have no idea of what a war file means, and often don't even have Java installed, and so it was <i>just not easy enough</i> for them to start using Jenkins.<br/>
-<br/>
-<p><br/>
-I'm happy to report that I've finally fixed this problem with the new Windows installer. It is primarily packaged as <a href="http://en.wikipedia.org/wiki/Windows_Installer">an MSI file</a> &mdash; a common format that seasoned Windows devs/admins are familiar with. It can, for example, be deployed remotely on a large number of servers via Active Directory remotely. Or you can just double-click it to install it interactively. It bundles JRE, so no separate Java installation is needed.<br/>
-<br/>
-<p><br/>
-The package also contains the bootstrap <tt>setup.exe</tt>, to install .NET 2.0 runtime if it's not installed yet. Between that and JRE, it got all the dependencies covered. I tested that by installing it on a fresh Windows XP install.<br/>
-<br/>
-<p><br/>
-So I hope this makes Jenkins more attractive to .NET and other developers who live and die by Windows.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/03/21/the-polls-are-open-for-the-jenkins-logo-contest/'>
-The polls are open for the Jenkins Logo Contest!
-</a>
-</h1>
-<div class='content'>
-<p>After a number of <strong>absolutely</strong> fantastic logo submissions from a number of designers, I'm extremely pleased to open the polls on the vote for the <strong><em>brand new Jenkins logo!</em></strong></p>
-
-<p>The thumbnails do not do any of these logos justice in my opinion, so I recommend opening each logo up in its own tab to get the full effect :)</p>
-
-<p>I plan to end voting <strong>March 28th at 12:01 UTC</strong>.</p>
-
-<h3 id="the-logos">The Logos</h3>
-
-<table>
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_matthias_cullman.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_christopher_getschmann.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_emily_bertelson.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-1">Logo #1</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-2">Logo #2</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-3">Logo #3</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_tomas_ekeli.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_vimil_saju.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_akiko_takano.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-4">Logo #4</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-5">Logo #5</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-6">Logo #6</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_jeremy_murray.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_2.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" />
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-7">Logo #7</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-8">Logo #8</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-9">Logo #9</a>
-        </td>
-    </tr>
-
-
-    <tr>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" />
-        </td>
-        <td align="center">
-            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_ben_minne.thumbnail.png" />
-        </td>
-        <td align="center">
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-10">Logo #10</a>
-        </td>
-        <td align="center">
-            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-11">Logo #11</a>
-        </td>
-        <td align="center">
-        </td>
-    </tr>
-</table>
-<!--break-->
-<p>### The Vote</p>
-
-<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ">the form in a new window</a></p>
-
-<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ" width="760" height="734" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
 </div>
 </div>

@@ -1,7 +1,7 @@
 <html>
 <head>
 <title>
-Jenkins
+Mitigating unauthenticated remote code execution 0-day in Jenkins CLI
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
@@ -172,168 +172,72 @@ Jenkins-on-Jenkins
 </div>
 
 
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Recent Blog Posts
-</h3>
-<div class='content'>
-<div class='item-list'>
-<ul>
-<li class='post'>
-<a href='/blog/2015/11/06/october-jams/'>
-October JAMs
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/'>
-Mitigating unauthenticated remote code execution 0-day in Jenkins CLI
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/04/jenkins-and-docker/'>
-Jenkins and Docker
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
-What JVM versions are running Jenkins?
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/03/jenkins-2-0-proposals/'>
-Jenkins 2.0 Proposals
-</a>
-</li>
-<li class='post'>
-<a href='/blog/2015/11/01/adopt-a-plugin/'>
-Adopt a plugin!
-</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
-
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
-<style>
-  /*kill off unwanted crafts */
-  #content H1, DIV.taxonomy {
-      display:none;
-  }
-  #content DIV.node {
-      border-bottom:none;
-  }
-  
-  #welcome #directory {
-      padding-top: 2em;
-  }
-  #welcome #directory A {
-      text-decoration: none !important;
-  }
-  #welcome #directory A:link {
-      text-decoration: none !important;
-  }
-  #welcome #directory A:hover {
-      text-decoration: underline;
-      color: black;
-  }
-  #welcome #directory .title {
-      color: black;
-      font-weight: bold;
-      font-size: 1.5em;
-  }
-  #welcome #directory TD {
-      vertical-align: middle;
-      padding-bottom: 3em;
-  }
-  #welcome #directory .description {
-      color: gray;
-  }
-  #welcome #directory .logo {
-      border: 0px;
-      margin-right: 1em;
-  }
-</style>
-<div id='welcome'>
-<div align='center' class='content'>
-<table id='directory' style='border: none;' valign='middle'>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins'>
-<img class='logo' src='/images/logo_head.png'>
+<div class='node clear-block'>
+<h1>
+<a href='/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/' title='Mitigating unauthenticated remote code execution 0-day in Jenkins CLI'>
+Mitigating unauthenticated remote code execution 0-day in Jenkins CLI
 </a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins'>
-<div class='title'>
-Meet Jenkins
-</div>
-<div class='description'>
-Find out what Jenkins is and get started.
-</div>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-06T00:00:00+00:00
+</span>
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
 </a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins'>
-<img class='logo' src='/images/user.gif'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins'>
-<div class='title'>
-Use Jenkins
 </div>
-<div class='description'>
-See how to get more out of your Jenkins
-</div>
-</a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Plugins'>
-<img class='logo' src='/images/plugin.png'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Plugins'>
-<div class='title'>
-Customize Jenkins
-</div>
-<div class='description'>
-Chose from hundrends of plugins to customize Jenkins to suit your needs
-</div>
-</a>
-</td>
-</tr>
-<tr>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins'>
-<img class='logo' src='/images/developer.gif'>
-</a>
-</td>
-<td>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins'>
-<div class='title'>
-Extend Jenkins
-</div>
-<div class='description'>
-Learn how to build or extend Jenkins by writing plugins
-</div>
-</a>
-</td>
-</tr>
-</table>
-</div>
-<div style='padding-top: 3em; text-align: right;'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Awards'>
-Awards
-</a>
-<img src='/images/award.png' style='vertical-align: middle;'>
+
+<div class='content'>
+<p><strong>Updated 2015-11-06 03:55 UTC:</strong> Included a updated mitigation script which doesn't have a Jenkins boot race condition</p>
+
+<hr />
+
+<p>Earlier today we received numerous reports about a previously undisclosed "<a href="https://en.wikipedia.org/wiki/Zero-day_%28computing%29">zero day</a>" critical remote code execution vulnerability and exploit in Jenkins core. Unfortunately the vulnerability was not disclosed to us ahead of its publication so we're still working on more thorough fix. In the <em>meantime</em> however, we wanted to inform you of the issue and provide a workaround which will help prevent this exploit from being used against public Jenkins installations, for future reference this issue is being tracked privately as <code>SECURITY-218</code> in our <a href="https://issues.jenkins-ci.org">issue tracker</a>.</p>
+
+<p>The attack is mounted through the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI">Jenkins CLI</a> subsystem, so the work-around is to remove/disable the CLI support inside of the running Jenkins server.</p>
+
+<p>Using the following Groovy script you can disable the attack vector in your Jenkins installations by navigating to “Manage Jenkins” and then to “Script Console”, or just go to <code>http://your-jenkins-installation/script</code>. This only addresses the current running Jenkins process, in order to make the workaround persist between restarts of the Jenkins server, add the script below to <code>$JENKINS_HOME/init.groovy.d/cli-shutdown.groovy</code> (create the directory if necessary, and the file).</p>
+
+<hr />
+
+<pre><code>import jenkins.*;
+import jenkins.model.*;
+import hudson.model.*;
+
+// disabled CLI access over TCP listener (separate port)
+def p = AgentProtocol.all()
+p.each { x -&gt;
+  if (x.name.contains("CLI")) p.remove(x)
+}
+
+// disable CLI access over /cli URL
+def removal = { lst -&gt;
+  lst.each { x -&gt; if (x.getClass().name.contains("CLIAction")) lst.remove(x) }
+}
+def j = Jenkins.instance;
+removal(j.getExtensionList(RootAction.class))
+removal(j.actions)
+</code></pre>
+
+<hr />
+<p>in order to make the workaround persist between restarts of the Jenkins server, add the script below to <code>$JENKINS_HOME/init.groovy.d/cli-shutdown.groovy</code> (create the directory if necessary, and the file).</p>
+
+<p>The latest version of this script can be found <a href="https://github.com/jenkinsci-cert/SECURITY-218">in this GitHub repository</a>.</p>
+
+<p>As previously announced on the <a href="https://groups.google.com/d/forum/jenkinsci-advisories">jenkinsci-advisories</a> mailing list we’re preparing a security release for this upcoming Wednesday which will include patches for both the latest and LTS lines of Jenkins core. The Jenkins Security team is working to include a fix for this previously undisclosed exploit in or before this planned security release.</p>
+
+<p>If you have questions about this exploit, join us in the <a href="http://webchat.freenode.net/?channels=%23jenkins&amp;uio=d4">#jenkins channel on Freenode</a> or ask on the <a href="https://groups.google.com/d/forum/jenkinsci-users">jenkinsci-users@ mailing list</a>.</p>
+
+<p>For security researchers and hobbyists, if you believe you have found a security vulnerability in Jenkins, we have some disclosure guidelines <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">on this wiki page</a> which will help us mitigate any discovered issues as quickly and safely as possible.</p>
+
+<hr />
+
+<p>Be sure to subscribe to the jenkinsci-advisories mailing list (<a href="https://groups.google.com/d/forum/jenkinsci-advisories">jenkinsci-advisories</a>), it's the fastest way to get updates by the Jenkins Security team.</p>
+
 </div>
 </div>
 
@@ -353,7 +257,7 @@ Awards
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//index.html.haml' title='Edit /index.html.haml on GitHub'>
+<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blog/2015/2015-11-06-mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli.md' title='Edit /blog/2015/2015-11-06-mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli.md on GitHub'>
 Improve this page
 </a>
 </div>
