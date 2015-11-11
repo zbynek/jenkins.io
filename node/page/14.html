@@ -177,6 +177,32 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/06/11/juc-speaker-sneakpeak-a-build-ecosystem-for-loosely-compiled-code/'>
+JUC speaker sneakpeak: A build ecosystem for loosely compiled code
+</a>
+</h1>
+<div class='content'>
+<div class="content"><br/>
+    <div style="float:right; margin:1em"><br/>
+  <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/speakers#ForestHandford"><br /><br/>
+    <img src="http://jenkins-ci.org/sites/default/files/images/Forest_Handford_0.preview.jpg" width=240 height=320 /><br /><br/>
+  </a><br/>
+</div><br/>
+<br/>
+<i>We're getting excited about the Boston and Berlin JUC's in the next two weeks! Here's a preview of Forest Handford's upcoming JUC-US East Lightning Talk on June 18...</i><br/>
+<br/>
+When <a href="http://home.meditech.com/en/d/home/">MEDITECH</a> migrated to Subversion from a home-grown first generation version control system we needed a way to get the code compiled and sent to the running server. We selected Jenkins as our build server, with the hope of eventually using it for CI.<br/>
+<br/>
+A MEDITECH application consists of hundreds of source files. Each source file translates to an object code file that the interpreter executes. This is one of the last major projects I worked on prior to leaving MEDITECH to work at Carbonite. In my Lightning Talk, "A Build Eco-System for Loosely Compiled Code," I'll discuss the toughest challenges my team had in getting Jenkins to work as our build server and how we eventually overcame them.<br/>
+<br/>
+Staff from both <a href="http://www.carbonite.com">Carbonite</a> and MEDITECH will be in attendance. Both companies are hiring!<br/>
+<br/>
+<i>You'll find more great talks in the full <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">JUC-US East</a> agenda and the <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">JUC-Europe</a> agenda. </i>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/06/10/two-weeks-till-jenkins-user-conference-berlin/'>
 Two Weeks Till Jenkins User Conference Berlin
 </a>
@@ -373,36 +399,6 @@ Try adopting a plugin for a while, and when you get the hang of it, let <a href=
 <br/>
 <p><br/>
 See, it's really not that hard. And there's something really satisfying in making things a little better and seeing happy users. Anyway, looking forward to working with you!
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/05/27/acceptance-test-project-progress-report/'>
-Acceptance test project progress report
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Over the past 30 days or so, <a href="https://github.com/jenkinsci/acceptance-test-harness/">the acceptance test project</a> has made a great progress.<br/>
-<br/>
-<p><br/>
-This project consists of a reusable harness that can be used by plugin developers and users to write functional test cases. These tests can be run against Jenkins instances that are deployed in <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/CONTROLLER.md">all sorts of different ways</a>, and can interact with <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/docs/FIXTURES.md">complex real fixtures</a>. These tests can be also run with specific version of Jenkins core and a combination of plugins.<br/>
-<br/>
-<p><br/>
-The number of tests have <a href="https://jenkins.ci.cloudbees.com/job/core/job/acceptance-test-harness/">steadily increased to above 300</a>. Several of those are by <a href="https://github.com/eidottermihi">Michael Prankl</a>, where he tests <a href="https://github.com/jenkinsci/acceptance-test-harness/blob/master/src/test/java/plugins/LdapPluginTest.java">the LDAP plugin with the real OpenLDAP server instance</a> that runs inside Docker &mdash; a kind of test that just wasn't possible before can be now easily written.<br/>
-<br/>
-<p><br/>
-<a href="https://github.com/jenkinsci/acceptance-test-harness/graphs/contributors">More than a dozen people</a> have contributed. <a href="https://github.com/jenkinsci/acceptance-test-harness/commits/master">A dozen changes are going in every single day</a>, and more are coming &mdash; for example, Stephen is working on modularizing this harness and adding new pieces that allow people to do scalability and load testing. That'll be a part of this effort soon.<br/>
-<br/>
-<p><br/>
-If you are one of the large scale users who are interested in automating some of your Jenkins acceptance testing, please <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">drop us a note at the DEV list</a> so that we can work together. You can also watch the recording of our last <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">office hours</a> where I demoed how you'd develop a test on top of this:<br/>
-<br/>
-<iframe width="560" height="315" src="//www.youtube.com/embed/ZHAiywgMG-M" frameborder="0" allowfullscreen></iframe><br/>
-<br/>
-<p><br/>
-I think we all agree that this is an important effort/ Looking forward to joining the efforts with more people in the community!<br/>
-<br/>
 
 </div>
 </div>

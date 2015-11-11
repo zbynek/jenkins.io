@@ -177,6 +177,38 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/09/25/cve-2014-6271-impact-on-jenkins/'>
+CVE-2014-6271 impact on Jenkins
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Road_signs_in_Singapore"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Singapore_Road_Signs_-_Restrictive_Sign_-_Stop_-_Security_Check.svg/240px-Singapore_Road_Signs_-_Restrictive_Sign_-_Stop_-_Security_Check.svg.png"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+I suspect many of you have been impacted by <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-6271">CVE-2014-6271</a> (aka "shellshock" bash vulnerability.) We had our share of updates to do for various *.jenkins-ci.org servers.<br/>
+<br/>
+<p><br/>
+Java application servers in general (including one that ships in Jenkins) do not fork off processes like Apache does to serve requests, so the kind of CGI attacks you see on Apache does not apply. We are currently unaware of any vulnerabilities in Jenkins related to CVE-2014-6271, and no plan to issue a patch for that.<br/>
+<br/>
+<p><br/>
+That said, we did come up with one possible way attackers can exploit vulnerable bash through Jenkins, that you might want to be aware of.<br/>
+<br/>
+<p><br/>
+When a build is parameterized, parameters are passed to the processes Jenkins launch as environment variables. So if you have a shell step (which uses <tt>bash</tt> by default), and if Eve only has a BUILD permission but not CONFIGURE permission, then Eve can exploit this vulnerability by carefully crafting parameter values, and have the bash runs arbitrary processes on the slave that run the build.<br/>
+<br/>
+<p><br/>
+In most such scenarios, Eve would have to be an authenticated user on Jenkins. Jenkins also leaves the record of who triggered what build with what parameters, so there's an audit trail. But if your Jenkins fits this description, hopefully this serves as one more reason to update your bash.<br/>
+<br/>
+<p><br/>
+Finally, to get notified of future security advisories from Jenkins, see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">this Wiki page</a>.
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/09/24/more-jenkins-related-continuous-delivery-events-in-chicago-washington-dc-and-san-francisco/'>
 More Jenkins-related continuous delivery events in Chicago, Washington DC, and San Francisco
 </a>
@@ -267,21 +299,6 @@ It's been a while we do a meet-up in Paris. Looking forward to seeing as many of
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/08/28/workflow-plugin-code-walk-through/'>
-Workflow plugin code walk-through
-</a>
-</h1>
-<div class='content'>
-<p>Jesse and I will walk through the source code of <a href="https://github.com/jenkinsci/workflow-plugin">the workflow plugin</a>, highlights key abstractions and extension points, and discuss how they are put together.</p>
-
-<p>If you are interested in developing or retrofitting plugins to work with workflows, I think you'll find this session interesting.</p>
-
-<p>The event will be on <a href="https://plus.google.com/events/cojjhg4kkpffkbpakj723fdht9k">Google Hangout</a> tomorrow. The time of the day is the same as usual <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Workflow+walk-through&amp;iso=20140829T11&amp;p1=224&amp;ah=1&amp;sort=1">office hours</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2014/08/28/juc-sf-2014-is-here/'>
 JUC SF 2014 is Here!
 </a>
@@ -354,6 +371,21 @@ teach everything from how to get started, to techniques like writing a new    <a
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2014/08/28/workflow-plugin-code-walk-through/'>
+Workflow plugin code walk-through
+</a>
+</h1>
+<div class='content'>
+<p>Jesse and I will walk through the source code of <a href="https://github.com/jenkinsci/workflow-plugin">the workflow plugin</a>, highlights key abstractions and extension points, and discuss how they are put together.</p>
+
+<p>If you are interested in developing or retrofitting plugins to work with workflows, I think you'll find this session interesting.</p>
+
+<p>The event will be on <a href="https://plus.google.com/events/cojjhg4kkpffkbpakj723fdht9k">Google Hangout</a> tomorrow. The time of the day is the same as usual <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Workflow+walk-through&amp;iso=20140829T11&amp;p1=224&amp;ah=1&amp;sort=1">office hours</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/08/12/official-jenkins-lts-docker-image/'>
 Official Jenkins LTS docker image
 </a>
@@ -398,36 +430,6 @@ This image is maintained in this github <a href="https://github.com/cloudbees/je
 </p><br/>
 <br/>
 <p>It will be interesting to watch this grow and change.</p><br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/08/12/jenkins-user-meet-up-in-london/'>
-Jenkins User Meet-up in London
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/London"><br/>
-<img src=http://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Black_London_Cab.jpg/320px-Black_London_Cab.jpg><br/>
-</a><br/>
-</div><br/>
-<br/>
-<p><br/>
-<a href="http://jenkins-ci.org/content/jenkins-user-meet-london">As I was alluding to earlier</a>, I was hoping to have a meetup of Jenkins users in London for a while. I'm happy to report that <a href="http://www.meetup.com/jenkinsmeetup/events/198004202/">the agenda is final and RSVP is open</a>! The date is September 8th.<br/>
-<br/>
-<p><br/>
-I'll talk about my recent chef/puppet integration work in Jenkins. Sven from Perforce will talk about how to leverage Perforce features from Jenkins, and then James Nord will talk about workflow. It will be a worthy 2 hours.<br/>
-<br/>
-<p><br/>
-If the line up of talks will not be enough to sway you, you should also know that I will bring some Jenkins give-aways!<br/>
-<br/>
-<p><br/>
-I'm not sure how many people to expect, but there's a cap at 80 people, so if you are thinking about coming, <a href="http://www.meetup.com/jenkinsmeetup/events/198004202/">be sure to RSVP</a>. Looking forward to seeing many of you there!<br/>
-<br/>
-<p><br/>
-Finally, if you are in London, the usual suspects (CloudBees, PuppetLabs, XebiaLabs, MidVision, SOASTA, et al) are doing <a href="https://www.eventbrite.com/e/how-to-accelerate-innovation-with-continuous-delivery-london-tickets-12229265061">a free event titled "How To Accelerate Innovation with Continuous Delivery"</a> that you might also be interested in.
 
 </div>
 </div>
