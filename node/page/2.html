@@ -177,6 +177,65 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/'>
+Jenkins 2.0 Proposal: Improved "Out of the box" user experience
+</a>
+</h1>
+<div class='content'>
+<p>This week we have featured a number of proposals for what we would like to see in "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>", the vision of which is to make Jenkins users more efficient, productive and happy. We started with some more internally facing changes and have slowly progressed from the "inside-out" to today's topic: improving the out of the box user experience. That is to say, the experience that a brand-new Jenkins user has when getting started with the server.</p>
+
+<p>Just to recap, so far we've reviewed:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
+  <li><a href="/content/jenkins-20-proposal-ux-improvements-part-one">User experience improvements (part one)</a></li>
+</ul>
+
+<p>The subject of today's proposal is captured in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a></strong>, which, like yesterday's <a href="/content/jenkins-20-proposal-ux-improvements-part-one">proposal</a>, contains a few issues linked from it with more details.</p>
+
+<p>At a high level, the problem aiming to be solved is:</p>
+
+<blockquote>
+  <p>When a new user installs Jenkins, they are greeted with the main, empty, dashboard which suggests that they "create jobs." This makes no mention of plugins or the configuration options that are relevant to helping the user make Jenkins match their needs.</p>
+</blockquote>
+
+<p>In past and current versions of Jenkins, if you know what you're looking for it's relatively easy to move around the interface. If you've never used Jenkins before, it can be very challenging to find your way around or even know <em>what it is possible</em> to do with Jenkins.</p>
+
+<p>The proposed changes aim to address this initial confusion:</p>
+
+<blockquote>
+  <p>Instead of changing the post-install defaults, which may not properly represent the user's needs, the first-time user experience should help guide the user through configuration and plugin installation quickly so they can use Jenkins for their needs. Effectively it should be as easy as possible for a user to arrive at a good configuration for their usage.</p>
+</blockquote>
+
+<p>Jenkins contributor <a href="https://github.com/tfennelly">Tom Fennelly</a>, who has led this discussion on the mailing lists in the past, has posted a good prototype screencast of what some of this might entail:</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/kzRR8XR8hu4?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a> and comment and vote on those issues accordingly.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>This concludes this week's blog series highlighting some of the Jenkins 2.0 proposals we felt were important to discuss with the broader Jenkins user audience. Many of these, and other minor proposals, can be found on the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0 wiki page</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/'>
 Jenkins 2.0 Proposal: UX Improvements (Part One)
 </a>
@@ -514,28 +573,6 @@ This fresh new implementation relies on a set of docker containers (aka â€˜podâ€
 <br/>
 <p><br/>
 This project <a href="https://blog.docker.com/2015/09/docker-global-hack-day-3-winners/">won the 3rd place in the Freestyle category of Docker Hack Day</a>.  Congratulations to Nicolas and Yoann on their win!  Jenkins + Docker is a winning pair and this plugin will make a huge difference in your projects.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/01/upcoming-in-office-hours-jenkins-2-0/'>
-Upcoming in office hours: Jenkins 2.0
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-I hope many of you have had a chance to see <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/vbXK7JJekFw">the Jenkins 2.0 thread</a>.<br/>
-I'm going to use <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">the office hours next Wednesday</a> to go through this proposal.<br/>
-</p><br/>
-<br/>
-<p><br/>
-This is still primarily for developers in the project, as it's "just" a proposal with lots of details unspecified. It's more meant to help people understand where I'm coming from and what goals I have in mind for this effort.<br/>
-</p><br/>
-<br/>
-<p><br/>
-As always, this will be on Hangout on air. The event page is <a href="https://plus.google.com/events/co46heshe6i4io1dsaaj1h3th2c">here</a>, and if you want to participate in the discussion, join <a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYfvk_ZBO4dCmxysNPfi-R5_xlkgscU-r9WDq_8zXDv6VnN3kg">here</a>. Read-only viewers should use <a href="https://www.youtube.com/watch?v=fl5xfqtiNko">YouTube</a> to watch, and you can still send questions in real time to IRC and I'll make sure to <a href="http://jenkins-ci.org/content/chat">go through them</a>.<br/>
-</p>
 
 </div>
 </div>

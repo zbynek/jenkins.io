@@ -177,6 +177,70 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/02/09/jenkins-celebration-day-is-february-26/'>
+Jenkins Celebration Day is February 26
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Congratulations! The Jenkins project officially went over the 100K active users mark sometime in January. As of January 31, <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/total-jenkins.svg">we were at 102,992</a>. YOU are one of the 100K active users!<br/>
+<br/>
+<p><br/>
+As discussed on <a href="http://meetings.jenkins-ci.org/jenkins/2015/">a couple recent project meetings</a>, we have designated <b>February 26</b> as Jenkins Celebration Day.<br/>
+<br/>
+<p><br/>
+To make some noise, here is what we are doing starting NOW:<br/>
+<br/>
+<ul><br/>
+<li><br/>
+Write a blog about anything related to Jenkins. Post your blog and Tweet out a link to it. Include the hashtag <b>#Jenkins100K</b> in your post.<br/>
+<br/>
+<li><br/>
+On February 26, we will hold a raffle and pick four names at random.  The grand prize winner will get a <a href="http://jenkins-ci.org/content/jenkins-figure-available-shapeways">3D Jenkins Butler model</a>. Five others will get their pick of Jenkins swag (up to $20) from <a href="http://www.cafepress.com/jenkinsci">the Jenkins online store</a>.<br/>
+<br/>
+</ul><br/>
+<br/>
+<h2>OTHER WAYS TO CELEBRATE</h2><br/>
+<br/>
+<p><br/>
+There are a number of other things planned and we want YOU to be involved. This blog post is the central place to come for all things related to the celebration. <br/>
+<br/>
+<ul><br/>
+<li><br/>
+<b>Recording – Jenkins Governance Board</b><br/>
+Dean, Tyler, Andrew and I will get together this month and record some thoughts about the Jenkins project. We will share that recording with you from this page on February 26.<br/>
+<br/>
+<li><br/>
+<b><a href="http://jenkins-ci.org/sites/default/files/images/jenkins-100k-profile_4.jpg">Twitter Badge</a></b><br/>
+For those of us on social media that want to proudly celebrate our community, we will have a special badge that you can use for your profile image on Twitter or any of the other social media forums. Feel free to use the badge as long as you want – but let’s get as many of us using it as possible between now and February 27.<br/>
+<br/>
+<li><br/>
+<b><a href="http://jenkins-ci.org/content/jenkins-100k-celebration-pictures">Social Media Images</a></b><br/>
+<ul><br/>
+<li>CloudBees is donating a series of images that we can all push out on social media (whatever platform(s) you use). <br/>
+<li>Pick your favorite(s) and push them out on Twitter, Facebook, G+<br/>
+</ul><br/>
+<br/>
+<li><br/>
+<b>Certificate</b> (available on this blog post soon)<br/>
+Download your very own “I am part of the Jenkins 100K” certificate. Print it out and proudly display it on the wall of your cube or office.<br/>
+<br/>
+<li><br/>
+<b>Visibility</b><br/>
+The Community will also issue a press release on February 26 announcing our milestone news.<br/>
+<br/>
+<li><br/>
+<b>Sign the “card”</b><br/>
+Consider this blog a Congratulations card to the entire community. Share your thoughts in a comment on this blog about anything Jenkins-related that you wish!<br/>
+</ul><br/>
+<br/>
+<p><br/>
+This is a big milestone for the Community and one you should be proud to be part of! Let’s make some noise…<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/01/27/office-hours-tomorrow-workflow-security-model-and-plugin-compatibility/'>
 Office Hours tomorrow: workflow security model & plugin compatibility
 </a>
@@ -387,66 +451,6 @@ The advisory includes the target delivery vehicles for the fix and how you can a
 <br/>
 <p><br/>
 (And as I write this, I've fixed all the <tt>https://*.jenkins-ci.org</tt> servers to disable SSLv3, so we are covered there)
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/10/06/gradle-fy-your-jenkins-plugin-project/'>
-Gradle-fy your Jenkins Plugin Project
-</a>
-</h1>
-<div class='content'>
-<p>(This is a guest post from <a href="http://www.daniel-spilker.com/">Daniel Spilker</a>)</p>
-
-<p>Jenkins supports building plugins using <a href="http://www.gradle.org/">Gradle</a> for a while now. Last week a new version of the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+JPI+Plugin">Gradle JPI plugin</a> has been released to iron out some <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/0.6.0/CHANGELOG.md">issues</a>.</p>
-
-<p>The Gradle JPI plugin enables a 100% groovy plugin development environment with Groovy as primary programming language, <a href="https://code.google.com/p/spock/">Spock</a> for writing tests and Gradle as build system. Have a look at the <a href="https://github.com/jenkinsci/job-dsl-plugin">Job DSL plugin</a> for an example.</p>
-
-<p>An existing Maven build can be converted to Gradle by using the build.gradle template from the Gradle JPI plugin's <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/master/README.md">README</a>. For instance, the <a href="https://github.com/jenkinsci/gradle-plugin/blob/763256601be20c30d238179c1ed3965011d6dfd5/pom.xml">POM</a> from the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin">Gradle plugin</a> translates to this build.gradle file:</p>
-
-<pre><code>buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            url 'http://repo.jenkins-ci.org/releases/'
-        }
-    }
-    dependencies {
-        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.6.0'
-    }
-}
-
-apply plugin: 'jpi'
-
-group = 'org.jenkins-ci.plugins'
-version = '1.25-SNAPSHOT'
-
-jenkinsPlugin {
-    coreVersion = '1.480'
-    displayName = 'Jenkins Gradle plugin'
-    url = 'https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin'
-    gitHubUrl = 'https://github.com/jenkinsci/gradle-plugin'
-
-    developers {
-        developer {
-            id 'gbois'
-            name 'Gregory Boissinot'
-            timezone '+1'
-        }
-    }                           
-}
-
-dependencies {
-    compile 'org.jenkins-ci.lib:dry-run-lib:0.1'
-}
-</code></pre>
-
-<p>Usage of the Gradle JPI plugin is similar to working with the Maven HPI plugin. Use <code>gradle jpi</code> to build the plugin file. <code>gradle check</code> runs the tests, <code>gradle install</code> copies the plugin into the local Maven repository, <code>gradle uploadArchives</code> deploys the plugin to the Jenkins Maven repository and <code>gradle server</code> starts a Jenkins development server with the plugin installed.</p>
-
-<p>It is recommended to use Gradle 1.8 because that is the version used to build and test the Gradle JPI plugin.</p>
-
-<p>For the next release it is planned to do some maintenance like fixing code style issues and adding tests. After that more issues need to be addressed to bring the plugin on par with the Maven HPI plugin, most notably fixing the test dependencies (<a href="https://issues.jenkins-ci.org/browse/JENKINS-17129">JENKINS-17129</a>) and publishing the plugin's JAR (<a href="https://issues.jenkins-ci.org/browse/JENKINS-25007">JENKINS-25007</a>). Updating Gradle to 2.x and getting the plugin on the <a href="http://plugins.gradle.org/">Gradle plugin portal</a> is also on the wishlist.</p>
 
 </div>
 </div>

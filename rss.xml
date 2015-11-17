@@ -1,13 +1,88 @@
 <feed xml:lang='en-US' xmlns='http://www.w3.org/2005/Atom'>
 <id>http://localhost:4242/</id>
 <title>Jenkins Blog</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:08-08:00</updated>
 <link href='http://localhost:4242/rss.xml' rel='self' type='application/atom+xml'>
 <link href='http://localhost:4242/' rel='alternate' type='text/html'>
 <entry>
+<id>http://localhost:4242/blog/2015/11/16/celebrating-hacksgiving/</id>
+<title>Celebrating Hacksgiving!</title>
+<updated>2015-11-17T06:48:08-08:00</updated>
+<published>2015-11-16T00:00:00+00:00</published>
+<link href='http://localhost:4242/blog/2015/11/16/celebrating-hacksgiving/' rel='alternate' type='text/html'>
+<author>
+<name>rtyler</name>
+</author>
+<category term='general'></category>
+<category term='cia'></category>
+<category term='just for fun'></category>
+<summary>
+Next week in the US we have a national holiday where, generally speaking, lots of turkey gets converted into left-over turkey sandwiches. For many software developers the Thanksgiving holiday also represents a lull in project schedules, freeing up some time to hack on pet projects or even contribute to open source projects.
+
+
+
+Taking a cue from the Adopt a Plugin program that Daniel wrote about earlier this month, we thought it would be fun to organize a "virtual hackathon" to coincide with that gap in project schedules. Thus Hacksgiving 2015 was created!
+
+We'll be hosting Hacksgiving Nov 23rd and Nov 24 from...
+</summary>
+<content type='html'>
+&lt;p&gt;Next week in the US we have a national holiday where, generally speaking, lots of turkey gets converted into left-over turkey sandwiches. For many software developers the Thanksgiving holiday also represents a lull in project schedules, freeing up some time to hack on pet projects or even contribute to open source projects.&lt;/p&gt;
+
+&lt;center&gt;&lt;img src=&quot;https://agentdero.cachefly.net/continuousblog/hacksgiving-platter.png&quot; border=&quot;0&quot; /&gt;&lt;/center&gt;
+
+&lt;p&gt;Taking a cue from the &lt;a href=&quot;http://localhost:4242/content/adopt-plugin-0&quot;&gt;Adopt a Plugin&lt;/a&gt; program that &lt;a href=&quot;https://github.com/daniel-beck&quot;&gt;Daniel&lt;/a&gt; wrote about earlier this month, we thought it would be fun to organize a &amp;quot;virtual hackathon&amp;quot; to coincide with that gap in project schedules. Thus &lt;strong&gt;&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015&quot;&gt;Hacksgiving 2015&lt;/a&gt;&lt;/strong&gt; was created!&lt;/p&gt;
+
+&lt;p&gt;We&amp;apos;ll be hosting Hacksgiving &lt;strong&gt;Nov 23rd&lt;/strong&gt; and &lt;strong&gt;Nov 24&lt;/strong&gt; from 7:00PST - 15:00PST (10:00EST - 18:00EST) and would love for you to join! (&lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/226735213/&quot;&gt;RSVP here&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;You don&amp;apos;t need to know Java to help!&lt;/strong&gt; We will have documentation and design hacking going on as well.&lt;/p&gt;
+
+&lt;p&gt;We have a few goals for Hacksgiving:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Introduce new contributors to the process of writing code and/or documentation (&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Documentationhacking&quot;&gt;documentation hacking details here&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Find some plugins which &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Adopt+a+Plugin#AdoptaPlugin-Whichpluginsarecurrentlyupforadoption%3F&quot;&gt;are up for adoption&lt;/a&gt; new maintainers.&lt;/li&gt;
+  &lt;li&gt;Clean up or merge some existing plugins which need some care (&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Pluginstocleanup&quot;&gt;listed here&lt;/a&gt;).
+&lt;!--break--&gt;
+### Sessions to note&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Here are some of the &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Schedule&quot;&gt;sessions scheduled&lt;/a&gt; that will be hosted by members of community that may interest you:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Day One&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;7:00PST/10:00EST (&lt;em&gt;15-30min&lt;/em&gt;) - &lt;a href=&quot;https://github.com/rtyler&quot;&gt;rtyler&lt;/a&gt; will host a welcome and introduction to contribution to the Jenkins project (walking through our &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Beginners+Guide+to+Contributing&quot;&gt;contributors guide&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;10:00PST/13:00EST (&lt;em&gt;60min&lt;/em&gt;) - &lt;a href=&quot;https://github.com/christ66&quot;&gt;schristou&lt;/a&gt; will host a workshop titled &amp;quot;Introduction to plugin development for Jenkins&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Day Two&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;10:00PST/13:00EST (&lt;em&gt;60min&lt;/em&gt;) - &lt;a href=&quot;https://github.com/abayer&quot;&gt;abayer&lt;/a&gt; will be hosting a &amp;quot;Plugin Developer Open Q&amp;amp;A&amp;quot; session, so bring your questions!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Hacksgiving is very &lt;a href=&quot;https://en.wikipedia.org/wiki/Unconference&quot;&gt;unconference&lt;/a&gt; structured right now, so if you&amp;apos;re interested in hosting a session please let us know in the &lt;code&gt;#jenkins-community&lt;/code&gt; channel or by signing up for a session on &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Schedule&quot;&gt;the schedule&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-participate&quot;&gt;How to participate&lt;/h3&gt;
+
+&lt;p&gt;Since this is a virtual hackathon, we&amp;apos;ll be congregating and chatting in a couple of ways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;On the &lt;code&gt;#jenkins&lt;/code&gt; &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/IRC+Channel&quot;&gt;IRC channel&lt;/a&gt; as per usual&lt;/li&gt;
+  &lt;li&gt;We&amp;apos;ll be hosting sessions and tutorials via Google Hangouts, see the &amp;quot;&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-HackerHangout&quot;&gt;hacker hangout&lt;/a&gt;* section on the wiki page up to date details&lt;/li&gt;
+  &lt;li&gt;Via the &lt;code&gt;#hacksgiving&lt;/code&gt; hashtag on Twitter&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can also RSVP on our &lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/226735213/&quot;&gt;meetup page!&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We hope you can join in the festivities!&lt;/p&gt;
+
+</content>
+</entry>
+<entry>
 <id>http://localhost:4242/blog/2015/11/11/new-jenkins-releases-with-important-security-fixes/</id>
 <title>New Jenkins releases with important security fixes</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:08-08:00</updated>
 <published>2015-11-11T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/11/new-jenkins-releases-with-important-security-fixes/' rel='alternate' type='text/html'>
 <author>
@@ -31,62 +106,9 @@ Want to be kept up to date on Jenkins security releases, including advance notic
 </content>
 </entry>
 <entry>
-<id>http://localhost:4242/blog/2015/11/06/october-jams/</id>
-<title>October JAMs</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
-<published>2015-11-06T00:00:00+00:00</published>
-<link href='http://localhost:4242/blog/2015/11/06/october-jams/' rel='alternate' type='text/html'>
-<author>
-<name>alyssa</name>
-</author>
-<category term='general'></category>
-<category term='cia'></category>
-<category term='meetup'></category>
-<summary>
-&lt;img src="http://jenkins-ci.org/sites/default/files/images/october-jams-image_0.jpeg" width=250/&gt;
-
-
-It is great to see the pick up of local activities through hosted JAMs. In October, the Jenkins community hosted Atlanta JAM and Bay Area JAM. Many thanks to our sponsors: Ericsson, CloudBees, Blazemeter, NetRoadShow.
-
-Here's a summary of what was discussed:
-
-Atlanta JAM - Jenkins workflow and Docker to reduce friction in DevOps efforts.
-Bay Area JAM- Performance testing strategies, incorporating performance tests into Jenkins workflows and the metrics that matter most for troubleshooting and diagnosing issues.
-
-A look forward to November and December:
-
-Hacksgiving
-Barcelona, Spain JAM
-Toulouse,France JAM
-
-As usual, if you're interested in becoming an organizer or sponsor, here's how to get...
-</summary>
-<content type='html'>
-&lt;div style=&quot;float:right; margin:1em&quot;&gt;
-&amp;lt;img src=&amp;quot;http://jenkins-ci.org/sites/default/files/images/october-jams-image_0.jpeg&amp;quot; width=250/&amp;gt;
-&lt;/div&gt;
-
-&lt;p&gt;It is great to see the pick up of local activities through hosted JAMs. In October, the Jenkins community hosted &lt;a href=&quot;http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/&quot;&gt;Atlanta JAM&lt;/a&gt; and &lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225860998/&quot;&gt;Bay Area JAM&lt;/a&gt;. Many thanks to our sponsors: &lt;a href=&quot;http://www.ericsson.com/&quot;&gt;Ericsson&lt;/a&gt;, &lt;a href=&quot;https://www.cloudbees.com/&quot;&gt;CloudBees&lt;/a&gt;, &lt;a href=&quot;https://blazemeter.com/&quot;&gt;Blazemeter&lt;/a&gt;, &lt;a href=&quot;https://www.netroadshow.com/nrs/wp/default.html&quot;&gt;NetRoadShow&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;apos;s a summary of what was discussed:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/&quot;&gt;Atlanta&lt;/a&gt; JAM - Jenkins workflow and Docker to reduce friction in DevOps efforts.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225860998/&quot;&gt;Bay Area&lt;/a&gt; JAM- Performance testing strategies, incorporating performance tests into Jenkins workflows and the metrics that matter most for troubleshooting and diagnosing issues.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
-
-&lt;p&gt;A look forward to November and December:
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015&quot;&gt;Hacksgiving&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Barcelona-Jenkins-Area-Meetup/&quot;&gt;Barcelona, Spain JAM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Toulouse-Jenkins-Area-Meetup/events/226522484/?eventId=226522484&quot;&gt;Toulouse,France JAM&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
-
-&lt;p&gt;As usual, if you&amp;apos;re interested in becoming an organizer or sponsor, &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup&quot;&gt;here&amp;apos;s how to get started&lt;/a&gt;.  If you&amp;apos;ve heard of a great Jenkins talk out there, shoot us an email with speaker info to &lt;a href=&quot;mailto:jenkinsci-jam@googlegroups.com&quot;&gt;jenkinsci-jam@googlegroups.com&lt;/a&gt; so we can invite him/her to our next meetups.&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
 <id>http://localhost:4242/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/</id>
 <title>Mitigating unauthenticated remote code execution 0-day in Jenkins CLI</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:08-08:00</updated>
 <published>2015-11-06T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/' rel='alternate' type='text/html'>
 <author>
@@ -160,9 +182,62 @@ removal(j.actions)
 </content>
 </entry>
 <entry>
+<id>http://localhost:4242/blog/2015/11/06/october-jams/</id>
+<title>October JAMs</title>
+<updated>2015-11-17T06:48:07-08:00</updated>
+<published>2015-11-06T00:00:00+00:00</published>
+<link href='http://localhost:4242/blog/2015/11/06/october-jams/' rel='alternate' type='text/html'>
+<author>
+<name>alyssa</name>
+</author>
+<category term='general'></category>
+<category term='cia'></category>
+<category term='meetup'></category>
+<summary>
+&lt;img src="http://jenkins-ci.org/sites/default/files/images/october-jams-image_0.jpeg" width=250/&gt;
+
+
+It is great to see the pick up of local activities through hosted JAMs. In October, the Jenkins community hosted Atlanta JAM and Bay Area JAM. Many thanks to our sponsors: Ericsson, CloudBees, Blazemeter, NetRoadShow.
+
+Here's a summary of what was discussed:
+
+Atlanta JAM - Jenkins workflow and Docker to reduce friction in DevOps efforts.
+Bay Area JAM- Performance testing strategies, incorporating performance tests into Jenkins workflows and the metrics that matter most for troubleshooting and diagnosing issues.
+
+A look forward to November and December:
+
+Hacksgiving
+Barcelona, Spain JAM
+Toulouse,France JAM
+
+As usual, if you're interested in becoming an organizer or sponsor, here's how to get...
+</summary>
+<content type='html'>
+&lt;div style=&quot;float:right; margin:1em&quot;&gt;
+&amp;lt;img src=&amp;quot;http://jenkins-ci.org/sites/default/files/images/october-jams-image_0.jpeg&amp;quot; width=250/&amp;gt;
+&lt;/div&gt;
+
+&lt;p&gt;It is great to see the pick up of local activities through hosted JAMs. In October, the Jenkins community hosted &lt;a href=&quot;http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/&quot;&gt;Atlanta JAM&lt;/a&gt; and &lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225860998/&quot;&gt;Bay Area JAM&lt;/a&gt;. Many thanks to our sponsors: &lt;a href=&quot;http://www.ericsson.com/&quot;&gt;Ericsson&lt;/a&gt;, &lt;a href=&quot;https://www.cloudbees.com/&quot;&gt;CloudBees&lt;/a&gt;, &lt;a href=&quot;https://blazemeter.com/&quot;&gt;Blazemeter&lt;/a&gt;, &lt;a href=&quot;https://www.netroadshow.com/nrs/wp/default.html&quot;&gt;NetRoadShow&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;apos;s a summary of what was discussed:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/&quot;&gt;Atlanta&lt;/a&gt; JAM - Jenkins workflow and Docker to reduce friction in DevOps efforts.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225860998/&quot;&gt;Bay Area&lt;/a&gt; JAM- Performance testing strategies, incorporating performance tests into Jenkins workflows and the metrics that matter most for troubleshooting and diagnosing issues.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;A look forward to November and December:
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015&quot;&gt;Hacksgiving&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Barcelona-Jenkins-Area-Meetup/&quot;&gt;Barcelona, Spain JAM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.meetup.com/Toulouse-Jenkins-Area-Meetup/events/226522484/?eventId=226522484&quot;&gt;Toulouse,France JAM&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+
+&lt;p&gt;As usual, if you&amp;apos;re interested in becoming an organizer or sponsor, &lt;a href=&quot;https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup&quot;&gt;here&amp;apos;s how to get started&lt;/a&gt;.  If you&amp;apos;ve heard of a great Jenkins talk out there, shoot us an email with speaker info to &lt;a href=&quot;mailto:jenkinsci-jam@googlegroups.com&quot;&gt;jenkinsci-jam@googlegroups.com&lt;/a&gt; so we can invite him/her to our next meetups.&lt;/p&gt;
+
+</content>
+</entry>
+<entry>
 <id>http://localhost:4242/blog/2015/11/04/jenkins-and-docker/</id>
 <title>Jenkins and Docker</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:07-08:00</updated>
 <published>2015-11-04T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/04/jenkins-and-docker/' rel='alternate' type='text/html'>
 <author>
@@ -227,7 +302,7 @@ Resources
 <entry>
 <id>http://localhost:4242/blog/2015/11/03/what-jvm-versions-are-running-jenkins/</id>
 <title>What JVM versions are running Jenkins?</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:06-08:00</updated>
 <published>2015-11-03T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/03/what-jvm-versions-are-running-jenkins/' rel='alternate' type='text/html'>
 <author>
@@ -278,7 +353,7 @@ I wanted to answer the question "does it even make sense to force an upgrade to 
 <entry>
 <id>http://localhost:4242/blog/2015/11/03/jenkins-2-0-proposals/</id>
 <title>Jenkins 2.0 Proposals</title>
-<updated>2015-11-11T09:08:09-08:00</updated>
+<updated>2015-11-17T06:48:06-08:00</updated>
 <published>2015-11-03T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/03/jenkins-2-0-proposals/' rel='alternate' type='text/html'>
 <author>
@@ -315,7 +390,7 @@ Below are a list of the blog posts summarizing the proposals, with their associa
 <entry>
 <id>http://localhost:4242/blog/2015/11/01/adopt-a-plugin/</id>
 <title>Adopt a plugin!</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:05-08:00</updated>
 <published>2015-11-01T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/11/01/adopt-a-plugin/' rel='alternate' type='text/html'>
 <author>
@@ -343,7 +418,7 @@ The major problem of course is that it's often difficult to tell whether a plugi
 <entry>
 <id>http://localhost:4242/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/</id>
 <title>Jenkins 2.0 Proposal: Improved &quot;Out of the box&quot; user experience</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:05-08:00</updated>
 <published>2015-10-30T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/' rel='alternate' type='text/html'>
 <author>
@@ -419,7 +494,7 @@ approve or reject the proposal two weeks from today.&lt;/p&gt;
 <entry>
 <id>http://localhost:4242/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/</id>
 <title>Jenkins 2.0 Proposal: UX Improvements (Part One)</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:05-08:00</updated>
 <published>2015-10-29T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/' rel='alternate' type='text/html'>
 <author>
@@ -485,7 +560,7 @@ approve or reject the proposal two weeks from today.&lt;/p&gt;
 <entry>
 <id>http://localhost:4242/blog/2015/10/28/jenkins-2-0-proposal-pipeline-as-code-front-and-center/</id>
 <title>Jenkins 2.0 Proposal: Pipeline as Code front and center</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:04-08:00</updated>
 <published>2015-10-28T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/28/jenkins-2-0-proposal-pipeline-as-code-front-and-center/' rel='alternate' type='text/html'>
 <author>
@@ -572,7 +647,7 @@ approve or reject the proposal two weeks from today.&lt;/p&gt;
 <entry>
 <id>http://localhost:4242/blog/2015/10/27/jenkins-2-0-proposal-split-groovy-out-of-core/</id>
 <title>Jenkins 2.0 Proposal: Split Groovy out of &quot;core&quot;</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:04-08:00</updated>
 <published>2015-10-27T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/27/jenkins-2-0-proposal-split-groovy-out-of-core/' rel='alternate' type='text/html'>
 <author>
@@ -664,7 +739,7 @@ approve or reject the proposal two weeks from today.&lt;/p&gt;
 <entry>
 <id>http://localhost:4242/blog/2015/10/25/jenkins-2-0-proposal-introduce-a-policy-for-api-deprecation/</id>
 <title>Jenkins 2.0 Proposal: Introduce a policy for API deprecation</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:04-08:00</updated>
 <published>2015-10-25T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/25/jenkins-2-0-proposal-introduce-a-policy-for-api-deprecation/' rel='alternate' type='text/html'>
 <author>
@@ -771,7 +846,7 @@ approve or reject the proposal two weeks from today.&lt;/p&gt;
 <entry>
 <id>http://localhost:4242/blog/2015/10/19/upcoming-in-office-hours-fosdem-planning-session/</id>
 <title>Upcoming in office hours: FOSDEM Planning Session</title>
-<updated>2015-11-11T09:08:08-08:00</updated>
+<updated>2015-11-17T06:48:04-08:00</updated>
 <published>2015-10-19T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/19/upcoming-in-office-hours-fosdem-planning-session/' rel='alternate' type='text/html'>
 <author>
@@ -823,7 +898,7 @@ The FOSDEM 2016 wiki page is where we will be recording plans and tasks will be 
 <entry>
 <id>http://localhost:4242/blog/2015/10/09/cooking-up-jams/</id>
 <title>Cooking Up JAMs</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:03-08:00</updated>
 <published>2015-10-09T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/09/cooking-up-jams/' rel='alternate' type='text/html'>
 <author>
@@ -872,7 +947,7 @@ Of course, if the city you live in currently does not have a JAM and you're inte
 <entry>
 <id>http://localhost:4242/blog/2015/10/02/winners-of-docker-global-hack-day-3-are/</id>
 <title>Winners of Docker Global Hack Day #3 are...</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:03-08:00</updated>
 <published>2015-10-02T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/02/winners-of-docker-global-hack-day-3-are/' rel='alternate' type='text/html'>
 <author>
@@ -917,7 +992,7 @@ This project &lt;a href=&quot;https://blog.docker.com/2015/09/docker-global-hack
 <entry>
 <id>http://localhost:4242/blog/2015/10/01/upcoming-in-office-hours-jenkins-2-0/</id>
 <title>Upcoming in office hours: Jenkins 2.0</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:03-08:00</updated>
 <published>2015-10-01T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/10/01/upcoming-in-office-hours-jenkins-2-0/' rel='alternate' type='text/html'>
 <author>
@@ -958,7 +1033,7 @@ As always, this will be on Hangout on air. The event page is &lt;a href=&quot;ht
 <entry>
 <id>http://localhost:4242/blog/2015/09/30/bay-area-jam/</id>
 <title>Bay Area JAM</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:02-08:00</updated>
 <published>2015-09-30T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/30/bay-area-jam/' rel='alternate' type='text/html'>
 <author>
@@ -990,7 +1065,7 @@ The next Bay Area...
 <entry>
 <id>http://localhost:4242/blog/2015/09/29/gui-improvements-on-the-horizon/</id>
 <title>GUI improvements on the horizon</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:02-08:00</updated>
 <published>2015-09-29T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/29/gui-improvements-on-the-horizon/' rel='alternate' type='text/html'>
 <author>
@@ -1164,7 +1239,7 @@ Assuming the response to it remain positive, I would expect that to change fairl
 <entry>
 <id>http://localhost:4242/blog/2015/09/19/office-hour-on-form-handling-in-jenkins/</id>
 <title>Office hour on form handling in Jenkins</title>
-<updated>2015-11-11T09:08:07-08:00</updated>
+<updated>2015-11-17T06:48:01-08:00</updated>
 <published>2015-09-19T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/19/office-hour-on-form-handling-in-jenkins/' rel='alternate' type='text/html'>
 <author>
@@ -1193,7 +1268,7 @@ As usual, the office hour will use Hangout on Air, and a limited number of peopl
 <entry>
 <id>http://localhost:4242/blog/2015/09/07/office-hour-on-proposed-ui-ux-changes/</id>
 <title>Office hour on proposed UI/UX changes</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
+<updated>2015-11-17T06:48:01-08:00</updated>
 <published>2015-09-07T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/07/office-hour-on-proposed-ui-ux-changes/' rel='alternate' type='text/html'>
 <author>
@@ -1246,7 +1321,7 @@ The links to the Google Hangout (participate) and Youtube (watch live) will be p
 <entry>
 <id>http://localhost:4242/blog/2015/09/03/jenkins-user-conference-west-day-1/</id>
 <title>Jenkins User Conference West Day 1</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
+<updated>2015-11-17T06:48:01-08:00</updated>
 <published>2015-09-03T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/03/jenkins-user-conference-west-day-1/' rel='alternate' type='text/html'>
 <author>
@@ -1298,7 +1373,7 @@ If you are here, make sure to stop by, and if you are not, follow news with &lt;
 <entry>
 <id>http://localhost:4242/blog/2015/09/01/take-the-2015-jenkins-survey/</id>
 <title>Take the 2015 Jenkins Survey!</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
+<updated>2015-11-17T06:48:00-08:00</updated>
 <published>2015-09-01T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/09/01/take-the-2015-jenkins-survey/' rel='alternate' type='text/html'>
 <author>
@@ -1328,7 +1403,7 @@ This year, we kept some of the questions the same, so that we can see the trend 
 <entry>
 <id>http://localhost:4242/blog/2015/08/31/plugin-spotlight-version-column-plugin/</id>
 <title>Plugin Spotlight: Version Column Plugin</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
+<updated>2015-11-17T06:47:59-08:00</updated>
 <published>2015-08-31T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/31/plugin-spotlight-version-column-plugin/' rel='alternate' type='text/html'>
 <author>
@@ -1371,9 +1446,40 @@ What is...
 </content>
 </entry>
 <entry>
+<id>http://localhost:4242/blog/2015/08/31/jenkins-cia-program-and-meetup-updates/</id>
+<title>Jenkins CIA Program and Meetup Updates</title>
+<updated>2015-11-17T06:47:59-08:00</updated>
+<published>2015-08-31T00:00:00+00:00</published>
+<link href='http://localhost:4242/blog/2015/08/31/jenkins-cia-program-and-meetup-updates/' rel='alternate' type='text/html'>
+<author>
+<name>hinman</name>
+</author>
+<category term='general'></category>
+<category term='cia'></category>
+<category term='meetup'></category>
+<category term='jenkinsci'></category>
+<summary>
+A few years ago, the Jenkins community announced the Jenkins CIA program - the Continuous Integration Ambassador initiative to spread the word of Jenkins. As of recently, there hasn't been as much activity, so this program needs to be revived!
+
+There are over 120,000 active Jenkins installations now and that number just keeps climbing and climbing. It's important to bring all of us together through big events like the Jenkins User Conference, but not everyone can get there. That is why Meetups and smaller Jenkins events are crucial.
+
+To support this effort, CloudBees has announced that they will be sponsoring the kickoff...
+</summary>
+<content type='html'>
+&lt;p&gt;A few years ago, the Jenkins community announced the &lt;a href=&quot;http://jenkins-ci.org/content/announcing-jenkins-cia&quot;&gt;Jenkins CIA program&lt;/a&gt; - the Continuous Integration Ambassador initiative to spread the word of Jenkins. As of recently, there hasn&amp;apos;t been as much activity, so this program needs to be revived!&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;There are over 120,000 active Jenkins installations now and that number just keeps climbing and climbing. It&amp;apos;s important to bring all of us together through big events like the Jenkins User Conference, but not everyone can get there. That is why Meetups and smaller Jenkins events are crucial.&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;To support this effort, CloudBees has announced that they will be sponsoring the kickoff of the CIA revival/&lt;a href=&quot;http://jenkins-ci.org/content/bay-area-jenkins-area-meet-looking-you&quot;&gt;JAM&lt;/a&gt; to help the Jenkins community host these Meetups!&lt;/p&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;p&gt;To kick this off, &lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225059665/&quot;&gt;the first Jenkins Area Meetup (JAM)&lt;/a&gt; is in the San Jose CloudBees office on &lt;strong&gt;Sept 23&lt;/strong&gt;. We are shooting to have a JAM everything 3rd Wednesday of every month to consistently bring the community together.&lt;/p&gt;
+
+</content>
+</entry>
+<entry>
 <id>http://localhost:4242/blog/2015/08/31/juc-speaker-blog-series-laurette-cisneros-juc-u-s-west/</id>
 <title>JUC Speaker Blog Series: Laurette Cisneros, JUC U.S. West</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
+<updated>2015-11-17T06:47:58-08:00</updated>
 <published>2015-08-31T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/31/juc-speaker-blog-series-laurette-cisneros-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -1415,40 +1521,9 @@ At Perforce,...
 </content>
 </entry>
 <entry>
-<id>http://localhost:4242/blog/2015/08/31/jenkins-cia-program-and-meetup-updates/</id>
-<title>Jenkins CIA Program and Meetup Updates</title>
-<updated>2015-11-11T09:08:06-08:00</updated>
-<published>2015-08-31T00:00:00+00:00</published>
-<link href='http://localhost:4242/blog/2015/08/31/jenkins-cia-program-and-meetup-updates/' rel='alternate' type='text/html'>
-<author>
-<name>hinman</name>
-</author>
-<category term='general'></category>
-<category term='cia'></category>
-<category term='meetup'></category>
-<category term='jenkinsci'></category>
-<summary>
-A few years ago, the Jenkins community announced the Jenkins CIA program - the Continuous Integration Ambassador initiative to spread the word of Jenkins. As of recently, there hasn't been as much activity, so this program needs to be revived!
-
-There are over 120,000 active Jenkins installations now and that number just keeps climbing and climbing. It's important to bring all of us together through big events like the Jenkins User Conference, but not everyone can get there. That is why Meetups and smaller Jenkins events are crucial.
-
-To support this effort, CloudBees has announced that they will be sponsoring the kickoff...
-</summary>
-<content type='html'>
-&lt;p&gt;A few years ago, the Jenkins community announced the &lt;a href=&quot;http://jenkins-ci.org/content/announcing-jenkins-cia&quot;&gt;Jenkins CIA program&lt;/a&gt; - the Continuous Integration Ambassador initiative to spread the word of Jenkins. As of recently, there hasn&amp;apos;t been as much activity, so this program needs to be revived!&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;There are over 120,000 active Jenkins installations now and that number just keeps climbing and climbing. It&amp;apos;s important to bring all of us together through big events like the Jenkins User Conference, but not everyone can get there. That is why Meetups and smaller Jenkins events are crucial.&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;To support this effort, CloudBees has announced that they will be sponsoring the kickoff of the CIA revival/&lt;a href=&quot;http://jenkins-ci.org/content/bay-area-jenkins-area-meet-looking-you&quot;&gt;JAM&lt;/a&gt; to help the Jenkins community host these Meetups!&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;To kick this off, &lt;a href=&quot;http://www.meetup.com/jenkinsmeetup/events/225059665/&quot;&gt;the first Jenkins Area Meetup (JAM)&lt;/a&gt; is in the San Jose CloudBees office on &lt;strong&gt;Sept 23&lt;/strong&gt;. We are shooting to have a JAM everything 3rd Wednesday of every month to consistently bring the community together.&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
 <id>http://localhost:4242/blog/2015/08/28/juc-speaker-blog-series-jamie-omeara-juc-u-s-west/</id>
 <title>JUC Speaker Blog Series: Jamie O'Meara, JUC U.S. West</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:58-08:00</updated>
 <published>2015-08-28T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/28/juc-speaker-blog-series-jamie-omeara-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -1510,7 +1585,7 @@ There’s a lot of discussion lately around Cloud Native. If this term is new to
 <entry>
 <id>http://localhost:4242/blog/2015/08/25/announcing-the-travel-grant-program/</id>
 <title>Announcing the travel grant program</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:58-08:00</updated>
 <published>2015-08-25T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/25/announcing-the-travel-grant-program/' rel='alternate' type='text/html'>
 <author>
@@ -1540,7 +1615,7 @@ The first person to be supported in this way is Pradeepto...
 <entry>
 <id>http://localhost:4242/blog/2015/08/24/juc-speaker-blog-series-kaj-kandler-juc-u-s-west/</id>
 <title>JUC Speaker Blog Series: Kaj Kandler, JUC U.S. West</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:57-08:00</updated>
 <published>2015-08-24T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/24/juc-speaker-blog-series-kaj-kandler-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -1610,7 +1685,7 @@ My greatest surprise at JUC 2014 in Boston was how many enterprise Jenkins CI us
 <entry>
 <id>http://localhost:4242/blog/2015/08/20/volume-9-of-the-jenkins-newsletter-continuous-information-is-out/</id>
 <title>Volume 9 of the Jenkins Newsletter: Continuous Information is out</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:57-08:00</updated>
 <published>2015-08-20T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/20/volume-9-of-the-jenkins-newsletter-continuous-information-is-out/' rel='alternate' type='text/html'>
 <author>
@@ -1641,7 +1716,7 @@ I hope that you enjoy this issue! Please let me know what content you find to be
 <entry>
 <id>http://localhost:4242/blog/2015/08/20/upcoming-office-hour-on-kubernetes/</id>
 <title>Upcoming office hour on Kubernetes</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:57-08:00</updated>
 <published>2015-08-20T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/20/upcoming-office-hour-on-kubernetes/' rel='alternate' type='text/html'>
 <author>
@@ -1672,7 +1747,7 @@ Then he will discuss the design of the Kubernetes plugin and plans he has for fu
 <entry>
 <id>http://localhost:4242/blog/2015/08/18/juc-speaker-blog-series-andrew-phillips-juc-u-s-west/</id>
 <title>JUC Speaker Blog Series: Andrew Phillips, JUC U.S. West</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:56-08:00</updated>
 <published>2015-08-18T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/18/juc-speaker-blog-series-andrew-phillips-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -1730,7 +1805,7 @@ At JUC East, I talked about the importance of Automated Testing in your Continuo
 <entry>
 <id>http://localhost:4242/blog/2015/08/13/update-wiki-and-issue-tracker-outage/</id>
 <title>Update: Wiki and issue tracker outage</title>
-<updated>2015-11-11T09:08:05-08:00</updated>
+<updated>2015-11-17T06:47:56-08:00</updated>
 <published>2015-08-13T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/13/update-wiki-and-issue-tracker-outage/' rel='alternate' type='text/html'>
 <author>
@@ -1771,7 +1846,7 @@ OSUOSL have since published their post mortem. I was really wrong about not losi
 <entry>
 <id>http://localhost:4242/blog/2015/08/10/upcoming-office-hour-on-workflow/</id>
 <title>Upcoming office hour on Workflow</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
+<updated>2015-11-17T06:47:55-08:00</updated>
 <published>2015-08-10T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/10/upcoming-office-hour-on-workflow/' rel='alternate' type='text/html'>
 <author>
@@ -1812,7 +1887,7 @@ This will be a developer-focused session on integrating with Workflow. He'll dis
 <entry>
 <id>http://localhost:4242/blog/2015/08/05/juc-speaker-blog-series-carlo-cadet-juc-u-s-west/</id>
 <title>JUC Speaker Blog Series: Carlo Cadet, JUC U.S. West</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
+<updated>2015-11-17T06:47:55-08:00</updated>
 <published>2015-08-05T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/05/juc-speaker-blog-series-carlo-cadet-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -1864,40 +1939,9 @@ As agile practices take hold, enterprises are expecting more collaboration betwe
 </content>
 </entry>
 <entry>
-<id>http://localhost:4242/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/</id>
-<title>Wiki and issue tracker outage over the weekend</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
-<published>2015-08-04T00:00:00+00:00</published>
-<link href='http://localhost:4242/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/' rel='alternate' type='text/html'>
-<author>
-<name>danielbeck</name>
-</author>
-<category term='infrastructure'></category>
-<category term='meta'></category>
-<summary>
-As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?
-
-We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.
-
-The databases for the wiki and issue tracker became inaccessible around midnight/12 AM Thu/Fri night (all times UTC). Due to the large number and size of databases on that server, pulling from backups, restoring from...
-</summary>
-<content type='html'>
-&lt;p&gt;As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?&lt;/p&gt;
-
-&lt;p&gt;We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there&amp;apos;s no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.&lt;/p&gt;
-
-&lt;p&gt;The databases for the wiki and issue tracker became &lt;a href=&quot;https://twitter.com/osuosl/status/626903003203637248&quot;&gt;inaccessible around midnight/12 AM Thu/Fri night&lt;/a&gt; (all times UTC). Due to the large number and size of databases on that server, &lt;a href=&quot;https://twitter.com/osuosl/status/626946293663821824&quot;&gt;pulling from backups&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/osuosl/status/627027620845129729&quot;&gt;restoring from backup&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/osuosl/status/627237502420561920&quot;&gt;replaying the binlogs&lt;/a&gt; took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).&lt;/p&gt;
-
-&lt;p&gt;The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.&lt;/p&gt;
-
-&lt;p&gt;While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
 <id>http://localhost:4242/blog/2015/08/04/bay-area-jenkins-area-meet-up-kick-off-gathering-today/</id>
 <title>Bay Area Jenkins Area Meet-up kick-off gathering today</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
+<updated>2015-11-17T06:47:55-08:00</updated>
 <published>2015-08-04T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/04/bay-area-jenkins-area-meet-up-kick-off-gathering-today/' rel='alternate' type='text/html'>
 <author>
@@ -1965,9 +2009,40 @@ Uday and I will be there, and Uday told me that he heard from another guy who wi
 </content>
 </entry>
 <entry>
+<id>http://localhost:4242/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/</id>
+<title>Wiki and issue tracker outage over the weekend</title>
+<updated>2015-11-17T06:47:54-08:00</updated>
+<published>2015-08-04T00:00:00+00:00</published>
+<link href='http://localhost:4242/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/' rel='alternate' type='text/html'>
+<author>
+<name>danielbeck</name>
+</author>
+<category term='infrastructure'></category>
+<category term='meta'></category>
+<summary>
+As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?
+
+We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.
+
+The databases for the wiki and issue tracker became inaccessible around midnight/12 AM Thu/Fri night (all times UTC). Due to the large number and size of databases on that server, pulling from backups, restoring from...
+</summary>
+<content type='html'>
+&lt;p&gt;As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?&lt;/p&gt;
+
+&lt;p&gt;We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there&amp;apos;s no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.&lt;/p&gt;
+
+&lt;p&gt;The databases for the wiki and issue tracker became &lt;a href=&quot;https://twitter.com/osuosl/status/626903003203637248&quot;&gt;inaccessible around midnight/12 AM Thu/Fri night&lt;/a&gt; (all times UTC). Due to the large number and size of databases on that server, &lt;a href=&quot;https://twitter.com/osuosl/status/626946293663821824&quot;&gt;pulling from backups&lt;/a&gt;, &lt;a href=&quot;https://twitter.com/osuosl/status/627027620845129729&quot;&gt;restoring from backup&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/osuosl/status/627237502420561920&quot;&gt;replaying the binlogs&lt;/a&gt; took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).&lt;/p&gt;
+
+&lt;p&gt;The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.&lt;/p&gt;
+
+&lt;p&gt;While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!&lt;/p&gt;
+
+</content>
+</entry>
+<entry>
 <id>http://localhost:4242/blog/2015/08/03/just-a-month-left-until-juc-u-s-west/</id>
 <title>Just a month left until JUC U.S. West</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
+<updated>2015-11-17T06:47:54-08:00</updated>
 <published>2015-08-03T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/08/03/just-a-month-left-until-juc-u-s-west/' rel='alternate' type='text/html'>
 <author>
@@ -2004,7 +2079,7 @@ If you're interested in the upcoming Jenkins UI overhaul, make sure to attend Gu
 <entry>
 <id>http://localhost:4242/blog/2015/07/30/juc-u-s-west-news-agenda-is-up/</id>
 <title>JUC U.S. West News: Agenda is up</title>
-<updated>2015-11-11T09:08:04-08:00</updated>
+<updated>2015-11-17T06:47:54-08:00</updated>
 <published>2015-07-30T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/30/juc-u-s-west-news-agenda-is-up/' rel='alternate' type='text/html'>
 <author>
@@ -2035,7 +2110,7 @@ Which talk are you looking forward to most? Check out the agenda and tweet your 
 <entry>
 <id>http://localhost:4242/blog/2015/07/29/juc-europe-slides-and-video-are-now-available-online/</id>
 <title>JUC Europe slides and video are now available online</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:53-08:00</updated>
 <published>2015-07-29T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/29/juc-europe-slides-and-video-are-now-available-online/' rel='alternate' type='text/html'>
 <author>
@@ -2066,7 +2141,7 @@ If you were unable to attend JUC Europe, well, now you can! The slides and video
 <entry>
 <id>http://localhost:4242/blog/2015/07/28/reinforcements-for-the-subversion-plugin/</id>
 <title>Reinforcements for the Subversion Plugin</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:53-08:00</updated>
 <published>2015-07-28T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/28/reinforcements-for-the-subversion-plugin/' rel='alternate' type='text/html'>
 <author>
@@ -2123,7 +2198,7 @@ In order to do so, me, my colleague Steven Christou...
 <entry>
 <id>http://localhost:4242/blog/2015/07/25/bay-area-jenkins-area-meet-up-is-looking-for-you/</id>
 <title>Bay Area Jenkins Area Meet-up is looking for you </title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:53-08:00</updated>
 <published>2015-07-25T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/25/bay-area-jenkins-area-meet-up-is-looking-for-you/' rel='alternate' type='text/html'>
 <author>
@@ -2160,7 +2235,7 @@ If you are in the Peninsula, South Bay, East Bay, etc., please send some encoura
 <entry>
 <id>http://localhost:4242/blog/2015/07/24/juc-u-s-east-slides-and-video-are-now-available-online/</id>
 <title>JUC U.S. East slides and video are now available online</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:52-08:00</updated>
 <published>2015-07-24T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/24/juc-u-s-east-slides-and-video-are-now-available-online/' rel='alternate' type='text/html'>
 <author>
@@ -2191,7 +2266,7 @@ If you were unable to attend JUC U.S. East, you now have the slides and video so
 <entry>
 <id>http://localhost:4242/blog/2015/07/24/integrating-kubernetes-and-jenkins/</id>
 <title>Integrating Kubernetes and Jenkins</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:52-08:00</updated>
 <published>2015-07-24T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/24/integrating-kubernetes-and-jenkins/' rel='alternate' type='text/html'>
 <author>
@@ -2240,7 +2315,7 @@ Kubernetes-related services by Google are the Google Container Engine, a Kuberne
 <entry>
 <id>http://localhost:4242/blog/2015/07/23/office-hours-are-back/</id>
 <title>Office hours are back</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:51-08:00</updated>
 <published>2015-07-23T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/23/office-hours-are-back/' rel='alternate' type='text/html'>
 <author>
@@ -2272,7 +2347,7 @@ For general information on office hours, and how to join, see the wiki....
 <entry>
 <id>http://localhost:4242/blog/2015/07/15/advancing-the-jenkins-gui-configuring-items-in-jenkins/</id>
 <title>Advancing the Jenkins GUI: Configuring Items in Jenkins</title>
-<updated>2015-11-11T09:08:03-08:00</updated>
+<updated>2015-11-17T06:47:51-08:00</updated>
 <published>2015-07-15T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/15/advancing-the-jenkins-gui-configuring-items-in-jenkins/' rel='alternate' type='text/html'>
 <author>
@@ -2353,7 +2428,7 @@ The second step here will be finding efficient ways to integrate more modern Jav
 <entry>
 <id>http://localhost:4242/blog/2015/07/14/juseppe-a-custom-update-site-for-jenkins/</id>
 <title>Juseppe, a custom update site for Jenkins</title>
-<updated>2015-11-11T09:08:02-08:00</updated>
+<updated>2015-11-17T06:47:51-08:00</updated>
 <published>2015-07-14T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/14/juseppe-a-custom-update-site-for-jenkins/' rel='alternate' type='text/html'>
 <author>
@@ -2398,7 +2473,7 @@ When you write your first custom Jenkins plugin for internal use, it's easy enou
 <entry>
 <id>http://localhost:4242/blog/2015/07/09/jenkins-user-event-scandinavia-2015/</id>
 <title>Jenkins User Event Scandinavia 2015</title>
-<updated>2015-11-11T09:08:02-08:00</updated>
+<updated>2015-11-17T06:47:50-08:00</updated>
 <published>2015-07-09T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/07/09/jenkins-user-event-scandinavia-2015/' rel='alternate' type='text/html'>
 <author>
@@ -2430,7 +2505,7 @@ We welcome you and other leading Jenkins developers, QA, DevOps, and operations 
 <entry>
 <id>http://localhost:4242/blog/2015/06/22/new-wiki-url-requirement-for-plugins/</id>
 <title>New Wiki URL Requirement for Plugins</title>
-<updated>2015-11-11T09:08:02-08:00</updated>
+<updated>2015-11-17T06:47:50-08:00</updated>
 <published>2015-06-22T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/06/22/new-wiki-url-requirement-for-plugins/' rel='alternate' type='text/html'>
 <author>
@@ -2462,7 +2537,7 @@ Unfortunately, it's possible for plugins to be published without a wiki page, or
 <entry>
 <id>http://localhost:4242/blog/2015/06/16/juc-speaker-blog-series-martin-hobson-juc-u-s-east/</id>
 <title>JUC Speaker Blog Series: Martin Hobson, JUC U.S. East</title>
-<updated>2015-11-11T09:08:02-08:00</updated>
+<updated>2015-11-17T06:47:50-08:00</updated>
 <published>2015-06-16T00:00:00+00:00</published>
 <link href='http://localhost:4242/blog/2015/06/16/juc-speaker-blog-series-martin-hobson-juc-u-s-east/' rel='alternate' type='text/html'>
 <author>
@@ -2488,44 +2563,6 @@ I’ve been using Jenkins for some time now as the build server for the various 
 &lt;p&gt;This post is by Martin Hobson, Senior Software Developer at Agilex Technologies. If you have your ticket to &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/us-east&quot;&gt;JUC U.S. East&lt;/a&gt;, you can attend his lightning talk &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1615-hobson&quot;&gt;&amp;quot;Visualizing VM Provisioning with Jenkins and Google Charts&amp;quot;&lt;/a&gt; on Day 1.&lt;/p&gt;&lt;br /&gt;
 &lt;br /&gt;
 &lt;p&gt;&lt;i&gt;JUC IS HERE! JUC U.S. East will begin with registration at 7AM, Thursday June 18. The two day conference is sure to be a blast! If you have not registered, you can still get a ticket! &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/us-east&quot;&gt;Check out the agenda for JUC U.S. East here and find the link to register.&lt;/a&gt;&lt;/i&gt;&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
-&lt;p&gt;&lt;b&gt;Thank you to our &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/sponsors&quot;&gt;sponsors&lt;/a&gt; for the 2015 Jenkins User Conference World Tour:&lt;/b&gt;&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;div style=&quot;float:left; margin:0em&quot;&gt;&lt;br /&gt;
-&lt;img src=&quot;http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png&quot; width=&quot;598&quot; height=&quot;579&quot; /&gt;&lt;br /&gt;
-&lt;/div&gt;
-
-</content>
-</entry>
-<entry>
-<id>http://localhost:4242/blog/2015/06/15/juc-speaker-blog-series-stephan-hochdrfer-juc-europe/</id>
-<title>JUC Speaker Blog Series: Stephan Hochdörfer, JUC Europe</title>
-<updated>2015-11-11T09:08:02-08:00</updated>
-<published>2015-06-15T00:00:00+00:00</published>
-<link href='http://localhost:4242/blog/2015/06/15/juc-speaker-blog-series-stephan-hochdrfer-juc-europe/' rel='alternate' type='text/html'>
-<author>
-<name>hinman</name>
-</author>
-<category term='general'></category>
-<category term='jenkinsci'></category>
-<summary>
-I am very much looking forward to the Jenkins User Conference in London where I will present our insights on how to use Jenkins in a PHP related environment. Moving to Jenkins about 5 years ago bitExpert gained a lot of experience in running and managing a distributed Jenkins infrastructure. bitExpert builds custom applications for our clients which means that we have to deal with different project infrastructures, e.g. different PHP versions. We heavily rely on the build nodes concept of Jenkins which I will briefly outline in the session. Besides that I will give some in-depth insights on how...
-</summary>
-<content type='html'>
-&lt;div style=&quot;float:right; margin:1em&quot;&gt;&lt;br /&gt;
-&lt;img src=&quot;https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png&quot; width=&quot;114&quot; height=&quot;128&quot; /&gt;&lt;br /&gt;
-&lt;/div&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;I am very much looking forward to the &lt;a href=&quot;https://www.cloudbees.com/jenkins/juc-2015/europe&quot;&gt;Jenkins User Conference in London&lt;/a&gt; where I will present our insights on how to use Jenkins in a PHP related environment. Moving to Jenkins about 5 years ago bitExpert gained a lot of experience in running and managing a distributed Jenkins infrastructure. bitExpert builds custom applications for our clients which means that we have to deal with different project infrastructures, e.g. different PHP versions. We heavily rely on the build nodes concept of Jenkins which I will briefly outline in the session. Besides that I will give some in-depth insights on how we use Jenkins on a daily basis for the &amp;quot;traditional&amp;quot; CI related tasks (e.g. linting code, checking code style, running tests) as well as how Jenkins is used to power our integration tests. Last but not least I will cover how Jenkins acts as a kind of backbone for our Satis server which allows us to host the metadata of our company&amp;apos;s private Composer packages. Throughout the talk I will point out which Jenkins plugins we use in the different contexts to give you a good starting point if you are new in the Jenkins ecosystem.&lt;br /&gt;
-&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;div style=&quot;float:left; margin:1em&quot;&gt;&lt;br /&gt;
-&lt;img src=&quot;http://jenkins-ci.org/sites/default/files/images/bitExpert-logo_0.png&quot; width=&quot;220&quot; height=&quot;76&quot; /&gt;&lt;br /&gt;
-&lt;/div&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;This post is by Stephan Hochdoerfer, Head of Technology at bitExpert AG. If you have your ticket to &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/europe&quot;&gt;JUC Europe&lt;/a&gt;, you can attend his talk &lt;a href=&quot;https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/01-01-1130-hochdoerfer&quot;&gt;&amp;quot;Jenkins for PHP Projects&amp;quot;&lt;/a&gt; on Day 2.&lt;/p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;p&gt;&lt;i&gt;Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/&quot;&gt;Register here for a JUC near you.&lt;/a&gt;&lt;/i&gt;&lt;/p&gt;&lt;br /&gt;
 &lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
 &lt;p&gt;&lt;b&gt;Thank you to our &lt;a href=&quot;http://www.cloudbees.com/jenkins/juc-2015/sponsors&quot;&gt;sponsors&lt;/a&gt; for the 2015 Jenkins User Conference World Tour:&lt;/b&gt;&lt;/p&gt;&lt;br /&gt;
 &lt;br /&gt;

@@ -177,6 +177,40 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2012/01/03/thank-you-for-downloading-windows-installer/'>
+Thank you for downloading Windows installer
+</a>
+</h1>
+<div class='content'>
+<!-- simplify the page by removing eye soars -->
+<style>
+#content .breadcrumb { display: none; }
+#content .taxonomy { display: none; }
+#content .node { border: none; }
+</style>
+<?php
+// this IFRAME starts the download. IE blocks this by showing
+// the info bar. See http://msdn.microsoft.com/en-us/library/dd565669(v=vs.85).aspx
+// 
+// I don't know how to make it work with IE nicely,
+// and other sites like Skype has the same problem.
+?>
+<iframe src="http://mirrors.jenkins-ci.org/windows<?php echo $_GET["releaseLine"] ?>/latest" style="display:none;"></iframe>
+
+<p>
+Download hasn't started? <a href="http://mirrors.jenkins-ci.org/windows<?php echo $_GET["releaseLine"] ?>/latest">Click this link</a>
+</p>
+
+<h2>What's Next?</h2>
+<ul>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Thanks+for+using+Windows+Installer">Learn how the Windows installer sets up your Jenkins, and how you can tweak it.</a>
+<li><a href="http://twitter.com/jenkinsci/">Follows us</a> on Twitter for updates.
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/12/28/adding-diagrams-to-wiki/'>
 Adding diagrams to Wiki
 </a>
@@ -332,21 +366,6 @@ The beginning of a new era: Ruby plugins now a reality
 <p>We should also thank <a href="http://www.mylookout.com">Lookout, Inc</a> (<em>full disclosure: Lookout is my employer</em>) and <a href="http://www.cloudbees.com">CloudBees</a> for affording some employee time for Jørgen and Kohsuke respectively to work on the project.</p>
 
 <!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/11/10/jenkins-conference-slides-and-videos-online/'>
-Jenkins Conference Slides and Videos Online
-</a>
-</h1>
-<div class='content'>
-<p><img src="/sites/default/files/images/headshot.png" align="right" />It is just turning into a video heavy week isn't it? First the <a href="/content/jenkins-meetup-munich-videos">videos from the Munich Meetup</a> were made available, and now the videos from the <em>first</em> ever <a href="/content/jenkins-user-conference">Jenkins User Conference</a>.</p>
-
-<p>The full list of slides and videos can be found <strong><a href="https://www.cloudbees.com/jenkins-user-conference-2011-session-abstracts.cb">on this page</a></strong>, hosted by <a href="https://www.cloudbees.com/">CloudBees</a> who  did a phenomenal job helping to organize and host the conference.</p>
-
-<p>I want to thank everybody else involved once again, the fantastic speakers, the enthusiastic attendees and of course the sponsors for making it possible (CloudBees, Red Hat, LifeRay, New Relic, Sauce Labs, Chariot Solutions and eXo).</p>
 
 </div>
 </div>

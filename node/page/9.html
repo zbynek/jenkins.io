@@ -177,6 +177,43 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/04/06/good-bye-java6/'>
+Good bye Java6
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/6_(number)"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/62/U%2B2678_DejaVu_Sans.svg/200px-U%2B2678_DejaVu_Sans.svg.png"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+About two years ago, we bumped our runtime JRE requirement <a href="http://jenkins-ci.org/commit/core/3431a7cba">from Java5 to Java6</a>. And so the time has come once again for us to finally move on to Java7. Because of all the new language features, <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/sw_WepGw0Pk">many of us the developers really wanted to move right on to Java8</a>, but after much discussion we settled to move to Java7 first and then to Java8.<br/>
+<br/>
+<p><br/>
+So here is the plan:<br/>
+<br/>
+<ul><br/>
+<li>Starting Jenkins 1.608, we start advertising that we will be moving on to Java7, which is why you are reading this.<br/>
+<li>Starting Jenkins 1.610 (2 weeks from now), we will ship so-called 51.0 class files that will only load on Java7+. This gives some more warnings to those who don't read our blog.<br/>
+<li>Unless we hear uproar from users, starting around 1.614 (6 weeks from now), core developers will start linking directly to new Java7 APIs. <a href="http://jenkins-ci.org/content/thinking-about-moving-servlet-30">We will move on to servlet 3.0 at this time as well</a>.<br/>
+<li>The current 1.596 line of LTS will remain compatible with Java6, and most likely the next LTS line will also remain compatible with Java6. So LTS users have additional 3 months before upgrading to Java7.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+Java7 has more NIO improvements that allow us to do some file I/O in more portable manner. Similarly, servlet 3.0 will help us build more interactive UI.<br/>
+<br/>
+<p><br/>
+Your Jenkins master and all the build slaves need to be running on Java7+. Similarly, those who are using the Maven2 job type must also run Maven with Java7+. However, this does not prevent you from using Jenkins to build your applications that are targeted to earlier versions of Java. According to our research, most platforms people run Jenkins on has been already shipping Java7 for quite some time now. But if you have a good reason why we shouldn't force everyone to Java7, please let us know ASAP.<br/>
+<br/>
+<p><br/>
+To put this into context, <a href="https://www.java.com/en/download/faq/java_7.xml">Oracle will not release updates to Java7 past April 2015</a>. We have always recommended users to run the latest general release according to Oracle, which is currently Java8. As I said, I suspect we will be requiring Java8 pretty soon. So if you are still running Java6, you should definitely upgrade to Java8.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/03/25/registration-for-juc-2015-is-open/'>
 Registration for JUC 2015 is Open!
 </a>
@@ -350,70 +387,6 @@ I hope folks can use these images to mark the occasion! <a href="https://www.fli
 <div align=center><br/>
 <img src="http://jenkins-ci.org/sites/default/files/images/jenkins100k_1.jpeg" width=379 height=479><br/>
 </div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/09/jenkins-celebration-day-is-february-26/'>
-Jenkins Celebration Day is February 26
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Congratulations! The Jenkins project officially went over the 100K active users mark sometime in January. As of January 31, <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/total-jenkins.svg">we were at 102,992</a>. YOU are one of the 100K active users!<br/>
-<br/>
-<p><br/>
-As discussed on <a href="http://meetings.jenkins-ci.org/jenkins/2015/">a couple recent project meetings</a>, we have designated <b>February 26</b> as Jenkins Celebration Day.<br/>
-<br/>
-<p><br/>
-To make some noise, here is what we are doing starting NOW:<br/>
-<br/>
-<ul><br/>
-<li><br/>
-Write a blog about anything related to Jenkins. Post your blog and Tweet out a link to it. Include the hashtag <b>#Jenkins100K</b> in your post.<br/>
-<br/>
-<li><br/>
-On February 26, we will hold a raffle and pick four names at random.  The grand prize winner will get a <a href="http://jenkins-ci.org/content/jenkins-figure-available-shapeways">3D Jenkins Butler model</a>. Five others will get their pick of Jenkins swag (up to $20) from <a href="http://www.cafepress.com/jenkinsci">the Jenkins online store</a>.<br/>
-<br/>
-</ul><br/>
-<br/>
-<h2>OTHER WAYS TO CELEBRATE</h2><br/>
-<br/>
-<p><br/>
-There are a number of other things planned and we want YOU to be involved. This blog post is the central place to come for all things related to the celebration. <br/>
-<br/>
-<ul><br/>
-<li><br/>
-<b>Recording – Jenkins Governance Board</b><br/>
-Dean, Tyler, Andrew and I will get together this month and record some thoughts about the Jenkins project. We will share that recording with you from this page on February 26.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/sites/default/files/images/jenkins-100k-profile_4.jpg">Twitter Badge</a></b><br/>
-For those of us on social media that want to proudly celebrate our community, we will have a special badge that you can use for your profile image on Twitter or any of the other social media forums. Feel free to use the badge as long as you want – but let’s get as many of us using it as possible between now and February 27.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/content/jenkins-100k-celebration-pictures">Social Media Images</a></b><br/>
-<ul><br/>
-<li>CloudBees is donating a series of images that we can all push out on social media (whatever platform(s) you use). <br/>
-<li>Pick your favorite(s) and push them out on Twitter, Facebook, G+<br/>
-</ul><br/>
-<br/>
-<li><br/>
-<b>Certificate</b> (available on this blog post soon)<br/>
-Download your very own “I am part of the Jenkins 100K” certificate. Print it out and proudly display it on the wall of your cube or office.<br/>
-<br/>
-<li><br/>
-<b>Visibility</b><br/>
-The Community will also issue a press release on February 26 announcing our milestone news.<br/>
-<br/>
-<li><br/>
-<b>Sign the “card”</b><br/>
-Consider this blog a Congratulations card to the entire community. Share your thoughts in a comment on this blog about anything Jenkins-related that you wish!<br/>
-</ul><br/>
-<br/>
-<p><br/>
-This is a big milestone for the Community and one you should be proud to be part of! Let’s make some noise…<br/>
 
 </div>
 </div>

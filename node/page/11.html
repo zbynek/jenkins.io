@@ -177,6 +177,66 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/10/06/gradle-fy-your-jenkins-plugin-project/'>
+Gradle-fy your Jenkins Plugin Project
+</a>
+</h1>
+<div class='content'>
+<p>(This is a guest post from <a href="http://www.daniel-spilker.com/">Daniel Spilker</a>)</p>
+
+<p>Jenkins supports building plugins using <a href="http://www.gradle.org/">Gradle</a> for a while now. Last week a new version of the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+JPI+Plugin">Gradle JPI plugin</a> has been released to iron out some <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/0.6.0/CHANGELOG.md">issues</a>.</p>
+
+<p>The Gradle JPI plugin enables a 100% groovy plugin development environment with Groovy as primary programming language, <a href="https://code.google.com/p/spock/">Spock</a> for writing tests and Gradle as build system. Have a look at the <a href="https://github.com/jenkinsci/job-dsl-plugin">Job DSL plugin</a> for an example.</p>
+
+<p>An existing Maven build can be converted to Gradle by using the build.gradle template from the Gradle JPI plugin's <a href="https://github.com/jenkinsci/gradle-jpi-plugin/blob/master/README.md">README</a>. For instance, the <a href="https://github.com/jenkinsci/gradle-plugin/blob/763256601be20c30d238179c1ed3965011d6dfd5/pom.xml">POM</a> from the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin">Gradle plugin</a> translates to this build.gradle file:</p>
+
+<pre><code>buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://repo.jenkins-ci.org/releases/'
+        }
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.6.0'
+    }
+}
+
+apply plugin: 'jpi'
+
+group = 'org.jenkins-ci.plugins'
+version = '1.25-SNAPSHOT'
+
+jenkinsPlugin {
+    coreVersion = '1.480'
+    displayName = 'Jenkins Gradle plugin'
+    url = 'https://wiki.jenkins-ci.org/display/JENKINS/Gradle+Plugin'
+    gitHubUrl = 'https://github.com/jenkinsci/gradle-plugin'
+
+    developers {
+        developer {
+            id 'gbois'
+            name 'Gregory Boissinot'
+            timezone '+1'
+        }
+    }                           
+}
+
+dependencies {
+    compile 'org.jenkins-ci.lib:dry-run-lib:0.1'
+}
+</code></pre>
+
+<p>Usage of the Gradle JPI plugin is similar to working with the Maven HPI plugin. Use <code>gradle jpi</code> to build the plugin file. <code>gradle check</code> runs the tests, <code>gradle install</code> copies the plugin into the local Maven repository, <code>gradle uploadArchives</code> deploys the plugin to the Jenkins Maven repository and <code>gradle server</code> starts a Jenkins development server with the plugin installed.</p>
+
+<p>It is recommended to use Gradle 1.8 because that is the version used to build and test the Gradle JPI plugin.</p>
+
+<p>For the next release it is planned to do some maintenance like fixing code style issues and adding tests. After that more issues need to be addressed to bring the plugin on par with the Maven HPI plugin, most notably fixing the test dependencies (<a href="https://issues.jenkins-ci.org/browse/JENKINS-17129">JENKINS-17129</a>) and publishing the plugin's JAR (<a href="https://issues.jenkins-ci.org/browse/JENKINS-25007">JENKINS-25007</a>). Updating Gradle to 2.x and getting the plugin on the <a href="http://plugins.gradle.org/">Gradle plugin portal</a> is also on the wishlist.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/09/25/cve-2014-6271-impact-on-jenkins/'>
 CVE-2014-6271 impact on Jenkins
 </a>
@@ -381,55 +441,6 @@ Workflow plugin code walk-through
 <p>If you are interested in developing or retrofitting plugins to work with workflows, I think you'll find this session interesting.</p>
 
 <p>The event will be on <a href="https://plus.google.com/events/cojjhg4kkpffkbpakj723fdht9k">Google Hangout</a> tomorrow. The time of the day is the same as usual <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Workflow+walk-through&amp;iso=20140829T11&amp;p1=224&amp;ah=1&amp;sort=1">office hours</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/08/12/official-jenkins-lts-docker-image/'>
-Official Jenkins LTS docker image
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-(This is a guest post from <a href="https://twitter.com/michaelneale">Michael Neale</a>)<br/>
-<hr><br/>
-<br/>
-<p><br/>
-Recently at the Docker Conference (DockerCon) the <a href="http://hub.docker.com" target="_blank">Docker Hub</a> was announced.</p><br/>
-<br/>
-<p>The hub (which includes their image building and storage service) also provides some &quot;official&quot; <a href="https://registry.hub.docker.com/" target="_blank">images</a> (sometimes they call them repositories - they are really just sets of images).<br/>
-<br/>
-<br/>
-<p><br/>
-So after talking with all sorts of people we decided to create an official <a href="https://registry.hub.docker.com/_/jenkins/" target="_blank">Jenkins image</a> - which is hosted by the docker hub simply as &quot;jenkins&quot;.</p><br/>
-<br/>
-<p>So when you run &quot;docker pull jenkins&quot; - it will be grabbing this image. This is based on the current LTS (and will be kept up to date with the LTS) - but does not include the weekly releases (yet). Having a jenkins image that is fairly basic (it includes enough to run some basic builds, as well as jenkins itself) built on the LTS, on the latest LTS of Ubuntu seemed quite convenient - and easy to maintain using the official Ubuntu/Debian packaging of Jenkins. <br/>
-</p><br/>
-<p><br/>
-Docker is a great way to try and use server based systems - it brings all the dependencies needed and the images actually are portable (ie anywhere docker runs you can run docker images). There are official images for many popular server platforms (redis, mysql, all the linux distros and so on) so it seemed crazy to not include Jenkins along with this list. <br/>
-&quot;docker run -p 8080:8080 jenkins&quot; is all you need to get going with LTS Jenkins now.<br/>
-You can also use &quot;docker run jenkins:1.554&quot; to get the latest of that lineage of LTS releases, or pick a specific one: &quot;docker run jenkins:1.554.3&quot; if you like. Leaving off a version assumes the latest. Check the <a href="https://registry.hub.docker.com/_/jenkins/tags/manage/" target="_blank">tags</a> page to see what is available.<br/>
-</p><br/>
-<br/>
-<p> <br/>
-You can read more and see how you <a href="https://registry.hub.docker.com/_/jenkins/" target="_blank">can use it here.</a><br/>
-</p><br/>
-<br/>
-<p><br/>
-There has been some questions and discussions on how to make use of Jenkins with the docker hub for creating new and interesting docker image based workflows for deployment. <br/>
-In fact, Jenkins featured in one of the first slides of the first keynote of docker con:<br/>
-<br/>
-<img src="http://3.bp.blogspot.com/-qAC-f6ceVho/U5rfqpzj3VI/AAAAAAAAC8w/Ta4pzEhm-8A/s1600/Screen+Shot+2014-06-13+at+8.34.10+pm.png"><br/>
-<br/>
-To make this dream a reality some additional <a href="https://wiki.jenkins-ci.org/display/JENKINS/DockerHub+Plugin" target="_blank">plugins</a> had to be created - but this leaves the possibility of working with the docker hub (builds, stores images) and Jenkins (workflow, testing, deployment) to build out some kind of a continuous pipeline for handling docker based apps. I attempted to describe this more <a href="http://developer-blog.cloudbees.com/2014/07/announcing-dockerhub-jenkins-plugin.html" target="_blank">here</a>.<br/>
-</p><br/>
-<br/>
-<p><br/>
-This image is maintained in this github <a href="https://github.com/cloudbees/jenkins-ci.org-docker" target="_blank">repo</a> and the official images are build by the <a href="https://github.com/docker/stackbrew" target="_blank">&quot;stackbrew&quot; system</a>. (We may move this repo to the jenkinsci github group shortly so keep an eye out).<br/>
-</p><br/>
-<br/>
-<p>It will be interesting to watch this grow and change.</p><br/>
 
 </div>
 </div>

@@ -177,6 +177,46 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/07/28/reinforcements-for-the-subversion-plugin/'>
+Reinforcements for the Subversion Plugin
+</a>
+</h1>
+<div class='content'>
+<p><em>This is a guest post by Manuel Recena Soto (aka recena).</em></p>
+
+<p>Users of the plug-in know that it has undergone <a href="https://wiki.jenkins-ci.org/display/JENKINS/Subversion+Plugin#SubversionPlugin-ChangeLog">very important changes</a> in the last two years.</p>
+
+<p>Unfortunately, some of these changes resulted in regressions for some users that weren’t properly addressed in subsequent releases. Many users were therefore forced to keep using an older release of the plugin to keep their instances running.</p>
+
+<p>To fix this difficult situation I've decided to dedicate my spare time to improving the plug-in and attempting to restore the stability that an essential plug-in like this requires.</p>
+
+<p>In order to do so, <a href="https://github.com/recena/">me</a>, my colleague <a href="https://github.com/christ66">Steven Christou</a> and other members of the community have drawn up a plan.</p>
+
+<p>In the coming weeks we will be focusing our efforts on:</p>
+
+<ul>
+  <li>Going through the Jira tickets
+    <ul>
+      <li>Checking whether they are duplicated</li>
+      <li>Checking whether they are still relevant</li>
+      <li>Asking for more information from the people who reported them</li>
+      <li>Establishing their priority</li>
+    </ul>
+  </li>
+  <li>Reviewing pull requests</li>
+  <li>Investigating bug reports and try to reproduce them</li>
+  <li>Fixing serious bugs</li>
+  <li>Refactoring the plugin to improve its maintainability.</li>
+</ul>
+
+<p>We’re planning to publish a new 2.5.x bugfix release once a fortnight. We are not considering the inclusion of new features or improvements. The priority now must be to obtain a stable and reliable plug-in, one that will allow us to take things up again in the future with greater security and peace of mind.</p>
+
+<p><em>Interested in helping? Just send us a message!</em></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/07/25/bay-area-jenkins-area-meet-up-is-looking-for-you/'>
 Bay Area Jenkins Area Meet-up is looking for you 
 </a>
@@ -381,27 +421,6 @@ Jenkins User Event Scandinavia 2015
 <p>We welcome you and other leading Jenkins developers, QA, DevOps, and operations personnel to this years Scandinavian Jenkins CI festival hoping to continuously support the growth of the Jenkins Open Source community.</p><br/>
 <br/>
 <p><b><a href="http://www.code-conf.com/jues15/">REGISTER FOR JUES HERE</a></b></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/06/22/new-wiki-url-requirement-for-plugins/'>
-New Wiki URL Requirement for Plugins
-</a>
-</h1>
-<div class='content'>
-<p>Let's say you're browsing the 'Available' tab in the Jenkins plugin manager for interesting-looking plugins. How do you learn more about them, preferably without installing them on your production instance? You click the plugin's name, which usually links to the plugin's wiki page, of course!</p>
-
-<p>Unfortunately, it's possible for plugins to be published without a wiki page, or any other documentation aside from what's provided in the plugin itself. This is really unfortunate, as users rely on wiki pages and similar documentation to learn more about a plugin before installing or upgrading it, like its features, limitations, or recent changes. Additionally, plugin wiki pages have a special section at the top that provides an automatically generated technical overview of the plugin, such as dependencies to other plugins, the minimum compatible Jenkins version, a list of developers, and links to the source code repository and issue tracker component. Everyone learning about or using a plugin benefits from a plugin wiki page and luckily, almost all plugins have one!</p>
-
-<p>To ensure that <em>every</em> plugin has at least a basic wiki page with some documentation, we decided to only publish plugins in the Jenkins update center that have and link to a wiki page. To keep the impact to a minimum, we're implementing this plan in several stages.</p>
-
-<p>The first stage went live on June 1: All existing plugins that don't have a (valid) wiki link got a wiki link <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">assigned by the update center</a> (a so-called 'override'), either to an existing wiki page if there was one, or a generic <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing">"This plugin has no documentation" wiki page</a> otherwise. This ensures that no currently existing plugins get dropped from the update center at this point. Of course, <em>new</em> plugins that don't provide a wiki URL and don't have an override URL will not show up at all.</p>
-
-<p>The second stage will be enabled later this year: We're planning to remove all the overrides mentioned above. At this point, plugins may get removed from the update center if they still don't specify a wiki URL. Of course this isn't our goal, and we'll try to work with plugin authors to prevent this from happening.</p>
-
-<p>So what can you do? Check the <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">current overrides list</a> to see whether the plugins you care about are affected, and if so, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing#PluginDocumentationMissing-HowcanIhelp%3F">see the landing page in the wiki</a> to learn what you can do. If you have any questions about this process not covered by the wiki, ask us on the <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">Jenkins developers mailing list</a>.</p>
 
 </div>
 </div>
