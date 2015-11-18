@@ -177,344 +177,331 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2011/02/04/the-first-24-hours-in-downloads/'>
-The first 24 hours in downloads
+<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
+Video: Kohsuke talks Hudson on OTN
 </a>
 </h1>
 <div class='content'>
-<p>As I had mentioned in <a href="http://jenkins-ci.org/content/installing-plugins-has-always-been-easy-now-its-fast-too">a previous post</a> back when Jenkins was called something else, who can remember what anymore, I spent a lot of time working on a mirroring network. With our departure from any and all Oracle infrastructure, this mirroring network has now become our sole distribution mechanism for pushing out <strong>all</strong> releases and <strong>all</strong> plugins, in short, <strong>lots and lots of bits</strong>.</p>
+<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
 
-<p>Just how much data are we now distributing through the Jenkins mirror network?</p>
+<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
 
-<p><strong><big>Over 52GB in 24 hours</big></strong></p>
+<center>
+<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
+</center>
+<!--break-->
 
-<p>Here's the following in terms of a loose breakdown of the number of files served over the past day:</p>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/21/live-blog-john-smart-demos-advanced-hudson-usage/'>
+Live Blog: John Smart demos advanced Hudson usage
+</a>
+</h1>
+<div class='content'>
+<p><strong>Editor's Note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/wakeleo">John Ferguson Smart's</a> presentation at JavaOne 2010. Unlike <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">Kohsuke's presentation</a>, John spent a lot of time in demos which made live-blogging a bit difficult.</em></p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5012383102/" title="John Smart (@wakeleo) talking about advanced Hudson use by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4129/5012383102_cf258075a6.jpg" width="500" height="375" alt="John Smart (@wakeleo) talking about advanced Hudson use" /></a></center>
+
+<p>John takes the stage at 9:30, this presentation is <em>totally</em> different from yesterday's presentation from Kohsuke</p>
+
+<p>Taking Hudson a little further, beyond just scheduling a build job.</p>
+
+<p>Who is <strong>not</strong> using Hudson, less than 10% raise hands.</p>
+
+<p>Focusing on the more technical/nitty-gritty things with Hudson. Looking at:</p>
 
 <ul>
-  <li>788 <code>.war</code></li>
-  <li>447 <code>.deb</code></li>
-  <li>290 <code>.rpm</code></li>
-  <li>1759 <code>.hpi</code> (plugins)</li>
+  <li>CI Basics</li>
+  <li>Notification strategies</li>
+  <li>Quality metrics</li>
+  <li>Build promotions</li>
+  <li>Automated deployment
+<!--break-->
+Who knows what build promotions? Who uses build promotions? Very few in the audience use build promotions.</li>
 </ul>
 
-<p>We're off to a great start! I'd like to extend my thanks again to the <a href="http://www.osuosl.org">OSUOSL</a> and <a href="http://mirrors.xmission.com">XMission</a> for their help getting the Jenkins mirrors functional as soon as possible
-<!--break--></p>
+<p>Who uses Hudson for automated deployment, a handful raise their hands. Plenty of Tomcat and JBOSS users automating deployment. John going to use Tomcat for the automated deployment demo in this presentation.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/02/04/meetings/'>
-Meetings
-</a>
-</h1>
-<div class='content'>
-<p>This page will be fleshed out further at another time :)</p>
+<p>John mentions he's authoring the "Continuous Integration with Hudson" book, which will be available for download as it comes out.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/02/04/governance-meeting-today/'>
-Governance Meeting Today
-</a>
-</h1>
-<div class='content'>
-<p>Amongst all the work this week with setting up project infrastructure, <a href="http://mirrors.jenkins-ci.org/war/1.396/">the first release of Jenkins</a> and a <em>flood</em> of developer activity <a href="https://github.com/jenkinsci">on GitHub</a>, the interim governance board has decided to hold periodic virtual meetings.</p>
+<p>Let's talk about Continuous Integration! Summing up what CI is in three words: <strong>feedback, visibility</strong> and <strong>delivery</strong>. CI is about <em>snappy feedback</em>. You want feedback in <strong>minutes</strong>.</p>
 
-<p>The first meeting will be held <strong>today</strong> at 3pm PST (23:00 UTC) in the <code>#jenkins</code> channel on IRC (<a href="http://jenkins-ci.org/content/chat">more details here</a>).</p>
+<p>Visibility should be associated with continuous integration, getting everybody in the product life cycle into the loop with continuous integration (product people, QA, developers, etc).</p>
 
-<p>In <a href="http://twitter.com/kohsukekawa/">Kohsuke's</a> post to the mailing list, he further explained the goals of such meetings:</p>
-
-<blockquote>
-  <p>We can use it to report/discuss various issues of the project (not bugs in code, but more project level stuff.) I also plan to report the infrastructure work that's done thus far.</p>
-
-  <p>We'd like to hear from you, and the point is to engage the broader community, so please join us.</p>
-
-  <p>This is a new thing, so it's not like we've figured this all out, but let's see how it goes.</p>
-</blockquote>
-
-<p>If you don't have an IRC client, you can use the Freenode <a href="http://webchat.freenode.net/">webchat client</a> to join in, hope to see you there!
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/31/welcome-to-jenkins-ci/'>
-Welcome to Jenkins CI!
-</a>
-</h1>
-<div class='content'>
-<div class="content" style="display:none">
-Jenkins is an open-source continuous integration server with 300+ plugins to support all kinds of software development
-</div>
-
-<div id=welcome>
-<style>
-/*kill off unwanted crafts */
-#content H1, DIV.taxonomy {
-    display:none; 
-}
-#content DIV.node {
-    border-bottom:none;
-}
-
-#welcome #directory {
-    padding-top: 2em;
-}
-#welcome #directory A {
-	text-decoration: none !important;
-}
-#welcome #directory A:link {
-	text-decoration: none !important;
-}
-#welcome #directory A:hover {
-	text-decoration: underline;
-	color: black;
-}
-#welcome #directory .title {
-	color: black;
-	font-weight: bold;
-	font-size: 1.5em;
-}
-#welcome #directory TD {
-	vertical-align: middle;
-    padding-bottom: 3em;
-}
-#welcome #directory .description {
-	color: gray;
-}
-#welcome #directory .logo {
-	border: 0px;
-	margin-right: 1em;
-}
-</style>
-<div align=center> 
-	<table valign=middle id=directory style="border:none"> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"><img src="/sites/default/files/images/headshot.png" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins"> 
-			<div class=title>Meet Jenkins</div> 
-			<div class=description>Find out what Jenkins is and get started.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="http://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"><img src="/images/user.gif" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Use+Jenkins"> 
-			<div class=title>Use Jenkins</div> 
-			<div class=description>See how to get more out of your Jenkins.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"><img src="/sites/default/files/images/plugin.png" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins"> 
-			<div class=title>Customize Jenkins</div> 
-			<div class=description>Choose from <strong><?php include "/var/www/updates2.jenkins-ci.org/pluginCount.txt"?></strong> plugins to customize Jenkins exactly to your needs.</div> 
-			</a></td> 
-		</tr> 
-		<tr> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"><img src="/images/developer.gif" class=logo></a></td> 
-			<td><a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins"> 
-			<div class=title>Extend Jenkins</div> 
-			<div class=description>Learn how to build Jenkins or extend Jenkins by writing plugins.</div> 
-			</a></td> 
-		</tr> 
-	</table> 
-</div> 
-</div> 
-</div>
-
-<div style="padding-top:3em; text-align:right">
-<a href="https://wiki.jenkins-ci.org/display/JENKINS/Awards">Awards</a> <img src="/images/award.png" style="vertical-align:middle">
-
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/29/jenkins/'>
-Jenkins!
-</a>
-</h1>
-<div class='content'>
-<p>(This was sent as an email to the Hudson dev and users mailing lists after voting concluded, but I thought it'd be good to post it here as well.)</p>
-
-<p>The vote is closed, and the results are in. More than half of the total votes were from ineligible voters, but the result would have been the same either way. The final result of all eligible votes is as follows: 214 votes to rename, and 14 for the status quo. You can see the individual votes <a href="https://groups.google.com/group/hudson-jenkins-vote">hudson-jenkins-vote</a>.
-<!--break-->
-So what does this mean now? Well, it means Jenkins lives. We've registered jenkins-ci.org, though it's empty at the moment. In the coming days, we will be renaming the existing Google Groups to jenkins-*@googlegroups.com, renaming the Twitter account from @hudsonci to <a href="http://twitter.com/jenkinsci">@jenkinsci</a>, and renaming our organization at Github from hudson to jenkinsci. I wanted to make sure everyone had notice ahead of time that this was happening, so that no one gets surprised by changes to their incoming mail, etc. As said before, the initial, interim governance board will consist of me, Kohsuke and, if he and Oracle are willing, Winston. If Winston is unwilling or unable to continue in that role with Jenkins, we will select a replacement interim member. The interim board will work on the details of a more permanent governance process going forward. Discussions on the infrastructure changes (including things like the Maven groupId/artifactIds, etc) will be in public, on these lists. We're working to get the JIRA and wiki contents migrated over to the Jenkins site, and hope to work with Oracle to get that done in the next couple days.</p>
-
-<p>Putting aside logistics, I want to personally thank everyone for voting, and especially thank everyone who voted for renaming for supporting the Jenkins project and its future. Jenkins is not Oracle's project, nor CloudBee's project, nor my project, nor Kohsuke's project - it's the community's project, and it's going to thrive.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/28/account/'>
-Account
-</a>
-</h1>
-<div class='content'>
-<iframe style="border:0px; width:100%; height: 80em" src="/account/"></iframe>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/11/hudsons-future/'>
-Hudson's future
-</a>
-</h1>
-<div class='content'>
-<p>First, my apologies for the lack of updates on the <a href="http://hudson-labs.org/content/whos-driving-thing">Hudson/Oracle situation</a> for
-the last few weeks. While talks have been ongoing, the holidays have slowed
-things down, and we didn't want to send out information that would later turn
-out not to be true. We've been waiting for the talks to reach a resolution -
-and I believe they now have.</p>
-
-<p>Since the <a href="http://www.java.net">java.net</a> migration problems, Oracle and representatives from the
-Hudson community have been involved in talks on the future of the project in a
-number of areas. The Hudson representatives have been <a href="http://twitter.com/abayer">myself</a>, <a href="http://twitter.com/kohsukekawa">Kohsuke
-Kawaguchi</a>, and <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a>  (CEO of CloudBees and Kohsuke's boss), who was
-brought in to help provide experience with discussions on a corporate/executive
-level which neither Kohsuke nor I have, with Alan Harder and <a href="http://twitter.com/agentdero">R. Tyler Croy</a>
-advising on the side.</p>
-
-<p>These talks have in many ways been fruitful - we came to working agreements
-with Oracle on the project infrastructure (such as mailing lists and SCM
-repository location), code review policy for Hudson core, and perhaps most
-significantly, a governance structure for the project going forward. Some
-issues are not yet entirely resolved, such as questions on restrictions on
-third party dependency licenses. But one issue, which we feel is the most
-significant issue of all, one for which we now believe no resolution is
-possible: the rights to the name <strong>Hudson</strong>.</p>
-
-<p>Oracle has told us that they have trademark applications filed in both the EU
-and US for Hudson, based on Hudson's creation by Kohsuke while working at Sun.
-The problem is that this trademark ownership gives Oracle the ability to revoke
-the Hudson project's right to call itself Hudson at any time, and while Oracle
-has made an attempt to offer some guarantees (most notably, that binary
-releases of Hudson, once they've been released with the name Hudson attached,
-will always retain the right to the name), they are not offering any binding
-guarantee that the Hudson project will be able to retain its use of the name in
-perpetuity.</p>
-
-<p>Therefore, to continue using the name Hudson means ceding some of the project's
-independence to Oracle - if the project and its governance board opted to go in
-a direction Oracle disapproved of, Oracle would be able to take away the naming
-rights. Or, in a less dramatic scenario, Oracle could insist on certain changes
-to the code, infrastructure decisions, process, etc, regardless of opposition
-from the Hudson development community, in order to retain the rights to the
-name.</p>
-
-<p>In short, we'd be living under a sword of <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Damocles">Damocles</a>, regardless of the goodwill
-of the individuals we've been negotiating with at Oracle - Hudson as a project
-would be beholden to Oracle's whims for its continued use of its own name, and
-we believe that's not viable.
-<!--break-->
-As I see it, the only viable option facing the project now is to rename it, in
-order to free it from the burden of Oracle's ownership of its name. This is not
-a first choice, not by a long shot, but I don't see any other choice available
-to us that would preserve the integrity of the project going forward. Oracle
-will be presenting their proposal for the project continuing under their
-umbrella - I encourage you to read it when it becomes available and weigh it
-accordingly. I'll just focus on what Kohsuke, other prominent Hudson community
-members and I have endorsed.</p>
-
-<h3 id="the-proposal">The Proposal</h3>
-
-<p>First, we rename the project - the choice for a new name is <strong>Jenkins</strong>, which we
-think evokes the same sort of English butler feel as Hudson. We've already
-registered domains, Twitter users, etc for the new name, and have done our best
-to verify that there are no existing trademarks which would conflict with it.
-Kohsuke will be registering the trademark for Jenkins in his name, with the
-intent of transferring ownership of the trademark to the umbrella of the
-<a href="http://www.sfconservancy.org/">Software Freedom Conservancy</a> once the Jenkins project has been admitted to it
-(which, I should add, is very much our plan, hopefully in their next round of
-new projects in a few months - we've already had preliminary contacts with
-SFC). We still invite Oracle to remain involved with the project, on equal
-terms with all other contributors, and hope they'll take us up on this
-invitation.</p>
-
-<p>Second, out of respect for Oracle's trademark claim on Hudson, we will move our
-infrastructure off of Oracle-owned and hosted servers, and we will rename
-existing independent components of the infrastructure to no longer use "Hudson"
-- i.e., mailing lists, Github repos, etc. This would be a gradual process,
-obviously.</p>
-
-<p>Third, we will put in place an interim governance board for the project,
-consisting of three members - myself, Kohsuke and, if Oracle elects to remain
-involved, Winston Prakash, the Oracle engineer working on Hudson. The interim
-board members will serve for the next 3-6 months, until the governance
-structure can be nailed down securely enough to hold elections for the board
-members.</p>
-
-<p>Obviously, such a move could not be undertaken without the agreement and
-support of the Hudson community. We believe this proposal is the best choice
-for the project in the situation it's currently in, but we aren't closing off
-discussion, questions, etc, and we encourage your feedback and comments. If
-there's anything you need clarified, please ask and we'll do our best to
-answer.</p>
-
-<p>Once Oracle's proposal is available later this week (hopefully Wednesday,
-possibly Thursday, from what I've been told), which I strongly advise you all to 
-read and consider, we'll be putting up a poll to determine the position of the 
-community. Once that vote is done, assuming the consensus is to rename, we'll 
-put the mechanisms in motion and switch over as fast we can.</p>
-
-<p>There may be some confusion as to whether we're proposing to fork Hudson, or
-rename the existing project. I firmly believe we are proposing the latter - for
-me, the project's key component is Kohsuke himself. If the community decides to
-support renaming the project to Jenkins, and Oracle chooses to continue
-development themselves under the name Hudson, they are, obviously, entirely
-welcome to do so. But with Kohsuke working on Jenkins, that's the true home and
-the future of the project for me, regardless of the name.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/08/installing-plugins-has-always-been-easy-now-its-fast-too/'>
-Installing plugins has always been easy, now it's fast too!
-</a>
-</h1>
-<div class='content'>
-<p>As one of the "men behind the scenes" of the Hudson project, a lot of my contributions tend to be in writing articles or handling infrastructure, anything to ensure folks like <a href="http://twitter.com/kohsukekawa">Kohsuke</a> can continue to make Hudson great without being distracted by inane system administration tasks. This past week, one of my long-running infrastructure projects has finally "gone live," making downloads of plugins and packages faster than ever!</p>
-
-<p>Some number of months ago I became frustrated with the download speeds reported by our international users, while the majority of Hudson's infrastructure is all colocated inside of the United States, there is a <strong>huge</strong> number of Hudson users and developers who are both in Europe and Asia.</p>
-
-<p>After discussing things with some of the folks that run <a href="http://download.opensuse.org">download.opensuse.org</a>, a <a href="http://mirrorbrain.org">MirrorBrain</a> powered redirector, I set out to build something similar. A mirroring network which could be easily managed and help direct users' downloads to the geographically closest and fastest mirror available.</p>
-
-<h4 id="where-are-we-mirrored">Where are we mirrored?</h4>
-
-<p>Currently we have mirrors in a few locations within the United States, and one overseas:</p>
+<p><strong>What makes Hudson so great?</strong> (according to John)</p>
 
 <ul>
-  <li>Southwest U.S. (Utah) - <em>Thanks to <a href="http://www.xmission.com">XMission</a></em></li>
-  <li>Midwest U.S. (Chicago) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Northeast U.S. (New York City) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Germany - <em>Thanks to <a href="http://www.aragost.com/">aragost Trifork ag</a></em></li>
+  <li>Easy to use</li>
+  <li>Plenty of plugins/the ecosystem around Hudson for extending/integrating Hudson</li>
+  <li>Reporting/coverage features</li>
+  <li>Distributed builds</li>
 </ul>
 
-<h4 id="using-the-mirrors">Using the mirrors</h4>
+<p>First demo, the Hudson dashboard (starring the Nested View plugin). Starting with a basic dashboard filled with some unstable and stable builds. Cloudy builds thanks to Cobertura coverage grading.</p>
 
-<p>If you've updated or installed plugins from within Hudson lately, guess what! You're already using mirrors! In fact, since we flipped the switch on January 7th, over <strong>800</strong> plugins and <strong>600</strong> <code>hudson.war</code> updates have been downloaded from the mirroring network!
+<p>Using the Nested View plugin to group views to make the dashboard more useflu for a <strong>ton</strong> of jobs.</p>
+
+<p>Covering build radiators, not enough of the audience uses radiators. John advocates commandeering big monitors for radiators as part of your "notification strategy"</p>
+
+<p>Covering the basic version control integration, John <strong>highly</strong> recommneds using a "Repository Browser". "The point is, you want one" John starts improvising with making some changes, pops over to Eclipse and refactors some code, commits and kicks off a build. Navigates to the source changes for the newly broken build in "Sventon", his repository browser of choice which was connected to the job</p>
+
+<p>John shows the job using Maven integration and deploying artifacts to the Maven repository he's set up on his local machine.</p>
+
+<p>Hudson will automatically keep track of jar files/war files, so enable the "Discard Old Builds" checkbox to prevent Hudson from eating all kinds of disk space. Useful to only discard the artifacts for the last X builds instead of the test results/code coverage.</p>
+
+<p>Desktop build notifiers are quite useful, email can tend to get clutter/lost in the mess with everything else coming into your inbox.</p>
+
+<h4 id="test-results-integration">Test results integration</h4>
+
+<p>Going into the test results dashboard per-build and the test-result and build time trends for a specific job.</p>
+
+<p>Why is the build time trend useful? If the build suddenly takes a <em>huge</em> amount of time to run, you've likely got performance issues that need fixing.</p>
+
+<h4 id="publishing-html-reports">Publishing HTML reports</h4>
+
+<p>Starring the HTML Publisher plugin! Using the plugin to publish HTML reports generated from easyb for publishing acceptance test results for more wide-spread consumption.</p>
+
+<p>Bouncing from HTML reports to integrating with Sonar for code quality metrics</p>
+
+<h4 id="build-promotion">Build Promotion</h4>
+
+<p>Starring the Promoted Builds plugin! Covering some similar concepts to Kohsuke's talk yesterday but literally going into the Hudson configuration and setting it up.</p>
+
+<p>Time is running out, John's flipping back and forth between the M2 release plugin and his automatic deployment to his local Tomcat environment.</p>
+
+<h4 id="qa">Q&amp;A</h4>
+
+<p>"Can Hudson be used for other environments". Yes! Supports a number of build plugins, MSBuild, NAnt, CMake, in addition to the freestyle build. "Maven 3 support" Sonatype is apparently working on an integrated version of Hudson with Maven 3, Hudson core planning support "eventually."</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/21/javaone-day-one-in-pictures/'>
+JavaOne: Day One in Pictures
+</a>
+</h1>
+<div class='content'>
+<p>In case you haven't been following the <a href="http://twitter.com/hudsonci">frequently updated @hudsonci</a> Twitter stream. Here's a collection of photos I've taken thus far.</p>
+
+<center><object width="400" height="300"> <param name="flashvars" value="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2F&amp;set_id=72157624996965000&amp;jump_to=" /> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649" /> <param name="allowFullScreen" value="true" /><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowfullscreen="true" flashvars="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157624996965000%2F&amp;set_id=72157624996965000&amp;jump_to=" width="400" height="300" /></object></center>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/20/tweet-of-the-day/'>
+Tweet of the Day
+</a>
+</h1>
+<div class='content'>
+<p>Some of you may have been following all the photos posted to the <a href="http://www.flickr.com/photos/hudsonlabs/">hudsonlabs Flickr account</a> from this year's JavaOne conference in San Francisco.</p>
+
+<p><a href="http://twitter.com/a1o1">Alan O'Leary</a> responded to this photo with one of the <a href="http://twitter.com/a1o1/status/25032555850">funniest comments</a> of the day:</p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5008009575/" title="This way to JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4151/5008009575_52e7f18fdf.jpg" width="500" height="375" alt="This way to JavaOne" /></a><br clear="all" /><strong><em>"Java and Oracle - 'In Opposite Directions'"</em></strong></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/20/pre-javaone-hudson-meetup-redux/'>
+Pre-JavaOne Hudson Meetup Redux
+</a>
+</h1>
+<div class='content'>
+<p>Yesterday Digg was kind enough to host and "sponsor" (read: free drinks and
+pizza!) a Hudson meetup at their offices in San Francisco. While Digg has been
+the source of some controversy and press due to their recent redesign and corporate
+shake-ups, as far as the Hudson community goes they've been largely responsible for
+a <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">great case study on continuous deployment</a> using Hudson and <a href="http://code.google.com/p/gerrit">Gerrit</a>.</p>
+
+<center><a href="http://www.flickr.com/photos/hudsonlabs/5005123971/" title="Thanks to @digg for hosting the #HudsonCI meetup by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4130/5005123971_403f24733d.jpg" width="500" height="375" alt="Thanks to @digg for hosting the #HudsonCI meetup" /></a></center>
+
+<p>Attendees included all of InfraDNA (Kohsuke and Kedar), some folks from CloudBees, a
+number of local users/developers like <a href="http://twitter.com/LewisHam">LewisHam</a> and myself, and
+to top off the list a couple Oracle employees including <a href="http://twitter.com/wjprakash">Winston Prakash</a> who is now hacking on Hudson inside of Oracle.</p>
+
+<p>As folks started arriving there was a lot of discussion around "Hudson at Scale", specifically
+regarding Hudson "in the cloud". We also got to hear about one of the most interesting Hudson
+use-cases I've ever seen by <a href="http://edwardmgoldberg.com">Edward M. Goldberg</a> who I'll post an
+interview with shortly, imagine using Hudson with <strong>thousands</strong> of machines, it's that interesting.</p>
+
+<p>Through the afternoon there were a number of great discussions concerning Hudson stability,
+engaging more of the community and nitty-gritty details regarding Hudson's internals such
+as the plugin API.</p>
+
+<p>I've posted <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624992088468/">photos from the event</a> on
+Flickr for posterity in case you're interested. Overall I'd judge the meetup to be a success, it was a
+lot of fun and a great way to spend a Sunday with Hudson.</p>
+
+<p>If you're going to be at JavaOne, come track me down and let's talk about Hudson, if you're not in San Francisco for the event, you can always follow my updates on <a href="http://twitter.com/hudsonci">Twitter</a> or hit up <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624996965000/">Flickr</a></p>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/20/live-blog-kohsukes-presentation-at-javaone/'>
+Live Blog: Kohsuke's Presentation at JavaOne
+</a>
+</h1>
+<div class='content'>
+<p><strong>Editor's note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi's</a> presentation at JavaOne 2010.</em></p>
+
+<p><a href="http://www.flickr.com/photos/hudsonlabs/5008629375/" title="Kohsuke talks to a packed room at #JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4083/5008629375_6f603b6093_m.jpg" width="180" height="240" alt="Kohsuke talks to a packed room at #JavaOne" align="right" /></a></p>
+
+<p>Kohsuke takes the stage, asks "who uses's Hudson" the majority of
+audience raises their hands</p>
+
+<p>Discussing the great ecosystem using Hudson across the wide-variety of platforms/languages.
+330+ community written plugins. Last year at JavaOne we had 230+ plugins</p>
+
+<p>Eclipse Community Survey, Hudson adoption from 9.1% in 2009 to 21.8%</p>
+
+<p>Discussing Hudson adoption, going over Hudson job postings on indeed.com going up compared to a stagnant Cruise Control.</p>
+
+<p>Kohsuke introduces himself and InfraDNA, started Hudson in 2004/2005.</p>
+
+<p>First steps to CI, 10,000 foot overview of SCM monitoring/build/testing. Delving into using Hudson
+for automating <strong>everything</strong> to get "more out of your Hudson deployment.</p>
+
+<h3 id="interconnecting-jobs-aka-workflows">"Interconnecting Jobs aka Workflows"</h3>
+
+<p>Hudson allows for hosting many projects on one Hudson deployment, meaning you need a smaller number of administrators for a larger number of jobs compared to Cruise Control.</p>
+
+<p>Building Block #1: Triggering. Using "upstream" and "downstream" jobs ot interconnect jobs to form a workflow in Hudosn. Triggering is asynchronoys in Hudson, useful for separating builds and multiple test jobs. Splitting the build and test jobs so you build quickly test many tests in parallel.</p>
+
+<p>Avoid recompiling compilation/builds in the "downstream" test runs. "Copy Artifact" plugin very useful for passing built executables to test jobs.</p>
+
+<p>Upstream/downstream separation also highly useful for separating build and deployment into a continuous workflow.</p>
+
+<p>Building Block #2: Join plugin. Fan downstream jobs out and then bring everything back together for final
+steps.</p>
+
+<p>Shows Join plugin configuration screen because "perhaps the configuration is a little unintuitive".</p>
+
+<p>Building block #3: Fingerprints. Using MD5 checksums from artifacts to learn more about those artifacts in your
+Hudson, tying together artifacts from different jobs/builds. Letting Hudson recording these fingerprints of those artifacts in your lifecycle allows Hudson to help you find out where/when those executables came from.</p>
+
+<p>Fingerprinting mechanism good for tracking dependencies from third parties, Hudson uses 3rd party fingerprints to compute additional information. Also useful for aggregating reports.</p>
+
+<p>Going a bit further using the "build promotion plugin" to weed out which builds are "better than others." Taking fingerprints from a build job all the way through the life cycle and passing that fingerprint around test/smoke test jobs, if that passes, build passes on to more rigorous testing, only if it's passed base-level testing. Basic model of promotion maps to a "confidence level", 1st level passes compilation, 2nd level passes smoke test, 3rd level passes expensive/time-consuming tests.</p>
+
+<p>One of the reasons to use promotion in your lifecycle to ensure that artifacts meet a minimum "confidence level" so you're not expending resources running the longer tests )think about a promotion hierarchy)</p>
+
+<p><strong>Demo time!</strong></p>
+
+<p>Kohsuke demoing build promotion live with fingerprinting of sample jar files. Creating a "component-X" build and a "test-X" build. test-X job using the "Copy Artifact" plugin to grab artifacts from the component-X build.</p>
+
+<p>Defining the promotion criteria in "component-X", "test-X" promoted, indicates that certain builds promoted a build.</p>
+
+<p><strong>End demo time!</strong></p>
+
+<h3 id="maven-integration">Maven Integration</h3>
+
+<p>Maven integration highlights. Going over POM comprehension and simplified configuration due to more information
+getting inferred from the POMs. Building dependency chains with Maven integration.</p>
+
+<p>"That's the basics, let's talk about advanced integration with Maven"</p>
+
+<p>Parallel-module builds! Letting Hudson builds modules with a single checkbox, meaning wherever possible Hudson will try to build your modules in parallel when possible.</p>
+
+<p>Incremental builds! Only building changed modules in a build run to be more efficient, preventing the need to rebuild the whole project from scratch every time. Hudson's SCM integration to determine what the mapping between files changed and modules needing to be built.</p>
+
+<p>Private Maven repositories! Avoiding artifacts being overwritten by others, telling Hudson to create a Maven repository <strong>per-project</strong> (at the expense of more bandwidth/disk space needed), helps segregate builds to avoid them stomping on each other.</p>
+
+<p>After-the-fact deployment, avoiding deploying modules unless the whole build is successful (all modules properly built). Instead of using <code>mvn deploy</code>, you tell Hudson to deploy to your Maven repository with a single checkbox.</p>
+
+<h3 id="matrix-project">Matrix Project</h3>
+
+<p>No longer alpha! Production-ready!</p>
+
+<p>Often used to build/test across slight variations of build environments such as different platforms for a C++ project. Conceptually it's like running your build in a for loop.</p>
+
+<p>Hudson supports a number of different axes, most popular of which being a "slave axis" which allows you to use different labels or specific slaves for the build. Hudson also supports arbirtrary text fields as axes to be passed along to the build steps as environment variables.</p>
+
+<p>Touching on "filtering" in the matrix project support to remove parts of an axis that you do not need. I.e if you have a "platform" and a "browser" axes for web testing, you can exclude the "iexplore" value of the "browser" axis when the "platform" axis is "mac".</p>
+
+<p><strong>Demo time!</strong></p>
+
+<p>Defining two axes, "slave" axis and the "JDK" axis to build against different JDK versions on linux, solaris and windows. Excluding "touchstone builds" to avoid rebuilding a large number of matrix builds unless a limited subset of the combinations successfully build. Used to avoid spending a lot of time spinning cycles on very obvious errors that the first few builds "recognize" immediately.</p>
+
+<p><strong>End demo time</strong></p>
+
+<h3 id="doing-selenium-testing-on-hudson">Doing Selenium testing on Hudson</h3>
+
+<p>Use "Selenium Grid plugin" to install Selenium binaries on all slaves and prepares them all to talk to each other. Useful for "overloading" an existing Hudson cluster as a Selenium cluster.</p>
+
+<p>Using labels in Hudson to better determine which node has which browser.</p>
+
+<p>Selenium integration is <strong>very</strong> powerful when combined with the join plugin and the matrix configuration support in Hudson for web testing across a large number of platforms and browsers.</p>
+
+<p>The Hudson project has invested heavily in getting great cluster support which helps tremendously with Selenium which has invested as heavily in clustering.</p>
+
+<p>How to you deal with Selenium needing a GUI while Hudson slaves are largely headless. Use the Xvnc plugin! On Windows things are bit trickier, easier to let Hudson slave/service "interact with desktop" such that it can access dialogs/etc. Failing everything else, configuring Windows for auto-login and then have JNLP slaves autostart at login will work for allowing the slave to use the GUI and network resources.</p>
+
+<p>The rest of the session was dedicated to some good Q&amp;A. Great session by Hudson's founder.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/17/javaone-taking-shape/'>
+JavaOne taking shape
+</a>
+</h1>
+<div class='content'>
+<p>Last night on my way out of San Francisco I stopped by 4th and Howard St to get my first taste of JavaOne/Oracle OpenWorld which was already taking shape at the location. Besides snapping the photo below, I also managed to get yelled out by an old woman wearing a red "security" jacket; suffice to say my JavaOne experience is already everything I expected!</p>
+
+<center><a href="http://www.flickr.com/photos/agentdero/4997929716/" title="Oracle taking over Howard St by agentdero, on Flickr"><img src="http://farm5.static.flickr.com/4107/4997929716_1675745efe.jpg" width="500" height="375" alt="Oracle taking over Howard St" /></a></center>
+
+<p>Unlike last year's Oracle OpenWorld, which also shut down this segment of Howard St in San Francisco and took over the adjacent Yerba Buena Gardens, this event will be crammed together with JavaOne. <a href="http://www.flickr.com/photos/agentdero/4998934102/" title="20100917_003.jpg by agentdero, on Flickr"><img src="http://farm5.static.flickr.com/4084/4998934102_d7c71e575e_m.jpg" width="240" height="180" alt="20100917_003.jpg" align="right" hspace="10" /></a></p>
+
+<p>At this point I'm not sure what I can expect as far as the JavaOne portion of the event goes, we do have <strong>two</strong> Hudson related events scheduled:
 <!--break-->
-If you'd like to download directly from the mirrors, you can browse on over to <a href="http://mirrors.hudson-labs.org">mirrors.hudson-labs.org</a>, which will redirect your request for specific files to the appropriate mirror based on your IP address. It's just that easy!</p>
+<br clear="all" /></p>
 
-<p>We are currently working with more providers to add additional mirrors, hopefully we'll have an Asian mirror online within the next two weeks and if we're lucky, we'll find some more European mirrors too.</p>
+<ul>
+  <li><strong>Getting More Out of Your Hudson</strong> - Monday at 10:00 a.m. - Hosted by our very own <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>, the session will be 60 minutes at Parc 55, Embarcadero.</li>
+  <li><strong>Getting More from Your CI Server: Taking Hudson to the Next Level</strong> - Tuesday at 9:30 a.m. - Hosted by the (in)famous <a href="http://twitter.com/wakeleo">John Smart</a> the session will also be 60 minutes at Parc 55, Cyril Magnin 1.</li>
+</ul>
 
-<hr />
+<p><br clear="all" /></p>
 
-<p>I would like to thank the <strong>immensely</strong> helpful and supportive engineers over at the <a href="http://www.osuosl.org">OSUOSL</a> for offering gratis tech support, suggestions, and bandwidth to serve as our <em>primary</em> mirror.</p>
+<p><a href="http://www.flickr.com/photos/agentdero/4998330661/" title="20100917_004.jpg by agentdero, on Flickr"><img src="http://farm5.static.flickr.com/4132/4998330661_91514f797a_m.jpg" width="240" height="180" alt="20100917_004.jpg" align="left" hspace="10" /></a></p>
+
+<p>Unfortunately those were the only specifically-Hudson related tracks I could find, as <a href="http://twitter.com/abayer">Andrew Bayer</a> has <a href="http://twitter.com/abayer/status/24507253586">mentioned before</a>, finding a proper schedule is near impossible. While at JavaOne, I intend on posting updates, pictures and maybe a little scathing commentary (they did give me a blogger pass for some silly reason).</p>
+
+<p>If you're going to be at JavaOne, <a href="http://www.hudson-labs.org/content/lets-talk-about-hudson-javaone">think about coming and talking to me</a> about how you/your company uses Hudson. I might just have stickers!</p>
+
+<p><br clear="all" /></p>
 
 <hr />
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/31.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/31.html" class="page-link">31</a> <span class="current-page">32</span> <a href="/node/page/33.html" class="page-link">33</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/33.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/09/09/lets-talk-about-hudson-at-javaone/'>
+Let's talk about Hudson at JavaOne
+</a>
+</h1>
+<div class='content'>
+<p>A few months ago I enjoyed running a couple <a href="http://www.hudson-labs.org/views/interviews">interviews with folks</a> who were using Hudson but lately I've lacked the time and coffee to get more interviews done. <img src="http://www.hudson-labs.org/sites/default/files/taperecorder.jpg" alt="Interview time!" align="right" hspace="10" /></p>
+
+<p>I am planning on making up for it by bringing my fancy smancy tape recorder (i.e. a smartphone) and a few notepads to the upcoming <a href="http://www.oracle.com/us/javaonedevelop/index.html">JavaOne conference</a> here in San Francisco.</p>
+
+<p>If you're interested in talking to me about how you or your company uses Hudson in your quest for world domination, you will be able to find me at the <a href="http://www.hudson-labs.org/content/pre-javaone-hudson-meetup">Hudson hackathon</a> on Sunday the 19th, or at JavaOne on Monday, Tuesday and <em>maybe</em> Wednesday.</p>
+
+<p>Feel free to drop me a line at tyler[at]linux.com and we'll set something up!</p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/31.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/31.html" class="page-link">31</a> <span class="current-page">32</span> <a href="/node/page/33.html" class="page-link">33</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/33.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

@@ -177,357 +177,95 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2010/06/10/subversion-repository-change-notification-push-vs-pull/'>
-Subversion repository change notification: push vs pull
+<a href='/blog/2010/03/19/get-excited-and-make-things/'>
+Get excited and make things
 </a>
 </h1>
 <div class='content'>
-<p><br/>
-People often configure <a id="aptureLink_XD1hbqM4Nj" href="http://en.wikipedia.org/wiki/Hudson%20%28software%29">Hudson</a> to start a new build whenever a change is made to the repository. In fact, this is often considered central to the practice of continuous integration.<br/>
-<br/>
-<p><br/>
-There are two ways to achieve this. One is the "pull" model, where Hudson periodically reaches out to a Subversion repository to see if there is any changes. The other is the "push" model, where you make the Subversion repository reach out to Hudson.<br/>
-<br/>
-<p><br/>
-Both approaches have trade-offs. The pull model is easier to configure, since you can do this entirely from Hudson. But this comes at the expense of increased load to the Subversion server. Even though the overhead of Subversion polling is relatively low, as you add more projects to Hudson and increase the polling frequency, the overhead may get non-trivial (imagine the number of Hudson pollings that the poor <a href="http://java.net" target="_blank">java.net</a> Subversion server gets, for example.) A more serious downside, in my opinion, is that this increases the delay from your commit to a build. For example, if your build just takes 5 mins, then even if you poll every minute, you pay on average 30 seconds delay before a build starts &mdash; a 10% overhead!<br/>
-<br/>
-<p><br/>
-The push approach eliminates those two downsides, but it requires a post-commit hook configuration in the Subversion repository, which has to be done manually by the administrator, because those scripts are not exposed to external systems like Hudson.<br/>
-<br/>
-<p><br/>
-With that said, if you do have an access to the Subversion repository post-commit hook, I highly recommend the push approach, and in Hudson we made it as easy as possible to configure the set up. Here's the script you'll need in your post-commit hook:<br/>
-<br/>
-<code type="bash"><br/>
-REPOS="$1"<br/>
-REV="$2"<br/>
-UUID=`svnlook uuid $REPOS`<br/>
-/usr/bin/wget \<br/>
-  --header "Content-Type:text/plain;charset=UTF-8" \<br/>
-  --post-data "`svnlook changed --revision $REV $REPOS`" \<br/>
-  --output-document "-" \<br/>
-  http://server/hudson/subversion/${UUID}/notifyCommit?rev=$REV<br/>
-</code><br/>
-<br/>
-<p><br/>
-This script basically just tells Hudson that there was a change in a repository. Hudson will then check this information against all the jobs that have a polling configured, and schedule the builds accordingly. The beauty of this approach is two-folds:<br/>
-<br/>
-<ul><br/>
-<li>The script doesn't change when you add/remove/rename jobs.<br/>
-<li>The overhead is constant regardless of the number of jobs.<br/>
-</ul><br/>
-<br/>
-<p><br/>
-If you haven't configured a push setup yet, now is the time to do so!<br/>
+<p><img src="http://agentdero.cachefly.net/continuousblog/getexcited.jpg" alt="Get excited and make things" align="right" />The day of hackery is upon us! Today is Day One of the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson hackathon/meetup</a>, the hacking will start at 10am today and continue until 5pm at the <a href="http://tinyurl.com/yznmdoo">Oracle Santa Clara campus</a> in the "library" conference room of SCA7 "Mansion" building. The focus today will be largely on hacking Hudson itself.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/06/09/welcome-to-hudson-labs/'>
-Welcome to Hudson Labs!
-</a>
-</h1>
-<div class='content'>
-<p><img src="/sites/default/files/images/scientist.thumbnail.gif" align="right" /> Hello again! It's been a long time since I've written for the Hudson community, but now I'm back and ready to tackle some of the latest developments in the Hudson community.</p>
+<h3 id="cant-attend">Can't attend?</h3>
 
-<h3 id="what-is-hudson-labs">What is Hudson Labs?</h3>
-
-<p>As you may have <a href="http://www.hudson-labs.org/content/kohsuke-leaves-sun">read in April</a>, Kohsuke left Oracle to found <a href="http://www.infradna.com/">InfraDNA</a>, a company specializing around Hudson. The departure meant the Hudson community would no longer have access to some of the hardware and services that Kohsuke had accumulated over the years working on Hudson at Sun Microsystems. While we are still happily part of the <a href="http://java.net/">Java.net</a> community, we've recognized the need for some community-owned resources and Hudson Labs was born.</p>
-
-<p>Over the past couple months, a group within the Hudson community, "infra" (short for "infrastructure"), has been working to get machines set up and build the foundation for a more open Hudson project infrastructure.</p>
-
-<h3 id="what-does-hudson-labs-provide">What does Hudson Labs provide?</h3>
-<!--break-->
-<p>##### Builds</p>
-
-<p>One of the first tasks we set upon when building out Hudson Labs was to start improving the build and release process of Hudson by moving as much of it into a <a href="http://ci.hudson-labs.org">public Hudson instance</a>. Building Hudson itself, plugins and dependencies of the Hudson project, the Hudson Labs instance will help improve the reliability of the Hudson ecosystem across the board, and should serve as a useful tool for core and plugin developers.</p>
-
-<h5 id="mirroring">Mirroring</h5>
-
-<p>Thanks to the great team over at the <a href="http://www.osuosl.org">Oregon State University Open Source Lab</a> (<a id="aptureLink_oz4HIIQKJD" href="http://twitter.com/osuosl">OSUOSL</a>), we've been able to build out <a href="http://ftp.osuosl.org/pub/hudson/">mirroring infrastructure</a> for Hudson to provide fast access to native packages and wars alike. Currently the OSUOSL only has mirrors inside the continental United States, so we're reaching out to friends in Asia and Europe to extend the mirroring system.</p>
-
-<h5 id="information">Information</h5>
-
-<p>I'm currently working on re-working some of the blog posts you may have read over four months as more structured tutorials. I hope to provide an easily accessible knowledge-base for developing Hudson along with configuring Hudson for various platforms and development environments; this is a more difficult task so all the pieces aren't entirely in place for this just yet.</p>
-
-<p>To be honest, I'm very enthusiastic about Hudson's future. Now that InfraDNA is up and running, Kohsuke's renewed focus combined with the foundation of Hudson Labs and the uncommonly hospitable Hudson developer and user communities, the future is looking bright!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/05/31/about-jenkins-ci/'>
-About Jenkins CI
-</a>
-</h1>
-<div class='content'>
-<p>Welcome to Jenkins CI, formerly known as "Hudson Labs", a community-driven site for and by the <a href="http://twitter.com/jenkinsci">Jenkins CI</a> community.</p>
-
-<p>There's more to be said about Jenkins CI, and this site which we'll get to soon!</p>
-
-<h3 id="stated-goals">Stated Goals</h3>
+<p>Not everybody lives in the Bay Area, fortunately all of you are on the internets! There's two ways you can participate remotely in the hackathon:</p>
 
 <ul>
-  <li>To help advocate the use of Jenkins CI to the larger internet community</li>
-  <li>To be a central source for tutorials and helpful information to Jenkins CI users of all skill-levels</li>
-  <li>To recognize the numerous contributors to the Jenkins CI project for their efforts</li>
-  <li>Provide community-powered infrastructure for maintaining/developing Jenkins CI</li>
+  <li><strong>WebEx:</strong> <a href="https://cisco.webex.com/ciscosales/j.php?ED=136431942&amp;UID=0&amp;PW=NN2U2OTAwNzg0&amp;RT=MiM0">Meeting Number: 201 389 367, Password: hudson</a> (audio conference, app sharing, etc)</li>
+  <li><strong>IRC</strong> As always, there's the <code>#hudson</code> IRC channel on the Freenode where you can participate via text chat</li>
 </ul>
 
-<p><br clear="all" />
-## Site Contributors</p>
-
-<p>This is by no means a complete listing of all the wonderful Jenkins CI contributors, but these folks are generally responsible for keeping this site online.</p>
+<p>If you're in the Bay Area, but busy at work today, come by for <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Day Two</a> of the hackathon/meetup tomorrow (Saturday) from 10am to 6pm at <a id="aptureLink_NCAhpsucbO" href="http://hackerdojo.pbworks.com/">Hacker Dojo</a> in Mountain View!</p>
 
 <p><br clear="all" />
-<img src="http://agentdero.cachefly.net/scratch/seatac-photo-sm.jpg" border="1" align="absmiddle" hspace="8" /> <strong>R.Tyler Croy</strong> (<code>rtyler</code>)</p>
+### Friday Agenda</p>
 
-<p>Currently the primary editor for the Jenkins CI news site (the successor to "Continuous Blog"), rtyler is not a direct contributor to Hudson via "core" or plugins, he is the "man behind the curtain" for the <a href="http://twitter.com/jenkinsci">@jenkinsci twitter account</a> and is the founder/moderator of the <code>#jenkins</code> channel on the Freenode IRC network. On his personal blog, <a href="http://unethicalblogger.com">unethical blogger</a>, rtyler writes about developing with Python, Jenkins CI and occasionally both at the same time.
-<br clear="all" /></p>
+<p>Currently there is only one item on the agenda for Friday:</p>
+
+<ul>
+  <li><strong>Improving Client-Side Code Quality with YUI 3:</strong> A Proposal (by: <a id="aptureLink_vzcsfKPm3x" href="http://twitter.com/bshine">Benjamin Shine</a>)</li>
+</ul>
+
+<p><small><em>Image courtesy of <a href="http://www.flickr.com/photos/blackbeltjones/3365682994/">blackbeltjones</a></em></small></p>
 
 <hr />
 
-<p><br clear="all" />
-<img src="http://www.gravatar.com/avatar/9dc9023094b9cf490f7a7774344ff75a" border="1" align="absmiddle" hspace="8" /> <strong>Andrew Bayer</strong> (<code>abayer</code>)</p>
+<p><strong>Update</strong>: The WebEx link for today has been corrected.</p>
 
-<p>Andrew is just some guy, you know?</p>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/19/recap-of-hackathon-part-one/'>
+Recap of Hackathon Part One
+</a>
+</h1>
+<div class='content'>
+<p><a id="aptureLink_pnjVAv8djU" href="http://twitter.com/kohsukekawa">Kohsuke</a> just posted a brief write-up on <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/03/19/hudson-hackathon-day-1">his personal blog</a> about the first day of the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Bay Area Hudson hackathon/meetup</a>. He writes:</p>
+
+<blockquote>
+  <p>Total of 9 people came and we had a great time talking about infrastructure issues, possible enhancements, design dicussions, exchanging tips and plugins that they've developed, and otherwise building personal relationships.</p>
+</blockquote>
+
+<p>A number of folks joined us on the <code>#Hudson</code> IRC channel on <a id="aptureLink_GzNHS5pDZN" href="http://freenode.net/">Freenode</a> and the WebEx conference, participating remotely. Since day one was primarily intended for hacking on Hudson itself, we're expecting more people tomorrow when we'll have a good mix of folks hacking <strong>on</strong> Hudson, folks hacking <strong>with</strong> Hudson and plain old folks.</p>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/HackathonDay1.jpeg" alt="The team, Day One" /></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/16/slaves-building-robots/'>
+Slaves building robots
+</a>
+</h1>
+<div class='content'>
+<p>A few weeks ago we covered <a href="http://blog.hudson-ci.org/content/getting-started-building-android-apps-hudson">building Android apps with Hudson</a> thanks to a very informative post by <a href="http://blog.hudson-ci.org/users/hvisser">Hugo Visser</a>, ever thought about building Android <em>itself</em> with Hudson? Sony Ericsson apparently has, Continuous Blog reader and Hudson user <a id="aptureLink_dcxEa1lrQd" href="http://www.linkedin.com/in/christopherorr">Christopher Orr</a> sent me this screen shot from his recently purchased <a href="http://www.engadget.com/2010/02/14/sony-ericsson-outs-xperia-x10-mini-and-xperia-x10-mini-pro/">Sony Ericsson Xperia X10 mini</a>, notice the "Kernel version" field.</p>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/x10-mini-hudson.png" alt="About Me on the X10 Mini" /></center>
 
 <p><br clear="all" /></p>
 
 <hr />
 
-<p><br clear="all" />
-<img src="http://www.gravatar.com/avatar/0cb9832a01c22c083390f3c5dcb64105" border="1" align="absmiddle" hspace="8" /> <strong>Kohsuke Kawaguchi</strong> (<code>kohsuke</code>)</p>
-
-<p>Kohsuke is the creator of Hudson which has been renamed to Jenkins CI, as well as number of plugins and
-libraries around the project.
-<br clear="all" /></p>
+<p>If you've got screen shots or photos spotting Hudson out in the big blue room, drop me an email at <code>tyler</code> at <code>linux dot com</code></p>
 
 <hr />
 
-<p><br clear="all" />
-<!--break--></p>
-
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/05/31/mirrors/'>
-Mirrors
+<a href='/blog/2010/03/15/breaking-hudson-1-351-released/'>
+Breaking! Hudson 1.351 Released
 </a>
 </h1>
 <div class='content'>
-<h2 id="releases">Releases</h2>
+<p>Rush delivery from Hudson HQ! Hudson 1.351 just rolled out with a <strong>very</strong> important regression fix:</p>
 
-<p>Currently releases are mirrored to the locations documented on the <a href="http://mirrors.jenkins-ci.org/status.html">mirror status page</a></p>
-
-<h3 id="running-a-mirror">Running a mirror</h3>
-
-<p>More mirrors are certainly welcome, Jenkins is primarily mirrored by the <a href="http://osuosl.org/services/hosting/details">Oregon State University Open Source Lab (OSUOSL)</a>. Both the hudson-labs and OSUOSL servers are primarily located within the United States, so international (Japan/UK/Germany) mirrors would be greatly appreciated.</p>
-
-<p>If you're interested in running a public mirror, drop an email to "tyler@linux.com" and we can discuss space and bandwidth requirements.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/05/31/mailing-lists/'>
-Mailing Lists
-</a>
-</h1>
-<div class='content'>
-<p>The two primary mailing lists (<em>jenkinsci-users</em> and <em>jenkinsci-dev</em>) have a large number of subscribers, and moderate daily email volume, please strive to be clear and concise when sending messages. <a href="http://www.catb.org/esr/faqs/smart-questions.html">How to ask questions the smart way.</a>
-<br clear="all" /></p>
-
-<h2 id="english-language-discussion-lists">English-language discussion lists</h2>
-
-<h5 id="jenkinsci-usersgooglegroupscom">jenkinsci-users@googlegroups.com</h5>
-
-<p>Mailing list for users of Jenkins. Post your questions on how to use Jenkins and Jenkins plugins here. If you're not sure which list is correct, post here.<br />
-<a href="http://groups.google.com/group/jenkinsci-users/topics">archive</a>
- | <a href="mailto:jenkinsci-users+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-users+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="jenkinsci-devgooglegroupscom">jenkinsci-dev@googlegroups.com</h5>
-
-<p>Mailing list for developers of Jenkins. Post your Jenkins core development and plugin development questions here, as well as topics related to project governance. Questions that should be asked on the <em>jenkinsci-users</em> list will be ignored. Do not cross-post.<br />
-<a href="http://groups.google.com/group/jenkinsci-dev/topics">archive</a>
- | <a href="mailto:jenkinsci-dev+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-dev+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="eventslistsjenkins-ciorg">events@lists.jenkins-ci.org</h5>
-
-<p>Mailing list for events, meet-ups, and fostering local communities.<br />
-<a href="http://lists.jenkins-ci.org/pipermail/jenkins-events/">archive</a>
- | <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-events">subscribe</a>
- | <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-events">unsubscribe</a></p>
-
-<h5 id="jenkinsci-jamgooglegroupscom">jenkinsci-jam@googlegroups.com</h5>
-
-<p>Mailing list for <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">Jenkins Area Meetup</a> coordination.
-<br />
-<a href="http://groups.google.com/group/jenkinsci-jam/topics">archive</a>
- | <a href="mailto:jenkinsci-jam+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-jam+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="infralistsjenkins-ciorg">infra@lists.jenkins-ci.org</h5>
-
-<p>Mailing list for jenkins-ci.org operations and infrastructure.<br />
-<a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/">archive</a>
- | <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-infra">subscribe</a>
- | <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-infra">unsubscribe</a></p>
-
-<h2 id="discussion-lists-in-other-languages">Discussion lists in other languages</h2>
-
-<h5 id="jenkinsci-brgooglegroupscom">jenkinsci-br@googlegroups.com</h5>
-
-<p>Jenkins grupo de usuários em Português do Brasil<br />
-<a href="http://groups.google.com/group/jenkinsci-br/topics">archive</a>
- | <a href="mailto:jenkinsci-br+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-br+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="jenkinsci-jagooglegroupscom">jenkinsci-ja@googlegroups.com</h5>
-
-<p>日本語ユーザーおよび開発者の為のメーリングリスト<br />
-<a href="http://groups.google.com/group/jenkinsci-ja/topics">archive</a>
- | <a href="mailto:jenkinsci-ja+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-ja+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="jenkinsci-krgooglegroupscom">jenkinsci-kr@googlegroups.com</h5>
-
-<p>Jenkins users list in Korean<br />
-<a href="http://groups.google.com/group/jenkinsci-kr/topics">archive</a>
- | <a href="mailto:jenkinsci-kr+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-kr+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h2 id="read-only-lists">Read-only lists</h2>
-
-<h5 id="jenkinsci-advisoriesgooglegroupscom">jenkinsci-advisories@googlegroups.com</h5>
-
-<p>Security Advisory announcements are sent to this list. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">More about security advisories</a>.<br />
-<a href="http://groups.google.com/group/jenkinsci-advisories/topics">archive</a>
- | <a href="mailto:jenkinsci-advisories+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-advisories+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="jenkinsci-commitsgooglegroupscom">jenkinsci-commits@googlegroups.com</h5>
-
-<p>Automated core and plugin commit notifications.<br />
-<a href="http://groups.google.com/group/jenkinsci-commits/topics">archive</a>
- | <a href="mailto:jenkinsci-commits+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-commits+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-<h5 id="jenkinsci-issuesgooglegroupscom">jenkinsci-issues@googlegroups.com</h5>
-
-<p>Automated notifications from JIRA (JENKINS project only).<br />
-<a href="http://groups.google.com/group/jenkinsci-issues/topics">archive</a>
- | <a href="mailto:jenkinsci-issues+subscribe@googlegroups.com">subscribe</a>
- | <a href="mailto:jenkinsci-issues+unsubscribe@googlegroups.com">unsubscribe</a></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/05/31/chat/'>
-Chat
-</a>
-</h1>
-<div class='content'>
-<p>The Jenkins community congregates in the <code>#jenkins</code> channel on the <a href="http://www.freenode.net">Freenode</a> IRC network.</p>
-
-<h3 id="connect">Connect</h3>
-
-<p>In order to connect to the Freenode network, you can use a local client or the <a href="http://webchat.freenode.net/?channels=jenkins">Freenode web client</a> to connect. If you're using an IRC client, connect to the Freenode network (<a href="irc://irc.freenode.net">irc://irc.freenode.net</a>) and <code>/join #jenkins</code>.</p>
-
-<h3 id="backlog">Backlog</h3>
-
-<p>The <code>echelog</code> bot in the <code>#jenkins</code> channel is responsible for logging the conversation for archival purposes, the archives can be <a href="http://echelog.matzon.dk/?jenkins">viewed here</a></p>
-
-<h3 id="etiquette">Etiquette</h3>
-
-<p>"Core" members of the community (such as <code>kohsuke</code>) will have "ops" in the channel and most developers will have "voice".</p>
-
-<p>If you're looking for help, go ahead and <em>ask</em> your question, there's plenty of helpful people idling while their builds finish.
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/05/31/home-page/'>
-Home Page
-</a>
-</h1>
-<div class='content'>
-<div align='center'> <br/>
-	<table valign='middle' class='directory' style="border-collapse:separate"> <br/>
-		<tr><br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Meet+Hudson"><img src="/drupal6/sites/default/files/images/butler.png" class='logo'></a></td> <br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Meet+Hudson"> <br/>
-			<div class='title'>Meet Hudson</div> <br/>
-			<div class='description'>Find out what Hudson is and get started.</div> <br/>
-			</a></td> <br/>
-		</tr> <br/>
-		<tr> <br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Use+Hudson"><img src="/drupal6/sites/default/files/images/user.gif" class=logo></a></td> <br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Use+Hudson"> <br/>
-			<div class=title>Use Hudson</div> <br/>
-			<div class=description>See how to get more out of your Hudson.</div> <br/>
-			</a></td> <br/>
-		</tr> <br/>
-		<tr> <br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Extend+Hudson"><img src="/drupal6/sites/default/files/images/developer.gif" class=logo></a></td> <br/>
-			<td><a href="http://wiki.hudson-ci.org/display/HUDSON/Extend+Hudson"> <br/>
-			<div class=title>Extend Hudson</div> <br/>
-			<div class=description>Learn how to build Hudson or extend Hudson by writing plugins.</div> <br/>
-			</a></td> <br/>
-		</tr> <br/>
-	</table> <br/>
-</div> 
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/24/hudson-1-355-released/'>
-Hudson 1.355 Released
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_street.jpg" align="right" hspace="3" width="150" /> The release of 1.355 came out earlier this week but I hadn't had the chance to write anything up about it. Of course, the work never stops on Hudson so we almost have 1.356 ready to roll out the door, but then Kohsuke tweeted this:</p>
-
-<blockquote>
-  <p>Because of the data center migration going on, I won't be able to release #hudsonci today.</p>
-</blockquote>
-
-<p>I won't go into details on some of the infrastructure changes we have lined up just yet, so here's the breakdown of 1.355
-<!--break-->
-#### Bugs fixed
-  &lt;li class=bug&gt; 
-    Colored ball image at top of build pages was broken for Hudson in some web
-    containers (fixed by removing workaround for a Firefox bug fixed since 3.0.5/Dec2008).
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2341">issue 2341</a>)
-  &lt;li class=bug&gt; 
-    Console page while build is running did not wrap lines when viewed in IE.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5869">issue 5869</a>)
-  &lt;li class=bug&gt; 
-    Fixed build history to indicate test failure for MavenBuild and MavenModuleSetBuild.
-  &lt;li class=bug&gt; 
-    Make <tt>dropdownList</tt> work in repeatable content, such as a build step.
-  &lt;li class=bug&gt; 
-    Fixed a bug where a job created via XML didn't properly receive upstream/downstream computation.
-    (<a href="http://n4.nabble.com/Hudson-API-td1747758.html#a1747758">report</a>)
-  &lt;li class=bug&gt; 
-    Argument masking wasn't working correctly for commands run on slaves
-    (<a href="http://n4.nabble.com/Password-masking-when-running-commands-on-a-slave-tp1753033p1753033.html">report</a>)
-&lt;/ul&gt;</p>
-
-<h4 id="enhancements">Enhancements</h4>
 <ul>
-  &lt;li class=rfe&gt; 
-    Added the slave retention strategy based on a schedule.
-  &lt;li class=rfe&gt; 
-    Added to configure charset option of Mailer.
+  <li>Regression in 1.350 that can delete old build artifacts. (<a href="http://n4.nabble.com/Warning-about-Hudson-1-350-Could-delete-your-artifacts-td1593483.html">mailing list thread</a>, <a href="http://issues.hudson-ci.org/browse/HUDSON-5937">issue 5937</a>)</li>
 </ul>
+
+<p>Sorry for the hiccup everybody, we're working pretty hard on getting a better, more stable, release process in place.</p>
 
 <hr />
 
@@ -537,7 +275,212 @@ Hudson 1.355 Released
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/38.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/38.html" class="page-link">38</a> <span class="current-page">39</span> <a href="/node/page/40.html" class="page-link">40</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/40.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/15/hudson-1-350-released/'>
+Hudson 1.350 Released
+</a>
+</h1>
+<div class='content'>
+<p>Finishing off the second week in March, the Hudson team rolled Hudson 1.350 off the assembly line last Friday, bringing a <strong>slew</strong> of fixes. Of particular interest to users of Hudson's various native packages for <a id="aptureLink_TA4o7Z9zPa" href="http://www.crunchbase.com/company/red-hat">Red Hat</a>, <a id="aptureLink_Oxp1Nm6ywp" href="http://www.opensuse.org/">openSuSE</a>, <a id="aptureLink_60jXN9zINs" href="http://www.ubuntu.com/">Ubuntu/Debian</a> and <a id="aptureLink_H9FnLHBvke" href="http://en.wikipedia.org/wiki/Solaris%20%28operating%20system%29">Solaris</a>, was a change that suppress the "self-upgrade" functionality in the "Manage Hudson" page. On the enhancements side of the fence, the team added authentication support to the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+CLI">Hudson CLI</a> (<a href="http://issues.hudson-ci.org/browse/HUDSON-3796">issue 3796</a>) allowing Hudson users with locked down installations to take advantage of everything the CLI has to offer.</p>
+
+<p><img src="http://agentdero.cachefly.net/continuousblog/garbageman.jpg" align="right" />Internal to Hudson, some more changes from Alan Harder (a.k.a <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a>, a.k.a The Garbage Man), deprecating or otherwise removing deprecated APIs. Alan's been doing some great work on Hudson's internals, if you're coming out to <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">this weekend's hackathon</a>, but sure to pat him on the back for his tireless efforts.
+<!--break-->
+<br clear="all" />
+#### Bug fixes
+&lt;ul class=image&gt;
+  &lt;li class=bug&gt;
+    Fix handling of relative paths in alternate settings.xml path for Maven projects.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4693">issue 4693</a>)
+  &lt;li class=bug&gt;
+    Alternate settings, private repository, profiles, etc were not used in embedded Maven for
+    deploy publisher.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4939">issue 4939</a>)
+  &lt;li class=bug&gt;
+    Make <tt>editableComboBox</tt> work in repeatable content, such as a build step.
+  &lt;li class=bug&gt;
+    If content is captured using <tt>&lt;j:set var=".."&gt;..content..&lt;/j:set&gt;</tt>,
+    fixed this to use proper HTML rendering when appropriate.
+  &lt;li class=bug&gt;
+    '&lt;' and '&amp;' in the console output was not escaped since 1.349
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5852">issue 5852</a>)</p>
+<li class="major bug">
+    Fixed an <tt>AbstractMethodError</tt> in SCM polling under some circumstances.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5756">issue 5756</a>)
+  <li class="major bug">
+    Fixed a <tt>ClassCastException</tt> in the Subversion plugin - now using Subversion plugin 1.13.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5827">issue 5827</a>)
+  &lt;li class=bug&gt;
+    The Maven Integration plugin link in the Update Center was going to a dead location.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4811">issue 4811</a>)
+  &lt;li class=bug&gt;
+    On RPM/DEB/etc installation, don't offer the self upgrade. It should be done by the native package manager.
+    (<a href="http://n4.nabble.com/RPM-for-Hudson-1-345-does-not-Upgrade-Automatically-tp1579580p1579580.html">report</a>)
+  &lt;li class=bug&gt;
+    Fixed a possible lock up of slaves.
+
+
+<br clear="all" />
+#### Enhancements
+<ul>
+  &lt;li class=rfe&gt;
+    Added advanced option to LogRotator to allow for removing artifacts from old builds
+    without removing the logs, history, etc.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-834">issue 834</a>)
+  &lt;li class=rfe&gt;
+    Authentication support in Hudson CLI.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-3796">issue 3796</a>)
+  &lt;li class=rfe&gt;
+    Added console annotation support to SCM polling logs.
+</ul>
+
+
+<br clear="all" />
+#### Contributors
+The 1.350 release of Hudson contains 54 commits from 6 different contributors,
+
+* <a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a>
+* <a id="aptureLink_k1FSSV57Pl" href="http://blogs.sun.com/jglick/">jglick</a>
+* <a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a>
+* manuel_carrasco
+* [mfriedenhagen](http://bitbucket.org/mfriedenhagen)
+* <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a>
+
+----
+
+You can go grab the [latest .war file](http://hudson-ci.org/latest/hudson.war) straight from `hudson-ci.org` or if you're using a native package, use your package manager to upgrade.
+
+----
+</li></li>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/14/would-you-like-to-ok/'>
+Would you like to, OK
+</a>
+</h1>
+<div class='content'>
+<p>As Matt Brown pointed out on the <code>dev@</code> list, Hudson made a cameo on <a href="http://thedailywtf.com">The Daily WTF</a> in their post <a href="http://thedailywtf.com/Articles/Nobulation-Fail.aspx">Nobulation Fail</a>.</p>
+
+<center><img src="http://agentdero.cachefly.net/scratch/hudson_install_dailywtf.png" /></center>
+
+<p>Kohsuke went on to mention on the mailing list:</p>
+
+<blockquote>
+  <p>Looks like this one is already fixed back in October last year.</p>
+</blockquote>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/13/this-week-in-plugins/'>
+This Week in Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Apologies for the slight delay in posting another <a href="http://blog.hudson-ci.org/category/tags/plugins">TWiP</a>, both within the Hudson community and outside of it, it was quite a busy week. This past week we've had roughly <strong>15</strong> plugins released, with a few going through a number of iterations over the course of the week such as the <a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> and one of Hudson's newest plugins, the <a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a>.
+<!--break-->
+One of Hudson's most active contributors, Alan Harder (a.k.a <code>mindless</code>) was responsible for this week's only new plugin: <a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+Artifact+Plugin">Copy Artifact Plugin</a>. The Copy Artifact plugin does exactly what you'd think it does, according to the short-and-sweet wiki page:</p>
+
+<blockquote>
+  <p>Adds a build step to copy artifacts from another project.</p>
+</blockquote>
+
+<p><strong>Note:</strong> If you're a plugin developer in the Bay Area, this upcoming Friday and Saturday is the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson Hackathon/Meetup</a>; don't miss out!</p>
+
+<hr />
+
+<ul>
+  <li>Mar 07, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+Artifact+Plugin">Copy Artifact Plugin</a> 1.0</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.15</li>
+    </ul>
+  </li>
+  <li>Mar 08, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/CAS1+Plugin">CAS protocol version 1 plugin</a> 1.0.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+To+Slave+Plugin">Copy To Slave Plugin</a> 1.2</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.16</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sidebar-Link+Plugin">Sidebar Link</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin">Subversion Plug-in</a> 1.13</li>
+    </ul>
+  </li>
+  <li>Mar 09, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.17</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mercurial+Plugin">Mercurial plugin</a> 1.26</li>
+    </ul>
+  </li>
+  <li>Mar 10, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.2</li>
+    </ul>
+  </li>
+  <li>Mar 11, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM</a> 1.7</li>
+    </ul>
+  </li>
+  <li>Mar 12, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin</a> 1.0.24</li>
+    </ul>
+  </li>
+  <li>Mar 13, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Plugin">IRC Plugin</a> 2.2</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Jabber+Plugin">Jabber notifier plugin</a> 1.6</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sonar+Plugin">Sonar Plugin</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Global+Build+Stats+Plugin">global-build-stats plugin</a> 0.1-alpha4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Instant+Messaging+Plugin">instant-messaging plugin</a> 1.5</li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/12/want-some-hudson-stickers/'>
+Want some Hudson stickers?
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://farm3.static.flickr.com/2743/4425921960_a056d816f1_m.jpg" align="right" /> Rarely do I ever get mail, let alone mail I like, so I was quite excited when a shipment of stickers from <a href="http://tinyurl.com/SunSantaClaraCampus">Hudson HQ</a> arrived yesterday.  I'm certain you're thinking to yourself "what does this guy need hundreds of Hudson stickers for?" Fact is, I don't! They're not for me, they're for you!</p>
+
+<p><strong>I am willing to mail stickers vast distances to you</strong> (<em>with some conditions</em>)</p>
+
+<p><br clear="all" />
+#### Conferences
+If you're presenting at a conference or otherwise would like some Hudson stickers to go around, email me with a rough estimate of how many you need. The only condition being that you tell me all about the event and how Hudson was received after the fact (this may involve an interview).</p>
+
+<h4 id="user-groups">User Groups</h4>
+<p>If you email me requesting some stickers for a user group, I'll need an estimate of how many folks attend meetings. Depending on supplies, I may send you a little more than requested to be shared.</p>
+
+<h4 id="companies">Companies</h4>
+<p>If your company wants some Hudson stickers, I'd be happy to oblige, and of course I always appreciate stickers, pens, branded bouncy balls, etc (see: <a id="aptureLink_R5zxZUYv2n" href="http://en.wikipedia.org/wiki/Promotional%20item">swag</a>) in return!</p>
+
+<h4 id="people-who-like-stickers">People who like stickers</h4>
+<p>If you're just a fan of Hudson, stickers, or both, I'll still gladly mail you a few stickers with the condition that you take pictures of where the stickers end up (and maybe of your Hudson install) and either email me some cool pictures or post them to <a id="aptureLink_S4ASBrm3CN" href="http://www.crunchbase.com/company/flickr">Flickr</a> (tagged: "<a href="http://www.flickr.com/photos/agentdero/tags/hudsonstickers/">hudsonstickers</a>")</p>
+
+<p><br clear="all" />
+I will be stuffing envelopes in my free time, so there may be a slight delay. You can email me at <code>tyler</code> at <code>linux</code> dot <code>com</code> requesting stickers, I'll need:</p>
+
+<pre><code>How many: (estimate)
+What for: (conference|usergroup|company|iwantsomeokay)
+Mailing Address: 
+</code></pre>
+
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/38.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/38.html" class="page-link">38</a> <span class="current-page">39</span> <a href="/node/page/40.html" class="page-link">40</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/40.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

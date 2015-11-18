@@ -177,172 +177,202 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2010/09/04/hudson-events-calendar/'>
-Hudson Events Calendar
+<a href='/blog/2010/07/27/hudson-1-368-released/'>
+Hudson 1.368 Released!
 </a>
 </h1>
 <div class='content'>
-<p>Just wanted to let everybody know that I've gone ahead and added a <a href="/calendar">Calendar</a> for all the upcoming Hudson-related events.</p>
+<p>Regular readers will recognize that I've been slacking off quite a bit lately with my release announcements, my apologies. With the release of 1.368 on Sunday, which fixed a few fairly important bugs, I figured I'd dusty off my blogging fedora and give this a shot.</p>
 
-<p>Hopefully we'll be able to add more and more events for the rest of the year including seminars, more meetups and potentially a few drink-ups!</p>
+<p>This release has three bug fixes in it which were causing some issues for some users, particularly those deploying Hudson inside the recently released <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">Tomcat 7.0</a> (see <a href="http://issues.hudson-ci.org/browse/HUDSON-6738">issue 6738</a>).</p>
 
-<p>Worth mentioning that I've not yet tested the iCal feed so if you have troubles with it, let me know (via the comments).</p>
+<p>Hudson users utilizing the <a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Auto-Installation">JDK auto-installation</a> feature between different platforms may have been affected by <a href="http://issues.hudson-ci.org/browse/HUDSON-6880">issue 6880</a> which was also fixed in this release.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/02/recent-label-and-matrix-project-improvement/'>
-Recent label and matrix project improvement
-</a>
-</h1>
-<div class='content'>
-<p>Today, I’d highlight two recent improvements to the label and matrix projects.</p>
+<p>Bringing up the rear is the fix to <a href="http://issues.hudson-ci.org/browse/HUDSON-7004">issue 7004</a> which detailed a few discrepencies between the <code>/buildWithParameters</code> and the <code>/build</code> remote APIs.</p>
 
-<p>When you have multiple slaves in your Hudson build farm, you can use labels to classify slaves by their capability/environment/architecture/etc. For example, your one slave might have “32bit” and “windows” label, while another one might have “linux”, “ubuntu”, and “64bit.” (with plugins like &lt;a href=”http://wiki.hudson-ci.org/display/HUDSON/PlatformLabeler+Plugin”&gt;platform-labeler plugin&lt;/a&gt;, you can attach labels automatically, too.) Or if you do Selenium testing, you might add browser names as labels to indicate which slave has which browser available.</p>
-
-<p>With such set up, you then specify that such and such jobs can be only run on such and such labels. For example, you might say your “test-foo” job requires the “windows” label, while your “compile-bar” job might require the “macos” label.
+<p>If you're not affected by these issues, you may want to wait for the soon-to-be-released 1.369 which has <strong>even more</strong> juicy bug fixes in it (with a dash of enhancements) to upgrade.
 <!--break-->
-Starting 1.372, Hudson now lets you use boolean expressions here, instead of just specifying one label as the requirement. For example, your “seleniumTest-zot” job can now say it requires “windows&amp;&amp;firefox” since it’s meant to run on Windows with Firefox. Or if your job requires a shell script, you might say “!windows” to indicate that it has to be run somewhere that’s not Windows.</p>
+—-</p>
 
-<p>Labels are also often used in the context of the multi-configuration project (a.k.a. matrix project.) In a multi-configuration project, you specify what to execute to build your project, then specify a number of “axes” that represents the variable and their possible values to execute a build. There are several different kinds of axes (and this is of course extensible), and one of them is the label axis.</p>
-
-<p>For example, say you have a test suite that you want to run on Windows, Linux, and Solaris, to make sure it works correctly under all these environments. In such a case, you define one label axis, and tell Hudson that you have three possible values “windows”, “linux”, and “solaris.” When you build this project, Hudson will run your build three times by finding appropriate slave that carries the specified label.</p>
-
-<p>In 1.373, you can now specify multiple label axes. For example, you might have a C++ project that needs to be compiled on various platforms. In such a case, you can define one label axis to be “windows”, “linux”, “solaris”, and you can define another label axis to be “32bit” and “64bit”. This will generate 3x2=6 combinations to be executed.</p>
-
-<p>Sometimes the exhaustive combinations do not make sense. In such a case, you can use a filter boolean expression to eliminate some values. You can also use the same mechanism to create a sparse matrix — that is, you tell Hudson to reduce the coverage to 33%, and Hudson will eliminate every 2 out of 3 combinations.</p>
-
-<p>Finally, I’d like to thank <a href="http://www.sandia.gov/">Sandia National Laboratories</a> for sponsoring this work, which made it possible for <a href="http://infradna.com">InfraDNA</a> to provide this feature to the community. People often think that contributing code is the only way to give back to the project, but sponsoring features like this is another great way to do it.</p>
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.368/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/09/01/copenhagen-hudson-user-meetup/'>
-Copenhagen Hudson User Meetup
+<a href='/blog/2010/07/22/continuous-deployment-on-the-new-digg/'>
+Continuous Deployment on the new Digg
 </a>
 </h1>
 <div class='content'>
-<p><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Kopenhagen_Innenstadt.JPG/280px-Kopenhagen_Innenstadt.JPG" style="float:right; margin-left:1em">September is turning into a meetup month for the Hudson community. In parallel to <a href="http://hudson-labs.org/content/hudson-javazone-meetup-oslo">the meetup in Oslo</a> and <a href="http://hudson-labs.org/content/pre-javaone-hudson-meetup">the meetup in JavaOne</a>, <a href="http://www.nokia.com/">Nokia</a> and <a href="http://infradna.com/">InfraDNA</a> are hosting a meetup in Copenhagen on September 6th, Monday. Read on for the details.<br/>
-<!--break--><br/>
-<p><br/>
-The current tentative plan is to do a short "state of the union / what's new" kind of presentation, then use the rest of the time for open mic Q&amp;A, but if you have other ideas, or better yet if you want to do some talks, please let me know. I think the event will be fun.<br/>
+In my capacity as Build Guy at <a href="http://digg.com">Digg</a>, I've written up a blog post on our new continuous deployment/code review/pre-tested commit workflow. We're using a combination of Hudson, Git and <a id="aptureLink_XCwvc3W24n" href="http://code.google.com/p/gerrit/">Gerrit</a>, <a id="aptureLink_6peu5fusib" href="http://seleniumhq.org/">Selenium</a> and more to make sure that every change going to Digg's <a href="http://new.digg.com">new site</a> has been thoroughly tested.<br/>
 <br/>
-<p><br/>
-If you plan on coming, please <a href="mailto:event@infradna.com">drop me a note</a>, so that we can get some sense of the attendance.<br/>
-<br/>
-<ul><br/>
-<li><b>When:</b> September 6th, 18:30<br/>
-<li><b>Where:</b> Auditorium 1, Nokia Denmark A/S, København (<a href="http://maps.google.dk/maps?f=q&source=s_q&hl=da&geocode=&q=Nokia+Danmark+A/S,+K%C3%B8benhavn&sll=55.869147,11.228027&sspn=9.259564,26.367188&ie=UTF8&hq=Nokia+Danmark+A/S,&hnear=K%C3%B8benhavn&t=h&ll=55.649606,12.541698&spn=0.000284,0.000805&z=21">map</a>)<br/>
-<li>Food will be provided.<br/>
-</ul>
+<strong>Read the whole post, with all the juicy details over <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">on Digg's Technology Blog</a>!</strong>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/08/31/hudson-at-javazone-meetup-in-oslo/'>
-Hudson at JavaZone, Meetup in Oslo 
+<a href='/blog/2010/07/21/hudson-with-selenium-and-sauce-on-demand-videos/'>
+Hudson with Selenium and Sauce On-Demand Videos
 </a>
 </h1>
 <div class='content'>
-<p><br/>
-<a href="http://jz10.java.no/">JavaZone</a> is a big Java conference in Scandinavia, and Hudson is well represented there. On September 8th, Håkon Snøtun will be presenting "Top 5 plugins for Hudson and Chuck Norris." and on September 9th, I'll be presenting "Getting more out of your Hudson."<br/>
-<br/>
-<p><br/>
-But more importantly, what is a conference without drinking!? So in that spirit, <a href="http://infradna.com/">InfraDNA</a> will be organizing a Hudson User Meetup at <a href="http://maps.google.com/maps?hl=en&q=Oslo&ie=UTF8&hq=&hnear=Oslo,+Norway&ll=59.912614,10.743604&spn=0.001589,0.004823&t=h&z=18">The Scotsman</a> from Sep 8th 19:30 (<a href="http://www.scotsman.no/">website</a>.) We'll get together, have some drinks, and enjoy geeky conversations.<br/>
-<br/>
-<br/>
-<p><br/>
-So if you are local or visiting Oslo for JavaZone, come join us. If you plan to join us at The Scotsman, please <a href="mailto:kohsuke@infradna.com">RSVP</a>, and watch out for <a href="http://twitter.com/kohsukekawa">my twitter updates</a> for any last minute time/location changes.<br/>
+<p>A few weeks ago, Kohsuke stopped by the <a href="http://meetup.com/seleniumsanfrancisco">San Francisco Selenium Meetup</a> hosted by <a href="http://saucelabs.com">Sauce Labs</a> to talk about all things Selenium and Hudson related (with a bit of Sauce in there too).</p>
+
+<p>The good folks over at Sauce Labs have gotten around to posting some of the videos taken with Kohsuke.</p>
+
+<p>Instead of embed the videos, I wanted to directly <strong><a href="http://saucelabs.com/blog/index.php/2010/07/sfse-meetup-videos-hudson-with-selenium-sauce-ondemand/">link to the post</a></strong> and make sure that you all went over to check out Sauce Labs, they're up to some interesting things over there.</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/08/30/pre-javaone-hudson-meetup/'>
-Pre-JavaOne Hudson Meetup
+<a href='/blog/2010/07/13/monitor-hudson-from-your-android/'>
+Monitor Hudson from your Android
 </a>
 </h1>
 <div class='content'>
-<p>As we near autumn up here in the Northern Hemisphere, the wind is starting to blow a bit chillier and here in the Bay Area that can only mean one thing: <strike>Oracle is suing everybody!</strike> it's time for JavaOne!</p>
+<p><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-good.png" align="left" hspace="10" /> So you've got your fancy Android cell phone and you're thinking to yourself "besides feeling smugly superior to iPhone users, what can I do with this thing?" Perhaps you should be considering using it as a <em>phone</em> but if that's too boring, check out the new and improved <strong><em><a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Mood+widget+for+Android">Hudson Mood widget for Android</a></em></strong>! The latest release brings support for multiple servers and fancier graphics.</p>
 
-<p>A whole lot has changed since last year, Sun Microsystems was acquired by Oracle, <a href="http://kohsuke.org/">Kohsuke</a> left Snoracle to found <a href="http://www.infradna.com">InfraDNA</a> and Hudson has continued to <a href="http://www.hudson-labs.org/content/cloudbees-announce-hudson-service">power on</a> as the single <strong>best</strong> continuous integration server on the planet.</p>
+<p>If you're interested in installing the widget, search for "Hudson Mood" in the Android Market, and be sure to thank <a href="http://sdudzin.blogspot.com/">Siarhei Dudzin</a> for creating the widget!</p>
 
-<p>While the tickets for Oracle OpenWorld/JavaOne are just as outrageously expensive as they were last year, we <strong>are</strong> hosting a meetup/hackathon/continuous-drinking-contest at <a href="http://about.digg.com/opensource">Digg</a> the Sunday prior. We have not yet set any kind of agenda, but some core Hudson hackers and plenty of plugin developers should be in town so it should be a great time hacking on and/or with Hudson.</p>
+<center><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-settings.png" /></center>
 
-<p><big><a href="http://www.meetup.com/hudsonmeetup/calendar/14515128/">RSVP Here!</a></big>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/12/updated-chrome-extension/'>
+Updated Chrome Extension
+</a>
+</h1>
+<div class='content'>
+<p>The developer for the Hudson extension for Google Chrome, <a href="http://github.com/sanitz">Sebastian Sanitz</a>, emailed the <code>users@</code> list today to inform the community of an update to his <strong><a href="https://chrome.google.com/extensions/detail/hfncndbfmjmafoodaigpoicpbdfhhgdo">fantastic extension</a></strong>.</p>
+
+<p>Sebastian's extension monitors <a href="http://ci.hudson-labs.org">ci.hudson-labs.org</a> by default, but the URL and polling interval are both trivial to change. When any of the builds in the configured URL fail, you'll see a red "Fail" indicator, otherwise green "Ok".</p>
+
+<p><img src="http://www.hudson-labs.org/sites/default/files/images/chrome_extension_success.png" align="right" hspace="10" /></p>
+
+<p>If you're interested in contributing to the plugin, good news! It's open source! You can find it <a href="http://github.com/sanitz/hudson-chrome-extension">on GitHub</a>.</p>
+
+<p><br clear="all" /></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/08/a-python-love-story-virtualenv-and-hudson/'>
+A Python Love Story: Virtualenv and Hudson
+</a>
+</h1>
+<div class='content'>
+Over the past year Hudson has grown tremendously, both within the Java community and outside of it. Partially thanks to [Titus Brown](http://twitter.com/ctitusbrown)'s PyCon 2010 Atlanta coverage of continuous integration for Python (which we've [covered before](http://www.hudson-labs.org/content/hudson-pycon)), Hudson has made great strides within the Python community as well.
+
+In my experience, the majority of Python developers are not using Hudson to **build** anything, unless they have C extensions, but rather to *test* their packages, which presents its own set of specific requirements for jobs. Jobs for testing Python code need to be able to reliaby reproduce an environment with the same set of dependencies from one run to the next in order to provide consistent testing. Unlike their Java counterparts, Python developers cannot rely on a powerful system like <a id="aptureLink_5i6m9B8BGf" href="http://maven.apache.org/">Maven2</a> for enumerating build/test targets or defining their project's dependencies in their jobs; fortunately, w
+e can have something close: [virtualenv](http://pypi.python.org/pypi/virtualenv) and [pip](http://pypi.python.org/pypi/pip).
+
+Virtualenv does exactly what you might expect it to, it creates a "virtual environment" with custom `site-packages` directory, and modified `python` executable. Using virtualenv you can create a staged environment to use for running unit and integration tests. Adding pip alongside that and you have a **fantastic** Python package manager/installer to use with the virtual environment.
+
+Below, I've outlined the steps required to use virtualenv and pip to *automatically* manage a custom environment for your Python jobs.
 <!--break-->
-* <strong>When:</strong> September 19th, 1:00 p.m.
-* <strong>Location:</strong> Digg's Office: 1040 Mariposa St - Suite 100, San Francisco, CA 94107</p>
+### The Recipe
 
-<center>
-<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small></center>
+For this recipe to work, you should make sure that your slave machines all have `virtualenv` and `pip` installed and accessible from your slave agent's `$PATH`. For Mac OS X users, `sudo easy_install virtualenv` should do the trick, Linux users should be able to run `sudo [aptitude/yum/zypper] install python-virtualenv` with your respective package manager.
+
+You will also need the [SetEnv Plugin](http://wiki.hudson-ci.org/display/HUDSON/Setenv+Plugin) installed in Hudson.
+
+#### Step 1
+
+Inside of the job's configuration page ([http;//hudson/job/configure](http://hudson/job/configure)), we need to define an environment variable for the job. Using the SetEnv plugin, define a new `$PATH`:
+
+<code type="bash">
+    PATH=.env/bin:$PATH</code>
+
+What this will do is modify the `$PATH` environment variable for all of the "Execute shell" build steps in your job. As you might have guessed, we're going to install the virtualenv in `.env` in the workspace root directory.
+
+#### Step 2
+
+To set up the virtualenv, you want to add a build step of type "Execute shell" and paste the following commands into the text area:
+
+<code type="bash">
+    if [ -d ".env" ]; then
+        echo "**> virtualenv exists"
+    else
+        echo "**> creating virtualenv"
+        virtualenv .env
+    fi
+</code>
+
+This will create a virtualenv the first time the job runs on a particular slave, a virtualenv that will persist until the workspace is cleared. Since we're going to install dependencies in the virtualenv, we want to keep it around between jobs to reduce the amount of network hits to download packages.
+
+#### Step 3
+
+With our virtualenv and our `$PATH` properly set up, the job can now properly install dependencies into its virtualenv, this is where `pip` shines. A little known feature of `pip` allows you to define a "requirements file" which enumerates the packages to install. In my example project, I defined the following requirements in a file called `pip-requires.txt`
+
+<code type="bash">
+    eventlet>=0.9.9
+    nose>=0.11.3
+    MySQL-python>=1.2.3c1
+</code>
+
+In my hypothetical example, I'll need `nose` to run my tests, while `eventlet` and `MySQL-python` are required for my project to properly run. With the `pip-requires.txt` file in the root of my source repository, I can add an additional "Execute shell" build step that does the following:
+
+<code type="bash">
+    pip install -r pip-requires.txt
+</code>
+
+Assuming the `$PATH` environment variable was properly defined, this will use the virtualenv's version of `pip` and it will install the packages defined in `pip-requires.txt` **into** the virtualenv!
+
+With the dependencies all properly installed in the virtualenv, I can now configure the remainder of my job to build my project and execute the tests. Pretty snazzy if you ask me!
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/07/gee-thanks/'>
+Gee Thanks
+</a>
+</h1>
+<div class='content'>
+<p><code>Squee-D</code> had some nice things to say in the <code>#hudson</code> <a href="http://www.hudson-labs.org/content/chat">IRC channel</a> yesterday that I thought I would share:</p>
+
+<blockquote>
+  <p>Just to sing some praise again, make sure you all know how appreciated it is, we absolutely love hudson, and appreciate everyone who develops and maintains it.</p>
+</blockquote>
+
+<p>Positive feedback (and negative really) is always appreciated; have you thanked your plugin maintainer today?</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/07/06/security-fix-hudson-1-365-released/'>
+Security Fix! Hudson 1.365 Released
+</a>
+</h1>
+<div class='content'>
+<p>The Hudson team has released Hudson 1.365 which contains a critical security fix! A security advisory <a href="http://infradna.com/content/security-advisory-2010-07-05">released yesterday by InfraDNA</a> goes on to explain the hole with more detail:</p>
+
+<blockquote>
+  <p>This vulnerability allows an attacker to read arbitrary files in the
+server file system whose path names are known, by sending malicious
+HTTP GET requests. While such access is still subject to the normal
+access control enforced by the operating system, Hudson can still leak
+"secrets" possessed by Hudson</p>
+</blockquote>
+
+<p>The vulnerability inside of Hudson affects Hudson instances running inside the embedded Winstone container, instances behind Glasshfish or Jetty (for example) are not subject to this vulnerability. Instances running behind a reverse proxy such as mod_proxy or Nginx.</p>
+
+<p>Hudson system administrators should subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a></p>
 
 <hr />
 
-<p><em>Note:</em> Unlike last year, we're trying to organize this with <a href="http://meetup.com">Meetup.com</a>, if you experience any difficulties RSVPing let us know</p>
-
-<hr />
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.363/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/29/hudson-user-meet-up-in-copenhagen-oslo/'>
-Hudson User Meet-up in Copenhagen/Oslo
-</a>
-</h1>
-<div class='content'>
-<p>I'll be in Copenhagen from 9/5-9/7 and in Oslo 9/8-9/9 to present in JavaZone. I'd like to take advantage of the opportunities and have user meet-up events in those cities. Depending on the number of participants, it could be just a drink in a bar, or a talk in a meeting room.</p>
-
-<p>So if you are:</p>
-<ol>
-	<li>in those cities,</li>
-	<li>available in the evening of 9/6, 9/8, or 9/9, and</li>
-	<li>willing to attend such an event,</li>
-</ol>
-<p>... then please <a href="mailto:kohsuke@infradna.com">let me know.</a></p>
-<p>Also, if you have an office in those cities and willing to provide a space for an event, that would be extra appreciated!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/26/cloudbees-announce-hudson-as-a-service/'>
-CloudBees announce Hudson-as-a-Service
-</a>
-</h1>
-<div class='content'>
-<a href="http://hudson-labs.org/sites/default/files/usage-stats.gif"><img style="float:right; width:300px" src="http://hudson-labs.org/sites/default/files/usage-stats.gif"></a><a href="http://cloudbees.com/">CloudBees</a> announced the beta availability of their new Hudson-as-a-service "HaaS" today. I see this as <a href="http://labs.creativecommons.org/2010/08/12/welcome-hudson-to-creative-commons/">yet</a> <a href="http://hudson-mobi.com/">another</a> <a href="http://about.digg.com/blog/digg-technical-talks-kohsuke-kawaguchi">validation</a> to Hudson, and as such, I welcome this new addition to the community and wish them well! &mdash; more companies betting on Hudson means we'll get more investment to the project, which is all goodness for Hudson users. It's been 5 months since I left Oracle to start <a href="http://infradna.com/">InfraDNA</a>, and I was initially worried about a possible negative impact on adoption, but instead Hudson has shown with no sign of slowing down (see picture on the right, from Andrew's report, which shows # of estimated active installations that participates to our usage stats survey).  And <a href="http://infradna.com/">InfraDNA</a> is going well too - we've helped <a href="http://infradna.com/customers">companies big and small</a> to improve their Hudson usage/adoption, and <a href="http://infradna.com/ichci">our commercial value-add Hudson distribution</a> is getting plenty of interest.<br/>
-<br/>
-Hosted Hudson offers an interesting trade-off, compared to on-premise Hudson. On the plus side, given the current hourly pricing of public clouds like EC2 and Rackspace, you get a better pricing model, as CloudBees charge by minutes. You also get rid of machines and upfront cost, which is great for small business. On top of that, you can also expect them to gradually develop more value-adds and better integration to various other pieces, which can get really interesting.<br/>
-<br/>
-On the down side, you have less control over the environment that runs the builds, and you do not have access back to your intranet environment (think databases that you need to talk to, for example.) Also, in the current pricing (8.5 cents/hour of EC2 vs 1 cent/minute of CB), if your build takes longer than 9 minutes, you'll save more by just using Hudson EC2 plugin.<br/>
-<br/>
-On a related note, I think one of the sweet spots is Hudson that's well integrated with on-premise cloud solution. As you can see in <a href="http://www.liferay.com/web/brian.chan/blog/-/blogs/improving-quality-with-100-hudson-test-servers">the discussion with Liferay Hudson setup</a>, with sufficient load it gets cheaper to have your own hardware, and many companies need some degree of control to the build/test environment that matches with their production environment. Plus with those on-premise virtualized environments, you can do <a href="http://www.govirtual.org/docs/DOC-1510">snapshots and forks</a>, which can be made to do <b>very</b> interesting things.<br/>
-<br/>
-<br/>
-Finally, I think the part that everyone can agree on is that the elasticity of build environment is hugely useful to the CI environment, as <a href="http://java.sun.com/javaone/2009/articles/gen_hudson.jsp">I discussed in my JavaOne 2009 talk</a> (<a href="http://wiki.hudson-ci.org/download/attachments/37323793/Hudson+J1+2009.ppt?version=1&modificationDate=1244127211000">slides</a>.) I'm very happy to see that the foundation work we've made in Hudson for this is getting validated more and more, and I think the added elasticity will drive a lot more changes in Hudson and more broadly into the way we develop software. It is an exciting time!<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/20/hudson-sauce-ondemand-webinar/'>
-Hudson / Sauce OnDemand webinar
-</a>
-</h1>
-<div class='content'>
-<p>On September 1st, I'll be <a href="http://saucelabs.com/about/webinars#webinar-hudson">presenting in a Sauce Labs webinar about Hudson and Sauce OnDemand</a>. The talk will discuss how Hudson can be used with Sauce OnDemand, naturally, but it'll also cover broader Hudson/Selenium integrations.</p>
-
-<p>Please <a href="https://www1.gotomeeting.com/register/789261128">register to this free event</a>, and looking forward to seeing to you virtually.</p>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/34.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/34.html" class="page-link">34</a> <span class="current-page">35</span> <a href="/node/page/36.html" class="page-link">36</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/36.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/34.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/34.html" class="page-link">34</a> <span class="current-page">35</span> <a href="/node/page/36.html" class="page-link">36</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/36.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

@@ -177,202 +177,299 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2010/07/27/hudson-1-368-released/'>
-Hudson 1.368 Released!
+<a href='/blog/2010/06/10/subversion-repository-change-notification-push-vs-pull/'>
+Subversion repository change notification: push vs pull
 </a>
 </h1>
 <div class='content'>
-<p>Regular readers will recognize that I've been slacking off quite a bit lately with my release announcements, my apologies. With the release of 1.368 on Sunday, which fixed a few fairly important bugs, I figured I'd dusty off my blogging fedora and give this a shot.</p>
-
-<p>This release has three bug fixes in it which were causing some issues for some users, particularly those deploying Hudson inside the recently released <a href="http://tomcat.apache.org/tomcat-7.0-doc/changelog.html">Tomcat 7.0</a> (see <a href="http://issues.hudson-ci.org/browse/HUDSON-6738">issue 6738</a>).</p>
-
-<p>Hudson users utilizing the <a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Auto-Installation">JDK auto-installation</a> feature between different platforms may have been affected by <a href="http://issues.hudson-ci.org/browse/HUDSON-6880">issue 6880</a> which was also fixed in this release.</p>
-
-<p>Bringing up the rear is the fix to <a href="http://issues.hudson-ci.org/browse/HUDSON-7004">issue 7004</a> which detailed a few discrepencies between the <code>/buildWithParameters</code> and the <code>/build</code> remote APIs.</p>
-
-<p>If you're not affected by these issues, you may want to wait for the soon-to-be-released 1.369 which has <strong>even more</strong> juicy bug fixes in it (with a dash of enhancements) to upgrade.
-<!--break-->
-—-</p>
-
-<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.368/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/22/continuous-deployment-on-the-new-digg/'>
-Continuous Deployment on the new Digg
-</a>
-</h1>
-<div class='content'>
-In my capacity as Build Guy at <a href="http://digg.com">Digg</a>, I've written up a blog post on our new continuous deployment/code review/pre-tested commit workflow. We're using a combination of Hudson, Git and <a id="aptureLink_XCwvc3W24n" href="http://code.google.com/p/gerrit/">Gerrit</a>, <a id="aptureLink_6peu5fusib" href="http://seleniumhq.org/">Selenium</a> and more to make sure that every change going to Digg's <a href="http://new.digg.com">new site</a> has been thoroughly tested.<br/>
+<p><br/>
+People often configure <a id="aptureLink_XD1hbqM4Nj" href="http://en.wikipedia.org/wiki/Hudson%20%28software%29">Hudson</a> to start a new build whenever a change is made to the repository. In fact, this is often considered central to the practice of continuous integration.<br/>
 <br/>
-<strong>Read the whole post, with all the juicy details over <a href="http://about.digg.com/blog/continuous-deployment-code-review-and-pre-tested-commits-digg4">on Digg's Technology Blog</a>!</strong>
+<p><br/>
+There are two ways to achieve this. One is the "pull" model, where Hudson periodically reaches out to a Subversion repository to see if there is any changes. The other is the "push" model, where you make the Subversion repository reach out to Hudson.<br/>
+<br/>
+<p><br/>
+Both approaches have trade-offs. The pull model is easier to configure, since you can do this entirely from Hudson. But this comes at the expense of increased load to the Subversion server. Even though the overhead of Subversion polling is relatively low, as you add more projects to Hudson and increase the polling frequency, the overhead may get non-trivial (imagine the number of Hudson pollings that the poor <a href="http://java.net" target="_blank">java.net</a> Subversion server gets, for example.) A more serious downside, in my opinion, is that this increases the delay from your commit to a build. For example, if your build just takes 5 mins, then even if you poll every minute, you pay on average 30 seconds delay before a build starts &mdash; a 10% overhead!<br/>
+<br/>
+<p><br/>
+The push approach eliminates those two downsides, but it requires a post-commit hook configuration in the Subversion repository, which has to be done manually by the administrator, because those scripts are not exposed to external systems like Hudson.<br/>
+<br/>
+<p><br/>
+With that said, if you do have an access to the Subversion repository post-commit hook, I highly recommend the push approach, and in Hudson we made it as easy as possible to configure the set up. Here's the script you'll need in your post-commit hook:<br/>
+<br/>
+<code type="bash"><br/>
+REPOS="$1"<br/>
+REV="$2"<br/>
+UUID=`svnlook uuid $REPOS`<br/>
+/usr/bin/wget \<br/>
+  --header "Content-Type:text/plain;charset=UTF-8" \<br/>
+  --post-data "`svnlook changed --revision $REV $REPOS`" \<br/>
+  --output-document "-" \<br/>
+  http://server/hudson/subversion/${UUID}/notifyCommit?rev=$REV<br/>
+</code><br/>
+<br/>
+<p><br/>
+This script basically just tells Hudson that there was a change in a repository. Hudson will then check this information against all the jobs that have a polling configured, and schedule the builds accordingly. The beauty of this approach is two-folds:<br/>
+<br/>
+<ul><br/>
+<li>The script doesn't change when you add/remove/rename jobs.<br/>
+<li>The overhead is constant regardless of the number of jobs.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+If you haven't configured a push setup yet, now is the time to do so!<br/>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/07/21/hudson-with-selenium-and-sauce-on-demand-videos/'>
-Hudson with Selenium and Sauce On-Demand Videos
+<a href='/blog/2010/06/09/welcome-to-hudson-labs/'>
+Welcome to Hudson Labs!
 </a>
 </h1>
 <div class='content'>
-<p>A few weeks ago, Kohsuke stopped by the <a href="http://meetup.com/seleniumsanfrancisco">San Francisco Selenium Meetup</a> hosted by <a href="http://saucelabs.com">Sauce Labs</a> to talk about all things Selenium and Hudson related (with a bit of Sauce in there too).</p>
+<p><img src="/sites/default/files/images/scientist.thumbnail.gif" align="right" /> Hello again! It's been a long time since I've written for the Hudson community, but now I'm back and ready to tackle some of the latest developments in the Hudson community.</p>
 
-<p>The good folks over at Sauce Labs have gotten around to posting some of the videos taken with Kohsuke.</p>
+<h3 id="what-is-hudson-labs">What is Hudson Labs?</h3>
 
-<p>Instead of embed the videos, I wanted to directly <strong><a href="http://saucelabs.com/blog/index.php/2010/07/sfse-meetup-videos-hudson-with-selenium-sauce-ondemand/">link to the post</a></strong> and make sure that you all went over to check out Sauce Labs, they're up to some interesting things over there.</p>
+<p>As you may have <a href="http://www.hudson-labs.org/content/kohsuke-leaves-sun">read in April</a>, Kohsuke left Oracle to found <a href="http://www.infradna.com/">InfraDNA</a>, a company specializing around Hudson. The departure meant the Hudson community would no longer have access to some of the hardware and services that Kohsuke had accumulated over the years working on Hudson at Sun Microsystems. While we are still happily part of the <a href="http://java.net/">Java.net</a> community, we've recognized the need for some community-owned resources and Hudson Labs was born.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/13/monitor-hudson-from-your-android/'>
-Monitor Hudson from your Android
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-good.png" align="left" hspace="10" /> So you've got your fancy Android cell phone and you're thinking to yourself "besides feeling smugly superior to iPhone users, what can I do with this thing?" Perhaps you should be considering using it as a <em>phone</em> but if that's too boring, check out the new and improved <strong><em><a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Mood+widget+for+Android">Hudson Mood widget for Android</a></em></strong>! The latest release brings support for multiple servers and fancier graphics.</p>
+<p>Over the past couple months, a group within the Hudson community, "infra" (short for "infrastructure"), has been working to get machines set up and build the foundation for a more open Hudson project infrastructure.</p>
 
-<p>If you're interested in installing the widget, search for "Hudson Mood" in the Android Market, and be sure to thank <a href="http://sdudzin.blogspot.com/">Siarhei Dudzin</a> for creating the widget!</p>
-
-<center><img src="http://www.hudson-labs.org/sites/default/files/mood_widget-settings.png" /></center>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/12/updated-chrome-extension/'>
-Updated Chrome Extension
-</a>
-</h1>
-<div class='content'>
-<p>The developer for the Hudson extension for Google Chrome, <a href="http://github.com/sanitz">Sebastian Sanitz</a>, emailed the <code>users@</code> list today to inform the community of an update to his <strong><a href="https://chrome.google.com/extensions/detail/hfncndbfmjmafoodaigpoicpbdfhhgdo">fantastic extension</a></strong>.</p>
-
-<p>Sebastian's extension monitors <a href="http://ci.hudson-labs.org">ci.hudson-labs.org</a> by default, but the URL and polling interval are both trivial to change. When any of the builds in the configured URL fail, you'll see a red "Fail" indicator, otherwise green "Ok".</p>
-
-<p><img src="http://www.hudson-labs.org/sites/default/files/images/chrome_extension_success.png" align="right" hspace="10" /></p>
-
-<p>If you're interested in contributing to the plugin, good news! It's open source! You can find it <a href="http://github.com/sanitz/hudson-chrome-extension">on GitHub</a>.</p>
-
-<p><br clear="all" /></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/08/a-python-love-story-virtualenv-and-hudson/'>
-A Python Love Story: Virtualenv and Hudson
-</a>
-</h1>
-<div class='content'>
-Over the past year Hudson has grown tremendously, both within the Java community and outside of it. Partially thanks to [Titus Brown](http://twitter.com/ctitusbrown)'s PyCon 2010 Atlanta coverage of continuous integration for Python (which we've [covered before](http://www.hudson-labs.org/content/hudson-pycon)), Hudson has made great strides within the Python community as well.
-
-In my experience, the majority of Python developers are not using Hudson to **build** anything, unless they have C extensions, but rather to *test* their packages, which presents its own set of specific requirements for jobs. Jobs for testing Python code need to be able to reliaby reproduce an environment with the same set of dependencies from one run to the next in order to provide consistent testing. Unlike their Java counterparts, Python developers cannot rely on a powerful system like <a id="aptureLink_5i6m9B8BGf" href="http://maven.apache.org/">Maven2</a> for enumerating build/test targets or defining their project's dependencies in their jobs; fortunately, w
-e can have something close: [virtualenv](http://pypi.python.org/pypi/virtualenv) and [pip](http://pypi.python.org/pypi/pip).
-
-Virtualenv does exactly what you might expect it to, it creates a "virtual environment" with custom `site-packages` directory, and modified `python` executable. Using virtualenv you can create a staged environment to use for running unit and integration tests. Adding pip alongside that and you have a **fantastic** Python package manager/installer to use with the virtual environment.
-
-Below, I've outlined the steps required to use virtualenv and pip to *automatically* manage a custom environment for your Python jobs.
+<h3 id="what-does-hudson-labs-provide">What does Hudson Labs provide?</h3>
 <!--break-->
-### The Recipe
+<p>##### Builds</p>
 
-For this recipe to work, you should make sure that your slave machines all have `virtualenv` and `pip` installed and accessible from your slave agent's `$PATH`. For Mac OS X users, `sudo easy_install virtualenv` should do the trick, Linux users should be able to run `sudo [aptitude/yum/zypper] install python-virtualenv` with your respective package manager.
+<p>One of the first tasks we set upon when building out Hudson Labs was to start improving the build and release process of Hudson by moving as much of it into a <a href="http://ci.hudson-labs.org">public Hudson instance</a>. Building Hudson itself, plugins and dependencies of the Hudson project, the Hudson Labs instance will help improve the reliability of the Hudson ecosystem across the board, and should serve as a useful tool for core and plugin developers.</p>
 
-You will also need the [SetEnv Plugin](http://wiki.hudson-ci.org/display/HUDSON/Setenv+Plugin) installed in Hudson.
+<h5 id="mirroring">Mirroring</h5>
 
-#### Step 1
+<p>Thanks to the great team over at the <a href="http://www.osuosl.org">Oregon State University Open Source Lab</a> (<a id="aptureLink_oz4HIIQKJD" href="http://twitter.com/osuosl">OSUOSL</a>), we've been able to build out <a href="http://ftp.osuosl.org/pub/hudson/">mirroring infrastructure</a> for Hudson to provide fast access to native packages and wars alike. Currently the OSUOSL only has mirrors inside the continental United States, so we're reaching out to friends in Asia and Europe to extend the mirroring system.</p>
 
-Inside of the job's configuration page ([http;//hudson/job/configure](http://hudson/job/configure)), we need to define an environment variable for the job. Using the SetEnv plugin, define a new `$PATH`:
+<h5 id="information">Information</h5>
 
-<code type="bash">
-    PATH=.env/bin:$PATH</code>
+<p>I'm currently working on re-working some of the blog posts you may have read over four months as more structured tutorials. I hope to provide an easily accessible knowledge-base for developing Hudson along with configuring Hudson for various platforms and development environments; this is a more difficult task so all the pieces aren't entirely in place for this just yet.</p>
 
-What this will do is modify the `$PATH` environment variable for all of the "Execute shell" build steps in your job. As you might have guessed, we're going to install the virtualenv in `.env` in the workspace root directory.
-
-#### Step 2
-
-To set up the virtualenv, you want to add a build step of type "Execute shell" and paste the following commands into the text area:
-
-<code type="bash">
-    if [ -d ".env" ]; then
-        echo "**> virtualenv exists"
-    else
-        echo "**> creating virtualenv"
-        virtualenv .env
-    fi
-</code>
-
-This will create a virtualenv the first time the job runs on a particular slave, a virtualenv that will persist until the workspace is cleared. Since we're going to install dependencies in the virtualenv, we want to keep it around between jobs to reduce the amount of network hits to download packages.
-
-#### Step 3
-
-With our virtualenv and our `$PATH` properly set up, the job can now properly install dependencies into its virtualenv, this is where `pip` shines. A little known feature of `pip` allows you to define a "requirements file" which enumerates the packages to install. In my example project, I defined the following requirements in a file called `pip-requires.txt`
-
-<code type="bash">
-    eventlet>=0.9.9
-    nose>=0.11.3
-    MySQL-python>=1.2.3c1
-</code>
-
-In my hypothetical example, I'll need `nose` to run my tests, while `eventlet` and `MySQL-python` are required for my project to properly run. With the `pip-requires.txt` file in the root of my source repository, I can add an additional "Execute shell" build step that does the following:
-
-<code type="bash">
-    pip install -r pip-requires.txt
-</code>
-
-Assuming the `$PATH` environment variable was properly defined, this will use the virtualenv's version of `pip` and it will install the packages defined in `pip-requires.txt` **into** the virtualenv!
-
-With the dependencies all properly installed in the virtualenv, I can now configure the remainder of my job to build my project and execute the tests. Pretty snazzy if you ask me!
+<p>To be honest, I'm very enthusiastic about Hudson's future. Now that InfraDNA is up and running, Kohsuke's renewed focus combined with the foundation of Hudson Labs and the uncommonly hospitable Hudson developer and user communities, the future is looking bright!</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/07/07/gee-thanks/'>
-Gee Thanks
+<a href='/blog/2010/04/24/hudson-1-355-released/'>
+Hudson 1.355 Released
 </a>
 </h1>
 <div class='content'>
-<p><code>Squee-D</code> had some nice things to say in the <code>#hudson</code> <a href="http://www.hudson-labs.org/content/chat">IRC channel</a> yesterday that I thought I would share:</p>
+<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_street.jpg" align="right" hspace="3" width="150" /> The release of 1.355 came out earlier this week but I hadn't had the chance to write anything up about it. Of course, the work never stops on Hudson so we almost have 1.356 ready to roll out the door, but then Kohsuke tweeted this:</p>
 
 <blockquote>
-  <p>Just to sing some praise again, make sure you all know how appreciated it is, we absolutely love hudson, and appreciate everyone who develops and maintains it.</p>
+  <p>Because of the data center migration going on, I won't be able to release #hudsonci today.</p>
 </blockquote>
 
-<p>Positive feedback (and negative really) is always appreciated; have you thanked your plugin maintainer today?</p>
+<p>I won't go into details on some of the infrastructure changes we have lined up just yet, so here's the breakdown of 1.355
+<!--break-->
+#### Bugs fixed
+  &lt;li class=bug&gt; 
+    Colored ball image at top of build pages was broken for Hudson in some web
+    containers (fixed by removing workaround for a Firefox bug fixed since 3.0.5/Dec2008).
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2341">issue 2341</a>)
+  &lt;li class=bug&gt; 
+    Console page while build is running did not wrap lines when viewed in IE.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5869">issue 5869</a>)
+  &lt;li class=bug&gt; 
+    Fixed build history to indicate test failure for MavenBuild and MavenModuleSetBuild.
+  &lt;li class=bug&gt; 
+    Make <tt>dropdownList</tt> work in repeatable content, such as a build step.
+  &lt;li class=bug&gt; 
+    Fixed a bug where a job created via XML didn't properly receive upstream/downstream computation.
+    (<a href="http://n4.nabble.com/Hudson-API-td1747758.html#a1747758">report</a>)
+  &lt;li class=bug&gt; 
+    Argument masking wasn't working correctly for commands run on slaves
+    (<a href="http://n4.nabble.com/Password-masking-when-running-commands-on-a-slave-tp1753033p1753033.html">report</a>)
+&lt;/ul&gt;</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/06/security-fix-hudson-1-365-released/'>
-Security Fix! Hudson 1.365 Released
-</a>
-</h1>
-<div class='content'>
-<p>The Hudson team has released Hudson 1.365 which contains a critical security fix! A security advisory <a href="http://infradna.com/content/security-advisory-2010-07-05">released yesterday by InfraDNA</a> goes on to explain the hole with more detail:</p>
-
-<blockquote>
-  <p>This vulnerability allows an attacker to read arbitrary files in the
-server file system whose path names are known, by sending malicious
-HTTP GET requests. While such access is still subject to the normal
-access control enforced by the operating system, Hudson can still leak
-"secrets" possessed by Hudson</p>
-</blockquote>
-
-<p>The vulnerability inside of Hudson affects Hudson instances running inside the embedded Winstone container, instances behind Glasshfish or Jetty (for example) are not subject to this vulnerability. Instances running behind a reverse proxy such as mod_proxy or Nginx.</p>
-
-<p>Hudson system administrators should subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a></p>
+<h4 id="enhancements">Enhancements</h4>
+<ul>
+  &lt;li class=rfe&gt; 
+    Added the slave retention strategy based on a schedule.
+  &lt;li class=rfe&gt; 
+    Added to configure charset option of Mailer.
+</ul>
 
 <hr />
 
-<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.363/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
+<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/36.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/36.html" class="page-link">36</a> <span class="current-page">37</span> <a href="/node/page/38.html" class="page-link">38</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/38.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/16/hudson-1-354-released/'>
+Hudson 1.354 Released
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/scenic_hudson.png" align="right" hspace="3" />Hear ye, hear ye! Behold, the first release of Hudson <em>ever</em> made by a not-employed-by-Sun <a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">Kohsuke</a> (as we <a href="http://blog.hudson-ci.org/content/kohsuke-leaves-sun">covered last week</a>). This iteration of Hudson contains only bug fixes, check the listing below for the specifics on which bugs have been fixed (1.355 is looking like it will contain a number of fixes as well). The release of 1.354 comes slightly later than usual given some of the logistics that needed to, or still need to be resolved.</p>
+
+<p>One of the infrastructure issues that's half-way resolved is the question of Debian/Ubuntu packages. Kohuske has packages uploaded in an experimental <a href="http://hudson-labs.org/debian/">apt repository on hudson-labs.org</a> which you can try out. That said, it's not entirely clear whether this is going to be the preferred means of distributing native Debian/Ubuntu packages in the future (your mileage may vary).
+<!--break-->
+#### Bugs fixed
+&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    POM parsing was still using the module root as the base for relative paths for alternate settings files.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6080">issue 6080</a>)
+  &lt;li class=bug&gt; 
+    Fix dynamic updates of build history table when <a id="aptureLink_MAx8CeZUo3" href="http://en.wikipedia.org/wiki/Cross-site%20request%20forgery">CSRF</a> protection is turned on.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6072">issue 6072</a>)
+  &lt;li class=bug&gt; 
+    Improved the error reporting mechanism in LDAP setting.
+  &lt;li class=bug&gt; 
+    Raw console output contains garbage.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6034">issue 6034</a>)
+  &lt;li class=bug&gt; 
+    Fixed a file handle leak in the slave connection.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6137">issue 6137</a>)
+  &lt;li class=bug&gt; 
+    Quiet period wasn't taking effect properly when doing parameterized builds.
+&lt;/ul&gt;</p>
+
+<p><br clear="all" />
+### Contributors
+The release of 1.354 contains a total of 51 commits to the "core" part of the tree, from 9 different contributors</p>
+
+<ul>
+  <li>abayer</li>
+  <li>drulli</li>
+  <li>kohsuke</li>
+  <li>manuel_carrasco</li>
+  <li>mindless</li>
+  <li>sogabe</li>
+  <li>swiest</li>
+  <li>vlatombe</li>
+  <li>wyukawa
+<br clear="all" /></li>
+</ul>
+
+<hr />
+
+<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/16/a-new-blog-for-kohsuke/'>
+A new blog for Kohsuke
+</a>
+</h1>
+<div class='content'>
+<p>Historically, our fearless leader Kohsuke has blogged <a href="http://www.java.net/blog/kohsuke">on Java.net</a>. The setup made a whole lot of sense when Kohsuke was employed by Sun, then Oracle, which sponsors and runs <a href="http://java.net">Java.net</a>. In a post earlier this week discussing <a href="http://www.java.net/blog/kohsuke/archive/2010/04/14/hudson-console-markups">console markups</a>, Kohsuke casually pointed out that he will be cross-posting to Java.net, and his personal blog located at <a href="http://kohsuke.org">kohsuke.org</a>. The <a href="http://kohsuke.org/2010/04/12/hello/">first post</a> over on Kohsuke.org welcomes us:</p>
+
+<blockquote>
+  <p>For the longest time I haven’t really done anything about kohsuke.org, but as I left Sun/Oracle, I decided to put a bit more effort into it. So this is the new home.</p>
+
+  <p>For the time being, I plan to post my blogs both on java.net and here.</p>
+</blockquote>
+
+<p>If you're a reader of feeds, I recommend adding the <a href="http://kohsuke.org/feed/">rss feed</a> for the blog to your list of interesting continuous integration/hacker feeds.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/12/pre-tested-commits-with-git/'>
+Pre-tested commits with Git
+</a>
+</h1>
+<div class='content'>
+<p>At the first <a href="http://wiki.hudson-ci.org/display/HUDSON/BayAreaMeetup">Bay Area Hackathon</a> in mid-2009, the topic du jour was "<a href="http://wiki.hudson-ci.org/display/HUDSON/Designing+pre-tested+commit">pre-tested commits</a>." As potential implementations of the concept were discussed over burgers from <a id="aptureLink_gLlt1i6v1p" href="http://www.brickhousesf.com/">Brickhouse</a> in downtown San Francisco, we realized as a group a few things: first, those burgers were <em>delicious</em>, but more importantly: pre-testing commits is very-SCM dependent and involves a lot of moving parts. One of the positive changes that came out shortly after the meet up was the support for "Concurrent Builds", allowing a job to be executed concurrently on different slaves, a precursor to pre-tested commit support. Fervor for the pre-tested commit feature lowered as time went on, the feature being too dependent on the SCM itself was generally accepted as the reasoning behind the feature languishing.</p>
+
+<p>Chances are the feature is in fact too large for Hudson to support alone. It requires Hudson, the SCM and likely a third tool to work in concert together to perform such a feat.</p>
+
+<p>With Git, and the phenomenal code review tool <a href="http://code.google.com/p/gerrit/">Gerrit</a>, and the <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">Gerrit plugin</a> by intrepid plugin developer, <a href="http://twitter.com/jyrkiputtonen">Jyrki Puttonen</a>, pre-tested commits with Hudson, Git and Gerrit <em>are</em> possible.
+<!--break-->
+For Git users more familiar with the distributed Git workflows, working with Gerrit should seem familiar. Gerrit has <a id="aptureLink_MoOPmIyV3m" href="http://www.eclipse.org/jgit/">JGit</a>, a Java implementation of Git embedded within it, along with an <code>sshd</code> stack, meaning Gerrit can masquerade as a "regular" Git remote repository. Developers can push and pull to the repository just as they can with any other Git repository (provided they have permissions of course). I won't delve too much into using Gerrit specifically here, but the pre-tested workflow with Gerrit and Hudson would look something like this:</p>
+
+<ul>
+  <li>Dev creates a topic branch to work on a change</li>
+  <li>Code is written (and hopefully tested) and committed locally</li>
+  <li>Dev pushes commit(s) to Gerrit</li>
+  <li>Hudson job (set to Poll SCM) picks up the patch, runs the job and marks it as "+1 Verified" or "-1 Fails"</li>
+  <li>If the job fails or is unstable, the change should be reworked or corrected (typically with <a id="aptureLink_YL8glbfS7G" href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">git-rebase(1)</a>)</li>
+  <li>If Hudson says the change is good to go, it can be cherry-picked or pulled directly from Gerrit.</li>
+</ul>
+
+<p>For example:</p>
+<center><a href="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png"><img src="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png" width="520" /></a></center>
+
+<p>To learn more about Gerrit, check out the <a href="http://code.google.com/p/gerrit/">project page on Google Code</a>; information on the Gerrit plugin can be <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">found on the wiki</a>.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/07/kohsuke-leaves-sun/'>
+Kohsuke leaves Sun
+</a>
+</h1>
+<div class='content'>
+<p><a href="http://www.flickr.com/photos/skrb/2504160293/"><img src="http://farm3.static.flickr.com/2040/2504160293_977ddbf22d_m_d.jpg" vspace="4" hspace="4" align="right" /></a>Those of you on the <code>users@</code> or <code>dev@</code> mailing lists have likely already read that Kohsuke (<em>left in the photo</em>), the founder of the Hudson project, <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/04/05/good-bye-sunoracle">is leaving Sun</a>. I say that he is leaving Sun, instead of leaving Oracle as Kohsuke worked at Sun for nine years and Oracle only a few months. In those nine years at Sun, Kohsuke has worked on some great products, the most notable of them being Hudson.</p>
+
+<p>Per Kohsuke's post:</p>
+
+<blockquote>
+  <p>Where am I heading next? I'm actually starting my own company to take Hudson to the next stage.</p>
+</blockquote>
+
+<p>What this means for Hudson still isn't certain yet, fortunately it means that Hudson will continue to have at least one full-time developer. It remains to be seen where KohsukeCorp (the name has not yet been disclosed) will focus within the Hudson code-base. For the greater user-base of Hudson, this means that the schedule for releases may slow down during this transitional period, there are some logistics to work out with Oracle regarding some of the hardware Hudson has traditionally used to host <a id="aptureLink_K18yj8JkNK" href="http://www.crunchbase.com/product/atlassian">JIRA</a>, this blog, and a number of other machines helping support the Hudson project in one fashion or another.</p>
+
+<p>The next couple of months will be interesting for the Hudson community; as per usual you'll be able to get the latest updates from this blog or the <a id="aptureLink_oaxbhP0dAz" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account. I'll let Kohsuke finish this post off:</p>
+
+<blockquote>
+  <p>And finally, big thank you to everyone in the Hudson community, and in a broader java.net community. I wouldn't be here without you guys, and I feel very proud that I'm a part of it.</p>
+</blockquote>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/01/regarding-the-start-of-april/'>
+Regarding the start of April
+</a>
+</h1>
+<div class='content'>
+<p>I had briefly contemplating what sort of silly posts I could write to celebrate April Fool's Day, when I sat down to write out some of them, I got a few sentences in and decided that they just weren't funny enough. Either I have very high standards, or I'm terribly unfunny.</p>
+
+<p>The web is awash with April Fool's articles, comics, headlines and everything else, so instead I'm going to just give you a few useful links.</p>
+
+<p><strong>A couple of Twitter links</strong></p>
+
+<p>Besides the <a href="http://twitter.com/hudsonci">@hudsonci</a> account, you can also follow a couple of Hudson's more notable (or was it notorious?) hackers, such as our benevolent dictator, <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>. <a href="http://twitter.com/bshine">Ben Shine</a> from Yahoo! who's been working pretty hard on making Hudson prettier. Then there's <a href="http://twitter.com/wakaleo">John Ferguson Smart</a> who's been working on a <a href="http://www.wakaleo.com/books/continuous-integration-with-hudson-the-book">Hudson book</a>. Of course I've tried to collect as many Hudson contributors as possible in the <a href="http://twitter.com/hudsonci/contributors">@contributors Twitter list</a>.</p>
+
+<p><strong>Hacking Hudson</strong></p>
+
+<p>When starting to hack Hudson, it's useful to start by understanding <a href="http://wiki.hudson-ci.org/display/HUDSON/Building+Hudson">how to build Hudson</a>. If hacking Hudson's core isn't your cup of tea, you can always start with the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and try your hand at writing another awesome Hudson plugin. If you find yourself struggling to find out what methods do what while you're hacking, you can always visit the regularly updated, <a href="https://hudson.dev.java.net/nonav/javadoc/">online Javadocs for Hudson</a></p>
+
+<p><strong>Communicate</strong>
+The two primary mediums for communicating with the Hudson community are through the <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">mailing lists</a> and the <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">IRC channel</a>. During "regular business hours" for the pacific standard time zone, you can usually get some decent real-time help or answers to most of your queries.</p>
+
+<p>I'd list more, but I'm too busy reading about <a href="http://techcrunch.com/2010/03/31/exclusive-google-to-go-nuclear/">Google's nuclear weapons program</a>. ;)
+<!--break--></p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/36.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/36.html" class="page-link">36</a> <span class="current-page">37</span> <a href="/node/page/38.html" class="page-link">38</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/38.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

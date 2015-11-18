@@ -177,263 +177,412 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2010/04/16/hudson-1-354-released/'>
-Hudson 1.354 Released
+<a href='/blog/2010/03/12/links-for-2010-03-12/'>
+Links for 2010-03-12
 </a>
 </h1>
 <div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/scenic_hudson.png" align="right" hspace="3" />Hear ye, hear ye! Behold, the first release of Hudson <em>ever</em> made by a not-employed-by-Sun <a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">Kohsuke</a> (as we <a href="http://blog.hudson-ci.org/content/kohsuke-leaves-sun">covered last week</a>). This iteration of Hudson contains only bug fixes, check the listing below for the specifics on which bugs have been fixed (1.355 is looking like it will contain a number of fixes as well). The release of 1.354 comes slightly later than usual given some of the logistics that needed to, or still need to be resolved.</p>
+<p>Been a bit pre-occupied this week, so this links roll-up is short and sweet.</p>
 
-<p>One of the infrastructure issues that's half-way resolved is the question of Debian/Ubuntu packages. Kohuske has packages uploaded in an experimental <a href="http://hudson-labs.org/debian/">apt repository on hudson-labs.org</a> which you can try out. That said, it's not entirely clear whether this is going to be the preferred means of distributing native Debian/Ubuntu packages in the future (your mileage may vary).
+<ul>
+  <li><a id="aptureLink_0EaYmEPTig" href="http://twitter.com/anotherjavadude">The JavaDude</a> details a fairly simple <a href="http://javadude.wordpress.com/2010/02/22/tutorial-most-simple-test-application-for-embedded-glassfish-netbeans-hudson/">test application embedding Glassfish + Netbeans + Hudson</a></li>
+  <li>Thanks to <a id="aptureLink_HqEoqNmNOh" href="http://twitter.com/chrisbingham">@chrisbingham</a>, discovered a <a href="http://code.google.com/p/hudson-lib/">.NET wrapper for Hudson's remote API</a></li>
+  <li>Learned all about <a href="http://blog.bobcravens.com/2010/03/01/GettingStartedWithCIUsingHudsonForYourNETProjects.aspx">getting started with Hudson for .NET projects</a> from <a id="aptureLink_0evuIQ516M" href="http://twitter.com/rcravens">Bob Cravens</a></li>
+  <li><a id="aptureLink_chC5AJes8Y" href="http://twitter.com/rfletcherEW">Robert Fletcher</a> wrote a groovy post about testing <a href="http://adhockery.blogspot.com/2010/03/grails-plugins-on-hudson.html">Grails plugins on Hudson</a>.</li>
+</ul>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/09/one-month-of-continuous-blog/'>
+One month of Continuous Blog
+</a>
+</h1>
+<div class='content'>
+<p>It's been a little over a month since I pinged Kohsuke about an "official Hudson blog"; my role has been nothing more than writer and editor of a community resource, while I have invested a lot of time in Continuous Blog it is not "mine" so much as it is "ours." I feel I have a responsibility as the current maintainer of this resource to be as open as possible about what's going on with CB. When I sat down to write the inaugural post, <a href="http://blog.hudson-ci.org/content/welcome-continuous-blog">Welcome to Continuous Blog</a>, I set forth a few goals:</p>
+
+<blockquote>
+  <ul>
+    <li>Help advocate the use of Hudson to the larger internet community</li>
+    <li>Be a central source for tutorials and helpful information to Hudson users of all skill-levels</li>
+    <li>Recognize the numerous contributors to the Hudson project for their efforts</li>
+  </ul>
+</blockquote>
+
+<p>Being a community resource, I wanted to review our progress on those goals along with some other interesting details about Continuous Blog and my community efforts. My metrics for achieving these goals are largely based on web traffic to this blog and retweets via the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account. First a minor overview of some of Continuous Blog's traffic, then I'll get to reviewing the goals.</p>
+
+<p><img src="http://agentdero.cachefly.net/continuousblog/cb_visits.png" width="550" />
+<em>Visitor trend via Google Analytics</em></p>
+
+<p>Over the past month Continuous Blog has seen just under 10,000 visits from a number of different sources, the top sources being:</p>
+
+<ul>
+  <li><a href="http://feedburner.google.com/">Feedburner</a> links posted to <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a></li>
+  <li>Direct visits</li>
+  <li><a href="http://feedburner.google.com/">Feedburner</a></li>
+  <li>Referrals from the "blog" link on <a href="http://hudson-ci.org">hudson-ci.org</a></li>
+  <li><a href="http://www.reddit.com/domain/hudson-ci.org">reddit</a></li>
+  <li>Links from the <a href="http://java.net">Java.net</a> community portal and associated weblogs</li>
+</ul>
+
+<p>In addition to general web traffic, Continuous Blog has around 350 RSS subscribers.</p>
+
+<p>To put these numbers into perspective, Hudson has seen commits from 173 different developers and the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account has about 1,100 followers.</p>
+
+<p><br clear="all" />
+### Hudson Advocacy
+Looking at the traffic sources and the volume of traffic coming from what I would consider "the wider internet community" I'd say I failed to meet my own expectations. The majority of traffic seems to be coming from "within the community", which is certainly not a bad thing by a stretch, but I was hoping to start to see more visitors who are less likely to be using Hudson already. There are signs of this (I think) in the low number of search referrals, roughly 370 visits. To me this indicates the early age of this site, small number of external links to Continuous Blog and the content isn't "interesting" enough to come up in searches for terms like "continuous integration with python".</p>
+
+<p>The vector for improvement in advocacy, in my opinion, is to focus more on tutorials and user guides in the next month. Mike Rooney's post on <a href="http://blog.hudson-ci.org/content/keeping-your-configuration-and-data-subversion">Keeping your configuration and data in Subversion</a> was both discussion provoking, but one of the more visited pages over the past month. I'll be reaching out to more power-users from differing backgrounds to try to get some more tutorials on using Hudson for Python, Ruby, and Cocoa development while continuing to bug some of you Maven2 pros about guides.</p>
+
+<h3 id="central-information-repository">Central information repository</h3>
+<p>I feel I failed to meet my own expectations here as well, it has only been a month (feels like an eternity!) so the amount of information we've been able to aggregate is small, but growing.</p>
+
+<p>I have likely spent too much time covering Hudson community news, which I feel is important, to put a human voice in front of commits and releases, but it is not what I originally intended to spend the majority of my time doing.</p>
+
+<h3 id="recognition-of-contributors">Recognition of contributors</h3>
+<p>In my opinion, this goal I've met. When writing up each Hudson release I've made certain to give credit where credit is due, to those that contributed, Through the "spotlight" series of posts I've also made an effort to highlight power-users of Hudson, trying to glean interesting details about their installations from them for our benefit. Unfortunately I've done a poor job highlighting the contributions from individual plugin developers, something I'm still not certain how to correct.</p>
+
+<hr />
+
+<h3 id="content">Content</h3>
+<p>If you've been following the blog you have no doubt noticed the regular occurrence of certain types of posts, these regular series are:</p>
+
+<ul>
+  <li>"This Week in Plugins"
+    <ul>
+      <li>This post is halfway script generated, pulling all the release details out of SVN history to help me generate a post. The intention of the post being to cite new or notable plugins, while giving an informative listing of "what's happening" in plugin development for the past week.</li>
+    </ul>
+  </li>
+  <li>"Spotlight On"
+    <ul>
+      <li>The only interview-formatted series I've got going right now, I've been trying to find companies or organizations who are using Hudson in interesting ways and are willing to let "us" peek behind the curtains a bit. This started more from curiosity, but I think it's fun to let Hudson users brag about their set ups.</li>
+    </ul>
+  </li>
+  <li>Hudson 1.xxx Released
+    <ul>
+      <li>Pretty straight-forward reporting on a release of Hudson, depending on the contents of the release there may be some calls to action or editorializing on what's gone into the release.</li>
+    </ul>
+  </li>
+  <li>Links for
+    <ul>
+      <li>Roll-up of links shared or retweeted via the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> account, uncertain whether this is worth the time spent.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>My two questions to the community in general would be:</p>
+
+<ul>
+  <li>Do you dislike any of these?</li>
+  <li>What else would you like to see on a regular basis?</li>
+</ul>
+
+<p>I'm certainly open to suggestion, I'd like Continuous Blog to continue to be interesting to the Hudson community and if certain kinds of posts are boring or uninteresting, I can cut them from the line-up.</p>
+
+<h3 id="challenges">Challenges</h3>
+<p>The largest challenge of Continuous Blog is <strong>time</strong>. As it stands the majority of content I write or edit in some capacity, which is a larger amount of time than I expected to spend. All said and done it takes me between 6-10 hours a week to write for CB, keep tabs on <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> and peruse the mailing list for interesting things. This probably isn't maintainable, and if for some reason a bus hits me (<a href="http://www.google.com/search?ie=UTF-8&amp;q=muni+hits+pedestrian">not uncommon around here</a>), this blog would go dark for a while.</p>
+
+<p>This can be easily fixed by simply adding more contributors to the blog, I'll post more on how to write for Continuous Blog in another post.</p>
+
+<hr />
+
+<p>All said and done, I am looking forward to another month of writing and following the Hudson community. I'm grateful for all those who've asked questions, been interviewed, wrote content and participated in discussion in the comments. For those of you in the Bay Area, I do hope you come out for the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">meet-up in mid-March</a>, for the rest of you, I'll catch you on IRC :)</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/08/meet-up-and-hack-alongside-kohsuke-and-co/'>
+Meet-up and Hack alongside Kohsuke and Co.
+</a>
+</h1>
+<div class='content'>
+<p>Ever wanted to pick the brains of <strong>multiple</strong> Hudson developers and users, all at the same time? Feel like finally meeting Kohsuke in person? Now's your chance!</p>
+
+<p>We're hosting our <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">second-ever Bay Area Hudson Hackathon/Meetup</a> on <strong>March 19th and 20th</strong>. That's nearly <em>two</em> whole days of Hudson!</p>
+
+<h3 id="day-one-mar-19">Day One (Mar. 19)</h3>
+<p>The first day of the hackathon/meetup is aimed primarily at those working with Hudson's core, or are building on top of Hudson (plugins, etc).</p>
+
+<ul>
+  <li><em>Start:</em> 10 a.m.</li>
+  <li><em>End:</em>   5 p.m.</li>
+  <li><em>Location:</em> <a href="http://tinyurl.com/SunSantaClaraCampus">Oracle Santa Clara campus</a> in the "library" conference room of SCA7 "Mansion" building.</li>
+</ul>
+
+<p>There will a number of community and corporate Hudson hackers joining us on Friday, so bring everything you'll need to get some grade A hacking done with Kohsuke, Andrew Bayer, Alan Harder and your fellow plugin hackers.</p>
+
+<h3 id="day-two-mar-20">Day Two (Mar. 20)</h3>
+<p>I'm tentatively calling this the <strong>main event</strong>, which will be hosted at the delightful <a href="http://hackerdojo.pbworks.com">Hacker Dojo</a> in Mountain View. The "main event" will carry over the hackathon from the day before at Oracle, into a full blown community hackathon and meet-up. This is for Hudson <strong>hackers and users</strong> alike!</p>
+
+<ul>
+  <li><em>Start:</em> 10 a.m.</li>
+  <li><em>End:</em>   6 p.m.</li>
+  <li><em>Location:</em> <a href="http://hackerdojo.pbworks.com/">Hacker Dojo</a> (Savanna room)</li>
+</ul>
+
+<p>As I've <a href="http://blog.hudson-ci.org/content/hudson-pycon">pointed out before</a>, Hudson's getting a lot of attention in other developer circles such as the Python, Ruby, Cocoa communities. As such, I'm hoping to get a lot of folks interested in using Hudson to come to Hacker Dojo where we (already being Hudson users) can help get them up to speed with all the great things Hudson can do.</p>
+
+<hr />
+
+<p><strong>If you're interested please RSVP:</strong></p>
+
+<ul>
+  <li>Via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">hackathon page on the wiki</a></li>
+  <li>Via Facebook for <a href="http://www.facebook.com/event.php?eid=369652692847">day one</a> and <a href="http://www.facebook.com/event.php?eid=359578281880">day two</a></li>
+</ul>
+
+<hr />
+<p><br clear="all" />
+### How you can help
+While I casually refer to myself as a "PR intern" for <a id="aptureLink_8uglegfosn" href="http://twitter.com/kohsukekawa">Kohsuke</a>, I'm technically a busy software engineer, meaning I'm grateful for all the help I can get.</p>
+
+<h5 id="get-the-word-out">Get the word out</h5>
+<p>The best way to help get the word out is to talk about Hudson and the meetup, this includes:</p>
+
+<ul>
+  <li>Link to this post on Twitter</li>
+  <li>Ping any user groups you are a member of in the area</li>
+  <li>Blog about it</li>
+  <li>Let your co-workers know about it</li>
+  <li>Attend!</li>
+</ul>
+
+<p><br clear="all" />
+##### Volunteer to help setup/teardown
+Hosting the Saturday event at Hacker Dojo does carry some responsibilities with it. We will need some extra hands to make sure everybody has power, refreshments are chilled, lunch is ordered and delivered, and of course, cleaning up after we leave. If you're in a generous mood, or in a real need for some karma, sign up to help on <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">the bottom of the wiki page</a></p>
+
+<p>I am hoping Oracle and some other heavy users/contributors will kick in a few bucks for lunch and drinks on Saturday, if you think your company can help us out, feel free to ping me directly at <code>tyler</code> at <code>linux.com</code>.</p>
+
+<hr />
 <!--break-->
-#### Bugs fixed
-&lt;ul class=image&gt;
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/08/hudson-1-349-released/'>
+Hudson 1.349 Released
+</a>
+</h1>
+<div class='content'>
+<p>Last Friday, March 5th, Hudson 1.349 was pushed out into the wild with an even split of bug fixes and enhancements. Included in this release is Alan Harder's (a.k.a <code>mindless</code>) old data monitor code, discussed previously in the post "<a href="http://blog.hudson-ci.org/content/call-testers-older-better">Call for Testers: The older the better</a>." Included in this release were further updates to the japanese and german localizations of Hudson; if you're interested in helping localize Hudson into more languages you can join the effort via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Internationalization">Internationalization page on the wiki</a>.</p>
+
+<p>Now for the breakdown of the 1.349 release:</p>
+
+<h4 id="bug-fixes">Bug fixes</h4>
+<p>&lt;ul class=image&gt;
   &lt;li class=bug&gt; 
-    POM parsing was still using the module root as the base for relative paths for alternate settings files.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6080">issue 6080</a>)
+    Fix deserialization problem with fields containing double underscore.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5768">issue 5768</a>)
   &lt;li class=bug&gt; 
-    Fix dynamic updates of build history table when <a id="aptureLink_MAx8CeZUo3" href="http://en.wikipedia.org/wiki/Cross-site%20request%20forgery">CSRF</a> protection is turned on.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6072">issue 6072</a>)
+    Fix deserialization problem for Exception objects where the XML has bad/old data.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5769">issue 5769</a>)
   &lt;li class=bug&gt; 
-    Improved the error reporting mechanism in LDAP setting.
+    Fix serialization problem with empty CopyOnWriteMap.Tree.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5776">issue 5776</a>)
   &lt;li class=bug&gt; 
-    Raw console output contains garbage.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6034">issue 6034</a>)
-  &lt;li class=bug&gt; 
-    Fixed a file handle leak in the slave connection.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6137">issue 6137</a>)
-  &lt;li class=bug&gt; 
-    Quiet period wasn't taking effect properly when doing parameterized builds.
+    Fixed a bug that can cause 404 in the form validation check.
 &lt;/ul&gt;</p>
 
 <p><br clear="all" />
-### Contributors
-The release of 1.354 contains a total of 51 commits to the "core" part of the tree, from 9 different contributors</p>
-
+#### Enhancements</p>
 <ul>
-  <li>abayer</li>
-  <li>drulli</li>
-  <li>kohsuke</li>
-  <li>manuel_carrasco</li>
-  <li>mindless</li>
-  <li>sogabe</li>
-  <li>swiest</li>
-  <li>vlatombe</li>
-  <li>wyukawa
-<br clear="all" /></li>
-</ul>
-
-<hr />
-
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/16/a-new-blog-for-kohsuke/'>
-A new blog for Kohsuke
-</a>
-</h1>
-<div class='content'>
-<p>Historically, our fearless leader Kohsuke has blogged <a href="http://www.java.net/blog/kohsuke">on Java.net</a>. The setup made a whole lot of sense when Kohsuke was employed by Sun, then Oracle, which sponsors and runs <a href="http://java.net">Java.net</a>. In a post earlier this week discussing <a href="http://www.java.net/blog/kohsuke/archive/2010/04/14/hudson-console-markups">console markups</a>, Kohsuke casually pointed out that he will be cross-posting to Java.net, and his personal blog located at <a href="http://kohsuke.org">kohsuke.org</a>. The <a href="http://kohsuke.org/2010/04/12/hello/">first post</a> over on Kohsuke.org welcomes us:</p>
-
-<blockquote>
-  <p>For the longest time I haven’t really done anything about kohsuke.org, but as I left Sun/Oracle, I decided to put a bit more effort into it. So this is the new home.</p>
-
-  <p>For the time being, I plan to post my blogs both on java.net and here.</p>
-</blockquote>
-
-<p>If you're a reader of feeds, I recommend adding the <a href="http://kohsuke.org/feed/">rss feed</a> for the blog to your list of interesting continuous integration/hacker feeds.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/12/pre-tested-commits-with-git/'>
-Pre-tested commits with Git
-</a>
-</h1>
-<div class='content'>
-<p>At the first <a href="http://wiki.hudson-ci.org/display/HUDSON/BayAreaMeetup">Bay Area Hackathon</a> in mid-2009, the topic du jour was "<a href="http://wiki.hudson-ci.org/display/HUDSON/Designing+pre-tested+commit">pre-tested commits</a>." As potential implementations of the concept were discussed over burgers from <a id="aptureLink_gLlt1i6v1p" href="http://www.brickhousesf.com/">Brickhouse</a> in downtown San Francisco, we realized as a group a few things: first, those burgers were <em>delicious</em>, but more importantly: pre-testing commits is very-SCM dependent and involves a lot of moving parts. One of the positive changes that came out shortly after the meet up was the support for "Concurrent Builds", allowing a job to be executed concurrently on different slaves, a precursor to pre-tested commit support. Fervor for the pre-tested commit feature lowered as time went on, the feature being too dependent on the SCM itself was generally accepted as the reasoning behind the feature languishing.</p>
-
-<p>Chances are the feature is in fact too large for Hudson to support alone. It requires Hudson, the SCM and likely a third tool to work in concert together to perform such a feat.</p>
-
-<p>With Git, and the phenomenal code review tool <a href="http://code.google.com/p/gerrit/">Gerrit</a>, and the <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">Gerrit plugin</a> by intrepid plugin developer, <a href="http://twitter.com/jyrkiputtonen">Jyrki Puttonen</a>, pre-tested commits with Hudson, Git and Gerrit <em>are</em> possible.
-<!--break-->
-For Git users more familiar with the distributed Git workflows, working with Gerrit should seem familiar. Gerrit has <a id="aptureLink_MoOPmIyV3m" href="http://www.eclipse.org/jgit/">JGit</a>, a Java implementation of Git embedded within it, along with an <code>sshd</code> stack, meaning Gerrit can masquerade as a "regular" Git remote repository. Developers can push and pull to the repository just as they can with any other Git repository (provided they have permissions of course). I won't delve too much into using Gerrit specifically here, but the pre-tested workflow with Gerrit and Hudson would look something like this:</p>
-
-<ul>
-  <li>Dev creates a topic branch to work on a change</li>
-  <li>Code is written (and hopefully tested) and committed locally</li>
-  <li>Dev pushes commit(s) to Gerrit</li>
-  <li>Hudson job (set to Poll SCM) picks up the patch, runs the job and marks it as "+1 Verified" or "-1 Fails"</li>
-  <li>If the job fails or is unstable, the change should be reworked or corrected (typically with <a id="aptureLink_YL8glbfS7G" href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">git-rebase(1)</a>)</li>
-  <li>If Hudson says the change is good to go, it can be cherry-picked or pulled directly from Gerrit.</li>
-</ul>
-
-<p>For example:</p>
-<center><a href="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png"><img src="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png" width="520" /></a></center>
-
-<p>To learn more about Gerrit, check out the <a href="http://code.google.com/p/gerrit/">project page on Google Code</a>; information on the Gerrit plugin can be <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">found on the wiki</a>.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/07/kohsuke-leaves-sun/'>
-Kohsuke leaves Sun
-</a>
-</h1>
-<div class='content'>
-<p><a href="http://www.flickr.com/photos/skrb/2504160293/"><img src="http://farm3.static.flickr.com/2040/2504160293_977ddbf22d_m_d.jpg" vspace="4" hspace="4" align="right" /></a>Those of you on the <code>users@</code> or <code>dev@</code> mailing lists have likely already read that Kohsuke (<em>left in the photo</em>), the founder of the Hudson project, <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/04/05/good-bye-sunoracle">is leaving Sun</a>. I say that he is leaving Sun, instead of leaving Oracle as Kohsuke worked at Sun for nine years and Oracle only a few months. In those nine years at Sun, Kohsuke has worked on some great products, the most notable of them being Hudson.</p>
-
-<p>Per Kohsuke's post:</p>
-
-<blockquote>
-  <p>Where am I heading next? I'm actually starting my own company to take Hudson to the next stage.</p>
-</blockquote>
-
-<p>What this means for Hudson still isn't certain yet, fortunately it means that Hudson will continue to have at least one full-time developer. It remains to be seen where KohsukeCorp (the name has not yet been disclosed) will focus within the Hudson code-base. For the greater user-base of Hudson, this means that the schedule for releases may slow down during this transitional period, there are some logistics to work out with Oracle regarding some of the hardware Hudson has traditionally used to host <a id="aptureLink_K18yj8JkNK" href="http://www.crunchbase.com/product/atlassian">JIRA</a>, this blog, and a number of other machines helping support the Hudson project in one fashion or another.</p>
-
-<p>The next couple of months will be interesting for the Hudson community; as per usual you'll be able to get the latest updates from this blog or the <a id="aptureLink_oaxbhP0dAz" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account. I'll let Kohsuke finish this post off:</p>
-
-<blockquote>
-  <p>And finally, big thank you to everyone in the Hudson community, and in a broader java.net community. I wouldn't be here without you guys, and I feel very proud that I'm a part of it.</p>
-</blockquote>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/01/regarding-the-start-of-april/'>
-Regarding the start of April
-</a>
-</h1>
-<div class='content'>
-<p>I had briefly contemplating what sort of silly posts I could write to celebrate April Fool's Day, when I sat down to write out some of them, I got a few sentences in and decided that they just weren't funny enough. Either I have very high standards, or I'm terribly unfunny.</p>
-
-<p>The web is awash with April Fool's articles, comics, headlines and everything else, so instead I'm going to just give you a few useful links.</p>
-
-<p><strong>A couple of Twitter links</strong></p>
-
-<p>Besides the <a href="http://twitter.com/hudsonci">@hudsonci</a> account, you can also follow a couple of Hudson's more notable (or was it notorious?) hackers, such as our benevolent dictator, <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>. <a href="http://twitter.com/bshine">Ben Shine</a> from Yahoo! who's been working pretty hard on making Hudson prettier. Then there's <a href="http://twitter.com/wakaleo">John Ferguson Smart</a> who's been working on a <a href="http://www.wakaleo.com/books/continuous-integration-with-hudson-the-book">Hudson book</a>. Of course I've tried to collect as many Hudson contributors as possible in the <a href="http://twitter.com/hudsonci/contributors">@contributors Twitter list</a>.</p>
-
-<p><strong>Hacking Hudson</strong></p>
-
-<p>When starting to hack Hudson, it's useful to start by understanding <a href="http://wiki.hudson-ci.org/display/HUDSON/Building+Hudson">how to build Hudson</a>. If hacking Hudson's core isn't your cup of tea, you can always start with the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and try your hand at writing another awesome Hudson plugin. If you find yourself struggling to find out what methods do what while you're hacking, you can always visit the regularly updated, <a href="https://hudson.dev.java.net/nonav/javadoc/">online Javadocs for Hudson</a></p>
-
-<p><strong>Communicate</strong>
-The two primary mediums for communicating with the Hudson community are through the <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">mailing lists</a> and the <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">IRC channel</a>. During "regular business hours" for the pacific standard time zone, you can usually get some decent real-time help or answers to most of your queries.</p>
-
-<p>I'd list more, but I'm too busy reading about <a href="http://techcrunch.com/2010/03/31/exclusive-google-to-go-nuclear/">Google's nuclear weapons program</a>. ;)
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/01/announcing-the-hudson-2-0-roadmap/'>
-Announcing the Hudson 2.0 Roadmap
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/java-evil-edition.png" align="right" />There have been numerous discussions on the <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">mailing lists</a> over the past couple months regarding memory issues, speed regressions and a number of other issues regarding performance of Hudson, particularly under high load. In an effort to address these concerns, the Hudson core team has <a href="http://agentdero.cachefly.net/continuousblog/just-kidding.jpg">announced</a> a roadmap for <strong>Hudson 2.0</strong>.</p>
-
-<p>In a <a href="http://agentdero.cachefly.net/continuousblog/just-kidding.jpg">message</a> to the <code>dev@</code> mailing list, Kohsuke said of Hudson 2.0:</p>
-
-<blockquote>
-  <p>As it stands now Hudson 1.0 is a good proof of concept, it's time to take the lessons learned and build a truly solid enterprise-ready continuous integration server
-<!--break-->
-Some notable points from Kohsuke's announcement with regards to the Hudson 2.0 roadmap, which is expected to ship late Q4 2011, are:</p>
-</blockquote>
-
-<ul>
-  <li>Implementation of <code>core</code> in portable C for greater speed and code readability</li>
-  <li>Selection of a better license, namely the <a id="aptureLink_WU0wj407g6" href="http://en.wikipedia.org/wiki/WTFPL">WTFPL</a></li>
-  <li>Revamped storage architecture around the <a href="http://www.oracle.com/database/standard_edition.html">Oracle 11g Database</a> to provide more optimal synergy over flat XML files.</li>
-  <li>Embedding the Mono, Python, V8 and Lua engines allowing plugins to be written in C#, Python, JavaScript or Lua.</li>
-  <li>Adoption of the Hudson <a href="http://randomfunnypicture.com/wp2/wp-content/uploads/2009/12/haters-gonna-hate-eagle.jpg">Eagle</a> as a mascot instead of the butler</li>
-  <li>"Social" support will be merged into <code>core</code>, integrating Hudson directly with Facebook so you can share test failures with your friends.</li>
-</ul>
-
-<p>Hudson 2.0 is expected to follow in the intrepid footsteps of other major revamps such as <a href="http://en.wikipedia.org/wiki/Netscape_5">Netscape 5</a> and <a id="aptureLink_LVKY9sDfJM" href="http://en.wikipedia.org/wiki/Perl%206">Perl 6</a> in its ambitiousness and innovation.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/31/hudson-1-353-released/'>
-Hudson 1.353 Released
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_soap.jpg" align="left" width="170" hspace="4" vspace="4" /> This week's release comes slightly later than usual and is mostly a clean-up of a few bugs. Due to a problem with the Kohsuke's <a href="http://github.com/kohsuke/hudson">GitHub mirror</a> of Hudson's core, I can't mine the commits for interesting information as per usual so you'll just have to trust that Hudson 1.353 is chock full of good, wholesome bug fixes. If the problem persists next week, I'll find a better way to dig up information on particularly releases that doesn't depend on the GitHub mirror.</p>
+  &lt;li class=rfe&gt; 
+    Remote build result submission shouldn't hang forever even if Hudson goes down.
+  &lt;li class=rfe&gt; 
+    Added a monitor for old or unreadable data in XML files and a manage screen to assist
+    in updating files to the current data format and/or removing unreadable data from plugins
+    that are no longer active.  "Manage Hudson" page will show a link if any old/unreadable
+    data was detected.
+  &lt;li class=rfe&gt; 
+    Added a mechanism to bundle <tt>init.groovy</tt> inside the war for OEM.
+    (<a href="http://n4.nabble.com/preconfigured-hudson-war-tp1575216p1575216.html">report</a>)
+  &lt;li class=rfe&gt; 
+    Added an extension point to annotate console output.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2137">issue 2137</a>)</ul>
 
 <p><br clear="all" />
-#### Bugs fixed
-&lt;ul class=image&gt;
-  &lt;li class=bug&gt;
-    Tagging a repository can result in NPE.
-  &lt;li class=bug&gt;
-    Fix possible form submission error when using multiple combobox elements.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6025">issue 6025</a>)
-  &lt;li class=bug&gt;
-    Better escaping of test case names in test results pages.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5982">issue 5982</a>)
-  &lt;li class=bug&gt;
-    Make radio buttons work in repeatable content, such as a build step.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5028">issue 5028</a>)
-  &lt;li class=bug&gt;</p>
+#### Contributors
+Hudson 1.349 contains <strong>43</strong> commits from 6 contributors, due to the merging in of Alan Harder's old-data-monitor branch the commit count is a bit off from the amount of code change that actually went out in 1.349.</p>
 
-<pre><code>Fixed the handling of verifying that the POM path entered for Maven projects exists.
-(&lt;a href="http://issues.hudson-ci.org/browse/HUDSON-4693"&gt;issue 4693&lt;/a&gt;)
-</code></pre>
-<p>&lt;/ul&gt;</p>
-
-<h4 id="enhancements">Enhancements</h4>
 <ul>
-  &lt;li class=rfe&gt;
-    Added link to builds in buildTimeTrend
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-3993">issue 3993</a>)
+  <li><a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a></li>
+  <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
+  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
+  <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
+  <li>swiest</li>
+  <li><a id="aptureLink_VY2dBrA1mQ" href="http://twitter.com/wyukawa">wyukawa</a></li>
 </ul>
 
-<hr />
+<p><br clear="all" />
+As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
 
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
 <hr />
+<!--break-->
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/03/31/screencast-python-on-hudson-part-1/'>
-Screencast: Python on Hudson (Part 1)
+<a href='/blog/2010/03/07/this-week-in-plugins/'>
+This Week in Plugins
 </a>
 </h1>
 <div class='content'>
-<p>After Hudson got some major publicity <a href="http://blog.hudson-ci.org/content/hudson-pycon">at PyCon Atlanta 2010</a> I haven't been as quick as I would have liked with Python-related posts and tutorials. I use Hudson to build and test a number of pure Python modules and C extensions across numerous Python versions (covering 2.4 - 3.1). For most beginners, or those simply looking to get started with Python on Hudson, starting with my job configurations is too much at once, so instead I wanted to start at the "beginning" so to speak.</p>
+<p>A little late, but this past week we released <strong>19</strong> plugins including one new release, the <a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves</a>.</p>
 
-<p>The trouble with getting people started with Hudson, given how simple and visual it is to use, is that articles with sample configurations are not particularly useful; a screencast however is a good medium for visually walking somebody through Hudson. The screencast below (<a href="http://www.youtube.com/watch?v=5d-P4j5n_No">also on YouTube</a>) is the <em>first</em> in a series of screencasts I'll be doing, not only for Python on Hudson, but for Hudson overall. It is just over four minutes long, and covers setting up a simple continuous integration job for the <a href="http://eventlet.net">Eventlet</a> library (which is hosted <a href="http://bitbucket.org/which_linden/eventlet/">on Bitbucket</a>)</p>
+<ul>
+  <li><strong>Feb 28th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Accurev+Plugin">Accurev plugin</a> 0.6.10</li>
+    </ul>
+  </li>
+  <li><strong>Mar 1st</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Release+Manager">Subversion Release Manager plugin</a> 1.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin">Clover plugin</a> 2.6.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/SCTMExecutor">SCTMExecutor</a> 1.5</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Global+Build+Stats+Plugin">global-build-stats plugin</a> 0.1-alpha3</li>
+    </ul>
+  </li>
+  <li><strong>Mar 2nd</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/ClearCase+UCM+Baseline+Plugin">ClearCase UCM Baseline Plug-in</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Accurev+Plugin">Accurev plugin</a> 0.6.11</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JIRA+Plugin">JIRA plugin</a> 1.20</li>
+    </ul>
+  </li>
+  <li><strong>Mar 3rd</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/NAnt+Plugin">NAnt Plugin</a> 1.4.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Trac+Plugin">Edgewall Trac plugin</a> 1.10</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/NCover+Plugin">NCover plugin</a> 0.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Nabaztag+Plugin">nabaztag</a> 1.7</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mozmill+Plugin">Mozmill Plugin</a> 1.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mantis+Plugin">Mantis plugin</a> 0.9</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Harvest+Plugin">Harvest SCM</a> 0.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin">Subversion Plug-in</a> 1.12</li>
+    </ul>
+  </li>
+  <li><strong>Mar 4th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/PerfPublisher+Plugin">Performance Publisher plugin</a> 7.96</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Artifactory+Plugin">Artifactory Plugin</a> 1.0.7</li>
+    </ul>
+  </li>
+  <li><strong>Mar 5th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin</a> 1.0.23</li>
+    </ul>
+  </li>
+  <li><strong>Mar 6th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/SCTMExecutor">SCTMExecutor</a> 1.5.1</li>
+    </ul>
+  </li>
+  <li><strong>Mar 7th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.0</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.13
+<!--break--></li>
+    </ul>
+  </li>
+</ul>
 
-<center><object width="480" height="295"><param name="movie" value="http://www.youtube-nocookie.com/v/5d-P4j5n_No&amp;hl=en_US&amp;fs=1&amp;rel=0" /><param name="allowFullScreen" value="true" /><param name="allowscriptaccess" value="always" /><embed src="http://www.youtube-nocookie.com/v/5d-P4j5n_No&amp;hl=en_US&amp;fs=1&amp;rel=0" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="295" /></object></center>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/05/tag-team-automating-massive-projects-with-hudson-and-artifactory/'>
+Tag team: Automating massive projects with Hudson and Artifactory
+</a>
+</h1>
+<div class='content'>
+<p>For those of you living in or around Silicon Valley, next Wednesday (March 10th) you might want to reserve some space around 6pm on your calendar. <a id="aptureLink_K4R8mjN6aN" href="http://freddy33.blogspot.com/">Frederic Simon</a> and <a id="aptureLink_j4VWwlQ9I2" href="http://twitter.com/yoavlandman">Yoav Landman</a> from <a id="aptureLink_gvHDYIidrI" href="http://twitter.com/artifrog">JFrog</a> will be presenting at the <a href="http://www.svjugfx.org/">Silicon Valley JavaFX Users Group</a> meeting at the Googleplex. Frederic and Yoav will be discussing and demonstrating how JFrog's Artifactory works with Hudson to combine continuous integration with release management.</p>
+
+<blockquote>
+  <p>Join with the Artifactory team to realize the benefits of managing your software development life-cycle through continuous integration.</p>
+
+  <p>Frederic Simon (JFrog Chief Architect) and Yoav Landman (JFrog CTO) will demonstrate how to automate large-scale multi-module projects, using a fully-integrated platform with Artifactory and Hudson.</p>
+
+  <p>Using Maven, Gradle or Ivy builds, it is now possible to dynamically automate and manage the pyramidal stacks of Unit, Functional, and Integration Tests.</p>
+
+  <p>This demo-based session will show you how Artifactory and Hudson together make it much easier to promote certified builds to milestone releases , and finally to general availability, while making sure all builds are fully reproducible.</p>
+
+  <p>Staying dynamic all through the development process avoids code freeze and provides very accurate feedback loops. This is crucial for Developers, QA teams, System and Integration testers, Users, Customers, and all the remaining actors of the development process.</p>
+</blockquote>
+
+<p>If you're interested in attending, you can RSVP on <a href="http://www.svjugfx.org/calendar/12559455/?eventId=12559455&amp;action=detail">the meetup page</a></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/05/links-for-2010-03-04/'>
+Links for 2010-03-04
+</a>
+</h1>
+<div class='content'>
+<p>Since I've been a bit pre-occupied with non-Hudson related activities lately, I have missed a few days of link rollups, I suppose it's fitting to get a couple days worth of links in one post.</p>
+
+<p>While The Build Doctor has the time to follow the continuous integration world and post links on a daily basis, I haven't found the same quantity of Hudson links on a day-to-day basis. Therefore, I will be posting a link-rollup every few days. Do let me know if this is too infrequent. That said, here's some interesting links!</p>
+
+<ul>
+  <li><a href="http://manicwave.com/blog/2010/03/01/that-feels-better-cocoa-hudson-and-running-green/">That feels better – Cocoa, Hudson and running green</a>
+    <ul>
+      <li>Indie iPhone app developer <a href="http://twitter.com/JeffSchilling">Jeff Schilling</a> writes about working more efficient with Hudson and Cocoa for developing iPhone apps, he covers <a id="aptureLink_9JORBhLtgT" href="http://developer.apple.com/tools/unittest.html">OCUnit</a> integration and code coverage with <a id="aptureLink_TSZPxfJ0Oi" href="https://software.sandia.gov/trac/fast/wiki/Documentation/gcovr">gcovr</a>, a good read for iPhone and Mac developers alike.</li>
+    </ul>
+  </li>
+  <li><a href="http://sonar.codehaus.org/add-ci-build-stability-to-your-sonar-dashboard/">Add CI Build Stability to your Sonar Dashboard</a>
+    <ul>
+      <li>Hudson contributor <a href="http://twitter.com/_godin_">godin</a> (also known as Evgeny Mandrikov) has released a Sonar plugin to report build stability back into <a id="aptureLink_KzfUdRQdS8" href="http://sonar.codehaus.org/">Sonar</a>.</li>
+    </ul>
+  </li>
+  <li><a href="http://kannan.jumbledthoughts.com/index.php/how-to-get-logged-in-username-in-hudson/">How to get logged-in username in Hudson?</a></li>
+  <li><a href="http://www.amaxus.com/cms-blog/from-cruisecontrol-to-hudson-ci">Switching from CruiseControl to Hudson</a>
+    <ul>
+      <li>The developers over at <a href="http://www.amaxus.com/">Amaxus</a> wax poetic on reducing their "<a id="aptureLink_dQHbzkXmQS" href="http://en.wikipedia.org/wiki/Bus%20factor">bus factor</a>" by switching from CruiseControl to Hudson</li>
+    </ul>
+  </li>
+  <li><a href="http://blog.infostretch.com/?p=328">Integrating Selenium tests with Hudson CI</a>
+    <ul>
+      <li>The folks at <a href="http://infostretch.com">InfoStretch</a> have written up a nice, short-and-sweet, overview of getting higher level integration tests built with <a id="aptureLink_uLiXJTOwPF" href="http://seleniumhq.org/">Selenium</a> to play with Hudson
+<!--break--></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/02/what-new-features-do-you-want-to-see/'>
+What new features do you want to see?
+</a>
+</h1>
+<div class='content'>
+<p>Michael Donohue, a Hudson developer who has taken on the role of master bug triage guy for Hudson, does something regularly which I've really come to appreciate as a Hudson developer myself: he sends out emails to the dev list with the top 10 voted issues at that time. This gives those of us in the Hudson development community a good sense of what's really important to our users, which in turn helps us decide where to focus our efforts. If you're interested, you can see <a href="http://issues.hudson-ci.org/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10045">the top voted issues</a> over at <a href="http://issues.hudson-ci.org">our JIRA server.</a></p>
+
+<p>A good number of those issues have been high on the list for a while - I'm actually in the early stages of work on a plugin to answer <a href="http://issues.hudson-ci.org/browse/HUDSON-682">HUDSON-682</a>, the current #1 most voted-for issue, two and a half years after it was opened. But I'm sure there are some equally useful features Hudson users would like to see added which aren't on that list. So I'm asking you, dear readers: what are you looking for in Hudson that isn't already there? Take a look around the existing issues - you may find a request that fits what you want lurking just out of the top 10, needing only your vote to push it into the spotlight. If no one's yet created an issue requesting your desired feature, well, create one.</p>
+
+<p>Or, better still, write a plugin or contribute a patch yourself!</p>
 
 <hr />
 
+<p><strong>Editor's Note:</strong>  If you're interested in writing a plugin, you can check out <a href="http://wiki.hudson-ci.org">Hudson's wiki</a> and/or <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">this guide</a> on the subject.</p>
+
+<p>Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
+
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/39.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/39.html" class="page-link">39</a> <span class="current-page">40</span> <a href="/node/page/41.html" class="page-link">41</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/41.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/39.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/39.html" class="page-link">39</a> <span class="current-page">40</span> <a href="/node/page/41.html" class="page-link">41</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/41.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>

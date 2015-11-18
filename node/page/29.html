@@ -177,283 +177,315 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
-<a href='/blog/2011/06/27/jenkins-office-hours-now-officially-a-bi-weekly-event/'>
-Jenkins Office Hours, now officially a bi-weekly event
+<a href='/blog/2011/05/12/the-state-of-the-jenkins-project/'>
+The State of the Jenkins Project
 </a>
 </h1>
 <div class='content'>
-<p><br/>
-In May, we launched <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Jenkins Office Hours</a>.  This was inspired by <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+plugin+development+in+Ruby">Jenkins Ruby hack sessions</a> by <a href="http://twitter.com/#!/cowboyd">cowboyd</a>, and the idea is to use an interactive online meeting to drive some sub-projects, bootstrap new plugin developers by pointing them to the right extension points, and/or bringing existing community members to discuss some specific key parts of Jenkins and its plugins.<br/>
-<br/>
-<p><br/>
-The <a href="https://wiki.jenkins-ci.org/display/JENKINS/User+Office+Hours+Week+20">first</a> <a href="https://wiki.jenkins-ci.org/display/JENKINS/Dev+Office+Hours+Week+20">two</a> meetings were very popular, but our trial WebEx account expired, and since then we were looking for a sponsor to host this event. And I am happy to report that with a help from Max Spring, now we can get the office hours going again.<br/>
-<br/>
-<p><br/>
-So the Jenkins office hours will be bi-weekly events, starting this Wednesday (6/29). <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">See the wiki page</a> for details and agenda</a>. Looking forward to seeing you!<br/>
+<p>A few weeks ago our very own <a href="http://www.twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> gave a presentation at the <a href="http://events.linkedin.com/Silicon-Valley-Continuous-Integration/pub/591454">Silicon Valley CI Summit</a> held in Mountain View.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/24/ruby-plugins-hack-session-notes-6-23-2011/'>
-Ruby Plugins Hack Session Notes 6/23/2011
-</a>
-</h1>
-<div class='content'>
-<p>You know that the night is going to be productive whenever @kohsukekawa shows up, and last night was no exception. We talked about problems on the horizon, potential solutions, and then I spent the last half hour ripping a bit of code.</p>
-
-<p>The truth of the matter is that most of the changes that have to be done to Jenkins core have already been made, so now the bulk of the heavy lifting falls to the Ruby side of things (right now, me).</p>
-
-<p>Anyhow, on to the notes!</p>
-
-<h2 id="attendees">Attendees</h2>
-
-<p>@kohsukekawa, @cowboyd</p>
-
-<h3 id="extract-more-stuff-into-the-jenkins-pluginsrb-support-library-cowboyd">extract more stuff into the jenkins-plugins.rb support library (@cowboyd)</h3>
-
-<p>We're in the process of extracting, normalizing, documenting all the goop that's currently residing in the <a href="https://github.com/cowboyd/jenkins-ruby-plugins-playground">ruby plugins playground</a> into a formal plugin support gem called jenkins-plugins <a href="https://github.com/cowboyd/jenkins-plugins.rb">https://github.com/cowboyd/jenkins-plugins.rb</a></p>
-
-<h3 id="recruit-rubyists-to-implement-non-jenkins-specific-code-kohsukekawa">recruit Rubyists to implement non-Jenkins specific code (@kohsukekawa)</h3>
-
-<p>If you know Ruby and would like to be able to write Jenkins plugins with it, but don't know the first thing about Jenkins and/or JRuby, that's OK. You can help by implementing some of the <a href="https://github.com/cowboyd/jenkins-plugins.rb/tree/master/features">cucumber features</a> found in that repo</p>
-
-<p>@kohsukekawa is going to be knocking on your door to ask if you're ready to step up, so I hope you've been nice this year!</p>
-
-<h3 id="testing-strategy-cowboyd-kohsukekawa">testing strategy (@cowboyd, @kohsukekawa)</h3>
-
-<p>Ruby folk love their tests, and a plugin develompent solution won't be complete unless testing is a breeze. That means that as we extract the plugin support library, we take make sure you can test plugin classes in isolation.</p>
-
-<p>On the Jenkins side, KK will think about how to run tests that require a full Jenkins environment. A system like this exists currently for testing java plugins, but some thought might be required on how to do this for Ruby.</p>
-
-<h3 id="packaging-reloaded-kohsukekawa">packaging reloaded (@kohsukekawa)</h3>
-
-<p>KK is going to jump in and write some rake tasks to take a ruby plugin structure and package it into a valid .hpi file, and with no maven involved.  According to him, Ruby plugins aren't the only system that wants to run maven-free. There is desire to be able to do plugin development with Gradle (another Java build system), so this could be a double win.</p>
-
-<h3 id="different-schedule-kohsukekawa">different schedule (@kohsukekawa)</h3>
-
-<p>8:30pm Central in North America, doesn't seem to be a very good time. Especially for hackers in Asia Pacific. KK will investigate a new time that works for everybody and encourages more participation.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/16/jenkins-long-term-support-release/'>
-Jenkins Long-Term Support Release
-</a>
-</h1>
-<div class='content'>
-<p>We have released <a href="http://jenkins-ci.org/">1.409.1, our first long-term support (LTS) release</a>, from the Jenkins project.</p>
-
-<p>The idea of the LTS release is to provide a second release line the favors more stability and bug fix only maintenance. This release line branches off from a bit old Jenkins release (in this case 1.409), and we will only put important backported bug fixes. We'll keep releasing 1.409.2, 1.409.3, and so on, as such bugs appear, and in several months (our current thinking is 3 months) we'll designate another release and repeat this process all over again. I think it provides more comfortable upgrade path for larger deployments. For more about this, <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">see Wiki</a>.</p>
-
-<p>In large companies that use Jenkins in a large scale, there often is a team of people who looks at incoming Jenkins release, tests it with their environments and their plugins, and then let their internal group consume them. With this release line, I'm calling for them to join the effort on this branch. Vojtech Juranek from Red Hat is already helping us tremendously, so is Yahoo in choosing the base release line and backporting. But it'd be great to get more people on board, as I think it'll benefit everyone to have a larger number of eyeballs on the same code. You'll also have a say on what bugs need to be backcported, etc. If you are interested in this effort, please let us know.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/06/14/upcoming-events-in-june-and-early-july/'>
-Upcoming Events in June and early July
-</a>
-</h1>
-<div class='content'>
-<p>I've just added three events coming up in the next few weeks to <a href="http://jenkins-ci.org/calendar">the Jenkins calendar</a>. Conveniently, they are all events I'll be attending while traveling around Western Europe!</p>
+<p>Within the presentation, Kohsuke included a collection of numbers about the vibrancy of the Jenkins project that certainly hasn't gotten enough attention. While the slideshow is embedded below, here's some good high-level points:</p>
 
 <ul>
-  <li>
-    <p><a href="http://jugcologne.org">The Cologne JUG</a> is having a meetup on Saturday, June 25th, starting at 2pm. We'll be talking about Jenkins, maybe doing some coding, and then heading out for drinks and more talk! You can find more information and sign up at <a href="https://www.xing.com/events/jugc-jenkins-town-763587">Xing</a>.</p>
-  </li>
-  <li>
-    <p>A few days later, TNG Technology Consulting is generously hosting a meetup in Munich, on Wednesday, June 30th, starting at 3pm. I'll be giving a quick talk on the state of the Jenkins project, followed by Ullrich Haffner (the author of the static analysis plugins for Jenkins) giving a quick talk on how those plugins are used. After that, we'll be having a hackathon, and then more beer! Again, you can find more information and sign up at <a href="https://www.xing.com/events/jenkins-treffen-munchen-30-06-2011-776226">Xing</a>.</p>
-  </li>
-  <li>
-    <p>A week later, the London CI meetup group is hosting a meetup as well, on Wednesday, July 6th, starting at 6:30pm. We'll be meeting up at the Royal Festival Hall for discussion and drinking. You can find more information and sign up at <a href="http://www.meetup.com/Continuous-Integration-London/events/21752121/">Meetup</a>.</p>
-  </li>
+  <li>Over 170 <a href="https://github.com/jenkinsci">GitHub</a> pull requests in the past four months, with more being sent every day.</li>
+  <li>Formalization of a "Jenkins Stable" branch of development with longer release cycles and back-ported bugfixes.</li>
+  <li>Over 280 tickets in <a href="https://issues.jenkins-ci.org">JIRA</a> have been resolved.</li>
+  <li>After posting a "special" release of Hudson which presents users with a choice, <strong>87.25%</strong> are choosing to upgrade to Jenkins.</li>
+  <li>Over 500 tickets have been created</li>
+  <li>Roughly 13,000 downloads of <code>jenkins.war</code> and native packages a week</li>
+  <li><strong>New</strong> and vibrant community-driven initiatives like <a href="http://twitter.com/fcamblor">Frederic Camblor's</a> plugin compatibility tester and <a href="http://twitter.com/cowboyd">Charles Lowell's</a> JRuby plugin support project.</li>
+  <li>We've crossed 1500 participants on the <code>jenkinsci-user</code> mailing list, and are over 900 participants on the <code>jenkinsci-dev</code> list.</li>
+  <li>The <a href="http://twitter.com/jenkinsci">@jenkinsci</a> twitter account recently crossed the 4,000 follower threshold.</li>
 </ul>
 
-<p>Do you have a Jenkins event you'd like to have added to <a href="http://jenkins-ci.org/calendar">our calendar</a>? Let us know!</p>
+<p>On a personal note, I think this speaks all to the level of unbridled enthusiasm about the future of Jenkins by contributors both new and old.</p>
 
+<p>Without further delay, the slides:</p>
+
+<center><div style="width:425px" id="__ss_7835978"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/kohsuke/current-state-of-jenkins" title="Current state of Jenkins">Current state of Jenkins</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7835978" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/kohsuke">Kohsuke Kawaguchi</a> </div> </div></center>
 <!--break-->
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2011/06/09/a-big-thanks-to-rackspace/'>
-A big thanks to Rackspace
+<a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
+Ruby Plugins Hack Session 5/12/2011
 </a>
 </h1>
 <div class='content'>
-<p>This post is long over-due and I really apologize for that.</p>
+<p>[<strong>Editor's Note:</strong> <em>For the past few weeks Jenkins community member <a href="http://twitter.com/cowboyd">Charles Lowell</a> has been working with <a href="http://twitter.com/kohsukekawa">Kohsuke</a> on adding support for building plugins in Ruby. As part of this effort, <a href="http://twitter.com/cowboyd">Charles</a> has been hosting weekly hack sessions via WebEx</em>]</p>
 
-<p>Some months ago we put out the call for "more slave machines!" through the
-mailing lists, sky-writers and twitter. We had a serious problem, for a
-continuous integration project, a <strong>large</strong> number of our plugins and
-dependencies weren't being built in a continuous and automated fashion!</p>
+<p>As always, last night's Ruby Plugins hack session was a pleasure. Below is a quick notation of what items were discussed and/or accomplished followed by next steps to be taken my those in attendance.</p>
 
-<p>We had some builds on a couple of flakey machines on home connections
-contributed by various individuals, until Rackspace stepped up in a <strong>big</strong>
-way and donated an infrastructure server for the project to use.</p>
+<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
 
-<center><a href="http://rackspace.com/?jenkins" target="_blank"><img src="http://agentdero.cachefly.net/continuousblog/rackspace.jpg" width="200" border="0" /></a></center>
+<ul>
+  <li>Ruby Plugin project structure and how to bundle into an .hpi file.</li>
+  <li>Review of the new XSTREAM serialization method</li>
+  <li>API for marking fields as transient</li>
+  <li>What mods, if any, are required to get .hpl to work with Ruby plugin</li>
+</ul>
 
-<p>For months now, just about all plugins and core have been built and tested on <code>spinach</code>,
-the always-on machine in the Rackspace Cloud. Dutifully chugging away building
-core, plugin after plugin and occasionally getting flooded with work from <a href="http://twitter.com/fcamblor">Frederic
-Camblor's</a> plugin compatibility tester!</p>
+<h2 id="next-steps">Next Steps</h2>
 
-<p>In hindsight, having a powerful infrastructure machine for nothing other than
-builds has helped us build great software faster; I can't imagine how difficult
-things might be otherwise.</p>
+<h3 id="charles">Charles</h3>
 
-<p>I've personally had a lot of interaction with Rackspace engineers through the <a href="http://www.openstack.org/">OpenStack
-project</a> and have a number of friends who operate businesses on
-Rackspace/Rackspace Cloud hybrid infrastructures.</p>
+<ul>
+  <li>to research what can be shared between JRuby <code>ScriptingContainer</code>s</li>
+  <li>API for unmarshaling hooks on serialized ruby objects</li>
+  <li>Change the name of the repo :)</li>
+  <li>Document… something!</li>
+</ul>
 
-<p>The folks at Rackspace are
-top notch and I can't thank them enough for contributing to the Jenkins
-project.</p>
+<h3 id="kohsuke">Kohsuke</h3>
+<ul>
+  <li>test more view functions</li>
+  <li>add debug mode outside of hpi:run
+<!--break--></li>
+</ul>
 
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/04/hamburg-hackathon-a-great-success/'>
+Hamburg hackathon a great success!
+</a>
+</h1>
+<div class='content'>
+<img style="float:right; margin:1em" src="http://farm6.static.flickr.com/5303/5686094521_c891761b7b_m.jpg"/><br/>
+<p><br/>
+Thanks to the kindness of <a href="http://www.bigpoint.net/">BigPoint GmbH</a> and Kutzi, we had the first Jenkins Hackathon in Europe, in a very large and airly conference room in their Hamburg campus, on a nice sunny Sunday of May 1st. About 10 people came, including the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins">static code analysis plugin</a> fame Ullrich Hafner, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Android+Emulator+Plugin">Androd emulator plugin</a> fame <a href="http://twitter.com/orrc">Christopher Orr</a>, the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Instant+Messaging+Plugin">instant messenger plugin</a> (and others) fame <a href="http://twitter.com/#!/kutzi">Christoph Kutzinski</a>. Some of us came from pretty far away places like Munich, Bonn, and Netherland. There was a good mix of existing developers and new developers, too.<br/>
+<br/>
+<p><br/>
+During the hackathon, new folks developed whopping three plugins &mdash; a security realm that connects to <a href="https://github.com/jenkinsci/kerberos-authenticator-plugin">Kerberos (password entering kind, not SSO)</a>, <a href="https://github.com/jenkinsci/builton-column-plugin">a plugin that adds a list view column to show where the last build was done</a>, and <a href="https://github.com/jenkinsci/extra-columns-plugin/">another plugin that attempts to collect small list view column implmentations</a>. German translations were improved, automated installation of Android SDKs are discussed and its implementation strategies explained. I've done my share of contribution by working on <a href="https://github.com/jenkinsci/jruby-xstream">XStream support for JRuby</a>, which is one of the ground work necessary for JRuby-based Jenkins plugin development, and I also showed the prototype Groovy-based templating that can potentially supercede Jelly. There were additional exchange of tips and tricks, how you do this and that.<br/>
+<br/>
+<p><br/>
+Strong coffee and engaged conversations kept me awake all day, although German keyboard layout (on top of usual IDE difference + Mac/PC difference) made it hard to code on other people's computers, but all in all it was a very productive hackathon. In fact, the best ever. We wrapped up around 7pm and headed to a seafood restaurant near Elbe river, stayed there until 11pm-ish.<br/>
+<br/>
+<p><br/>
+The next hackathon is planned in Paris toward the end of the month. I'm looking forward to another productive Hackathon, so if you are nearby, please <a href="http://www.meetup.com/jenkinsmeetup/events/17178842/">RSVP and join us</a>.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/04/14/jenkins-new-look/'>
+Jenkins' New Look
+</a>
+</h1>
+<div class='content'>
+<p>As you might have noticed <a href="http://twitter.com/jenkinsci/">Jenkins</a> finally has
+a <strong>brand spankin' new logo!</strong> Over the past couple weeks we've run two series
+of votes, <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">one for the initial 11 logo
+submissions</a>
+and then a final, run-off election, for the <a href="http://jenkins-ci.org/content/final-two-run-vote-new-jenkins-logo">two most popular
+choices</a>.
+I'd like to take this opportunity to thank everybody that submitted logos! It
+is incredibly flattering to have so many people passionate about the project
+and willing to spend the time creating new art for us.</p>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/images/runoff_election_piechart.png" alt="Runoff election pie chart" /></center>
+
+<p>At the end of the votes, there was a clear winner though, everybody seems to
+really love the submission by the folks over at <a href="http://thefrontside.net/">The
+FrontSide</a> which you can see adorning this very page.</p>
+
+<p>If you'd like to download the SVG version of the logo, or the variants in different sizes, I've gone ahead and uploaded a tarball and all the variants to <a href="http://mirrors.jenkins-ci.org/art/">this directory</a>, there is also a good <a href="http://mirrors.jenkins-ci.org/art/jenkins_colors.pdf">color palette here</a> (<em>obligatory PDF warning</em>).</p>
+
+<p>Once again, thank you to <strong>everybody</strong> that participated!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/04/04/the-final-two-run-off-vote-for-the-new-jenkins-logo/'>
+The final two: run-off vote for the new Jenkins logo
+</a>
+</h1>
+<div class='content'>
+<p>A <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">little over a week ago</a> we opened the polls to the larger user-base to vote for the <strong><em>new and improved</em></strong> Jenkins logo. After receiving hundreds of votes, we are now ready to enter the final round of voting (click images to see larger versions in a new window).</p>
+
+<p>Voting will <strong>end</strong> April 9th at 23:59 UTC, so make sure to tell your friends, coworkers and bus drivers to get their votes in as soon as possible!</p>
+
+<center>
+<table><tr><td align="center">
+
+<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-10"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" /><br /><strong>Logo #1</strong></a>
+</td>
+<td align="center">
+<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-9"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" /><br /><strong>Logo #2</strong></a></td></tr></table>
+</center>
+
+<h3 id="the-vote">The Vote</h3>
+
+<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ">the form in a new window</a></p>
+
+<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ" width="760" height="443" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 <!--break-->
+<hr />
+
+<p>If you're interested in the results for the first round, you can find them in <a href="https://gist.github.com/900991">this gist</a></p>
+
+<hr />
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2011/06/08/release-candidate/'>
-Release Candidate
+<a href='/blog/2011/04/01/san-francisco-jenkins-meetup-wednesday-april-13th/'>
+San Francisco Jenkins Meetup - Wednesday, April 13th
 </a>
 </h1>
 <div class='content'>
-<p>
-Release candidate is the build intended for the upcoming release of Jenkins in a week. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Release+Process">See Wiki for more about what it means.</a>
-</p>
-
-
-  <style>
-    #download DT {
-      font-size: 2em;
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
-  </style>
-  
-  <dl id=download> 
-    <dt>Download multi-platform war file</dt> 
-    <dd style="margin-bottom:1em"> 
-      <div>
-        <a href="http://mirrors.jenkins-ci.org/war-rc/latest/jenkins.war"><strong>jenkins.war</strong></a>
-      </div> 
-      <!-- TODO: changelog
-      <div class="release-block-small" style="text-align:right"> 
-       <a href="/changelog" class=release-block-soft>changelog</a> | <a href="http://mirrors.jenkins-ci.org/war/" class=release-block-soft>past releases</a> 
-      </div> 
-      -->
-    </dd> 
-    
-    <dt>Or native package</dt> 
-    <dd class="release-block-platforms"> 
-      <div> 
-        <img src="/images/os/win_other.png"> 
-        <a class="release-block-soft" href="http://mirrors.jenkins-ci.org/windows-rc/latest">Windows</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/ubuntu.png"> 
-        <a class="release-block-soft" href="http://pkg.jenkins-ci.org/debian-rc/">Ubuntu/Debian</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/redhat.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/redhat-rc/">Red Hat/Fedora/CentOS</a> 
-      </div>
-      <div> 
-        <img src="/images/os/os_macosx.png"> 
-        <a class=release-block-soft href="http://mirrors.jenkins-ci.org/osx-rc/latest">Mac OS X</a> 
-      </div>
-      <div> 
-        <img src="/images/os/opensuse.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/opensuse-rc/">openSUSE</a> 
-      </div> 
-    </dd> 
-  </dl> 
+<p><img src="http://agentdero.cachefly.net/continuousblog/images/ey_logo.png" alt="Engine Yard!" align="right" />We're happy to announce that there'll be a Jenkins meetup in San Francisco on Wed., Apr 13th, generously hosted by <a href="http://www.engineyard.com/">Engine Yard</a>. The meetup will start at 6:30 - you can find more information <a href="http://www.meetup.com/jenkinsmeetup/events/17090726/">here</a>. <a href="http://twitter.com/drnic">Dr Nic Williams of Engine Yard</a> will talk about their use of Jenkins with Ruby, and Kohsuke will give an update on the JRuby plugin development work he and <a href="http://twitter.com/cowboyd">cowboyd</a> have been working on. If you're interesting in giving a short talk on your usage of Jenkins, plugin work, or whatever, there should be time for an open mic. Hope to see you there!</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2011/06/08/lts-release-candidate/'>
-LTS Release Candidate
+<a href='/blog/2011/03/23/windows-installers-are-now-available/'>
+Windows installers are now available
 </a>
 </h1>
 <div class='content'>
-<p>
-LTS Release candidate is the build intended for the upcoming LTS release of Jenkins. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Release+Process">See Wiki for more about what it means.</a>
-</p>
-<p>Upcoming version: <b><?php include "/srv/releases/jenkins/version-stable-rc.txt"?></b></p>
-
-
-  <style>
-    #download DT {
-      font-size: 2em;
-      font-weight: bold;
-      padding-bottom: 0.5em;
-    }
-  </style>
-  
-  <dl id=download> 
-    <dt>Download multi-platform war file</dt> 
-    <dd style="margin-bottom:1em"> 
-      <div>
-        <a href="http://mirrors.jenkins-ci.org/war-stable-rc/latest/jenkins.war"><strong>jenkins.war</strong></a>
-      </div> 
-      <!-- TODO: changelog
-      <div class="release-block-small" style="text-align:right"> 
-       <a href="/changelog" class=release-block-soft>changelog</a> | <a href="http://mirrors.jenkins-ci.org/war/" class=release-block-soft>past releases</a> 
-      </div> 
-      -->
-    </dd> 
-    
-    <dt>Or native package</dt> 
-    <dd class="release-block-platforms"> 
-      <div> 
-        <img src="/images/os/win_other.png"> 
-        <a class="release-block-soft" href="http://mirrors.jenkins-ci.org/windows-stable-rc/latest">Windows</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/ubuntu.png"> 
-        <a class="release-block-soft" href="http://pkg.jenkins-ci.org/debian-stable-rc/">Ubuntu/Debian</a> 
-      </div> 
-      <div> 
-        <img src="/images/os/redhat.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/redhat-stable-rc/">Red Hat/Fedora/CentOS</a> 
-      </div>
-      <div> 
-        <img src="/images/os/os_macosx.png"> 
-        <a class=release-block-soft href="http://mirrors.jenkins-ci.org/osx-stable-rc/latest">Mac OS X</a> 
-      </div>
-      <div> 
-        <img src="/images/os/opensuse.png"> 
-        <a class=release-block-soft href="http://pkg.jenkins-ci.org/opensuse-stable-rc/">openSUSE</a> 
-      </div> 
-    </dd> 
-  </dl> 
+<p><br/>
+Good portion of Java developers use Windows, so we tend to think the opposite is true, that a good portion of Windows folks use Java. But this is not true.<br/>
+<br/>
+<p><br/>
+As Jenkins gains traction among .NET developers, it's becoming increasingly clear that Java is very alien to them. They naturally have no idea of what a war file means, and often don't even have Java installed, and so it was <i>just not easy enough</i> for them to start using Jenkins.<br/>
+<br/>
+<p><br/>
+I'm happy to report that I've finally fixed this problem with the new Windows installer. It is primarily packaged as <a href="http://en.wikipedia.org/wiki/Windows_Installer">an MSI file</a> &mdash; a common format that seasoned Windows devs/admins are familiar with. It can, for example, be deployed remotely on a large number of servers via Active Directory remotely. Or you can just double-click it to install it interactively. It bundles JRE, so no separate Java installation is needed.<br/>
+<br/>
+<p><br/>
+The package also contains the bootstrap <tt>setup.exe</tt>, to install .NET 2.0 runtime if it's not installed yet. Between that and JRE, it got all the dependencies covered. I tested that by installing it on a fresh Windows XP install.<br/>
+<br/>
+<p><br/>
+So I hope this makes Jenkins more attractive to .NET and other developers who live and die by Windows.
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2011/06/08/lts-changelog/'>
-LTS Changelog
+<a href='/blog/2011/03/21/the-polls-are-open-for-the-jenkins-logo-contest/'>
+The polls are open for the Jenkins Logo Contest!
 </a>
 </h1>
 <div class='content'>
-<?php
-  readfile("/var/www/jenkins-ci.org/changelog-stable.html")
-?>
+<p>After a number of <strong>absolutely</strong> fantastic logo submissions from a number of designers, I'm extremely pleased to open the polls on the vote for the <strong><em>brand new Jenkins logo!</em></strong></p>
+
+<p>The thumbnails do not do any of these logos justice in my opinion, so I recommend opening each logo up in its own tab to get the full effect :)</p>
+
+<p>I plan to end voting <strong>March 28th at 12:01 UTC</strong>.</p>
+
+<h3 id="the-logos">The Logos</h3>
+
+<table>
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_matthias_cullman.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_christopher_getschmann.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_emily_bertelson.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-1">Logo #1</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-2">Logo #2</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-3">Logo #3</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_tomas_ekeli.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_vimil_saju.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_akiko_takano.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-4">Logo #4</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-5">Logo #5</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-6">Logo #6</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_jeremy_murray.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_2.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" />
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-7">Logo #7</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-8">Logo #8</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-9">Logo #9</a>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" />
+        </td>
+        <td align="center">
+            <img src="http://jenkins-ci.org/sites/default/files/images/jenkins_ben_minne.thumbnail.png" />
+        </td>
+        <td align="center">
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-10">Logo #10</a>
+        </td>
+        <td align="center">
+            <a href="http://jenkins-ci.org/content/jenkins-logo-entry-11">Logo #11</a>
+        </td>
+        <td align="center">
+        </td>
+    </tr>
+</table>
+<!--break-->
+<p>### The Vote</p>
+
+<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ">the form in a new window</a></p>
+
+<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dE9GNlpNbVEwa0VPZHl1TkJCaUI1Z2c6MQ" width="760" height="734" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/28.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/28.html" class="page-link">28</a> <span class="current-page">29</span> <a href="/node/page/30.html" class="page-link">30</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/30.html" class="next-link">Next</a> </div>
+<div class="pagination-links"><a href="/node/page/28.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/28.html" class="page-link">28</a> <span class="current-page">29</span> <a href="/node/page/30.html" class="page-link">30</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/30.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
