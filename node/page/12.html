@@ -116,14 +116,208 @@ virtually any project
 </p>
 </div>
 </div>
+<link href='/css/download.css' media='screen' rel='stylesheet'>
+<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
 </h3>
 <div class='content'>
-This is where download content goes
+<div id='download-tabs'>
+<ul class='tab-bar'>
+<li>
+<a href='#release'>
+Release
+</a>
+</li>
+<li>
+<a href='#stable'>
+Long-Term Support Release
+</a>
+</li>
+</ul>
+<div class='tab' id='release'>
+<dl>
+<dt>
+Java Web Archive (.war)
+</dt>
+<dd>
+<div>
+<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<strong>
+Latest:
+1.638
+</strong>
+</a>
+</div>
+<div class='release-block-small'>
+<a href='/changelog'>
+changelog
+</a>
+|
+<a href='http://mirrors.jenkins-ci.org/war/'>
+past releases
+</a>
+</div>
+</dd>
+<dt>Native packages</dt>
+<dd class='release-block-platforms'>
+<div>
+<img src='/images/os/win_other.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
+</img>
+</div>
+<div>
+<img src='/images/os/ubuntu.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
+</img>
+</div>
+<div>
+<img src='/images/os/redhat.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_macosx.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
+</img>
+</div>
+<div>
+<img src='/images/os/opensuse.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
+</img>
+</div>
+<div>
+<img src='/images/os/freebsd.png'>
+<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_openbsd.png'>
+<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_gentoo.png'>
+<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
+</img>
+</div>
+</dd>
+<dt>Docker</dt>
+<dd id='release-block-platforms'>
+<div>
+<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<tt>docker pull jenkinsci/jenkins</tt>
+</a>
+</div>
+</dd>
+</dl>
+</div>
+<div class='tab' id='stable'>
+<dl>
+<dt>Java Web Archive (.war)</dt>
+<dd style='margin-bottom:1em'>
+<div>
+<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<strong>
+Older but stable:
+1.625.2
+</strong>
+</a>
+</div>
+<div class='release-block-small' style='text-align:right'>
+<a class='release-block-soft' href='/changelog-stable'>changelog</a>
+|
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
+|
+<a class='release-block-soft' href='/stable-rc'>RC</a>
+</div>
+<br>
+<div style='text-align:right'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
+<strong>What is LTS?</strong>
+</a>
+</div>
+</dd>
+<dt>Native packages</dt>
+<dd class='release-block-platforms'>
+<div>
+<img src='/images/os/win_other.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
+</img>
+</div>
+<div>
+<img src='/images/os/ubuntu.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
+</img>
+</div>
+<div>
+<img src='/images/os/redhat.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_macosx.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
+</img>
+</div>
+<div>
+<img src='/images/os/opensuse.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
+</img>
+</div>
+<div>
+<img src='/sites/default/files/images/freebsd.png'>
+<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_openbsd.png'>
+<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_gentoo.png'>
+<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
+</img>
+</div>
+</dd>
+</dl>
+<dt>Docker</dt>
+<dd id='release-block-platforms'>
+<div>
+<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
+<tt>docker pull jenkins</tt>
+</a>
+</div>
+</dd>
 </div>
 </div>
+</div>
+</div>
+<script>
+  $(function(){
+    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
+      $("#download-tabs").tabs({ selected: 1 });
+    } else {
+      $("#download-tabs").tabs();
+    }
+    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" );
+  });
+  
+  function download(href) {
+    window.location = href;
+    return false;
+  }
+</script>
+<style>
+  .ui-widget { font-family: inherit !important; }
+  .ui-widget-content { color:inherit !important; }
+  .ui-widget-content .tab a { color: #D24939 !important; }
+</style>
 
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
@@ -390,34 +584,37 @@ The recording goes over how to implement the <tt>Step</tt> extension point, whic
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/07/03/jenkins-user-event-and-code-camp-2014-copenhagen/'>
-Jenkins User Event & Code Camp 2014, Copenhagen
+<a href='/blog/2014/07/03/pictures-from-juc-and-cdsummit/'>
+Pictures from JUC and cdSummit
 </a>
 </h1>
 <div class='content'>
 <p><br/>
-This is a guest post from Adam Henriques.<br/>
-<br/>
-<hr><br/>
+I've uploaded pictures I've taken during JUC Boston and JUC Berlin.<br/>
 <br/>
 <p><br/>
-On August 22nd Jenkins CI enthusiasts will gather in Copenhagen, Denmark for the 3rd consecutive year for a day of networking and knowledge sharing. Over the past two years the event has grown and this year we are expecting a record number of participants representing Jenkins CI experts, enthusiasts, and users from all over the world. <br/>
+<a href="https://www.flickr.com/photos/12508267@N00/sets/72157645016261249/">JUC Berlin pictures</a> starts with pre-conference beer garden meet-up. See <a href="http://github.com/vlatombe">Vincent Latombe</a> gives a talk about <a href="https://wiki.jenkins-ci.org/display/JENKINS/Literate+Plugin">Literate plugin</a>. I really appreciated his coming to this despite the fact that the event was only a few days before his wedding:<br/>
 <br/>
-</p><br/>
-<br/>
-<p><br/>
-<a href="http://www.praqma.com/events/jcicph14" target="_blank">The Jenkins CI User Event Copenhagen</a> has become cynosure for the Scandinavian Jenkins community to come together and share new ideas, network, and harness inspiration from peers. The program offers invited as well as contributed speaks, tech talks, case stories, and facilitated Open Space discussions on best practice and application of continuous integration and agile development with Jenkins. <br/>
-<br/>
-<h3>The Jenkins CI Code Camp 2014</h3><br/>
-<br/>
-<p><br/>
-The Jenkins CI User Event will be kicked off by <a href="http://www.praqma.com/events/jcicodecamp14" target="_blank">The Jenkins CI Code Camp</a> on August 21st, the day before the User Event. Featuring Jenkins frontrunners, this full day community driven event has become very popular, where Jenkins peers band together to contribute content back to the community. The intended audience is both experienced Jenkins developers and developers who are looking to get started with Jenkins plugin development. <br/>
-<br/>
-<p><br/>
-For more information please visit the <a href="http://www.praqma.com/events/jcicph14" target="_blank">Jenkins CI User Event 2014, Copenhagen website</a>.<br/>
 <div align=center><br/>
-<img src="http://www.praqma.com/sites/default/files/img/DSC_0045_scaled.jpg" width="40%"><br/>
-</div>
+<a href="https://www.flickr.com/photos/12508267@N00/14512095456"><img src="https://farm6.staticflickr.com/5577/14512095456_7d592d5f9b_n.jpg" width="320" height="213"></a><br/>
+</div><br/>
+<br/>
+<p><br/>
+In <a href="https://www.flickr.com/photos/12508267@N00/sets/72157645015219907/">JUC Boston pictures</a>, you can see some nice Jenkins lighting effect, as well as my fellow colleague Corey Phelan using World Cup to lure attendees into a booth:<br/>
+<br/>
+<div align=center><br/>
+<a href="https://www.flickr.com/photos/12508267@N00/14555175333" title="IMG_8721 by Kohsuke Kawaguchi, on Flickr"><img src="https://farm3.staticflickr.com/2908/14555175333_48aa816387_n.jpg" width="213" height="320" alt="IMG_8721"></a><br/>
+</div><br/>
+<br/>
+<div align=center><br/>
+<a href="https://www.flickr.com/photos/12508267@N00/14535019775" title="IMG_8745 by Kohsuke Kawaguchi, on Flickr"><img src="https://farm3.staticflickr.com/2939/14535019775_60e691c1dc_n.jpg" width="320" height="213" alt="IMG_8745"></a><br/>
+</div><br/>
+<br/>
+<p><br/>
+Pictures from <a href="http://www.cloudbees.com/cdsummit/">the cdSummits</a> are also available <a href="https://www.flickr.com/photos/12508267@N00/sets/72157645015519967/">here</a> and <a href="https://www.flickr.com/photos/12508267@N00/sets/72157645015398517/">here</a>.<br/>
+<br/>
+<p><br/>
+If you have taken pictures, please share with us as your comment here so that others can see them.
 
 </div>
 </div>
@@ -439,7 +636,7 @@ For more information please visit the <a href="http://www.praqma.com/events/jcic
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

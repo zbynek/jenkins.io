@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js'></script>
+
+</head>
+<body>
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+    
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    }); 
+  })
+</script>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='navbar-brand' href='/new'>
+Jenkins.io
+</a>
+<ul class='nav navbar-nav'>
+<li class='nav-item'>
+<div class='btn-group' id='download-menu'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war' title='Download the latest Jenkins war: 1.638'>
+Download
+</a>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'></a>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='http://jenkins-ci.org/changelog'>Changelog</a>
+<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Mac OSX
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+OpenSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>Plugins</a>
+</div>
+
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/plugins'>
+Plugins
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/blogs'>
+Blogs
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='active nav-item'>
+<a class='nav-link' href='/doc'>
+Doc
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+More
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item'>
+Members
+</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item'>
+Resources
+</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item'>
+Issues
+</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item'>
+Features
+</a>
+<div class='dropdown-divider'></div>
+<a class='dropdown-item feature docker' href='/docker'>
+Continuous Integration - CI
+</a>
+<a class='dropdown-item feature docker' href='/docker'>
+Continuous Delivery - CD
+</a>
+<a class='dropdown-item feature docker' href='/docker'>
+Github and Jenkins
+</a>
+<a class='dropdown-item feature docker' href='/docker'>
+Docker and Jenkins
+</a>
+<a class='dropdown-item feature docker' href='/docker'>
+Android and Jenkins
+</a>
+<a class='dropdown-item feature docker' href='/docker'>
+Puppet infrastructure
+</a>
+</div>
+</li>
+</ul>
+<form class='form-inline navbar-form pull-right'>
+<input class='form-control' placeholder='search' type='text'>
+<button class='btn btn-success-outline' type='submit'>
+<i class='icon-search'></i>
+</button>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<div class='intro jumbotron jumbotron-fluid tint'>
+<div class='container center'>
+<div class='center col-md-6'>
+<h2>What is Jenkins?</h2>
+<p>
+In a nutshell, Jenkins is the leading open source automation server. Built with Java, it provides
+<strong>
+hundreds
+</strong>
+of plugins to support building, testing, deploying and automation virtually any project
+</p>
+</div>
+</div>
+</div>
+
+<ol class='jumbotron getting-started step-by-step'>
+<h3 class='header'>
+Getting started with Jenkins
+</h3>
+<li class='card step'>
+<a class='card-block' data-container='#ji-hover-layer' data-content='This is the long description guy that really tells you what to do with Docker and why it is fun and good. Not sure why HTML is not working...' data-placement='top' data-title='Learn some things' data-toggle='popover' data-trigger='hover focus'>
+<h4 class='card-title'>
+<div class='tag'>Step</div>
+<div class='num'>
+1
+</div>
+</h4>
+<p class='short'>
+Learn more about this cool thing called Docker...
+</p>
+</a>
+</li>
+<li class='card step'>
+<a class='card-block' data-container='#ji-hover-layer' data-content='This is the long description guy that really tells you what to do' data-placement='top' data-title='Make containers' data-toggle='popover' data-trigger='hover focus'>
+<h4 class='card-title'>
+<div class='tag'>Step</div>
+<div class='num'>
+2
+</div>
+</h4>
+<p class='short'>
+Install this software to start doing awesomeness...
+</p>
+</a>
+</li>
+<li class='card step'>
+<a class='card-block' data-container='#ji-hover-layer' data-content='This is the long description guy that really tells you what to do' data-placement='top' data-title='Make containers' data-toggle='popover' data-trigger='hover focus'>
+<h4 class='card-title'>
+<div class='tag'>Step</div>
+<div class='num'>
+3
+</div>
+</h4>
+<p class='short'>
+Containers can be used for everything you can possibly imagine, so check it out...
+</p>
+</a>
+</li>
+<li class='card step'>
+<a class='card-block' data-container='#ji-hover-layer' data-content='This is the long description guy that really tells you what to do' data-placement='top' data-title='Deploy code' data-toggle='popover' data-trigger='hover focus'>
+<h4 class='card-title'>
+<div class='tag'>Step</div>
+<div class='num'>
+4
+</div>
+</h4>
+<p class='short'>
+Jenkins makes building with tools something easy and fun...
+</p>
+</a>
+</li>
+</ol>
+
+<div class='container'>
+<div class='row body'>
+<div class='col-md-1'></div>
+<div class='col-md-8'>
+<h2>Jenkins Documentation</h2>
+<div class='doc-block'>
+<h4>Introdution</h4>
+<p>Lorem ipsum dolor sit amet, per stet error laudem ei, cum autem vocent complectitur an. Agam possit dicunt duo ex, rationibus consectetuer vis no. In vix scaevola tacimates, mea constituam suscipiantur delicatissimi cu. Pri ut nibh antiopam, fierent repudiare mel ex, quo ne dico omnesque. Mel et perfecto concludaturque, eligendi efficiantur et qui. Brute dicat facilisi cu nam.</p>
+<p>Possit commune scriptorem ex vix, augue semper torquatos an est. Qui eu consul meliore recteque, sit diam dictas mandamus id. Id nec oporteat accusamus, ad eleifend constituto nam. Sed no clita nusquam, eu facilis dolores eos. In omittam explicari contentiones his, has prima erant te, usu clita inimicus dissentiet ea. Iuvaret singulis qui ei, liber libris vel ea. Te sea solet eleifend, vix primis ornatus deseruisse ne.</p>
+<p>Wisi lobortis pri ei. Maluisset aliquando instructior vel ea. Ut duo amet dicam. Dolorum mandamus accusamus cum no, vix ex hinc appellantur, vim bonorum copiosae euripidis ut.</p>
+</div>
+<div class='doc-block'>
+<h3>Setup and Installation</h3>
+<div class='sub-block'>
+<h4>System requirement</h4>
+<p>Jenkins requires Java7 or above to function. Java8 is recommended. Jenkins requires a fair amount of memory to operate well. Smaller installations should start around 256MB-1GB.</p>
+</div>
+<div class='sub-block'>
+<h4>Unix/Linux Installation</h4>
+<p>Jenkins has native integrations with the following OSes. See respective sections for how to make Jenkins run in the background automatically:</p>
+<ul>
+<li>Installing Jenkins as Solaris 10 service</li>
+<li>Installing Jenkins on Ubuntu</li>
+<li>Installing Jenkins on Red Hat Distributions</li>
+<li>Installing Jenkins with Docker</li>
+</ul>
+<p>Alternatively, if you have a servlet container that supports Servlet 2.4/JSP 2.0, such as Glassfish v2, Tomcat 5 (or any later versions), then you can run them as services, and deploy jenkins.war as you would any other war file. Container specific documentation is available if you choose this route.</p>
+</div>
+<div class='sub-block'>
+<h4>Windows Installation</h4>
+<p>If you're running on Windows it is good to run Jenkins as a service so it starts up automatically without requiring a user to log in. The easiest way is to run the Windows installer, linked from Jenkins' homepage. This also has the advantage of being easier to automate.</p>
+<p>The manual way is to follow Installing Jenkins as a Windows service. Alternatively, you can install a servlet container like GlassFish and Tomcat, which can run as a service by itself, and then deploy Jenkins to it.</p>
+<p>Since Jenkins was written to work on unix-like platforms, some parts assume the presence of unix-utilities. It is advised to install these as well on Windows. Install UnxUtils (this includes a shell that seems to work with forward and backwards slashes and does globbing correctly)(UnxUtils does not download), put it in the Windows PATH , and copy sh.exe to C:\bin\sh.exe (or whichever drive you use) to make shebang lines work. This should get you going. If UnxUtils gives you trouble (Fork Failed Errors), try Win-Bash.</p>
+<ul>
+<li>Installing Jenkins as a Windows service</li>
+</ul>
+</div>
+<div class='sub-block'>
+<h4>Installation Wizard</h4>
+<p>TODO. This feature is under development.</p>
+</div>
+<div class='sub-block'>
+<h4>Jenkins Offline Installation</h4>
+<p>See details.</p>
+</div>
+<div class='sub-block'>
+<h4>Case Studies</h4>
+<p>Also, see how other people are deploying Jenkins/Hudson to get some idea of how to make it fit your environment.</p>
+<ul>
+<li>How I setup Git, Gerrit, Jenkins, Nginx for 1 master with linux, windows, mac slaves for Continuous Delivery of Cpp builds and tests.</li>
+<li>Case study of Sven Reimers</li>
+<li>Case study of Kohsuke Kawaguchi</li>
+<li>Case study of Rhett Sutphin</li>
+<li>Case study of Ned Collyer</li>
+<li>Case Study of Arnaud Lacour</li>
+<li>Case Study of JBoss</li>
+</ul>
+<p>we'd love to list yours here. Please talk to us.</p>
+</div>
+</div>
+</div>
+<div class='col-md-3'>
+<h5>Table of contents</h5>
+<ul class='list-unstyled toc'>
+<li>
+<a>Setup and Installation</a>
+</li>
+<ul class='active-section'>
+<li>
+<a>System requirement</a>
+</li>
+<li>
+<a>Unix/Linux Installation</a>
+</li>
+<li>
+<a>Windows Installation</a>
+</li>
+<li>
+<a>Installation Wizard</a>
+</li>
+<li>
+<a>Jenkins Offline Installation</a>
+</li>
+<li>
+<a>Case Studies</a>
+</li>
+</ul>
+<li>
+<a>Starting and Accessing Jenkins</a>
+</li>
+<li>
+<a>Administering Jenkins</a>
+</li>
+<li>
+<a>Logging and Access Logging</a>
+</li>
+<li>
+<a>Building a software project</a>
+</li>
+<li>
+<a>Building a maven2 project</a>
+</li>
+<li>
+<a>Building a matrix project</a>
+</li>
+<li>
+<a>Building an Android app and test project</a>
+</li>
+<li>
+<a>Creating a Continuous Delivery (CD) Pipeline</a>
+</li>
+<li>
+<a>Monitoring external jobs</a>
+</li>
+<li>
+<a>Distributed builds</a>
+</li>
+<li>
+<a>Features controlled by system properties</a>
+</li>
+<li>
+<a>File fingerprint tracking</a>
+</li>
+<li>
+<a>Using Jenkins plugins</a>
+</li>
+<li>
+<a>Quicker navigation around Jenkins pages</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

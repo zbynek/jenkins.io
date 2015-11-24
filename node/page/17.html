@@ -116,14 +116,208 @@ virtually any project
 </p>
 </div>
 </div>
+<link href='/css/download.css' media='screen' rel='stylesheet'>
+<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
 </h3>
 <div class='content'>
-This is where download content goes
+<div id='download-tabs'>
+<ul class='tab-bar'>
+<li>
+<a href='#release'>
+Release
+</a>
+</li>
+<li>
+<a href='#stable'>
+Long-Term Support Release
+</a>
+</li>
+</ul>
+<div class='tab' id='release'>
+<dl>
+<dt>
+Java Web Archive (.war)
+</dt>
+<dd>
+<div>
+<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<strong>
+Latest:
+1.638
+</strong>
+</a>
+</div>
+<div class='release-block-small'>
+<a href='/changelog'>
+changelog
+</a>
+|
+<a href='http://mirrors.jenkins-ci.org/war/'>
+past releases
+</a>
+</div>
+</dd>
+<dt>Native packages</dt>
+<dd class='release-block-platforms'>
+<div>
+<img src='/images/os/win_other.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
+</img>
+</div>
+<div>
+<img src='/images/os/ubuntu.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
+</img>
+</div>
+<div>
+<img src='/images/os/redhat.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_macosx.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
+</img>
+</div>
+<div>
+<img src='/images/os/opensuse.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
+</img>
+</div>
+<div>
+<img src='/images/os/freebsd.png'>
+<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_openbsd.png'>
+<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_gentoo.png'>
+<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
+</img>
+</div>
+</dd>
+<dt>Docker</dt>
+<dd id='release-block-platforms'>
+<div>
+<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<tt>docker pull jenkinsci/jenkins</tt>
+</a>
+</div>
+</dd>
+</dl>
+</div>
+<div class='tab' id='stable'>
+<dl>
+<dt>Java Web Archive (.war)</dt>
+<dd style='margin-bottom:1em'>
+<div>
+<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<strong>
+Older but stable:
+1.625.2
+</strong>
+</a>
+</div>
+<div class='release-block-small' style='text-align:right'>
+<a class='release-block-soft' href='/changelog-stable'>changelog</a>
+|
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
+|
+<a class='release-block-soft' href='/stable-rc'>RC</a>
+</div>
+<br>
+<div style='text-align:right'>
+<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
+<strong>What is LTS?</strong>
+</a>
+</div>
+</dd>
+<dt>Native packages</dt>
+<dd class='release-block-platforms'>
+<div>
+<img src='/images/os/win_other.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
+</img>
+</div>
+<div>
+<img src='/images/os/ubuntu.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
+</img>
+</div>
+<div>
+<img src='/images/os/redhat.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_macosx.png'>
+<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
+</img>
+</div>
+<div>
+<img src='/images/os/opensuse.png'>
+<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
+</img>
+</div>
+<div>
+<img src='/sites/default/files/images/freebsd.png'>
+<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_openbsd.png'>
+<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
+</img>
+</div>
+<div>
+<img src='/images/os/os_gentoo.png'>
+<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
+</img>
+</div>
+</dd>
+</dl>
+<dt>Docker</dt>
+<dd id='release-block-platforms'>
+<div>
+<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
+<tt>docker pull jenkins</tt>
+</a>
+</div>
+</dd>
 </div>
 </div>
+</div>
+</div>
+<script>
+  $(function(){
+    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
+      $("#download-tabs").tabs({ selected: 1 });
+    } else {
+      $("#download-tabs").tabs();
+    }
+    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" );
+  });
+  
+  function download(href) {
+    window.location = href;
+    return false;
+  }
+</script>
+<style>
+  .ui-widget { font-family: inherit !important; }
+  .ui-widget-content { color:inherit !important; }
+  .ui-widget-content .tab a { color: #D24939 !important; }
+</style>
 
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
@@ -494,6 +688,31 @@ Can’t wait to see everyone on Wednesday!<br/>
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2013/10/09/meet-the-community-in-juc/'>
+"Meet the community" in JUC
+</a>
+</h1>
+<div class='content'>
+(This is a guest post from Owen B. Mehegan aka autojack)<br/>
+<br/>
+<div style="float:right; margin:1em"><a href="http://commons.wikimedia.org/wiki/Category:Minced_meat"><img style="width:160px; height:99px" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Minced_beef_meat_cow_cattle_shadow.png/320px-Minced_beef_meat_cow_cattle_shadow.png"></a></div><br/>
+<br/>
+<p><br/>
+The Jenkins User Conference - Palo Alto is coming up on October 23rd! The schedule for talks is full, but we've been looking for a way to give other members of the Jenkins community some visibility. There are many people who have contributed to the project in various ways, whether it's contributing to core, developing plugins, writing documentation or just helping new users.<br/>
+<br/>
+<p><br/>
+If this sounds like you, we're interested in giving you 10-15 minutes to talk to the rest of the conference attendees! The format is currently undefined and may be left up to you. You could do a Q&amp;A, talk about features you've worked on and why they were important to you, or just offer some "pro tips" that you've developed based on your experience. The main point is to help put faces to some of the names in the community, and also help encourage others to contribute themselves! We're thinking of having these sessions during lunch and the exhibit hour (<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">see here for the schedule</a>).<br/>
+<br/>
+<p><br/>
+If you're interested in this, or know someone else who might be that I could contact, please let me (owen at nerdnetworks dot org) know! If we can get some critical mass around it then we'll go ahead.<br/>
+<br/>
+<p><br/>
+Thanks!
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2013/10/09/jenkins-at-netflix-juc-speaker-interview/'>
 Jenkins at Netflix / JUC speaker interview
 </a>
@@ -523,31 +742,6 @@ As usual, there will be a whole crew of Netflix engineers at JUC this year.  If 
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/10/09/meet-the-community-in-juc/'>
-"Meet the community" in JUC
-</a>
-</h1>
-<div class='content'>
-(This is a guest post from Owen B. Mehegan aka autojack)<br/>
-<br/>
-<div style="float:right; margin:1em"><a href="http://commons.wikimedia.org/wiki/Category:Minced_meat"><img style="width:160px; height:99px" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Minced_beef_meat_cow_cattle_shadow.png/320px-Minced_beef_meat_cow_cattle_shadow.png"></a></div><br/>
-<br/>
-<p><br/>
-The Jenkins User Conference - Palo Alto is coming up on October 23rd! The schedule for talks is full, but we've been looking for a way to give other members of the Jenkins community some visibility. There are many people who have contributed to the project in various ways, whether it's contributing to core, developing plugins, writing documentation or just helping new users.<br/>
-<br/>
-<p><br/>
-If this sounds like you, we're interested in giving you 10-15 minutes to talk to the rest of the conference attendees! The format is currently undefined and may be left up to you. You could do a Q&amp;A, talk about features you've worked on and why they were important to you, or just offer some "pro tips" that you've developed based on your experience. The main point is to help put faces to some of the names in the community, and also help encourage others to contribute themselves! We're thinking of having these sessions during lunch and the exhibit hour (<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">see here for the schedule</a>).<br/>
-<br/>
-<p><br/>
-If you're interested in this, or know someone else who might be that I could contact, please let me (owen at nerdnetworks dot org) know! If we can get some critical mass around it then we'll go ahead.<br/>
-<br/>
-<p><br/>
-Thanks!
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/16.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/16.html" class="page-link">16</a> <span class="current-page">17</span> <a href="/node/page/18.html" class="page-link">18</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/18.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
@@ -566,7 +760,7 @@ Thanks!
 </script>
 
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>
