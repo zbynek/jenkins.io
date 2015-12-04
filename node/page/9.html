@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,77 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/04/06/good-bye-java6/'>
+Good bye Java6
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/6_(number)"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/6/62/U%2B2678_DejaVu_Sans.svg/200px-U%2B2678_DejaVu_Sans.svg.png"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+About two years ago, we bumped our runtime JRE requirement <a href="http://jenkins-ci.org/commit/core/3431a7cba">from Java5 to Java6</a>. And so the time has come once again for us to finally move on to Java7. Because of all the new language features, <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/sw_WepGw0Pk">many of us the developers really wanted to move right on to Java8</a>, but after much discussion we settled to move to Java7 first and then to Java8.<br/>
+<br/>
+<p><br/>
+So here is the plan:<br/>
+<br/>
+<ul><br/>
+<li>Starting Jenkins 1.608, we start advertising that we will be moving on to Java7, which is why you are reading this.<br/>
+<li>Starting Jenkins 1.610 (2 weeks from now), we will ship so-called 51.0 class files that will only load on Java7+. This gives some more warnings to those who don't read our blog.<br/>
+<li>Unless we hear uproar from users, starting around 1.614 (6 weeks from now), core developers will start linking directly to new Java7 APIs. <a href="http://jenkins-ci.org/content/thinking-about-moving-servlet-30">We will move on to servlet 3.0 at this time as well</a>.<br/>
+<li>The current 1.596 line of LTS will remain compatible with Java6, and most likely the next LTS line will also remain compatible with Java6. So LTS users have additional 3 months before upgrading to Java7.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+Java7 has more NIO improvements that allow us to do some file I/O in more portable manner. Similarly, servlet 3.0 will help us build more interactive UI.<br/>
+<br/>
+<p><br/>
+Your Jenkins master and all the build slaves need to be running on Java7+. Similarly, those who are using the Maven2 job type must also run Maven with Java7+. However, this does not prevent you from using Jenkins to build your applications that are targeted to earlier versions of Java. According to our research, most platforms people run Jenkins on has been already shipping Java7 for quite some time now. But if you have a good reason why we shouldn't force everyone to Java7, please let us know ASAP.<br/>
+<br/>
+<p><br/>
+To put this into context, <a href="https://www.java.com/en/download/faq/java_7.xml">Oracle will not release updates to Java7 past April 2015</a>. We have always recommended users to run the latest general release according to Oracle, which is currently Java8. As I said, I suspect we will be requiring Java8 pretty soon. So if you are still running Java6, you should definitely upgrade to Java8.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/04/06/confluence-migration-this-weekend/'>
+Confluence migration this weekend
+</a>
+</h1>
+<div class='content'>
+<div style="float:right;margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Structure_relocation"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/GMC_U-Haul_truck_front_1.JPG/320px-GMC_U-Haul_truck_front_1.JPG"><br/>
+</a></div><br/>
+<p><br/>
+For the past few weeks, I've burnt a lot of midnight oil to <a href="https://github.com/jenkins-infra/confluence">get Confluence containerized</a>. The goal is to make Confluence upgrade more manageable and testable. In the proces, I've not only containerized Confluence, but also containerized <a href="https://github.com/jenkins-infra/confluence-cache">some other services</a>, including <a href="https://github.com/jenkins-infra/mock-ldap">mock LDAP server</a>, to be able to test the copy of the production Confluence dataset against newer versions of Confluence before upgrading production.<br/>
+<br/>
+<p><br/>
+The infra team is currently <a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/2015-April/000292.html">targeting this weekend</a> to migrate our current Confluence instance to this new container, and use the opportunity to move the service to a bigger system. Currently JIRA and Confluence has to live within 2.5GB RAM from the same host, and it's really stretching both services. The new box has 4GB of RAM, and we are splitting JIRA and Confluence to two different servers. So there's a lot of head room.<br/>
+<br/>
+<p><br/>
+So please expect some Wiki outage over the next weekend.<br/>
+<br/>
+<P><br/>
+As always, our sincere thank you to <a href="http://osuosl.org/">Oregon State University Open Source Lab</a> for generously hosting our servers. Please donate to them to show your support. Similarly, thank you <a href="http://atlassian.com/">Atlassian</a> for generously providing the license for running Confluence.<br/>
+<br/>
+<p><br/>
+If this goes well, JIRA will follow suit.
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2015/03/25/registration-for-juc-2015-is-open/'>
@@ -528,94 +603,12 @@ But if you have any other suggestions/questions that you'd like us to discuss, y
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/19/jenkins-100k-celebration-pictures/'>
-Jenkins 100K celebration pictures
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-In preparation of the celebration of 100K installations, 1000 plugins, and 10 years of Jenkins, we've got these images created.<br/>
-<br/>
-<p><br/>
-I hope folks can use these images to mark the occasion! <a href="https://www.flickr.com/photos/131462214@N04/sets/72157650510081118/">The full size pictures are here</a>.<br/>
-<br/>
-<div align=center><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/jenkins100k_1.jpeg" width=379 height=479><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/02/09/jenkins-celebration-day-is-february-26/'>
-Jenkins Celebration Day is February 26
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-Congratulations! The Jenkins project officially went over the 100K active users mark sometime in January. As of January 31, <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/total-jenkins.svg">we were at 102,992</a>. YOU are one of the 100K active users!<br/>
-<br/>
-<p><br/>
-As discussed on <a href="http://meetings.jenkins-ci.org/jenkins/2015/">a couple recent project meetings</a>, we have designated <b>February 26</b> as Jenkins Celebration Day.<br/>
-<br/>
-<p><br/>
-To make some noise, here is what we are doing starting NOW:<br/>
-<br/>
-<ul><br/>
-<li><br/>
-Write a blog about anything related to Jenkins. Post your blog and Tweet out a link to it. Include the hashtag <b>#Jenkins100K</b> in your post.<br/>
-<br/>
-<li><br/>
-On February 26, we will hold a raffle and pick four names at random.  The grand prize winner will get a <a href="http://jenkins-ci.org/content/jenkins-figure-available-shapeways">3D Jenkins Butler model</a>. Five others will get their pick of Jenkins swag (up to $20) from <a href="http://www.cafepress.com/jenkinsci">the Jenkins online store</a>.<br/>
-<br/>
-</ul><br/>
-<br/>
-<h2>OTHER WAYS TO CELEBRATE</h2><br/>
-<br/>
-<p><br/>
-There are a number of other things planned and we want YOU to be involved. This blog post is the central place to come for all things related to the celebration. <br/>
-<br/>
-<ul><br/>
-<li><br/>
-<b>Recording – Jenkins Governance Board</b><br/>
-Dean, Tyler, Andrew and I will get together this month and record some thoughts about the Jenkins project. We will share that recording with you from this page on February 26.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/sites/default/files/images/jenkins-100k-profile_4.jpg">Twitter Badge</a></b><br/>
-For those of us on social media that want to proudly celebrate our community, we will have a special badge that you can use for your profile image on Twitter or any of the other social media forums. Feel free to use the badge as long as you want – but let’s get as many of us using it as possible between now and February 27.<br/>
-<br/>
-<li><br/>
-<b><a href="http://jenkins-ci.org/content/jenkins-100k-celebration-pictures">Social Media Images</a></b><br/>
-<ul><br/>
-<li>CloudBees is donating a series of images that we can all push out on social media (whatever platform(s) you use). <br/>
-<li>Pick your favorite(s) and push them out on Twitter, Facebook, G+<br/>
-</ul><br/>
-<br/>
-<li><br/>
-<b>Certificate</b> (available on this blog post soon)<br/>
-Download your very own “I am part of the Jenkins 100K” certificate. Print it out and proudly display it on the wall of your cube or office.<br/>
-<br/>
-<li><br/>
-<b>Visibility</b><br/>
-The Community will also issue a press release on February 26 announcing our milestone news.<br/>
-<br/>
-<li><br/>
-<b>Sign the “card”</b><br/>
-Consider this blog a Congratulations card to the entire community. Share your thoughts in a comment on this blog about anything Jenkins-related that you wish!<br/>
-</ul><br/>
-<br/>
-<p><br/>
-This is a big milestone for the Community and one you should be proud to be part of! Let’s make some noise…<br/>
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/8.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/8.html" class="page-link">8</a> <span class="current-page">9</span> <a href="/node/page/10.html" class="page-link">10</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/10.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -628,8 +621,9 @@ This is a big milestone for the Community and one you should be proud to be part
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

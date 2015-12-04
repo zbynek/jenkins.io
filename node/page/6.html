@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,71 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/29/juc-europe-slides-and-video-are-now-available-online/'>
+JUC Europe slides and video are now available online
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/london_0.jpg" width=250 height=165><br/>
+</div><br/>
+<br/>
+<p><a href="https://www.cloudbees.com/jenkins/juc-2015/europe">Slides and video from JUC Europe</a> are now available online!</p><br/>
+<br/>
+<p>If you made it to London to attend this year's JUC Europe, <a href="https://flic.kr/p/uER3fe"><b>I hope you enjoyed the conference</b></a>, met plenty of community members and learned more about Jenkins. Now that the slides and video are up, you can revisit your <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/02-02-1130-cruz">favorite talks</a> or "attend" the ones that you missed...all at your leisure.</p><br/>
+<br/>
+<p>If you were unable to attend JUC Europe, well, now you can! The slides and video are <a href="https://www.cloudbees.com/jenkins/juc-2015/europe">here</a> so you can "attend" any time you want. If JUC LIVE seems more appealing to you, there is <b>one</b> date left in the 2015 Jenkins User Conference World Tour: <b>JUC U.S. West is September 2-3 in Santa Clara, CA. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here.</a></b></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/28/reinforcements-for-the-subversion-plugin/'>
+Reinforcements for the Subversion Plugin
+</a>
+</h1>
+<div class='content'>
+<p><em>This is a guest post by Manuel Recena Soto (aka recena).</em></p>
+
+<p>Users of the plug-in know that it has undergone <a href="https://wiki.jenkins-ci.org/display/JENKINS/Subversion+Plugin#SubversionPlugin-ChangeLog">very important changes</a> in the last two years.</p>
+
+<p>Unfortunately, some of these changes resulted in regressions for some users that weren’t properly addressed in subsequent releases. Many users were therefore forced to keep using an older release of the plugin to keep their instances running.</p>
+
+<p>To fix this difficult situation I've decided to dedicate my spare time to improving the plug-in and attempting to restore the stability that an essential plug-in like this requires.</p>
+
+<p>In order to do so, <a href="https://github.com/recena/">me</a>, my colleague <a href="https://github.com/christ66">Steven Christou</a> and other members of the community have drawn up a plan.</p>
+
+<p>In the coming weeks we will be focusing our efforts on:</p>
+
+<ul>
+  <li>Going through the Jira tickets
+    <ul>
+      <li>Checking whether they are duplicated</li>
+      <li>Checking whether they are still relevant</li>
+      <li>Asking for more information from the people who reported them</li>
+      <li>Establishing their priority</li>
+    </ul>
+  </li>
+  <li>Reviewing pull requests</li>
+  <li>Investigating bug reports and try to reproduce them</li>
+  <li>Fixing serious bugs</li>
+  <li>Refactoring the plugin to improve its maintainability.</li>
+</ul>
+
+<p>We’re planning to publish a new 2.5.x bugfix release once a fortnight. We are not considering the inclusion of new features or improvements. The priority now must be to obtain a stable and reliable plug-in, one that will allow us to take things up again in the future with greater security and peace of mind.</p>
+
+<p><em>Interested in helping? Just send us a message!</em></p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2015/07/25/bay-area-jenkins-area-meet-up-is-looking-for-you/'>
@@ -388,6 +457,25 @@ As a first step, he wants to have a kick-off meeting, to get more insights and o
 <br/>
 <p><br/>
 If you are in the Peninsula, South Bay, East Bay, etc., please send some encouragements to him by posting a comment, or better yet, come to the kick-off meeting.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/07/24/juc-u-s-east-slides-and-video-are-now-available-online/'>
+JUC U.S. East slides and video are now available online
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/dc_0.jpg" width=200 height=149><br/>
+</div><br/>
+<br/>
+<p><a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">Slides and video from JUC U.S. East</a> are now available online!</p><br/>
+<br/>
+<p>If you attended the conference, <b>THANK YOU</b>, and I'm sure you had fun, learned a lot and met many people from the Jenkins community. Now you can revisit your <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1400-glick">favorite talks</a> or "attend" the ones that you missed.</p><br/>
+<br/>
+<p>If you were unable to attend JUC U.S. East, you now have the <a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">slides and video</a> so you can "attend" anyways! If you like what you see and would like to attend a JUC this year, there is <b>ONE</b> date left in the 2015 Jenkins User Conference World Tour: <b>JUC U.S. West is September 2-3 in Santa Clara, CA. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here.</a></b></p>
 
 </div>
 </div>
@@ -422,25 +510,6 @@ Integrating Kubernetes and Jenkins
   <li><a href="http://blog.cloudbees.com/2015/07/on-demand-jenkins-slaves-with.html">On-demand Jenkins slaves with Kubernetes and the Google Container Engine</a></li>
   <li><a href="http://blog.cloudbees.com/2015/07/clustering-jenkins-with-kubernetes-in.html">Clustering Jenkins with Kubernetes in the Google Container Engine</a></li>
 </ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/24/juc-u-s-east-slides-and-video-are-now-available-online/'>
-JUC U.S. East slides and video are now available online
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/dc_0.jpg" width=200 height=149><br/>
-</div><br/>
-<br/>
-<p><a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">Slides and video from JUC U.S. East</a> are now available online!</p><br/>
-<br/>
-<p>If you attended the conference, <b>THANK YOU</b>, and I'm sure you had fun, learned a lot and met many people from the Jenkins community. Now you can revisit your <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/01-02-1400-glick">favorite talks</a> or "attend" the ones that you missed.</p><br/>
-<br/>
-<p>If you were unable to attend JUC U.S. East, you now have the <a href="https://www.cloudbees.com/jenkins/juc-2015/us-east">slides and video</a> so you can "attend" anyways! If you like what you see and would like to attend a JUC this year, there is <b>ONE</b> date left in the 2015 Jenkins User Conference World Tour: <b>JUC U.S. West is September 2-3 in Santa Clara, CA. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here.</a></b></p>
 
 </div>
 </div>
@@ -557,53 +626,12 @@ Juseppe, a custom update site for Jenkins
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/09/jenkins-user-event-scandinavia-2015/'>
-Jenkins User Event Scandinavia 2015
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/jues_0.png" width=270 height=181><br/>
-</div><br/>
-<br/>
-<p><i>For the 4th consecutive year the Jenkins CI community is gathering in Scandinavia.</i> <a href="http://www.code-conf.com/jues15/">JUES</a> inspires both current as well as soon-to-be Jenkins users to network and harness inspiration from peers and experts on best practice and implementation of Continuous Integration, Continuous Delivery, and agile development with Jenkins.</p><br/>
-<br/>
-<p><i>As always we’ll precede the JUES conference with a <a href="http://www.code-conf.com/jues15/codecamp/">Code Camp</a> on the day before.</i> The Code Camp is a full day community event where developers learn from fellow developers on coding and plugin enhancement, all delivered back to the community.</p><br/>
-<br/>
-<p>We welcome you and other leading Jenkins developers, QA, DevOps, and operations personnel to this years Scandinavian Jenkins CI festival hoping to continuously support the growth of the Jenkins Open Source community.</p><br/>
-<br/>
-<p><b><a href="http://www.code-conf.com/jues15/">REGISTER FOR JUES HERE</a></b></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/06/22/new-wiki-url-requirement-for-plugins/'>
-New Wiki URL Requirement for Plugins
-</a>
-</h1>
-<div class='content'>
-<p>Let's say you're browsing the 'Available' tab in the Jenkins plugin manager for interesting-looking plugins. How do you learn more about them, preferably without installing them on your production instance? You click the plugin's name, which usually links to the plugin's wiki page, of course!</p>
-
-<p>Unfortunately, it's possible for plugins to be published without a wiki page, or any other documentation aside from what's provided in the plugin itself. This is really unfortunate, as users rely on wiki pages and similar documentation to learn more about a plugin before installing or upgrading it, like its features, limitations, or recent changes. Additionally, plugin wiki pages have a special section at the top that provides an automatically generated technical overview of the plugin, such as dependencies to other plugins, the minimum compatible Jenkins version, a list of developers, and links to the source code repository and issue tracker component. Everyone learning about or using a plugin benefits from a plugin wiki page and luckily, almost all plugins have one!</p>
-
-<p>To ensure that <em>every</em> plugin has at least a basic wiki page with some documentation, we decided to only publish plugins in the Jenkins update center that have and link to a wiki page. To keep the impact to a minimum, we're implementing this plan in several stages.</p>
-
-<p>The first stage went live on June 1: All existing plugins that don't have a (valid) wiki link got a wiki link <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">assigned by the update center</a> (a so-called 'override'), either to an existing wiki page if there was one, or a generic <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing">"This plugin has no documentation" wiki page</a> otherwise. This ensures that no currently existing plugins get dropped from the update center at this point. Of course, <em>new</em> plugins that don't provide a wiki URL and don't have an override URL will not show up at all.</p>
-
-<p>The second stage will be enabled later this year: We're planning to remove all the overrides mentioned above. At this point, plugins may get removed from the update center if they still don't specify a wiki URL. Of course this isn't our goal, and we'll try to work with plugin authors to prevent this from happening.</p>
-
-<p>So what can you do? Check the <a href="https://github.com/jenkinsci/backend-update-center2/blob/master/src/main/resources/wiki-overrides.properties">current overrides list</a> to see whether the plugins you care about are affected, and if so, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugin+Documentation+Missing#PluginDocumentationMissing-HowcanIhelp%3F">see the landing page in the wiki</a> to learn what you can do. If you have any questions about this process not covered by the wiki, ask us on the <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">Jenkins developers mailing list</a>.</p>
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/5.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/5.html" class="page-link">5</a> <span class="current-page">6</span> <a href="/node/page/7.html" class="page-link">7</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/7.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -616,8 +644,9 @@ New Wiki URL Requirement for Plugins
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

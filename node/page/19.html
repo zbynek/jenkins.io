@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,65 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2013/08/01/2-version-control-plugins-in-beta-testing-before-a-major-release/'>
+2 version control plugins in beta testing before a major release
+</a>
+</h1>
+<div class='content'>
+<div style="float:right;margin:1em"><br/>
+  <img src="http://upload.wikimedia.org/wikipedia/commons/4/49/Testing22222.jpg" width="150" height="160"><br/>
+</div><br/>
+<br/>
+<p><br/>
+<a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+plugin+2.0+beta+testing">Git plugin</a> and <a href="https://wiki.jenkins-ci.org/display/JENKINS/TFS+plugin+2.0+beta+testing">TFS plugin</a> are calling for interested parties to try out their 2.0 beta binaries before they get released.<br/>
+<br/>
+<p><br/>
+Git plugin 2.0 contains a major refactoring and UI simplifications, and TFS plugin contains a rewritten polling logic that does not require a workspace.<br/>
+<br/>
+<p><br/>
+If you think you'd benefit from these changes, please head to their respective beta testing page and try out the new bits, while we can still change them.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/07/31/jenkins-user-conference-palo-alto-2013/'>
+Jenkins User Conference Palo Alto 2013
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Palo_Alto%2C_CA_welcome_sign.JPG/180px-Palo_Alto%2C_CA_welcome_sign.JPG"><br/>
+</div><br/>
+<br/>
+<p><br/>
+Jenkins User Conference is back to California again!<br/>
+<br/>
+<p><br/>
+Just like the last two years, this full day event packs talks from Jenkins developers and users, and it would be a great opportunity for Jenkins users to get to know each other and share their experiences.<br/>
+<br/>
+<p><br/>
+<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">The agenda is already posted</a>, covering everything from robotics to mobile developments, effective management of Jenkins instances to branching techniques. I'm personally looking forward to a number of talks from serious large-scale users, and <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-israel.cb">JUC Israel</a> was of any indication, it'd be a great opportunity to get feedback from people.<br/>
+<br/>
+<p><br/>
+This year, we are moving the event to a weekday (Oct 23rd) to see if it helps or hurts the attendance. Similarly, the event is now in Palo Alto, as opposed to San Francisco. The site also happens to be a former Sun Microsystems headquarter, a place of some nostalgic value to me.<br/>
+<br/>
+<p><br/>
+I am also very happy to see a number of active community members <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">signing up their employers to sponsor the event</a>. These will help us manage the cost of the event.<br/>
+<br/>
+<p><br/>
+So really, all that's needed is YOU! <a href="http://www.eventbrite.com/event/6367028955">Please register for the event</a> (I believe the early bird price stays until this Friday), and looking forward to seeing you.
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2013/07/24/jenkins-user-event-in-copenhagen-on-september-6/'>
@@ -560,104 +623,12 @@ Jenkins User Conference Israel - Coming June 6
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/05/17/continuous-information-jenkins-newsletter-vol-4/'>
-Continuous Information - Jenkins Newsletter vol. 4 
-</a>
-</h1>
-<div class='content'>
-<a href="http://pages.cloudbees.com/rs/cloudbees/images/CBMasthead.jpg" imageanchor="1" style="clear: right; float: right; margin-bottom: 1em; margin-left: 1em;"><img border="0" height="152" src="http://pages.cloudbees.com/rs/cloudbees/images/CBMasthead.jpg" width="576" /></a><br/>
-<br/>
-Volume 4 of Continuous Information came out last night. It contains insights and highlights from founder Kohsuke, the latest growth stats, upcoming event info, Jenkins resources, and more. <br/>
-<br/>
-<br/>
-Highlights:<br/>
-<br/>
-<ul><br/>
-<br/>
-<li>Jenkins has nearly 20,000 more active installations than it had last June, up from 43,500 to more than 61,000 </li><br/>
-<br/>
-<li>Nearly 100 plugins have been added since late last Fall when we did the last Jenkins survey. Now there are more than 730 plugins</li><br/>
-<br/>
-<li>Bay Area JUC (Oct 23), JUC Israel (Jun 6) and several other Jenkins events around the world have open registration </li><br/>
-<br/>
-<li>Latest, greatest Jenkins improvements include a new LTS based on 1.509, more context menu improvements, and master/slave data transfer performance improvement </li><br/>
-<br/>
-<li>There's also a Security advisory out recommending upgrade to at least 1.502 </li><br/>
-<br/>
-<li>A plethora of Jenkins and Continuous Delivery resources</li><br/>
-</ul><br/>
-<br/>
-<a href="http://pages.cloudbees.com/index.php/email/emailWebview?mkt_tok=3RkMMJWWfF9wsRow5%2FmYJoDpwmWGd5mht7VzDtPj1OY6hBomJr6JK1TtuMFUGpsqOOqSDhcUEZVk0w%3D%3D">View the full newsletter</a></b>, and then <a href="http://www.cloudbees.com/jenkins/jenkins-ci/jenkins-newsletter.cb">sign up to receive it yourself</a>. </div><br/>
-<br/>
-And if you have content to feature in a future newsletter, please <a href="mailto:continuous-information@cloudbees.com">email us</a>.<br /> <br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/05/06/giving-back-to-the-community-3-ways-to-keep-jenkins-growing/'>
-Giving Back to the Community:  3 Ways to Keep Jenkins Growing
-</a>
-</h1>
-<div class='content'>
-With more than 600 plugins, Jenkins has a vibrant community and we're dependent on YOU to keep it that way. Here are 3 ways you can give back to the community to ensure that everyone benefits and Jenkins keeps growing...<br/>
-<br/>
-<h3>Giving it back to the community #1: vendor+community=win</h3><br/>
-Jenkins is becoming ubiquitous enough that tool vendors and service providers often find their users asking them to provide Jenkins plugins. The challenge for these companies is that they don’t necessarily possess the necessary Jenkins expertise to do one.<br/>
-<br/>
-<p><br/>
-Here at the Jenkins project, what we are trying to do is to work with these people to deliver a plugin. It gets the job done a whole lot more quickly if the vendor brings in their expertise on their tool/services and we bring in our expertise on Jenkins plugin development.<br/>
-<br/>
-<p><br/>
-For example, we recently worked with <a href="http://www.soasta.com/press-releases/soasta-and-cloudbees-partner-to-deliver-first-jenkins-plugin-for-continuous-integration-on-mobile-platforms/">SOASTA</a> to help them open-source the plugin they developed in house, then help them add a whole bunch of new functionalities. By open-sourcing a plugin in the Jenkins project, vendors win as the community helps fix bugs and improve plugins.  The Jenkins project wins by building relationship with vendors. And finally the users win by having more integrations.<br/>
-<br/>
-<p><br/>
-So the next time you ask your vendor to provide a Jenkins integration, please tell them to drop us a note, and we are happy to talk.<br/>
-<br/>
-<h3>Giving it back to the community #2: scratch your itch and take credit</h3><br/>
-<p><br/>
-If you are working for a company and hacking some Jenkins plugins for your team, then you should definitely consider contributing those changes back. Let’s take <a href="http://developer.sonymobile.com/2012/11/22/sony-contributes-to-jenkins-software-tool/">Robert and Tomas</a> for example, who contributed a number of significant plugins from Sony Mobile.<br/>
-<br/>
-<ul><br/>
-<li><br/>
-The company wins, because it shows off their technical excellence. Plus the flexibility to let engineers work on these OSS projects helps them retain and attract high-caliber developers. It also lets the community shoulder some of the burdens of maintaining plugins.<br/>
-<li><br/>
-You win, because now you have more things to show to future employers. After all, <a href="http://code.dblock.org/github-is-your-new-resume">GitHub is your new resume</a>! And when you aren’t sure how to go about implementing a feature or fixing a bug, open-sourcing your plugin lets us jump in and get you unstuck.<br/>
-<li><br/>
-The community wins, thanks to your new awesome plugin.<br/>
-<li><br/>
-Besides all of those pragmatic reasons, when you share something with others and they tell you how much it helped them, even if it’s just one or two people, it’s a deeply moving experience.<br/>
-</ul><br/>
-<br/>
-<p><br/>
-It just has so many advantages, it’s a no brainer!<br/>
-<br/>
-<h3>Giving it back to the community #3: contribute by proxy</h3><br/>
-<p><br/>
-If you are working for a company, wanting to see particular features/integrations in Jenkins but don’t have time to do it yourself, there’s yet another way, and that’s to contribute by proxy.<br/>
-<br/>
-<p><br/>
-The idea is that you contract with those who already know how to develop Jenkins plugins, and you have them produce/improve Jenkins plugins in open-source. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Praqma">Praqma</a> is a great example of one such company. They are well connected in the community, with lots of experience under their belts, and your company takes the credit for the work. There are also a number of individuals who can do this for you.<br/>
-<br/>
-<p><br/>
-Why give it away something for free when you paid for it, you might ask. That’s because the code sitting in house rots when it’s not maintained by anybody. In contrast, when the rest of the world can hack on your code, you get occasional random bug fixes by strangers (the worst case), and sometimes it gets its own life (the best case.)<br/>
-<br/>
-<p><br/>
-If this way of giving back suits you better, feel free to send an e-mail to <a href="http://jenkins.361315.n4.nabble.com/Jenkins-dev-f387835.html">the dev list</a>.
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/18.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/18.html" class="page-link">18</a> <span class="current-page">19</span> <a href="/node/page/20.html" class="page-link">20</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/20.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -670,8 +641,9 @@ If this way of giving back suits you better, feel free to send an e-mail to <a h
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

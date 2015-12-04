@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,117 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/13/this-week-in-plugins/'>
+This Week in Plugins
+</a>
+</h1>
+<div class='content'>
+<p>Apologies for the slight delay in posting another <a href="http://blog.hudson-ci.org/category/tags/plugins">TWiP</a>, both within the Hudson community and outside of it, it was quite a busy week. This past week we've had roughly <strong>15</strong> plugins released, with a few going through a number of iterations over the course of the week such as the <a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> and one of Hudson's newest plugins, the <a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a>.
+<!--break-->
+One of Hudson's most active contributors, Alan Harder (a.k.a <code>mindless</code>) was responsible for this week's only new plugin: <a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+Artifact+Plugin">Copy Artifact Plugin</a>. The Copy Artifact plugin does exactly what you'd think it does, according to the short-and-sweet wiki page:</p>
+
+<blockquote>
+  <p>Adds a build step to copy artifacts from another project.</p>
+</blockquote>
+
+<p><strong>Note:</strong> If you're a plugin developer in the Bay Area, this upcoming Friday and Saturday is the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson Hackathon/Meetup</a>; don't miss out!</p>
+
+<hr />
+
+<ul>
+  <li>Mar 07, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+Artifact+Plugin">Copy Artifact Plugin</a> 1.0</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.15</li>
+    </ul>
+  </li>
+  <li>Mar 08, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/CAS1+Plugin">CAS protocol version 1 plugin</a> 1.0.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Copy+To+Slave+Plugin">Copy To Slave Plugin</a> 1.2</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.16</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sidebar-Link+Plugin">Sidebar Link</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin">Subversion Plug-in</a> 1.13</li>
+    </ul>
+  </li>
+  <li>Mar 09, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.17</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mercurial+Plugin">Mercurial plugin</a> 1.26</li>
+    </ul>
+  </li>
+  <li>Mar 10, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.2</li>
+    </ul>
+  </li>
+  <li>Mar 11, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM</a> 1.7</li>
+    </ul>
+  </li>
+  <li>Mar 12, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin</a> 1.0.24</li>
+    </ul>
+  </li>
+  <li>Mar 13, 2010
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Plugin">IRC Plugin</a> 2.2</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Jabber+Plugin">Jabber notifier plugin</a> 1.6</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Sonar+Plugin">Sonar Plugin</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Global+Build+Stats+Plugin">global-build-stats plugin</a> 0.1-alpha4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Instant+Messaging+Plugin">instant-messaging plugin</a> 1.5</li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/12/want-some-hudson-stickers/'>
+Want some Hudson stickers?
+</a>
+</h1>
+<div class='content'>
+<p><img src="http://farm3.static.flickr.com/2743/4425921960_a056d816f1_m.jpg" align="right" /> Rarely do I ever get mail, let alone mail I like, so I was quite excited when a shipment of stickers from <a href="http://tinyurl.com/SunSantaClaraCampus">Hudson HQ</a> arrived yesterday.  I'm certain you're thinking to yourself "what does this guy need hundreds of Hudson stickers for?" Fact is, I don't! They're not for me, they're for you!</p>
+
+<p><strong>I am willing to mail stickers vast distances to you</strong> (<em>with some conditions</em>)</p>
+
+<p><br clear="all" />
+#### Conferences
+If you're presenting at a conference or otherwise would like some Hudson stickers to go around, email me with a rough estimate of how many you need. The only condition being that you tell me all about the event and how Hudson was received after the fact (this may involve an interview).</p>
+
+<h4 id="user-groups">User Groups</h4>
+<p>If you email me requesting some stickers for a user group, I'll need an estimate of how many folks attend meetings. Depending on supplies, I may send you a little more than requested to be shared.</p>
+
+<h4 id="companies">Companies</h4>
+<p>If your company wants some Hudson stickers, I'd be happy to oblige, and of course I always appreciate stickers, pens, branded bouncy balls, etc (see: <a id="aptureLink_R5zxZUYv2n" href="http://en.wikipedia.org/wiki/Promotional%20item">swag</a>) in return!</p>
+
+<h4 id="people-who-like-stickers">People who like stickers</h4>
+<p>If you're just a fan of Hudson, stickers, or both, I'll still gladly mail you a few stickers with the condition that you take pictures of where the stickers end up (and maybe of your Hudson install) and either email me some cool pictures or post them to <a id="aptureLink_S4ASBrm3CN" href="http://www.crunchbase.com/company/flickr">Flickr</a> (tagged: "<a href="http://www.flickr.com/photos/agentdero/tags/hudsonstickers/">hudsonstickers</a>")</p>
+
+<p><br clear="all" />
+I will be stuffing envelopes in my free time, so there may be a slight delay. You can email me at <code>tyler</code> at <code>linux</code> dot <code>com</code> requesting stickers, I'll need:</p>
+
+<pre><code>How many: (estimate)
+What for: (conference|usergroup|company|iwantsomeokay)
+Mailing Address: 
+</code></pre>
+
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2010/03/12/links-for-2010-03-12/'>
@@ -717,70 +832,12 @@ Tag team: Automating massive projects with Hudson and Artifactory
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/05/links-for-2010-03-04/'>
-Links for 2010-03-04
-</a>
-</h1>
-<div class='content'>
-<p>Since I've been a bit pre-occupied with non-Hudson related activities lately, I have missed a few days of link rollups, I suppose it's fitting to get a couple days worth of links in one post.</p>
-
-<p>While The Build Doctor has the time to follow the continuous integration world and post links on a daily basis, I haven't found the same quantity of Hudson links on a day-to-day basis. Therefore, I will be posting a link-rollup every few days. Do let me know if this is too infrequent. That said, here's some interesting links!</p>
-
-<ul>
-  <li><a href="http://manicwave.com/blog/2010/03/01/that-feels-better-cocoa-hudson-and-running-green/">That feels better – Cocoa, Hudson and running green</a>
-    <ul>
-      <li>Indie iPhone app developer <a href="http://twitter.com/JeffSchilling">Jeff Schilling</a> writes about working more efficient with Hudson and Cocoa for developing iPhone apps, he covers <a id="aptureLink_9JORBhLtgT" href="http://developer.apple.com/tools/unittest.html">OCUnit</a> integration and code coverage with <a id="aptureLink_TSZPxfJ0Oi" href="https://software.sandia.gov/trac/fast/wiki/Documentation/gcovr">gcovr</a>, a good read for iPhone and Mac developers alike.</li>
-    </ul>
-  </li>
-  <li><a href="http://sonar.codehaus.org/add-ci-build-stability-to-your-sonar-dashboard/">Add CI Build Stability to your Sonar Dashboard</a>
-    <ul>
-      <li>Hudson contributor <a href="http://twitter.com/_godin_">godin</a> (also known as Evgeny Mandrikov) has released a Sonar plugin to report build stability back into <a id="aptureLink_KzfUdRQdS8" href="http://sonar.codehaus.org/">Sonar</a>.</li>
-    </ul>
-  </li>
-  <li><a href="http://kannan.jumbledthoughts.com/index.php/how-to-get-logged-in-username-in-hudson/">How to get logged-in username in Hudson?</a></li>
-  <li><a href="http://www.amaxus.com/cms-blog/from-cruisecontrol-to-hudson-ci">Switching from CruiseControl to Hudson</a>
-    <ul>
-      <li>The developers over at <a href="http://www.amaxus.com/">Amaxus</a> wax poetic on reducing their "<a id="aptureLink_dQHbzkXmQS" href="http://en.wikipedia.org/wiki/Bus%20factor">bus factor</a>" by switching from CruiseControl to Hudson</li>
-    </ul>
-  </li>
-  <li><a href="http://blog.infostretch.com/?p=328">Integrating Selenium tests with Hudson CI</a>
-    <ul>
-      <li>The folks at <a href="http://infostretch.com">InfoStretch</a> have written up a nice, short-and-sweet, overview of getting higher level integration tests built with <a id="aptureLink_uLiXJTOwPF" href="http://seleniumhq.org/">Selenium</a> to play with Hudson
-<!--break--></li>
-    </ul>
-  </li>
-</ul>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/02/what-new-features-do-you-want-to-see/'>
-What new features do you want to see?
-</a>
-</h1>
-<div class='content'>
-<p>Michael Donohue, a Hudson developer who has taken on the role of master bug triage guy for Hudson, does something regularly which I've really come to appreciate as a Hudson developer myself: he sends out emails to the dev list with the top 10 voted issues at that time. This gives those of us in the Hudson development community a good sense of what's really important to our users, which in turn helps us decide where to focus our efforts. If you're interested, you can see <a href="http://issues.hudson-ci.org/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10045">the top voted issues</a> over at <a href="http://issues.hudson-ci.org">our JIRA server.</a></p>
-
-<p>A good number of those issues have been high on the list for a while - I'm actually in the early stages of work on a plugin to answer <a href="http://issues.hudson-ci.org/browse/HUDSON-682">HUDSON-682</a>, the current #1 most voted-for issue, two and a half years after it was opened. But I'm sure there are some equally useful features Hudson users would like to see added which aren't on that list. So I'm asking you, dear readers: what are you looking for in Hudson that isn't already there? Take a look around the existing issues - you may find a request that fits what you want lurking just out of the top 10, needing only your vote to push it into the spotlight. If no one's yet created an issue requesting your desired feature, well, create one.</p>
-
-<p>Or, better still, write a plugin or contribute a patch yourself!</p>
-
-<hr />
-
-<p><strong>Editor's Note:</strong>  If you're interested in writing a plugin, you can check out <a href="http://wiki.hudson-ci.org">Hudson's wiki</a> and/or <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">this guide</a> on the subject.</p>
-
-<p>Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/39.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/39.html" class="page-link">39</a> <span class="current-page">40</span> <a href="/node/page/41.html" class="page-link">41</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/41.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -793,8 +850,9 @@ What new features do you want to see?
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,81 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/03/jenkins-user-conference-boston-is-around-the-corner/'>
+Jenkins User Conference Boston is around the corner!
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Only a few weeks until <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">our Jenkins User Conference US East</a> kicks off in Boston on June 18. Right now more than 300 people have registered and we’ve had to <a href="http://www.eventbrite.com/e/jenkins-user-conference-us-east-boston-june-18-2014-tickets-10558652213">release more tickets</a>! If you will be anywhere near New England on June 18, <a href="http://www.eventbrite.com/e/jenkins-user-conference-us-east-boston-june-18-2014-tickets-10558652213">sign up fast so you don’t miss the fun</a>.<br/>
+<br/>
+<div align=middle><a href="http://jenkins-ci.org/content/jenkins-user-conference-2013-palo-alto-wrap"><br/>
+<img src="http://2.bp.blogspot.com/-ugtg3_nOtfs/UnlKAL5B98I/AAAAAAAAA_Y/jedHyNI_ZSo/s1600/ButlerAtJUC.jpg" width=240 height=180><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+This year marks the butler’s first conference tour to <a href="http://en.wikipedia.org/wiki/New_England">New England</a>. He has chosen <a href="http://www.seaportboston.com/">the fabulous Seaport hotel</a> on the waterfront for a venue &mdash; a hotel that's far better than what I usually stay in :-). You can even take a water taxi to <a href="http://en.wikivoyage.org/wiki/Boston">see the sites</a> or get to and from the airport. For airport transfers, you can also just hop on <a href="http://www.mbta.com/schedules_and_maps/subway/lines/?route=SILVER">the silver line bus</a> and arrive across the street from the hotel (the stop is called "<a href="http://www.mbta.com/schedules_and_maps/subway/lines/stations/?stopId=25092&lat=42.349098&lng=-71.04206">World Trade Center Station</a>".)<br/>
+<br/>
+<p><br/>
+This year we have <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">an incredible line-up of speakers</a>. Attendees will be well fed, caffeinated, and even pickled if they choose... the afternoon break will feature BEvERages. And everyone gets this year’s Jenkins World Tour t-shirt.<br/>
+<br/>
+<p><br/>
+Nothing about conference-throwing is cheap, so we’d like to take a moment to thank our generous JUC US East sponsors. It speaks so well for the JUC community that so many companies have stepped up to support Jenkins and produce a first-class conference. So here is the shout-out for them:<br/>
+<br/>
+<div align=middle><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/JUC-boston-sponsors.preview.png"><br/>
+</div><br/>
+<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/05/30/adopt-a-plugin/'>
+Adopt a plugin
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Adopt_a_Highway"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Adopt_a_highway_crop.jpg/231px-Adopt_a_highway_crop.jpg"></a><br/>
+</div><br/>
+<p><br/>
+Today on IRC, I was asked how someone new to the project can get started working on Jenkins, when s/he has no particular preference or pet-peeve.<br/>
+<br/>
+<p><br/>
+This is a good question for which the project should have a canned answer ready, so here is one approach &mdash; adopt a plugin!<br/>
+<br/>
+<p><br/>
+Often, a Jenkins plugin gets developed by someone to scratch his own itch. That person shares the plugin with the community, and since it does everything he needs, he moves on to work on something else. Then another person starts using that plugin, comes up with an idea for improvement, implements that, and then moves on. Given that we have more than 900 plugins today, there are a plenty of plugins that are currently co-maintained by the community, which could really use a focused loving caregiver.<br/>
+<br/>
+<p><br/>
+So why don't you adopt a plugin? You can pick up one of those plugins and act as a maintainer. You'll hear appreciation from people who are using that plugin, and most plugins are small and simple enough even for people new to Jenkins. Above all, working on plugins don't require much communication with existing developers and implicit processes, which is often difficult for new people to find out.<br/>
+<br/>
+<p><br/>
+Here's how you can find a plugin to adopt. You can look at <a href="https://wiki.jenkins-ci.org/display/JENKINS/Pending+Pull+Requests">repositories that have most pending pull requests</a>. Plugins with lots of pull requests likely could use some help, so check if anyone is actively working on it and talk to him, or if you don't see much activities from a single person, just go ahead and adopt the plugin.<br/>
+<br/>
+<p><br/>
+<a href="http://stats.jenkins-ci.org/jenkins-stats/svg/svgs.html">Usage statistics</a> has <tt>top-plugins500.svg</tt> (this is for <a href="http://stats.jenkins-ci.org/jenkins-stats/svg/201404-top-plugins500.svg">the last month</a>). Open that in Firefox, which lets you zoom in. Scroll all the way to the right, and you see popular plugins. Compare that with <a href="https://github.com/jenkinsci/">our GitHub repositories</a>, and you can find popular plugins that aren't getting enough love.<br/>
+<br/>
+<p><br/>
+<a href="https://issues.jenkins-ci.org/browse/JENKINS#selectedTab=com.atlassian.jira.plugin.system.project%3Acomponents-panel">Issue tracker</a> is also a good place to look for a plugin in need of help. Every plugin has a separate component, so look at bugs and RFEs filed against those, especially with lots of votes. Fix a bug is great, but even just helping with the triage process would be highly appreciated.<br/>
+<br/>
+<p><br/>
+Try adopting a plugin for a while, and when you get the hang of it, let <a href="https://groups.google.com/forum/#!forum/jenkinsci-dev">the dev list know</a>. Update <tt>pom.xml</tt> to have your name listed as a maintainer. Come <a href="http://jenkins-ci.org/content/chat">join IRC</a>. That way, we know who you are and how to reach you.<br/>
+<br/>
+<p><br/>
+See, it's really not that hard. And there's something really satisfying in making things a little better and seeing happy users. Anyway, looking forward to working with you!
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2014/05/27/acceptance-test-project-progress-report/'>
@@ -534,63 +613,12 @@ The latest version of the plugin as of writing is 1.37. I hope you'll have a cha
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/15/upcoming-jenkins-office-hours-acceptance-test-harness/'>
-Upcoming Jenkins Office Hours: Acceptance Test Harness
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://clsdf.com/wp-content/uploads/2011/06/tumblr_lkzltkxTmF1qersu1.gif" style="width:100px"><br/>
-</div><br/>
-<p><br/>
-One of the new efforts in Jenkins this year is <a href="https://github.com/jenkinsci/acceptance-test-harness">the acceptance test harness</a> for Jenkins.<br/>
-<br/>
-<p><br/>
-We will be doing the Jenkins office hours next week to go over this and sync up and coordinate between people in the community that are trying to work on this. <br/>
-<br/>
-<p><br/>
-It'll be <b>April 23rd 11am PT</b> (<a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Governance+Meeting&iso=20140423T11&p1=224&ah=1&sort=1">see what this time is in your time zone</a>) on Google Hangout at <a href="http://jenkins-ci.org/hangout">http://jenkins-ci.org/hangout</a>. If you are intereste in hacking Jenkins or if you are a large user of Jenkins who have acceptance tests, we are looking forward to seeing you there.<br/>
-<br/>
-<p><br/>
-For those of you who haven't looked, this test harness allows you to write blackbox tests of Jenkins and its plugins. It was originally used to test LTS releases, but over the time, it acquired a number of features, such as ...:<br/>
-<br/>
-<ul><br/>
-<li>Docker support for launching complex fixtures to test Jenkins with.<br/>
-<li>Pluggability to launch Jenkins under test (JUT) in many different environments<br/>
-<li>Pluggability to provision Jenkins and slaves from EC2 to test large deployments<br/>
-<li>Choice of cucumber or JUnit to write test scripts<br/>
-</ul><br/>
-<br/>
-<p><br/>
-We are working on porting over existing test cases, but we'd like to work with users to move their acceptance tests on top of this same harness. The idea is to pool those test cases in the community so that we can test Jenkins and its plugins as we develop them. For this to work, we want tests to have lots of metadata (such as what plugins it touches), and for the harness to have sufficient modularity that different people can run the same scenario against different deployments, including existing instance.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/11/jenkins-1-532-3-lts-is-released/'>
-Jenkins 1.532.3 LTS is released
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-The final LTS release of the 1.532.x line is out today. You can download it from <a href="http://mirrors.jenkins-ci.org/">the usual location</a>. Changelog is <a href="http://jenkins-ci.org/changelog-stable">here</a>.<br/>
-<br/>
-<p><br/>
-Starting with the next 1.554.x LTS, the release model will <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">switch to the train model</a>, where we commit to dates and get whatever we can ship by that date. <br/>
-<br/>
-<p><br/>
-You can see <a href="http://jenkins-ci.org/content/event-calendar">the scheduled dates in our event calendar</a>. Backporting window for 1.554.1 is almost closing, so if you want to have your favorite issues nominated for it, please see <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">the process</a> in the Wiki and hurry!
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/14.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/14.html" class="page-link">14</a> <span class="current-page">15</span> <a href="/node/page/16.html" class="page-link">16</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/16.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -603,8 +631,9 @@ You can see <a href="http://jenkins-ci.org/content/event-calendar">the scheduled
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

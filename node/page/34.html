@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,52 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/29/hudson-user-meet-up-in-copenhagen-oslo/'>
+Hudson User Meet-up in Copenhagen/Oslo
+</a>
+</h1>
+<div class='content'>
+<p>I'll be in Copenhagen from 9/5-9/7 and in Oslo 9/8-9/9 to present in JavaZone. I'd like to take advantage of the opportunities and have user meet-up events in those cities. Depending on the number of participants, it could be just a drink in a bar, or a talk in a meeting room.</p>
+
+<p>So if you are:</p>
+<ol>
+	<li>in those cities,</li>
+	<li>available in the evening of 9/6, 9/8, or 9/9, and</li>
+	<li>willing to attend such an event,</li>
+</ol>
+<p>... then please <a href="mailto:kohsuke@infradna.com">let me know.</a></p>
+<p>Also, if you have an office in those cities and willing to provide a space for an event, that would be extra appreciated!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/26/cloudbees-announce-hudson-as-a-service/'>
+CloudBees announce Hudson-as-a-Service
+</a>
+</h1>
+<div class='content'>
+<a href="http://hudson-labs.org/sites/default/files/usage-stats.gif"><img style="float:right; width:300px" src="http://hudson-labs.org/sites/default/files/usage-stats.gif"></a><a href="http://cloudbees.com/">CloudBees</a> announced the beta availability of their new Hudson-as-a-service "HaaS" today. I see this as <a href="http://labs.creativecommons.org/2010/08/12/welcome-hudson-to-creative-commons/">yet</a> <a href="http://hudson-mobi.com/">another</a> <a href="http://about.digg.com/blog/digg-technical-talks-kohsuke-kawaguchi">validation</a> to Hudson, and as such, I welcome this new addition to the community and wish them well! &mdash; more companies betting on Hudson means we'll get more investment to the project, which is all goodness for Hudson users. It's been 5 months since I left Oracle to start <a href="http://infradna.com/">InfraDNA</a>, and I was initially worried about a possible negative impact on adoption, but instead Hudson has shown with no sign of slowing down (see picture on the right, from Andrew's report, which shows # of estimated active installations that participates to our usage stats survey).  And <a href="http://infradna.com/">InfraDNA</a> is going well too - we've helped <a href="http://infradna.com/customers">companies big and small</a> to improve their Hudson usage/adoption, and <a href="http://infradna.com/ichci">our commercial value-add Hudson distribution</a> is getting plenty of interest.<br/>
+<br/>
+Hosted Hudson offers an interesting trade-off, compared to on-premise Hudson. On the plus side, given the current hourly pricing of public clouds like EC2 and Rackspace, you get a better pricing model, as CloudBees charge by minutes. You also get rid of machines and upfront cost, which is great for small business. On top of that, you can also expect them to gradually develop more value-adds and better integration to various other pieces, which can get really interesting.<br/>
+<br/>
+On the down side, you have less control over the environment that runs the builds, and you do not have access back to your intranet environment (think databases that you need to talk to, for example.) Also, in the current pricing (8.5 cents/hour of EC2 vs 1 cent/minute of CB), if your build takes longer than 9 minutes, you'll save more by just using Hudson EC2 plugin.<br/>
+<br/>
+On a related note, I think one of the sweet spots is Hudson that's well integrated with on-premise cloud solution. As you can see in <a href="http://www.liferay.com/web/brian.chan/blog/-/blogs/improving-quality-with-100-hudson-test-servers">the discussion with Liferay Hudson setup</a>, with sufficient load it gets cheaper to have your own hardware, and many companies need some degree of control to the build/test environment that matches with their production environment. Plus with those on-premise virtualized environments, you can do <a href="http://www.govirtual.org/docs/DOC-1510">snapshots and forks</a>, which can be made to do <b>very</b> interesting things.<br/>
+<br/>
+<br/>
+Finally, I think the part that everyone can agree on is that the elasticity of build environment is hugely useful to the CI environment, as <a href="http://java.sun.com/javaone/2009/articles/gen_hudson.jsp">I discussed in my JavaOne 2009 talk</a> (<a href="http://wiki.hudson-ci.org/download/attachments/37323793/Hudson+J1+2009.ppt?version=1&modificationDate=1244127211000">slides</a>.) I'm very happy to see that the foundation work we've made in Hudson for this is getting validated more and more, and I think the added elasticity will drive a lot more changes in Hudson and more broadly into the way we develop software. It is an exciting time!<br/>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2010/08/20/hudson-sauce-ondemand-webinar/'>
@@ -508,93 +558,12 @@ Big Security Fix! Hudson 1.371 Released
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/02/dogfooding-hudson-were-looking-for-slaves/'>
-Dogfooding Hudson - We're Looking for Slaves!
-</a>
-</h1>
-<div class='content'>
-As you may have noticed, thanks to the link on this and the other pages here at <a href="http://hudson-labs.org">hudson-labs.org</a>, the Hudson development community has recently introduced <a href="http://ci.hudson-labs.org">ci.hudson-labs.org</a>, the official Hudson-on-Hudson instance. We're currently building <a href="http://ci.hudson-labs.org/job/hudson_main_trunk/">Hudson proper</a>, the <a href="http://ci.hudson-labs.org/job/hudson_rc_branch/">Hudson core RC branch</a>, individual builds for <a href="http://ci.hudson-labs.org/view/Plugins/">the various Hudson plugins</a> and <a href="http://ci.hudson-labs.org/job/gerrit_master/">Gerrit</a>, as well as various <a href="http://ci.hudson-labs.org/view/Libraries/">libraries</a> and <a href="http://ci.hudson-labs.org/view/Infrastructure/">infrastructure jobs</a> Hudson depends on.<br/>
-<br/>
-We're currently running all those builds on a dedicated Linux slave, generously provided to the Hudson project by <a href="http://digg.com">Digg</a>, my employer. This has been great - except for the day when I'd just added all the individual plugin jobs for the first time, we haven't had real problems with capacity. But we are limited in the environments we can run our tests on as a result of only having a Linux slave. We're currently playing with a temporary Windows slave, but we'd really like to have at least one more permanent Windows slave, and a Mac slave as well, so that we can run Hudson's core integration tests on those platforms as well. Since this is Hudson we're talking about, we don't need the slave to be in any given physical location - we just need it to be running the slave process and talking to our server. If you're interested in helping us out with this, please contact me at andrew dot bayer at gmail dot com. Thanks!<br/>
-<br/>
-<hr/><br/>
-(Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/28/hosting-your-hudson-plugin-at-github/'>
-Hosting your Hudson plugin at Github
-</a>
-</h1>
-<div class='content'>
-For as long as Hudson's had a plugin model and development community, we've provided <a href="http://wiki.hudson-ci.org/display/HUDSON/Hosting+Plugins">source code and binary hosting</a> through our Subversion repo at <a href="http://java.net">java.net</a>. But what if you're a plugin developer and you don't want to use Subversion? Well, we have an alternative for your source code: host it with <a href="http://github.com/hudson">Hudson on GitHub<a>.<br/>
-<br/>
-<img src="http://www.hudson-labs.org/sites/default/files/octocat.png" align="right" hspace="10" alt="Octocat!" width="180"/><br/>
-<br/>
-To get this in place, send an email to <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">dev@hudson.dev.java.net</a> (or ask in <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">the IRC channel</a>) asking to get a repository created for your plugin at Github. Make sure to include the name of the plugin and your Github username (and the Github usernames of any other developers who'll be pushing to your plugin's repo). If your plugin is already in Github, include the URL for the existing repo so that we can fork it. One of the Hudson admins will create the repository (forking if appropriate) and add the user(s) to the list of users with push access to the Hudson-hosted repositories at Github. Once you hear back from them, you'll be able to push code to the new repository.<br/>
-<br/>
-You will need to make a few changes to your plugin's POM, as compared to what works for a plugin POM in the java.net Subversion tree.<br/>
-<!--break--><br/>
-<strong>First</strong>, add the following to the <code><build><plugins></code> section:<br/>
-<br/>
-<code><br/>
-      <plugin><br/>
-        <groupId>org.apache.maven.plugins</groupId><br/>
-        <artifactId>maven-release-plugin</artifactId><br/>
-        <version>2.0</version><br/>
-        <dependencies><br/>
-          <dependency><br/>
-            <groupId>org.apache.maven.scm</groupId><br/>
-            <artifactId>maven-scm-provider-gitexe</artifactId><br/>
-            <version>1.3</version><br/>
-          </dependency><br/>
-        </dependencies><br/>
-      </plugin><br/>
-</code><br/>
-<br/>
-This is needed to make sure we're overriding the parent POM's SCM provider settings. Next, add the following to the <code><build></code> section:<br/>
-<br/>
-<code><br/>
-    <extensions><br/>
-      <extension><br/>
-        <groupId>org.jvnet.wagon-svn</groupId><br/>
-        <artifactId>wagon-svn</artifactId><br/>
-        <version>1.9</version><br/>
-      </extension><br/>
-    </extensions><br/>
-</code><br/>
-<br/>
-This is needed because we're still going to be using wagon-svn to deploy the artifacts in the release process. Lastly, add an <code><scm></code> section, within the <code><project></code> section of the POM, like the following:<br/>
-<br/>
-<code><br/>
-  <scm><br/>
-    <connection>scm:git:git://github.com/hudson/your-plugin-repo.git</connection><br/>
-    <developerConnection>scm:git:git@github.com:hudson/your-plugin-repo.git</developerConnection><br/>
-    <url>http://github.com/hudson/your-plugin-repo</url><br/>
-  </scm><br/>
-</code><br/>
-<br/>
-As with the first section, this is needed to override the default SCM settings in the parent POM. Make sure to change "your-plugin-repo" to your actual plugin repository name, of course! It'd also be a good idea to put a link to your Github repo on your plugin's wiki page at <a href="http://wiki.hudson-ci.org">the Hudson wiki</a>, since the default source link will go to Subversion.<br/>
-<br/>
-Now, with these changes in place, committed and pushed to the master branch in your plugin's repository, you should be able to run "mvn release:prepare release:perform" just as you would if the plugin were hosted in Subversion, with your plugin showing up in the Update Center within a few hours. Be sure that you've configured the login information for the java.net Maven repository, as detailed <a href="https://javanettasks.dev.java.net/nonav/maven/config.html">here</a> - this is still needed for plugins hosted at and released from Github, since Hudson's Maven repository still lives at java.net. If you run into any issues releasing your plugin from Github, first be sure to review the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hosting+Plugins">wiki page on plugin hosting</a>, which addresses many of the issues you may encounter when running the Maven release plugin. <br/>
-<br/>
-<br/>
-If you're still stumped, feel free to email <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing+List">the Hudson developer list</a> or ask in <a href="http://wiki.hudson-ci.org/display/HUDSON/IRC+Channel">the IRC channel</a> for help.<br/>
-<br/>
-<hr/><br/>
-(Andrew is a core committer to Hudson and the author of numerous plugins. He's the build guy at <a href="http://digg.com">Digg</a>, who, by the way, <a href="http://jobs.digg.com/">are hiring</a>!)
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/33.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/33.html" class="page-link">33</a> <span class="current-page">34</span> <a href="/node/page/35.html" class="page-link">35</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/35.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -607,8 +576,9 @@ If you're still stumped, feel free to email <a href="http://wiki.hudson-ci.org/d
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,230 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/'>
+Pipeline-as-code with Multibranch Workflows in Jenkins
+</a>
+</h1>
+<div class='content'>
+<p><em>Note: This is a guest post by <a href="https://github.com/kishorebhatia">Kishore Bhatia</a>. <a href="https://twitter.com/BhatiaKishore">Kishore</a> works for <a href="https://www.cloudbees.com">CloudBees</a>, building custom frameworks with Open Source software and helping customers solve engineering problems around continuous delivery and DevOps at scale.</em></p>
+
+<hr />
+
+<p>This year some great new Jenkins features came out of the butler’s goodie bag - amongst them, the most important one being the ability to realize <a href="https://www.voxxed.com/blog/2015/06/kohsuke-kawaguchi-the-main-challenge-for-jenkins-is-with-itself/">continuous delivery pipeline as code</a>!
+The features like Workflow Multibranch, pipeline-as-code (with a marker file that Jenkins looks for in your application’s SCM repository/branch, aptly named Jenkinsfile) are the foundations to making Jenkins super intelligent to automagically create workflows (rather, a CI/CD pipeline) to build your code and orchestrate the work required to drive your application from concept to delivery!</p>
+
+<h3 id="overview">Overview</h3>
+
+<p>The Workflow Multibranch feature (provided by the <a href="https://github.com/jenkinsci/workflow-plugin">workflow plugin</a>) provides the following key abilities:</p>
+
+<ul>
+  <li>Automatic Workflow (job) creation in Jenkins per new branch in the repo.</li>
+  <li>Build specific to that child-branch and its unique scm change and build history.</li>
+  <li>Automatic job pruning/deletion for branches deleted from the repository, according to the settings.</li>
+  <li>Flexibility to individually configure branch properties, by overriding the parent properties, if required.</li>
+</ul>
+
+<p>Jenkins pipeline-as-code (concept) enables you to maintain your CI/CD workflow logic in the project/application source code repo with no additional configuration to be maintained per branch in Jenkins.</p>
+
+<p>The Workflow script to build/test/deploy your code is always synchronized with the rest of the source code you are working on.</p>
+
+<p><strong>To demonstrate the concept here</strong> - Let’s use a basic Java Web application project with a Maven pom.xml as shown in the structure below (this is using GitHub as the SCM but you can do this on SVN or Mercurial too).</p>
+
+<p><a href="https://github.com/kishorebhatia/pipeline-as-code-demo">This project</a> has a marker file for Jenkins in the repo - <code>Jenkinsfile</code>.</p>
+
+<center><a href="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic1.png"><img src="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic1.png" width="600" border="0" /></a></center>
+
+<p><strong>So, what's a Jenkinsfile?</strong> The <a href="https://github.com/kishorebhatia/pipeline-as-code-demo/blob/master/Jenkinsfile">Jenkinsfile</a> is essentially your Jenkins Workflow, a script, that defines the CI/CD pipeline logic for a project with steps to build/test/deploy etc. captured in various stages.</p>
+
+<p>So for our sample Java web application, a basic Jenkinsfile could be something like -</p>
+
+<p><code>&lt;pre&gt;
+node {
+   // Mark the code checkout 'stage'....
+   stage 'Checkout'</code></p>
+
+<p>// Checkout code from repository
+   checkout scm</p>
+
+<p>// Get the maven tool.
+   // ** NOTE: This 'M3' maven tool must be configured
+   // **       in the global configuration.         <br />
+   def mvnHome = tool 'M3'</p>
+
+<p>// Mark the code build 'stage'….
+   stage 'Build'
+   // Run the maven build
+   sh "${mvnHome}/bin/mvn clean install"
+}
+&lt;/pre&gt;&lt;/code&gt;</p>
+
+<p>Just having this file in the source code repo root would mean that -</p>
+
+<ul>
+  <li>Jenkins will automatically recognize this branch and create appropriate jobs by itself.</li>
+  <li>Quick, 1-step code checkout using: “checkout scm” in your workflow</li>
+  <li>Every time a new change is pushed to this branch, the branch is built and the commit status gets updated.</li>
+  <li>When the branch is destroyed in the repository, or if Jenkinsfile is removed, the corresponding job gets destroyed from Jenkins automatically (<em>You can retain these jobs and/or archive the builds for audit/compliance requirements using the retention property - Orphan Item strategy</em>)</li>
+</ul>
+
+<p><em>Note:</em> there are various mechanisms to promote reuse of Workflow scripts, such as the <a href="https://github.com/jenkinsci/workflow-plugin/blob/master/cps-global-lib/README.md">Workflow Global Library</a>.</p>
+
+<h3 id="required-jenkins-configuration">Required Jenkins configuration</h3>
+
+<p>Make sure you’ve the latest <a href="https://github.com/jenkinsci/workflow-plugin">Workflow</a> and (v1.11 as of writing this blog) Workflow Multibranch plugins installed on your Jenkins instance</p>
+
+<center><a href="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic2.png"><img src="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic2.png" width="600" border="0" /></a></center>
+
+<p>Also, ensure that other dependencies, like SCM plugins and build tools, are met:</p>
+
+<ul>
+  <li>Either SVN/Git/Mercurial (depending on your SCM)</li>
+  <li>GitHub Branch Source Plugin (optimized to use the GitHub API and improve performance)</li>
+  <li>Maven build tool</li>
+</ul>
+
+<p>Then create a new <em>Multibranch Workflow</em> Job with configuration as shown below - mainly selecting the Branch Sources (Git, in this example) and providing the branch/repo URL with credentials.</p>
+
+<p><em>Branch sources</em> (Git) - <code>https://github.com/kishorebhatia/pipeline-as-code-demo</code> (or a repo where you’ve cloned this source code with Jenkinsfile)</p>
+
+<p>Leave all other properties default and <em>Save</em>.</p>
+
+<center><a href="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic3.png"><img src="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic3.png" width="600" border="0" /></a></center>
+
+<p>You’ll observe that Jenkins would perform Branch Indexing on that “cd” job folder and start the workflow for the master branch, with an automatically created new job, named master, under the “cd” folder.</p>
+
+<p>The workflow does a dummy step for application deploys to the environments in this sequence <em>Staging</em> -&gt; Waits for manual approval -&gt; <em>PROD</em></p>
+
+<p>Now, let’s create a new branch off of this master branch in your cloned git repo:</p>
+
+<ul>
+  <li><code>$ git branch newBranch</code> (create a newBranch)</li>
+  <li><code>$ git checkout newBranch</code> (switches to newBranch)</li>
+  <li><code>$ git push --set-upstream origin newBranch</code> (pushes newBranch)</li>
+</ul>
+
+<p>You’ll observe that your Jenkins instance automatically picks up this newBranch and starts running the workflow (with the Jenkinsfile in this newBranch) to build/test/deploy the code.</p>
+
+<center><a href="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic4.png"><img src="http://agentdero.cachefly.net/continuousblog/pipeline-as-code-guest-blog/Pic4.png" width="600" border="0" /></a></center>
+
+<p>Next, if you now delete this <code>newBranch</code> (<code>git branch -D newBranch</code>), Jenkins will automatically remove the orphan Workflow job for <code>newBranch</code>. You can retain these jobs even after the branches are deleted using the <em>Orphaned Item Strategy</em> property in the main "cd" job’s configuration.</p>
+
+<p>So we observed the following benefits of this pipeline-as-code approach:</p>
+
+<ul>
+  <li>Overall job definition is a script (Jenkinsfile)</li>
+  <li>Calls your build tools and scripts for details</li>
+  <li>The build script can be versioned alongside project sources</li>
+  <li>Jenkins handles feature/experimental branches automatically</li>
+  <li>Keep less configuration in $JENKINS_HOME</li>
+</ul>
+
+<h3 id="dockerized-demo-environment">Dockerized Demo environment</h3>
+
+<p>You can also use the following docker image to run this demo with a preconfigured Jenkins environment and the sample job: <code>jenkinsci/workflow-demo</code> (i.e. <code>docker pull jenkinsci/workflow-demo</code>)</p>
+
+<p>This docker container includes Jenkins with Workflow and Workflow Multibranch plugins, a local git repo with the aforementioned Java web application and Jetty to demonstrate a continuous delivery pipeline of this application deployed and tested across multiple environments in the pipeline with an approval gate before promoting to PROD (like QA, Staging and PROD).</p>
+
+<p>There's a "cd" job pre-configured as a multibranch Workflow job.</p>
+
+<p>Launch the docker demo as: <code>docker run -p 8080:8080 -p 8081:8081 -p 9418:9418 -ti jenkinsci/workflow-demo</code></p>
+
+<p>Now, you can access Jenkins on port 8080 and Jetty on port 8081 from localhost or the IP of your boot2docker/docker-machine environment.</p>
+
+<p>The demo container has a local git repo so you can clone: <code>git://localhost/repo</code>. When creating new branches, each branch automatically creates a matching subproject in Jenkins and triggers the build for that branch. The workflow:</p>
+
+<ul>
+  <li>Checks out source code from the same repository and commit as <code>Jenkinsfile</code>.</li>
+  <li>Builds sources via Maven with unit testing.</li>
+  <li>Runs two parallel integration tests that involve deploying the app to ephemeral server instances, which get thrown away when tests are done (this is done by using auto-deployment of Jetty)</li>
+  <li>Once integration tests are successful, the webapp gets to the staging server at <a href="http://localhost:8081/staging/">localhost:8081/staging</a> (or your docker-machine/boot2docker instance IP)</li>
+  <li>requires a human to Manually inspect the staging instance, and when ready, approves the deployment to the production server at http://localhost:8081/production/</li>
+</ul>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="http://developer-blog.cloudbees.com/2015/08/workflow-19-and-multibranch-beta.html">Developer blog by jglick introducing multibranch support</a></li>
+  <li><a href="https://github.com/jenkinsci/workflow-plugin/blob/master/TUTORIAL.md">workflow plugin tutorial</a></li>
+  <li><a href="https://github.com/jenkinsci/workflow-plugin#presentations">workflow plugin presentations</a></li>
+  <li><a href="https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md">workflow plugin readme</a></li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/12/02/hacksgiving-left-overs/'>
+Hacksgiving Left-overs
+</a>
+</h1>
+<div class='content'>
+<p>Last week we hosted our first <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015">Hacksgiving</a> event, a two-day virtual hackathon with a number of recorded sessions and plenty of pull requests submitted, <a href="https://github.com/rtyler">I</a> would say it was a success! I would like to thank everybody who took the time to watch, chat and present in the Hacker Hangout.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/hacksgiving-platter.png" /></center>
+
+<p>Now that everybody has had time to recover from the turkey and travel, we have some videos of the sessions sliced out and ready for publication.</p>
+
+<p>In addition to the recorded sessions, there were a number of notes captured with useful links associated with practically each session. You can find those notes <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-HacksgivingNotes">at the bottom of the Hacksgiving page</a>.</p>
+
+<p><em>Note:</em> The following videos are all available in this <a href="https://www.youtube.com/playlist?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2">YouTube playlist</a></p>
+
+<h3 id="intro-to-the-jenkins-project">Intro to the Jenkins project</h3>
+
+<p>This session was hosted by <a href="https://github.com/rtyler">rtyler</a> and meant to provide a cursory overview of where to get started with contributing to the Jenkins project</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RV_VqY3H1II?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="intro-to-plugin-development-workshop">Intro to Plugin Development Workshop</h3>
+
+<p>This session was given both days of Hacksgiving by <a href="https://github.com/christ66">schristou</a> and does a really great job of introducing the viewer to getting started with developing a Jenkins plugin with Java.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eUzYZZsNBIA?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="workflow-qa-and-demo-session">Workflow Q&amp;A and Demo Session</h3>
+
+<p>This session was not originally scheduled, but some folks on the Jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Channel">IRC channel</a> had some <a href="https://github.com/jenkinsci/workflow-plugin">Workflow</a> questions and <a href="https://github.com/jglick">Jesse Glick</a> jumped into the Hacker Hangout to help us out!</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-b4MdGAvUz0?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="internationalization-live-coding--qa">Internationalization Live Coding / Q&amp;A</h3>
+
+<p>Another impromptu session, this time with <a href="https://github.com/daniel-beck">danielbeck</a> hosting. In this session Daniel walks through a plugin he was working on for Hacksgiving and adds internationalization support while answering a few questions here and there.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4UxVffTpf4A?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="intro-to-the-new-static-site">Intro to the new static site</h3>
+
+<p>Kicking off day two of Hacksgiving, <a href="https://github.com/rtyler">rtyler</a> hosted a session on the new <a href="https://github.com/jenkinsci/jenkins.io">statically-generated Jenkins site</a>. The new site will dramatically lower the barrier to entry for contribution to Jenkins documentation and blogs, by pushing everything through GitHub.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1wMKQ70pEug?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="plugin-developer-open-qa">Plugin Developer Open Q&amp;A</h3>
+
+<p>This was the last session of Hacksgiving, hosted by <a href="https://github.com/abayer">abayer</a> and ended up being more like a casual discussion of the current status and future work in the plugin development ecosystem.</p>
+
+<center><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0QI-gg-AqZY?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe></center>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2015/11/16/celebrating-hacksgiving/'>
@@ -614,87 +842,12 @@ What JVM versions are running Jenkins?
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/11/01/adopt-a-plugin/'>
-Adopt a plugin!
-</a>
-</h1>
-<div class='content'>
-<p>With more than a thousand public plugins in the Jenkins community now, it should come as no surprise that some of them are no longer actively maintained. Plugin authors move on when they change jobs, or lose interest in the plugin, and that's fine. Plugins are hosted on the Jenkins project infrastructure after all, and when a maintainer moves on, others can continue their work.</p>
-
-<p>The major problem of course is that it's often difficult to tell whether a plugin is still maintained (and there's just not a lot going on), or whether its maintainer has lost interest. Most plugins don't get released every few weeks, or even every few months, and still do their job just fine.</p>
-
-<p>To connect plugins that aren't actively maintained with potential maintainers, we recently implemented the "Adopt-a-plugin" initiative: We built a list of plugins that are up for "adoption", and display a prominent message on the plugins' wiki pages. Anyone interested in taking over as a plugin maintainer can then contact us, and we'll set you up.</p>
-
-<p>Are you interested in becoming a plugin maintainer? Maybe one of your favorite plugins isn't actively maintained right now. Check out the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adopt+a+Plugin">Adopt a Plugin wiki page</a> for more details on this program, and a list of plugins that would benefit from your help.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/'>
-Jenkins 2.0 Proposal: Improved "Out of the box" user experience
-</a>
-</h1>
-<div class='content'>
-<p>This week we have featured a number of proposals for what we would like to see in "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
-2.0</a>", the vision of which is to make Jenkins users more efficient, productive and happy. We started with some more internally facing changes and have slowly progressed from the "inside-out" to today's topic: improving the out of the box user experience. That is to say, the experience that a brand-new Jenkins user has when getting started with the server.</p>
-
-<p>Just to recap, so far we've reviewed:</p>
-
-<ul>
-  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
-  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
-  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
-  <li><a href="/content/jenkins-20-proposal-ux-improvements-part-one">User experience improvements (part one)</a></li>
-</ul>
-
-<p>The subject of today's proposal is captured in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a></strong>, which, like yesterday's <a href="/content/jenkins-20-proposal-ux-improvements-part-one">proposal</a>, contains a few issues linked from it with more details.</p>
-
-<p>At a high level, the problem aiming to be solved is:</p>
-
-<blockquote>
-  <p>When a new user installs Jenkins, they are greeted with the main, empty, dashboard which suggests that they "create jobs." This makes no mention of plugins or the configuration options that are relevant to helping the user make Jenkins match their needs.</p>
-</blockquote>
-
-<p>In past and current versions of Jenkins, if you know what you're looking for it's relatively easy to move around the interface. If you've never used Jenkins before, it can be very challenging to find your way around or even know <em>what it is possible</em> to do with Jenkins.</p>
-
-<p>The proposed changes aim to address this initial confusion:</p>
-
-<blockquote>
-  <p>Instead of changing the post-install defaults, which may not properly represent the user's needs, the first-time user experience should help guide the user through configuration and plugin installation quickly so they can use Jenkins for their needs. Effectively it should be as easy as possible for a user to arrive at a good configuration for their usage.</p>
-</blockquote>
-
-<p>Jenkins contributor <a href="https://github.com/tfennelly">Tom Fennelly</a>, who has led this discussion on the mailing lists in the past, has posted a good prototype screencast of what some of this might entail:</p>
-
-<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/kzRR8XR8hu4?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
-
-<h3 id="providing-feedback">Providing Feedback</h3>
-
-<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a> and comment and vote on those issues accordingly.</p>
-
-<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
-tracker</a> or the
-<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
-means you'll be able to log into the issue tracker and vote for, or comment on
-the issue linked above.</p>
-
-<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
-app</a> to reset it.)</p>
-
-<p>We're going to review feedback, make any necessary adjustments and either
-approve or reject the proposal two weeks from today.</p>
-
-<p>This concludes this week's blog series highlighting some of the Jenkins 2.0 proposals we felt were important to discuss with the broader Jenkins user audience. Many of these, and other minor proposals, can be found on the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0 wiki page</a>.</p>
-
-</div>
-</div>
 <div class="pagination-links"><span class="current-page">1</span> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/2.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -707,8 +860,9 @@ approve or reject the proposal two weeks from today.</p>
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>

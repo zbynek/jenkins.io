@@ -22,6 +22,7 @@ An extendable open source automation server
 </div>
 </div>
 </div>
+<!-- starting partial navbar.html.haml -->
 <div class='clearfloat' id='navbar'>
 <div id='page-bar'>
 <ul class='menu'>
@@ -96,10 +97,12 @@ About
 </div>
 </div>
 
+<!-- ending partial navbar.html.haml -->
 </div>
 <div class='clearfloat' id='page'>
 <div class='clearfloat' id='top'>
 <div id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
 <div class='block block-block even' id='block-block-5'>
 <h3>
 What is Jenkins?
@@ -116,6 +119,7 @@ virtually any project
 </p>
 </div>
 </div>
+<!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
 <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
@@ -148,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.638
+1.639
 </strong>
 </a>
 </div>
@@ -319,6 +323,8 @@ Older but stable:
   .ui-widget-content .tab a { color: #D24939 !important; }
 </style>
 
+<!-- ending partial download.html.haml -->
+<!-- starting partial book.html.haml -->
 <div class='block block-block even' id='block-block-15'>
 <div class='content'>
 <center>
@@ -335,6 +341,8 @@ Buy the book!
 </div>
 </div>
 
+<!-- ending partial book.html.haml -->
+<!-- starting partial resources.html.haml -->
 <div class='block block-block odd' id='block-block-8'>
 <h3>
 Resources
@@ -365,10 +373,68 @@ Jenkins-on-Jenkins
 </div>
 </div>
 
+<!-- ending partial resources.html.haml -->
 
+<!-- ending partial sidebar.html.haml -->
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2013/10/09/meet-the-community-in-juc/'>
+"Meet the community" in JUC
+</a>
+</h1>
+<div class='content'>
+(This is a guest post from Owen B. Mehegan aka autojack)<br/>
+<br/>
+<div style="float:right; margin:1em"><a href="http://commons.wikimedia.org/wiki/Category:Minced_meat"><img style="width:160px; height:99px" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Minced_beef_meat_cow_cattle_shadow.png/320px-Minced_beef_meat_cow_cattle_shadow.png"></a></div><br/>
+<br/>
+<p><br/>
+The Jenkins User Conference - Palo Alto is coming up on October 23rd! The schedule for talks is full, but we've been looking for a way to give other members of the Jenkins community some visibility. There are many people who have contributed to the project in various ways, whether it's contributing to core, developing plugins, writing documentation or just helping new users.<br/>
+<br/>
+<p><br/>
+If this sounds like you, we're interested in giving you 10-15 minutes to talk to the rest of the conference attendees! The format is currently undefined and may be left up to you. You could do a Q&amp;A, talk about features you've worked on and why they were important to you, or just offer some "pro tips" that you've developed based on your experience. The main point is to help put faces to some of the names in the community, and also help encourage others to contribute themselves! We're thinking of having these sessions during lunch and the exhibit hour (<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">see here for the schedule</a>).<br/>
+<br/>
+<p><br/>
+If you're interested in this, or know someone else who might be that I could contact, please let me (owen at nerdnetworks dot org) know! If we can get some critical mass around it then we'll go ahead.<br/>
+<br/>
+<p><br/>
+Thanks!
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2013/10/09/jenkins-at-netflix-juc-speaker-interview/'>
+Jenkins at Netflix / JUC speaker interview
+</a>
+</h1>
+<div class='content'>
+(This is a guest post from Gareth Bowles, a Senior Software Engineer at Netflix.)<br/>
+<br/>
+<div style="float:right; margin:1em"><br/>
+<img style="height:128px; width:128px" src="http://www.cloudbees.com/sites/default/files/juc/juc2013/Palo-Alto-Gareth-Bowles.jpg" /><br/>
+</div><br/>
+<p><br/>
+Jenkins has been a central part of the Netflix build and deploy infrastructure for several years now, and we've been attending and speaking at JUC since it started in 2011.  It's a great opportunity to meet people who are as passionate about build, test and deployment automation as we are - although as Kohsuke said last year, having all those folks in one place could be dangerous if there's an earthquake !<br/>
+<br/>
+<p><br/>
+CloudBees and the JUC Organizing Committee have put another great program together this year. We'll be doing two talks. Justin Ryan and Curt Patrick will present "Configuration as Code: Adoption of the Job DSL Plugin at Netflix", describing how we're shifting our users from manual job configuration via the UI, to defining their jobs as Groovy code using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Job+DSL+Plugin">Job DSL plugin</a>. Justin and Curt will describe how Netflix development teams can now create and maintain complex sets of jobs for their projects with the bare minimum of coding.<br/>
+<br/>
+<p><br/>
+In my lightning talk "Managing Jenkins with Jenkins", I'll go over how we use Jenkins' system Groovy scripts to maintain and monitor our Jenkins masters at a scale that couldn't be achieved with manual processes, and without the overhead of writing custom plugins.  <br/>
+<br/>
+<p><br/>
+As usual, there will be a whole crew of Netflix engineers at JUC this year.  If you're interested in working on build and deployment at Netflix scale, find one of us (we'll all be wearing Netflix gear) to learn more - we're hiring !<br/>
+<br/>
+<hr><br/>
+<br/>
+<p><br/>
+<a href="http://www.eventbrite.com/event/6367028955">Register for JUC - October 23 in Palo Alto</a>. If you can't make it in person, <a href="https://www.eventbrite.com/event/8328596055">register to watch the live stream!</a>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2013/09/23/literate-builds-wtf/'>
@@ -835,64 +901,12 @@ If you're interested in trying out extreme feedback in your own team you can ord
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/08/01/2-version-control-plugins-in-beta-testing-before-a-major-release/'>
-2 version control plugins in beta testing before a major release
-</a>
-</h1>
-<div class='content'>
-<div style="float:right;margin:1em"><br/>
-  <img src="http://upload.wikimedia.org/wikipedia/commons/4/49/Testing22222.jpg" width="150" height="160"><br/>
-</div><br/>
-<br/>
-<p><br/>
-<a href="https://wiki.jenkins-ci.org/display/JENKINS/Git+plugin+2.0+beta+testing">Git plugin</a> and <a href="https://wiki.jenkins-ci.org/display/JENKINS/TFS+plugin+2.0+beta+testing">TFS plugin</a> are calling for interested parties to try out their 2.0 beta binaries before they get released.<br/>
-<br/>
-<p><br/>
-Git plugin 2.0 contains a major refactoring and UI simplifications, and TFS plugin contains a rewritten polling logic that does not require a workspace.<br/>
-<br/>
-<p><br/>
-If you think you'd benefit from these changes, please head to their respective beta testing page and try out the new bits, while we can still change them.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/07/31/jenkins-user-conference-palo-alto-2013/'>
-Jenkins User Conference Palo Alto 2013
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Palo_Alto%2C_CA_welcome_sign.JPG/180px-Palo_Alto%2C_CA_welcome_sign.JPG"><br/>
-</div><br/>
-<br/>
-<p><br/>
-Jenkins User Conference is back to California again!<br/>
-<br/>
-<p><br/>
-Just like the last two years, this full day event packs talks from Jenkins developers and users, and it would be a great opportunity for Jenkins users to get to know each other and share their experiences.<br/>
-<br/>
-<p><br/>
-<a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">The agenda is already posted</a>, covering everything from robotics to mobile developments, effective management of Jenkins instances to branching techniques. I'm personally looking forward to a number of talks from serious large-scale users, and <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-israel.cb">JUC Israel</a> was of any indication, it'd be a great opportunity to get feedback from people.<br/>
-<br/>
-<p><br/>
-This year, we are moving the event to a weekday (Oct 23rd) to see if it helps or hurts the attendance. Similarly, the event is now in Palo Alto, as opposed to San Francisco. The site also happens to be a former Sun Microsystems headquarter, a place of some nostalgic value to me.<br/>
-<br/>
-<p><br/>
-I am also very happy to see a number of active community members <a href="http://www.cloudbees.com/jenkins/juc2013/juc2013-palo-alto.cb">signing up their employers to sponsor the event</a>. These will help us manage the cost of the event.<br/>
-<br/>
-<p><br/>
-So really, all that's needed is YOU! <a href="http://www.eventbrite.com/event/6367028955">Please register for the event</a> (I believe the early bird price stays until this Friday), and looking forward to seeing you.
-
-</div>
-</div>
 <div class="pagination-links"><a href="/node/page/17.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/17.html" class="page-link">17</a> <span class="current-page">18</span> <a href="/node/page/19.html" class="page-link">19</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/19.html" class="next-link">Next</a> </div>
 
 <div id='content-bottom'>
 </div>
 </div>
+<!-- starting partial footer.html.haml -->
 <script>
   !function(d,s,id) {
     var js, fjs=d.getElementsByTagName(s)[0];
@@ -905,8 +919,9 @@ So really, all that's needed is YOU! <a href="http://www.eventbrite.com/event/63
   }(document,"script","twitter-wjs");
 </script>
 
+<!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/jenkinsci/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
 Improve this page
 </a>
 </div>
