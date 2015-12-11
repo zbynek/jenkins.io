@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,32 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2012/02/21/sponsor-a-jenkins-user-conference/'>
+Sponsor a Jenkins User Conference!
+</a>
+</h1>
+<div class='content'>
+<p><img src="/images/user.gif" align="right" /></p>
+
+<p>With the <a href="/content/jenkins-user-conference-2012-paris">JUC Paris 2012</a> call for papers open, it's important to mention that we are also looking for <strong>sponsors</strong> for the various Jenkins User Conferences that are being planned around the world right now!</p>
+
+<p>Currently there are four conferences being put together right now:</p>
+
+<ul>
+  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-paris.cb">JUC Paris</a></li>
+  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-newyork.cb">JUC New York</a></li>
+  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco.cb">JUC San Francisco</a></li>
+  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-antwerp.cb">JUC Antwerp</a></li>
+</ul>
+
+<p>If your company is heavily invested in Jenkins or interested in reaching the kind of audience that will be at a JUC (highly technical, motivated) then you should consider becoming a sponsor one of these conferences (link below)!</p>
+
+<p><strong><a href="http://www.cloudbees.com/jenkins-user-conference-2012-sponsorship.cb">Sponsor the Jenkins User Conference</a></strong></p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2012/02/21/fosdem-2012-recap/'>
@@ -611,28 +637,6 @@ Adding diagrams to Wiki
 <p>Thanks to <a href="http://www.gliffy.com/">the kindness from Gliffy</a>, we can now add diagrams to <a href="http://wiki.jenkins-ci.org/">Wiki pages</a>, in a way that enables collaborative edits.</p>
 
 <p>See more info, including a sample diagram in <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adding+diagrams">a Wiki page</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/12/23/jenkins-survey-result-and-what-ui-improvement-would-you-like/'>
-Jenkins survey result and what UI improvement would you like?
-</a>
-</h1>
-<div class='content'>
-<div style="float:right;margin:1em"><a href="http://en.wiktionary.org/wiki/too_many_cooks_spoil_the_broth">
-&lt;img width=160 height=160 src="http://livinghealthy.typepad.com/photos/uncategorized/2007/07/11/toomanycooksblog.jpg"&gt;
-</a></div>
-<p><a href="http://blog.cloudbees.com/2011/12/jenkins-community-survey-results-82.html">Jenkins community survey result is in</a>, which shows a number of interesting stats for us developers, such as 82% of people saying their Jenkins is mission critical, or the spread of distributed builds, especially compared to <a href="http://weblogs.java.net/blog/kohsuke/archive/2009/01/hudson_usage_an.html">my earlier similar usage analytics</a>.</p>
-
-<p>But just as interesting is the free-form answers to questions like "If there was anything you could you change about Jenkins CI, what would it be?", and while the answer is colorful, there are a few common themes that one can easily spot.</p>
-
-<p>One of them is "nothing!", which made me feel good, but another is "UI improvement." And incidentally, Domi has started <a href="http://jenkins.361315.n4.nabble.com/Jenkins-UI-enhancements-td4196887.html">a thread in the Jenkins-users list</a> about this exact topic a week ago.</p>
-
-<p>The idea is to brainstorm what kind of concrete improvements people would like to see, then run them through some real user experience designers and decide which ones are good ideas and which ones are not.</p>
-
-<p>I find this thread useful — so much so that one of those ideas (always show the "Save" button at the bottom in the config page) is already implemented toward the next release of Jenkins. So if you have some thoughts to share, please chime in on that thread.</p>
 
 </div>
 </div>

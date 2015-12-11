@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,42 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2013/05/22/jenkins-user-conference-israel-coming-june-6/'>
+Jenkins User Conference Israel - Coming June 6
+</a>
+</h1>
+<div class='content'>
+<p>Your favorite Butler will visit Israel on June 6 for the Jenkins User Conference Israel. More than 200 people have already registered to hobnob with other Jenkins users and eat like kings.</p>
+
+<p>The agenda is up <a href="http://jenkins-uc-israel-2013.eventbrite.com/">here</a>. You’ll find a great list of speakers from Israel, Europe and the US to compliment a plethora of treats. There will be an ice cream break, fruits break, beer break and special chef lunch. And everyone gets a limited-edition JUC Israel t-shirt, designed by the t-shirt-design gurus at JFrog.</p>
+
+<p>Featured speakers:</p>
+<p><a href="http://www.cloudbees.com/company-team.cb#KohsukeKawaguchi">Kohsuke Kawaguchi</a>, the creator of Jenkins (formerly, Hudson) and elite architect at CloudBees, will deliver a keynote about the current state and the future roadmap of Jenkins.</p>
+
+<p><a href="http://www.gradleware.com/team#hans-dockter">Hans Dockter</a>, the creator of Gradle and the founder of Gradleware will speak about next generation build tool to CI server integration.</p>
+
+<p><a href="https://plus.google.com/102229966399548252687/about">Fred Simon</a>, JFrog's co-founder and Chef architect will share JFrog's vision of the future of continous integration in the cloud.<br /></p>
+<p> </p>
+
+<p><span style="color: #000000;"><strong></strong><img src="http://www.cloudbees.com/sites/default/files/imagecache/bio_photo/bio-photos/kkawaguchi.jpg" alt="Kohsuke Kawaguchi" width="100" height="100" />    <img src="https://lh3.googleusercontent.com/-Onq1wUMrLx0/TihBLrSg0bI/AAAAAAAAAKM/X_vQ00DqVXk/s286/hans.jpg" alt="Hans Dockter" width="100" height="100" />    <img src="https://lh6.googleusercontent.com/-bOfn5DKlIpg/T2Srk0H4isI/AAAAAAAAKAY/K8s7nrrKy70/s190/MeFromYaelAdarSmall.JPG" alt="Fred Simon" width="100" height="100" /><br /></span></p>
+
+<p>Many thanks to lead sponsors <a href="http://www.jfrog.com">JFrog</a> and <a href="http://www.cloudbees.com">CloudBees</a>, who have put a lot of time and energy into organizing the conference. Thanks also to sponsors <a href="http://www.gigaspaces.com/cloudify-open-paas-stack">Cloudify</a> and <a href="http://www.whitesourcesoftware.com">White Source</a> for showing their support for Jenkins!</p>
+
+<p><b><a href="http://jenkins-uc-israel-2013.eventbrite.com/">Register here.</a></b></p>
+
+<p><i>Can't make it to Israel? Here are more Jenkins events:</i></p>
+<ul>
+<li> <a href="http://www.eventbrite.co.uk/event/6205220983">Moving to Continuous Delivery in the Enterprise</a> – June 10, London</li>
+<li> <a href="http://www.meetup.com/jenkinsmeetup/events/116074032/">Jenkins Meetup</a> – June 15, Munich</li>
+<li> <a href="http://www.praqma.com/events/jciusrcph13">Jenkins User Event</a> – September 6, Copenhagen</li>
+<li> <a href="http://www.cloudbees.com/jenkins/juc/juc-2013.cb">Jenkins User Conference</a> – October 23, Palo Alto, CA</li>
+</ul>
+<p>&lt;/i&gt;</p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2013/05/17/continuous-information-jenkins-newsletter-vol-4/'>
@@ -621,31 +657,6 @@ Also, while they failed to mention this in the document, you can <a href="https:
 <br/>
 <p><br/>
 If that sounds interesting enough, you can <a href="http://zeroturnaround.com/rebellabs/devs/jenkins-ci-the-origins-of-butlers-build-masters-and-bowties/">get your copy now</a>. Be forewarned that a registration is required.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2013/01/30/jenkins-hits-1-500/'>
-Jenkins hits 1.500
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Toasting_Champagne.jpg/171px-Toasting_Champagne.jpg"><br/>
-</div><br/>
-<br/>
-<p><br/>
-The last week the Jenkins project has reached a miletone release &mdash; <a href="http://jenkins-ci.org/changelog">Version 1.500</a>. That's no 1.5 nor 1.5.0. That's the 501st release since its inception, counting all the way up from 1.0, 1.1 to 1.500.<br/>
-<br/>
-<p><br/>
-We'll be celebrating this release in <a href="https://wiki.jenkins-ci.org/display/JENKINS/FOSDEM">the upcoming FOSDEM conference</a> in Brussels, but I wanted to thank everyone for making this great community possible by participating and using it.<br/>
-<br/>
-<p><br/>
-Despite <a href="http://jenkins-ci.org/changelog-old.html">all</a> <a href="http://jenkins-ci.org/why">the</a> <a href="https://wiki.jenkins-ci.org/display/JENKINS/Governance+Meeting+Agenda">distances</a> we've thus far come, there are <a href="http://www.slideshare.net/kohsuke/jenkins-user-conference-2012-san-francisco">still a lot of work</a> to be done, both in the core and plugins, so we look forward to keep on keeping on in the coming years.<br/>
-<br/>
-<p><br/>
-So here is to the next 500 release!
 
 </div>
 </div>

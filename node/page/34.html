@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,35 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/08/30/pre-javaone-hudson-meetup/'>
+Pre-JavaOne Hudson Meetup
+</a>
+</h1>
+<div class='content'>
+<p>As we near autumn up here in the Northern Hemisphere, the wind is starting to blow a bit chillier and here in the Bay Area that can only mean one thing: <strike>Oracle is suing everybody!</strike> it's time for JavaOne!</p>
+
+<p>A whole lot has changed since last year, Sun Microsystems was acquired by Oracle, <a href="http://kohsuke.org/">Kohsuke</a> left Snoracle to found <a href="http://www.infradna.com">InfraDNA</a> and Hudson has continued to <a href="http://www.hudson-labs.org/content/cloudbees-announce-hudson-service">power on</a> as the single <strong>best</strong> continuous integration server on the planet.</p>
+
+<p>While the tickets for Oracle OpenWorld/JavaOne are just as outrageously expensive as they were last year, we <strong>are</strong> hosting a meetup/hackathon/continuous-drinking-contest at <a href="http://about.digg.com/opensource">Digg</a> the Sunday prior. We have not yet set any kind of agenda, but some core Hudson hackers and plenty of plugin developers should be in town so it should be a great time hacking on and/or with Hudson.</p>
+
+<p><big><a href="http://www.meetup.com/hudsonmeetup/calendar/14515128/">RSVP Here!</a></big>
+<!--break-->
+* <strong>When:</strong> September 19th, 1:00 p.m.
+* <strong>Location:</strong> Digg's Office: 1040 Mariposa St - Suite 100, San Francisco, CA 94107</p>
+
+<center>
+<iframe width="300" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=1040+Mariposa+St+-+Suite+100+San+Francisco,+CA+94107&amp;sll=37.0625,-95.677068&amp;sspn=39.780156,78.662109&amp;ie=UTF8&amp;hq=&amp;hnear=1040+Mariposa+St,+San+Francisco,+California+94107&amp;ll=37.764201,-122.394304&amp;spn=0.020356,0.025749&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small></center>
+
+<hr />
+
+<p><em>Note:</em> Unlike last year, we're trying to organize this with <a href="http://meetup.com">Meetup.com</a>, if you experience any difficulties RSVPing let us know</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/08/29/hudson-user-meet-up-in-copenhagen-oslo/'>
 Hudson User Meet-up in Copenhagen/Oslo
 </a>
@@ -532,29 +561,6 @@ Quiet Period Feature
 <p>The other portion of the quiet period that often matters is the SCM polling behaviour. Up until Hudson 1.346, the way Hudson defined the SCM abstraction made it impossible for SCMs to correctly report newly detected commits since the last polling. Instead, it was only possible to report if the repository is newer than the workspace. As a result, if the polling interval is set shorter than the quiet period, the build stayed in the quiet period forever. This was tracked in HUDSON-2180.</p>
 
 <p>Hudson 1.346 fixed this issue, and so if you are using a newer version of Hudson and SCM plugins that take advantage of this improvement, then everything works as expected. Otherwise, avoid setting quiet period longer than the polling interval.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/08/10/big-security-fix-hudson-1-371-released/'>
-Big Security Fix! Hudson 1.371 Released
-</a>
-</h1>
-<div class='content'>
-<p>Hot on the heels of Hudson 1.370, which was released last Friday, the Hudson team released 1.371 which addresses a <strong>critical vulnerability</strong> in <strong>all</strong> Hudson versions prior to 1.371. The vulnerability was disclosed by <a href="http://infradna.com">InfraDNA</a> in the <a href="http://infradna.com/content/security-advisory-2010-08-09">following security advisory</a>, which details the issue:</p>
-
-<blockquote>
-  <p>This critical vulnerability allows an attacker to use CLI commands that they are otherwise unauthorized for. CLI commands can perform various administrative operations.</p>
-</blockquote>
-
-<p>It is advised that <strong>all</strong> Hudson instances be upgraded immediately to avoid data loss or other ill effects from this issue. If you're upgrading from a version earlier than 1.370, you can consult the <a href="/changelog">changelog</a> for details on the other bug fixes and enhancements covered by the upgrade of your version to 1.371.</p>
-
-<p>If you run a Hudson instance, it is recommended that Hudson system admins subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a>
-<!--break-->
-—-</p>
-
-<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.371/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
 
 </div>
 </div>

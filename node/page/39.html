@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,40 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/03/23/links-for-2010-03-23/'>
+Links for 2010-03-23
+</a>
+</h1>
+<div class='content'>
+<p>While I work on some screencasts and start to get more <a href="http://blog.hudson-ci.org/category/tags/interview">"Spotlight" interviews</a> lined up, I figured it's time for a link roll-up for your Tuesday morning reading.</p>
+
+<ul>
+  <li>
+    <p>We caught a glimpse of a <strong><a href="http://twitpic.com/152xhr">little Java scoreboard app</a></strong> for Hudson from <a href="http://twitter.com/davefollett">@davefollett</a></p>
+  </li>
+  <li>
+    <p>Matt Patterson of <a id="aptureLink_NDKUoNYokk" href="http://reprocessed.org/">Reprocessed.org</a> wrote a great post on <strong><a href="http://reprocessed.org/blog/easy_rails_ci_with_hudson">continuous integration with Rails</a></strong> with Hudson, running both <a id="aptureLink_TIt3UZtbhZ" href="http://en.wikipedia.org/wiki/RSpec">Rspec</a> and <a id="aptureLink_U6kYCLjJtL" href="http://seleniumhq.org/">Selenium</a> tests.</p>
+  </li>
+  <li>
+    <p>At the hackathon at <a id="aptureLink_HMf1IRo7hi" href="http://twitter.com/hackerdojo">Hacker Dojo</a> on Saturday, <a id="aptureLink_fqqK3Pi1s2" href="http://twitter.com/kohsukekawa">Kohsuke</a> pointed us all to the <strong><a href="http://www.cafepress.com/hudson_ci">Hudson Cafe Press</a></strong> store, where he gets all his Hudson threads.</p>
+  </li>
+  <li>
+    <p><a id="aptureLink_GbgYQ4lgDT" href="http://twitter.com/cjadamscollier">C.J. Adams-Collier</a> seems quite pleased to have <strong><a href="http://wp.colliertech.org/cj/?p=795">builds for IronRuby back online</a></strong>, powered by Hudson.</p>
+  </li>
+  <li>
+    <p>We got a sneak-peak into the first chapter of <a id="aptureLink_mciOR3wZdP" href="http://twitter.com/wakaleo">John Ferguson Smart's</a> <strong><a href="http://www.wakaleo.com/books/continuous-integration-with-hudson-the-book">Continuous Integration with Hudson</a></strong> book.</p>
+  </li>
+  <li>
+    <p><a id="aptureLink_mbIeDJ1raQ" href="http://twitter.com/bshine">Ben Shine</a> showed off some of <strong><a href="http://wiki.hudson-ci.org/display/HUDSON/UI+Mockups">his UI mock-ups</a></strong> for Hudson.</p>
+  </li>
+</ul>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/03/22/hudson-1-352-released/'>
 Hudson 1.352 Released
 </a>
@@ -483,25 +517,6 @@ Links for 2010-03-19
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/03/19/recap-of-hackathon-part-one/'>
-Recap of Hackathon Part One
-</a>
-</h1>
-<div class='content'>
-<p><a id="aptureLink_pnjVAv8djU" href="http://twitter.com/kohsukekawa">Kohsuke</a> just posted a brief write-up on <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/03/19/hudson-hackathon-day-1">his personal blog</a> about the first day of the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Bay Area Hudson hackathon/meetup</a>. He writes:</p>
-
-<blockquote>
-  <p>Total of 9 people came and we had a great time talking about infrastructure issues, possible enhancements, design dicussions, exchanging tips and plugins that they've developed, and otherwise building personal relationships.</p>
-</blockquote>
-
-<p>A number of folks joined us on the <code>#Hudson</code> IRC channel on <a id="aptureLink_GzNHS5pDZN" href="http://freenode.net/">Freenode</a> and the WebEx conference, participating remotely. Since day one was primarily intended for hacking on Hudson itself, we're expecting more people tomorrow when we'll have a good mix of folks hacking <strong>on</strong> Hudson, folks hacking <strong>with</strong> Hudson and plain old folks.</p>
-
-<center><img src="http://agentdero.cachefly.net/continuousblog/HackathonDay1.jpeg" alt="The team, Day One" /></center>
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2010/03/19/get-excited-and-make-things/'>
 Get excited and make things
 </a>
@@ -534,6 +549,25 @@ Get excited and make things
 <hr />
 
 <p><strong>Update</strong>: The WebEx link for today has been corrected.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/19/recap-of-hackathon-part-one/'>
+Recap of Hackathon Part One
+</a>
+</h1>
+<div class='content'>
+<p><a id="aptureLink_pnjVAv8djU" href="http://twitter.com/kohsukekawa">Kohsuke</a> just posted a brief write-up on <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/03/19/hudson-hackathon-day-1">his personal blog</a> about the first day of the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Bay Area Hudson hackathon/meetup</a>. He writes:</p>
+
+<blockquote>
+  <p>Total of 9 people came and we had a great time talking about infrastructure issues, possible enhancements, design dicussions, exchanging tips and plugins that they've developed, and otherwise building personal relationships.</p>
+</blockquote>
+
+<p>A number of folks joined us on the <code>#Hudson</code> IRC channel on <a id="aptureLink_GzNHS5pDZN" href="http://freenode.net/">Freenode</a> and the WebEx conference, participating remotely. Since day one was primarily intended for hacking on Hudson itself, we're expecting more people tomorrow when we'll have a good mix of folks hacking <strong>on</strong> Hudson, folks hacking <strong>with</strong> Hudson and plain old folks.</p>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/HackathonDay1.jpeg" alt="The team, Day One" /></center>
 
 </div>
 </div>
@@ -658,26 +692,6 @@ You can go grab the [latest .war file](http://hudson-ci.org/latest/hudson.war) s
 
 ----
 </li></li>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/14/would-you-like-to-ok/'>
-Would you like to, OK
-</a>
-</h1>
-<div class='content'>
-<p>As Matt Brown pointed out on the <code>dev@</code> list, Hudson made a cameo on <a href="http://thedailywtf.com">The Daily WTF</a> in their post <a href="http://thedailywtf.com/Articles/Nobulation-Fail.aspx">Nobulation Fail</a>.</p>
-
-<center><img src="http://agentdero.cachefly.net/scratch/hudson_install_dailywtf.png" /></center>
-
-<p>Kohsuke went on to mention on the mailing list:</p>
-
-<blockquote>
-  <p>Looks like this one is already fixed back in October last year.</p>
-</blockquote>
-
 
 </div>
 </div>

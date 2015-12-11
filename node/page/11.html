@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,54 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2014/10/20/freebsd-project-use-of-jenkins-for-os-testing/'>
+FreeBSD project use of Jenkins for OS testing
+</a>
+</h1>
+<div class='content'>
+<p>This is a guest post by Craig Rodrigues</p>
+
+<hr />
+
+<p>The <a href="http://www.freebsd.org">FreeBSD project</a> produces a modern operating system derived from <a href="http://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD Unix</a>.</p>
+
+<p>In the past 6 months, we have set up Jenkins at <a href="http://jenkins.freebsd.org/">http://jenkins.freebsd.org/</a>, to continuously build FreeBSD as developers add new code to the project. This has helped us identify and fix build breaks very quickly.</p>
+
+<p>We have gone even farther by integrating Jenkins, <a href="https://github.com/jmmv/kyua#readme">Kyua</a>,
+and <a href="http://bhyve.org/">Bhyve</a>.
+<a href="https://github.com/jmmv/kyua#readme">Kyua</a> is a testing framework for infrastructure software.
+<a href="http://bhyve.org/">Bhyve</a> is the native hypervisor that comes with FreeBSD (similar to KVM on Linux).</p>
+
+<p>We use the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Flow+Plugin">Build Flow plugin</a> in this <a href="https://jenkins.freebsd.org/jenkins/view/FreeBSD_src_stable/job/FreeBSD_stable_10/848/BuildGraph/">example Build flow</a>	 to do the following:</p>
+
+<ol>
+  <li>Build the FreeBSD kernel and userland on amd64 whenever someone checks in new code to http://svn.freebsd.org</li>
+  <li>Create a bootable FreeBSD disk image with <a href="https://www.freebsd.org/cgi/man.cgi?query=makefs">makefs</a></li>
+  <li>Boot the image under bhyve</li>
+  <li>Run these commands inside the bhyve VM:</li>
+</ol>
+
+<p><code>
+    cd /usr/tests; kyua test; kyua report-junit --output=test-output.xml
+</code></p>
+
+<ol>
+  <li>Shut down the bhyve VM</li>
+  <li>Imports test-output.xml into Jenkins.</li>
+  <li>Produces a <a href="https://jenkins.freebsd.org/jenkins/job/FreeBSD_stable_10-tests/4/testReport/">full native test report in Jenkins</a></li>
+</ol>
+
+<p>The results of this work were presented at the <a href="http://bafug.org">Bay Area FreeBSD Users Group</a>
+in <a href="http://www.slideshare.net/CraigRodrigues1/kyua-jenkins">this presentation</a> in October 2014.</p>
+
+<p>Jenkins has been very easy to set up and use under FreeBSD.   We hope that by using
+Jenkins to run OS-level unit tests, we will be able to improve the quality of FreeBSD.
+For further information, please feel free to contact us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;">&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;</a> .</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2014/10/15/cve-2014-3566-poodle-impact-on-jenkins/'>
 CVE-2014-3566 "poodle" impact on Jenkins
 </a>
@@ -500,28 +548,6 @@ Finally, to get notified of future security advisories from Jenkins, see <a href
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/09/24/more-jenkins-related-continuous-delivery-events-in-chicago-washington-dc-and-san-francisco/'>
-More Jenkins-related continuous delivery events in Chicago, Washington DC, and San Francisco
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Circus"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CircusTent02.jpg/320px-CircusTent02.jpg"></a></div><br/>
-<br/>
-<p><br/>
-The usual suspects, such as CloudBees, XebiaLabs, SOASTA, PuppetLabs, et al are <a href="http://www.cloudbees.com/cdsummit/">doing a Jenkins-themed continuous delivery event series</a> called "cdSummit." The event is free, has a nice mix of user/vendor talks, and has an appeal to managers and team leads who are working on and struggling with continuous delivery and automation.<br/>
-<br/>
-<p><br/>
-I've spoken in the past events, and I enjoyed the high-level pitches from various speakers.<br/>
-The last two events at Paris and London filled up completely, so I suspect others have liked them, too.<br/>
-<br/>
-<p><br/>
-If you live near Chicago, Washington DC, or San Francisco, check out the date and see if you can make it. <a href="http://www.cloudbees.com/cdsummit/">RSVP is from here</a>. If you do, be sure to pick up Jenkins stickers and pin badges!
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2014/09/24/jenkins-in-javaone-2014/'>
 Jenkins in JavaOne 2014
 </a>
@@ -545,6 +571,28 @@ In <a href="https://www.oracle.com/javaone/floor-plans/index.html">the exhibit a
 <br/>
 <p><br/>
 And finally, <a href="https://oracleus.activeevents.com/2014/connect/sessionDetail.ww?SESSION_ID=2939">Script Bowl 2014: The Battle Rages On [CON2939]</a> gets an honorable mention because <a href="https://twitter.com/agentdero">our own Tyler Croy</a> is representing JRuby against other scripting languages, including my favorite Groovy. Hmm, who should I root for...
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/09/24/more-jenkins-related-continuous-delivery-events-in-chicago-washington-dc-and-san-francisco/'>
+More Jenkins-related continuous delivery events in Chicago, Washington DC, and San Francisco
+</a>
+</h1>
+<div class='content'>
+<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Circus"><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CircusTent02.jpg/320px-CircusTent02.jpg"></a></div><br/>
+<br/>
+<p><br/>
+The usual suspects, such as CloudBees, XebiaLabs, SOASTA, PuppetLabs, et al are <a href="http://www.cloudbees.com/cdsummit/">doing a Jenkins-themed continuous delivery event series</a> called "cdSummit." The event is free, has a nice mix of user/vendor talks, and has an appeal to managers and team leads who are working on and struggling with continuous delivery and automation.<br/>
+<br/>
+<p><br/>
+I've spoken in the past events, and I enjoyed the high-level pitches from various speakers.<br/>
+The last two events at Paris and London filled up completely, so I suspect others have liked them, too.<br/>
+<br/>
+<p><br/>
+If you live near Chicago, Washington DC, or San Francisco, check out the date and see if you can make it. <a href="http://www.cloudbees.com/cdsummit/">RSVP is from here</a>. If you do, be sure to pick up Jenkins stickers and pin badges!
 
 </div>
 </div>
@@ -585,21 +633,6 @@ My apologies for the last minute announcement, but there will be a <a href="http
 <br/>
 <p><br/>
 It's been a while we do a meet-up in Paris. Looking forward to seeing as many of you as possible. The event is free, but <a href="http://www.meetup.com/jenkinsmeetup/events/203261692/">please RSVP</a> so that we know what to expect.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/08/28/workflow-plugin-code-walk-through/'>
-Workflow plugin code walk-through
-</a>
-</h1>
-<div class='content'>
-<p>Jesse and I will walk through the source code of <a href="https://github.com/jenkinsci/workflow-plugin">the workflow plugin</a>, highlights key abstractions and extension points, and discuss how they are put together.</p>
-
-<p>If you are interested in developing or retrofitting plugins to work with workflows, I think you'll find this session interesting.</p>
-
-<p>The event will be on <a href="https://plus.google.com/events/cojjhg4kkpffkbpakj723fdht9k">Google Hangout</a> tomorrow. The time of the day is the same as usual <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Workflow+walk-through&amp;iso=20140829T11&amp;p1=224&amp;ah=1&amp;sort=1">office hours</a>.</p>
 
 </div>
 </div>

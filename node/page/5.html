@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,22 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2015/08/20/upcoming-office-hour-on-kubernetes/'>
+Upcoming office hour on Kubernetes
+</a>
+</h1>
+<div class='content'>
+<p><a href="https://github.com/ndeloof">Nicolas De Loof</a> will host an <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">office hour</a> <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&amp;iso=20150826T11&amp;p1=283&amp;ah=1">next Wednesday 11 AM PDT</a> on integrating Kubernetes with Jenkins. <a href="http://kubernetes.io/">Kubernetes</a> is an open-source project by Google that provides a platform for managing <a href="http://docker.io/">Docker</a> containers as a cluster.</p>
+
+<p>During this session, Nicolas will introduce Kubernetes, explain how it can benefit Jenkins and demonstrate the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Kubernetes+Plugin">Kubernetes Plugin</a>.
+Then he will discuss the design of the Kubernetes plugin and plans he has for future improvements.</p>
+
+<p><a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYcKf7LmLtXgek2Fjdj8ZUQ5ruOxwTbuLmC_ivKmHYyrHFOJqA?hl=en">Participate in the Hangout on Air</a> or <a href="https://www.youtube.com/watch?v=95WduGqvLRA">watch live on YouTube</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/08/18/juc-speaker-blog-series-andrew-phillips-juc-u-s-west/'>
 JUC Speaker Blog Series: Andrew Phillips, JUC U.S. West
 </a>
@@ -514,25 +530,6 @@ JUC Speaker Blog Series: Carlo Cadet, JUC U.S. West
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/'>
-Wiki and issue tracker outage over the weekend
-</a>
-</h1>
-<div class='content'>
-<p>As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?</p>
-
-<p>We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.</p>
-
-<p>The databases for the wiki and issue tracker became <a href="https://twitter.com/osuosl/status/626903003203637248">inaccessible around midnight/12 AM Thu/Fri night</a> (all times UTC). Due to the large number and size of databases on that server, <a href="https://twitter.com/osuosl/status/626946293663821824">pulling from backups</a>, <a href="https://twitter.com/osuosl/status/627027620845129729">restoring from backup</a> and <a href="https://twitter.com/osuosl/status/627237502420561920">replaying the binlogs</a> took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).</p>
-
-<p>The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.</p>
-
-<p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
 <a href='/blog/2015/08/04/bay-area-jenkins-area-meet-up-kick-off-gathering-today/'>
 Bay Area Jenkins Area Meet-up kick-off gathering today
 </a>
@@ -572,6 +569,25 @@ Uday and I will be there, and Uday told me that he heard from another guy who wi
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/'>
+Wiki and issue tracker outage over the weekend
+</a>
+</h1>
+<div class='content'>
+<p>As you may have noticed, our wiki and issue tracker were unavailable from Thursday to Sunday last week. What happened?</p>
+
+<p>We host parts of our infrastructure at the Open Source Lab at Oregon State (OSUOSL), including the databases for these two services. So far, there's no post mortem by OSUOSL (they expect to post one later this week), so we need to piece together what we know.</p>
+
+<p>The databases for the wiki and issue tracker became <a href="https://twitter.com/osuosl/status/626903003203637248">inaccessible around midnight/12 AM Thu/Fri night</a> (all times UTC). Due to the large number and size of databases on that server, <a href="https://twitter.com/osuosl/status/626946293663821824">pulling from backups</a>, <a href="https://twitter.com/osuosl/status/627027620845129729">restoring from backup</a> and <a href="https://twitter.com/osuosl/status/627237502420561920">replaying the binlogs</a> took them quite a while. During that time, we put up a maintenance screen on the wiki (and messed up the one for Jira, so there were connection timeouts instead).</p>
+
+<p>The databases were back around 3 AM on Sunday. We disabled the maintenance screens around 6 PM later that day.</p>
+
+<p>While this was a rather lengthy outage, it could have been much worse. We lost none of the data, after all. We thank the OSUOSL team for their efforts getting everything back up over the weekend!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2015/08/03/just-a-month-left-until-juc-u-s-west/'>
 Just a month left until JUC U.S. West
 </a>
@@ -588,25 +604,6 @@ Just a month left until JUC U.S. West
 <p>If you're interested in the upcoming Jenkins UI overhaul, make sure to attend <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1500">Gus and Tom's talk</a> about it. Don't want to wait until JUC to learn more about this? <a href="https://groups.google.com/d/msg/jenkinsci-dev/Tiz-LSqCJmg/3CuYzuBXJpsJ">Follow the discussion on the developers mailing list</a> and contribute through early testing.</p>
 
 <p>This JUC will again have an <em>Ask The Experts</em> booth with several Jenkins experts and developers available there throughout the event. If you want to discuss <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-01-1130">Workflow</a> with Jesse, or pitch your UI ideas to Gus, this is where you'll be able to do that.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/07/30/juc-u-s-west-news-agenda-is-up/'>
-JUC U.S. West News: Agenda is up
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/butler-kk-gk_0.jpg" width=250 height=194><br/>
-</div><br/>
-<br/>
-<p>It seems a bit unreal, but the <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">last JUC agenda</a> for 2015 is now online. <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Jenkins User Conference U.S. West</a> is the last JUC of the year running from September 2-3 in Santa Clara, CA. So, if you haven't attended JUC yet this year, <a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214"><b>this is your chance!</b></a></p><br/>
-<br/>
-<p><a href="https://www.regonline.com/Register/Checkin.aspx?EventID=1697214">Register</a> with a friend to take advantage of the community's 2-for-1 deal and get two tickets for the price of one.</p><br/>
-<br/>
-<p><i>Which talk are you looking forward to most? Check out the agenda and tweet your choice to <a href="https://twitter.com/jenkinsconf">@jenkinsconf!</a></i></p>
 
 </div>
 </div>

@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,21 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2014/08/28/workflow-plugin-code-walk-through/'>
+Workflow plugin code walk-through
+</a>
+</h1>
+<div class='content'>
+<p>Jesse and I will walk through the source code of <a href="https://github.com/jenkinsci/workflow-plugin">the workflow plugin</a>, highlights key abstractions and extension points, and discuss how they are put together.</p>
+
+<p>If you are interested in developing or retrofitting plugins to work with workflows, I think you'll find this session interesting.</p>
+
+<p>The event will be on <a href="https://plus.google.com/events/cojjhg4kkpffkbpakj723fdht9k">Google Hangout</a> tomorrow. The time of the day is the same as usual <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Workflow+walk-through&amp;iso=20140829T11&amp;p1=224&amp;ah=1&amp;sort=1">office hours</a>.</p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2014/08/28/juc-sf-2014-is-here/'>
@@ -666,29 +681,6 @@ Thanks everyone who came, thanks JFrog for being on the ground for the event (an
 <br/>
 <div align=center><br/>
 <a href="https://www.flickr.com/photos/12508267@N00/14680851721"><img src="https://farm4.staticflickr.com/3903/14680851721_fd36aac023_n.jpg" width="320" height="213" alt="IMG_9777"></a></div><br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/07/09/planned-changes-in-jenkins-user-conference-contact-information-collection/'>
-Planned changes in Jenkins User Conference contact information collection
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Nineteen_Eighty-Four"><br/>
-  <img width=160 height=160 src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Ingsoc_logo_from_1984.svg/330px-Ingsoc_logo_from_1984.svg.png"><br/>
-</a></div><br/>
-<br/>
-<p><br/>
-One of the challenges of running Jenkins User Conferences is to ballance the interest of attendees and the interest of sponsors. Sponsors would like to know more about attendees, but attendees are often weary of getting contacted. Our past few JUCs have been run by making it opt-in to have the contact information passed to sponsors, but the ratio of people who opt-in is too low. So we started thinking about adjusting this.<br/>
-<br/>
-<p><br/>
-So our current plan is to reduce the amount of data we collect and pass on, but to make this automatic for every attendee. Specifically, we'd limit the data only to name, company, e-mail, and city/state/country you are from. But no phone number, no street address, etc. We discussed this in <a href="http://meetings.jenkins-ci.org/jenkins/2014/jenkins.2014-07-09-18.02.html">the last project meeting</a>, and people generally seem to think this is reasonable. That said, this is a sensitive issue, so we wanted more people to be aware.<br/>
-<br/>
-<p><br/>
-By the way, <a href="http://www.cloudbees.com/forms/jenkins-user-conference-call-papers.cb">the call for papers to JUC Bay Area</a> is about to close in a few days. If you are interested in giving a talk (and that's often the best way to get feedback and take credit on your work), please make sure to submit it this week.<br/>
-<br/>
 
 </div>
 </div>

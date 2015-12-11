@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,24 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/02/24/100k-celebration-podcast-recording/'>
+100K Celebration Podcast Recording
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+In preparation for <a href="http://jenkins-ci.org/content/jenkins-celebration-day-february-26">Jenkins 100K celebration</a>, I'm going to record a one-time podcast with Dean Yu, Andrew Bayer, and R. Tyler Croy.<br/>
+<br/>
+<p><br/>
+My current plan is to go over the history of the project, how big the community was back then, how we grow, where we are now, and maybe a bit about future.<br/>
+<br/>
+<p><br/>
+But if you have any other suggestions/questions that you'd like us to discuss, you have 3 or 4 more hours to send in that suggestion! Your feedback would help us make a better recording, so please don't hesitate to tell us.
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2015/02/19/jenkins-100k-celebration-pictures/'>
@@ -599,54 +617,6 @@ Jenkins User Conference in Bay Area is this Thursday, and one of the new things 
 <br/>
 <p><br/>
 There's an Android version as well as an iPhone version. I've installed it locally, and it's very handy for checking the agenda, get more info about speakers and sponsors.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/10/20/freebsd-project-use-of-jenkins-for-os-testing/'>
-FreeBSD project use of Jenkins for OS testing
-</a>
-</h1>
-<div class='content'>
-<p>This is a guest post by Craig Rodrigues</p>
-
-<hr />
-
-<p>The <a href="http://www.freebsd.org">FreeBSD project</a> produces a modern operating system derived from <a href="http://en.wikipedia.org/wiki/Berkeley_Software_Distribution">BSD Unix</a>.</p>
-
-<p>In the past 6 months, we have set up Jenkins at <a href="http://jenkins.freebsd.org/">http://jenkins.freebsd.org/</a>, to continuously build FreeBSD as developers add new code to the project. This has helped us identify and fix build breaks very quickly.</p>
-
-<p>We have gone even farther by integrating Jenkins, <a href="https://github.com/jmmv/kyua#readme">Kyua</a>,
-and <a href="http://bhyve.org/">Bhyve</a>.
-<a href="https://github.com/jmmv/kyua#readme">Kyua</a> is a testing framework for infrastructure software.
-<a href="http://bhyve.org/">Bhyve</a> is the native hypervisor that comes with FreeBSD (similar to KVM on Linux).</p>
-
-<p>We use the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Build+Flow+Plugin">Build Flow plugin</a> in this <a href="https://jenkins.freebsd.org/jenkins/view/FreeBSD_src_stable/job/FreeBSD_stable_10/848/BuildGraph/">example Build flow</a>	 to do the following:</p>
-
-<ol>
-  <li>Build the FreeBSD kernel and userland on amd64 whenever someone checks in new code to http://svn.freebsd.org</li>
-  <li>Create a bootable FreeBSD disk image with <a href="https://www.freebsd.org/cgi/man.cgi?query=makefs">makefs</a></li>
-  <li>Boot the image under bhyve</li>
-  <li>Run these commands inside the bhyve VM:</li>
-</ol>
-
-<p><code>
-    cd /usr/tests; kyua test; kyua report-junit --output=test-output.xml
-</code></p>
-
-<ol>
-  <li>Shut down the bhyve VM</li>
-  <li>Imports test-output.xml into Jenkins.</li>
-  <li>Produces a <a href="https://jenkins.freebsd.org/jenkins/job/FreeBSD_stable_10-tests/4/testReport/">full native test report in Jenkins</a></li>
-</ol>
-
-<p>The results of this work were presented at the <a href="http://bafug.org">Bay Area FreeBSD Users Group</a>
-in <a href="http://www.slideshare.net/CraigRodrigues1/kyua-jenkins">this presentation</a> in October 2014.</p>
-
-<p>Jenkins has been very easy to set up and use under FreeBSD.   We hope that by using
-Jenkins to run OS-level unit tests, we will be able to improve the quality of FreeBSD.
-For further information, please feel free to contact us at <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;">&#102;&#114;&#101;&#101;&#098;&#115;&#100;&#045;&#116;&#101;&#115;&#116;&#105;&#110;&#103;&#064;&#070;&#114;&#101;&#101;&#066;&#083;&#068;&#046;&#111;&#114;&#103;</a> .</p>
 
 </div>
 </div>

@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -455,6 +455,17 @@ Upcoming changes</a>
 <!-- Record your changes in the trunk here. -->
 <div id="trunk" style="display:none"><!--=TRUNK-BEGIN=-->
 <ul class=image>
+  <li class=>
+</ul>
+</div><!--=TRUNK-END=-->
+<h3><a name=v1.641>What's new in 1.641</a> (2015/12/09)</h3>
+<ul class=image>
+   <li class="major bug">
+     <strong>Important security fixes</strong>
+     (<a href="https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2015-12-09">security advisory</a>)
+</ul>
+<h3><a name=v1.640>What's new in 1.640</a> (2015/12/07)</h3>
+<ul class=image>
   <li class="rfe">
     Added support of default values in the <code>enum.jelly</code> form element.
     (<a href="https://github.com/jenkinsci/jenkins/pull/1926">PR 1926</a>)
@@ -462,8 +473,23 @@ Upcoming changes</a>
     Bytecode Compatibility Transformer computes the common super class without loading classes.
     Fixes the <code>ClassCircularityError</code> exception in Ruby Runtime Plugin. 
     (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31019">issue 31019</a>)
+  <li class="major bug">
+    Extended Choice parameter definitions could not be saved since 1.637.
+    (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31458">issue 31458</a>)
+  <li class="rfe">
+    Display expected CRON run times even if a warning occurs.
+    (<a href="https://issues.jenkins-ci.org/browse/JENKINS-29059">issue 29059</a>)
+  <li class="rfe">
+    Rework the <code>online-node</code> command implementation, no functional changes.
+    (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31776">issue 31776</a>)
+  <li class="bug">
+    Fix the footer behavior in particular cases.  
+    (<a href="https://issues.jenkins-ci.org/browse/JENKINS-30304">issue 30304</a>, 
+    <a href="https://issues.jenkins-ci.org/browse/JENKINS-31395">issue 31395</a>)
+  <li class="rfe">
+    API changes: Deprecate subclassing of <code>hudson.Plugin</code>.
+    (<a href="https://github.com/jenkinsci/jenkins/pull/1940">PR 1940</a>)
 </ul>
-</div><!--=TRUNK-END=-->
 <h3><a name=v1.639>What's new in 1.639</a> (2015/11/29)</h3>
 <ul class=image>
   <li class="major bug">

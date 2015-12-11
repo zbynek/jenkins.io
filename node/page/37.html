@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,62 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/22/hudson-1-363-released/'>
+Hudson 1.363 Released!
+</a>
+</h1>
+<div class='content'>
+<p><img src="/sites/default/files/images/Hudson_coatofarms.gif" align="left" hspace="6" /> Last Friday the Hudson team released release <strong>1.363</strong> which is yet another mixed bag of enhancements and bug fixes. Along with the usual bunch of fixes, this release includes a number of localization updates courtesy of a team of Hudson community volunteers participating in the Hudson <a href="http://wiki.hudson-ci.org/display/HUDSON/Internationalization">Internationalization project</a>.</p>
+
+<p>It is also worth noting that this post is being published on Tuesday, contrary to the schedule that I operated on with Continuous Blog, I will no longer be posting release updates on Monday morning. Traditionally Hudson is released Friday afternoon (PST), meaning any potential regressions are reported early on Monday morning after our European users start to upgrade. Publishing this release announcement on Tuesday gives me more time to test out the release so I can report with greater confidence in the reliability of the update. (<em>Note</em>: This may change in the future as we push for easier RC testing capabilities within Hudson)</p>
+
+<p>If you're a regular reader of the Hudson Labs blog, you may also notice that this change log looks eerily similar to the <a href="http://www.hudson-labs.org/content/hudson-1362-released">1.362 announcement</a> from last week. Turns out I had mistakenly taken the upcoming changes from 1.363 and reported them as fixes in 1.362; I've since updated the post regarding 1.362's change log.</p>
+
+<h4 id="bug-fixes">Bug Fixes</h4>
+<p>&lt;ul class=image&gt;
+  &lt;li class=bug&gt; 
+    Fix queue handling to close locking gap between removing job from queue and starting build,
+    to prevent unintended concurrent builds (refactor of change first made in 1.360).
+    (<a href="http://hudson.361315.n4.nabble.com/Patch-to-fix-concurrent-build-problem-td2229136.html">report</a>)
+  &lt;li class=bug&gt; 
+    Allow multiple dependencies between same two projects, as they may trigger under
+    different conditions and with different parameters.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5708">issue 5708</a>)
+  &lt;li class=bug&gt; 
+    Timeline on build trend page should use server timezone instead of always GMT.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6692">issue 6692</a>)
+  &lt;li class=bug&gt; 
+    Don't mask the cause of the checkout related exception.
+  &lt;li class=bug&gt; 
+    "who am I?" page should be visible to everyone.
+  &lt;li class=bug&gt; 
+    Reinstall a JDK when a different version is selected.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5551">issue 5551</a>)
+&lt;/ul&gt;</p>
+
+<h4 id="enhancements">Enhancements</h4>
+<ul>
+  &lt;li class=rfe&gt; 
+    Avoid pointless and harmful redirection when downloading slave.jar. 
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5752">issue 5752</a>)
+  &lt;li class=rfe&gt; 
+    Cache downloaded JDKs.
+  &lt;li class=rfe&gt; 
+    Integrated community-contributed translations (Germany, Greek, Spanish, Finnish, Hungarian, Italian, Japanese, French,
+    Russian, Slovenian, Dutch, Traditional Chinese, Swedish, Ukrainian, and Portuguese.) 
+  &lt;li class=rfe&gt; 
+    Upgraded bundled Ant to version 1.8.1.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6562">issue 6562</a>)
+</ul>
+<!--break-->
+<hr />
+
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.363/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2010/06/14/hudson-1-362-released/'>
@@ -649,39 +705,6 @@ A new blog for Kohsuke
 </blockquote>
 
 <p>If you're a reader of feeds, I recommend adding the <a href="http://kohsuke.org/feed/">rss feed</a> for the blog to your list of interesting continuous integration/hacker feeds.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/04/12/pre-tested-commits-with-git/'>
-Pre-tested commits with Git
-</a>
-</h1>
-<div class='content'>
-<p>At the first <a href="http://wiki.hudson-ci.org/display/HUDSON/BayAreaMeetup">Bay Area Hackathon</a> in mid-2009, the topic du jour was "<a href="http://wiki.hudson-ci.org/display/HUDSON/Designing+pre-tested+commit">pre-tested commits</a>." As potential implementations of the concept were discussed over burgers from <a id="aptureLink_gLlt1i6v1p" href="http://www.brickhousesf.com/">Brickhouse</a> in downtown San Francisco, we realized as a group a few things: first, those burgers were <em>delicious</em>, but more importantly: pre-testing commits is very-SCM dependent and involves a lot of moving parts. One of the positive changes that came out shortly after the meet up was the support for "Concurrent Builds", allowing a job to be executed concurrently on different slaves, a precursor to pre-tested commit support. Fervor for the pre-tested commit feature lowered as time went on, the feature being too dependent on the SCM itself was generally accepted as the reasoning behind the feature languishing.</p>
-
-<p>Chances are the feature is in fact too large for Hudson to support alone. It requires Hudson, the SCM and likely a third tool to work in concert together to perform such a feat.</p>
-
-<p>With Git, and the phenomenal code review tool <a href="http://code.google.com/p/gerrit/">Gerrit</a>, and the <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">Gerrit plugin</a> by intrepid plugin developer, <a href="http://twitter.com/jyrkiputtonen">Jyrki Puttonen</a>, pre-tested commits with Hudson, Git and Gerrit <em>are</em> possible.
-<!--break-->
-For Git users more familiar with the distributed Git workflows, working with Gerrit should seem familiar. Gerrit has <a id="aptureLink_MoOPmIyV3m" href="http://www.eclipse.org/jgit/">JGit</a>, a Java implementation of Git embedded within it, along with an <code>sshd</code> stack, meaning Gerrit can masquerade as a "regular" Git remote repository. Developers can push and pull to the repository just as they can with any other Git repository (provided they have permissions of course). I won't delve too much into using Gerrit specifically here, but the pre-tested workflow with Gerrit and Hudson would look something like this:</p>
-
-<ul>
-  <li>Dev creates a topic branch to work on a change</li>
-  <li>Code is written (and hopefully tested) and committed locally</li>
-  <li>Dev pushes commit(s) to Gerrit</li>
-  <li>Hudson job (set to Poll SCM) picks up the patch, runs the job and marks it as "+1 Verified" or "-1 Fails"</li>
-  <li>If the job fails or is unstable, the change should be reworked or corrected (typically with <a id="aptureLink_YL8glbfS7G" href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">git-rebase(1)</a>)</li>
-  <li>If Hudson says the change is good to go, it can be cherry-picked or pulled directly from Gerrit.</li>
-</ul>
-
-<p>For example:</p>
-<center><a href="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png"><img src="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png" width="520" /></a></center>
-
-<p>To learn more about Gerrit, check out the <a href="http://code.google.com/p/gerrit/">project page on Google Code</a>; information on the Gerrit plugin can be <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">found on the wiki</a>.</p>
 
 <hr />
 

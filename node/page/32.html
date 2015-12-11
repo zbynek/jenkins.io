@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,50 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2010/11/23/java-net-migration-status-update/'>
+Java.net migration status update
+</a>
+</h1>
+<div class='content'>
+<p><br/>
+Monday morning I came into work and discovered that I cannot commit to the Hudson Subversion repository. Initially I wasn't worried &mdash; I thought it was just another java.net outage that will resolve itself in a few hours &mdash; but a little research a bit later revealed that Hudson was locked down and being <a href="http://weblogs.java.net/blog/communitymanager/archive/2010/11/03/javanet-begins-migration-collabnet-kenai-infrastructure">migrated to new java.net infrastructure</a>.<br/>
+<br/>
+<p><br/>
+I and the whole community was quite surprised by this, as we are supposed to be "notified as soon as we assign a date for [our] projects to move." But by the time the developer community noticed, the project was already locked down, repository is read-only, and mailing lists can stop functioning any time. My immediate action was to contact the folks who are doing migration to get Hudson out of this cycle of the migration, but I was told that the ship has sailed and it was too late.<br/>
+<br/>
+<p><br/>
+Even worse, there's no ETA &mdash; it'll definitely take a week, but since this is a Thanksgiving weekend, it can take longer, Oracle said.<br/>
+<br/>
+<p><br/>
+I find this situation plain unacceptable, and <a href="http://java.net/projects/jersey/lists/dev/archive/2010-11/message/3">e-mails from the earlier migration effort</a> made me doubt if the new infrastructure is any better. I also had a pleasure of working closely with CollabNet folks over the past years and I was also involved in some earlier conversation and experiments about the new java.net infrastructure, and when it comes to performance and monitoring, CollabNet folks really knew what they are doing. So I had multiple reasons to worry if the new infrastructure can handle the load of java.net, which the old CollabNet-hosted one couldn't handle.<br/>
+<br/>
+<p><br/>
+But fortunately, since the general java.net migration has been announced, we've <a href="http://hudson.361315.n4.nabble.com/Mailing-list-change-proposal-td3047548.html">discussed</a> the migration of some of the project infrastructure. So we've accelerated the plan and implemented it, so as not to lose the critical project infrastructure services.<br/>
+<br/>
+<br/>
+<h3>Mailing Lists</h3><br/>
+<p><br/>
+Hudson mailing lists are moved to Google Groups. See <a href="http://hudson-labs.org/content/mailing-lists">more details here</a> and <a href="http://wiki.hudson-ci.org/display/HUDSON/Mailing%20List">here</a>. The new mailing lists provide a real search capability, decent UI for archives, and it makes it easier for people with multiple e-mail addresses to post from multiple addresses and receive just one copy. The stability of the service is also much better.<br/>
+<br/>
+<h3>Source code</h3><br/>
+<p><br/>
+Hudson core source code has been long synced to GitHub. We've been getting several contributions through that already, and people have been asking <a href="http://hudson.361315.n4.nabble.com/On-the-future-of-Hudson-hosting-and-infrastructure-td393278i20.html">for</a> <a href="http://hudson.361315.n4.nabble.com/Git-repository-for-Hudson-td394409.html#a394412">Git</a> <a href="http://hudson.361315.n4.nabble.com/hudson-plugins-git-repository-td1477941.html">migration</a> <a href="http://hudson.361315.n4.nabble.com/Hudson-on-github-td2252960.html">for</a> <a href="http://hudson.361315.n4.nabble.com/Expose-the-Hudson-SVN-as-a-GIT-repository-td391333.html">long</a> <a href="http://hudson.361315.n4.nabble.com/version-control-for-hudson-source-bidirectional-git-lt-gt-svn-td978706.html">time</a> anyway. So going forward I'll be committing to and producing releases from <a href="https://github.com/hudson/hudson">the Hudson repository on GitHub</a> at <tt>https://kohsuke@github.com/hudson/hudson.git</tt>.<br/>
+<br/>
+<p><br/>
+The new Git-based repository would be far snappier to work with, and it'll make it easier for people to maintain private changes and contribute changes back. There's also a work in progress to set up Gerrit to streamline the patch review process to the core. So I think this further reduces the barrier of entry to the Hudson project and accelerate the progress.<br/>
+<br/>
+<p><br/>
+The migration of Hudson plugin repositories still needs to be discussed, so stay tuned for the updates in <a href="http://groups.google.com/group/hudson-dev">the dev list</a> today or tomorrow. I've developed a bulk import program whose output can be seen <a href="https://github.com/HudsonLabs">here</a>, so I'm going to propose this as the migration strategy.<br/>
+<br/>
+<br/>
+<h3>Conclusions</h3><br/>
+<p><br/>
+My apologies that these changes had to happen quickly &mdash; I'm just as frustrated as you are, but given the circumstances, I think this is the best course of action. Hopefully everything will be in place within a few days. And in the mean time, thanks for your patience.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/10/21/hudson-user-meet-up-in-jerusalem/'>
 Hudson User Meet-up in Jerusalem
 </a>
@@ -425,24 +469,6 @@ JavaOne: Day Two in Pictures
 <p>On the off chance you've not seen some of the photos posted to the <a href="http://twitter.com/hudsonci">@hudsonci Twitter stream</a>, here's some of the photos from day two of JavaOne.</p>
 
 <center><object width="400" height="300"> <param name="flashvars" value="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2F&amp;set_id=72157625004467040&amp;jump_to=" /> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=71649" /> <param name="allowFullScreen" value="true" /><embed type="application/x-shockwave-flash" src="http://www.flickr.com/apps/slideshow/show.swf?v=71649" allowfullscreen="true" flashvars="offsite=true&amp;lang=en-us&amp;page_show_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2Fshow%2F&amp;page_show_back_url=%2Fphotos%2Fhudsonlabs%2Fsets%2F72157625004467040%2F&amp;set_id=72157625004467040&amp;jump_to=" width="400" height="300" /></object></center>
-<!--break-->
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
-Video: Kohsuke talks Hudson on OTN
-</a>
-</h1>
-<div class='content'>
-<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
-
-<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
-
-<center>
-<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
-</center>
 <!--break-->
 
 </div>
@@ -533,6 +559,24 @@ Who knows what build promotions? Who uses build promotions? Very few in the audi
 </div>
 <div class='post'>
 <h1>
+<a href='/blog/2010/09/21/video-kohsuke-talks-hudson-on-otn/'>
+Video: Kohsuke talks Hudson on OTN
+</a>
+</h1>
+<div class='content'>
+<p>For the uninitiated, "OTN" is short for the "Oracle Technology Network" where speakers and other persons of interest sit in front of cameras and their words are <a href="http://www.oracle.com/us/javaonedevelop/oracle-technology-network-live-166853.html">streamed live</a> to the internets.</p>
+
+<p>After <a href="http://www.hudson-labs.org/content/live-blog-kohsukes-presentation-javaone">his session yesterday</a>, Kohsuke hustled over to OTN headquarters, which look suspiciously like a tent in the middle of Mason St., and gave the following interview/chat.</p>
+
+<center>
+<object id="flashObj" width="486" height="322" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,47,0"><param name="movie" value="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" /><param name="bgcolor" value="#FFFFFF" /><param name="flashVars" value="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" /><param name="base" value="http://admin.brightcove.com" /><param name="seamlesstabbing" value="false" /><param name="allowFullScreen" value="true" /><param name="swLiveConnect" value="true" /><param name="allowScriptAccess" value="always" /><embed src="http://c.brightcove.com/services/viewer/federated_f9?isVid=1" bgcolor="#FFFFFF" flashvars="videoId=610282501001&amp;linkBaseURL=http%3A%2F%2Fmedianetwork.oracle.com%2Fmedia%2Fshow%2F15622&amp;playerID=1640183659&amp;playerKey=AQ%2E%2E,AAAAAFcSbzI%2E,OkyYKKfkn3za9MF0qI3Ufg1AerdkqfR3&amp;domain=embed&amp;dynamicStreaming=true" base="http://admin.brightcove.com" name="flashObj" width="486" height="322" seamlesstabbing="false" type="application/x-shockwave-flash" allowfullscreen="true" swliveconnect="true" allowscriptaccess="always" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" /></object>
+</center>
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2010/09/21/javaone-day-one-in-pictures/'>
 JavaOne: Day One in Pictures
 </a>
@@ -594,111 +638,6 @@ lot of fun and a great way to spend a Sunday with Hudson.</p>
 
 <p>If you're going to be at JavaOne, come track me down and let's talk about Hudson, if you're not in San Francisco for the event, you can always follow my updates on <a href="http://twitter.com/hudsonci">Twitter</a> or hit up <a href="http://www.flickr.com/photos/hudsonlabs/sets/72157624996965000/">Flickr</a></p>
 
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/09/20/live-blog-kohsukes-presentation-at-javaone/'>
-Live Blog: Kohsuke's Presentation at JavaOne
-</a>
-</h1>
-<div class='content'>
-<p><strong>Editor's note:</strong> <em>This is a <strong>very</strong> rough set of notes from <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi's</a> presentation at JavaOne 2010.</em></p>
-
-<p><a href="http://www.flickr.com/photos/hudsonlabs/5008629375/" title="Kohsuke talks to a packed room at #JavaOne by hudson.labs, on Flickr"><img src="http://farm5.static.flickr.com/4083/5008629375_6f603b6093_m.jpg" width="180" height="240" alt="Kohsuke talks to a packed room at #JavaOne" align="right" /></a></p>
-
-<p>Kohsuke takes the stage, asks "who uses's Hudson" the majority of
-audience raises their hands</p>
-
-<p>Discussing the great ecosystem using Hudson across the wide-variety of platforms/languages.
-330+ community written plugins. Last year at JavaOne we had 230+ plugins</p>
-
-<p>Eclipse Community Survey, Hudson adoption from 9.1% in 2009 to 21.8%</p>
-
-<p>Discussing Hudson adoption, going over Hudson job postings on indeed.com going up compared to a stagnant Cruise Control.</p>
-
-<p>Kohsuke introduces himself and InfraDNA, started Hudson in 2004/2005.</p>
-
-<p>First steps to CI, 10,000 foot overview of SCM monitoring/build/testing. Delving into using Hudson
-for automating <strong>everything</strong> to get "more out of your Hudson deployment.</p>
-
-<h3 id="interconnecting-jobs-aka-workflows">"Interconnecting Jobs aka Workflows"</h3>
-
-<p>Hudson allows for hosting many projects on one Hudson deployment, meaning you need a smaller number of administrators for a larger number of jobs compared to Cruise Control.</p>
-
-<p>Building Block #1: Triggering. Using "upstream" and "downstream" jobs ot interconnect jobs to form a workflow in Hudosn. Triggering is asynchronoys in Hudson, useful for separating builds and multiple test jobs. Splitting the build and test jobs so you build quickly test many tests in parallel.</p>
-
-<p>Avoid recompiling compilation/builds in the "downstream" test runs. "Copy Artifact" plugin very useful for passing built executables to test jobs.</p>
-
-<p>Upstream/downstream separation also highly useful for separating build and deployment into a continuous workflow.</p>
-
-<p>Building Block #2: Join plugin. Fan downstream jobs out and then bring everything back together for final
-steps.</p>
-
-<p>Shows Join plugin configuration screen because "perhaps the configuration is a little unintuitive".</p>
-
-<p>Building block #3: Fingerprints. Using MD5 checksums from artifacts to learn more about those artifacts in your
-Hudson, tying together artifacts from different jobs/builds. Letting Hudson recording these fingerprints of those artifacts in your lifecycle allows Hudson to help you find out where/when those executables came from.</p>
-
-<p>Fingerprinting mechanism good for tracking dependencies from third parties, Hudson uses 3rd party fingerprints to compute additional information. Also useful for aggregating reports.</p>
-
-<p>Going a bit further using the "build promotion plugin" to weed out which builds are "better than others." Taking fingerprints from a build job all the way through the life cycle and passing that fingerprint around test/smoke test jobs, if that passes, build passes on to more rigorous testing, only if it's passed base-level testing. Basic model of promotion maps to a "confidence level", 1st level passes compilation, 2nd level passes smoke test, 3rd level passes expensive/time-consuming tests.</p>
-
-<p>One of the reasons to use promotion in your lifecycle to ensure that artifacts meet a minimum "confidence level" so you're not expending resources running the longer tests )think about a promotion hierarchy)</p>
-
-<p><strong>Demo time!</strong></p>
-
-<p>Kohsuke demoing build promotion live with fingerprinting of sample jar files. Creating a "component-X" build and a "test-X" build. test-X job using the "Copy Artifact" plugin to grab artifacts from the component-X build.</p>
-
-<p>Defining the promotion criteria in "component-X", "test-X" promoted, indicates that certain builds promoted a build.</p>
-
-<p><strong>End demo time!</strong></p>
-
-<h3 id="maven-integration">Maven Integration</h3>
-
-<p>Maven integration highlights. Going over POM comprehension and simplified configuration due to more information
-getting inferred from the POMs. Building dependency chains with Maven integration.</p>
-
-<p>"That's the basics, let's talk about advanced integration with Maven"</p>
-
-<p>Parallel-module builds! Letting Hudson builds modules with a single checkbox, meaning wherever possible Hudson will try to build your modules in parallel when possible.</p>
-
-<p>Incremental builds! Only building changed modules in a build run to be more efficient, preventing the need to rebuild the whole project from scratch every time. Hudson's SCM integration to determine what the mapping between files changed and modules needing to be built.</p>
-
-<p>Private Maven repositories! Avoiding artifacts being overwritten by others, telling Hudson to create a Maven repository <strong>per-project</strong> (at the expense of more bandwidth/disk space needed), helps segregate builds to avoid them stomping on each other.</p>
-
-<p>After-the-fact deployment, avoiding deploying modules unless the whole build is successful (all modules properly built). Instead of using <code>mvn deploy</code>, you tell Hudson to deploy to your Maven repository with a single checkbox.</p>
-
-<h3 id="matrix-project">Matrix Project</h3>
-
-<p>No longer alpha! Production-ready!</p>
-
-<p>Often used to build/test across slight variations of build environments such as different platforms for a C++ project. Conceptually it's like running your build in a for loop.</p>
-
-<p>Hudson supports a number of different axes, most popular of which being a "slave axis" which allows you to use different labels or specific slaves for the build. Hudson also supports arbirtrary text fields as axes to be passed along to the build steps as environment variables.</p>
-
-<p>Touching on "filtering" in the matrix project support to remove parts of an axis that you do not need. I.e if you have a "platform" and a "browser" axes for web testing, you can exclude the "iexplore" value of the "browser" axis when the "platform" axis is "mac".</p>
-
-<p><strong>Demo time!</strong></p>
-
-<p>Defining two axes, "slave" axis and the "JDK" axis to build against different JDK versions on linux, solaris and windows. Excluding "touchstone builds" to avoid rebuilding a large number of matrix builds unless a limited subset of the combinations successfully build. Used to avoid spending a lot of time spinning cycles on very obvious errors that the first few builds "recognize" immediately.</p>
-
-<p><strong>End demo time</strong></p>
-
-<h3 id="doing-selenium-testing-on-hudson">Doing Selenium testing on Hudson</h3>
-
-<p>Use "Selenium Grid plugin" to install Selenium binaries on all slaves and prepares them all to talk to each other. Useful for "overloading" an existing Hudson cluster as a Selenium cluster.</p>
-
-<p>Using labels in Hudson to better determine which node has which browser.</p>
-
-<p>Selenium integration is <strong>very</strong> powerful when combined with the join plugin and the matrix configuration support in Hudson for web testing across a large number of platforms and browsers.</p>
-
-<p>The Hudson project has invested heavily in getting great cluster support which helps tremendously with Selenium which has invested as heavily in clustering.</p>
-
-<p>How to you deal with Selenium needing a GUI while Hudson slaves are largely headless. Use the Xvnc plugin! On Windows things are bit trickier, easier to let Hudson slave/service "interact with desktop" such that it can access dialogs/etc. Failing everything else, configuring Windows for auto-login and then have JNLP slaves autostart at login will work for allowing the slave to use the GUI and network resources.</p>
-
-<p>The rest of the session was dedicated to some good Q&amp;A. Great session by Hudson's founder.</p>
 
 </div>
 </div>

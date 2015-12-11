@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,47 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
+What JVM versions are running Jenkins?
+</a>
+</h1>
+<div class='content'>
+<p>Preceding some of last week's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0</a> discussions, there had been <a href="https://groups.google.com/d/msg/jenkinsci-dev/sw_WepGw0Pk/0gO2V9UXy-8J">some threads</a> on whether we should move Jenkins to require Java 8. The introduction of <a href="http://www.oracle.com/events/us/en/java8/index.html">Java 8</a> last year brought performance improvements and highly desirable API changes, which make developing Java-based applications (arguably) much easier than before. The release was followed earlier this year by the <a href="https://www.java.com/en/download/faq/java_7.xml">end-of-life announcement</a> for Java 7; the writing is on the wall: upgrade to Java 8.</p>
+
+<p>I wanted to answer the question "does it even make sense to force an upgrade to Java 8?" There are plenty of technical discussions that we can have in the community on whether or not this is the right approach, but my goal was to try and measure the current Jenkins install base for Java 8 preparedness.</p>
+
+<!--break-->
+
+<p>While we do not currently (to my knowledge) collect Java runtime versions in our <a href="http://stats.jenkins-ci.org/jenkins-stats/">anonymous usage statistics</a>, we do have access logs from our <a href="http://mirrors.jenkins-ci.org">mirror redirector</a> which might provide some insight.</p>
+
+<p>With some access logs data, I went through the millions of requests made to Jenkins infrastructure in 2015 and started filtering out the user agent which made those requests.</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> This data is totally not scientific and is only meant to provide a coarse insight into what versions of Java access Jenkins web infrastructure.</p>
+</blockquote>
+
+<p>When Jenkins hits the mirror network, it's not overriding the default user agent from the Java runtime, so many of the user agents for the HTTP request are something like <code>Java/1.7.0_75</code>. This indicates that the request came from a Java Runtime version 1.7.0 (update 75).</p>
+
+<p>Looking at the major JVM versions making (non-unique) requests to Jenkins infrastructure we have:</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/major-jvm-versions.png" /></center>
+
+<ul>
+  <li><strong>1.8.0</strong>: 21,278,960</li>
+  <li><strong>1.7.0</strong>: 27,340,214</li>
+  <li><strong>1.6.0</strong>: 4,148,833</li>
+</ul>
+
+<p>This breaks down across various updates as well, which is also particularly interesting to me because many of these Java versions have long since had security advisories posted against them.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/jvm-versions-with-updates.png" width="600" /></center>
+
+<p>As I mentioned before, this is not a rigorous analysis of the access log data and is also not filtered by unique IP addresses. What I found most interesting though is that the Java 8 upgrade numbers are actually <em>fairly strong</em>, which I didn't expect. I expect that piece of the pie will continue to grow. Hopefully so much so that we're able to move over to Java 8 before the end of 2016!</p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2015/11/01/adopt-a-plugin/'>
@@ -740,33 +781,6 @@ Upcoming in office hours: FOSDEM Planning Session
 
 <p>Please join us on <a href="https://hangouts.google.com/call/m5tymcvzqdudu7r7cvvylqn4hya">this Google Hangout</a> at 11:00 a.m. PDT this Wednesday (Oct 21)</p>
 
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/09/cooking-up-jams/'>
-Cooking Up JAMs
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/Seville-JAM_logo_1024px_0.png" width=250/><br/>
-</div><br/>
-<br/>
-<p>There's been some active discussions and planning around <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">Jenkins Area Meetups (JAMs)</a> specifically in the following cities:<br/>
-<ul><br/>
-<li><a href="http://www.meetup.com/Rennes-Jenkins-Area-Meetup/">Rennes, France</a></li> <br/>
-<li>Seville, Spain </li><br/>
-<li>Seattle, Washington </li><br/>
-<li>Barcelona,Spain</li><br/>
-<li><a href="http://www.meetup.com/Raleigh-Jenkins-Area-Meetup/">Raleigh, North Carolina</a></li><br/>
-<li><a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/">Atlanta, Georgia</a></li><br/>
-</ul></p><br/>
-<br/>
-<p>I wanted to gauge Jenkins interests in these cities, so let us know at <a href="mailto:jenkinsci-jam@googlegroups.com">jenkinsci-jam@googlegroups.com</a> if you live in one of these areas, and if you would be interested in becoming a member or be involved in JAM one way or another!</p><br/>
-<br/>
-<p>Of course, if the city you live in currently does not have a JAM and you're interested in paying it forward, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">here's HOW YOU can become a JAM organizer.</a></p>
 
 </div>
 </div>

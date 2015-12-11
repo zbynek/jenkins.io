@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -381,6 +381,28 @@ Jenkins-on-Jenkins
 <div id='content-top'>
 <div class='post'>
 <h1>
+<a href='/blog/2011/12/23/jenkins-survey-result-and-what-ui-improvement-would-you-like/'>
+Jenkins survey result and what UI improvement would you like?
+</a>
+</h1>
+<div class='content'>
+<div style="float:right;margin:1em"><a href="http://en.wiktionary.org/wiki/too_many_cooks_spoil_the_broth">
+&lt;img width=160 height=160 src="http://livinghealthy.typepad.com/photos/uncategorized/2007/07/11/toomanycooksblog.jpg"&gt;
+</a></div>
+<p><a href="http://blog.cloudbees.com/2011/12/jenkins-community-survey-results-82.html">Jenkins community survey result is in</a>, which shows a number of interesting stats for us developers, such as 82% of people saying their Jenkins is mission critical, or the spread of distributed builds, especially compared to <a href="http://weblogs.java.net/blog/kohsuke/archive/2009/01/hudson_usage_an.html">my earlier similar usage analytics</a>.</p>
+
+<p>But just as interesting is the free-form answers to questions like "If there was anything you could you change about Jenkins CI, what would it be?", and while the answer is colorful, there are a few common themes that one can easily spot.</p>
+
+<p>One of them is "nothing!", which made me feel good, but another is "UI improvement." And incidentally, Domi has started <a href="http://jenkins.361315.n4.nabble.com/Jenkins-UI-enhancements-td4196887.html">a thread in the Jenkins-users list</a> about this exact topic a week ago.</p>
+
+<p>The idea is to brainstorm what kind of concrete improvements people would like to see, then run them through some real user experience designers and decide which ones are good ideas and which ones are not.</p>
+
+<p>I find this thread useful — so much so that one of those ideas (always show the "Save" button at the bottom in the config page) is already implemented toward the next release of Jenkins. So if you have some thoughts to share, please chime in on that thread.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
 <a href='/blog/2011/12/20/thanks-for-the-support-pagerduty/'>
 Thanks for the support PagerDuty!
 </a>
@@ -531,28 +553,6 @@ Jenkins Meetup Munich Videos
 <p>You can view the videos on <a href="http://video.tngtech.com/veranstaltungen/2011/06-30Jenkins/#">this page</a> hosted by <a href="http://www.tngtech.com">TNG</a>.</p>
 
 <p><em>Thanks to Stefan Wolf for the heads up!</em></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/11/04/a-dead-bug-is-a-good-bug/'>
-A dead bug is a good bug
-</a>
-</h1>
-<div class='content'>
-<div style="float:left; margin-right: 1em; margin-bottom:1em"><br/>
-<img width=129 height=96 src="http://www.cloudbees.com/sites/default/files/imagefield_thumbs/Buggy_Code.png"><br/>
-</div><br/>
-<p><br/>
-As if <a href="http://jenkins-ci.org/content/report-bugs-and-win-kindle">getting a Kindle for reporting bugs</a> and <a href="http://jenkins-ci.org/content/jenkins-community-survey">getting an AppleTV for filing a survey</a> aren't enough, you can also <a href="http://www.cloudbees.com/jenkins-community-contests.cb#bugbounty">win an iPad for fixing an issue</a>.<br/>
-<br/>
-<p><br/>
-So if you've been thinking about tinkering with <a href="https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Repositories">Jenkins code base</a> but haven't done so yet, this is a great opportunity to get going. There's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins">documentation about how to get started</a>, and there's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Jenkins Office Hours</a> and <a href="http://jenkins-ci.org/content/chat">IRC channel</a> if you need some interactive help from existing devs. I think new features, not just bug fixes, would qualify, so long as it's recorded in the issue tracker. And similarly, I think the plugins would qualify, not just core. <br/>
-<br/>
-<br/>
-<p><br/>
-Aside from iPad, there's one $50 Amazon gift certificate going out every week, which is almost a steal! So be sure to submit your entry!<br/>
 
 </div>
 </div>

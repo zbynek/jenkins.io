@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,52 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2012/06/19/jenkins-and-bioinformatics-catch-us-at-bosc-2012/'>
+Jenkins and Bioinformatics, catch us at BOSC 2012
+</a>
+</h1>
+<div class='content'>
+<p>[ <strong>Editor's Note:</strong> <em>The following is a post from <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CIA+Program">Jenkins CIA</a> member <a href="http://kinoshita.eti.br">Bruno P. Kinoshita</a></em> ]</p>
+
+<p>Jenkins will be represented at this years Bioinformatics Open Source Conference (<a href="http://www.open-bio.org/wiki/BOSC_2012" title="BOSC 2012">BOSC 2012</a>) on July 13-14th in Long Beach, California. I will be talking about Jenkins during my talk about <a href="http://www.biouno.org" title="BioUno">BioUno</a>.</p>
+
+<p>BOSC 2012 will be held just before <a href="http://www.iscb.org/ismb2012">ISMB 2012</a>, while registration is through ISMB you don't have to register for ISMB in order to register for BOSC.</p>
+
+<p>I will be at the event with some Jenkins stickers and available to answer questions you might have about BioUno and Jenkins!</p>
+
+<h3 id="about-biouno">About BioUno</h3>
+
+<p>BioUno is a project that uses Jenkins as basis for building
+<a href="http://en.wikipedia.org/wiki/Bioinformatics_workflow_management_systems" title="Bioinformatics Workflow Management Systems Wiki entry">biology workflows</a>.
+BioUno provides an alternative update center with custom plug-ins for
+bioinformatics tools like
+<a href="http://mrbayes.sourceforge.net/" title="MrBayes">MrBayes</a>,
+<a href="http://pritch.bsd.uchicago.edu/structure.html" title="Structure">Structure</a>,
+<a href="http://tree.bio.ed.ac.uk/software/figtree/" title="Figtree">Figtree</a>,
+<a href="http://beast.bio.ed.ac.uk/Main_Page" title="Beast">Beast</a>,
+among <a href="http://www.biouno.org/biouno-plugins/" title="BioUno Plug-ins">others</a>.</p>
+
+<p>While the actual task of analysing or displaying data is handled by specific
+tools, that are wrapped by plug-ins, Jenkins is responsible for user control,
+web interface, notifications, distributed execution, job schedule and
+management, as well as other important low level tasks.</p>
+
+<p>BioUno is similar to <a href="http://biohpc.org/" title="BioHPC">BioHPC</a>,
+<a href="http://galaxy.psu.edu/" title="Galaxy">Galaxy</a> and
+<a href="http://www.taverna.org.uk/" title="Taverna">Taverna</a>, in that all these tools enable creating and managing pipelines using different bioinformatics tools.</p>
+
+<p>However, as it is using Jenkins, BioUno has the advantage of having an Open Source community of hackers that can answer questions and provide assistance for creating new plug-ins. There is plenty documentation for <a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins" title="Extending Jenkins">extending Jenkins</a>
+and troubleshooting issues, as well as plenty <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins" title="Jenkins Plug-ins">existing plug-ins</a> (that can be used as reference while writing new plug-ins).</p>
+
+<p>There are projects and plug-ins that enable Jenkins to use resources in clouds or turn Jenkins into a <a href="http://hadoop.apache.org/" title="Hadoop">Hadoop</a> node, for big data processing. The next steps of the project include the deployment of BioUno to a computer facility, basic infrastructure for BioUno, definition of the process for releasing plug-ins, the creation of more plug-ins and a study on how to handle large data structures, used by many bioinformatics tools.</p>
+
+<p>The project is being developed by <a href="http://www.tupilabs.com" title="TupiLabs">TupiLabs</a> under MIT License, and contributions and new plug-ins are welcome.
+<!--break--></p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2012/05/28/jenkins-a-besoin-de-vous/'>
@@ -707,32 +753,6 @@ Jenkins core. This affects all the releases of Jenkins to date (main line releas
 <p>For more details about the vulnerabilities, affected versions, and so on, please consult <a href="https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2012-03-05">the security advisory</a>.<br/>
 <br/>
 <p>(See <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">our Wiki page about security advisories</a> about how we do these.)
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2012/02/21/sponsor-a-jenkins-user-conference/'>
-Sponsor a Jenkins User Conference!
-</a>
-</h1>
-<div class='content'>
-<p><img src="/images/user.gif" align="right" /></p>
-
-<p>With the <a href="/content/jenkins-user-conference-2012-paris">JUC Paris 2012</a> call for papers open, it's important to mention that we are also looking for <strong>sponsors</strong> for the various Jenkins User Conferences that are being planned around the world right now!</p>
-
-<p>Currently there are four conferences being put together right now:</p>
-
-<ul>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-paris.cb">JUC Paris</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-newyork.cb">JUC New York</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco.cb">JUC San Francisco</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-antwerp.cb">JUC Antwerp</a></li>
-</ul>
-
-<p>If your company is heavily invested in Jenkins or interested in reaching the kind of audience that will be at a JUC (highly technical, motivated) then you should consider becoming a sponsor one of these conferences (link below)!</p>
-
-<p><strong><a href="http://www.cloudbees.com/jenkins-user-conference-2012-sponsorship.cb">Sponsor the Jenkins User Conference</a></strong></p>
 
 </div>
 </div>

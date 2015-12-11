@@ -121,9 +121,9 @@ virtually any project
 </div>
 <!-- starting partial download.html.haml -->
 <link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery.ui.all.css' media='screen' rel='stylesheet'>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'></script>
+<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
 <div class='block block-block even' id='block-block-15'>
 <h3>
 Download
@@ -152,7 +152,7 @@ Java Web Archive (.war)
 <a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
 <strong>
 Latest:
-1.639
+1.641
 </strong>
 </a>
 </div>
@@ -227,7 +227,7 @@ past releases
 <a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
 <strong>
 Older but stable:
-1.625.2
+1.625.3
 </strong>
 </a>
 </div>
@@ -379,6 +379,29 @@ Jenkins-on-Jenkins
 </div>
 <div class='main-content with-sidebar' id='content'>
 <div id='content-top'>
+<div class='post'>
+<h1>
+<a href='/blog/2010/08/10/big-security-fix-hudson-1-371-released/'>
+Big Security Fix! Hudson 1.371 Released
+</a>
+</h1>
+<div class='content'>
+<p>Hot on the heels of Hudson 1.370, which was released last Friday, the Hudson team released 1.371 which addresses a <strong>critical vulnerability</strong> in <strong>all</strong> Hudson versions prior to 1.371. The vulnerability was disclosed by <a href="http://infradna.com">InfraDNA</a> in the <a href="http://infradna.com/content/security-advisory-2010-08-09">following security advisory</a>, which details the issue:</p>
+
+<blockquote>
+  <p>This critical vulnerability allows an attacker to use CLI commands that they are otherwise unauthorized for. CLI commands can perform various administrative operations.</p>
+</blockquote>
+
+<p>It is advised that <strong>all</strong> Hudson instances be upgraded immediately to avoid data loss or other ill effects from this issue. If you're upgrading from a version earlier than 1.370, you can consult the <a href="/changelog">changelog</a> for details on the other bug fixes and enhancements covered by the upgrade of your version to 1.371.</p>
+
+<p>If you run a Hudson instance, it is recommended that Hudson system admins subscribe to either the <a href="http://feeds.feedburner.com/hudson-security-advisories">security advisories RSS feed</a> or the <a href="advisories-subscribe@hudson.dev.java.net">advisories@ mailing list</a>
+<!--break-->
+—-</p>
+
+<p>You can go grab the <a href="http://ftp.osuosl.org/pub/hudson/war/1.371/hudson.war">latest .war file</a> straight from our <a href="http://www.osuosl.org">OSL mirror</a> or if you're using a native package, use your package manager to upgrade.</p>
+
+</div>
+</div>
 <div class='post'>
 <h1>
 <a href='/blog/2010/08/02/dogfooding-hudson-were-looking-for-slaves/'>
@@ -543,74 +566,6 @@ Updated Chrome Extension
 <p>If you're interested in contributing to the plugin, good news! It's open source! You can find it <a href="http://github.com/sanitz/hudson-chrome-extension">on GitHub</a>.</p>
 
 <p><br clear="all" /></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/07/08/a-python-love-story-virtualenv-and-hudson/'>
-A Python Love Story: Virtualenv and Hudson
-</a>
-</h1>
-<div class='content'>
-Over the past year Hudson has grown tremendously, both within the Java community and outside of it. Partially thanks to [Titus Brown](http://twitter.com/ctitusbrown)'s PyCon 2010 Atlanta coverage of continuous integration for Python (which we've [covered before](http://www.hudson-labs.org/content/hudson-pycon)), Hudson has made great strides within the Python community as well.
-
-In my experience, the majority of Python developers are not using Hudson to **build** anything, unless they have C extensions, but rather to *test* their packages, which presents its own set of specific requirements for jobs. Jobs for testing Python code need to be able to reliaby reproduce an environment with the same set of dependencies from one run to the next in order to provide consistent testing. Unlike their Java counterparts, Python developers cannot rely on a powerful system like <a id="aptureLink_5i6m9B8BGf" href="http://maven.apache.org/">Maven2</a> for enumerating build/test targets or defining their project's dependencies in their jobs; fortunately, w
-e can have something close: [virtualenv](http://pypi.python.org/pypi/virtualenv) and [pip](http://pypi.python.org/pypi/pip).
-
-Virtualenv does exactly what you might expect it to, it creates a "virtual environment" with custom `site-packages` directory, and modified `python` executable. Using virtualenv you can create a staged environment to use for running unit and integration tests. Adding pip alongside that and you have a **fantastic** Python package manager/installer to use with the virtual environment.
-
-Below, I've outlined the steps required to use virtualenv and pip to *automatically* manage a custom environment for your Python jobs.
-<!--break-->
-### The Recipe
-
-For this recipe to work, you should make sure that your slave machines all have `virtualenv` and `pip` installed and accessible from your slave agent's `$PATH`. For Mac OS X users, `sudo easy_install virtualenv` should do the trick, Linux users should be able to run `sudo [aptitude/yum/zypper] install python-virtualenv` with your respective package manager.
-
-You will also need the [SetEnv Plugin](http://wiki.hudson-ci.org/display/HUDSON/Setenv+Plugin) installed in Hudson.
-
-#### Step 1
-
-Inside of the job's configuration page ([http;//hudson/job/configure](http://hudson/job/configure)), we need to define an environment variable for the job. Using the SetEnv plugin, define a new `$PATH`:
-
-<code type="bash">
-    PATH=.env/bin:$PATH</code>
-
-What this will do is modify the `$PATH` environment variable for all of the "Execute shell" build steps in your job. As you might have guessed, we're going to install the virtualenv in `.env` in the workspace root directory.
-
-#### Step 2
-
-To set up the virtualenv, you want to add a build step of type "Execute shell" and paste the following commands into the text area:
-
-<code type="bash">
-    if [ -d ".env" ]; then
-        echo "**> virtualenv exists"
-    else
-        echo "**> creating virtualenv"
-        virtualenv .env
-    fi
-</code>
-
-This will create a virtualenv the first time the job runs on a particular slave, a virtualenv that will persist until the workspace is cleared. Since we're going to install dependencies in the virtualenv, we want to keep it around between jobs to reduce the amount of network hits to download packages.
-
-#### Step 3
-
-With our virtualenv and our `$PATH` properly set up, the job can now properly install dependencies into its virtualenv, this is where `pip` shines. A little known feature of `pip` allows you to define a "requirements file" which enumerates the packages to install. In my example project, I defined the following requirements in a file called `pip-requires.txt`
-
-<code type="bash">
-    eventlet>=0.9.9
-    nose>=0.11.3
-    MySQL-python>=1.2.3c1
-</code>
-
-In my hypothetical example, I'll need `nose` to run my tests, while `eventlet` and `MySQL-python` are required for my project to properly run. With the `pip-requires.txt` file in the root of my source repository, I can add an additional "Execute shell" build step that does the following:
-
-<code type="bash">
-    pip install -r pip-requires.txt
-</code>
-
-Assuming the `$PATH` environment variable was properly defined, this will use the virtualenv's version of `pip` and it will install the packages defined in `pip-requires.txt` **into** the virtualenv!
-
-With the dependencies all properly installed in the virtualenv, I can now configure the remainder of my job to build my project and execute the tests. Pretty snazzy if you ask me!
 
 </div>
 </div>
