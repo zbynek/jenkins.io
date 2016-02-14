@@ -7,14 +7,15 @@
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
 <!-- starting partial scriptlinks.html.haml -->
-<link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css' media='screen' rel='stylesheet'>
-<link href='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
 <link href='/css/font-icons.css' media='screen' rel='stylesheet'>
 <link href='/css/jenkins.css' media='screen' rel='stylesheet'>
-<script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/3.3.0/ekko-lightbox.min.js'></script>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
 
 <!-- ending partial scriptlinks.html.haml -->
 </head>
@@ -22,68 +23,162 @@
 <!-- starting partial toptoolbar.html.haml -->
 <script>
   $(function () {
-    $('[data-toggle="popover"]').popover();
-    
     $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
       event.preventDefault();
       $(this).ekkoLightbox();
-    }); 
+    });
   })
 </script>
 <div id='ji-hover-layer'></div>
 <nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
-<a class='navbar-brand' href='/new'>
-Jenkins.io
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
 <ul class='nav navbar-nav'>
-<li class='nav-item'>
+<li class='nav-item fixed'>
 <div class='btn-group' id='download-menu'>
-<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war' title='Download the latest Jenkins war: 1.638'>
-Download
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'></a>
 <!-- starting partial downloadlist.html.haml -->
 <div class='dropdown-menu'>
-<a class='dropdown-item' href='http://jenkins-ci.org/changelog'>Changelog</a>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
-<div class='dropdown-divider'></div>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
+<h3>
+LTS Release
+</h3>
+<p>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
 <a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
 <span class='icon'></span>
 <span class='title'>
 Docker
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
 <span class='icon'></span>
 <span class='title'>
 FreeBSD
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
 <span class='icon'></span>
 <span class='title'>
 Gentoo
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
 <span class='icon'></span>
 <span class='title'>
-Mac OSX
+Mac OS X
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
 <span class='icon'></span>
 <span class='title'>
 OpenBSD
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
 <span class='icon'></span>
 <span class='title'>
-OpenSUSE
+openSUSE
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
 <span class='icon'></span>
 <span class='title'>
 Red Hat/Fedora/CentOS
@@ -95,28 +190,26 @@ Red Hat/Fedora/CentOS
 Ubuntu/Debian
 </span>
 </a>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
 <span class='icon'></span>
 <span class='title'>
 Windows
 </span>
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>Plugins</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
 </div>
 
 <!-- ending partial downloadlist.html.haml -->
 </div>
-</li>
-<li class='nav-item'>
-<a class='nav-link' href='/plugins'>
-Plugins
-</a>
-</li>
-<li class='active nav-item'>
-<a class='nav-link' href='/blogs'>
-Blogs
-</a>
 </li>
 <li class='nav-item'>
 <a class='nav-link' href='/events'>
@@ -124,57 +217,74 @@ Events
 </a>
 </li>
 <li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</li>
+<li class='nav-item'>
 <a class='nav-link' href='/doc'>
-Doc
+Documentation
 </a>
 </li>
 <li class='nav-item dropdown'>
 <a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
-More
+Use-cases
 </a>
 <div class='dropdown-menu'>
-<a class='dropdown-item'>
-Members
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item'>
-Resources
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item'>
-Issues
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item'>
-Features
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item feature docker' href='/docker'>
-Continuous Integration - CI
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
 </a>
-<a class='dropdown-item feature docker' href='/docker'>
-Continuous Delivery - CD
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
 </a>
-<a class='dropdown-item feature docker' href='/docker'>
-Github and Jenkins
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
 </a>
-<a class='dropdown-item feature docker' href='/docker'>
-Docker and Jenkins
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
 </a>
-<a class='dropdown-item feature docker' href='/docker'>
-Android and Jenkins
-</a>
-<a class='dropdown-item feature docker' href='/docker'>
-Puppet infrastructure
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
 </a>
 </div>
 </li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
 </ul>
-<form class='form-inline navbar-form pull-right'>
-<input class='form-control' placeholder='search' type='text'>
-<button class='btn btn-success-outline' type='submit'>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
 <i class='icon-search'></i>
 </button>
+</div>
+</div>
 </form>
 </nav>
 <div id='ji-toolbar-offset'></div>
@@ -186,55 +296,173 @@ Puppet infrastructure
 
 <!-- ending partial toptoolbar.html.haml -->
 <!-- starting partial carousel.html.haml -->
+<script>
+  $(function () {
+    function doPopovers(){
+      var $popovers = $('[data-toggle="popover"]');
+      var $popLayer = $('#popover-layer');
+      if ($popovers.length > 0){
+        if($popLayer.length < 1)
+          $popLayer = $('<div/>').appendTo('body').addClass('popover-layer').attr('id','popover-layer');
+        $('[data-toggle="popover"]').popover({
+          container: '#popover-layer',
+          template:'<div class="popover download-options" role="tooltip"><div class="popover-arrow"></div><div class="popover-content"></div></div>',
+          placement:'top',
+          content:function(){
+            return $(this).next().html();
+          },
+          html:true
+        });
+      }
+    }
+    doPopovers();
+  })
+</script>
 <div class='blogs carousel slide' data-ride='carousel' id='ji-home-carousel'>
 <div id='ji-download'>
 <div class='btn-group'>
-<a class='btn btn-lg btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-Get Jenkins
-</a>
-<a aria-expanded='false' aria-haspopup='true' class='btn btn-lg btn-primary dropdown-toggle' data-toggle='dropdown'></a>
+<button aria-expanded='false' aria-haspopup='true' class='btn-lg btn btn-primary' data-toggle='popover'>
+Download Jenkins
+</button>
 <!-- starting partial downloadlist.html.haml -->
 <div class='dropdown-menu'>
-<a class='dropdown-item' href='http://jenkins-ci.org/changelog'>Changelog</a>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
-<div class='dropdown-divider'></div>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
+<h3>
+LTS Release
+</h3>
+<p>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
 <a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
 <span class='icon'></span>
 <span class='title'>
 Docker
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
 <span class='icon'></span>
 <span class='title'>
 FreeBSD
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
 <span class='icon'></span>
 <span class='title'>
 Gentoo
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
 <span class='icon'></span>
 <span class='title'>
-Mac OSX
+Mac OS X
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
 <span class='icon'></span>
 <span class='title'>
 OpenBSD
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
 <span class='icon'></span>
 <span class='title'>
-OpenSUSE
+openSUSE
 </span>
 </a>
-<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
 <span class='icon'></span>
 <span class='title'>
 Red Hat/Fedora/CentOS
@@ -246,21 +474,33 @@ Red Hat/Fedora/CentOS
 Ubuntu/Debian
 </span>
 </a>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
 <span class='icon'></span>
 <span class='title'>
 Windows
 </span>
 </a>
-<div class='dropdown-divider'></div>
-<a class='dropdown-item' href='http://mirrors.jenkins-ci.org/windows/latest'>Plugins</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
 </div>
 
 <!-- ending partial downloadlist.html.haml -->
 </div>
-<div class='carousel-caption'>Download the 1.638 .war or choose other options</div>
+<div class='br'>
+<div class='carousel-caption secondary'>
+Get 1.625.3 LTS .war or the latest 1.644 weekly or choose other options
 </div>
-<ol class='carousel-indicators'>
+</div>
+</div>
+<ol class='carousel-indicators hidden'>
 <li class='active' data-slide-to='0' data-target='#ji-home-carousel'></li>
 <li data-slide-to='1' data-target='#ji-home-carousel'></li>
 <li data-slide-to='2' data-target='#ji-home-carousel'></li>
@@ -269,38 +509,20 @@ Windows
 </ol>
 <div class='carousel-inner' role='listbox'>
 <div class='carousel-item active'>
-<img>
-<div class='carousel-caption'>
-<h3>Slide label 1</h3>
-<p>Here is some text that goes with this guy who is cool.</p>
-</div>
-</div>
-<div class='carousel-item'>
-<img>
-<div class='carousel-caption'>
-<h3>Slide label 2</h3>
-<p>Here is some text that goes with this guy who is cool.</p>
-</div>
-</div>
-<div class='carousel-item'>
-<img>
-<div class='carousel-caption'>
-<h3>Slide label 3</h3>
-<p>Here is some text that goes with this guy who is cool.</p>
-</div>
-</div>
-<div class='carousel-item'>
-<img>
-<div class='carousel-caption'>
-<h3>Slide label 4</h3>
-<p>Here is some text that goes with this guy who is cool.</p>
-</div>
-</div>
-<div class='carousel-item'>
-<img>
-<div class='carousel-caption'>
-<h3>Slide label 5</h3>
-<p>Here is some text that goes with this guy who is cool.</p>
+<video autoplay=''>
+//EDIT: loop="true" and  autoplay="autoplay" are deprecated
+<source src='/images/grow-city-sketch.mp4' type='video/mp4'>
+Your browser does not support the video tag.
+</video>
+<div class='mask'></div>
+<div class='carousel-caption primary'>
+<img class='jenkins' src='/images/226px-Jenkins_logo.svg.png'>
+<h1 class='page-title'>
+Jenkins
+<span class='in-tag'>CD|CI</span>
+</h1>
+<h5 class='sub-heading'>Build great things at any scale</h5>
+<p>The leading open source automation server, Jenkins, provides hundreds of plugins to support building, testing, deploying and automating any project.</p>
 </div>
 </div>
 </div>
@@ -319,293 +541,47 @@ Windows
 <div class='row body'>
 <div class='col-md-8' id='sidebar'>
 <!-- starting partial blogs.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<h4>
+<div class='block block-block even blog-posts' id='block-block-15'>
+<h3 class='title'>
 Recent Blog Posts
-</h4>
+</h3>
 <div class='content'>
 <div class='item-list'>
-<ul class='ji-dated-list ji-item-list'>
+<ul class='ji-blog-list ji-item-list'>
 <li class='post'>
-<a class='body' href='/blog/2015/12/09/security-updates-released-today/'>
-<h5 class='title'>
-Security updates released today
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
+<a class='body' href='/blog/2016/02/06/scale14x-conference-report/'>
+<div class='header'>
+<div class='date'>
 <div class='month'>
-Dec
-</div>
-<div class='day'>
-09
-</div>
-</div>
-</a>
-<div class='attrs'>
-<a class='author'>
-daniel-beck
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-core
-</a>
-</li>
-<li>
-<a class='tag-link'>
-jenkinsci
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/12/03/pipeline-as-code-with-multibranch-workflows-in-jenkins/'>
-<h5 class='title'>
-Pipeline-as-code with Multibranch Workflows in Jenkins
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
-<div class='month'>
-Dec
-</div>
-<div class='day'>
-03
-</div>
-</div>
-</a>
-<div class='attrs'>
-<a class='author'>
-rtyler
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-guest post
-</a>
-</li>
-<li>
-<a class='tag-link'>
-tutorial
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/12/02/hacksgiving-left-overs/'>
-<h5 class='title'>
-Hacksgiving Left-overs
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
-<div class='month'>
-Dec
-</div>
-<div class='day'>
-02
-</div>
-</div>
-</a>
-<div class='attrs'>
-<a class='author'>
-rtyler
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-meetup
-</a>
-</li>
-<li>
-<a class='tag-link'>
-video
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/11/16/celebrating-hacksgiving/'>
-<h5 class='title'>
-Celebrating Hacksgiving!
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
-<div class='month'>
-Nov
-</div>
-<div class='day'>
-16
-</div>
-</div>
-</a>
-<div class='attrs'>
-<a class='author'>
-rtyler
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-cia
-</a>
-</li>
-<li>
-<a class='tag-link'>
-just for fun
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/11/11/new-jenkins-releases-with-important-security-fixes/'>
-<h5 class='title'>
-New Jenkins releases with important security fixes
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
-<div class='month'>
-Nov
-</div>
-<div class='day'>
-11
-</div>
-</div>
-</a>
-<div class='attrs'>
-<a class='author'>
-daniel-beck
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-core
-</a>
-</li>
-<li>
-<a class='tag-link'>
-news
-</a>
-</li>
-<li>
-<a class='tag-link'>
-releases
-</a>
-</li>
-<li>
-<a class='tag-link'>
-jenkinsci
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/'>
-<h5 class='title'>
-Mitigating unauthenticated remote code execution 0-day in Jenkins CLI
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
-<div class='month'>
-Nov
+Feb
 </div>
 <div class='day'>
 06
 </div>
 </div>
-</a>
-<div class='attrs'>
-<a class='author'>
-rtyler
-</a>
-<ul class='list-inline tags'>
-<li>
-<a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-core
-</a>
-</li>
-<li>
-<a class='tag-link'>
-news
-</a>
-</li>
-</ul>
-</div>
-</li>
-<li class='post'>
-<a class='body' href='/blog/2015/11/06/october-jams/'>
 <h5 class='title'>
-October JAMs
+SCaLE 14x Conference Report
 </h5>
+</div>
 <p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
+Historically January has always been a very big month for the Jenkins
+community. Between FOSDEM
+Southern California Linux Expo  (also known as
+SCaLE) we seem to hand out more stickers during the last week in January than
+any other week of the year.
+
+
+This year&#8217;s SCaLE 14X conference finally outgrew the LAX Hilton in Los Angeles,
+where it had been hosted in years past, and moved over to the...
+<span class='more'></span>
 </p>
-<div class='date card'>
-<div class='month'>
-Nov
-</div>
-<div class='day'>
-06
-</div>
-</div>
 </a>
 <div class='attrs'>
-<a class='author'>
-alyssat
-</a>
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
 <ul class='list-inline tags'>
 <li>
 <a class='tag-link'>
-general
-</a>
-</li>
-<li>
-<a class='tag-link'>
-cia
+scale
 </a>
 </li>
 <li>
@@ -617,56 +593,291 @@ meetup
 </div>
 </li>
 <li class='post'>
-<a class='body' href='/blog/2015/11/04/jenkins-and-docker/'>
-<h5 class='title'>
-Jenkins and Docker
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
+<a class='body' href='/blog/2016/01/27/jenkins-world-call-for-papers/'>
+<div class='header'>
+<div class='date'>
 <div class='month'>
-Nov
+Jan
+</div>
+<div class='day'>
+27
+</div>
+</div>
+<h5 class='title'>
+Jenkins World 2016: Call For Papers Is Open!
+</h5>
+</div>
+<p class='teaser'>
+This is a guest post by Alyssa Tong.
+Alyssa works for CloudBees, helping to organize
+Jenkins community events around the
+world.
+
+
+
+
+
+
+
+
+Planning is underway for Jenkins World, a major Jenkins event for developers,
+release engineers and others interested in automation. The conference will be
+held from September 13th to 15th in Santa Clara, California and is being
+organized and sponsored in part by CloudBees.
+Just like the "Jenkins User Conferences" before it,...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/alyssat">Alyssa Tong</a>
+<ul class='list-inline tags'>
+<li>
+<a class='tag-link'>
+jenkins world
+</a>
+</li>
+<li>
+<a class='tag-link'>
+event
+</a>
+</li>
+<li>
+<a class='tag-link'>
+jenkins
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2016/01/26/office-hour-javascript-development/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+26
+</div>
+</div>
+<h5 class='title'>
+Office Hour: The State of JavaScript in Jenkins
+</h5>
+</div>
+<p class='teaser'>
+Tom Fennelly will host tomorrow&#8217;s office hour on JavaScript in Jenkins.
+The intended audience for this presentation is core and plugin developers.
+In his own words:
+
+
+
+
+I believe strongly that we can make meaningful user experience improvements to Jenkins, but it will require having more weapons in our arsenal in terms of how we build plugins etc. This is what we&#8217;ll be talking about in this week&#8217;s...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/daniel-beck">Daniel Beck</a>
+<ul class='list-inline tags'>
+<li>
+<a class='tag-link'>
+office hours
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2016/01/10/beautiful-jenkins-dashboard/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+</div>
+<h5 class='title'>
+A beautiful Jenkins dashboard
+</h5>
+</div>
+<p class='teaser'>
+This is a guest post by Julian Kleinhans,
+Software Architect at AOE, who is outlining some of the
+Jenkins dashboard work he&#8217;s done with
+dashing-js
+
+
+
+
+
+Jenkins offers a handful of third party dashboards, but none of them are really
+beautiful and flexible enough from my point of view. For example, I could not
+find a solution which gives me the possibility to easily decide which data
+should be display in the...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/kj187">Julian Kleinhans</a>
+<ul class='list-inline tags'>
+<li>
+<a class='tag-link'>
+dashboard
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2016/01/07/official-code-of-conduct/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+07
+</div>
+</div>
+<h5 class='title'>
+Jenkins Code of Conduct
+</h5>
+</div>
+<p class='teaser'>
+Over the past couple months, we have been working on a long overdue
+Code of Conduct for the Jenkins project (meeting minutes
+here
+and
+here).
+Following in the footsteps of other projects like the
+Apache Software
+Foundation, Go lang and
+countless others, we have adopted this
+code of conduct to help set guidelines for what behaviors are acceptable, and
+what behaviors are not, when acting within the Jenkins community or on behalf
+of the Jenkins...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+<ul class='list-inline tags'>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2016/01/05/new-website/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+05
+</div>
+</div>
+<h5 class='title'>
+A new Jenkins website
+</h5>
+</div>
+<p class='teaser'>
+When I first started working on the Jenkins
+website, then called by a different name, I selected
+Drupal, an extensible content management system, to
+get the job done. Like Jenkins itself, Drupal is easy to set up, install
+plugins and authoring content is done in a web UI. For the past seven years Drupal
+has served us well, but it is time to move on to something better suited...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+<ul class='list-inline tags'>
+<li>
+<a class='tag-link'>
+www
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2016/01/04/jenkins-at-scale14x/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Jan
 </div>
 <div class='day'>
 04
 </div>
 </div>
+<h5 class='title'>
+Jenkins at SCaLE 14x
+</h5>
+</div>
+<p class='teaser'>
+For the past few years, a couple members of the Jenkins project have made the
+trip to Los Angeles for the
+Southern California Linux Expo.
+Despite the name it&#8217;s a fairly broad open source technology conference and
+since it is hosted prior to FOSDEM, it&#8217;s also a good
+conference to get us in the open source mood after the holiday break.
+
+
+Unlike previous years, when SCaLE was hosted at the...
+<span class='more'></span>
+</p>
 </a>
 <div class='attrs'>
-<a class='author'>
-rtyler
-</a>
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
 <ul class='list-inline tags'>
 <li>
 <a class='tag-link'>
-general
+meetup
+</a>
+</li>
+<li>
+<a class='tag-link'>
+jam
 </a>
 </li>
 </ul>
 </div>
 </li>
 <li class='post'>
-<a class='body' href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
-<h5 class='title'>
-What JVM versions are running Jenkins?
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
+<a class='body' href='/blog/2015/12/21/december-jam-world-tour-toulouse-france/'>
+<div class='header'>
+<div class='date'>
 <div class='month'>
-Nov
+Dec
 </div>
 <div class='day'>
-03
+21
 </div>
 </div>
+<h5 class='title'>
+December JAM World Tour: Toulouse, France
+</h5>
+</div>
+<p class='teaser'>
+On December 15, the Toulouse
+JAM
+was co-hosted with the Toulouse
+JUG and Toulouse
+DevOps. Indeed it made sense since Jenkins is
+written in Java, makes use of Groovy code in many places (system groovy script,
+job dsl, workflow…), and it also made sense to co-organize with the local
+DevOps community since Jenkins is also a great tool to enable Continuous
+Integration, Continuous Delivery and automation in general. There were 103
+RSVPs, with...
+<span class='more'></span>
+</p>
 </a>
 <div class='attrs'>
-<a class='author'>
-rtyler
-</a>
+Hannah Inman
 <ul class='list-inline tags'>
 <li>
 <a class='tag-link'>
@@ -675,47 +886,109 @@ general
 </li>
 <li>
 <a class='tag-link'>
-just for fun
+meetup
+</a>
+</li>
+<li>
+<a class='tag-link'>
+jenkinsci
+</a>
+</li>
+<li>
+<a class='tag-link'>
+pipeline
+</a>
+</li>
+<li>
+<a class='tag-link'>
+workflow
 </a>
 </li>
 </ul>
 </div>
 </li>
 <li class='post'>
-<a class='body' href='/blog/2015/11/01/adopt-a-plugin/'>
-<h5 class='title'>
-Adopt a plugin!
-</h5>
-<p class='teaser'>
-Lorem ipsum dolor sit amet, et quas exerci tincidunt nec, et mea aeque essent everti, cibo honestatis ad pri. Nec zril iudico luptatum ne, ullamcorper definitiones definitionem an ius. Ius dicunt epicuri at, no aeque mundi maiestatis eum, mundi ignota eloquentiam mei ea. Vis liber intellegebat ut, alia invidunt adipiscing at pri, ei has tritani volumus. Sed summo dicant et, maiorum alienum at vis.
-</p>
-<div class='date card'>
+<a class='body' href='/blog/2015/12/18/join-us-at-the-jenkins-2-0-contributor-summit/'>
+<div class='header'>
+<div class='date'>
 <div class='month'>
-Nov
+Dec
 </div>
 <div class='day'>
-01
+18
 </div>
 </div>
+<h5 class='title'>
+Join us at the Jenkins 2.0 Contributor Summit!
+</h5>
+</div>
+<p class='teaser'>
+As I mentioned in yesterday's post, we're planning a "Contributor Summit" on February 1st, after FOSDEM 2016 (January 30th/31st), to focus on Jenkins 2.0. Since many of us are already planning, the Monday following the event turned out to be the ideal time to discuss 2.0.
+
+Note: If you're not already familiar with some of the key proposals that were put forth, you can review...
+<span class='more'></span>
+</p>
 </a>
 <div class='attrs'>
-<a class='author'>
-daniel-beck
-</a>
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
 <ul class='list-inline tags'>
 <li>
 <a class='tag-link'>
-development
+general
 </a>
 </li>
 <li>
 <a class='tag-link'>
-meta
+meetup
+</a>
+</li>
+</ul>
+</div>
+</li>
+<li class='post'>
+<a class='body' href='/blog/2015/12/18/december-jam-world-tour-st-petersburg-russia/'>
+<div class='header'>
+<div class='date'>
+<div class='month'>
+Dec
+</div>
+<div class='day'>
+18
+</div>
+</div>
+<h5 class='title'>
+December JAM World Tour: St. Petersburg, Russia 
+</h5>
+</div>
+<p class='teaser'>
+The first Jenkins meetup in Saint Petersburg, Russia took place on December
+9th. The event has been organized with the help from Yandex and CloudBees.
+
+In total there were about 80 attendees at the meetup. In addition to
+meetup.com
+the event has been promoted by Yandex so we quickly reached capacity limit.
+
+There were 3 talks conducted, speakers from Yandex, ZeroTurnaround and
+CloudBees. We discussed the current open-source project state,...
+<span class='more'></span>
+</p>
+</a>
+<div class='attrs'>
+<a href="https://github.com/alyssat">Alyssa Tong</a>
+<ul class='list-inline tags'>
+<li>
+<a class='tag-link'>
+general
 </a>
 </li>
 <li>
 <a class='tag-link'>
-plugins
+meetup
+</a>
+</li>
+<li>
+<a class='tag-link'>
+jenkinsci
 </a>
 </li>
 </ul>
@@ -853,8 +1126,12 @@ Something is topic
 
 <!-- ending partial footer.html.haml -->
 <div id='github'>
-<a href='https://github.com/rtyler/jenkins.io/edit/master/content//blogs.html.haml' title='Edit /blogs.html.haml on GitHub'>
-Improve this page
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//blogs.html.haml' title='Edit /blogs.html.haml on GitHub'>
+[Improve this page]
+</a>
+&nbsp;
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//blogs.html.haml' title='View /blogs.html.haml history on GitHub'>
+[Page history]
 </a>
 </div>
 <script>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,729 +6,683 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
-<p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
 </a>
-</p>
-</big>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
 </div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
 </div>
 
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
+<!-- ending partial toptoolbar.html.haml -->
 <div class='post'>
 <h1>
-<a href='/blog/2010/02/25/spotlight-on-springsource/'>
-Spotlight on: SpringSource
+<a href='/blog/2010/03/12/want-some-hudson-stickers/'>
+Want some Hudson stickers?
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-03-12T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>For this week's user spotlight segment, I'm talking with <a id="aptureLink_FPwIok2zLS" href="http://twitter.com/dougmaceachern">Doug MacEachern</a> of <a id="aptureLink_3sE4QkWryf" href="http://www.crunchbase.com/company/hyperic">Hyperic</a>, part of <a id="aptureLink_Xv7fvWA2ED" href="http://www.crunchbase.com/company/springsource">SpringSource</a>, a division of VMware, hoping I got that dependency chain correct. Hyperic builds enterprise systems monitoring and management software and also contributes to a number of open source projects, many of which are built with Hudson. <a href="http://blog.hudson-ci.org/sites/default/files/hyperic_hudson.png" target="_blank"><img src="http://blog.hudson-ci.org/sites/default/files/hyperic_hudson.png" align="right" width="350" alt="A small subsection of Hyperic's Hudson" /></a></p>
+<p><img src="http://farm3.static.flickr.com/2743/4425921960_a056d816f1_m.jpg" align="right" /> Rarely do I ever get mail, let alone mail I like, so I was quite excited when a shipment of stickers from <a href="http://tinyurl.com/SunSantaClaraCampus">Hudson HQ</a> arrived yesterday.  I'm certain you're thinking to yourself "what does this guy need hundreds of Hudson stickers for?" Fact is, I don't! They're not for me, they're for you!</p>
 
-<p>To date I must say that Doug's use of Hudson is one of the largest and more impressive installations I've seen. I don't want to spoil the interview, but they're testing on platforms that don't even run <em>Java</em>. Madness! If you think you can out-do him, you can find my email information at the bottom of the interview, I'd love to hear about it!</p>
+<p><strong>I am willing to mail stickers vast distances to you</strong> (<em>with some conditions</em>)</p>
 
-<p>Without further ado, Doug from SpringSource.
-<!--break--></p>
-<table border="0">
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>Doug, can you tell us a little bit more about what SpringSource is using Hudson for? How long has SpringSource been using it?
-</td></tr>
+<p><br clear="all" />
+#### Conferences
+If you're presenting at a conference or otherwise would like some Hudson stickers to go around, email me with a rough estimate of how many you need. The only condition being that you tell me all about the event and how Hudson was received after the fact (this may involve an interview).</p>
 
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>
-We started using Hudson in early 2008 to automate the build and testing of our <a href="http://sigar.hyperic.com/">SIGAR library</a>.  The SIGAR API implements a portable interface in C for gathering system information related to memory, processors, file systems, network interfaces, network connection tables, the process table and more.  We support dozens of OS + version + architecture combinations, along with several language bindings.  SIGAR is a key component of the Hyperic HQ agent and is used in other projects including <a id="aptureLink_WX9L4DHx0m" href="http://en.wikipedia.org/wiki/Hypertable">Hypertable</a>, <a id="aptureLink_Fy6elgHTOH" href="http://www.crunchbase.com/company/terracota">Terracotta</a>, <a id="aptureLink_RhcetOJ6YC" href="http://www.gridgain.com/">GridGain</a> and MySQL enterprise.
-</td></tr>
-<tr><td><br /></td></tr>
+<h4 id="user-groups">User Groups</h4>
+<p>If you email me requesting some stickers for a user group, I'll need an estimate of how many folks attend meetings. Depending on supplies, I may send you a little more than requested to be shared.</p>
 
+<h4 id="companies">Companies</h4>
+<p>If your company wants some Hudson stickers, I'd be happy to oblige, and of course I always appreciate stickers, pens, branded bouncy balls, etc (see: <a id="aptureLink_R5zxZUYv2n" href="http://en.wikipedia.org/wiki/Promotional%20item">swag</a>) in return!</p>
 
+<h4 id="people-who-like-stickers">People who like stickers</h4>
+<p>If you're just a fan of Hudson, stickers, or both, I'll still gladly mail you a few stickers with the condition that you take pictures of where the stickers end up (and maybe of your Hudson install) and either email me some cool pictures or post them to <a id="aptureLink_S4ASBrm3CN" href="http://www.crunchbase.com/company/flickr">Flickr</a> (tagged: "<a href="http://www.flickr.com/photos/agentdero/tags/hudsonstickers/">hudsonstickers</a>")</p>
 
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>Was SpringSource using continuous integration before Hudson? If so, what caused you guys to switch?</td></tr>
+<p><br clear="all" />
+I will be stuffing envelopes in my free time, so there may be a slight delay. You can email me at <code>tyler</code> at <code>linux</code> dot <code>com</code> requesting stickers, I'll need:</p>
 
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>The SIGAR project actually started back in late 2002 and our initial CI system for the project was a good old-fashioned Perl script / ssh for-loop.  It was good enough to get by in the early years, but a proper replacement was long overdue.  We were (and still are) using <a id="aptureLink_koprNR3BrL" href="http://www.atlassian.com/software/bamboo/">Bamboo</a> to build and test Hyperic HQ.  We looked at using Bamboo for SIGAR, but at the time the "Remote Agent" feature was new to Bamboo and was not in the version we were running. Rather than disrupt HQ's CI along with taking on an additional licensing cost, we gave Hudson a shot and haven't looked back.
-</td></tr>
-<tr><td><br /></td></tr>
+<pre><code>How many: (estimate)
+What for: (conference|usergroup|company|iwantsomeokay)
+Mailing Address: 
+</code></pre>
 
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>Might be a bit of personal bias, but I think you guys made the right choice there! Checking out the <a href="http://hudson.hyperic.com">public Hudson server</a>, I see that SpringSource is building/testing products on AIX, the BSDs, various flavors of Linux, Solaris, Windows and Mac OS X, what kinds of languages/build systems are being built by Hudson? How varied are the environments that Hudson executes jobs in?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>
-And HP-UX! The matrix of SIGAR's supported OS + kernel version + architecture + distribution is north of 100 combinations.  So, Hudson is covering a very heterogeneous collection of systems with most jobs tied to a specific node.  Our primary focus has been the C API and Java JNI bindings, using an Ant based build system and a JUnit test suite.  SIGAR also has language bindings for Perl, Ruby, Python, Erlang, PHP, C# and Lua.  So, Hudson is also driving each language's extension build system of choice, respectively: MakeMaker, Rake, distutils, emake, phpize, Nant and autotools.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-What do you consider to be noteworthy about your Hudson implementation? Besides, clearly, that you're running Hudson slaves on just about every OS that will run Java :)
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>
-<p>The majority of our x86/x64 nodes are virtualized on VMware ESX and VMware Server.  We also have a fine collection of PPC, PA-RISC and Sparc hardware in house, with IA-64 and s390x hosted elsewhere by third parties.  Some of these systems are too old to support Java 1.5 and/or Git.  As a simple work-around, the nodes share an NFS workspace where the slave node takes care of 'SCM' and 'Post-build Actions', but the 'Build' step in between is invoked via ssh.
-</p><p>
-The SIGAR distribution includes about two dozen native binaries that are compatible with most of the supported platform matrix.  There's a Hudson job for each Git branch that rolls these binaries into a release bundle. Another job flavor uses the Hudson URL SCM plugin to download and unit test the binary releases on the rest of the platform matrix.  This is key to testing binary compatibility.  Similar for the <a href="http://collectd.org">collectd</a> project, each Git branch has a job that runs automake, autoconf, etc. and 'make dist' into the collectd release flavor tarball.  So a push to git.verplant.org by octo in Germany triggers an update of the collectd release artifact, which in turn triggers the URL SCM jobs to download the tarball, unpack and build over here at our west coast locations.
-</p><p>
-We have four Hudson servers in different locations, three of which are managing most of the jobs behind firewalls.  Select jobs use the Build Publisher plugin to post the job and its artifacts to our <a href="http://hudson.hyperic.com">public Hudson server</a>. This makes it easy for us to provide platform specific bug fixes in binary form, share build logs with external projects and host a central repository of artifacts reachable by all of the URL SCM based jobs. Our public Hudson server also provides CI for the HQApi project and jobs to build HQ plugins, again making it easier to distribute patch fixes in binary form between releases.
-
-<tr><td><br /></td></tr>
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>I've very impressed! I'm glad the fact that Java won't run on some of the platforms you want to support hasn't stopped you from testing anyways. Clearly you folks have written some addition tools behind the scenes, mind discussing them a bit?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>
-Other than some Hudson plugin tweaks and additions, the Perl script I mentioned earlier was converted to generate the majority of our Hudson jobs and includes a simple templating system.  The same script generates jobs to build collectd and a few other projects.  We've outgrown this flavor of the script and have started working on integrating <a href="http://www.opscode.com/chef">Opscode Chef</a> to automate our Hudson configration along with the systems we build and test on. And of course, we're using Hyperic HQ to monitor our Hudson server instances, slaves and node machines.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>But of course, I'd say <a id="aptureLink_WWkmPVpHxI" href="http://en.wikipedia.org/wiki/Eating%20one%27s%20own%20dog%20food">dog-fooding</a> is an important part of any continuous testing set up. It appears that SpringSource has bought in pretty deeply to a Hudson-oriented workflow, given the amount of time and resources you all have invested in getting the massive farm set up that you have. That said, on a scale from 1-10, how important would you rate Hudson to your day-to-day workflow?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/springsource.jpg" alt="Doug @ SpringSource" /><br />
-<strong>Doug</strong>
-</td><td>I'd say at least an 8, although my daily workflow doesn't always directly involve Hudson.  Most of those points go to Hudson for automating what otherwise would be interrupting my workflow on a daily basis.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-----
-
-
-I'd like to thank Doug again for giving us a peek behind the curtains at SpringSource and how they're using Hudson. If you would like to discuss your organization or company's use of Hudson for Continuous Blog, you can contact me at `tyler` at `linux.com`
-
-
-
-----
-**Editor's note:** Doug was the primary author of <a id="aptureLink_qgVLRGgSjp" href="http://en.wikipedia.org/wiki/Mod%20perl">mod_perl</a> for many years until he was tricked into "helping out" with a new project.  This project turned into Hyperic HQ which shifted his focus to systems and application management for the past ~7 years and counting.  He occasionally rambles on Twitter as <a id="aptureLink_1GSwGzVfcP" href="http://twitter.com/dougmaceachern">@dougmaceachern</a>.
-</p></td></tr></table>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/02/25/sonatype-freeing-projects-from-java-nets-maven-repo/'>
-Sonatype freeing projects from java.net's Maven repo
+<a href='/blog/2010/03/12/links-for-2010-03-12/'>
+Links for 2010-03-12
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-03-12T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>Are you working on a project which uses java.net's <a id="aptureLink_L4MIM7mY1F" href="http://en.wikipedia.org/wiki/Apache%20Maven">Maven</a> repository for deploying its artifacts?</p>
+<p>Been a bit pre-occupied this week, so this links roll-up is short and sweet.</p>
 
-<p>Well, if so, there's a great opportunity opening up for you to get off that problematic repository: <a id="aptureLink_9b4lZR3Gq1" href="http://www.sonatype.com/">Sonatype</a> is <a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">helping java.net projects move to Sonatype's hosted OSS Nexus repository</a>, starting March 5th. We're looking into moving Hudson over but for most smaller projects, this should be a no-brainer. Problems with the java.net Maven repository are legendary and Sonatype's OSS Nexus repository is a great alternative.</p>
-
-<p>Take a look and see if this can work for you.</p>
+<ul>
+  <li><a id="aptureLink_0EaYmEPTig" href="http://twitter.com/anotherjavadude">The JavaDude</a> details a fairly simple <a href="http://javadude.wordpress.com/2010/02/22/tutorial-most-simple-test-application-for-embedded-glassfish-netbeans-hudson/">test application embedding Glassfish + Netbeans + Hudson</a></li>
+  <li>Thanks to <a id="aptureLink_HqEoqNmNOh" href="http://twitter.com/chrisbingham">@chrisbingham</a>, discovered a <a href="http://code.google.com/p/hudson-lib/">.NET wrapper for Hudson's remote API</a></li>
+  <li>Learned all about <a href="http://blog.bobcravens.com/2010/03/01/GettingStartedWithCIUsingHudsonForYourNETProjects.aspx">getting started with Hudson for .NET projects</a> from <a id="aptureLink_0evuIQ516M" href="http://twitter.com/rcravens">Bob Cravens</a></li>
+  <li><a id="aptureLink_chC5AJes8Y" href="http://twitter.com/rfletcherEW">Robert Fletcher</a> wrote a groovy post about testing <a href="http://adhockery.blogspot.com/2010/03/grails-plugins-on-hudson.html">Grails plugins on Hudson</a>.</li>
+</ul>
 
 <hr />
-<p><strong>Editor's Note:</strong> Andrew Bayer (<code>abayer</code>) has been a contributor to Hudson since early 2009, contributing to the ClearCase plugin, Hudson's core and a small number of other plugins. Andrew also helps Kohsuke with a lot of Hudson's project infrastructure, most notably the migration from Bugzilla on Java.net to JIRA running at <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a>.</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/02/25/links-for-2010-02-24/'>
-Links for 2010-02-24
+<a href='/blog/2010/03/09/one-month-of-continuous-blog/'>
+One month of Continuous Blog
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-03-09T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>Via the <a id="aptureLink_9cdmxFQb8l" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account I typically share or "retweet" a number of links during the day, I realize a number of people either do not use Twitter or do not constantly pay attention to it. A lot of the links I find quite interesting, so I'd like to try sharing them after the fact here.</p>
+<p>It's been a little over a month since I pinged Kohsuke about an "official Hudson blog"; my role has been nothing more than writer and editor of a community resource, while I have invested a lot of time in Continuous Blog it is not "mine" so much as it is "ours." I feel I have a responsibility as the current maintainer of this resource to be as open as possible about what's going on with CB. When I sat down to write the inaugural post, <a href="http://blog.hudson-ci.org/content/welcome-continuous-blog">Welcome to Continuous Blog</a>, I set forth a few goals:</p>
+
+<blockquote>
+  <ul>
+    <li>Help advocate the use of Hudson to the larger internet community</li>
+    <li>Be a central source for tutorials and helpful information to Hudson users of all skill-levels</li>
+    <li>Recognize the numerous contributors to the Hudson project for their efforts</li>
+  </ul>
+</blockquote>
+
+<p>Being a community resource, I wanted to review our progress on those goals along with some other interesting details about Continuous Blog and my community efforts. My metrics for achieving these goals are largely based on web traffic to this blog and retweets via the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account. First a minor overview of some of Continuous Blog's traffic, then I'll get to reviewing the goals.</p>
+
+<p><img src="http://agentdero.cachefly.net/continuousblog/cb_visits.png" width="550" />
+<em>Visitor trend via Google Analytics</em></p>
+
+<p>Over the past month Continuous Blog has seen just under 10,000 visits from a number of different sources, the top sources being:</p>
 
 <ul>
-  <li><a href="http://www.sonatype.com/people/2010/02/java-net-maven-repository-rescue-mission-on-march-5th/">Java.net Maven Repository Rescue Mission on March 5th</a></li>
-  <li><a href="https://blog.coremedia.com/cm/post/14886341/Fighting_Problems_with_Hudson_Matrix_Jobs_and_Perforce_Plugin.html">Fighting Problems with Hudson Matrix Jobs and Perforce Plugin</a>
-    <ul>
-      <li>Working around issues with matrix jobs and the Perforce plugin (<a href="http://issues.hudson-ci.org/browse/HUDSON-1022">issue 1022</a>)</li>
-    </ul>
-  </li>
-  <li><a href="http://www.oracle.com/technology/pub/articles/adf-development-essentials/part7.html">Oracle ADF Development Essentials - Part 7 – Continuous Integration with Hudson</a>
-    <ul>
-      <li>Learn how to use Hudson in tandem with the Oracle Application Development Framework (with screenshots).</li>
-    </ul>
-  </li>
-  <li><a href="http://stackoverflow.com/questions/723322/what-is-the-best-version-control-for-visual-studio-2008-sp1/723326#723326">What is the best Version Control for Visual Studio 2008 SP1?</a>
-    <ul>
-      <li>Asked on Stack Overflow, guess what the chosen answer was?</li>
-    </ul>
-  </li>
-  <li><a href="http://technology.amis.nl/blog/7408/automatic-testing-oracle-service-bus-using-hudson-maven-and-soapui">Automatic testing Oracle Service Bus using Hudson, maven and SoapUI</a></li>
+  <li><a href="http://feedburner.google.com/">Feedburner</a> links posted to <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a></li>
+  <li>Direct visits</li>
+  <li><a href="http://feedburner.google.com/">Feedburner</a></li>
+  <li>Referrals from the "blog" link on <a href="http://hudson-ci.org">hudson-ci.org</a></li>
+  <li><a href="http://www.reddit.com/domain/hudson-ci.org">reddit</a></li>
+  <li>Links from the <a href="http://java.net">Java.net</a> community portal and associated weblogs</li>
 </ul>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/24/hudson-at-pycon/'>
-Hudson at PyCon
-</a>
-</h1>
-<div class='content'>
-<p>This past week <a id="aptureLink_z1tlMXupZM" href="http://twitter.com/pycon">PyCon</a> has been going on in Atlanta, where <a id="aptureLink_WLsRDsy9yw" href="http://twitter.com/ctitusbrown">Titus Brown</a> gave a talk titled:</p>
+<p>In addition to general web traffic, Continuous Blog has around 350 RSS subscribers.</p>
 
-<blockquote>
-  <p>Why not run all your tests all the time? A study of continuous integration systems</p>
-</blockquote>
+<p>To put these numbers into perspective, Hudson has seen commits from 173 different developers and the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account has about 1,100 followers.</p>
 
-<center><img src="http://agentdero.cachefly.net/continuousblog/just_use_hudson.png" alt="Just use Hudson" width="500" /></center>
+<p><br clear="all" />
+### Hudson Advocacy
+Looking at the traffic sources and the volume of traffic coming from what I would consider "the wider internet community" I'd say I failed to meet my own expectations. The majority of traffic seems to be coming from "within the community", which is certainly not a bad thing by a stretch, but I was hoping to start to see more visitors who are less likely to be using Hudson already. There are signs of this (I think) in the low number of search referrals, roughly 370 visits. To me this indicates the early age of this site, small number of external links to Continuous Blog and the content isn't "interesting" enough to come up in searches for terms like "continuous integration with python".</p>
 
-<p>Titus has some notable quotes "just use Hudson" but overall a good introduction of CI and a breakdown of some of the challenges behind continuous integration. He also does a good job going over getting started with Hudson, setting up a basic Python project that incorporates JUnit XML reporting and slaves.</p>
+<p>The vector for improvement in advocacy, in my opinion, is to focus more on tutorials and user guides in the next month. Mike Rooney's post on <a href="http://blog.hudson-ci.org/content/keeping-your-configuration-and-data-subversion">Keeping your configuration and data in Subversion</a> was both discussion provoking, but one of the more visited pages over the past month. I'll be reaching out to more power-users from differing backgrounds to try to get some more tutorials on using Hudson for Python, Ruby, and Cocoa development while continuing to bug some of you Maven2 pros about guides.</p>
 
-<blockquote>
-  <p>"Yeah, we used Buildbot until recently, then I switched us to Hudson and my life got a lot better"</p>
-</blockquote>
+<h3 id="central-information-repository">Central information repository</h3>
+<p>I feel I failed to meet my own expectations here as well, it has only been a month (feels like an eternity!) so the amount of information we've been able to aggregate is small, but growing.</p>
 
-<p>If you're using Python with Hudson, I highly recommend watching the talk (embedded below).</p>
+<p>I have likely spent too much time covering Hudson community news, which I feel is important, to put a human voice in front of commits and releases, but it is not what I originally intended to spend the majority of my time doing.</p>
 
-<center><embed src="http://blip.tv/play/g4VigciTVwI%2Em4v" type="application/x-shockwave-flash" width="480" height="350" allowscriptaccess="always" allowfullscreen="true" /></center>
+<h3 id="recognition-of-contributors">Recognition of contributors</h3>
+<p>In my opinion, this goal I've met. When writing up each Hudson release I've made certain to give credit where credit is due, to those that contributed, Through the "spotlight" series of posts I've also made an effort to highlight power-users of Hudson, trying to glean interesting details about their installations from them for our benefit. Unfortunately I've done a poor job highlighting the contributions from individual plugin developers, something I'm still not certain how to correct.</p>
 
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/23/would-you-run-hudson-in-the-cloud/'>
-Would you run Hudson in the cloud?
-</a>
-</h1>
-<div class='content'>
-<p>One of my favorite bloggers on the subject of continuous integration, <a id="aptureLink_e9BNkKIorq" href="http://twitter.com/builddoctor">The Build Doctor</a>, posed this question in <a href="http://www.build-doctor.com/2010/02/23/continuous-integration-in-the-cloud-good-idea/">a recent post</a>:</p>
+<hr />
 
-<blockquote>
-  <p>Continuous Integration in the cloud: good idea?</p>
-</blockquote>
-
-<p>The topic of running a CI server in a virtualized environment, such as with <a id="aptureLink_nJiKPqGQ1T" href="http://en.wikipedia.org/wiki/Amazon%20Elastic%20Compute%20Cloud">Amazon's EC2 service</a>, is an interesting issue, particularly in the Hudson community. About 10 months ago Kohsuke <a href="http://weblogs.java.net/blog/2009/05/18/hudson-ec2-plugin">announced the Hudson EC2 plugin</a> which has seen slow, but steady development since then, including support for the <a href="http://www.ubuntu.com/cloud/private">Ubuntu Enterprise Cloud</a> which was added to the plugin in a release last Monday.</p>
-
-<p>As The Build Doctor and his readers point out, continuous integration is a difficult task to offload into the cloud because of the immense hardware demands constant building and testing presents. That said, Hudson <em>does</em> very effectively manage spinning slaves up and down on demand if you've configured it as such. Implication being: running Hudson in the cloud may be more efficient to meet peak demands without needing to run a large farm of machines.<img src="http://agentdero.cachefly.net/continuousblog/hudson_in_the_cloud.png" align="right" /></p>
-
-<p>If you're interested in trying out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">EC2 plugin</a>, check out <a id="aptureLink_6E30Ex9PTT" href="http://www.sonatype.com/">Sonatype's</a> post on <a href="http://www.sonatype.com/people/2009/06/nexus-open-source-and-hudson-on-ec2/">Nexus Open Source and Hudson on EC2</a> might be a good start.</p>
-
-<p>Would you run Hudson in the cloud?</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/02/22/hudson-1-347-released/'>
-Hudson 1.347 Released
-</a>
-</h1>
-<div class='content'>
-<p>The release of Hudson 1.347 last friday, February 19th, was a relatively "minor" one insofar that it contained an assortment of smaller fixes instead of fixes to major regressions (they weren't any to be fixed) or major features added. There were however some notable commits in this release cycle that didn't make the changelog just yet, for example <a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a> committed an <a id="aptureLink_HxZkmWKjTi" href="http://en.wikipedia.org/wiki/Ebuild">ebuild</a> which will allow for a native package of Hudson for <a id="aptureLink_uU6StMFk4O" href="http://en.wikipedia.org/wiki/Gentoo%20Linux">Gentoo Linux</a>, joining the ranks of the existing packages for Debian/Ubuntu, FreeBSD, OpenSolaris, openSUSE and RedHat/Fedora Linux. The bundled Subversion plugin was updated and thanks to <a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a> and <a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a> the Japanese translations for Hudson got some updates as well.</p>
-
-<p>For Hudson developers, both plugin and core, this release contains some notable changes from <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a> (a.k.a Alan Harder), a number of calls which have been deprecated for over <strong>two years</strong> have finally been pruned from the code base:</p>
+<h3 id="content">Content</h3>
+<p>If you've been following the blog you have no doubt noticed the regular occurrence of certain types of posts, these regular series are:</p>
 
 <ul>
-  <li><code>Hudson.addListener(JobListener)</code>, <code>Hudson.removeListener(JobListener)</code></li>
-  <li>Entire <code>listeners.JobListener</code> class (replaced by <code>ItemListener</code>)</li>
-  <li>One form of <code>DirectoryBrowser</code> constructor</li>
-  <li>One form of <code>Descriptor.configure()</code> (with <code>HttpServletRequest</code> param)</li>
-  <li><code>Descriptor.convert(Map)</code> and 4 implementations of this method, and code calling it in <code>Descriptor.readResolve()</code> (this code called <code>save()</code> whenever updating data, so there should be no remaining cases out there)</li>
+  <li>"This Week in Plugins"
+    <ul>
+      <li>This post is halfway script generated, pulling all the release details out of SVN history to help me generate a post. The intention of the post being to cite new or notable plugins, while giving an informative listing of "what's happening" in plugin development for the past week.</li>
+    </ul>
+  </li>
+  <li>"Spotlight On"
+    <ul>
+      <li>The only interview-formatted series I've got going right now, I've been trying to find companies or organizations who are using Hudson in interesting ways and are willing to let "us" peek behind the curtains a bit. This started more from curiosity, but I think it's fun to let Hudson users brag about their set ups.</li>
+    </ul>
+  </li>
+  <li>Hudson 1.xxx Released
+    <ul>
+      <li>Pretty straight-forward reporting on a release of Hudson, depending on the contents of the release there may be some calls to action or editorializing on what's gone into the release.</li>
+    </ul>
+  </li>
+  <li>Links for
+    <ul>
+      <li>Roll-up of links shared or retweeted via the <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> account, uncertain whether this is worth the time spent.</li>
+    </ul>
+  </li>
 </ul>
 
-<p>Alan's quest for removing deprecated code will likely continue for a while, but this is a good step in the right direction, keeping Hudson's internals in good working order. Worth mentioning, the influx of plugin releases in the <a href="http://blog.hudson-ci.org/content/week-plugins-0">This Week in Plugins</a> from a couple weeks ago, was driven largely by Alan, rummaging through the code of older plugins, updating plugins left and right.
+<p>My two questions to the community in general would be:</p>
+
+<ul>
+  <li>Do you dislike any of these?</li>
+  <li>What else would you like to see on a regular basis?</li>
+</ul>
+
+<p>I'm certainly open to suggestion, I'd like Continuous Blog to continue to be interesting to the Hudson community and if certain kinds of posts are boring or uninteresting, I can cut them from the line-up.</p>
+
+<h3 id="challenges">Challenges</h3>
+<p>The largest challenge of Continuous Blog is <strong>time</strong>. As it stands the majority of content I write or edit in some capacity, which is a larger amount of time than I expected to spend. All said and done it takes me between 6-10 hours a week to write for CB, keep tabs on <a id="aptureLink_ExoR9hi6I6" href="http://twitter.com/hudsonci">@hudsonci</a> and peruse the mailing list for interesting things. This probably isn't maintainable, and if for some reason a bus hits me (<a href="http://www.google.com/search?ie=UTF-8&amp;q=muni+hits+pedestrian">not uncommon around here</a>), this blog would go dark for a while.</p>
+
+<p>This can be easily fixed by simply adding more contributors to the blog, I'll post more on how to write for Continuous Blog in another post.</p>
+
+<hr />
+
+<p>All said and done, I am looking forward to another month of writing and following the Hudson community. I'm grateful for all those who've asked questions, been interviewed, wrote content and participated in discussion in the comments. For those of you in the Bay Area, I do hope you come out for the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">meet-up in mid-March</a>, for the rest of you, I'll catch you on IRC :)</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/08/meet-up-and-hack-alongside-kohsuke-and-co/'>
+Meet-up and Hack alongside Kohsuke and Co.
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-03-08T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Ever wanted to pick the brains of <strong>multiple</strong> Hudson developers and users, all at the same time? Feel like finally meeting Kohsuke in person? Now's your chance!</p>
+
+<p>We're hosting our <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">second-ever Bay Area Hudson Hackathon/Meetup</a> on <strong>March 19th and 20th</strong>. That's nearly <em>two</em> whole days of Hudson!</p>
+
+<h3 id="day-one-mar-19">Day One (Mar. 19)</h3>
+<p>The first day of the hackathon/meetup is aimed primarily at those working with Hudson's core, or are building on top of Hudson (plugins, etc).</p>
+
+<ul>
+  <li><em>Start:</em> 10 a.m.</li>
+  <li><em>End:</em>   5 p.m.</li>
+  <li><em>Location:</em> <a href="http://tinyurl.com/SunSantaClaraCampus">Oracle Santa Clara campus</a> in the "library" conference room of SCA7 "Mansion" building.</li>
+</ul>
+
+<p>There will a number of community and corporate Hudson hackers joining us on Friday, so bring everything you'll need to get some grade A hacking done with Kohsuke, Andrew Bayer, Alan Harder and your fellow plugin hackers.</p>
+
+<h3 id="day-two-mar-20">Day Two (Mar. 20)</h3>
+<p>I'm tentatively calling this the <strong>main event</strong>, which will be hosted at the delightful <a href="http://hackerdojo.pbworks.com">Hacker Dojo</a> in Mountain View. The "main event" will carry over the hackathon from the day before at Oracle, into a full blown community hackathon and meet-up. This is for Hudson <strong>hackers and users</strong> alike!</p>
+
+<ul>
+  <li><em>Start:</em> 10 a.m.</li>
+  <li><em>End:</em>   6 p.m.</li>
+  <li><em>Location:</em> <a href="http://hackerdojo.pbworks.com/">Hacker Dojo</a> (Savanna room)</li>
+</ul>
+
+<p>As I've <a href="http://blog.hudson-ci.org/content/hudson-pycon">pointed out before</a>, Hudson's getting a lot of attention in other developer circles such as the Python, Ruby, Cocoa communities. As such, I'm hoping to get a lot of folks interested in using Hudson to come to Hacker Dojo where we (already being Hudson users) can help get them up to speed with all the great things Hudson can do.</p>
+
+<hr />
+
+<p><strong>If you're interested please RSVP:</strong></p>
+
+<ul>
+  <li>Via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">hackathon page on the wiki</a></li>
+  <li>Via Facebook for <a href="http://www.facebook.com/event.php?eid=369652692847">day one</a> and <a href="http://www.facebook.com/event.php?eid=359578281880">day two</a></li>
+</ul>
+
+<hr />
+<p><br clear="all" />
+### How you can help
+While I casually refer to myself as a "PR intern" for <a id="aptureLink_8uglegfosn" href="http://twitter.com/kohsukekawa">Kohsuke</a>, I'm technically a busy software engineer, meaning I'm grateful for all the help I can get.</p>
+
+<h5 id="get-the-word-out">Get the word out</h5>
+<p>The best way to help get the word out is to talk about Hudson and the meetup, this includes:</p>
+
+<ul>
+  <li>Link to this post on Twitter</li>
+  <li>Ping any user groups you are a member of in the area</li>
+  <li>Blog about it</li>
+  <li>Let your co-workers know about it</li>
+  <li>Attend!</li>
+</ul>
+
+<p><br clear="all" />
+##### Volunteer to help setup/teardown
+Hosting the Saturday event at Hacker Dojo does carry some responsibilities with it. We will need some extra hands to make sure everybody has power, refreshments are chilled, lunch is ordered and delivered, and of course, cleaning up after we leave. If you're in a generous mood, or in a real need for some karma, sign up to help on <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">the bottom of the wiki page</a></p>
+
+<p>I am hoping Oracle and some other heavy users/contributors will kick in a few bucks for lunch and drinks on Saturday, if you think your company can help us out, feel free to ping me directly at <code>tyler</code> at <code>linux.com</code>.</p>
+
+<hr />
 <!--break-->
-Now the breakdown for this release:</p>
 
-<h4 id="bugs-fixed">Bugs fixed</h4>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/08/hudson-1-349-released/'>
+Hudson 1.349 Released
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-03-08T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Last Friday, March 5th, Hudson 1.349 was pushed out into the wild with an even split of bug fixes and enhancements. Included in this release is Alan Harder's (a.k.a <code>mindless</code>) old data monitor code, discussed previously in the post "<a href="http://blog.hudson-ci.org/content/call-testers-older-better">Call for Testers: The older the better</a>." Included in this release were further updates to the japanese and german localizations of Hudson; if you're interested in helping localize Hudson into more languages you can join the effort via the <a href="http://wiki.hudson-ci.org/display/HUDSON/Internationalization">Internationalization page on the wiki</a>.</p>
+
+<p>Now for the breakdown of the 1.349 release:</p>
+
+<h4 id="bug-fixes">Bug fixes</h4>
 <p>&lt;ul class=image&gt;
   &lt;li class=bug&gt; 
-    Fix javascript problem showing test failure detail for test name with a quote character.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-1544">issue 1544</a>)
+    Fix deserialization problem with fields containing double underscore.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5768">issue 5768</a>)
   &lt;li class=bug&gt; 
-    Hudson can incorrectly configure labels for the master when bleeding edge EC2 plugin is used.
+    Fix deserialization problem for Exception objects where the XML has bad/old data.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5769">issue 5769</a>)
   &lt;li class=bug&gt; 
-    Fixed the regression wrt the whitespace trimming caused by 1.346.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5633">issue 5633</a>)
+    Fix serialization problem with empty CopyOnWriteMap.Tree.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5776">issue 5776</a>)
   &lt;li class=bug&gt; 
-    Under some circumstances, Hudson can incorrectly delete the temporary directory itself.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5642">issue 5642</a>)
-  &lt;li class=bug&gt; 
-    Newlines in MAVEN_OPTS environment variable can cause problems in other contexts.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5651">issue 5651</a>)
+    Fixed a bug that can cause 404 in the form validation check.
 &lt;/ul&gt;</p>
 
 <p><br clear="all" />
 #### Enhancements</p>
 <ul>
   &lt;li class=rfe&gt; 
-    Improved the form validation mechanism to support multiple controls.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5610">issue 5610</a>)
+    Remote build result submission shouldn't hang forever even if Hudson goes down.
   &lt;li class=rfe&gt; 
-    Added message to slave log when it has successfully come online.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5630">issue 5630</a>)
-</ul>
+    Added a monitor for old or unreadable data in XML files and a manage screen to assist
+    in updating files to the current data format and/or removing unreadable data from plugins
+    that are no longer active.  "Manage Hudson" page will show a link if any old/unreadable
+    data was detected.
+  &lt;li class=rfe&gt; 
+    Added a mechanism to bundle <tt>init.groovy</tt> inside the war for OEM.
+    (<a href="http://n4.nabble.com/preconfigured-hudson-war-tp1575216p1575216.html">report</a>)
+  &lt;li class=rfe&gt; 
+    Added an extension point to annotate console output.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2137">issue 2137</a>)</ul>
 
 <p><br clear="all" />
-#### Contributors 
-This release of Hudson contained 36 commits from <strong>7</strong> different contributors to "core":</p>
+#### Contributors
+Hudson 1.349 contains <strong>43</strong> commits from 6 contributors, due to the merging in of Alan Harder's old-data-monitor branch the commit count is a bit off from the amount of code change that actually went out in 1.349.</p>
 
 <ul>
-  <li><a id="aptureLink_YFkDO3e779" href="http://twitter.com/abayer">abayer</a></li>
-  <li><a id="aptureLink_TgMtrwa0Sz" href="http://twitter.com/_godin_">godin</a></li>
-  <li><a id="aptureLink_BJgeHDF4sh" href="http://www.linkedin.com/in/thuybrechts">huybrechts</a></li>
+  <li><a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a></li>
   <li><a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
   <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
   <li><a id="aptureLink_IPwBJtA60V" href="http://twitter.com/ssogabe">sogabe</a></li>
-  <li><a id="aptureLink_9NWuFKYOM9" href="http://twitter.com/wyukawa">wyukawa</a></li>
+  <li>swiest</li>
+  <li><a id="aptureLink_VY2dBrA1mQ" href="http://twitter.com/wyukawa">wyukawa</a></li>
 </ul>
 
 <p><br clear="all" />
 As usual, you can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
 
+<hr />
+<!--break-->
+
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/02/19/this-week-in-plugins/'>
+<a href='/blog/2010/03/07/this-week-in-plugins/'>
 This Week in Plugins
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-03-07T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>Last week's TWIP enumerated the release of <strong>26</strong> different plugin, this past week has seen 19 unique releases in comparison. You might be tempted to assume that <em>less</em> plugin development has occurred over the past week, which isn't the case. Last week a number of the releases were "code updates", i.e. plugins being rebuilt against the latest Hudson plugin API as opposed to new features or bug-fixes. With the releases of plugins this past week, it seems a large number of the releases contained new features and bug fixes, including <strong>three new plugins!</strong></p>
-
-<p>Making their Hudson debut are the following</p>
+<p>A little late, but this past week we released <strong>19</strong> plugins including one new release, the <a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves</a>.</p>
 
 <ul>
-  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average</a></li>
-  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin</a></li>
-  <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin</a></li>
-</ul>
-
-<p>If you're interested in contributing to an existing plugin, or building your own, I highly recommend checking out the <a href="http://wiki.hudson-ci.org/display/HUDSON/Plugin+tutorial">plugin tutorial</a> and joining the <a href="https://hudson.dev.java.net/servlets/ProjectMailingListList">dev@ mailing list</a>. That said, here are this week's releases, starting with last Friday.</p>
-
-<ul>
-  <li><strong>Feb 12th, 2010</strong>
+  <li><strong>Feb 28th</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/File+System+SCM">File System SCM 1.6 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JIRA+Plugin">JIRA plugin 1.19 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JobConfigHistory+Plugin">Job Configuration History Plugin 1.2 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/MSTest+Plugin">MSTest plugin 0.6 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/System+Load+Average+Monitor+Plugin">Slave Monitor for system load average 1.1 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Template+Project+Plugin">Template Project plugin 1.2 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Accurev+Plugin">Accurev plugin</a> 0.6.10</li>
     </ul>
   </li>
-  <li><strong>Feb 13th, 2010</strong>
+  <li><strong>Mar 1st</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/xUnit+Plugin">xUnit plugin 0.5.2 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Release+Manager">Subversion Release Manager plugin</a> 1.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Clover+Plugin">Clover plugin</a> 2.6.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/SCTMExecutor">SCTMExecutor</a> 1.5</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Global+Build+Stats+Plugin">global-build-stats plugin</a> 0.1-alpha3</li>
     </ul>
   </li>
-  <li><strong>Feb 14th, 2010</strong>
+  <li><strong>Mar 2nd</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Amazon+EC2+Plugin">Amazon EC2 plugin 1.6 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Build+Secret+Plugin">Build Secret plugin 1.5 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dependency+Analyzer+Plugin">Dependency Analyzer Plugin 0.5 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/DocLinks+Plugin">DocLinks plugin 0.3 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Grails+Plugin">Grails plugin 1.1 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Tool+Environment+Plugin">Tool Environment plugin 1.0 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/ClearCase+UCM+Baseline+Plugin">ClearCase UCM Baseline Plug-in</a> 1.4</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Accurev+Plugin">Accurev plugin</a> 0.6.11</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JIRA+Plugin">JIRA plugin</a> 1.20</li>
     </ul>
   </li>
-  <li><strong>Feb 15th, 2010</strong>
+  <li><strong>Mar 3rd</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Artifactory+Plugin">Artifactory Plugin 1.0.6 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Dimensions+Plugin">Dimensions SCM plugin 0.6.8 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin 1.0.20 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/NAnt+Plugin">NAnt Plugin</a> 1.4.1</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Trac+Plugin">Edgewall Trac plugin</a> 1.10</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/NCover+Plugin">NCover plugin</a> 0.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Nabaztag+Plugin">nabaztag</a> 1.7</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mozmill+Plugin">Mozmill Plugin</a> 1.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Mantis+Plugin">Mantis plugin</a> 0.9</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Harvest+Plugin">Harvest SCM</a> 0.3</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Subversion+Plugin">Subversion Plug-in</a> 1.12</li>
     </ul>
   </li>
-  <li><strong>Feb 16th, 2010</strong>
+  <li><strong>Mar 4th</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/HTML+Publisher+Plugin">HTML Publisher plugin 0.2.2 released</a></li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/PerfPublisher+Plugin">Performance Publisher plugin</a> 7.96</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Artifactory+Plugin">Artifactory Plugin</a> 1.0.7</li>
     </ul>
   </li>
-  <li><strong>Feb 17th, 2010</strong>
+  <li><strong>Mar 5th</strong>
     <ul>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Ivy+Plugin">Ivy plugin 1.0 released</a></li>
-      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/JBoss+Management+Plugin">JBoss Management Plugin 1.0.2 released</a>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Perforce+Plugin">Perforce Plugin</a> 1.0.23</li>
+    </ul>
+  </li>
+  <li><strong>Mar 6th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/SCTMExecutor">SCTMExecutor</a> 1.5.1</li>
+    </ul>
+  </li>
+  <li><strong>Mar 7th</strong>
+    <ul>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Libvirt+Slaves+Plugin">Libvirt Slaves plugin</a> 1.0</li>
+      <li><a href="http://wiki.hudson-ci.org/display/HUDSON/Emma+Plugin">Emma plugin</a> 1.13
 <!--break--></li>
     </ul>
   </li>
@@ -737,200 +692,151 @@ This Week in Plugins
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/02/18/spotlight-on-visfleet/'>
-Spotlight on: VisFleet
+<a href='/blog/2010/03/05/tag-team-automating-massive-projects-with-hudson-and-artifactory/'>
+Tag team: Automating massive projects with Hudson and Artifactory
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-03-05T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>For this week's user spotlight, I'm talking to Rasheed Abdul-Aziz of
-VisFleet Ltd. out of New Zealand. This being our second "spotlight" on a particular company, the format can still be considered <em>beta</em>; if you have any additional questions for Rasheed, feel free to ask them in the comments and I'll try to get Rasheed to answer.</p>
+<p>For those of you living in or around Silicon Valley, next Wednesday (March 10th) you might want to reserve some space around 6pm on your calendar. <a id="aptureLink_K4R8mjN6aN" href="http://freddy33.blogspot.com/">Frederic Simon</a> and <a id="aptureLink_j4VWwlQ9I2" href="http://twitter.com/yoavlandman">Yoav Landman</a> from <a id="aptureLink_gvHDYIidrI" href="http://twitter.com/artifrog">JFrog</a> will be presenting at the <a href="http://www.svjugfx.org/">Silicon Valley JavaFX Users Group</a> meeting at the Googleplex. Frederic and Yoav will be discussing and demonstrating how JFrog's Artifactory works with Hudson to combine continuous integration with release management.</p>
 
-<p>Similar to the spotlight on ITA Software from last week, VisFleet builds business software helping their customers operate their businesses more effectively through web applications in tandem with mobile applications. While I could endlessly discuss the power and flexibility of Hudson, particularly for building web software, I'll let Rasheed do the majority of the talking, so let's get to it.
-<!--break--></p>
-<table border="0">
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Rasheed, thanks for talking with me today, I think I did a poor enough job
-introducing <a id="aptureLink_qn9wDVslnL" href="http://twitter.com/visfleet">VisFleet</a>, would you mind explaining a bit more of what you guys do and some of the challenges it presents?
-</td></tr>
+<blockquote>
+  <p>Join with the Artifactory team to realize the benefits of managing your software development life-cycle through continuous integration.</p>
 
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-It's a pleasure. VisFleet has changed it's direction somewhat, moving from
-services into product development. As we move into product, we want to be
-responsive to our customers. Agile development is becoming core to how we
-operate, and as such, continuous builds and integration became a major
-factor. We now plan to offer two products for work planning and and vehicle
-tracking. We want to present these systems with a SaaS model. The world of
-online, pay as you go software, has a culture of frequent improvements and
-responsiveness to user feedback. If we want to do well in this space, it's
-important that we can code, test, release and feed back in
-tight iterations.
-</td></tr>
-<tr><td><br /></td></tr>
+  <p>Frederic Simon (JFrog Chief Architect) and Yoav Landman (JFrog CTO) will demonstrate how to automate large-scale multi-module projects, using a fully-integrated platform with Artifactory and Hudson.</p>
 
+  <p>Using Maven, Gradle or Ivy builds, it is now possible to dynamically automate and manage the pyramidal stacks of Unit, Functional, and Integration Tests.</p>
 
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-How long has VisFleet been using Hudson?
-</td></tr>
+  <p>This demo-based session will show you how Artifactory and Hudson together make it much easier to promote certified builds to milestone releases , and finally to general availability, while making sure all builds are fully reproducible.</p>
 
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-About 14 months now.
-</td></tr>
-<tr><td><br /></td></tr>
+  <p>Staying dynamic all through the development process avoids code freeze and provides very accurate feedback loops. This is crucial for Developers, QA teams, System and Integration testers, Users, Customers, and all the remaining actors of the development process.</p>
+</blockquote>
 
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-Did you guys work with continuous integration prior to starting to use
-Hudson? If so, what system was VisFleet using and what compelled the switch
-to
-Hudson?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-We didn't actually, but certainly everyone I knew who was doing continuous
-integration recommended Hudson.
-
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-That's good to hear! How lucky you are to know so many smart people :)<br /><br />
-What kinds of projects is VisFleet building with Hudson?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-We build and test Ruby On Rails service layer applications. We also build <a id="aptureLink_hbiB8O3Dwj" href="http://en.wikipedia.org/wiki/Adobe%20Flex">Flex</a> applications using the Flex SDK for our web-deployed RIA offering. Lastly, we build our iPhone applications using Hudson.
-</td></tr>
-<tr><td><br /></td></tr>
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-I'd say building and testing web applications alone with Hudson would be quite notable, but to add Flex and iPhone applications into the mix as well is certainly interesting! Anything specific that's interesting about VisFleet's use of Hudson?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-It runs multiple slave types, and automates deploys to different cloud
-infrastructures. At the moment we have 2 Flex build slaves running Ubuntu, A
-Mac Mini building our iPhone app, and several Ubuntu Servers testing our web
-tier. We currently deploy to Citrix Xen servers, and soon to <a id="aptureLink_Xq08IAbEb1" href="http://twitter.com/RackCloud">Rackspace Cloud</a> as well.
-<br />
-<br />
-In the near future, we will automate integration by first updating an
-integration system on the cloud, deploying our system and then running our
-tests. All very quickly.
-<br />
-<br />
-We have very little metric and reporting output from Hudson, and this is
-noteworthy in it's absence. It's very important  to use to provide clear
-development metrics and integrate those into our <a id="aptureLink_ZAd2AShPj0" href="http://en.wikipedia.org/wiki/Scrum%20%28development%29">Scrum</a>/<a id="aptureLink_U9x9KuaN08" href="http://en.wikipedia.org/wiki/Kanban">Kanban</a> approach. What
-Hudson has done for us is educate us about the possibilities in
-visualisation and reporting, and is informing the way we structure our
-codebase going forward. Soon, we expect to have a premium test driven
-development environment and workflow.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-We all know Hudson isn't perfect but there's a lot of room for extending it to meet your demands if need be, what additional tools have you written to glue everything together behind
-the scenes?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-We are using '<a id="aptureLink_dcU0BLKBi3" href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad the Deployer</a>' and in legacy, '<a id="aptureLink_CMeh4NNwSI" href="http://www.capify.org/">Capistrano</a>' for a lot of
-our deployment and build tasks. These are merely infrastructure specific
-scripts to ensure we can bring up live environments in the shortest amount
-of time possible.
-</td></tr>
-<tr><td><br /></td></tr>
-
-
-
-<tr><td align="center">
-<img src="/sites/default/files/butler_tiny.png" alt="Hudson" /><br />
-<strong>Hudson</strong>
-</td><td>
-So it sounds like you guys are all on board with Hudson, on a 1-10 scale, how important would you rate Hudson's importance to VisFleet's workflow?
-</td></tr>
-
-<tr><td align="center" valign="top">
-<img src="/sites/default/files/visfleet_sm.png" alt="Rasheed @ VisFleet" /><br />
-<strong>Rasheed</strong>
-</td><td>
-7, aiming at 10. The missing points are just a matter of time :)
-</td></tr>
-<tr><td><br /></td></tr>
-</table>
-
-<hr />
-
-<p>Thanks again to Rasheed for chatting with me about how Hudson helps VisFleet keep cranking on what they do best. If you would like to discuss your company's use of Hudson for Continuous Blog, you can contact me at <code>tyler</code> at <code>linux.com</code></p>
-
-<hr />
-<p><strong>Editor's Note:</strong> Rasheed Abdul-Aziz is a Software Architect at VisFleet Ltd. Rasheed specializes in Flex RIA development, but also loves a good build script and manages Hudson for VisFleet. Find out more about VisFleet and Rasheed on the <a href="http://devblog.visfleet.com/">VisFleet devblog</a> and <a href="http://squeedee.tumblr.com">Rasheed's blog</a></p>
+<p>If you're interested in attending, you can RSVP on <a href="http://www.svjugfx.org/calendar/12559455/?eventId=12559455&amp;action=detail">the meetup page</a></p>
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/41.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/41.html" class="page-link">41</a> <span class="current-page">42</span> <a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/43.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/03/05/links-for-2010-03-04/'>
+Links for 2010-03-04
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-03-05T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Since I've been a bit pre-occupied with non-Hudson related activities lately, I have missed a few days of link rollups, I suppose it's fitting to get a couple days worth of links in one post.</p>
 
-<div id='content-bottom'>
+<p>While The Build Doctor has the time to follow the continuous integration world and post links on a daily basis, I haven't found the same quantity of Hudson links on a day-to-day basis. Therefore, I will be posting a link-rollup every few days. Do let me know if this is too infrequent. That said, here's some interesting links!</p>
+
+<ul>
+  <li><a href="http://manicwave.com/blog/2010/03/01/that-feels-better-cocoa-hudson-and-running-green/">That feels better – Cocoa, Hudson and running green</a>
+    <ul>
+      <li>Indie iPhone app developer <a href="http://twitter.com/JeffSchilling">Jeff Schilling</a> writes about working more efficient with Hudson and Cocoa for developing iPhone apps, he covers <a id="aptureLink_9JORBhLtgT" href="http://developer.apple.com/tools/unittest.html">OCUnit</a> integration and code coverage with <a id="aptureLink_TSZPxfJ0Oi" href="https://software.sandia.gov/trac/fast/wiki/Documentation/gcovr">gcovr</a>, a good read for iPhone and Mac developers alike.</li>
+    </ul>
+  </li>
+  <li><a href="http://sonar.codehaus.org/add-ci-build-stability-to-your-sonar-dashboard/">Add CI Build Stability to your Sonar Dashboard</a>
+    <ul>
+      <li>Hudson contributor <a href="http://twitter.com/_godin_">godin</a> (also known as Evgeny Mandrikov) has released a Sonar plugin to report build stability back into <a id="aptureLink_KzfUdRQdS8" href="http://sonar.codehaus.org/">Sonar</a>.</li>
+    </ul>
+  </li>
+  <li><a href="http://kannan.jumbledthoughts.com/index.php/how-to-get-logged-in-username-in-hudson/">How to get logged-in username in Hudson?</a></li>
+  <li><a href="http://www.amaxus.com/cms-blog/from-cruisecontrol-to-hudson-ci">Switching from CruiseControl to Hudson</a>
+    <ul>
+      <li>The developers over at <a href="http://www.amaxus.com/">Amaxus</a> wax poetic on reducing their "<a id="aptureLink_dQHbzkXmQS" href="http://en.wikipedia.org/wiki/Bus%20factor">bus factor</a>" by switching from CruiseControl to Hudson</li>
+    </ul>
+  </li>
+  <li><a href="http://blog.infostretch.com/?p=328">Integrating Selenium tests with Hudson CI</a>
+    <ul>
+      <li>The folks at <a href="http://infostretch.com">InfoStretch</a> have written up a nice, short-and-sweet, overview of getting higher level integration tests built with <a id="aptureLink_uLiXJTOwPF" href="http://seleniumhq.org/">Selenium</a> to play with Hudson
+<!--break--></li>
+    </ul>
+  </li>
+</ul>
+
 </div>
 </div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
+<div class="pagination-links"><a href="/node/page/41.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/41.html" class="page-link">41</a> <span class="current-page">42</span> <a href="/node/page/43.html" class="page-link">43</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/43.html" class="next-link">Next</a> </div>
 
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
 </div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

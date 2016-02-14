@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,573 +6,565 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
-<p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
 </a>
-</p>
-</big>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
 </div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
 </div>
 
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
+<!-- ending partial toptoolbar.html.haml -->
 <div class='post'>
 <h1>
-<a href='/blog/2012/02/21/sponsor-a-jenkins-user-conference/'>
-Sponsor a Jenkins User Conference!
+<a href='/blog/2012/09/11/come-join-the-jenkins-user-conference-san-francisco-on-september-30th/'>
+Come join the Jenkins User Conference San Francisco on September 30th!
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-09-11T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
-<p><img src="/images/user.gif" align="right" /></p>
-
-<p>With the <a href="/content/jenkins-user-conference-2012-paris">JUC Paris 2012</a> call for papers open, it's important to mention that we are also looking for <strong>sponsors</strong> for the various Jenkins User Conferences that are being planned around the world right now!</p>
-
-<p>Currently there are four conferences being put together right now:</p>
-
-<ul>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-paris.cb">JUC Paris</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-newyork.cb">JUC New York</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco.cb">JUC San Francisco</a></li>
-  <li><a href="http://www.cloudbees.com/jenkins-user-conference-2012-antwerp.cb">JUC Antwerp</a></li>
-</ul>
-
-<p>If your company is heavily invested in Jenkins or interested in reaching the kind of audience that will be at a JUC (highly technical, motivated) then you should consider becoming a sponsor one of these conferences (link below)!</p>
-
-<p><strong><a href="http://www.cloudbees.com/jenkins-user-conference-2012-sponsorship.cb">Sponsor the Jenkins User Conference</a></strong></p>
+<div style="float:right; margin:1em"><br/>
+<a href="http://en.wikipedia.org/wiki/Golden_Gate_Bridge"><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/250px-GoldenGateBridge-001.jpg"></a><br/>
+</div><br/>
+<br/>
+<p><br/>
+<a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco.cb">Jenkins User Conference</a> is back to San Francisco after a world tour. The conference is on the 30th of this month (Sunday), which makes it back to back with JavaOne, just like the last year. This schedule allows the community people from all over the world to attend and talk, so you see speakers from <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco-abstracts.cb#JevgeniKabanov">different part</a> of <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco-abstracts.cb#BaruchSadogursky">the world</a>!<br/>
+<br/>
+<p><br/>
+You can see <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco.cb">the agenda and the speaker list here</a>, there's a number of speakers from the big/serious users of Jenkins in the bay area, such as <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco-abstracts.cb#JustinRyan">NetFlix</a>, and <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco-abstracts.cb#MaxSpring">Cisco</a>, and <a href="http://www.cloudbees.com/jenkins-user-conference-2012-san-francisco-abstracts.cb#JamesBlair">HP</a>. All of these guys not only just use Jenkins but wrote additional plugins/programs to really tailor Jenkins into fitting their needs, and I think those would be really informative for those who are already using Jenkins, as well as those who are thinking about using Jenkins.<br/>
+<br/>
+<p><br/>
+This time we also have a couple of talks that discuss how to develop plugins. In JUC Israel, I was pleasantly surprised that a talk on this topic attracted a lot of people! If you are interested in writing a plugin, this would be a great chance to get started.<br/>
+<br/>
+<p><br/>
+We are also trying to bring <a href="https://wiki.jenkins-ci.org/display/JENKINS/Governance+Meeting+Agenda">the Jenkins project meeting</a>, which normally happens in IRC, into the real world in this conference. We are hoping that this would allow those who don't normally come to the meeting to voice their thoughts. If you are interested, feel free to add stuff to the agenda list!<br/>
+<br/>
+<p><br/>
+And oh, did you check out who's on the sponsors list this year?<br/>
+<br/>
+<p><br/>
+I hope I convinced you that you must come to this conference &mdash; if so, <a href="http://juc-san-francisco-september-2012-eorg.eventbrite.com/">please register</a>. I've been told that right now you can use the promotion code <tt>JUC-2012SF</tt> to cut the price in half, so please use it while it still works!<br/>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2012/02/21/fosdem-2012-recap/'>
-FOSDEM 2012 Recap
+<a href='/blog/2012/08/27/volunteers-needed-for-juc-sf/'>
+Volunteers needed for JUC SF
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-08-27T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>(<strong>Editor's note:</strong> <em>Apologies for the delay in getting this wrap-up out, it's been quite a busy month!</em>)</p>
+<p><img src="http://agentdero.cachefly.net/continuousblog/images/Jenkins_SanFran_T-ShirtM.jpg" align="right" /></p>
 
-<p>This year has already been full of milestones, the first of which being our <a href="/content/happy-birthday-jenkins">first birthday</a> as an open source project. The second major milestone for the project was that we went to <a href="http://www.fosdem.org/2012/">FOSDEM 2012</a>, arguably the largest volunteer-organized and operated open source conference on the planet.</p>
+<p>Recently, Jenkins User Conference organizer Alyssa Tong sent out the following request:</p>
 
-<p>We had a couple of things going on at FOSDEM that merit a mention:</p>
+<blockquote>
+  <p>Jenkins User Conf SF is looking for volunteers to help us record the                                                                                        <br />
+sessions. Pls drop me an email if you're able to help.</p>
+</blockquote>
 
-<ul>
-  <li>The Jenkins project had a stand in the K building, the same building where the Free Java, Config and Systems Management, and a few other pertinent dev rooms were located</li>
-  <li>The Jenkins project gave away 2 free copies of <a href="https://twitter.com/wakaleo">John Smart's</a> book: "<a href="http://www.wakaleo.com/books/jenkins-the-definitive-guide">Jenkins: The Definitive Guide</a>" (thanks to O'Reilly!)</li>
-  <li>Community member <a href="https://github.com/rtyler/">R. Tyler Croy</a> gave <a href="http://unethicalblogger.com/2012/02/10/fosdem-slides.html">a talk</a> on running the Jenkins project infrastructure with <a href="http://projects.puppetlabs.com/projects/puppet/wiki">Puppet</a></li>
-  <li>The O'Reilly folks brought 10+ Jenkins books to sell at their stand.</li>
-  <li>Project founder <a href="https://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> and a number of project members held a constructive <a href="https://wiki.jenkins-ci.org/display/JENKINS/FOSDEM+UI+Enhancement+discussion+notes">UI Enhancements discussion</a>.</li>
-</ul>
+<p>We're trying to make sure we can capture video of as much of this year's conference as possible, but the only way we can do that is with your help!</p>
 
-<p>We were very fortunate to have <em>so many</em> Jenkins contributors in attendance, who all helped with the Jenkins stand, introducing people to Jenkins and much more.</p>
+<p>If you'll be in town for JavaOne, or just live in the bay area, drop Alyssa an email at <code>atong@cloudbees.com</code>.</p>
 
-<h3 id="fosdem-in-their-own-words">FOSDEM in their own words</h3>
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2012/08/20/report-intro-to-jenkins-meet-up-in-copenhagen/'>
+Report: Intro to Jenkins meet-up in Copenhagen
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2012-08-20T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>We have hosted two informal meetups introducing Jenkins Continuous Integration Server.</p>
+
+<p>The first in end of June (announced here on this blog) and the second on the 7th of August. The first meet-up in June was only announced 8 days before, but had very good attendance  - the second was completely booked (15 seats).</p>
+
+<p>The agenda is a short presentation of continuous integration and software validation to inspire the use of Jenkins, then a few words and terms about Jenkins and finally a live demo.
+The live demo starts from scratch by downloaded the latest Jenkins java web archive, starts it, define a job on one of our Maven based java projects on Github. We add two easy plugins (Warnings and Task Scanner). Second part of the demo is about unit testing and coverage and we show how easy it is to enable a JUnit report and add a Cobertura coverage report if there is already unit tests for the project.</p>
+
+<p>The meetups have about 90 minutes scheduled, including questions and the discussion session after the demo, where we serve pizza, beer and cola. The theoretical presentation and live demo is typically finished within one hour, even though we encourage our guests to ask questions and discuss whatever comes into their mind on the way. The relatively short time used for the introduction demonstrates how easy it is to get started with continuous integration and software validation using Jenkins.</p>
+
+<p>As the live demo is based on a Java/Maven project we ask the guests about their technologies and try to relate that to their setup, so they know there also is an easy approach for them to use Jenkins.</p>
+
+<p>The meeting is quite informal, and limited to 15 participants, leaving plenty of time to dicsuss and answer questions both before and after the meeting. We are always a few developers from Praqma to facilitate the discussions about the participants individual setup and questions.</p>
+
+<p>These informal discussions are one of the main gains for us in Praqma, as it  is very interesting to share our experience with our guests and hear about all of their interesting challenges, that might have brough them north of Copenhagento attend our meeting.</p>
+
+<p>Because these first meet-ups have been so popular and interesting we have decided to arrange them regularly in the future. Not just the Jenkins introduction, which will be repeated as long as there is an interest, but we are also making plans for meetups about Git, Mercurial and other topics.</p>
+
+<p>If you're interested in more Jenkins and CI related meet-ups in the Copenhagen area, visit <a href="http://www.praqma.net">our homepage</a> or follow the <code>#pragma</code> hashtag on Twitter.</p>
+
+<p>We also have a <a href="http://www.praqma.net/jciusrcph12">Jenkins User Event in Copenhagen</a> coming in September.</p>
+
 <!--break-->
-<p>(<em>after the break</em>)</p>
-
-<p><strong><a href="https://twitter.com/ndeloof">Nicholas de Loof</a>:</strong></p>
-
-<blockquote>
-  <p>FOSDEM was for me an opportunity to meet other Jenkins contributors I only knew by IRC nickname. Those two days were awesome to discuss with users on our stand, joke and socialize, as well as having some more technical debates and encourage folks to get involved in the community. Even I couldn't attend the talks I selected on the conference agenda due to room being full, I really enjoyed this 100% geek weekend.</p>
-</blockquote>
-
-<p><strong><a href="https://twitter.com/orrc">Christopher Orr</a>:</strong></p>
-
-<blockquote>
-  <p>The people, the talks, the social events, the sheer size of FOSDEM all make for a pretty inspiring weekend.  And incredibly, it's all for free.</p>
-
-  <p>You can not help but feel motivated after attending.  You always learn something new, discover myriad projects – in niches you never knew existed – and talk to smart folk from all over.</p>
-
-  <p>Talking to people at the Jenkins stand was no different.  Though in a striking number of cases, people <em>had</em> already heard of Jenkins, were big fans and took a clutch of stickers back home for their colleagues.</p>
-
-  <p>Speaking with those who weren't yet using Jenkins was equally                                                                                                                                                                                                                     <br />
-interesting. My favourite was talking to one guy who described a                                                                                                                                                                                                                 <br />
-particularly complex workflow; at each step he asked if Jenkins could do it, and I was able to cheerily reply "yes" to every single one.</p>
-
-  <p>Getting to put faces to names of Jenkins developers was also a huge plus, and resulted in numerous great conversations.</p>
-</blockquote>
-
-<p><strong><a href="https://twitter.com/4imod">Domi</a>:</strong></p>
-
-<blockquote>
-  <p>It was great to get some faces to the short names on IRC. Talking to other commiters was awesome, I thought they are cool before I went to FOSDEM, but now I know!</p>
-
-  <p>Its was great to talk to people who are using the tools you are working on, there where so many just coming up to say thank you! (?and there where/are by far more then I thought!)
-I know I'm standing on the shoulders of a giant - but I also do feel that my commitment is of value for others too.</p>
-
-  <p>Feels great to be part of this community!</p>
-</blockquote>
-
-<p><strong><a href="https://twitter.com/agentdero">R Tyler Croy</a>:</strong></p>
-
-<blockquote>
-  <p>I spent so much time at the stand telling people about Jenkins or showing them, that I only ended up seeing a couple actual sessions the whole weekend.
-The kinds of people who came to talk to us almost entirely developers of one kind or another, which was really great to talk about how Jenkins can be used effectively for Perl shops, for Python, C++, C#, Java (of course) or even for deployment automation. The spread was a pretty big endorsement, I think, of the extensible nature of the Jenkins plugin ecosystem.
-In planning for FOSDEM I had urged Kohsuke to order <em>thousands</em> of stickers for the event, and when all was said and done I think we had given away around 1000 stickers to new Jenkins fans, old Jenkins fans and a few folks in the community who were looking forward to going back to their local JUG to share.</p>
-
-  <p>I'm looking forward to making the trip to the bitter cold of Brussels in February again next year.</p>
-</blockquote>
-
-<p><strong><a href="https://twitter.com/fr3dg">Fred G</a>:</strong></p>
-
-<blockquote>
-  <p>FOSDEM had lots of interesting talks and was very well organized (from my point of view) and best of all… it's free! Apart from the talks and nice lineup of speakers, it has been a great opportunity to meet people. People I already knew, some in person, some only from IRC, the mailing list, or as a maintainer of a plugin; but also people thatcame up to the Jenkins stand.</p>
-
-  <p>From the people that I talked to:
-- 60% knew Jenkins and use it every day ("Yeah, I know Jenkins. The whole company uses it and nothing works without it!")
-- 35% had heard of it or were very interested ("I know Jenkins, but we bought the Atlassian package and now we have to use Bamboo, Jira and Confluence." [me mentioning the Jira integration of Jenkins] "Wow, I really have to try that out and convince our team to switch to Jenkins!".
-- 5% Weirdos and WTF!? (<em>disgusted</em> "Is this another one of these                                                                                                                                                                                                                  <br />
-projects funded by Red Hat? They fund everything!")</p>
-
-  <p>Meeting Tom Huybrechts without knowing it (at first) was a big                                                                                                                                                                                                                    <br />
-suprise. He has created or contributed to some of the best plugins                                                                                                                                                                                                                <br />
-(eg. the parameterized-trigger plugin) and I see his name at least                                                                                                                                                                                                                <br />
-once whenever I browse through core source code. During the impromptu UI enhancement meetings he showed us another three plugins that he wrote but never made public just because he doesn't have time to support them all.</p>
-
-  <p>Then at the stand he casually mentioned that he is administering                                                                                                                                                                                                                  <br />
-around 3000 jobs on 100+ build machines. At the same time he seems                                                                                                                                                                                                                <br />
-like a very humble and low key character.</p>
-
-  <p>To sum it up, the best thing about an open source project like Jenkins is the community. Working together with nice people from all over the world to create the best CI server has been a great experience. The FOSDEM weekend was another event that proved that.
-I'll definitely come back.</p>
-</blockquote>
-
-<p><strong><a href="https://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a>:</strong></p>
-
-<blockquote>
-  <p>FOSDEM is one of the few conferences that has a distinctive hand-made geek-for-geek feeling to it. No marketing people, no bullshit flyers, but lots of technical folks and good beer. I really enjoyed talking to users, as always, but above all I was very happy to see developers and project members in the Jenkins community come out in full force, and I felt they enjoyed it just as much. I'm really hoping that we'll now keep this going for years to come.</p>
-</blockquote>
-
-<p>I think it's safe to assume we'll be back next year for <strong>FOSDEM 2013</strong>, hope to see you there!</p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2012/02/13/jenkins-user-conference-2012-paris/'>
-Jenkins User Conference 2012 Paris
+<a href='/blog/2012/07/26/jenkins-user-conference-san-francisco-call-for-papers/'>
+Jenkins User Conference San Francisco: call for papers
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-07-26T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
-<a href="http://en.wikipedia.org/wiki/Tourism_in_France" style="float:right;margin:1em"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Paris_06_Eiffelturm_4828.jpg/151px-Paris_06_Eiffelturm_4828.jpg"><br/>
+<p><br/>
+<a href="http://jenkins-ci.org/category/tags/juc">Jenkins User Conference</a> is touring around the world and coming back to San Francisco for this September, colocated with JavaOne.<br/>
+<br/>
+<p><br/>
+And here is <a href="http://www.cloudbees.com/forms/jenkins-user-conference-call-papers.cb">the call for papers</a> &mdash; we'd love users and plugin developers to share their experience with others. Please tell us how you combine plugins in an interesting way, how some of the features in Jenkins did or did not work for you, tricks you use to effectively manage Jenkins instances, and so on.<br/>
+<br/>
+<p><br/>
+I personally know many bay area tech companies that depend heavily on Jenkins. Really looking forward to hearing from you!
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2012/07/23/jenkins-user-conference-israel/'>
+Jenkins User Conference Israel
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2012-07-23T00:00:00+00:00
+by
+kohsuke
+</span>
+<div class='content'>
+<p><br/>
+I'm back from the latest Jenkins User Conference in Israel, and I had such a fun (except the part where I strained my lower back on the day I head back to home so 10+5 hour flights were a torture.) I have this impression that Israeli people form a close-knit community on their own (somewhat like Japanese people do), perhaps because of the difference in the language or the culture. One of the great things about those communities are that people are well connected, and so reaching the right ears and spreading the ideas are easier. JUC Israel turns out to be the biggets JUC we had this year. Shlomi told me that some 230 people registered and 240 people showed up, and this negative last-minute cancellation ratio is unheard of! We had booths from sponsors, 2 concurrent tracks of technical talks, and wonderful Israeli food, in a nice hotel by the beach.<br/>
+<br/>
+<div class='photo'><br/>
+<a href="http://photo.kohsuke.org/picture.php?/296/category/5/created-monthly-list-2012-7"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712090747-e447b7c7.jpg"><br/>
 </a><br/>
-<p><br/>
-(English text follows the French text)<br/>
+</div><br/>
 <br/>
 <p><br/>
-Après le succès de la <a href="http://www.cloudbees.com/jenkins-user-conference-2011-session-abstracts.cb">  Jenkins User Conference l’an dernier à San Francisco</a> et à l’intérêt qu’elle a soulevé, nous organisons cette année la JUC dans quatre grande villes à travers le monde. La premiére étape de cette tournée est la <a href="http://www.cloudbees.com/juc2012.cb">JUC 2012 à Paris</a>, le 17 avril. La conférence aura lieu la veille de <a href="http://www.devoxx.com/display/FR12/Accueil">Devoxx France</a> dans les mêmes locaux. La date a été spécialement choisie pour que vous puissiez faire d’une pierre deux coups, ou plutôt deux confs !<br/>
+For me, the conference started the night before, when JFrog folks took us to the Hudson restaurant, which was a wonderful steak house. Needless to say I took a lot of pictures. Hudson was great, and I got a wet-wipe in the end to wipe my hands off with Hudson.<br/>
+<br/>
+<div class='photo'><br/>
+<a href="http://photo.kohsuke.org/picture.php?/324/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712091422-d48662cb.jpg"><br/>
+</a><br/>
+</div><br/>
+<br/>
 <br/>
 <p><br/>
-Les <a href="http://cloudbees-jenkins-user-confs.eventbrite.com/">inscriptions sont ouvertes</a>. Inscrivez-vous dès maintenant pour bénéficier de la réduction réservée au plus enthousiastes. Vous pouvez également <a href="https://www.cloudbees.com/forms/jenkins-user-conference-call-papers.cb">proposer un sujet</a> ou bien <a href="http://www.cloudbees.com/jenkins-user-conference-2012-sponsorship.cb">soutenir la conférence en tant que sponsor</a>. Comme il est bien connu que les Français aiment voir leurs compatriotes sur scène, j’espère que nos nombreux développeurs jenkins francophones (les meilleurs, soit dit en passant) proposeront un sujet !<br/>
+As for the hightlights from the sessions.<br/>
+<br/>
+<div class='photo'><br/>
+<a href="http://photo.kohsuke.org/picture.php?/363/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712092442-6b807f97.jpg"><br/>
+</a></div><br/>
 <br/>
 <p><br/>
-Cette année, nous demandons une contribution pour les inscriptions (avec un tarif réduit avant le 18 février), afin de couvrir les frais d’organisation, mais nous vous offrirons en contrepartie le T-shirt officiel ainsi que des autocollants Jenkins. Si on se base sur la JUC 2011, <a href="http://jenkins-ci.org/event/jenkins-scale-10x-los-angeles">SCALE 10x</a>, ou le <a href="http://jenkins-ci.org/event/jenkins-fosdem-2012">FOSDEM</a>, ce sera une opporunité exceptionnelle pour rencontrer et discuter avec les dévelopeurs majeurs du coeur ou des plugins, ainsi que les nombreux utilisateurs prêts à partager leur expérience et à répondre à toutes vos questions.<br/>
+After I and Shlomi have done the keynote, Amir from HP did a wonderful job showing off how he uses the multi-configuration project type (AKA "matrix project".) This is one of the areas where we made a lot of improvements lately, and one that I highlighted in my talk. I've always been feeling that this feature needs to be advertised more, so it was just perfect in that regard. It was also very useful for me personally, as I got some inspirations about improvements while he talks.<br/>
 <br/>
-<hr/><br/>
+<div class='photo'><br/>
+<a href="http://photo.kohsuke.org/picture.php?/384/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712093014-62a9271b.jpg"><br/>
+</a></div><br/>
+<br/>
 <p><br/>
-Thanks to the success of <a href="http://www.cloudbees.com/jenkins-user-conference-2011-session-abstracts.cb"> the  Jenkins User Conference last year at San Francisco</a> and high interest, this year we are bringing JUC to 4 cities around the world. And the first stop is <a href="http://www.cloudbees.com/juc2012.cb">JUC 2012 in Paris</a>, on April 17. This is one day before <a href="http://www.devoxx.com/display/FR12/Accueil">Devoxx France</a>, and in the same venue. The date is specifically chosen so that you can kill two conferences in one stone!<br/>
+Sacha then talked about why the future of server-side applications are in PaaS. He had this one point where he said increasing the failure rate of software projects isn't necessarily a bad thing &mdash; if in a time frame of a year, you can do 10 projects and 2 succeed, then while that's only 20% success rate, it's better than doing 4 projects in the same time and having only 1 succeed. IOW, a machine-gun does a far more damage than a pistol, even though their accuracy can be much lower. And PaaS/Continuous-delivery plays a central role here becauses those are what lets you deliver 10 features in a year, instead of 4.<br/>
 <br/>
-Register for JUC Paris now (http://www.cloudbees.com/juc2012.cb) and get the Early Bird discount - which is a significant reduction in the registration fee! The conference is <a href="http://cloudbees-jenkins-user-confs.eventbrite.com/">accepting registrations</a> as well as looking for <a href="https://www.cloudbees.com/forms/jenkins-user-conference-call-papers.cb">talk submissions</a> and <a href="http://www.cloudbees.com/jenkins-user-conference-2012-sponsorship.cb">sponsors</a>. I get the impression that French people like other fellow French speaking, so I hope our French-speaking plugin developers will submit talks.<br/>
+<div class=photo><br/>
+<a href="http://photo.kohsuke.org/picture.php?/397/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712093400-c7816855.jpg"><br/>
+</a></div><br/>
 <br/>
 <p><br/>
-This year, we are charging a small amount of money in the hope of covering the expense, but we'll give out T-shirts (which were really hot last year!) as well as stickers. And if the experience at JUC 2011, <a href="http://jenkins-ci.org/event/jenkins-scale-10x-los-angeles">SCALE 10x</a>, and <a href="http://jenkins-ci.org/event/jenkins-fosdem-2012">FOSDEM</a> was any indication, this is a great opportunity to meet and talk with plugin/core developers, and other fellow users with whom you can discuss your experience/questions.<br/>
+Eyal from RedHat and Ronen from Ginger did two sessions showing off their use of Jenkins. One of the common theme in them is to use a text format (Puppet for Eyal and Groovy DSL for Ronen) to manage definitions of a large number of jobs. I think there's a lot of value in managing job definitions outside the current GUI, and I'm going to encourage Ronen to move his Groovy DSL project into the Jenkins CI project. I also felt that the template feature in Jenkins Enterprise by CloudBees was validated, as it provides a similar capability (and in my opinion more easily deployable.)<br/>
 <br/>
+<div class=photo><br/>
+<a href="http://photo.kohsuke.org/picture.php?/391/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712093221-0c896346.jpg"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+Another talk that made a strong impression on me was the introductory plugin development talk from Noam, who works for JFrog and develops the Jenkins Artifactory plugin. I expected there to be only like 20-30 people, but it turns out about half the audience is there, indicating the high degree of interest to customizing Jenkins! In the past, all my favorite JUC talks came from those who I call "super Jenkins admins" who not only figure out how to combine some plugins, but also developed a few glue plugins. And those those extra finish makes all the difference!<br/>
+<br/>
+<div class=photo><br/>
+<a href="http://photo.kohsuke.org/picture.php?/411/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712093759-5aec89e0.jpg" style="width:133px; height:200px"><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+The conference concluded with a social in the garden looking a sunset into the Mediterranean sea. Thank you very much for JFrog and CloudBees for making this event happen, and Marina in particular for lining up all the ducks in a row.<br/>
+<br/>
+<div class=photo><br/>
+<a href="http://photo.kohsuke.org/picture.php?/428/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712094258-6527b7cd.jpg"><br/>
+</a><br/>
+<br/>
+<a href="http://photo.kohsuke.org/picture.php?/434/category/5"><br/>
+<img src="http://photo.kohsuke.org/upload/2012/07/12/20120712094422-b45159bc.jpg"><br/>
+</a><br/>
+</div><br/>
+<br/>
+<p><br/>
+The next JUC will be in Tokyo, at the end of this month. Believe it or not, as of this writing we got 930 people registered, so it'll be another awesome show! For future schedules of Jenkins User Conferences and registrations, check out <a href="http://www.cloudbees.com/juc2012.cb">the JUC website</a>!<br/>
+<br/>
+<style><br/>
+DIV.photo {<br/>
+  text-align: center;<br/>
+  padding: 1em;<br/>
+}<br/>
+DIV.photo IMG {<br/>
+  width: 200px;<br/>
+}<br/>
+</style>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2012/02/02/happy-birthday-jenkins/'>
-Happy birthday Jenkins!
+<a href='/blog/2012/06/22/intro-to-jenkins-meetup-in-copenhagen/'>
+Intro to Jenkins meetup in Copenhagen
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-06-22T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>On February 2nd, 2011 the first release of Jenkins, version 1.396, was made available for public consumption. Thus marking a new beginning for many of us who had come to rely on this very versatile piece of software and wanted to see it continue to thrive.</p>
+<p>[ <strong>Editor's Note</strong>: This was originally posted to the <a href="https://groups.google.com/group/jenkinsci-users/msg/9e1bb07e7a109c21?hl=en_US">jenkinsci-users</a> mailing list by community member Bue Petersen ]</p>
 
-<p>Along with some other bug fixes, the 1.396 release of Jenkins included a <em>very</em> important changelog item:</p>
+<hr />
+
+<p><strong>Praqma inviterer til Gå-Hjem-Møde i Allerød, onsdag d 27. juni kl 17:00. Få en introduktion og demo af Jenkins CI server (Open Source). Vi byder på pizza og en kold øl eller vand. Arrangement er gratis, tilmelding er nødvendig.</strong></p>
+
+<p>Continuous Integration – er et princip der dikterer, at alle ændringer skal integreres, i det øjeblik de er skabt – kontinuerligt og automatisk. Continous Software Validation går skridtet videre - alle ændringer skal valideres, i det øjeblik de er skabt.</p>
+
+<p>Jenkins Continuous Integration Server hurtigt blevet de facto standard for Continuous Integration. Og den er hjørnestenen i build- og softwarevaliderings-systemet og bindeledet mellem samtlige tools i hele den tool-chain, man ønsker at indføre eller udbygge.</p>
+
+<p>På Jenkins konfigureres jobs, som udover at bygge og eksekvere unittests også kan tage ansvar for valideringer som statisk kodeanalyse, rapportering af warnings, coverage-målinger af unittests, automatisk generering af dokumentation, eksekvering af funktionelle tests etc.</p>
+
+<p>Vi holder et uformelt gå-hjem-møde med pizza, øl og sodavand, hvor vi præsenterer Jenkins Continuous Integration og viser dig, hvordan du nemt kommer i gang, så du allerede dagen efter kan høste synlige fordele på dine projekter.</p>
+
+<p>Du kan få helt ny viden og indsigt i din kodebase, og du kan skabe grundlag for ændring af arbejdsgange i udviklingen.</p>
 
 <blockquote>
-  <p><em>Fixed a trademark bug that caused a considerable fiasco by renaming to Jenkins</em></p>
+  <p>Onsdag 27. juni 2012  kl. 17.00 - 18.30</p>
+
+  <p>Praqma A/S</p>
+
+  <p>Allerød Stationsvej 4</p>
+
+  <p>3450 Allerød</p>
+
+  <p>Denmark</p>
 </blockquote>
 
-<p>On behalf of the core Jenkins team and the governance board I would like to extend a extremely large <big><strong>Thank You!</strong></big> to all of the <a href="https://github.com/jenkinsci">plugin developers</a>, <a href="https://issues.jenkins-ci.org">bug filers</a>, <a href="https://wiki.jenkins-ci.org">wiki page editors</a>, <a href="http://www.wakaleo.com/books/jenkins-the-definitive-guide">book authors</a> and the users who have helped grow Jenkins into the project it is today.</p>
-
-<p>Some of the tidbits from our highlight reel:</p>
-
-<ul>
-  <li>As of this writing there have been <strong>54</strong> releases of Jenkins</li>
-  <li>Jenkins now supports <a href="/content/beginning-new-era-ruby-plugins-now-reality">writing plugins in Ruby</a> as well as Java (more languages in the process)</li>
-  <li>We have <a href="http://mirrors.jenkins-ci.org/status.html">7 high-speed mirrors</a> streaming Jenkins packages to users around the world.</li>
-  <li>There are now over 450 different plugins available for Jenkins</li>
-  <li>Over 80 donors participated in our <a href="/content/fundraising-drive-update-thank-you-everyone">end of year fundraising drive</a></li>
-  <li>5 "Long Term Support" releases have been published by the Jenkins community, offering users a slower moving upgrade target (supported even further by CloudBees' <a href="http://www.cloudbees.com/jenkins-enterprise-by-cloudbees-available-plugins.cb">Enterprise Jenkins</a> product)</li>
-  <li>Public project governance meetings are held and <a href="http://meetings.jenkins-ci.org/jenkins/">recorded</a> (almost) every couple of weeks.</li>
-  <li>More than 340 individuals contribute <a href="https://github.com/jenkinsci">on GitHub</a> to the project in some form or another.</li>
-  <li>About 750 members of the <a href="https://groups.google.com/group/jenkinsci-dev?lnk=">developers mailing list</a> and around 1700 on the <a href="https://groups.google.com/group/jenkinsci-users?lnk=">users mailing list</a></li>
-</ul>
-
-<p>There are many other impressive sounding numbers I could rattle off, but the list is far too long to be interesting.</p>
-
-<p>The project isn't perfect and nor is the software, but we're off to a fine start and I hope you'll join us in making this next year of Jenkins even better than the first.</p>
+<p><a href="https://sites.google.com/a/praqma.net/www/seminar">Tilmelding</a></p>
 
 <!--break-->
 
@@ -579,86 +572,190 @@ Happy birthday Jenkins!
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2012/01/20/highlight-video-from-juc-2011/'>
-Highlight video from JUC 2011
+<a href='/blog/2012/06/19/jenkins-and-bioinformatics-catch-us-at-bosc-2012/'>
+Jenkins and Bioinformatics, catch us at BOSC 2012
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-06-19T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>A slick highlight video from the <a href="/content/jenkins-user-conference">Jenkins User Conference, 2011</a> was posted recently which captures some great quotes from a number of the fantastic speakers who participated in the inaugural JUC.</p>
+<p>[ <strong>Editor's Note:</strong> <em>The following is a post from <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CIA+Program">Jenkins CIA</a> member <a href="http://kinoshita.eti.br">Bruno P. Kinoshita</a></em> ]</p>
 
-<p>I've embedded the video below, enjoy!</p>
+<p>Jenkins will be represented at this years Bioinformatics Open Source Conference (<a href="http://www.open-bio.org/wiki/BOSC_2012" title="BOSC 2012">BOSC 2012</a>) on July 13-14th in Long Beach, California. I will be talking about Jenkins during my talk about <a href="http://www.biouno.org" title="BioUno">BioUno</a>.</p>
 
-<center><iframe width="560" height="315" src="http://www.youtube.com/embed/_l9OgJc4_-w" frameborder="0" allowfullscreen=""></iframe></center>
+<p>BOSC 2012 will be held just before <a href="http://www.iscb.org/ismb2012">ISMB 2012</a>, while registration is through ISMB you don't have to register for ISMB in order to register for BOSC.</p>
+
+<p>I will be at the event with some Jenkins stickers and available to answer questions you might have about BioUno and Jenkins!</p>
+
+<h3 id="about-biouno">About BioUno</h3>
+
+<p>BioUno is a project that uses Jenkins as basis for building
+<a href="http://en.wikipedia.org/wiki/Bioinformatics_workflow_management_systems" title="Bioinformatics Workflow Management Systems Wiki entry">biology workflows</a>.
+BioUno provides an alternative update center with custom plug-ins for
+bioinformatics tools like
+<a href="http://mrbayes.sourceforge.net/" title="MrBayes">MrBayes</a>,
+<a href="http://pritch.bsd.uchicago.edu/structure.html" title="Structure">Structure</a>,
+<a href="http://tree.bio.ed.ac.uk/software/figtree/" title="Figtree">Figtree</a>,
+<a href="http://beast.bio.ed.ac.uk/Main_Page" title="Beast">Beast</a>,
+among <a href="http://www.biouno.org/biouno-plugins/" title="BioUno Plug-ins">others</a>.</p>
+
+<p>While the actual task of analysing or displaying data is handled by specific
+tools, that are wrapped by plug-ins, Jenkins is responsible for user control,
+web interface, notifications, distributed execution, job schedule and
+management, as well as other important low level tasks.</p>
+
+<p>BioUno is similar to <a href="http://biohpc.org/" title="BioHPC">BioHPC</a>,
+<a href="http://galaxy.psu.edu/" title="Galaxy">Galaxy</a> and
+<a href="http://www.taverna.org.uk/" title="Taverna">Taverna</a>, in that all these tools enable creating and managing pipelines using different bioinformatics tools.</p>
+
+<p>However, as it is using Jenkins, BioUno has the advantage of having an Open Source community of hackers that can answer questions and provide assistance for creating new plug-ins. There is plenty documentation for <a href="https://wiki.jenkins-ci.org/display/JENKINS/Extend+Jenkins" title="Extending Jenkins">extending Jenkins</a>
+and troubleshooting issues, as well as plenty <a href="https://wiki.jenkins-ci.org/display/JENKINS/Plugins" title="Jenkins Plug-ins">existing plug-ins</a> (that can be used as reference while writing new plug-ins).</p>
+
+<p>There are projects and plug-ins that enable Jenkins to use resources in clouds or turn Jenkins into a <a href="http://hadoop.apache.org/" title="Hadoop">Hadoop</a> node, for big data processing. The next steps of the project include the deployment of BioUno to a computer facility, basic infrastructure for BioUno, definition of the process for releasing plug-ins, the creation of more plug-ins and a study on how to handle large data structures, used by many bioinformatics tools.</p>
+
+<p>The project is being developed by <a href="http://www.tupilabs.com" title="TupiLabs">TupiLabs</a> under MIT License, and contributions and new plug-ins are welcome.
+<!--break--></p>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2012/01/05/thank-you-page-for-windows-os-x-installers/'>
-"Thank you" page for Windows/OS X installers
+<a href='/blog/2012/05/28/jenkins-a-besoin-de-vous/'>
+Jenkins a besoin de vous
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2012-05-28T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>I've tweaked the website so that downloading the Windows and Mac installers will navigate the browser to "thank you/what's next" page. These pages have links to Wiki that educate the users on where/how the installer will run Jenkins.</p>
+<p>[<strong>Editor's Note</strong>: <em>The following is a guest post by Jenkins contributor <a href="https://twitter.com/bmathus">Baptiste Mathus</a>. For the non-French speakers, we're looking for French speakers to help translate "Jenkins: The Definitive Guide"</em> ]</p>
 
-<p>Hopefully this makes it little easier for new users to get started on Jenkins. I've tested the new mechanism with IE, Safari, and Firefox, but if you notice a problem, please let us know.</p>
+<p><img src="http://batmat.net/dotclear/public/images/Superdupont_we_need_you.jpg" align="right" width="180" alt="Woui Nide You!" /></p>
+
+<p>Si vous vous intéressez à Jenkins et que vous aimeriez pouvoir y contribuer, lisez la suite.</p>
+
+<p>L'année dernière, en août, nous avons attaqué la traduction en français du <a href="http://www.wakaleo.com/books/jenkins-the-definitive-guide">Jenkins Definitive Guide</a>, écrit en bonne partie par <a href="http://www.wakaleo.com/about-us/about-wakaleo-consulting">John Ferguson Smart</a>. Le travail a avancé doucement, mais a avancé tout de même. A ce jour, sur la quinzaine de
+chapitres, trois sont traduits et relus, et presque tout le reste est en cours.</p>
+
+<h3 id="mais-je-ne-parle-pas-bien-anglais">Mais je ne parle pas bien anglais…</h3>
+
+<p>Ce n'est pas grave. Il y a plusieurs chapitres où il faut simplement relire, et donc parler et écrire correctement le français est suffisant. Si éventuellement, vous ne comprenez pas certaines parties traduites, et qu'il faut relire l'original, vous pouvez toujours <a href="https://groups.google.com/forum/#%21forum/jenkins-le-guide-complet">soulever la question sur la liste de diffusion du projet où on parle français</a>.</p>
+
+<h3 id="je-ne-suis-pas-dveloppeur-ou-je-ne-connais-pas-git-ou-les-deux">Je ne suis pas développeur, ou je ne connais pas Git, ou les deux</h3>
+
+<p>Si vous voulez vous former à Git, c'est l'occasion. On se fera un plaisir de répondre à vos questions sur la liste de diffusion, même si elles sont exclusivement liées à Git, et pas (encore) à la traduction :-).</p>
+
+<p>Mais si vous ne le sentez pas ou n'avez pas le temps, ce n'est pas grave. Vous devez simplement savoir éditer un fichier XML. Il y en a <a href="https://github.com/Jenkins-Le-guide-complet/jenkins-the-definitive-guide-book/tree/master/hudsonbook-content-fr/src/main/resources">un pour chaque chapitre</a>.</p>
+
+<h3 id="super--par-o-je-commence-alors-">Super ! Par où je commence alors ?</h3>
+
+<ul>
+  <li>Comment se signaler :
+    <ul>
+      <li>Il y a une <a href="https://github.com/Jenkins-Le-guide-complet/jenkins-the-definitive-guide-book/wiki">page wiki qui récapitule l'état de la traduction</a>, chapitre par chapitre. Indiquez votre nom en tant que relecteur, et c'est parti.</li>
+      <li>Si vous le souhaitez, mais ce n'est pas une obligation, vous pouvez vous présenter sur la <a href="https://groups.google.com/forum/#%21forum/jenkins-le-guide-complet">liste de diffusion du projet</a>.</li>
+    </ul>
+  </li>
+  <li>Comment relire les chapitres ?
+    <ul>
+      <li>Le plus simple est de lire la <a href="http://jenkins-le-guide-complet.github.com/">version HTML publiée en continu grâce à CloudBees</a>.</li>
+    </ul>
+  </li>
+  <li>Comment faire part de mes corrections ? Deux solutions :
+    <ul>
+      <li>Git : vous forkez le projet <a href="https://github.com/Jenkins-Le-guide-complet/jenkins-the-definitive-guide-book">GitHub : Jenkins - Le Guide Complet</a>, vous créez une branche pour la relecture, vous committez vos vos corrections, et vous faites une <a href="http://help.github.com/send-pull-requests/">pull-request</a>.</li>
+      <li>Copiez le <a href="https://github.com/Jenkins-Le-guide-complet/jenkins-the-definitive-guide-book/tree/master/hudsonbook-content-fr/src/main/resources">fichier XML du chapitre qui vous intéresse à partir de la page du projet</a> puis vous l'envoyez sur la liste de diffusion lorsque vous avez fini.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Si vous êtes intéressé, mais que vous avez des questions, surtout n'hésitez pas à les poser.</p>
+
+<p>On vous attend ! :-)</p>
+
+<!--break-->
 
 </div>
 </div>
-<div class='post'>
-<h1>
-<a href='/blog/2012/01/04/building-jenkins-plugins-with-gradle/'>
-Building Jenkins plugins with Gradle
+<div class="pagination-links"><a href="/node/page/24.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/24.html" class="page-link">24</a> <span class="current-page">25</span> <a href="/node/page/26.html" class="page-link">26</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/26.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
-</h1>
-<div class='content'>
-<p><img src="/sites/default/files/images/gradle_logo.gif" align="right" width="170" /></p>
-
-<p>Until now, Jenkins plugins written in Java or Groovy could only be built with Maven, using the maven-hpi-plugin to generate a proper manifest and archive which Jenkins can consume. But starting now, you can also use <a href="http://gradle.org">Gradle</a>!</p>
-
-<p>See <a href="https://wiki.jenkins-ci.org/display/JENKINS/Gradle+JPI+Plugin">the wiki</a> for information on how you can use Gradle and the new gradle-jpi-plugin to build, test and release your Java or Groovy Jenkins plugin.</p>
-
 </div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/12/28/adding-diagrams-to-wiki/'>
-Adding diagrams to Wiki
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
 </a>
-</h1>
-<div class='content'>
-<div style="float:right;margin:1em"><img src="http://jenkins-ci.org/sites/default/files/gliffy.png" /></div>
-
-<p>Thanks to <a href="http://www.gliffy.com/">the kindness from Gliffy</a>, we can now add diagrams to <a href="http://wiki.jenkins-ci.org/">Wiki pages</a>, in a way that enables collaborative edits.</p>
-
-<p>See more info, including a sample diagram in <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adding+diagrams">a Wiki page</a>.</p>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/24.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/24.html" class="page-link">24</a> <span class="current-page">25</span> <a href="/node/page/26.html" class="page-link">26</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/26.html" class="next-link">Next</a> </div>
-
-<div id='content-bottom'>
-</div>
-</div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
-
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
 </a>
 </div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Join us at the Jenkins 2.0 Contributor Summit!
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
+</head>
+<body>
+<!-- starting partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
+</script>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
+</a>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
+</a>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
+<h3>
+LTS Release
+</h3>
+<p>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<div class='container blog-post no-margin'>
+<div class='row body'>
+<div class='col-md-1'></div>
+<div class='col-md-7 main-content with-sidebar' id='content'>
+<div id='content-top'>
+<h1>
+<a href='/blog/2015/12/18/join-us-at-the-jenkins-2-0-contributor-summit/' title='Join us at the Jenkins 2.0 Contributor Summit!'>
+Join us at the Jenkins 2.0 Contributor Summit!
+</a>
+</h1>
+<!-- starting partial tweetbutton.html.haml -->
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<!-- ending partial tweetbutton.html.haml -->
+<span class='submitted'>
+Published on
+2015-12-18T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+</div>
+<p><img src="https://agentdero.cachefly.net/continuousblog/images/fosdem-2013.png" align="right" /></p>
+
+<p>As I mentioned in <a href="/content/fosdem-2016-travel-grant-program">yesterday's post</a>, we're planning a "Contributor Summit" on February 1st, after <a href="https://fosdem.org/2016">FOSDEM 2016</a> (January 30th/31st), to focus on Jenkins 2.0. Since many of us <a href="https://wiki.jenkins-ci.org/display/JENKINS/FOSDEM+2016">are already planning</a>, the Monday following the event turned out to be the ideal time to discuss 2.0.</p>
+
+<p><em>Note:</em> If you're not already familiar with some of the key proposals that were put forth, you can review them in the <a href="/content/jenkins-20-proposals">Jenkins 2.0 proposals summery page</a>.</p>
+
+<p>We've hosted <a href="http://www.meetup.com/jenkinsmeetup/events/203777932/">one</a> or <a href="http://www.meetup.com/jenkinsmeetup/events/126595572/">two</a> Contributor Summits in the past, and they're usually a day-long event where we try to gather a number of Jenkins core/plugin developers and active/power users to have detailed discussions around the theme of the summit. For this "Jenkins 2.0 Contributor Summit" we do not have a complete agenda yet, but we will post that to the <a href="http://www.meetup.com/jenkinsmeetup/events/227463345/">Meetup event</a> once it is fully prepared in the next couple weeks.</p>
+
+<p>Suffice it to say, we'll be discussing a lot!</p>
+
+<h3 id="venue-and-rsvp">Venue and RSVP</h3>
+
+<p>The Contributor Summit will be hosted in a <a href="https://cloudbees.com">CloudBees</a> office at: <a href="https://maps.google.com/maps?f=q&amp;hl=en&amp;q=Rue+des+Colonies%2C+11%2C+Belgium%2C+be">Rue des Colonies, 11, Brussels, Belgium</a>. If you're already planning on attending FOSDEM, the office is near Grand Place and Cafe Delerium (where the Friday beer event is hosted).</p>
+
+<p>The venue is of limited size, so if you're planning to join us, <strong>please</strong> RSVP to <a href="http://www.meetup.com/jenkinsmeetup/events/227463345/">the Meetup event</a> as soon as you're certain you will be able to attend. If you find yourself unable to attend, please remove yourself from the list to ensure that we can fit as many active contributors into the office as possible!</p>
+
+</div>
+<div class='col-md-4 events' id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
+<div class='content'>
+<div class='item-list'>
+<ul class='ji-date-list ji-item-list'>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Tu
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+We
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Th
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Fr
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+We
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- ending partial sidebar.html.haml -->
+</div>
+</div>
+</div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
+</a>
+</div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+</body>
+</html>

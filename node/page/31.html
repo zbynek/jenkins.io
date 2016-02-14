@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,875 +6,633 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/27/ruby-plugins-hack-session-5-27-2011/'>
+Ruby Plugins Hack Session 5/27/2011
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-05-27T00:00:00+00:00
+by
+cowboyd
+</span>
+<div class='content'>
+<p>After a one week hiatus, we returned to the weekly hack session on a mission light up the sky with fire!</p>
+
+<h2 id="attendees">Attendees</h2>
+
+<p><a href="http://twitter.com/cowboyd">Charles Lowell</a>, Rasheed Abdul-Aziz, <a href="http://twitter.com/nahi">Hiroshi Nakamura</a></p>
+
+<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
+
+<ul>
+  <li>How to manage the different ScriptingContainers inside the Jenkins</li>
+  <li>renamed the experimental repo where we've been doing all of our development from fog.hpi to the more aptly name [https://github.com/cowboyd/jenkins-ruby-plugins-playground]</li>
+  <li>started a separate gem for housing the support libraries for jenkins here [https://github.com/cowboyd/jenkins-plugins.rb]</li>
+  <li>started with more formal definition of the plugin API there.</li>
+</ul>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/12/the-state-of-the-jenkins-project/'>
+The State of the Jenkins Project
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-05-12T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>A few weeks ago our very own <a href="http://www.twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> gave a presentation at the <a href="http://events.linkedin.com/Silicon-Valley-Continuous-Integration/pub/591454">Silicon Valley CI Summit</a> held in Mountain View.</p>
+
+<p>Within the presentation, Kohsuke included a collection of numbers about the vibrancy of the Jenkins project that certainly hasn't gotten enough attention. While the slideshow is embedded below, here's some good high-level points:</p>
+
+<ul>
+  <li>Over 170 <a href="https://github.com/jenkinsci">GitHub</a> pull requests in the past four months, with more being sent every day.</li>
+  <li>Formalization of a "Jenkins Stable" branch of development with longer release cycles and back-ported bugfixes.</li>
+  <li>Over 280 tickets in <a href="https://issues.jenkins-ci.org">JIRA</a> have been resolved.</li>
+  <li>After posting a "special" release of Hudson which presents users with a choice, <strong>87.25%</strong> are choosing to upgrade to Jenkins.</li>
+  <li>Over 500 tickets have been created</li>
+  <li>Roughly 13,000 downloads of <code>jenkins.war</code> and native packages a week</li>
+  <li><strong>New</strong> and vibrant community-driven initiatives like <a href="http://twitter.com/fcamblor">Frederic Camblor's</a> plugin compatibility tester and <a href="http://twitter.com/cowboyd">Charles Lowell's</a> JRuby plugin support project.</li>
+  <li>We've crossed 1500 participants on the <code>jenkinsci-user</code> mailing list, and are over 900 participants on the <code>jenkinsci-dev</code> list.</li>
+  <li>The <a href="http://twitter.com/jenkinsci">@jenkinsci</a> twitter account recently crossed the 4,000 follower threshold.</li>
+</ul>
+
+<p>On a personal note, I think this speaks all to the level of unbridled enthusiasm about the future of Jenkins by contributors both new and old.</p>
+
+<p>Without further delay, the slides:</p>
+
+<center><div style="width:425px" id="__ss_7835978"> <strong style="display:block;margin:12px 0 4px"><a href="http://www.slideshare.net/kohsuke/current-state-of-jenkins" title="Current state of Jenkins">Current state of Jenkins</a></strong> <iframe src="http://www.slideshare.net/slideshow/embed_code/7835978" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe> <div style="padding:5px 0 12px"> View more <a href="http://www.slideshare.net/">presentations</a> from <a href="http://www.slideshare.net/kohsuke">Kohsuke Kawaguchi</a> </div> </div></center>
+<!--break-->
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/12/ruby-plugins-hack-session-5-12-2011/'>
+Ruby Plugins Hack Session 5/12/2011
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-05-12T00:00:00+00:00
+by
+cowboyd
+</span>
+<div class='content'>
+<p>[<strong>Editor's Note:</strong> <em>For the past few weeks Jenkins community member <a href="http://twitter.com/cowboyd">Charles Lowell</a> has been working with <a href="http://twitter.com/kohsukekawa">Kohsuke</a> on adding support for building plugins in Ruby. As part of this effort, <a href="http://twitter.com/cowboyd">Charles</a> has been hosting weekly hack sessions via WebEx</em>]</p>
+
+<p>As always, last night's Ruby Plugins hack session was a pleasure. Below is a quick notation of what items were discussed and/or accomplished followed by next steps to be taken my those in attendance.</p>
+
+<h2 id="discussionaccomplished">Discussion/Accomplished</h2>
+
+<ul>
+  <li>Ruby Plugin project structure and how to bundle into an .hpi file.</li>
+  <li>Review of the new XSTREAM serialization method</li>
+  <li>API for marking fields as transient</li>
+  <li>What mods, if any, are required to get .hpl to work with Ruby plugin</li>
+</ul>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<h3 id="charles">Charles</h3>
+
+<ul>
+  <li>to research what can be shared between JRuby <code>ScriptingContainer</code>s</li>
+  <li>API for unmarshaling hooks on serialized ruby objects</li>
+  <li>Change the name of the repo :)</li>
+  <li>Document… something!</li>
+</ul>
+
+<h3 id="kohsuke">Kohsuke</h3>
+<ul>
+  <li>test more view functions</li>
+  <li>add debug mode outside of hpi:run
+<!--break--></li>
+</ul>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/05/04/hamburg-hackathon-a-great-success/'>
+Hamburg hackathon a great success!
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-05-04T00:00:00+00:00
+by
+kohsuke
+</span>
+<div class='content'>
+<img style="float:right; margin:1em" src="http://farm6.static.flickr.com/5303/5686094521_c891761b7b_m.jpg"/><br/>
+<p><br/>
+Thanks to the kindness of <a href="http://www.bigpoint.net/">BigPoint GmbH</a> and Kutzi, we had the first Jenkins Hackathon in Europe, in a very large and airly conference room in their Hamburg campus, on a nice sunny Sunday of May 1st. About 10 people came, including the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Static+Code+Analysis+Plug-ins">static code analysis plugin</a> fame Ullrich Hafner, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Android+Emulator+Plugin">Androd emulator plugin</a> fame <a href="http://twitter.com/orrc">Christopher Orr</a>, the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Instant+Messaging+Plugin">instant messenger plugin</a> (and others) fame <a href="http://twitter.com/#!/kutzi">Christoph Kutzinski</a>. Some of us came from pretty far away places like Munich, Bonn, and Netherland. There was a good mix of existing developers and new developers, too.<br/>
+<br/>
+<p><br/>
+During the hackathon, new folks developed whopping three plugins &mdash; a security realm that connects to <a href="https://github.com/jenkinsci/kerberos-authenticator-plugin">Kerberos (password entering kind, not SSO)</a>, <a href="https://github.com/jenkinsci/builton-column-plugin">a plugin that adds a list view column to show where the last build was done</a>, and <a href="https://github.com/jenkinsci/extra-columns-plugin/">another plugin that attempts to collect small list view column implmentations</a>. German translations were improved, automated installation of Android SDKs are discussed and its implementation strategies explained. I've done my share of contribution by working on <a href="https://github.com/jenkinsci/jruby-xstream">XStream support for JRuby</a>, which is one of the ground work necessary for JRuby-based Jenkins plugin development, and I also showed the prototype Groovy-based templating that can potentially supercede Jelly. There were additional exchange of tips and tricks, how you do this and that.<br/>
+<br/>
+<p><br/>
+Strong coffee and engaged conversations kept me awake all day, although German keyboard layout (on top of usual IDE difference + Mac/PC difference) made it hard to code on other people's computers, but all in all it was a very productive hackathon. In fact, the best ever. We wrapped up around 7pm and headed to a seafood restaurant near Elbe river, stayed there until 11pm-ish.<br/>
+<br/>
+<p><br/>
+The next hackathon is planned in Paris toward the end of the month. I'm looking forward to another productive Hackathon, so if you are nearby, please <a href="http://www.meetup.com/jenkinsmeetup/events/17178842/">RSVP and join us</a>.<br/>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/04/14/jenkins-new-look/'>
+Jenkins' New Look
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-04-14T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>As you might have noticed <a href="http://twitter.com/jenkinsci/">Jenkins</a> finally has
+a <strong>brand spankin' new logo!</strong> Over the past couple weeks we've run two series
+of votes, <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">one for the initial 11 logo
+submissions</a>
+and then a final, run-off election, for the <a href="http://jenkins-ci.org/content/final-two-run-vote-new-jenkins-logo">two most popular
+choices</a>.
+I'd like to take this opportunity to thank everybody that submitted logos! It
+is incredibly flattering to have so many people passionate about the project
+and willing to spend the time creating new art for us.</p>
+
+<center><img src="http://agentdero.cachefly.net/continuousblog/images/runoff_election_piechart.png" alt="Runoff election pie chart" /></center>
+
+<p>At the end of the votes, there was a clear winner though, everybody seems to
+really love the submission by the folks over at <a href="http://thefrontside.net/">The
+FrontSide</a> which you can see adorning this very page.</p>
+
+<p>If you'd like to download the SVG version of the logo, or the variants in different sizes, I've gone ahead and uploaded a tarball and all the variants to <a href="http://mirrors.jenkins-ci.org/art/">this directory</a>, there is also a good <a href="http://mirrors.jenkins-ci.org/art/jenkins_colors.pdf">color palette here</a> (<em>obligatory PDF warning</em>).</p>
+
+<p>Once again, thank you to <strong>everybody</strong> that participated!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/04/04/the-final-two-run-off-vote-for-the-new-jenkins-logo/'>
+The final two: run-off vote for the new Jenkins logo
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-04-04T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>A <a href="http://jenkins-ci.org/content/polls-are-open-jenkins-logo-contest">little over a week ago</a> we opened the polls to the larger user-base to vote for the <strong><em>new and improved</em></strong> Jenkins logo. After receiving hundreds of votes, we are now ready to enter the final round of voting (click images to see larger versions in a new window).</p>
+
+<p>Voting will <strong>end</strong> April 9th at 23:59 UTC, so make sure to tell your friends, coworkers and bus drivers to get their votes in as soon as possible!</p>
+
+<center>
+<table><tr><td align="center">
+
+<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-10"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_adrian_moya.thumbnail.png" /><br /><strong>Logo #1</strong></a>
+</td>
+<td align="center">
+<a target="_blank" href="http://jenkins-ci.org/content/jenkins-logo-entry-9"><img src="http://jenkins-ci.org/sites/default/files/images/jenkins_frontside_1.thumbnail.png" /><br /><strong>Logo #2</strong></a></td></tr></table>
+</center>
+
+<h3 id="the-vote">The Vote</h3>
+
+<p>If the iframe doesn't properly load for you, you can open <a href="https://spreadsheets.google.com/viewform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ">the form in a new window</a></p>
+
+<iframe src="https://spreadsheets.google.com/embeddedform?formkey=dEl2T1gwdko1YXBxcktiTEJzUXZleUE6MQ" width="760" height="443" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<!--break-->
+<hr />
+
+<p>If you're interested in the results for the first round, you can find them in <a href="https://gist.github.com/900991">this gist</a></p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/04/01/san-francisco-jenkins-meetup-wednesday-april-13th/'>
+San Francisco Jenkins Meetup - Wednesday, April 13th
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-04-01T00:00:00+00:00
+by
+<a href="https://github.com/abayer">Andrew Bayer</a>
+</span>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/images/ey_logo.png" alt="Engine Yard!" align="right" />We're happy to announce that there'll be a Jenkins meetup in San Francisco on Wed., Apr 13th, generously hosted by <a href="http://www.engineyard.com/">Engine Yard</a>. The meetup will start at 6:30 - you can find more information <a href="http://www.meetup.com/jenkinsmeetup/events/17090726/">here</a>. <a href="http://twitter.com/drnic">Dr Nic Williams of Engine Yard</a> will talk about their use of Jenkins with Ruby, and Kohsuke will give an update on the JRuby plugin development work he and <a href="http://twitter.com/cowboyd">cowboyd</a> have been working on. If you're interesting in giving a short talk on your usage of Jenkins, plugin work, or whatever, there should be time for an open mic. Hope to see you there!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2011/03/23/windows-installers-are-now-available/'>
+Windows installers are now available
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2011-03-23T00:00:00+00:00
+by
+kohsuke
+</span>
+<div class='content'>
+<p><br/>
+Good portion of Java developers use Windows, so we tend to think the opposite is true, that a good portion of Windows folks use Java. But this is not true.<br/>
+<br/>
+<p><br/>
+As Jenkins gains traction among .NET developers, it's becoming increasingly clear that Java is very alien to them. They naturally have no idea of what a war file means, and often don't even have Java installed, and so it was <i>just not easy enough</i> for them to start using Jenkins.<br/>
+<br/>
+<p><br/>
+I'm happy to report that I've finally fixed this problem with the new Windows installer. It is primarily packaged as <a href="http://en.wikipedia.org/wiki/Windows_Installer">an MSI file</a> &mdash; a common format that seasoned Windows devs/admins are familiar with. It can, for example, be deployed remotely on a large number of servers via Active Directory remotely. Or you can just double-click it to install it interactively. It bundles JRE, so no separate Java installation is needed.<br/>
+<br/>
+<p><br/>
+The package also contains the bootstrap <tt>setup.exe</tt>, to install .NET 2.0 runtime if it's not installed yet. Between that and JRE, it got all the dependencies covered. I tested that by installing it on a fresh Windows XP install.<br/>
+<br/>
+<p><br/>
+So I hope this makes Jenkins more attractive to .NET and other developers who live and die by Windows.
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/30.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/30.html" class="page-link">30</a> <span class="current-page">31</span> <a href="/node/page/32.html" class="page-link">32</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/32.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
 <p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
+</div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
 </p>
-</big>
 </div>
-</div>
-
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
-<div class='post'>
-<h1>
-<a href='/blog/2011/02/04/governance-meeting-today/'>
-Governance Meeting Today
-</a>
-</h1>
-<div class='content'>
-<p>Amongst all the work this week with setting up project infrastructure, <a href="http://mirrors.jenkins-ci.org/war/1.396/">the first release of Jenkins</a> and a <em>flood</em> of developer activity <a href="https://github.com/jenkinsci">on GitHub</a>, the interim governance board has decided to hold periodic virtual meetings.</p>
-
-<p>The first meeting will be held <strong>today</strong> at 3pm PST (23:00 UTC) in the <code>#jenkins</code> channel on IRC (<a href="http://jenkins-ci.org/content/chat">more details here</a>).</p>
-
-<p>In <a href="http://twitter.com/kohsukekawa/">Kohsuke's</a> post to the mailing list, he further explained the goals of such meetings:</p>
-
-<blockquote>
-  <p>We can use it to report/discuss various issues of the project (not bugs in code, but more project level stuff.) I also plan to report the infrastructure work that's done thus far.</p>
-
-  <p>We'd like to hear from you, and the point is to engage the broader community, so please join us.</p>
-
-  <p>This is a new thing, so it's not like we've figured this all out, but let's see how it goes.</p>
-</blockquote>
-
-<p>If you don't have an IRC client, you can use the Freenode <a href="http://webchat.freenode.net/">webchat client</a> to join in, hope to see you there!
-<!--break--></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/29/jenkins/'>
-Jenkins!
-</a>
-</h1>
-<div class='content'>
-<p>(This was sent as an email to the Hudson dev and users mailing lists after voting concluded, but I thought it'd be good to post it here as well.)</p>
-
-<p>The vote is closed, and the results are in. More than half of the total votes were from ineligible voters, but the result would have been the same either way. The final result of all eligible votes is as follows: 214 votes to rename, and 14 for the status quo. You can see the individual votes <a href="https://groups.google.com/group/hudson-jenkins-vote">hudson-jenkins-vote</a>.
-<!--break-->
-So what does this mean now? Well, it means Jenkins lives. We've registered jenkins-ci.org, though it's empty at the moment. In the coming days, we will be renaming the existing Google Groups to jenkins-*@googlegroups.com, renaming the Twitter account from @hudsonci to <a href="http://twitter.com/jenkinsci">@jenkinsci</a>, and renaming our organization at Github from hudson to jenkinsci. I wanted to make sure everyone had notice ahead of time that this was happening, so that no one gets surprised by changes to their incoming mail, etc. As said before, the initial, interim governance board will consist of me, Kohsuke and, if he and Oracle are willing, Winston. If Winston is unwilling or unable to continue in that role with Jenkins, we will select a replacement interim member. The interim board will work on the details of a more permanent governance process going forward. Discussions on the infrastructure changes (including things like the Maven groupId/artifactIds, etc) will be in public, on these lists. We're working to get the JIRA and wiki contents migrated over to the Jenkins site, and hope to work with Oracle to get that done in the next couple days.</p>
-
-<p>Putting aside logistics, I want to personally thank everyone for voting, and especially thank everyone who voted for renaming for supporting the Jenkins project and its future. Jenkins is not Oracle's project, nor CloudBee's project, nor my project, nor Kohsuke's project - it's the community's project, and it's going to thrive.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/11/hudsons-future/'>
-Hudson's future
-</a>
-</h1>
-<div class='content'>
-<p>First, my apologies for the lack of updates on the <a href="http://hudson-labs.org/content/whos-driving-thing">Hudson/Oracle situation</a> for
-the last few weeks. While talks have been ongoing, the holidays have slowed
-things down, and we didn't want to send out information that would later turn
-out not to be true. We've been waiting for the talks to reach a resolution -
-and I believe they now have.</p>
-
-<p>Since the <a href="http://www.java.net">java.net</a> migration problems, Oracle and representatives from the
-Hudson community have been involved in talks on the future of the project in a
-number of areas. The Hudson representatives have been <a href="http://twitter.com/abayer">myself</a>, <a href="http://twitter.com/kohsukekawa">Kohsuke
-Kawaguchi</a>, and <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a>  (CEO of CloudBees and Kohsuke's boss), who was
-brought in to help provide experience with discussions on a corporate/executive
-level which neither Kohsuke nor I have, with Alan Harder and <a href="http://twitter.com/agentdero">R. Tyler Croy</a>
-advising on the side.</p>
-
-<p>These talks have in many ways been fruitful - we came to working agreements
-with Oracle on the project infrastructure (such as mailing lists and SCM
-repository location), code review policy for Hudson core, and perhaps most
-significantly, a governance structure for the project going forward. Some
-issues are not yet entirely resolved, such as questions on restrictions on
-third party dependency licenses. But one issue, which we feel is the most
-significant issue of all, one for which we now believe no resolution is
-possible: the rights to the name <strong>Hudson</strong>.</p>
-
-<p>Oracle has told us that they have trademark applications filed in both the EU
-and US for Hudson, based on Hudson's creation by Kohsuke while working at Sun.
-The problem is that this trademark ownership gives Oracle the ability to revoke
-the Hudson project's right to call itself Hudson at any time, and while Oracle
-has made an attempt to offer some guarantees (most notably, that binary
-releases of Hudson, once they've been released with the name Hudson attached,
-will always retain the right to the name), they are not offering any binding
-guarantee that the Hudson project will be able to retain its use of the name in
-perpetuity.</p>
-
-<p>Therefore, to continue using the name Hudson means ceding some of the project's
-independence to Oracle - if the project and its governance board opted to go in
-a direction Oracle disapproved of, Oracle would be able to take away the naming
-rights. Or, in a less dramatic scenario, Oracle could insist on certain changes
-to the code, infrastructure decisions, process, etc, regardless of opposition
-from the Hudson development community, in order to retain the rights to the
-name.</p>
-
-<p>In short, we'd be living under a sword of <a href="https://secure.wikimedia.org/wikipedia/en/wiki/Damocles">Damocles</a>, regardless of the goodwill
-of the individuals we've been negotiating with at Oracle - Hudson as a project
-would be beholden to Oracle's whims for its continued use of its own name, and
-we believe that's not viable.
-<!--break-->
-As I see it, the only viable option facing the project now is to rename it, in
-order to free it from the burden of Oracle's ownership of its name. This is not
-a first choice, not by a long shot, but I don't see any other choice available
-to us that would preserve the integrity of the project going forward. Oracle
-will be presenting their proposal for the project continuing under their
-umbrella - I encourage you to read it when it becomes available and weigh it
-accordingly. I'll just focus on what Kohsuke, other prominent Hudson community
-members and I have endorsed.</p>
-
-<h3 id="the-proposal">The Proposal</h3>
-
-<p>First, we rename the project - the choice for a new name is <strong>Jenkins</strong>, which we
-think evokes the same sort of English butler feel as Hudson. We've already
-registered domains, Twitter users, etc for the new name, and have done our best
-to verify that there are no existing trademarks which would conflict with it.
-Kohsuke will be registering the trademark for Jenkins in his name, with the
-intent of transferring ownership of the trademark to the umbrella of the
-<a href="http://www.sfconservancy.org/">Software Freedom Conservancy</a> once the Jenkins project has been admitted to it
-(which, I should add, is very much our plan, hopefully in their next round of
-new projects in a few months - we've already had preliminary contacts with
-SFC). We still invite Oracle to remain involved with the project, on equal
-terms with all other contributors, and hope they'll take us up on this
-invitation.</p>
-
-<p>Second, out of respect for Oracle's trademark claim on Hudson, we will move our
-infrastructure off of Oracle-owned and hosted servers, and we will rename
-existing independent components of the infrastructure to no longer use "Hudson"
-- i.e., mailing lists, Github repos, etc. This would be a gradual process,
-obviously.</p>
-
-<p>Third, we will put in place an interim governance board for the project,
-consisting of three members - myself, Kohsuke and, if Oracle elects to remain
-involved, Winston Prakash, the Oracle engineer working on Hudson. The interim
-board members will serve for the next 3-6 months, until the governance
-structure can be nailed down securely enough to hold elections for the board
-members.</p>
-
-<p>Obviously, such a move could not be undertaken without the agreement and
-support of the Hudson community. We believe this proposal is the best choice
-for the project in the situation it's currently in, but we aren't closing off
-discussion, questions, etc, and we encourage your feedback and comments. If
-there's anything you need clarified, please ask and we'll do our best to
-answer.</p>
-
-<p>Once Oracle's proposal is available later this week (hopefully Wednesday,
-possibly Thursday, from what I've been told), which I strongly advise you all to 
-read and consider, we'll be putting up a poll to determine the position of the 
-community. Once that vote is done, assuming the consensus is to rename, we'll 
-put the mechanisms in motion and switch over as fast we can.</p>
-
-<p>There may be some confusion as to whether we're proposing to fork Hudson, or
-rename the existing project. I firmly believe we are proposing the latter - for
-me, the project's key component is Kohsuke himself. If the community decides to
-support renaming the project to Jenkins, and Oracle chooses to continue
-development themselves under the name Hudson, they are, obviously, entirely
-welcome to do so. But with Kohsuke working on Jenkins, that's the true home and
-the future of the project for me, regardless of the name.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2011/01/08/installing-plugins-has-always-been-easy-now-its-fast-too/'>
-Installing plugins has always been easy, now it's fast too!
-</a>
-</h1>
-<div class='content'>
-<p>As one of the "men behind the scenes" of the Hudson project, a lot of my contributions tend to be in writing articles or handling infrastructure, anything to ensure folks like <a href="http://twitter.com/kohsukekawa">Kohsuke</a> can continue to make Hudson great without being distracted by inane system administration tasks. This past week, one of my long-running infrastructure projects has finally "gone live," making downloads of plugins and packages faster than ever!</p>
-
-<p>Some number of months ago I became frustrated with the download speeds reported by our international users, while the majority of Hudson's infrastructure is all colocated inside of the United States, there is a <strong>huge</strong> number of Hudson users and developers who are both in Europe and Asia.</p>
-
-<p>After discussing things with some of the folks that run <a href="http://download.opensuse.org">download.opensuse.org</a>, a <a href="http://mirrorbrain.org">MirrorBrain</a> powered redirector, I set out to build something similar. A mirroring network which could be easily managed and help direct users' downloads to the geographically closest and fastest mirror available.</p>
-
-<h4 id="where-are-we-mirrored">Where are we mirrored?</h4>
-
-<p>Currently we have mirrors in a few locations within the United States, and one overseas:</p>
-
-<ul>
-  <li>Southwest U.S. (Utah) - <em>Thanks to <a href="http://www.xmission.com">XMission</a></em></li>
-  <li>Midwest U.S. (Chicago) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Northeast U.S. (New York City) - <em>Thanks to the <a href="http://www.osuosl.org">OSUOSL</a></em></li>
-  <li>Germany - <em>Thanks to <a href="http://www.aragost.com/">aragost Trifork ag</a></em></li>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
 </ul>
-
-<h4 id="using-the-mirrors">Using the mirrors</h4>
-
-<p>If you've updated or installed plugins from within Hudson lately, guess what! You're already using mirrors! In fact, since we flipped the switch on January 7th, over <strong>800</strong> plugins and <strong>600</strong> <code>hudson.war</code> updates have been downloaded from the mirroring network!
-<!--break-->
-If you'd like to download directly from the mirrors, you can browse on over to <a href="http://mirrors.hudson-labs.org">mirrors.hudson-labs.org</a>, which will redirect your request for specific files to the appropriate mirror based on your IP address. It's just that easy!</p>
-
-<p>We are currently working with more providers to add additional mirrors, hopefully we'll have an Asian mirror online within the next two weeks and if we're lucky, we'll find some more European mirrors too.</p>
-
-<hr />
-
-<p>I would like to thank the <strong>immensely</strong> helpful and supportive engineers over at the <a href="http://www.osuosl.org">OSUOSL</a> for offering gratis tech support, suggestions, and bandwidth to serve as our <em>primary</em> mirror.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/12/05/weekend-update-with-andrew-bayer/'>
-Weekend Update with Andrew Bayer
-</a>
-</h1>
-<div class='content'>
-<p>[<strong>Ed. note</strong> <em>Andrew was not involved in selecting this post's title - rtyler</em>]</p>
-
-<p>I wanted to give the Hudson community a quick update on the current status of the issues Tyler has <a href="http://hudson-labs.org/content/whos-driving-thing">discussed in the earlier posts</a> here.</p>
-
-<p>Friday afternoon, <a href="http://twitter.com/kohsukekawa">Kohsuke</a>, <a href="http://www.cloudbees.com">CloudBees</a> CEO <a href="https://twitter.com/SachaLabourey">Sacha Labourey</a> and myself jumped on a conference call with Hudson contributor/Oracle employee <a href="http://twitter.com/wjprakash">Winston Prakash</a>, Oracle manager Denis Tyrell and of course Ted Farrell.</p>
-
-<p>We discussed a wide range of issues relating to the Hudson project, such as governance, the rights to the name Hudson, and the infrastructure hosting the Hudson project. While we didn't agree on resolutions to all issues, I feel real progress was made towards a framework that provides what the Hudson community needs while also preventing the sort of conflicts we've seen the last week or two.</p>
-
-<p>More work has to be done - we'll be talking again next week, and I'm hoping we can reach agreement on the contentious issues by the end of the week.</p>
-
-<p>Thanks for your patience.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/12/01/a-brief-update/'>
-A brief update
-</a>
-</h1>
-<div class='content'>
-<p>Let me be the first to say <strong>thank you all</strong> for your <a href="http://twitter.com/#search?q=http%3A%2F%2Fwww.hudson-labs.org%2Fcontent%2Fwhos-driving-thing%2F">overwhelming support</a> for
-Hudson and the work we've been doing. The Hudson community in general has
-always been incredibly supportive and friendly, but the outpouring of support from
-friends and users who've not previously spoken up has been awe inspiring.</p>
-
-<p>That said, let's get down to business. As <a href="http://www.hudson-labs.org/content/whos-driving-thing">I covered
-yesterday</a> there is some
-bubbling frustration within the developer community regarding some project
-infrastructure decisions and Oracle's reactions to them. If you can't spare the
-time to read that novel of a blog post, the extremely shortened version is: devs want to
-move codebase to GitHub, Oracle disagrees and claims to have final say (hijinks
-ensue).</p>
-
-<p>While there is still a lot unresolved, several of the core contributors are
-debating and weighing our options for moving forward in a way that best
-suits Hudson both as a project and community. In the next couple days, Kohsuke
-or Andrew will be proposing a course of action for the community after some of
-the options have been fully vetted. Please bear in mind that Hudson is a <strong>very</strong> big project with some fairly unique needs. We have <em>hundreds</em> of contributors committing either to core or the plugins, we release core once a week with plugin releases occurring to the tune of 20-40 updates a week. We've been pinging folks who work with various foundations and major open source projects to make sure we're covering all our bases to make sure distractions like this don't come up again for the foreseeable future.</p>
-
-<p>Due to issues with MySQL, Java, OpenOffice/LibreOffice, there is clearly a lot of anti-Oracle emotion out there right now, but I want
-to make sure that it's clear that this <em>is not</em> about "Us versus Oracle."</p>
-
-<p>Our goal isn't to "stick it to the man," that doesn't help make Hudson any better.</p>
-
-<p>Our goal is to foster the kind of community that we all want to
-participate in, and to build and improve the best continuous integration
-server available.</p>
-
-<p>Stay tuned :)
-<!--break-->
-—-</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/11/30/whos-driving-this-thing/'>
-Who's driving this thing?
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/health-60to79.gif" align="right" />There's been a lot of discussion on the <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">new mailing lists</a> as of late regarding some of the infrastructure and ownership of the Hudson project. In case you haven't been following along at home, I'll try to catch you up as impartially as possible.</p>
-
-<h2 id="the-facts">The Facts</h2>
-
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
 <ul>
-  <li><strong>2009.06.02</strong>: After substantial problems with Java.net infrastructure, the
-<a href="http://hudson.361315.n4.nabble.com/On-the-future-of-Hudson-hosting-and-infrastructure-td393278.html">dev community discusses new infrastructure
-options</a>,
-including SourceForge, Google Code, Kenai, Berlios, GitHub, etc. Instead of
-moving the entire project, some key components such as the
-<a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> are moved off of
-Java.net. Discussions about moving source code off of Java.net and onto other hosts like
-GitHub come up almost every four months on the mailing lists, typically
-coinciding with serious Java.net downtime or reliability issues..</li>
-  <li><strong>2010.11.01</strong>: A discussion occurs on the developers mailing list about
-adding <a href="http://twitter.com/wjprakash">Winston Prakash</a>, the Oracle engineer re-assigned to replace <a href="http://twitter.com/kohsukekawa">Kohsuke Kawaguchi</a> (Hudson
-founder/lead developer), as a co-owner to the Java.net project. Winston
-mentions that his question was driven by Oracle management who felt he should
-"co-own the project." After a round of discussion, it's decided by the devs
-list that it's acceptable and grants Winston co-ownership of the project as a
-sign of good faith from the community towards Oracle.</li>
-  <li><strong>2010.11.17</strong>: <a href="http://twitter.com/abayer">Andrew Bayer</a>, core contributor
-and maintainer of numerous plugins emails the users and devs list with a
-proposal to move the mailing lists off of Java.net which has had notorious
-reliability issues within the Java ecosystem and was scheduled for a series of
-downtimes and migrations over the coming weeks. Google Groups is selected as the
-most reasonable by the community.</li>
-  <li><strong>2010.11.19</strong>: Hudson project is lumped into the same Java.net migration bucket as Glassfish. Emails are sent to project owners, the users and the developers list. The mail to users and developers never arrives due to the sender not being subscribed. Both project owners (Kohsuke, Winston) miss the message, leaving the Hudson community in the dark regarding the pending migration.</li>
-  <li><strong>2010.11.22</strong>: Shortly after midnight, Jacob Robertson reports that his
-SVN credentials no longer work, Kohsuke informs the developers list that the project is
-locked due to the migration, SVN is inaccessible and mailing lists fail shortly after that. <img src="http://agentdero.cachefly.net/continuousblog/health-40to59.gif" align="right" />The Hudson Java.net project
-begins its migration from the legacy infrastructure to the newer
-Java.net infrastructure (formerly known as "Kenai"). A group of core Hudson
-community members accelerate the move to Google Groups, pushing out
-announcements via <a href="http://hudson-labs.org/content/new-hudson-mailing-lists">this
-blog</a> and
-<a href="http://twitter.com/hudsonci">twitter</a> hoping to keep as many members in the
-loop as possible.</li>
-  <li><strong>2010.11.23</strong>: Frustrated by the locking down of Hudson's source code,
-which sees between 3-8 commits to "core" a day, not counting the 300+
-plugins, Kohsuke <a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/8d3cf0ca1240280a">proposes moving to
-GitHub</a>
-on the new developers mailing list. The general consensus amongst the plugin
-and core developers was to go forward with moving to GitHub, no major
-objections were raised by the developer community.</li>
-  <li><strong>2010.11.27</strong>: After Thanksgiving, Andrew Bayer submits the "<a href="http://groups.google.com/group/hudson-dev/browse_thread/thread/c935a4740af0b920">formal
-proposal</a>"
-for migrating over to GitHub, Sets a deadline of the following tuesday
-(2010.11.30) for raising any major objections before "flipping the switch."</li>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
 </ul>
-
-<p>The Monday morning prior to the planned switchover to GitHub, Oracle Senior VP
-of Tools and Middleware <a href="http://www.oracle.com/us/corporate/press/Spokespeople/016474">Ted
-Farrell</a> sent <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">a
-message to the users list</a> expressing concerns he had regarding the migration of
-the Hudson codebase from Java.net to GitHub:
-<!--break-->
-&gt; <em>Oracle's goal is to grow the community and make hudson stronger.  You
-&gt; all might not be aware of this, but the actual hudson user base is
-&gt; very large.  Much bigger than what you see on the mailing lists or in
-&gt; the forums.  The unfortunate part of that is how many of these users
-&gt; do not contribute to the core, and do not participate in these
-&gt; discussions.  They want to do that, but don't feel like they can be
-&gt; heard.  We want them to be heard.  We need to make the hudson
-&gt; community a place that will welcome all the hudson users and encourage
-&gt; its growth and longevity.  We will be announcing some changes in the
-&gt; upcoming weeks that we believe will foster that.
-&gt;
-&gt; For now, however, we are going to stay on the java.net
-&gt; infrastructure.  We believe it is important for hudson to stay
-&gt; connected with the rest of the the java community, as well as take
-&gt; advantage of some of the cool changes we will have coming to
-&gt; java.net.  Moving to GIT can be done while staying on java.net.  It is
-&gt; not a requirement to move to github.
-&gt;
-&gt; …
-&gt;
-&gt; Because it is open source, we can't stop anybody from forking it.  We
-&gt; do however own the trademark to the name so you cannot use the name
-&gt; outside of the core community.  We acquired that as part of Sun.  We
-&gt; hope that everyone working on hudson today will do as they claim to
-&gt; want, and work with us to make hudson stronger.</em></p>
-
-<p>(Ted's message was rather long, you can read the <a href="http://groups.google.com/group/hudson-users/msg/cf0d72a7d97f2438">whole
-post here</a>)</p>
-
-<p>As one might expect, Ted's response to the thread was received with
-mixed responses ranging from general confusion to obvious frustration.</p>
-
-<p>Long time contributor to Hudson's Git plugin, <a href="https://github.com/magnayn">Nigel Magnay</a> tried to clarify the benefits of migrating to GitHub instead of using Git on the "new" Java.net as succinctly as possible:</p>
-
-<blockquote>
-  <p><em>Just having git support != git support on github. They work full time on
-providing the best community development tools; I doubt kenai could even
-catch up, let alone surpass what they're doing.</em></p>
-
-  <p>…</p>
-
-  <p>I'm confused.</p>
-
-  <p>What things are you saying you will not let the Hudson developer community
-do?</p>
-
-  <p>I.E: Are you saying that, as the holders of the Hudson 'name', you are
-prohibiting the developer community from choosing (for ourselves) to migrate
-the infrastructure (bug tracking / wiki)? The repositories ?</p>
-
-  <p>So far the response from the developers has been pretty strongly in favour
-of the migration to google groups for mail, to github for code repositories
-and collaboration, and to a self-hosted site for bug tracking and
-information.&lt;/em&gt;</p>
-</blockquote>
-
-<p><img src="http://agentdero.cachefly.net/continuousblog/health-20to39.gif" align="right" />
-Ted's response to Nigel contained one of the most important nugget of
-information for the whole discussion nestled in the middle of <a href="http://groups.google.com/group/hudson-users/msg/5540655e05ef2982">the message</a>:</p>
-
-<blockquote>
-  <p><em>Nigel, what I am saying is that I believe the <em>final</em> decision of what
-to do w.r.t. infrastructure belongs to Oracle and that decision should
-be made according to the will of the community as it makes sense</em></p>
-</blockquote>
-
-<h2 id="the-part-where-i-editorialize">The part where I editorialize</h2>
-
-<p>I readily admit, there is a lot of information to take in here, for clarification there are two distinct "communities" involved in Hudson:</p>
-
-<ul>
-  <li><strong>developers</strong>: the <em>hundreds</em> of developers actively communicating on the
-  <a href="http://groups.google.com/group/hudson-dev">developers list</a> and
-  contributing to the 300+ plugins</li>
-  <li><strong>users</strong>: tens of thousands of individuals and companies using Hudson
-either as a straight <code>.war</code> file, or using the native packages provided by
-the community</li>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
 </ul>
-
-<p>The fundamental issue here is that the <strong>developers</strong> want to make a change in
-how <em>they</em> contribute to Hudson, and have made their voices heard to that end.
-From the users' perspective, such a change would have literally <strong>zero</strong> impact
-on them, which makes Oracle's conflation of the two sides of Hudson
-particularly frustrating.</p>
-
-<p>Part of the impasse between Oracle management and the developer community lies
-in an inherent meritocracy in any large open source project, whether it be the
-Linux kernel, the Python language and runtime, or the PostgreSQL database
-server, those that contribute carry more weight within the community
-<strong>because</strong> they are actively pushing things forward. On top of that, Oracle
-continues to cite a "larger community" that's apparently larger than those
-active committing to Hudson on a daily or weekly basis, without naming names or
-citing specific contributions.</p>
-
-<p>Ted, and in turn, Oracle's approach to the Hudson community seems to stem from
-a systematic misunderstanding of how most (if not all) major open source
-projects operate. Mentiong closed-door meetings between Sonatype and Oracle
-regarding "how to make Hudson better" do nothing to aid many developers'
-concerns about Oracle's commitment to Hudson as an open source project or a
-community.</p>
-
-<p>In my humble opinion, we are being told one thing while Oracle's actions speak
-to another. Insisting that Hudson development remain on Java.net, after the
-development community committed to GitHub, contradicts the words promising to
-work with the Hudson community and to help facilitate its growth. Asserting
-that Oracle isn't trying to exert unwelcome control over the project, while
-doing exactly that.</p>
-
-<p>Personally, I do want Oracle to continue to be involved, along with CloudBees,
-Sonatype and many other companies that contribute to the ever-growing Hudson
-ecosystem. The involvement of a plethora of different companies only helps
-emphasize the importance of Hudson to the developer community and underline the
-value of Hudson as a community owned and operated project.</p>
-
-<p>December will be an interesting month, stay tuned.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/11/23/new-hudson-mailing-lists/'>
-New Hudson Mailing Lists!
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/duke-construction.gif" alt="Duke is not amused :(" align="right" />As Kohsuke <a href="http://hudson-labs.org/content/javanet-migration-status-update">mentioned in this post</a>, the Java.net migration has caught just about everybody off-guard in the Hudson community.</p>
-
-<p>The tools we use hosted by Java.net are essentially locked from us until further notice (no ETA on the migration) which is, as you might imagine frustrating both for the core developers but <strong>hundreds</strong> of plugin developers that make Hudson the best damned CI server on the planet.</p>
-
-<p>For <strong>source code</strong> we're working on getting something in place for contributions on <a href="https://github.com/hudson/hudson">GitHub</a> thanks to some assistance from the GitHub team.</p>
-
-<p>For <strong>mailing lists</strong> we've gone ahead and dumped Java.net mailing lists in favor of a collection of Google Groups:</p>
-
-<ul>
-  <li><a href="http://groups.google.com/group/hudson-dev/">hudson-dev</a></li>
-  <li><a href="http://groups.google.com/group/hudson-users/">hudson-users</a></li>
-  <li><a href="http://groups.google.com/group/hudson-commits/">hudson-commits</a></li>
-  <li><a href="http://groups.google.com/group/hudson-issues/">hudson-issues</a></li>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
 </ul>
-
-<p>Contrary to popular belief, you <strong>do not need a Google account</strong> to subscribe to these lists, else we wouldn't have chosen Google Groups. All you need to do is send an email to "hudson-users+subscribe@googlegroups.com" and you'll receive a confirmation email from the mailing list server shortly.</p>
-
-<p>Since our <a href="http://issues.hudson-ci.org">issues.hudson-ci.org</a> isn't actually hosted on Java.net, but rather on a machine provided by Oracle, they <em>should</em> continue to function as per usual. The login for the systems is somewhat tied to Java.net so I am honestly not sure how stable they will be this week.</p>
-
-<p>I apologize sincerely for the confusion and frustration, you can trust that we're likely ten-times more frustrated with this situation right now.
-<!--break-->
-—-</p>
-
+</li>
+</ul>
 </div>
-</div>
-<div class="pagination-links"><a href="/node/page/30.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/30.html" class="page-link">30</a> <span class="current-page">31</span> <a href="/node/page/32.html" class="page-link">32</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/32.html" class="next-link">Next</a> </div>
+</footer>
 
-<div id='content-bottom'>
-</div>
-</div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
-
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
-</a>
-</div>
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

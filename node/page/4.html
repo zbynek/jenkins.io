@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,652 +6,817 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/30/jenkins-2-0-proposal-improved-out-of-the-box-user-experience/'>
+Jenkins 2.0 Proposal: Improved "Out of the box" user experience
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-30T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>This week we have featured a number of proposals for what we would like to see in "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>", the vision of which is to make Jenkins users more efficient, productive and happy. We started with some more internally facing changes and have slowly progressed from the "inside-out" to today's topic: improving the out of the box user experience. That is to say, the experience that a brand-new Jenkins user has when getting started with the server.</p>
+
+<p>Just to recap, so far we've reviewed:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
+  <li><a href="/content/jenkins-20-proposal-ux-improvements-part-one">User experience improvements (part one)</a></li>
+</ul>
+
+<p>The subject of today's proposal is captured in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a></strong>, which, like yesterday's <a href="/content/jenkins-20-proposal-ux-improvements-part-one">proposal</a>, contains a few issues linked from it with more details.</p>
+
+<p>At a high level, the problem aiming to be solved is:</p>
+
+<blockquote>
+  <p>When a new user installs Jenkins, they are greeted with the main, empty, dashboard which suggests that they "create jobs." This makes no mention of plugins or the configuration options that are relevant to helping the user make Jenkins match their needs.</p>
+</blockquote>
+
+<p>In past and current versions of Jenkins, if you know what you're looking for it's relatively easy to move around the interface. If you've never used Jenkins before, it can be very challenging to find your way around or even know <em>what it is possible</em> to do with Jenkins.</p>
+
+<p>The proposed changes aim to address this initial confusion:</p>
+
+<blockquote>
+  <p>Instead of changing the post-install defaults, which may not properly represent the user's needs, the first-time user experience should help guide the user through configuration and plugin installation quickly so they can use Jenkins for their needs. Effectively it should be as easy as possible for a user to arrive at a good configuration for their usage.</p>
+</blockquote>
+
+<p>Jenkins contributor <a href="https://github.com/tfennelly">Tom Fennelly</a>, who has led this discussion on the mailing lists in the past, has posted a good prototype screencast of what some of this might entail:</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/kzRR8XR8hu4?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31157">JENKINS-31157</a> and comment and vote on those issues accordingly.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>This concludes this week's blog series highlighting some of the Jenkins 2.0 proposals we felt were important to discuss with the broader Jenkins user audience. Many of these, and other minor proposals, can be found on the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0 wiki page</a>.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/29/jenkins-2-0-proposal-ux-improvements-part-one/'>
+Jenkins 2.0 Proposal: UX Improvements (Part One)
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-29T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>We have been featuring a few proposals this week for what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" is going to include. Today we'll be diving into the most noticeable changes being proposed for Jenkins 2.0: the User Experience (UX) improvements</p>
+
+<p>Thus far in this blog series we have reviewed proposals covering:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+  <li><a href="/content/jenkins-20-proposal-pipeline-code-front-and-center">Pipeline as code front and center</a></li>
+</ul>
+
+<p>The UX improvements being proposed aren't necessarily as uniform as the proposals from earlier in the week but represent a large amount of prototype and exploratory work done by folks like <a href="https://github.com/tfennelly">Tom Fennelly</a>, <a href="https://github.com/gusreiber">Gus Reiber</a> and a few others. Those following the dev list may have already seen some of these proposals in some of the "mega threads" that we have had discussing potential UI/UX improvements previously.</p>
+
+<p>The improvements proposed for 2.0 can be found under <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31156">JENKINS-31156</a></strong>. The most promising proposal under this issue is to update the <a href="https://issues.jenkins-ci.org/browse/JENKINS-9802">plugin manager experience</a>.</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/9vPUMe3lzfo?rel=0" frameborder="0" allowfullscreen=""></iframe><br /><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/jf5s0sqIYBY?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<p>Another very important proposal for 2.0 worth mentioning is the proposal to <a href="https://issues.jenkins-ci.org/browse/JENKINS-21092">update UI work well on mobile devices</a>.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the issues linked from <a href="https://issues.jenkins-ci.org/browse/JENKINS-31156">JENKINS-31156</a> and comment and vote on those issues accordingly.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned for tomorrow's post covering the remainder of the proposed user experience changes!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/28/jenkins-2-0-proposal-pipeline-as-code-front-and-center/'>
+Jenkins 2.0 Proposal: Pipeline as Code front and center
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-28T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>We have been featuring a few proposals this week for what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" is going to include, today we're discussing my personal favorite, which I believe will have a tremendously positive impact for years to come (not to be too biased!): moving the "Pipeline as Code" support in Jenkins to the front and center.</p>
+
+<p>Thus far in this blog series we have reviewed proposals covering:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+  <li><a href="/content/jenkins-20-proposal-split-groovy-out-core">Splitting Groovy out of 'core'</a></li>
+</ul>
+
+<p>Today's proposal comes from project founder <a href="https://github.com/kohsuke">Kohsuke Kawaguchi</a> titled "<strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31152">Pipeline as code front and center</a></strong>" and represents perhaps the most important and dramatic shift we hope to make in Jenkins 2.0.</p>
+
+<p>This functionality has existed through the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">workflow plugin</a>, which we have discussed at various Jenkins events before but if you're not aware of some of the power behind it, check out this presentation from <a href="https://github.com/jglick">Jesse Glick</a>:</p>
+
+<center><iframe width="480" height="360" src="https://www.youtube-nocookie.com/embed/Q2pZdzaaCXg?rel=0" frameborder="0" allowfullscreen=""></iframe></center>
+
+<p>The proposal in <a href="https://issues.jenkins-ci.org/browse/JENKINS-31152">JENKINS-31152</a> expands on the problem we aim to address:</p>
+
+<blockquote>
+  <p>The default interaction model with Jenkins has been very web UI driven, requiring users to manually create jobs, then manually fill in the details through a web browser. This requires large amounts of effort to create and manage jobs to test and build multiple projects and keeps the actual configuration of a job to build/test/deploy a project separate from the actual code being built/tested/deployed. This prevents users from applying their existing CI/CD best practices to the job configurations themselves.</p>
+</blockquote>
+
+<p>To address this, Kohsuke is proposing that we :</p>
+
+<blockquote>
+  <p>Introduce a new subsystem in Jenkins that:</p>
+
+  <ul>
+    <li>lets you design a whole pipeline, not just a single linear set of tasks</li>
+    <li>stores the said pipeline configuration as human-editable <code>Jenkinsfile</code> in your SCM</li>
+    <li>makes it automatic to set up new pipelines when <code>Jenkinsfile</code> is added</li>
+    <li>differentiates multiple branches in the same repository</li>
+  </ul>
+
+  <p>This is the key new feature that positions Jenkins for continuous delivery use cases and other more complex automations of today.</p>
+</blockquote>
+
+<p>Kohsuke's proposal is largely about bringing together a lot of already existing pieces together to provide a <em>very</em> compelling experience for new and existing users alike. I hope it is clear now why this proposal is so exciting to me.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the proposal in
+<a href="https://issues.jenkins-ci.org/browse/JENKINS-31152">JENKINS-31152</a>, which itself have some additional tickets linked under it, and provide
+feedback if you have it.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned for a couple more posts covering proposals to improve the Jenkins interface and user experience!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/27/jenkins-2-0-proposal-split-groovy-out-of-core/'>
+Jenkins 2.0 Proposal: Split Groovy out of "core"
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-27T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>As I mentioned in <a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">yesterday's post</a>, there's been a lot of discussion recently about what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" means. In a recent "Office Hours" session, <a href="https://github.com/kohsuke">Kohsuke Kawaguchi</a> presented his
+vision for <strong>Jenkins 2.0</strong> in a <a href="https://www.youtube.com/watch?v=2eVyc_n8i1c">office
+hours</a> session, the slides for
+which can be found <a href="https://docs.google.com/presentation/d/12ikbbQoMvus_l_q23BxXhYXnW9S5zsVNwIKZ9N8udg4">in this Google
+Presentation</a>.
+Roughly paraphrasing Kohsuke's vision, 2.0 is primarily about making things
+better for the thousands of users out there.</p>
+
+<p>This week, we'll be reviewing some <em>key areas</em> of the "Jenkins 2.0" proposal.
+Asking you, the user community, to provide feedback on these proposals, going
+from Jenkins internals to user interface.</p>
+
+<p>Thus far we've covered:</p>
+
+<ul>
+  <li><a href="/content/jenkins-20-proposal-introduce-policy-api-deprecation">Introducing a policy for API deprecation</a></li>
+</ul>
+
+<p>Today's post involves a proposal originally from community member <a href="https://github.com/jglick">Jesse Glick</a> who has proposed in <strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">JENKINS-29068</a></strong> that <a href="http://groovy-lang.org">Groovy</a> be split out from the "core" Jenkins distribution. The linked issue expands on what the problem is here:</p>
+
+<blockquote>
+  <p>Currently Jenkins embeds a distribution of Groovy into "core" for a variety of scripting and management tasks. This version of Groovy is locked into core in such a way that users cannot upgrade Groovy independently from Jenkins itself. If the Jenkins-bundled version were upgraded to a different major version, it may break users' custom scripts as well as plugins that use Groovy due to API changes.</p>
+</blockquote>
+
+<p>The proposal is relatively straight-forward and affects the many different users and use-cases for the embedded Groovy scripting support in Jenkins:</p>
+
+<blockquote>
+  <p>For ease of maintenance and modularity it would be useful to split Jenkins' use of Groovy into a library plugin; different clients could request 1.x and 2.x simultaneously by using different versions of the library, etc.</p>
+
+  <p>Stuff in core using Groovy that would need to either be put in this library (if infrastructure for other features) or put in another plugin depending on it (if first-class features themselves):</p>
+</blockquote>
+
+<p>I selected this proposal to feature on this blog, despite its rather technical underpinnings, it will affect core developers, plugin developers, power and casual users alike. I encourage everybody to read through the proposal and its potential impact <a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">on the issue tracker</a>.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the proposal in
+<a href="https://issues.jenkins-ci.org/browse/JENKINS-29068">JENKINS-29068</a> and provide
+feedback if you have it.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned for the rest of the week as we keep with our theme of going "from the inside out" and help us make Jenkins 2.0 great!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/25/jenkins-2-0-proposal-introduce-a-policy-for-api-deprecation/'>
+Jenkins 2.0 Proposal: Introduce a policy for API deprecation
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-25T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Over the past few weeks there has been a vibrant discussion happening on the
+<a href="http://groups.google.com/group/jenkinsci-dev/topics">jenkinsci-dev@</a> mailing
+list as to what "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins
+2.0</a>" means.  While
+Jenkins does not currently adhere to <a href="http://semver.org/">semantic versioning</a>,
+the change of a major version number does indicate a major milestone for the community.</p>
+
+<p>Project founder, <a href="https://github.com/kohsuke">Kohsuke Kawaguchi</a> presented his
+vision for <strong>Jenkins 2.0</strong> in a <a href="https://www.youtube.com/watch?v=2eVyc_n8i1c">office
+hours</a> session, the slides for
+which can be found <a href="https://docs.google.com/presentation/d/12ikbbQoMvus_l_q23BxXhYXnW9S5zsVNwIKZ9N8udg4">in this Google
+Presentation</a>.
+Roughly paraphrasing Kohsuke's vision, 2.0 is primarily about making things
+better for the thousands of users out there.</p>
+
+<p>This week, we'll be reviewing some <em>key areas</em> of the "Jenkins 2.0" proposal.
+Asking you, the user community, to provide feedback on these proposals, going
+from Jenkins internals to user interface.</p>
+
+<p>Today's post involves a proposal to introduce a policy for <strong>API
+deprecation</strong> from community members <a href="https://github.com/olivergondza">Oliver
+Gondža</a> and <a href="https://github.com/daniel-beck">Daniel
+Beck</a>. Extensibility is the heart of Jenkins, but over the past ten
+years we've not had a proper API deprecation policy other than "try not to
+break plugins, ever."</p>
+
+<p>Daniel, expanding more on the problem wrote:</p>
+
+<blockquote>
+  <p>We have no backward compatibility policy besides "compatibility matters".
+With 1000+ plugins and basically the entire core being available to
+plugins, a lot of difficult or impossible to remove cruft has accumulated over
+the last ten years. This limits both what can be changed in core, and makes
+documentation difficult to use for plugin developers.</p>
+</blockquote>
+
+<p>The two have put together a detailed proposal under
+<strong><a href="https://issues.jenkins-ci.org/browse/JENKINS-31035">JENKINS-31035</a></strong> which
+suggests we:</p>
+
+<blockquote>
+  <p>limit the availability in APIs (classes, methods, fields, …) provided by core
+to a number of releases. Depending on the feature, this can range from a few
+months, to a few years (e.g. two years being about 100 releases of Jenkins and
+eight LTS baselines).</p>
+
+  <p>[…]</p>
+</blockquote>
+
+<p>I highly encourage you to read the entire proposal <a href="https://issues.jenkins-ci.org/browse/JENKINS-31035">on the issue
+tracker</a>, where we are
+trying to collect feedback/history.</p>
+
+<h3 id="providing-feedback">Providing Feedback</h3>
+
+<p>We're asking you to read the proposal in
+<a href="https://issues.jenkins-ci.org/browse/JENKINS-31035">JENKINS-31035</a> and provide
+feedback if you have it.</p>
+
+<p>If you have ever logged in to the <a href="https://issues.jenkins-ci.org">issue
+tracker</a> or the
+<a href="https://wiki.jenkins-ci.org/">wiki</a>, you have a "Jenkins user account" which
+means you'll be able to log into the issue tracker and vote for, or comment on
+the issue linked above.</p>
+
+<p>(<em>note</em>: if you have forgotten your password, use <a href="https://jenkins-ci.org/account/">the account
+app</a> to reset it.)</p>
+
+<p>We're going to review feedback, make any necessary adjustments and either
+approve or reject the proposal two weeks from today.</p>
+
+<p>Stay tuned, and help make Jenkins 2.0 great!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/19/upcoming-in-office-hours-fosdem-planning-session/'>
+Upcoming in office hours: FOSDEM Planning Session
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-19T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>For the past several years we've been attending <a href="https://fosdem.org">FOSDEM</a>, a massive free and open source event in Brussels, Belgium. In preparation for this upcoming FOSDEM (2016) event, we will be hosting an open planning meeting via Google Hangouts during this week's "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Office Hours</a>."</p>
+
+<p><strong>Agenda:</strong></p>
+
+<ul>
+  <li>Gauge who can participate and at what capacity.</li>
+  <li>Pre-FOSDEM Contributor Summit</li>
+  <li>After-hours meetup/happy hour</li>
+  <li>Plans for a Jenkins stand (assuming we're accepted):</li>
+  <li>What demo materials</li>
+  <li>Schwag</li>
+  <li>Revised <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Flyer">Jenkins Flyer</a></li>
+</ul>
+
+<p>The <a href="https://wiki.jenkins-ci.org/display/JENKINS/FOSDEM+2016">FOSDEM 2016</a> wiki page is where we will be recording plans and <a href="https://issues.jenkins-ci.org/secure/RapidBoard.jspa?rapidView=11">tasks will be added to JIRA</a>. If you cannot join us via the <strong><a href="https://hangouts.google.com/call/m5tymcvzqdudu7r7cvvylqn4hya">FOSDEM Office Hours Hangout</a></strong>, we will also be watching the <code>#jenkins-community</code> channel on the <a href="https://freenode.net">Freenode</a> network if you cannot participate directly.</p>
+
+<p>Please join us on <a href="https://hangouts.google.com/call/m5tymcvzqdudu7r7cvvylqn4hya">this Google Hangout</a> at 11:00 a.m. PDT this Wednesday (Oct 21)</p>
+
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/09/cooking-up-jams/'>
+Cooking Up JAMs
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-09T00:00:00+00:00
+by
+<a href="https://github.com/alyssat">Alyssa Tong</a>
+</span>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/Seville-JAM_logo_1024px_0.png" width=250/><br/>
+</div><br/>
+<br/>
+<p>There's been some active discussions and planning around <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">Jenkins Area Meetups (JAMs)</a> specifically in the following cities:<br/>
+<ul><br/>
+<li><a href="http://www.meetup.com/Rennes-Jenkins-Area-Meetup/">Rennes, France</a></li> <br/>
+<li>Seville, Spain </li><br/>
+<li>Seattle, Washington </li><br/>
+<li>Barcelona,Spain</li><br/>
+<li><a href="http://www.meetup.com/Raleigh-Jenkins-Area-Meetup/">Raleigh, North Carolina</a></li><br/>
+<li><a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/">Atlanta, Georgia</a></li><br/>
+</ul></p><br/>
+<br/>
+<p>I wanted to gauge Jenkins interests in these cities, so let us know at <a href="mailto:jenkinsci-jam@googlegroups.com">jenkinsci-jam@googlegroups.com</a> if you live in one of these areas, and if you would be interested in becoming a member or be involved in JAM one way or another!</p><br/>
+<br/>
+<p>Of course, if the city you live in currently does not have a JAM and you're interested in paying it forward, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">here's HOW YOU can become a JAM organizer.</a></p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/10/02/winners-of-docker-global-hack-day-3-are/'>
+Winners of Docker Global Hack Day #3 are...
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-10-02T00:00:00+00:00
+by
+Hannah Inman
+</span>
+<div class='content'>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/docker-hack-day_0.preview.jpg" width=320><br/>
+</div><br/>
+<br/>
+<p>Over 2,000 members of the Docker community attended <a href="https://www.docker.com/community/hackathon">Docker Hack Day</a> events around the world. One of the forty-two Docker Hacks has some familiar names attached...</p><br/>
+<br/>
+<p><a href="https://twitter.com/ndeloof">Nicolas De Loof</a> and <a href="https://twitter.com/yoanndubreuil">Yoann Dubreuil</a> from <a href="http://www.meetup.com/docker-rennes">Docker Rennes</a>, who are also active in our community, waved the Jenkins flag in this event and produced <a href="https://github.com/ndeloof/docker-slaves-plugin">Jenkins docker slaves plugin</a>.</p><br/>
+<br/>
+<p><br/>
+This plugin lets you run builds inside containers, and in that sense it's similar to <a href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">the Docker plugin</a> and <a href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Custom+Build+Environment+Plugin">the Docker custom build environment plugin</a>. But internally it uses a quite interesting approach.<br/>
+</p><br/>
+<br/>
+<blockquote><br/>
+This fresh new implementation relies on a set of docker containers (aka ‘pod’) to setup a build executor, letting development team customize the build environment for their need without any constraint or prerequisite, and relying on docker containers to host test resources.</blockquote><br/>
+<br/>
+<p><br/>
+This project <a href="https://blog.docker.com/2015/09/docker-global-hack-day-3-winners/">won the 3rd place in the Freestyle category of Docker Hack Day</a>.  Congratulations to Nicolas and Yoann on their win!  Jenkins + Docker is a winning pair and this plugin will make a huge difference in your projects.</p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/3.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <a href="/node/page/3.html" class="page-link">3</a> <span class="current-page">4</span> <a href="/node/page/5.html" class="page-link">5</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/5.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
 <p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
+</div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
 </p>
-</big>
 </div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
 </div>
+</footer>
 
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/01/take-the-2015-jenkins-survey/'>
-Take the 2015 Jenkins Survey!
-</a>
-</h1>
-<div class='content'>
-<p>Just as in past years, <a href="https://www.surveymonkey.com/s/Jenkins2015">we are running a survey</a> this year, to get some objective insights into what our users would like to see in the Jenkins project. Obviously, the developers in the project deal with individual bug reports and feature requests all the time, but sometimes those day-to-day issues distract you from a bigger picture.</p>
-
-<p>This year, we kept some of the questions the same, so that we can see the trend over time. But we also wanted to bring in some questions around how you are using Jenkins and what other technologies you leverage such as Linux containers and cloud services.</p>
-
-<p>The survey will close at the end of September and, if you participate, you'll get to see the results first. CloudBees is sponsoring the survey and as an added incentive for us to fill it out, CloudBees has pitched in a $100 Amazon gift card (thanks CloudBees!). Information you submit is only going to be used by the community and not by CloudBees. So please take the survey and let your voice be heard.</p>
-
-<p><a href="http://blog.cloudbees.com/2015/09/jenkins-community-survey-your-chance-to.html">Finally, there are laws that govern prize giveaways like this and Cloudbees has put up terms and conditions for this.</a></p>
-
-<p><h2><a href="https://www.surveymonkey.com/s/Jenkins2015">Take the survey here</a></h2></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/31/plugin-spotlight-version-column-plugin/'>
-Plugin Spotlight: Version Column Plugin
-</a>
-</h1>
-<div class='content'>
-<p>Most Jenkins masters with a <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds">distributed build</a> configuration will leverage nodes that run a <code>slave.jar</code> to start a slave agent. Regardless of whether the <code>slave.jar</code> is launched through a Java Web Start or SSH launcher, the jar will be copied from <code>http://yourserver:port/jnlpJars/slave.jar</code> to the build node. Keeping this jar up to date ensures that it picks up the newest features in a more recent release, such as the <a href="http://jenkins-ci.org/content/your-java-web-start-slaves-will-be-always-clean">self-restart feature</a> to keep slave JVMs “clean” and to automatically reconnect to their master. Additionally, newer versions of this component may fix bugs or implement newer protocol versions with various improvements.</p>
-
-<h2 id="what-is-the-version-column-plugin">What is the Version Column Plugin?</h2>
-<p>Launch methods designed to pull the latest <code>slave.jar</code> <a href="https://issues.jenkins-ci.org/browse/JENKINS-16490">are not always reliable</a> and some launch methods don’t even try to update the <code>slave.jar</code>. Therefore it can be useful to see what <code>slave.jar</code> version is running on a given build node and take offline any nodes which fails to update to the latest version of the jar.</p>
-
-<p>The Version Column Plugin allows Jenkins masters to do just this, adding a new column to the “Manage Nodes” view and a new option for version enforcement on the node configuration screen.</p>
-
-<h2 id="getting-started">Getting started</h2>
-<p>After installing the Version Column Plugin, navigate to the list of nodes in your Jenkins instance by clicking <em>Build Executor Status</em> in the executors widget below the side panel on the Jenkins home page.</p>
-
-<p>If the plugin installed successfully, you will see a new column simply called “Version”. This column displays the version of the <code>slave.jar</code> that each build node is using.</p>
-
-<p><img src="/sites/default/files/images/versioncolumn-plugin-screenshot-1-2.png" alt="" /></p>
-
-<p>This column is simply displaying the versions, so enforcement of <code>slave.jar</code> versions will need to be configured elsewhere. To activate this, click on the “Configure” link in the node manager’s left-hand menu.</p>
-
-<p>You will then see a set of options for slaves. To activate version enforcement, check the “Version” box and apply your changes.</p>
-
-<p><img src="/sites/default/files/images/versioncolumn-plugin-screenshot-2.png" alt="" /></p>
-
-<p>When you update Jenkins, there’s a chance it’ll come with a new version of <code>slave.jar</code>. Now if the <code>slave.jar</code> on a particular slave doesn’t get updated automatically, the master will take it offline and show a warning next to the out-of-date slave’s version number:</p>
-
-<p><img src="/sites/default/files/images/versioncolumn-plugin-screenshot-3.png" alt="" /></p>
-
-<p>The Version Column Plugin is available for download in the Jenkins plugin manager or from <a href="https://wiki.jenkins-ci.org/display/JENKINS/VersionColumn+Plugin">its wiki page</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/31/juc-speaker-blog-series-laurette-cisneros-juc-u-s-west/'>
-JUC Speaker Blog Series: Laurette Cisneros, JUC U.S. West
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
-</div><br/>
-<br/>
-<p>Last year's <a href="https://www.cloudbees.com/event/juc/2014/san-francisco">JUC West 2014</a> was packed with good gems of information – such as "how we did it" talks where the speakers shared their points of view on the tools they use for automating their pipeline. At JUC and other conferences I especially seek out talks about how others implement their Continuous Delivery processes.   At the upcoming <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC West 2015</a>, it is my turn to share “how we did it” at Perforce. I will present my talk "Continuous Delivery: Driving Lessons” and describe our journey, the rewards we reaped, and the challenges we faced along the way.</p><br/>
- <br/>
-<p>At <a href="http://www.perforce.com/">Perforce</a>, we see Continuous Delivery as taking the proven technique of automation and expanding it to a solid set of practices that make the pipeline even more efficient. This includes empowering the product teams to own production and quality all the way from requirements to delivery, and moving from a central build and release team to a self-serve infrastructure to remove the "friction" in the workflow. These changes have allowed us to quickly, efficiently and reliably adapt our software in line with user feedback, shifts in the market, and changes to the business strategy. </p><br/>
-<br/>
-<p>I look forward to seeing you there!</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/cisneros_0.preview.jpg" width=150 height=224><br/>
-</div><br/>
-<br/>
-<p>This post is by Laurette Cisneros, Engineering Tools Manager at Perforce Software. If you have your ticket to <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend her talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-03-1500">"The Road to Continuous Delivery: Driving Lessons"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
-<br/>
-<br/><br/><br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/31/jenkins-cia-program-and-meetup-updates/'>
-Jenkins CIA Program and Meetup Updates
-</a>
-</h1>
-<div class='content'>
-<p>A few years ago, the Jenkins community announced the <a href="http://jenkins-ci.org/content/announcing-jenkins-cia">Jenkins CIA program</a> - the Continuous Integration Ambassador initiative to spread the word of Jenkins. As of recently, there hasn't been as much activity, so this program needs to be revived!</p><br/>
-<br/>
-<p>There are over 120,000 active Jenkins installations now and that number just keeps climbing and climbing. It's important to bring all of us together through big events like the Jenkins User Conference, but not everyone can get there. That is why Meetups and smaller Jenkins events are crucial.</p><br/>
-<br/>
-<p>To support this effort, CloudBees has announced that they will be sponsoring the kickoff of the CIA revival/<a href="http://jenkins-ci.org/content/bay-area-jenkins-area-meet-looking-you">JAM</a> to help the Jenkins community host these Meetups!</p><br/>
-<br/>
-<p>To kick this off, <a href="http://www.meetup.com/jenkinsmeetup/events/225059665/">the first Jenkins Area Meetup (JAM)</a> is in the San Jose CloudBees office on <strong>Sept 23</strong>. We are shooting to have a JAM everything 3rd Wednesday of every month to consistently bring the community together.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/28/juc-speaker-blog-series-jamie-omeara-juc-u-s-west/'>
-JUC Speaker Blog Series: Jamie O'Meara, JUC U.S. West
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
-</div><br/>
-<br/>
-<p><h3>Cloud Native and the benefits to Continuous Delivery (CD) Pipelines</h3></p><br/>
-<br/>
-<p>There’s a lot of discussion lately around Cloud Native. If this term is new to you, I suggest a quick read of <a href="http://www.informationweek.com/cloud/platform-as-a-service/cloud-native-what-it-means-why-it-matters/d/d-id/1321539">Cloud Native: What it Means and Why it Matters?</a> From my perspective, Cloud Native offers tremendous benefit to enterprise companies, startups and developers looking to add value quickly or capture market share. Cloud Native platforms, such as Cloud Foundry, provide a number of features to reduce the effort of developing software and operating it on or off premise. A few notable features include load balancing, application routing, cluster scheduling, and containerisation. Cloud Native also offers a significant advancement for building integrated pipelines to deliver software. Before we discuss these advancements, let’s consider the role of the container.</p><br/>
- <br/>
-<p><h4>Containers</h4></p><br/>
-<p>One of the most influential components of Cloud Native is the container. At this point, containers are fairly ubiquitous and most developers have experimented or used containers. For instance, if you've pushed an application to Cloud Foundry or Pivotal Web Services, you’ve used an container without knowing it.</p><br/>
-<br/>
-<p>Initially containers were a place to automate the deployment and execution of your code, but over time customization became necessary to handle specific use cases. As a result, container creation now occurs earlier in the development and build phase. As applications are packaged within binaries and containers, validation of the application and container configuration needs to be validated before leaving the developer’s laptop. So what does this mean for the continuous delivery (CD) pipeline?</p><br/>
-<br/>
-<p><h4>CD Pipelines</h4></p><br/>
-<p>Developers will tell you their role has expanded over the years as agile methodologies have changed the way software is engineered. Techniques like Test Driven Development (TDD) and CD pipelines encourage software teams to deliver higher quality code in every build. Of course, a good CD pipeline starts at the developer’s laptop. Building and testing the start of a pipeline requires the correct tools while preserving the developer’s choice of container.</p><br/>
- <br/>
-<p>The diagram below demonstrates a simple CD pipeline. As you can see, the pipeline starts from the developer’s IDE and uses Cloud Foundry’s  <a href="http://lattice.cf/">Lattice</a>to provide a sandbox to validate the delivery artifacts. Lattice, based on Cloud Foundry’s container scheduler, delivers a small Cloud Native Platform that can be scaled up in the cloud or scaled down to a laptop. It includes a cluster scheduler, HTTP load balancing, log aggregation and health management for containers. Best part, it offers developer choice. Lattice provides support for both Docker containers and Cloud Foundry buildpacks.</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/omeara-pic_0.png" width=600 height=366><br/>
-</div><br/>
-<br/>
-<p>Lattice’s flexibility makes it extremely easy to test how the application, which runs in a Docker container, will function in a Cloud Native environment. It’s also extremely helpful for developers engaged in a spike (prototype phase) where they want to push, validate and demonstrate code and let the platform handle the container creation, runtime environment and deployment artifacts via Cloud Foundry buildpacks.</p><br/>
-<br/>
-<p>Extending the CD pipeline beyond the developer’s laptop to deliver value to the organization will require additional tools like the <a href="https://www.cloudbees.com/products/cloudbees-jenkins-platform">CloudBees Jenkins Platform</a>, <a href="http://www.jfrog.com/artifactory/">Artifactory</a> and <a href="http://pivotal.io/platform-as-a-service/pivotal-cloud-foundry">Pivotal Cloud Foundry</a>. These enterprise build-and-deploy solutions help developers deliver to a Cloud Native platform and reduce the time to establish the feedback loop. If the enterprise maintains a Hybrid cloud strategy, these tools make it seamless to deploy across different cloud providers.</p><br/>
-<br/>
-<p>As developers build more Cloud Native applications for Cloud Native platforms, it’s important to establish good tool chains and best practices early in the development phase. Interested to see these tools in action? Join us at Jenkins User Conference West on September 2nd to learn how I use these tools to build <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-01-1400">Integrated Deployment Pipelines with Jenkins and Cloud Foundry</a>.</p><br/>
-<br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/OMeara_0.jpg" width=145 height=180><br/>
-</div><br/>
-<br/>
-<p>This post is by Jamie O'Meara, Field Engineer at Pivotal. If you have your ticket to <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-01-1400">"An Integrated Deployment Pipeline with Jenkins and Cloud Foundry"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
-<br/>
-<br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/25/announcing-the-travel-grant-program/'>
-Announcing the travel grant program
-</a>
-</h1>
-<div class='content'>
-<p>We're currently setting up a program to support community members' travel to Jenkins community events. Our goal is to enable more members of the community to meet each other and exchange ideas in person.</p>
-
-<p>We're still hashing out the details, but it'll be available to every Jenkins community member. Apply, telling us what Jenkins-related event you'd like to attend and how awesome you are, and we may support your travel with up to 500 USD. For details on how this will work, see the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Travel+Grant+Program">current draft of the travel grant program</a>.</p>
-
-<p>The first person to be supported in this way is Pradeepto Bhattacharya from Pune, India. He was <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/01-01-1400-bhattacharya">a speaker at this year's JUC Europe</a> in London, and will give <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/02-02-1400">two</a> <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/02-02-1130">talks</a> at <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC US West</a> next week—and we help him get there! He asked us a few weeks back whether the Jenkins project could support his trip to the US. We came to the conclusion that this would be a good idea—so good in fact, that we decided to build a regular program from it.</p>
-
-<p>Are you planning to attend a JUC or similar event, but worry about the cost of travel? We may be able to help you out!</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/24/juc-speaker-blog-series-kaj-kandler-juc-u-s-west/'>
-JUC Speaker Blog Series: Kaj Kandler, JUC U.S. West
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://jenkins-ci.org/sites/default/files/images/Jenkins_Butler_0.png" width=114 height=128><br/>
-</div><br/>
-<br/>
-<p><h3>Developing Enterprise-Ready Plugins</h3></p><br/>
-<br/>
-<p>My greatest surprise at JUC 2014 in Boston was how many enterprise Jenkins CI users had developed plugins for their own use. I had not pictured enterprise release managers as plugin developers. Here at <a href="https://www.blackducksoftware.com/">Black Duck Software</a>, we developed Jenkins plugins for four years running. Fabrice Solami, a sales engineer, wanted to do more than automate our code scanning tool via a shell script step in the Jenkins job. He wrote a first plugin that added a build step to run the tool and configure the job more comfortably. The plugin became quickly popular, and when customers asked for it to also support maven builds and run on slaves, it was time for help from the engineering team, particularly the integration team I lead.</p><br/>
-<br/>
-<p>Over the years we developed four more plugins and overhauled the original one with the user community (aka paying customers) growing to >75 organizations, mostly large or really large development organizations. In the process, we received lots of feedback and discovered some Jenkins features we feel are essential for good plugin design for the enterprise. Let me share these insights so that you can consider them in your plugin development.</p><br/>
-<br/>
-<p><h3>Credentials Plugin</h3></p><br/>
-<br/>
-<p>Our plugins connect to our web applications and need authentication to utilize our SDK. The first plugins used username and password fields in every job configuration. That made tedious configuration work and stores the passwords in clear text in the configuration files on disk. Ouch!</p><br/>
-<br/>
-<p>We did wise up and started using the credentials plugin to manage username/passwords centrally and securely. It even allows setting authorization roles in such a way that the maintainer of a job can use the credentials without seeing the password. With that in place, our plugins are fit for banks and insurance companies and any other security-conscious organization.</p><br/>
-<br/>
-<p><h3>Support the REST API</h3></p><br/>
-<br/>
-<p>Did you know that Jenkins talks REST? We found it to be an easy way to create and update jobs. It is a really handy tool. The REST API is easy to script for all sorts of external interactions.</p><br/>
-<br/>
-<p>However, plugins need to do a little effort to support it on their part; yet it is almost trivial to do. So from our experience it should not be left out.</p><br/>
-<br/>
-<p>We wrote a small Java program that reads, creates, updates job configurations, and can trigger job runs. It reads the jobs and commits them to a file for easy mass editing and updates the jobs afterwards.</p><br/>
- <br/>
-<p>Our internal use case is to manage regression tests. We have medium-sized lists of jobs that run regression tests. With this tooling we can create a new set of jobs for a given plugin that runs against a new target server, that is, a server version under QA. It all happens in less than 15 minutes.</p><br/>
-<br/>
-<p>We also made this part of our migration from our first plugin to its successor with all the enterprise capabilities, but incompatible configuration. Using the REST API and some more Java programs we can create a csv file / Excel spreadsheet with jobs that are configured with the previous plugin. The user can filter the list with the spreadsheet application as needed, and then use the resulting list as input to the batch upgrade tool. This makes the upgrade a gradual affair and not a tedious exercise in UI configuration changes.</p><br/>
-<br/>
-<p><h3>UpdateSites Manager Plugin</h3></p><br/>
-<br/>
-<p>If you are developing plugins for in-house use, you have the option to install/update those through file upload. However, in an enterprise you likely have multiple Jenkins servers for different divisions, development groups, or regions. The notification of updates becomes tedious at best. Wouldn’t it be nice to run your own update site, so that your plugin(s) become discoverable in the “Available” tab of the “Manage plugins” screen? Wouldn’t it be a dream if available new versions show up automatically in the “Updates” tab, including Jenkins version compatibility check?</p><br/>
-<br/>
-<p>UpdateSites Manager plugin by IKEDA Yasuyuki is the answer to your prayers. It is easy to install, and the process to create and publish an update site is not too complicated and can become part of your Jenkins job building/releasing the plugin.</p><br/>
-<br/>
-<p>In <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1400">my presentation at JUC 2015 West</a>, I’ll share more details on how this makes a difference and how you can use these techniques to make your plugins enterprise-grade. As a bonus, I’ll show you how to get a <a href="https://www.blackducksoftware.com/vulnerability-plugin">free vulnerability report</a> for your Maven or Gradle builds.</p><br/>
- <br/>
-<div style="float:left; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/Kandler_0.jpg" width=152 height=182><br/>
-</div><br/>
-<br/>
-<p>This post is by Kaj Kandler, Integration Manager atBlack Duck Software, Inc. If you have your ticket to <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">JUC U.S. West</a>, you can attend his talk <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1400">"Making Plugins that are Enterprise Ready"</a> on Day 1.</p><br/>
-<br/>
-<p><i>Still need your ticket to JUC? If you register with a friend you can get 2 tickets for the price of 1! <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Register here for a JUC U.S. West, the last JUC of the year!</a></i></p><br/>
-<br/>
-<br/><br/><br/><br/>
-<p><b>Thank you to our <a href="http://www.cloudbees.com/jenkins/juc-2015/sponsors">sponsors</a> for the 2015 Jenkins User Conference World Tour:</p></b><br/>
-<br/>
-<div style="float:left; margin:0em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/sponsors-06032015-02_0.png" width=598 height=579><br/>
-</div>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/08/20/volume-9-of-the-jenkins-newsletter-continuous-information-is-out/'>
-Volume 9 of the Jenkins Newsletter: Continuous Information is out
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/volume9_0.preview.png" width=108 height=146><br/>
-</div><br/>
-<br/>
-<p>The Jenkins Newsletter is out a bit early this quarter. If you are not signed up to receive it via email, <a href="https://pages.cloudbees.com/index.php/email/emailWebview?mkt_tok=3RkMMJWWfF9wsRoksq/LZKXonjHpfsX66%2BQqUKGzlMI/0ER3fOvrPUfGjI4FRcdjI%2BSLDwEYGJlv6SgFSrjGMbBrwLgIWhM%3D">check out Volume 9 here.</a></p><br/>
-<br/>
-<p>You will be connected to all sorts of Jenkins resources from Jenkins <a href="http://www.forest-technologies.co.uk/events/mastering-continuous-integration-with-jenkins-sep?mkt_tok=3RkMMJWWfF9wsRoksq%2FLZKXonjHpfsX66%2BQqUKGzlMI%2F0ER3fOvrPUfGjI4FRcdjI%2BSLDwEYGJlv6SgFSrjGMbBrwLgIWhM%3D">training</a> <a href="https://www.codecentric.nl/portfolio/training-workshops/mastering-continuous-integration-with-jenkins/?mkt_tok=3RkMMJWWfF9wsRoksq%2FLZKXonjHpfsX66%2BQqUKGzlMI%2F0ER3fOvrPUfGjI4FRcdjI%2BSLDwEYGJlv6SgFSrjGMbBrwLgIWhM%3D">sessions</a>, to some <a href="https://www.cloudbees.com/jenkins/juc-2015/us-west">Jenkins User Conference news</a>, to how Jenkins works with <a href="http://jenkins-ci.org/content/integrating-kubernetes-and-jenkins">Kubernetes</a> and <a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/02-01-1030">Docker.</a></p><br/>
-<br/>
-<p>I hope that you enjoy this issue! Please let me know what content you find to be the most useful, reach out to me with content that you would like to see in the next issue, and feel free to tell me how I can improve the Jenkins Newsletter: Continuous Information. You can reach out to me at continuous-information@cloudbees.com. Thanks!</p>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/3.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <a href="/node/page/3.html" class="page-link">3</a> <span class="current-page">4</span> <a href="/node/page/5.html" class="page-link">5</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/5.html" class="next-link">Next</a> </div>
-
-<div id='content-bottom'>
-</div>
-</div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
-
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
-</a>
-</div>
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

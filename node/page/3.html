@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,731 +6,709 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<div class='post'>
+<h1>
+<a href='/blog/2015/12/02/hacksgiving-left-overs/'>
+Hacksgiving Left-overs
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-12-02T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Last week we hosted our first <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015">Hacksgiving</a> event, a two-day virtual hackathon with a number of recorded sessions and plenty of pull requests submitted, <a href="https://github.com/rtyler">I</a> would say it was a success! I would like to thank everybody who took the time to watch, chat and present in the Hacker Hangout.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/hacksgiving-platter.png" /></center>
+
+<p>Now that everybody has had time to recover from the turkey and travel, we have some videos of the sessions sliced out and ready for publication.</p>
+
+<p>In addition to the recorded sessions, there were a number of notes captured with useful links associated with practically each session. You can find those notes <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-HacksgivingNotes">at the bottom of the Hacksgiving page</a>.</p>
+
+<p><em>Note:</em> The following videos are all available in this <a href="https://www.youtube.com/playlist?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2">YouTube playlist</a></p>
+
+<h3 id="intro-to-the-jenkins-project">Intro to the Jenkins project</h3>
+
+<p>This session was hosted by <a href="https://github.com/rtyler">rtyler</a> and meant to provide a cursory overview of where to get started with contributing to the Jenkins project</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/RV_VqY3H1II?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="intro-to-plugin-development-workshop">Intro to Plugin Development Workshop</h3>
+
+<p>This session was given both days of Hacksgiving by <a href="https://github.com/christ66">schristou</a> and does a really great job of introducing the viewer to getting started with developing a Jenkins plugin with Java.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eUzYZZsNBIA?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="workflow-qa-and-demo-session">Workflow Q&amp;A and Demo Session</h3>
+
+<p>This session was not originally scheduled, but some folks on the Jenkins <a href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Channel">IRC channel</a> had some <a href="https://github.com/jenkinsci/workflow-plugin">Workflow</a> questions and <a href="https://github.com/jglick">Jesse Glick</a> jumped into the Hacker Hangout to help us out!</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-b4MdGAvUz0?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="internationalization-live-coding--qa">Internationalization Live Coding / Q&amp;A</h3>
+
+<p>Another impromptu session, this time with <a href="https://github.com/daniel-beck">danielbeck</a> hosting. In this session Daniel walks through a plugin he was working on for Hacksgiving and adds internationalization support while answering a few questions here and there.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4UxVffTpf4A?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="intro-to-the-new-static-site">Intro to the new static site</h3>
+
+<p>Kicking off day two of Hacksgiving, <a href="https://github.com/rtyler">rtyler</a> hosted a session on the new <a href="https://github.com/jenkinsci/jenkins.io">statically-generated Jenkins site</a>. The new site will dramatically lower the barrier to entry for contribution to Jenkins documentation and blogs, by pushing everything through GitHub.</p>
+
+<center>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/1wMKQ70pEug?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<h3 id="plugin-developer-open-qa">Plugin Developer Open Q&amp;A</h3>
+
+<p>This was the last session of Hacksgiving, hosted by <a href="https://github.com/abayer">abayer</a> and ended up being more like a casual discussion of the current status and future work in the plugin development ecosystem.</p>
+
+<center><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/0QI-gg-AqZY?list=PLN7ajX_VdyaOX2dHsUpLGUMewG_TFdsP2" frameborder="0" allowfullscreen=""></iframe></center>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/16/celebrating-hacksgiving/'>
+Celebrating Hacksgiving!
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-16T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Next week in the US we have a national holiday where, generally speaking, lots of turkey gets converted into left-over turkey sandwiches. For many software developers the Thanksgiving holiday also represents a lull in project schedules, freeing up some time to hack on pet projects or even contribute to open source projects.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/hacksgiving-platter.png" border="0" /></center>
+
+<p>Taking a cue from the <a href="/content/adopt-plugin-0">Adopt a Plugin</a> program that <a href="https://github.com/daniel-beck">Daniel</a> wrote about earlier this month, we thought it would be fun to organize a "virtual hackathon" to coincide with that gap in project schedules. Thus <strong><a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015">Hacksgiving 2015</a></strong> was created!</p>
+
+<p>We'll be hosting Hacksgiving <strong>Nov 23rd</strong> and <strong>Nov 24</strong> from 7:00PST - 15:00PST (10:00EST - 18:00EST) and would love for you to join! (<a href="http://www.meetup.com/jenkinsmeetup/events/226735213/">RSVP here</a>)</p>
+
+<p><strong>You don't need to know Java to help!</strong> We will have documentation and design hacking going on as well.</p>
+
+<p>We have a few goals for Hacksgiving:</p>
+
+<ol>
+  <li>Introduce new contributors to the process of writing code and/or documentation (<a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Documentationhacking">documentation hacking details here</a>).</li>
+  <li>Find some plugins which <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adopt+a+Plugin#AdoptaPlugin-Whichpluginsarecurrentlyupforadoption%3F">are up for adoption</a> new maintainers.</li>
+  <li>Clean up or merge some existing plugins which need some care (<a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Pluginstocleanup">listed here</a>).
+<!--break-->
+### Sessions to note</li>
+</ol>
+
+<p>Here are some of the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Schedule">sessions scheduled</a> that will be hosted by members of community that may interest you:</p>
+
+<p><strong>Day One</strong></p>
+
+<ul>
+  <li>7:00PST/10:00EST (<em>15-30min</em>) - <a href="https://github.com/rtyler">rtyler</a> will host a welcome and introduction to contribution to the Jenkins project (walking through our <a href="https://wiki.jenkins-ci.org/display/JENKINS/Beginners+Guide+to+Contributing">contributors guide</a>)</li>
+  <li>10:00PST/13:00EST (<em>60min</em>) - <a href="https://github.com/christ66">schristou</a> will host a workshop titled "Introduction to plugin development for Jenkins"</li>
+</ul>
+
+<p><strong>Day Two</strong></p>
+
+<ul>
+  <li>10:00PST/13:00EST (<em>60min</em>) - <a href="https://github.com/abayer">abayer</a> will be hosting a "Plugin Developer Open Q&amp;A" session, so bring your questions!</li>
+</ul>
+
+<p>Hacksgiving is very <a href="https://en.wikipedia.org/wiki/Unconference">unconference</a> structured right now, so if you're interested in hosting a session please let us know in the <code>#jenkins-community</code> channel or by signing up for a session on <a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-Schedule">the schedule</a></p>
+
+<h3 id="how-to-participate">How to participate</h3>
+
+<p>Since this is a virtual hackathon, we'll be congregating and chatting in a couple of ways:</p>
+
+<ul>
+  <li>On the <code>#jenkins</code> <a href="https://wiki.jenkins-ci.org/display/JENKINS/IRC+Channel">IRC channel</a> as per usual</li>
+  <li>We'll be hosting sessions and tutorials via Google Hangouts, see the "<a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015#Hacksgiving2015-HackerHangout">hacker hangout</a>* section on the wiki page up to date details</li>
+  <li>Via the <code>#hacksgiving</code> hashtag on Twitter</li>
+</ul>
+
+<p>You can also RSVP on our <a href="http://www.meetup.com/jenkinsmeetup/events/226735213/">meetup page!</a></p>
+
+<p>We hope you can join in the festivities!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/11/new-jenkins-releases-with-important-security-fixes/'>
+New Jenkins releases with important security fixes
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-11T00:00:00+00:00
+by
+<a href="https://github.com/daniel-beck">Daniel Beck</a>
+</span>
+<div class='content'>
+<p>We just released Jenkins 1.638 and 1.625.2 which contain important security fixes, including a fix for the <a href="/content/mitigating-unauthenticated-remote-code-execution-0-day-jenkins-cli">zero-day vulnerability published on Friday</a>. Please see the <a href="https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2015-11-11">security advisory</a> for more information.</p>
+
+<p>Want to be kept up to date on Jenkins security releases, including advance notice on scheduled security updates? Subscribe to <a href="https://groups.google.com/forum/#!forum/jenkinsci-advisories">the jenkinsci-advisories mailing list</a>!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/06/october-jams/'>
+October JAMs
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-06T00:00:00+00:00
+by
+<a href="https://github.com/alyssat">Alyssa Tong</a>
+</span>
+<div class='content'>
+<div style="float:right; margin:1em">
+&lt;img src="http://jenkins-ci.org/sites/default/files/images/october-jams-image_0.jpeg" width=250/&gt;
+</div>
+
+<p>It is great to see the pick up of local activities through hosted JAMs. In October, the Jenkins community hosted <a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/">Atlanta JAM</a> and <a href="http://www.meetup.com/jenkinsmeetup/events/225860998/">Bay Area JAM</a>. Many thanks to our sponsors: <a href="http://www.ericsson.com/">Ericsson</a>, <a href="https://www.cloudbees.com/">CloudBees</a>, <a href="https://blazemeter.com/">Blazemeter</a>, <a href="https://www.netroadshow.com/nrs/wp/default.html">NetRoadShow</a>.</p>
+
+<p>Here's a summary of what was discussed:
+<ul>
+<li><a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/events/225877826/">Atlanta</a> JAM - Jenkins workflow and Docker to reduce friction in DevOps efforts.</li>
+<li><a href="http://www.meetup.com/jenkinsmeetup/events/225860998/">Bay Area</a> JAM- Performance testing strategies, incorporating performance tests into Jenkins workflows and the metrics that matter most for troubleshooting and diagnosing issues.</li></ul></p>
+
+<p>A look forward to November and December:
+<ul>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Hacksgiving+2015">Hacksgiving</a></li>
+<li><a href="http://www.meetup.com/Barcelona-Jenkins-Area-Meetup/">Barcelona, Spain JAM</a></li>
+<li><a href="http://www.meetup.com/Toulouse-Jenkins-Area-Meetup/events/226522484/?eventId=226522484">Toulouse,France JAM</a></li></ul></p>
+
+<p>As usual, if you're interested in becoming an organizer or sponsor, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">here's how to get started</a>.  If you've heard of a great Jenkins talk out there, shoot us an email with speaker info to <a href="mailto:jenkinsci-jam@googlegroups.com">jenkinsci-jam@googlegroups.com</a> so we can invite him/her to our next meetups.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/06/mitigating-unauthenticated-remote-code-execution-0-day-in-jenkins-cli/'>
+Mitigating unauthenticated remote code execution 0-day in Jenkins CLI
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-06T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p><strong>Updated 2015-11-11 15:00 UTC:</strong> We have released Jenkins 1.638 and 1.625.2 which contain a fix for this vulnerability. <a href="https://wiki.jenkins-ci.org/display/SECURITY/Jenkins+Security+Advisory+2015-11-11">See the security advisory for more information about these releases</a>.</p>
+
+<hr />
+
+<p><strong>Updated 2015-11-06 03:55 UTC:</strong> Included a updated mitigation script which doesn't have a Jenkins boot race condition</p>
+
+<hr />
+
+<p>Earlier today we received numerous reports about a previously undisclosed "<a href="https://en.wikipedia.org/wiki/Zero-day_%28computing%29">zero day</a>" critical remote code execution vulnerability and exploit in Jenkins core. Unfortunately the vulnerability was not disclosed to us ahead of its publication so we're still working on more thorough fix. In the <em>meantime</em> however, we wanted to inform you of the issue and provide a workaround which will help prevent this exploit from being used against public Jenkins installations, for future reference this issue is being tracked privately as <code>SECURITY-218</code> in our <a href="https://issues.jenkins-ci.org">issue tracker</a>.</p>
+
+<p>The attack is mounted through the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI">Jenkins CLI</a> subsystem, so the work-around is to remove/disable the CLI support inside of the running Jenkins server.</p>
+
+<p>Using the following Groovy script you can disable the attack vector in your Jenkins installations by navigating to “Manage Jenkins” and then to “Script Console”, or just go to <code>http://your-jenkins-installation/script</code>. This only addresses the current running Jenkins process, in order to make the workaround persist between restarts of the Jenkins server, add the script below to <code>$JENKINS_HOME/init.groovy.d/cli-shutdown.groovy</code> (create the directory if necessary, and the file).</p>
+
+<hr />
+
+<pre><code>import jenkins.*;
+import jenkins.model.*;
+import hudson.model.*;
+
+// disabled CLI access over TCP listener (separate port)
+def p = AgentProtocol.all()
+p.each { x -&gt;
+  if (x.name.contains("CLI")) p.remove(x)
+}
+
+// disable CLI access over /cli URL
+def removal = { lst -&gt;
+  lst.each { x -&gt; if (x.getClass().name.contains("CLIAction")) lst.remove(x) }
+}
+def j = Jenkins.instance;
+removal(j.getExtensionList(RootAction.class))
+removal(j.actions)
+</code></pre>
+
+<hr />
+<p>in order to make the workaround persist between restarts of the Jenkins server, add the script below to <code>$JENKINS_HOME/init.groovy.d/cli-shutdown.groovy</code> (create the directory if necessary, and the file).</p>
+
+<p>The latest version of this script can be found <a href="https://github.com/jenkinsci-cert/SECURITY-218">in this GitHub repository</a>.</p>
+
+<p>As previously announced on the <a href="https://groups.google.com/d/forum/jenkinsci-advisories">jenkinsci-advisories</a> mailing list we’re preparing a security release for this upcoming Wednesday which will include patches for both the latest and LTS lines of Jenkins core. The Jenkins Security team is working to include a fix for this previously undisclosed exploit in or before this planned security release.</p>
+
+<p>If you have questions about this exploit, join us in the <a href="http://webchat.freenode.net/?channels=%23jenkins&amp;uio=d4">#jenkins channel on Freenode</a> or ask on the <a href="https://groups.google.com/d/forum/jenkinsci-users">jenkinsci-users@ mailing list</a>.</p>
+
+<p>For security researchers and hobbyists, if you believe you have found a security vulnerability in Jenkins, we have some disclosure guidelines <a href="https://wiki.jenkins-ci.org/display/JENKINS/Security+Advisories">on this wiki page</a> which will help us mitigate any discovered issues as quickly and safely as possible.</p>
+
+<hr />
+
+<p>Be sure to subscribe to the jenkinsci-advisories mailing list (<a href="https://groups.google.com/d/forum/jenkinsci-advisories">jenkinsci-advisories</a>), it's the fastest way to get updates by the Jenkins Security team.</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/04/jenkins-and-docker/'>
+
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-04T00:00:00+00:00
+by
+
+</span>
+<div class='content'>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/03/what-jvm-versions-are-running-jenkins/'>
+What JVM versions are running Jenkins?
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-03T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Preceding some of last week's <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+2.0">Jenkins 2.0</a> discussions, there had been <a href="https://groups.google.com/d/msg/jenkinsci-dev/sw_WepGw0Pk/0gO2V9UXy-8J">some threads</a> on whether we should move Jenkins to require Java 8. The introduction of <a href="http://www.oracle.com/events/us/en/java8/index.html">Java 8</a> last year brought performance improvements and highly desirable API changes, which make developing Java-based applications (arguably) much easier than before. The release was followed earlier this year by the <a href="https://www.java.com/en/download/faq/java_7.xml">end-of-life announcement</a> for Java 7; the writing is on the wall: upgrade to Java 8.</p>
+
+<p>I wanted to answer the question "does it even make sense to force an upgrade to Java 8?" There are plenty of technical discussions that we can have in the community on whether or not this is the right approach, but my goal was to try and measure the current Jenkins install base for Java 8 preparedness.</p>
+
+<!--break-->
+
+<p>While we do not currently (to my knowledge) collect Java runtime versions in our <a href="http://stats.jenkins-ci.org/jenkins-stats/">anonymous usage statistics</a>, we do have access logs from our <a href="http://mirrors.jenkins-ci.org">mirror redirector</a> which might provide some insight.</p>
+
+<p>With some access logs data, I went through the millions of requests made to Jenkins infrastructure in 2015 and started filtering out the user agent which made those requests.</p>
+
+<blockquote>
+  <p><strong>NOTE:</strong> This data is totally not scientific and is only meant to provide a coarse insight into what versions of Java access Jenkins web infrastructure.</p>
+</blockquote>
+
+<p>When Jenkins hits the mirror network, it's not overriding the default user agent from the Java runtime, so many of the user agents for the HTTP request are something like <code>Java/1.7.0_75</code>. This indicates that the request came from a Java Runtime version 1.7.0 (update 75).</p>
+
+<p>Looking at the major JVM versions making (non-unique) requests to Jenkins infrastructure we have:</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/major-jvm-versions.png" /></center>
+
+<ul>
+  <li><strong>1.8.0</strong>: 21,278,960</li>
+  <li><strong>1.7.0</strong>: 27,340,214</li>
+  <li><strong>1.6.0</strong>: 4,148,833</li>
+</ul>
+
+<p>This breaks down across various updates as well, which is also particularly interesting to me because many of these Java versions have long since had security advisories posted against them.</p>
+
+<center><img src="https://agentdero.cachefly.net/continuousblog/jvm-versions-with-updates.png" width="600" /></center>
+
+<p>As I mentioned before, this is not a rigorous analysis of the access log data and is also not filtered by unique IP addresses. What I found most interesting though is that the Java 8 upgrade numbers are actually <em>fairly strong</em>, which I didn't expect. I expect that piece of the pie will continue to grow. Hopefully so much so that we're able to move over to Java 8 before the end of 2016!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2015/11/01/adopt-a-plugin/'>
+Adopt a plugin!
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2015-11-01T00:00:00+00:00
+by
+<a href="https://github.com/daniel-beck">Daniel Beck</a>
+</span>
+<div class='content'>
+<p>With more than a thousand public plugins in the Jenkins community now, it should come as no surprise that some of them are no longer actively maintained. Plugin authors move on when they change jobs, or lose interest in the plugin, and that's fine. Plugins are hosted on the Jenkins project infrastructure after all, and when a maintainer moves on, others can continue their work.</p>
+
+<p>The major problem of course is that it's often difficult to tell whether a plugin is still maintained (and there's just not a lot going on), or whether its maintainer has lost interest. Most plugins don't get released every few weeks, or even every few months, and still do their job just fine.</p>
+
+<p>To connect plugins that aren't actively maintained with potential maintainers, we recently implemented the "Adopt-a-plugin" initiative: We built a list of plugins that are up for "adoption", and display a prominent message on the plugins' wiki pages. Anyone interested in taking over as a plugin maintainer can then contact us, and we'll set you up.</p>
+
+<p>Are you interested in becoming a plugin maintainer? Maybe one of your favorite plugins isn't actively maintained right now. Check out the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Adopt+a+Plugin">Adopt a Plugin wiki page</a> for more details on this program, and a list of plugins that would benefit from your help.</p>
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/2.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="current-page">3</span> <a href="/node/page/4.html" class="page-link">4</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/4.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
 <p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
+</div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
 </p>
-</big>
 </div>
-</div>
-
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/09/cooking-up-jams/'>
-Cooking Up JAMs
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/Seville-JAM_logo_1024px_0.png" width=250/><br/>
-</div><br/>
-<br/>
-<p>There's been some active discussions and planning around <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">Jenkins Area Meetups (JAMs)</a> specifically in the following cities:<br/>
-<ul><br/>
-<li><a href="http://www.meetup.com/Rennes-Jenkins-Area-Meetup/">Rennes, France</a></li> <br/>
-<li>Seville, Spain </li><br/>
-<li>Seattle, Washington </li><br/>
-<li>Barcelona,Spain</li><br/>
-<li><a href="http://www.meetup.com/Raleigh-Jenkins-Area-Meetup/">Raleigh, North Carolina</a></li><br/>
-<li><a href="http://www.meetup.com/Atlanta-Jenkins-Meetup/">Atlanta, Georgia</a></li><br/>
-</ul></p><br/>
-<br/>
-<p>I wanted to gauge Jenkins interests in these cities, so let us know at <a href="mailto:jenkinsci-jam@googlegroups.com">jenkinsci-jam@googlegroups.com</a> if you live in one of these areas, and if you would be interested in becoming a member or be involved in JAM one way or another!</p><br/>
-<br/>
-<p>Of course, if the city you live in currently does not have a JAM and you're interested in paying it forward, <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+Area+Meetup">here's HOW YOU can become a JAM organizer.</a></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/02/winners-of-docker-global-hack-day-3-are/'>
-Winners of Docker Global Hack Day #3 are...
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/docker-hack-day_0.preview.jpg" width=320><br/>
-</div><br/>
-<br/>
-<p>Over 2,000 members of the Docker community attended <a href="https://www.docker.com/community/hackathon">Docker Hack Day</a> events around the world. One of the forty-two Docker Hacks has some familiar names attached...</p><br/>
-<br/>
-<p><a href="https://twitter.com/ndeloof">Nicolas De Loof</a> and <a href="https://twitter.com/yoanndubreuil">Yoann Dubreuil</a> from <a href="http://www.meetup.com/docker-rennes">Docker Rennes</a>, who are also active in our community, waved the Jenkins flag in this event and produced <a href="https://github.com/ndeloof/docker-slaves-plugin">Jenkins docker slaves plugin</a>.</p><br/>
-<br/>
-<p><br/>
-This plugin lets you run builds inside containers, and in that sense it's similar to <a href="https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin">the Docker plugin</a> and <a href="https://wiki.jenkins-ci.org/display/JENKINS/CloudBees+Docker+Custom+Build+Environment+Plugin">the Docker custom build environment plugin</a>. But internally it uses a quite interesting approach.<br/>
-</p><br/>
-<br/>
-<blockquote><br/>
-This fresh new implementation relies on a set of docker containers (aka ‘pod’) to setup a build executor, letting development team customize the build environment for their need without any constraint or prerequisite, and relying on docker containers to host test resources.</blockquote><br/>
-<br/>
-<p><br/>
-This project <a href="https://blog.docker.com/2015/09/docker-global-hack-day-3-winners/">won the 3rd place in the Freestyle category of Docker Hack Day</a>.  Congratulations to Nicolas and Yoann on their win!  Jenkins + Docker is a winning pair and this plugin will make a huge difference in your projects.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/10/01/upcoming-in-office-hours-jenkins-2-0/'>
-Upcoming in office hours: Jenkins 2.0
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-I hope many of you have had a chance to see <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/vbXK7JJekFw">the Jenkins 2.0 thread</a>.<br/>
-I'm going to use <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">the office hours next Wednesday</a> to go through this proposal.<br/>
-</p><br/>
-<br/>
-<p><br/>
-This is still primarily for developers in the project, as it's "just" a proposal with lots of details unspecified. It's more meant to help people understand where I'm coming from and what goals I have in mind for this effort.<br/>
-</p><br/>
-<br/>
-<p><br/>
-As always, this will be on Hangout on air. The event page is <a href="https://plus.google.com/events/co46heshe6i4io1dsaaj1h3th2c">here</a>, and if you want to participate in the discussion, join <a href="https://plus.google.com/hangouts/_/hoaevent/AP36tYfvk_ZBO4dCmxysNPfi-R5_xlkgscU-r9WDq_8zXDv6VnN3kg">here</a>. Read-only viewers should use <a href="https://www.youtube.com/watch?v=fl5xfqtiNko">YouTube</a> to watch, and you can still send questions in real time to IRC and I'll make sure to <a href="http://jenkins-ci.org/content/chat">go through them</a>.<br/>
-</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/30/bay-area-jam/'>
-Bay Area JAM
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/Screen%20Shot%202015-09-30%20at%202.15.54%20PM_0.png" width=320><br/>
-</div><br/>
-<br/>
-<p>Last week, the first <a href="http://www.meetup.com/jenkinsmeetup/events/225059665/">Jenkins Area Meetup (JAM)</a> took place in San Jose, CA on Wednesday, Sept 23.  What a way to kick off the first JAM other than to have Docker, John Willis as our guest speaker. John talked about <a href="http://www.slideshare.net/botchagalupe/devops-and-immutable-infrastructure-cloud-expo-2015-nyc">immutable infrastructure</a> and its benefits and role of containers.</p><br/>
- <br/>
-<p>Kohsuke discussed <a href="https://wiki.jenkins-ci.org/display/JENKINS/Workflow+Plugin">Jenkins Workflow</a>, the motivation behind the same and latest features of Jenkins Workflow like <a href="http://developer-blog.cloudbees.com/2015/08/workflow-19-and-multibranch-beta.html">multi branch support</a> followed by <a href="http://blog.cloudbees.com/2015/06/building-modern-real-world-software.html">docker use cases</a>. The highlight of the meetup was definitely Kohsuke breaking the news about Jenkins 2.0 and his vision and motivation behind it.</p><br/>
- <br/>
-<p>The next Bay Area JAM is slated for Oct 21. Be sure to check <a href="http://www.meetup.com/jenkinsmeetup/">HERE</a> for the agenda. We’d love to have you join us if you’re in the area.  If you’re interested in speaking, or become a food & bev, venue, or recording sponsor please send email to the organizer or <a href="mailto:events@lists.jenkins-ci.org">events@lists.jenkins-ci.org</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/29/gui-improvements-on-the-horizon/'>
-GUI improvements on the horizon
-</a>
-</h1>
-<div class='content'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LOmFXFq3Uzg" frameborder="0" allowfullscreen></iframe>
-<p>This past Thursday, September 24th, 2015, I presented a couple of prototypes of what I hope will be the future of the Jenkins GUI. Or perhaps more correctly, close enough to the future to start generating positive feedback from you the community that improving the Jenkins GUI is important and some pieces that I am showing are going in the right direction. If you have ~45 minutes to spare, I recommend the video (the narrator's voice is very soothing). If not, I offer the following as a reasonable summary.</p>
-
-<p>Jenkins has a lot of strengths as tool. Its robust user community along with its thoughtful and extensible design are two of the most immediate. They are the two pillars that have made Jenkins the leader in the CD/CI space and the de facto choice for most of us looking to automate our build and test processes. But let's face it, by today's standards, the GUI doesn't really sing. I will even go so far as to say, I believe it is a platform liability at the moment, and even among we the Jenkins faithful, few of us look forward to using it.</p>
-<p>In an effort to turn that tide, I traveled to this year's 3 main JUC events, in DC, London, and Santa Clara, pushing the idea that enhancement is possible and providing an evolving sketch of what that might look like. The three main areas of enhancement I have targeted for a first round of improvement are these:</p>
-<ul>
-<li><a href="https://youtu.be/A_lu-P0OhNQ" target="_blank">Item creation and configuration</a></li>
-<li><a href="https://www.youtube.com/watch?v=9vPUMe3lzfo" target="_blank">Plugin selection</a></li>
-<li><a href="http://youtu.be/fja9nxXcykg" target="_blank">Workflow construction</a></li>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
 </ul>
-<p>
-Soon to follow, but not yet prototyped by me would be pieces dedicated to monitoring jobs in Jenkins as well as node and resource utilization and efficiency. Rightly or wrongly, I have started with the create and configure side of the GUI, as I see it as somewhat primary in a typical job creation scenario (you have to create a job before you can monitor it), but this second piece is no less important. Sadly, lips service is all I can offer you today, but more prototypes and video demonstrations are on the way.</p>
-<h3>Item Creation and Configuration in Jenkins</h3>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/A_lu-P0OhNQ" frameborder="0" allowfullscreen></iframe>
-<p>In most use cases, item creation means creating a freestyle job, so that is what I use as my base use case example. It is important to note, however, that most configuration in Jenkins happens through a shared set of GUI components. These components are a blend of Jelly files and Javascript and can be found in the .../main/resources/lib/form directory in the Jenkins source code. In operating on these pieces, I have the opportunity to effectively enhance broad areas of the Jenkins experience, including aspects of plugin use that share these components. This greatly increases the upside of the effort as well as the possible drama and side effects, which I will go into more detail on later.</p>
-<p>As for the upside piece, the first bit of improvement I am looking to attain is breaking up the many 'toilet paper' style unbroken configuration lists sprinkled throughout Jenkins. The first example of this appears in item creation. On first installation, this issue is not immediately obvious, but if you have installed a variety of plugins or chosen to purchase CloudBee's Jenkins Enterprise product, you will find that Jenkins can have quite a few types of items to create. While they do have descriptive text, I still find them difficult to differentiate and almost impossible to casually scan. Thus, my first suggestion is to add some form of categorization to the item types. For this to function correctly, the GUI will need to be smart enough to apply the categories only when item counts are sufficient to justify them (if you only have 4 item creation types, it doesn't make sense to have 8 categories with which to sort them). But if you are a long time Jenkins user with many plugins you may also know it is possible to have more than a dozen item types. So if nothing else, an extension point that allowed for the categorization of item types seems helpful.</p>
-<p>The configuration form itself, it also can become incredibly long with few landmarks or visual differentiation points. As a remedy, I propose calling out and clearly boxing each of the existing configuration sections and making sure that their names are as meaningful as possible. As an added step, I make the sections collapsible. This allows the user to jump to specific points in the form and tuck other areas out of the way. In some cases, we can make specific sections open by link context or even by user context.</p>
-<h3>Plugin Selection</h3>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/9vPUMe3lzfo" frameborder="0" allowfullscreen></iframe>
-<p>Another essential piece of the Jenkins experience is plugin configuration. Today, if you are looking to add plugins to your Jenkins environment, you are almost certainly using Google to find a 3rd party review site, collecting the name of the plugin you want and then either linking to it on this website, or filtering for it in the Plugin Manager GUI.</p>
-<p>Neither in the product nor on this website is there a particularly good resource for comparing plugins and evaluating which you might add.</p>
-<p>Instead, I am looking to add something akin to an application store experience to both this website and the product UI. You should be able to group sort and compare plugins by a variety of criteria, including author, installation base, and user review. You should also have a set of general use categories that fits user needs and expectations, rather than the free ranging labels that plugin authors have arbitrarily applied today.</p> 
-<h3>Workflow Script Builder</h3>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/fja9nxXcykg" frameborder="0" allowfullscreen></iframe>
-<p>Finally, I have a GUI that allows for a sort of Drag-n-drop assembly of Workflows. A major tenant of the utility of Workflows as opposed to Freestyle jobs is that they can be completely separated from the Jenkins GUI and stored in a source repository. None-the-less, with absolutely no GUI, there is little to guide the user who is looking to get started without a upfront learning investment. As it turns out, a Workflow/Groovy script is pretty straight forward, but you don't really know that until you have made one. Also, Workflow allows for the orchestration of jobs across multiple nodes of hardware resources, making it a potentially involved little bit of configuration. Thus, my goal here is two fold. Allow the user to model a workflow quickly and easily and showcase a few of the more advanced features workflow enables. The result is this script builder. My hope is to host the prototype somewhere you all might be able to use it directly, but in the meantime, my hope is that my video pretty well explains how it works. Please take a <a href="https://youtu.be/fja9nxXcykg" target="_blank">look</a> and post whatever comments you see fit.</p>
-<h3>...and really send along feedback...</h3>
-<p>So with all things community related, please, please, send back whatever feedback makes sense. I can be reached via Twitter <a href="https://twitter.com/gusreiber" target="_blank">@gusreiber</a>.</p>
-<p>Other places you can find me include, IRC (freenode/#jenkins) and <a href="https://plus.google.com/+GusReiberUI" target="_blank">Google+ (https://plus.google.com/+GusReiberUI)</a>. I would love to hear from you.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h3>Questions and Answers from the talk:</h3>
-<ol><li>
-<b>How likely is it that any of these UI changes will make it into the core open source Jenkins? When would we start seeing them there?</b><br/>
-Most will be OSS. An exact schedule has not been determined, but most of it is still about a year away. Likely we will have an experimental wars for download along the way. 
 </li>
-<li><b>
-Is there anyway to determine which GUI attributes are contributed by which plugin?</b><br/>
-I take it that is a bit of a feature request? 
-It came up at JUC West as well. Should be something that can be surfaced in the GUI. I agree, it would be helpful.
-</li>
-<li><b>
-What is the difference between ANT and Jenkins?</b><br/>
-Ant is a good bit more bare-bones than Jenkins. In fact, you can add an Ant plugin to your Jenkins environment. You would typically use Ant to compile java source files. Jenkins orchestrates the fetching of the source files from some particular repository, the building of those files (often Jenkins uses Ant via its plugin to do this), running and reporting some suite of tests against that build, and then archiving or deploying the artifacts to wherever. Often times this requires navigating several computers with their own security constraints, so Jenkins helps you manage that as well.
-</li>
-<li><b>
-What version of the Jenkins it is?</b><br/>
-This isn’t available today, but I am building against 1.621-SNAPSHOT currently, but will upgrade with Jenkins to the coming December LTS.
-
-I'm interested in seeing the list of 100 plugins that you mentioned (by Daniel?)
-Me too. :^)  He and the community (which can be you if want to join IRC freenode.net/#jenkins and attend the hangouts and governance meetings: http://jenkins.ci.org )
-</li>
-<li><b>
-For IRC, I assume the server is freenode.net?</b><br/>
-Yes.
-</li>
-<li><b>
-Will there be any dashboard kind of feature for the build history in the new GUI?</b><br/>
-So far, I have been focusing on the create and configuration portion of the Jenkins UX as I see it as a barrier to entry for new users. The read/report/analyze half of the Jenkins UX I actually see as the portion with more long term value, as you tend to read more often than you write, so I am eager to jump in here as well.
-....however, in its core today, Jenkins the tool seems to me to really want to see the world in the same context of flat XML files in folders as it actually persists its configuration data. To really make meaningful dashboards, it needs to be possible to query job configurations and build artifacts by a wide set of criteria that is not at all related to the folder in which the xml file happens to be stored. Also, some of the things you care about in the Jenkins universe are compute resources (masters/slaves/exactures). These are also not the same as config files in folders and need to be queryable as their own first class type of entity.
-
-...so what I am saying with a lot of words is that I see the config piece as a somewhat more immediate and urgent fix. The broccoli of the meal, if you will. I will want to get that out as fast as possible to get it out of the way.  The reporting piece is actually the wine. At the moment, we are giving you Bartles and Jaymes in paper cups.
-
-...so a lot of work is still needed there.
-</li>
-<li><b>
-Have you investigated Google Polymer as UI components for jenkins UI?</b><br/>
-I have not, but will now. I am actually quite a google fan-boy in much the way a lot of kids love Apple. (I also love Apple… being from Seattle, I even love MS). But, for the super near term, we are most focused on getting JQuery cleanly into core and Prototype.JS deprecated. Walk first, is my feeling.
-</li>
-<li><b>
-Are there any tutorials on Jenkins workflow?</b><br/>
-Jesse Glick or KK are better people to ask about that, really. They are also on IRC: freenode.net/#jenkins. Daniel Beck as well, might be a good person to ask. My little workflow demo is still really just fiction.
-
-Will there be a 'Expand All' and 'Collapse All' buttons for the accordions in new configure GUI?  (I would probably inject one if not by default)
-Yes. Also, they should be URL controllable so that they can be set by link or user context easily. Maybe they should also remember what you had open last? ...stuff to tinker with that really needs to be right.
-</li>
-<li><b>
- What impact does the UI changes have on job configuration behind the scenes? Is configuration still stored in XML format?</b><br/>
-None. The post string stays the same and from then on, Jenkins is Jenkins.
-</li>
-<li><b>
-Can the create item screen be configurable?
-At the moment, no, but ideally yes. It is still a big hand wave at the moment about how those categories are created, managed, and updated. The same categories ought to bubble back up when searching for the plugins to help relate what plugins generate what UI. I am hoping for guidance from the community.
-
-How will workflow fit in with new UI?</b><br/>
-In some respects, the new configuration page is about enhancing the more traditional freestyle job and not workflow. However, the last bit of my presentation with the script builder is exclusively about workflow. The plugin manager is about plugins, so it would apply to both.
-</li>
-<li><b>
-How is a human notified for the wait for approval step in this workflow?</b><br/>
-So workflow approval can be done via the web GUI. But to get real notification, you would program that into your workflow Jenkins has a fairly large set of notification plugins. So you can use Jenkins to trigger email, or SMS, or HipChat, or Slack, or pretty much whatever. As these plugins are increasingly customized for workflow, you will get nice and nice workflow syntax for instantiating those actions. When my script builder is adopted, you would have a friendly button you could drag into the stage and it would notify you prior to the manual checkpoint.
-</li>
-<li><b>
-Custom plugins still supported?</b><br/>
-Yes. Though there is supported and supported. The highest level of support for a plugin would be a custom DSL for workflow that would make for streamlined syntax in workflow for interacting with that plugin via Groovy. But existing plugins do not need that level of support to be used within a Jenkins file / Groovy script. Instead, the syntax for accessing the plugin is likely to be more complicated.
-….some plugins are freestyle specific, in which case, they no longer make sense in workflow.
-….Daniel Beck or Jesse Glick are probably better suited to answering this question, however...
-</li>
-<li><b>
-Will there be an improvement in performance with docker builds, sonar scanning? From my experience sonar takes 20+ mins with jenkins plugin where as it takes 3 mins with maven plugin</b><br/>
-Is this times it is taking the GUI to render, or the actual build to run? I am not sure I am following the question exactly, but regardless, I am not well equipped to answer many questions about performance issues in Jenkins. I know of a fairly major performance issue specifically in the configuration form that I believe will be fixed in the new GUI, but that isn’t build performance, it is just form rendering performance.
-</li>
-<li><b>
-I like the graphical configuration. Thanks.  The scripting of a complex workflow looked a bit daunting.</b><br/>
-Cool. Yeah, my main and first goal is to get something out there that would allow folks to quickly sketch and deploy an actual working workflow that reasonably reflects an 80%ish use case. No GUI can ever be as fully flexible as a script, but I don’t think most people need the 95% case to get started and see the benefit of a versionable and robust config file format.
-</li>
-<li><b>
-Will there be any effort to make the UI mobile friendly for the admin on the go?</b><br/>
-Absolutely. Especially on the TBD read/reporting end of the UI, but everything new needs to meet a reasonably high bar of device responsiveness. Today, the Jenkins GUI is just not responsive. Which is terrible.
-</li>
-<li><b>
- As a plugin developer do I need to change implementing the ui source from jelly or groovy to some other language/technique or will it be compatible?</b><br/>
-So you will not NEED to change from whatever you are doing, except if you have built a plugin GUI that has custom script that either relies directly on behavior.js, hudson-behavior.js, or the particulars of the existing DOM structure (you do something in the client that requires your or some other input to be in a particular TABLE TR TD DOM traversal path). 
-...I believe 2 things are going to continue to happen at a faster and faster rate. New plugin authors are not going to want to write GUIs in Jelly and Prototype.js, but instead use some more modern client side MVC approaches like Angular, where the GUI interacts with a REST api instead of being a dom directly rendered from the server. It is a bit of a different mode of working than Jelly, and maybe slightly less direct, but it is a lot easier to find doc on how to do things with JQuery, Agile, Handlebars and the like, than it is to find doc on Jelly. And the responsiveness and breadth of gestures and controls in Jelly are already terribly behind what is now the main stream of web UI development. So I think plugin builders are, if they aren’t already, going to want better tools available to them.
-      I also think that people are going to gravitate towards workflow or something similar. Since the UI for workflow is foremost a script, making a GUI for a plugin that works with it might be a fundamentally different beast.  ...depending on what the plugin is trying to do… So again, new plugins or even upgrading existing plugins to work with workflow are likely want a new technology set, not just because the existing Jenkins GUI is changing, but because new plugins will want to do different and better stuff.
-</li>
-<li><b>
-Are there connectors for other source control tools like CVS and Dimensions?</b><br/>
-I am not sure exactly which connector plugins are already supporting Workflow or how deeply that support goes. Because Jenkins has plugins that provide access to these SCMs, you can use workflow to go and fetch those source trees. A greater level of support for workflow from these plugins would mean a more elegant workflow syntax for that interaction. At the moment, my GUI script builder is still fiction. My plan would be to add GUI buttons for whatever are the most popular SCMs and I will attempt to mask the syntax regardless of its clumsiness.
-….the way I am constructing my initial prototype, there is already a reasonably clear extension point for adding buttons that generate some chunk of Groovy syntax when it is dragged into a stage. So I will add the initial set based on community feedback and then the community can continue to add their own.
-</li>
-<li><b>
- What are the compatibility issues existing plugin developers needs to be aware of?</b><br/>
-For plugins that interact with freestyle jobs, or really most job types that aren’t workflow, plugin developers should expect the page DOM structure to change. If for whatever reason, they find they are busting into some custom script to traverse the DOM to compare 1 setting to another, that will break.
-    Also, hudson-behaviors.js itself has a number of functions in it that do DOM traversing, like “findFollowingTR”. In some cases the signatures of those functions might need to change and the DOM structure that they return might also change. If a plugin uses what were meant to have been internal functions, they are likely to break.
-    Finally, the page geometry is going to change. This may seem so superficial and obvious that, who cares, but sometimes changing a column width translates into an important part of a GUI being hidden or otherwise inaccessible. That ends up being as critical a break as any other.
-
-...so to combat these points of possible breakage, we are going to be looking for a handful somewhere between 20 and 100 plugins that we will want to test against. We haven’t made that list yet, let alone run any tests, so that is really a critical next step.
-
-For the plugin manager changes, I don’t see much if any of a braking issue, although I would like to add additional sorting and display power to the GUI, which means the GUI will need more metadata than currently exists, if the plugins want to take advantage of that new power in the GUI. This won’t break things, but plugin authors might want to go back to their plugins and fill in whatever the new bits of metadata end up being…. most likely they would be things like, richer descriptions, better category selections, and possibly icons.
-
-</li>
-<li><b>
-I've not seen a lot of Jenkins but what I had I didn't really get, was awkward for all the reasons Gus mentioned.  This looks brilliant.  When can we have it?</b><br/>
-Tom and I, and now our junior pledge, Keith (not actually junior at all, just more fit than me), are busily typing as fast as we can as well as lobbying the community that our vision is more or less a correct one. We have a very interesting initial plugin selection GUI that might make this years final LTS (which I did not demo), which is none-the-less a nice step forward for Jenkins. In it will be a lot of the JS library bundling that will enable most of what I have shown in this demo. Our hope is that with each LTS we will be able to push out an additional piece of the GUI puzzle. Likely starting with the job create and configure GUI, which would be the mid year LTS. I am hoping that a year from now this will be how Jenkins looks and acts.
-….in the meantime, we are grappling with how best to push preview releases so people can play with it and send me hate mail.
-</li>
-<li><b>
-Is there any way to test front end of Jenkins plugins? And will that improve too?</b><br/>
-A major and almost blocking portion of this work used to be the custom and somewhat broken version of HTMLUnit that was in core, which greatly hampered including libraries other than Prototype in Jenkins and writing code using those libraries in some sort of testable way. Our new approach to rebuilding the Jelly controls which are the foundation of the Jenkins config page and in general are shared by all plugins that need to post data back to Jenkins, already have a testing strategy backed into our design. Those Jelly form controls are extensible in Jenkins today and would remain so. Our hope would be that any plugin adding custom controls would follow our same design and test pattern we are building in core.
-….so that was a long answer, but the short answer YES! Today, building GUI parts into your Jenkins plugin is a bit of a mystery, where most people copy something they saw someone else did, hack it, and the only test is, well…. it worked for me. That is no good and a fundamental piece we are looking to change.
-….still a long answer… 
-Node.js and Jasmine are the specific tools we using.
-
-</li>
-<li><b>
-What's the estimated rollout date for this workflow feature?</b><br/>
-The workflow feature is the newest concept I demonstrated, but in a lot of ways may also be the easiest to ship. As a script generator, exclusively, it could be hosted anywhere, and then you just paste your generated workflow script into the whatever existing Jenkins GUI better, submit into your source code.
-
-….but at the moment, it isn’t actually on an official roadmap yet.
-Assuming the response to it remain positive, I would expect that to change fairly quickly.
-</li></ol>
-
-
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/19/office-hour-on-form-handling-in-jenkins/'>
-Office hour on form handling in Jenkins
-</a>
-</h1>
-<div class='content'>
-<p><strong>Update: This week's office hour has been canceled.</strong></p>
-
-<p><a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&amp;iso=20150923T11&amp;p1=283&amp;ah=1">This Wednesday, Sep 23, at 11 am PDT</a> I will host another office hour on <a href="http://stapler.kohsuke.org/">Stapler</a>, the web framework used in Jenkins. This time, I'll show you how structured form submission in Jenkins works, and how Stapler can help you with it.</p>
-
-<p>As usual, the office hour will use Hangout on Air, and a limited number of people will be able to join and participate. The others will be able to watch the office hour live on YouTube. <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">Links to participate and watch will be posted before the event on the Office Hours wiki page</a>.</p>
-
-<p><strong>Update: This week's office hour has been canceled.</strong></p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/07/office-hour-on-proposed-ui-ux-changes/'>
-Office hour on proposed UI/UX changes
-</a>
-</h1>
-<div class='content'>
-<p>Gus Reiber will host this week's office hour on <a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Office+Hours&amp;iso=20150909T11&amp;p1=283&amp;ah=1">Wednesday, 11 AM PDT</a>. He'll talk about some of the UI/UX improvements in Jenkins that he's working on, and will answer your questions about it.</p>
-
-<p>He's already given several talks about this, so you can check these out to learn more before the office hour:</p>
-
+<li class='area multi'>
+<h5>Solutions</h5>
 <ul>
-  <li><a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-east/02-03-1400-reiber-fennelly">JUC US East</a></li>
-  <li><a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/europe/01-02-1400-fennelly-reiber">JUC Europe</a></li>
-  <li><a href="https://www.cloudbees.com/jenkins/juc-2015/abstracts/us-west/01-02-1500">JUC US West</a></li>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
 </ul>
-
-<p>There are also some mailing list threads where he's discussing his designs with the community:</p>
-
-<ul>
-  <li><a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/6BdWZt35dTQ">February to April discussion</a></li>
-  <li><a href="https://groups.google.com/forum/#!msg/jenkinsci-dev/Tiz-LSqCJmg/3CuYzuBXJpsJ">July discussion</a></li>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
 </ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
 
-<p>The links to the Google Hangout (participate) and Youtube (watch live) <a href="https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours">will be posted to the wiki before the event</a>. If you don't get into the Hangout (limited number of participants), don't worry: You'll be able to send questions and suggestions to his <a href="https://twitter.com/gusreiber">Twitter account @gusreiber</a>.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2015/09/03/jenkins-user-conference-west-day-1/'>
-Jenkins User Conference West Day 1
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><br/>
-<img src="https://pbs.twimg.com/media/CN6MLZnUsAAj0RD.jpg" width="300" /><br/>
-</div><br/>
-<br/>
-<p><br/>
-Boy, what a day! This is the 5th annual JUC in San Francisco bay area, and the crowd is getting bigger.<br/>
-</p><br/>
-<br/>
-<p><br/>
-I brought the LEGO Jenkins + CloudBees logo mosaic that we built at the CloudBees San Jose office:</p><br/>
-<br/>
-<div align=center><br/>
-<img src="https://pbs.twimg.com/media/CN6Cid3UEAEx5xK.jpg"  width="500" /><br/>
-</div> <br/>
-<br/>
-<p><br/>
-The community booth was very busy. We have people like Dean Yu (board), Andrew Bayer (board), Mark Waite (git), Jesse Glick (workflow and core), Daniel Beck (core), Vincent Latombe (literate), Steven Christou (subversion) and Owen Mehegan (community outreach) talking to people all day long.</p><br/>
-<br/>
-<p><br/>
-If you are here, make sure to stop by, and if you are not, follow news with <a href="https://twitter.com/search?q=%23jenkinsconf">#jenkinsconf</a>.</p>
-
-</div>
-</div>
-<div class="pagination-links"><a href="/node/page/2.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="current-page">3</span> <a href="/node/page/4.html" class="page-link">4</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/4.html" class="next-link">Next</a> </div>
-
-<div id='content-bottom'>
-</div>
-</div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
-
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
-</a>
-</div>
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

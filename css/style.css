@@ -48,7 +48,7 @@ legend {
 }
 
 p {
-	margin: 15px 0;
+	margin: 10px 0;
 }
 
 a:link, a:visited {
@@ -75,8 +75,11 @@ acronym, abbr {
 	border-bottom: 1px dashed #999;
 }
 
-li{
+li {
 	margin-left:30px;
+}
+li p {
+    margin: 0;
 }
 
 .tabs li {
@@ -755,4 +758,12 @@ blockquote {
 /* Hack to show the pager properly in blocks - not pefect as it is no longer centered */
 .block .pager li {
   float:left;
+}
+
+
+/* Ensure the license shows at the far right so as not to interfere with our
+ * "improve this page" link
+ */
+#creativecommons {
+    float: right;
 }

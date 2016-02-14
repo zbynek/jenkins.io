@@ -1,14 +1,332 @@
-----
--:layout: post
--:title: LTS Changelog
--:nodeid: 312
--:created: 1307579994
--:tags:
--- general
--:author: kohsuke
-----
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
+<head>
+<title>
+LTS Changelog
+</title>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
+<meta content='Jenkins is an open source automation server' name='description'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
+</head>
+<body>
+<!-- starting partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
+</script>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
+</a>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
+</a>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
+<h3>
+LTS Release
+</h3>
+<p>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
+Wiki
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
+Issues
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
+</a>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<div class='container blog-post no-margin'>
+<div class='row body'>
+<div class='col-md-1'></div>
+<div class='col-md-7 main-content with-sidebar' id='content'>
+<div id='content-top'>
+<h1>
+<a href='/changelog-stable/' title='LTS Changelog'>
+LTS Changelog
+</a>
+</h1>
+<!-- starting partial tweetbutton.html.haml -->
+<div style='float: right; clear: all;'>
+<a class='twitter-share-button' data-lang='en' href='https://twitter.com/share'>
+Tweet
+</a>
+</div>
+
+<!-- ending partial tweetbutton.html.haml -->
+<span class='submitted'>
+Published on
+
+by
+kohsuke
+</span>
+</div>
+
+<link rel="stylesheet" TYPE="text/css" href="/changelog.css">
+<!--[if IE]>
+<style type="text/css">div.rate-offset { bottom: 0.2em !important; left: 5em !important; }</style>
+<![endif]-->
+<script type="text/javascript" src="/rate/rate.js"></script>
 <!--
 
 We record noteworthy changes in this file, which then becomes http://jenkins-ci.org/changelog
@@ -26,20 +344,10 @@ Some tips:
 - Link to bugs in the issue tracker, e-mail thread in the archive, and so on if you can.
 
 -->
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-  <title>Changelog</title>
-  <link rel="stylesheet" TYPE="text/css" href="changelog.css">
-<!--[if IE]>
-<style type="text/css">div.rate-offset { bottom: 0.2em !important; left: 5em !important; }</style>
-<![endif]-->
-  <script type="text/javascript" src="/rate/rate.js"></script>
-</head>
-<body>
 <div align="right">Legend:
     <span class="iconlegend">
-        <img src="images/rfe2.gif" alt="major RFE">major enhancement <img src="images/rfe.gif" alt="RFE">enhancement
-        <img src="images/bug2.gif" alt="major bug">major bug fix     <img src="images/bug.gif" alt="bug">bug fix
+        <img src="/images/rfe2.gif" alt="major RFE">major enhancement <img src="/images/rfe.gif" alt="RFE">enhancement
+        <img src="/images/bug2.gif" alt="major bug">major bug fix     <img src="/images/bug.gif" alt="bug">bug fix
     </span><span style="visibility:hidden">xxxxx</span>
 </div>
 
@@ -48,11 +356,11 @@ Some tips:
 Help other Jenkins users by letting the community know which releases you've used,
 and whether they had any significant issues. <br>
 Legend: <br>
- <img src="http://ci.jenkins-ci.org/images/16x16/health-80plus.gif" width="16" height="16"
+ <img src="//ci.jenkins-ci.org/images/16x16/health-80plus.gif" width="16" height="16"
   alt="Sunny"> = I use it on my production site without major issues. <br>
- <img src="http://ci.jenkins-ci.org/images/16x16/health-40to59.gif" width="16" height="16"
+ <img src="//ci.jenkins-ci.org/images/16x16/health-40to59.gif" width="16" height="16"
   alt="Cloudy"> = I don't recommend it. <br>
- <img src="http://ci.jenkins-ci.org/images/16x16/health-00to19.gif" width="16" height="16"
+ <img src="//ci.jenkins-ci.org/images/16x16/health-00to19.gif" width="16" height="16"
   alt="Lightning"> = I tried it but rolled back to a previous version. <br>
 View ratings below, and click one of the icons next to your version to provide your input.
 </div>
@@ -63,13 +371,75 @@ Upcoming changes</a>
 
 
   <div id="rc" style="display:none;">
-
-    <h3><a name=v1.625.4-rc>What's new in 1.625.4 RC</a> (2015/12/09)</h3>
+    <h3><a name=v1.642.2-rc>What's new in 1.642.2 RC</a></h3>
     <ul class=image>
-      
+      <li class="bug">
+        Don't submit usage statistics while Jenkins hasn't finished loading.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-32190">issue 32190</a>)
+      <li class="bug">
+        Performance regression when setting JDK installations.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31932">issue 31932</a>)
+      <li class="bug">
+        Renaming a node over another was possible and destroys both configurations.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31321">issue 31321</a>)
+      <li class="bug">
+        A <tt>CloudProvisioningListener</tt> can prevent provisioning of all clouds instead of just the targeted cloud.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-31219">issue 31219</a>)
+      <li class="bug">
+        <tt>GroovyHookScript</tt> needs Jenkins to be initialized but should not (for e.g. boot failure script).
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-24696">issue 24696</a>)
+      <li class="bug">
+        Don't show “termination trace” as warning in the log as it's not necessarily an error condition.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-32567">issue 32567</a>)
     </ul>
-
   </div>
+
+    <h3><a name=v1.642.1>What's new in 1.642.1</a> (2016/01/20)</h3>
+    <div><strong>No changes compared to 1.642</strong>. Notable changes since 1.625.3:</div>
+    <ul class=image>
+      <li class="major rfe">
+        Build history pagination and search.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-26445">issue 26445</a>)
+      <li class="major bug">
+        “Form too large” errors from Jetty when submitting massive forms.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-20327">issue 20327</a>)
+      <li class="rfe">
+        Allow retrying core update when the first attempt failed.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-11016">issue 11016</a>)
+      <li class="rfe">
+        Allow specifying the default TCP slave agent listener port via system property.
+        (<a href="https://github.com/jenkinsci/jenkins/commit/653fbdb65024b1b528e21f682172885f7111bba9">commit 653fbdb</a>)
+      <li class="rfe">
+        Display expected CRON run times even if a warning occurs.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-29059">issue 29059</a>)
+      <li class="rfe">
+        Add "lastCompletedBuild" job permalink.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-26270">issue 26270</a>)
+      <li class="rfe">
+        Allow case insensitive file patterns in Artifacts Archiving.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-5253">issue 5253</a>)
+      <li class="rfe">
+        Let a combobox display its drop-down when focused, so users can see candidates without entering a letter.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-26278">issue 26278</a>)
+      <li class="rfe">
+        Add safari pinned tab icon.
+        (<a href="https://groups.google.com/d/msg/jenkinsci-dev/W29LIfo2uME/fpMy_YNZCgAJ">discussion</a>) 
+      <li class="rfe">
+        Plugin Manager UI prevents users from enabling/disabling/uninstalling plugins at the "wrong" time.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-23150">issue 23150</a>)
+      <li class="rfe">
+        Do not show REST API link for pages which have no API handlers.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-29014">issue 29014</a>)
+      <li class="bug">
+        JS alert still prevented leaving a configuration page without changes.
+        (<a href="https://issues.jenkins-ci.org/browse/JENKINS-21720">issue 21720</a>)
+      <li class="rfe">
+        API:  New <tt>OptionalJobProperty</tt> class to simplify <tt>JobProperty</tt> creation.
+        (<a href="https://github.com/jenkinsci/jenkins/pull/1888">PR 1888</a>)
+      <li class="rfe">
+        API: Add get method for causes of interruption in <tt>hudson.model.Executor</tt>
+        (<a href="https://github.com/jenkinsci/jenkins/pull/1712">PR 1712</a>)
+    </ul>
 
 
 
@@ -127,7 +497,7 @@ If you're using the Maven Project type, please note that it needs to use a JDK c
 If you configure an older JDK in a Maven Project, Jenkins will attempt to find a newer JDK and use that automatically.
 If your SSH Slaves fail to start and you have the plugin install the JRE to run them, make sure to update SSH Slaves Plugin to at least version 1.10.
 </div>
- 
+
    <ul class=image>
         <li class='bug'>
     Build history text field wrap fails when containing markup
@@ -145,7 +515,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     Hudson test case leaks temp folders
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-4409'>issue 4409</a>)
   <li class='bug'>
-    Large number of build parameters for pending jobs (e.g.gerrit triggered job) can cause unwieldy build history 
+    Large number of build parameters for pending jobs (e.g.gerrit triggered job) can cause unwieldy build history
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-22311'>issue 22311</a>)
   <li class='bug'>
     "unknown format type" on console output
@@ -190,7 +560,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     Unreliable slave Plugin will offline the slave or not? what’s the meaning of “try slave reconnect of put offline”? how to use the plugin?
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-23568'>issue 23568</a>)
   <li class='bug'>
-    JDK9 with jigsaw file layer is not detected as valid JDK 
+    JDK9 with jigsaw file layer is not detected as valid JDK
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-25601'>issue 25601</a>)
   <li class='bug'>
     Basic Authentication in combination with Session is broken
@@ -336,7 +706,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     <h3><a name=v1.596.2>What's new in 1.596.2</a> (2015/03/23)</h3>
     <ul class=image>
         <li class='bug'>
-    JDK9 with jigsaw file layer is not detected as valid JDK 
+    JDK9 with jigsaw file layer is not detected as valid JDK
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-25601'>issue 25601</a>)
   <li class='bug'>
     First-time display with many Maven jobs blocked in FingerprintAction.compact
@@ -348,7 +718,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     Reflected XSS (affects IE all versions and Safari)
     (SECURITY-177)
   <li class='bug'>
-    Large number of build parameters for pending jobs (e.g.gerrit triggered job) can cause unwieldy build history 
+    Large number of build parameters for pending jobs (e.g.gerrit triggered job) can cause unwieldy build history
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-22311'>issue 22311</a>)
   <li class='bug'>
     Infinite loop with crontab "H H(19-24) * * *"
@@ -601,7 +971,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     Move DecoratedLauncher from the custom-tools plugin to the Jenkins Core
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-19454'>issue 19454</a>)
   <li class='bug'>
-    hudson.Launcher:ProcStarter::envs() may throw NPE 
+    hudson.Launcher:ProcStarter::envs() may throw NPE
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-20559'>issue 20559</a>)
   <li class='bug'>
     Resource leak in hudson.model.FileParameterValue
@@ -795,7 +1165,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     UI Redressing/ClickJacking
     (SECURITY-80)
   <li class='bug'>
-    Fail to run 'groovysh' in CLI due to insufficient permission 
+    Fail to run 'groovysh' in CLI due to insufficient permission
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-17929'>issue 17929</a>)
   <li class='bug'>
     Loading projects too slow because of File.isDirectory calls
@@ -1215,7 +1585,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     View.hasPeople too slow to use in sidepanel.jelly
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-16244'>issue 16244</a>)
   <li class='bug'>
-    XSS 
+    XSS
     (SECURITY-46)
   <li class='bug'>
     File parameter causing data lost after Jenkins restart
@@ -1268,7 +1638,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
 
     <h3><a name=v1.466.2>What's new in 1.466.2</a> (2012/09/13)</h3>
     <ul class=image>
-      
+
     </ul>
 
 
@@ -1338,21 +1708,21 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
 
     <h3><a name=v1.424.6>What's new in 1.424.6</a> (2012/03/06)</h3>
     <ul class=image>
-      
+
     </ul>
 
 
 
     <h3><a name=v1.424.5>What's new in 1.424.5</a> (2012/03/05)</h3>
     <ul class=image>
-      
+
     </ul>
 
 
 
     <h3><a name=v1.424.4>What's new in 1.424.4</a> (2012/03/05)</h3>
     <ul class=image>
-      
+
     </ul>
 
 
@@ -1419,7 +1789,7 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
     SSH public key based CLI authentication added in 1.419 is broken in 1.421+
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-10647'>issue 10647</a>)
   <li class='bug'>
-    JSONException 
+    JSONException
     (<a href='https://issues.jenkins-ci.org/browse/JENKINS-7034'>issue 7034</a>)
   <li class='bug'>
     Jenkins 1.427 doesn't work on AIX
@@ -1505,6 +1875,255 @@ If your SSH Slaves fail to start and you have the plugin install the JRE to run 
 
     </ul>
 
+</div>
+<div class='col-md-4 events' id='sidebar'>
+<!-- starting partial sidebar.html.haml -->
+<div class='content'>
+<div class='item-list'>
+<ul class='ji-date-list ji-item-list'>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Tu
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+We
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Th
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+Fr
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+<li class='post event'>
+<a class='body' href='#'>
+<div class='header time'>
+<div class='date-time'>
+<div class='date'>
+<div class='month'>
+Jan
+</div>
+<div class='day'>
+10
+</div>
+<div class='dow'>
+We
+</div>
+</div>
+<div class='time'>
+12:00pm
+</div>
+</div>
+<h5 class='title'>
+This is an event
+</h5>
+</div>
+<p class='teaser'>
+Descriptions of the events are a good thing to have, so this is an example of one of moderate size.
+<div class='more'></div>
+</p>
+</a>
+<div class='attrs'></div>
+</li>
+</ul>
+</div>
+</div>
+
+<!-- ending partial sidebar.html.haml -->
+</div>
+</div>
+</div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
+</a>
+</div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-4216293-5', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
 
 </body>
 </html>

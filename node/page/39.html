@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,602 +6,462 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
-<p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
 </a>
-</p>
-</big>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
 </div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
 </div>
 
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
+<!-- ending partial toptoolbar.html.haml -->
 <div class='post'>
 <h1>
-<a href='/blog/2010/03/23/links-for-2010-03-23/'>
-Links for 2010-03-23
+<a href='/blog/2010/06/11/casual-fridays-directing-traffic-with-hudson/'>
+Casual Fridays: Directing traffic with Hudson
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-06-11T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>While I work on some screencasts and start to get more <a href="http://blog.hudson-ci.org/category/tags/interview">"Spotlight" interviews</a> lined up, I figured it's time for a link roll-up for your Tuesday morning reading.</p>
+<p>Intrepid Hudson user Christian Pelster posted a little project of his this week to the "users" <a href="/content/mailing-lists">mailing list</a> called: <strong><a href="http://code.google.com/p/hudsontrafficlights/">hudsontrafficlights</a></strong>.</p>
 
-<ul>
-  <li>
-    <p>We caught a glimpse of a <strong><a href="http://twitpic.com/152xhr">little Java scoreboard app</a></strong> for Hudson from <a href="http://twitter.com/davefollett">@davefollett</a></p>
-  </li>
-  <li>
-    <p>Matt Patterson of <a id="aptureLink_NDKUoNYokk" href="http://reprocessed.org/">Reprocessed.org</a> wrote a great post on <strong><a href="http://reprocessed.org/blog/easy_rails_ci_with_hudson">continuous integration with Rails</a></strong> with Hudson, running both <a id="aptureLink_TIt3UZtbhZ" href="http://en.wikipedia.org/wiki/RSpec">Rspec</a> and <a id="aptureLink_U6kYCLjJtL" href="http://seleniumhq.org/">Selenium</a> tests.</p>
-  </li>
-  <li>
-    <p>At the hackathon at <a id="aptureLink_HMf1IRo7hi" href="http://twitter.com/hackerdojo">Hacker Dojo</a> on Saturday, <a id="aptureLink_fqqK3Pi1s2" href="http://twitter.com/kohsukekawa">Kohsuke</a> pointed us all to the <strong><a href="http://www.cafepress.com/hudson_ci">Hudson Cafe Press</a></strong> store, where he gets all his Hudson threads.</p>
-  </li>
-  <li>
-    <p><a id="aptureLink_GbgYQ4lgDT" href="http://twitter.com/cjadamscollier">C.J. Adams-Collier</a> seems quite pleased to have <strong><a href="http://wp.colliertech.org/cj/?p=795">builds for IronRuby back online</a></strong>, powered by Hudson.</p>
-  </li>
-  <li>
-    <p>We got a sneak-peak into the first chapter of <a id="aptureLink_mciOR3wZdP" href="http://twitter.com/wakaleo">John Ferguson Smart's</a> <strong><a href="http://www.wakaleo.com/books/continuous-integration-with-hudson-the-book">Continuous Integration with Hudson</a></strong> book.</p>
-  </li>
-  <li>
-    <p><a id="aptureLink_mbIeDJ1raQ" href="http://twitter.com/bshine">Ben Shine</a> showed off some of <strong><a href="http://wiki.hudson-ci.org/display/HUDSON/UI+Mockups">his UI mock-ups</a></strong> for Hudson.</p>
-  </li>
-</ul>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/22/hudson-1-352-released/'>
-Hudson 1.352 Released
-</a>
-</h1>
-<div class='content'>
-<p>After an exciting week that saw the rushed release of <a href="http://blog.hudson-ci.org/content/breaking-hudson-1351-released">Hudson 1.351</a> on Monday following a fairly serious regression, Hudson 1.352 was released mid-Friday with a good mix bug fixes and enhancements. Bundled with this release was another localizations drop including translations for ca, es, fi, fr, hi_IN, it, nl, ru, and sv_SE locales.<img src="http://agentdero.cachefly.net/continuousblog/hudson_neon.jpg" align="right" hspace="3" vspace="3" /> In addition to the nice fancy new community contributed translations, which you can help with by installing the <a href="http://wiki.hudson-ci.org/display/HUDSON/Translation+Assistance+Plugin">Translation Assistance plugin</a>, the 1.352 release includes the subtle enhancement of hyperlinking URLs in the console output.</p>
-
-<p>In general, 1.352 is looking like a very solid release, that said, here's the breakdown for this release:</p>
-
-<h4 id="bugs-fixed">Bugs fixed</h4>
-<p>&lt;ul class=image&gt;
-  &lt;li class=bug&gt; 
-    Fixed a file handle leak when a copy fails.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5899">issue 5899</a>)
-  &lt;li class=bug&gt; 
-    Replace '&gt;' with '_' in username, as already done for '&lt;'.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5833">issue 5833</a>)
-  &lt;li class=bug&gt; 
-    Fix <tt>editableComboBox</tt> to select item when mouse click takes more than 100ms.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2722">issue 2722</a>)
-  &lt;li class=bug&gt; 
-    Fixed NPE when configuring a view without "Regular expression".
-  &lt;li class=bug&gt; 
-    Page shouldn't scroll up when the user opens/closes a stack trace in the test failure report.
-  &lt;li class=bug&gt; 
-    Fixed a bug where Hudson can put a wrong help file link.
-    (<a href="http://n4.nabble.com/Resolution-of-help-files-in-jelly-entries-tp1592533p1592533.html">report</a>)
-  &lt;li class=bug&gt; 
-    Fixed Maven site goal archiving from slaves.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5943">issue 5943</a>)
-  &lt;li class=bug&gt; 
-    Fixed a regression with NetBeans Hudson plugin progressive console output.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5941">issue 5941</a>)
-  &lt;li class=bug&gt; 
-    Fixed a situation where a failure in plugin start up can prevent massive number of job loss. &lt;/ul&gt;</p>
-
-<p><br clear="all" />
-#### Enhancements</p>
-<ul>
-  &lt;li class=rfe&gt; 
-    Supported JBoss EAP 5.0.0 GA.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5922">issue 5922</a>)
-  &lt;li class=rfe&gt; 
-    CLI commands on protected Hudson now asks a password interactively, if run on Java6.
-  &lt;li class=rfe&gt; 
-    Added CLI 'login' and 'logout' commands so that you don't have to specify a credential
-    for individual CLI invocation. 
-  &lt;li class=rfe&gt; 
-    URLs in the console output are now hyperlinks. 
-  &lt;li class=rfe&gt; 
-    Improved the URL annotation logic.
-  &lt;li class=rfe&gt; 
-    Add drag&amp;drop support for <tt>f:repeatable</tt> lists and use this for
-    the JDK/Ant/Maven installations in global config so these can be reordered.
-  &lt;li class=rfe&gt; 
-    Integrated a new round of community-contributed localizations (ca, es, fi, fr, hi_IN, it, nl, ru, and sv_SE locales.)
-</ul>
-<!--break-->
-<p><br clear="all" />
-#### Contributors
-This release contains 63 commits, from six different contributors including our very own <a href="http://blog.hudson-ci.org/content/keeping-your-configuration-and-data-subversion">Subversion-loving</a> <a id="aptureLink_Ee9tWyJQUm" href="http://twitter.com/MikeRooney">Mike Rooney</a> (mcrooney).</p>
-
-<ul>
-  <li><a id="aptureLink_5nO4bAJUea" href="http://twitter.com/abayer">abayer</a></li>
-  <li><a id="aptureLink_k1FSSV57Pl" href="http://blogs.sun.com/jglick/">jglick</a></li>
-  <li><a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">kohsuke</a></li>
-  <li><a id="aptureLink_Ee9tWyJQUm" href="http://twitter.com/MikeRooney">mcrooney</a></li>
-  <li><a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a></li>
-  <li><a id="aptureLink_hkiotPcJud" href="http://twitter.com/ssogabe">sogabe</a></li>
-</ul>
-
-<hr />
-
-<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/19/links-for-2010-03-19/'>
-Links for 2010-03-19
-</a>
-</h1>
-<div class='content'>
-<p>It's been quite a busy week, preparing for the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson hackathon/meetup</a> which starts today, receiving requests for <a href="http://blog.hudson-ci.org/content/want-some-hudson-stickers">crazy-awesome Hudson stickers</a> and my <a href="http://apture.com">day job</a>. Regardless, I've stumbled across a few links to share in this links roll-up.</p>
-
-<ul>
-  <li><a id="aptureLink_cSreeDO5Qz" href="http://twitter.com/wakaleo">John Ferguson Smart</a> discusses some of the gotchas with <strong><a href="http://www.wakaleo.com/blog/261-migrating-hudson-build-jobs-from-one-server-to-another">migrating Hudson build jobs from one server to another</a></strong></li>
-  <li>Learned a bit about how <a id="aptureLink_7d5BsCZ7q2" href="http://twitter.com/Kim_Moir">Kim Moir</a> and the Eclipse Foundation are <strong><a href="http://relengofthenerds.blogspot.com/2010/03/better-builds-with-hudson-hardware-and.html">"building better" with Hudson</a></strong></li>
-  <li><a id="aptureLink_arZM9ZIPrz" href="http://twitter.com/dbaktiar">dbaktiar</a> gave a quick overview of <strong><a href="http://dbaktiar.wordpress.com/2010/03/17/installation-of-hudson-in-karmic-koala-ubuntu-9-10/">installing Hudson on Ubuntu Karma Koala</a></strong></li>
-</ul>
-
-<p>Looking forward even more interesting things to read next week after the hackathon and meetup here in California.</p>
-
-<hr />
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/19/get-excited-and-make-things/'>
-Get excited and make things
-</a>
-</h1>
-<div class='content'>
-<p><img src="http://agentdero.cachefly.net/continuousblog/getexcited.jpg" alt="Get excited and make things" align="right" />The day of hackery is upon us! Today is Day One of the <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">Bay Area Hudson hackathon/meetup</a>, the hacking will start at 10am today and continue until 5pm at the <a href="http://tinyurl.com/yznmdoo">Oracle Santa Clara campus</a> in the "library" conference room of SCA7 "Mansion" building. The focus today will be largely on hacking Hudson itself.</p>
-
-<h3 id="cant-attend">Can't attend?</h3>
-
-<p>Not everybody lives in the Bay Area, fortunately all of you are on the internets! There's two ways you can participate remotely in the hackathon:</p>
-
-<ul>
-  <li><strong>WebEx:</strong> <a href="https://cisco.webex.com/ciscosales/j.php?ED=136431942&amp;UID=0&amp;PW=NN2U2OTAwNzg0&amp;RT=MiM0">Meeting Number: 201 389 367, Password: hudson</a> (audio conference, app sharing, etc)</li>
-  <li><strong>IRC</strong> As always, there's the <code>#hudson</code> IRC channel on the Freenode where you can participate via text chat</li>
-</ul>
-
-<p>If you're in the Bay Area, but busy at work today, come by for <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Day Two</a> of the hackathon/meetup tomorrow (Saturday) from 10am to 6pm at <a id="aptureLink_NCAhpsucbO" href="http://hackerdojo.pbworks.com/">Hacker Dojo</a> in Mountain View!</p>
-
-<p><br clear="all" />
-### Friday Agenda</p>
-
-<p>Currently there is only one item on the agenda for Friday:</p>
-
-<ul>
-  <li><strong>Improving Client-Side Code Quality with YUI 3:</strong> A Proposal (by: <a id="aptureLink_vzcsfKPm3x" href="http://twitter.com/bshine">Benjamin Shine</a>)</li>
-</ul>
-
-<p><small><em>Image courtesy of <a href="http://www.flickr.com/photos/blackbeltjones/3365682994/">blackbeltjones</a></em></small></p>
-
-<hr />
-
-<p><strong>Update</strong>: The WebEx link for today has been corrected.</p>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/19/recap-of-hackathon-part-one/'>
-Recap of Hackathon Part One
-</a>
-</h1>
-<div class='content'>
-<p><a id="aptureLink_pnjVAv8djU" href="http://twitter.com/kohsukekawa">Kohsuke</a> just posted a brief write-up on <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/03/19/hudson-hackathon-day-1">his personal blog</a> about the first day of the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+Bay+Area+Hackathon+2.0">Bay Area Hudson hackathon/meetup</a>. He writes:</p>
+<p>Christian describes the project as:</p>
 
 <blockquote>
-  <p>Total of 9 people came and we had a great time talking about infrastructure issues, possible enhancements, design dicussions, exchanging tips and plugins that they've developed, and otherwise building personal relationships.</p>
+  <p>This Java based daemon aggregates the status of one or more jobs from a Hudson continous integration server into a single status (red, yellow, green) and invokes a shell script on status change.</p>
 </blockquote>
 
-<p>A number of folks joined us on the <code>#Hudson</code> IRC channel on <a id="aptureLink_GzNHS5pDZN" href="http://freenode.net/">Freenode</a> and the WebEx conference, participating remotely. Since day one was primarily intended for hacking on Hudson itself, we're expecting more people tomorrow when we'll have a good mix of folks hacking <strong>on</strong> Hudson, folks hacking <strong>with</strong> Hudson and plain old folks.</p>
+<p>You can use hudsontrafficlights to control a USB traffic light (such as this <a href="http://www.cleware.de/catalog/product_info.php?cPath=23&amp;products_id=118&amp;language=en">USB Traffic Light</a> from Cleware, GmbH) to give you and your colleagues nearly instant feedback on jobs in Hudson, without ever needing to leave your text editor!</p>
 
-<center><img src="http://agentdero.cachefly.net/continuousblog/HackathonDay1.jpeg" alt="The team, Day One" /></center>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2010/03/16/slaves-building-robots/'>
-Slaves building robots
-</a>
-</h1>
-<div class='content'>
-<p>A few weeks ago we covered <a href="http://blog.hudson-ci.org/content/getting-started-building-android-apps-hudson">building Android apps with Hudson</a> thanks to a very informative post by <a href="http://blog.hudson-ci.org/users/hvisser">Hugo Visser</a>, ever thought about building Android <em>itself</em> with Hudson? Sony Ericsson apparently has, Continuous Blog reader and Hudson user <a id="aptureLink_dcxEa1lrQd" href="http://www.linkedin.com/in/christopherorr">Christopher Orr</a> sent me this screen shot from his recently purchased <a href="http://www.engadget.com/2010/02/14/sony-ericsson-outs-xperia-x10-mini-and-xperia-x10-mini-pro/">Sony Ericsson Xperia X10 mini</a>, notice the "Kernel version" field.</p>
-
-<center><img src="http://agentdero.cachefly.net/continuousblog/x10-mini-hudson.png" alt="About Me on the X10 Mini" /></center>
-
-<p><br clear="all" /></p>
-
-<hr />
-
-<p>If you've got screen shots or photos spotting Hudson out in the big blue room, drop me an email at <code>tyler</code> at <code>linux dot com</code></p>
-
-<hr />
+<center><img src="http://hudsontrafficlights.googlecode.com/files/CIMG1635.JPG" width="500" alt="hudsontrafficlights in action with a Cleware Traffic Light" /></center>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/03/15/breaking-hudson-1-351-released/'>
-Breaking! Hudson 1.351 Released
+<a href='/blog/2010/06/10/subversion-repository-change-notification-push-vs-pull/'>
+Subversion repository change notification: push vs pull
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-06-10T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
-<p>Rush delivery from Hudson HQ! Hudson 1.351 just rolled out with a <strong>very</strong> important regression fix:</p>
+<p><br/>
+People often configure <a id="aptureLink_XD1hbqM4Nj" href="http://en.wikipedia.org/wiki/Hudson%20%28software%29">Hudson</a> to start a new build whenever a change is made to the repository. In fact, this is often considered central to the practice of continuous integration.<br/>
+<br/>
+<p><br/>
+There are two ways to achieve this. One is the "pull" model, where Hudson periodically reaches out to a Subversion repository to see if there is any changes. The other is the "push" model, where you make the Subversion repository reach out to Hudson.<br/>
+<br/>
+<p><br/>
+Both approaches have trade-offs. The pull model is easier to configure, since you can do this entirely from Hudson. But this comes at the expense of increased load to the Subversion server. Even though the overhead of Subversion polling is relatively low, as you add more projects to Hudson and increase the polling frequency, the overhead may get non-trivial (imagine the number of Hudson pollings that the poor <a href="http://java.net" target="_blank">java.net</a> Subversion server gets, for example.) A more serious downside, in my opinion, is that this increases the delay from your commit to a build. For example, if your build just takes 5 mins, then even if you poll every minute, you pay on average 30 seconds delay before a build starts &mdash; a 10% overhead!<br/>
+<br/>
+<p><br/>
+The push approach eliminates those two downsides, but it requires a post-commit hook configuration in the Subversion repository, which has to be done manually by the administrator, because those scripts are not exposed to external systems like Hudson.<br/>
+<br/>
+<p><br/>
+With that said, if you do have an access to the Subversion repository post-commit hook, I highly recommend the push approach, and in Hudson we made it as easy as possible to configure the set up. Here's the script you'll need in your post-commit hook:<br/>
+<br/>
+<code type="bash"><br/>
+REPOS="$1"<br/>
+REV="$2"<br/>
+UUID=`svnlook uuid $REPOS`<br/>
+/usr/bin/wget \<br/>
+  --header "Content-Type:text/plain;charset=UTF-8" \<br/>
+  --post-data "`svnlook changed --revision $REV $REPOS`" \<br/>
+  --output-document "-" \<br/>
+  http://server/hudson/subversion/${UUID}/notifyCommit?rev=$REV<br/>
+</code><br/>
+<br/>
+<p><br/>
+This script basically just tells Hudson that there was a change in a repository. Hudson will then check this information against all the jobs that have a polling configured, and schedule the builds accordingly. The beauty of this approach is two-folds:<br/>
+<br/>
+<ul><br/>
+<li>The script doesn't change when you add/remove/rename jobs.<br/>
+<li>The overhead is constant regardless of the number of jobs.<br/>
+</ul><br/>
+<br/>
+<p><br/>
+If you haven't configured a push setup yet, now is the time to do so!<br/>
 
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/06/09/welcome-to-hudson-labs/'>
+Welcome to Hudson Labs!
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-06-09T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p><img src="/sites/default/files/images/scientist.thumbnail.gif" align="right" /> Hello again! It's been a long time since I've written for the Hudson community, but now I'm back and ready to tackle some of the latest developments in the Hudson community.</p>
+
+<h3 id="what-is-hudson-labs">What is Hudson Labs?</h3>
+
+<p>As you may have <a href="http://www.hudson-labs.org/content/kohsuke-leaves-sun">read in April</a>, Kohsuke left Oracle to found <a href="http://www.infradna.com/">InfraDNA</a>, a company specializing around Hudson. The departure meant the Hudson community would no longer have access to some of the hardware and services that Kohsuke had accumulated over the years working on Hudson at Sun Microsystems. While we are still happily part of the <a href="http://java.net/">Java.net</a> community, we've recognized the need for some community-owned resources and Hudson Labs was born.</p>
+
+<p>Over the past couple months, a group within the Hudson community, "infra" (short for "infrastructure"), has been working to get machines set up and build the foundation for a more open Hudson project infrastructure.</p>
+
+<h3 id="what-does-hudson-labs-provide">What does Hudson Labs provide?</h3>
+<!--break-->
+<p>##### Builds</p>
+
+<p>One of the first tasks we set upon when building out Hudson Labs was to start improving the build and release process of Hudson by moving as much of it into a <a href="http://ci.hudson-labs.org">public Hudson instance</a>. Building Hudson itself, plugins and dependencies of the Hudson project, the Hudson Labs instance will help improve the reliability of the Hudson ecosystem across the board, and should serve as a useful tool for core and plugin developers.</p>
+
+<h5 id="mirroring">Mirroring</h5>
+
+<p>Thanks to the great team over at the <a href="http://www.osuosl.org">Oregon State University Open Source Lab</a> (<a id="aptureLink_oz4HIIQKJD" href="http://twitter.com/osuosl">OSUOSL</a>), we've been able to build out <a href="http://ftp.osuosl.org/pub/hudson/">mirroring infrastructure</a> for Hudson to provide fast access to native packages and wars alike. Currently the OSUOSL only has mirrors inside the continental United States, so we're reaching out to friends in Asia and Europe to extend the mirroring system.</p>
+
+<h5 id="information">Information</h5>
+
+<p>I'm currently working on re-working some of the blog posts you may have read over four months as more structured tutorials. I hope to provide an easily accessible knowledge-base for developing Hudson along with configuring Hudson for various platforms and development environments; this is a more difficult task so all the pieces aren't entirely in place for this just yet.</p>
+
+<p>To be honest, I'm very enthusiastic about Hudson's future. Now that InfraDNA is up and running, Kohsuke's renewed focus combined with the foundation of Hudson Labs and the uncommonly hospitable Hudson developer and user communities, the future is looking bright!</p>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/24/hudson-1-355-released/'>
+Hudson 1.355 Released
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-04-24T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p><img src="http://agentdero.cachefly.net/continuousblog/hudson_street.jpg" align="right" hspace="3" width="150" /> The release of 1.355 came out earlier this week but I hadn't had the chance to write anything up about it. Of course, the work never stops on Hudson so we almost have 1.356 ready to roll out the door, but then Kohsuke tweeted this:</p>
+
+<blockquote>
+  <p>Because of the data center migration going on, I won't be able to release #hudsonci today.</p>
+</blockquote>
+
+<p>I won't go into details on some of the infrastructure changes we have lined up just yet, so here's the breakdown of 1.355
+<!--break-->
+#### Bugs fixed
+  &lt;li class=bug&gt; 
+    Colored ball image at top of build pages was broken for Hudson in some web
+    containers (fixed by removing workaround for a Firefox bug fixed since 3.0.5/Dec2008).
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-2341">issue 2341</a>)
+  &lt;li class=bug&gt; 
+    Console page while build is running did not wrap lines when viewed in IE.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5869">issue 5869</a>)
+  &lt;li class=bug&gt; 
+    Fixed build history to indicate test failure for MavenBuild and MavenModuleSetBuild.
+  &lt;li class=bug&gt; 
+    Make <tt>dropdownList</tt> work in repeatable content, such as a build step.
+  &lt;li class=bug&gt; 
+    Fixed a bug where a job created via XML didn't properly receive upstream/downstream computation.
+    (<a href="http://n4.nabble.com/Hudson-API-td1747758.html#a1747758">report</a>)
+  &lt;li class=bug&gt; 
+    Argument masking wasn't working correctly for commands run on slaves
+    (<a href="http://n4.nabble.com/Password-masking-when-running-commands-on-a-slave-tp1753033p1753033.html">report</a>)
+&lt;/ul&gt;</p>
+
+<h4 id="enhancements">Enhancements</h4>
 <ul>
-  <li>Regression in 1.350 that can delete old build artifacts. (<a href="http://n4.nabble.com/Warning-about-Hudson-1-350-Could-delete-your-artifacts-td1593483.html">mailing list thread</a>, <a href="http://issues.hudson-ci.org/browse/HUDSON-5937">issue 5937</a>)</li>
+  &lt;li class=rfe&gt; 
+    Added the slave retention strategy based on a schedule.
+  &lt;li class=rfe&gt; 
+    Added to configure charset option of Mailer.
 </ul>
-
-<p>Sorry for the hiccup everybody, we're working pretty hard on getting a better, more stable, release process in place.</p>
 
 <hr />
 
@@ -612,108 +473,237 @@ Breaking! Hudson 1.351 Released
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2010/03/15/hudson-1-350-released/'>
-Hudson 1.350 Released
+<a href='/blog/2010/04/16/hudson-1-354-released/'>
+Hudson 1.354 Released
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2010-04-16T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
 <div class='content'>
-<p>Finishing off the second week in March, the Hudson team rolled Hudson 1.350 off the assembly line last Friday, bringing a <strong>slew</strong> of fixes. Of particular interest to users of Hudson's various native packages for <a id="aptureLink_TA4o7Z9zPa" href="http://www.crunchbase.com/company/red-hat">Red Hat</a>, <a id="aptureLink_Oxp1Nm6ywp" href="http://www.opensuse.org/">openSuSE</a>, <a id="aptureLink_60jXN9zINs" href="http://www.ubuntu.com/">Ubuntu/Debian</a> and <a id="aptureLink_H9FnLHBvke" href="http://en.wikipedia.org/wiki/Solaris%20%28operating%20system%29">Solaris</a>, was a change that suppress the "self-upgrade" functionality in the "Manage Hudson" page. On the enhancements side of the fence, the team added authentication support to the <a href="http://wiki.hudson-ci.org/display/HUDSON/Hudson+CLI">Hudson CLI</a> (<a href="http://issues.hudson-ci.org/browse/HUDSON-3796">issue 3796</a>) allowing Hudson users with locked down installations to take advantage of everything the CLI has to offer.</p>
+<p><img src="http://agentdero.cachefly.net/continuousblog/scenic_hudson.png" align="right" hspace="3" />Hear ye, hear ye! Behold, the first release of Hudson <em>ever</em> made by a not-employed-by-Sun <a id="aptureLink_7UNdgyqEaS" href="http://twitter.com/kohsukekawa">Kohsuke</a> (as we <a href="http://blog.hudson-ci.org/content/kohsuke-leaves-sun">covered last week</a>). This iteration of Hudson contains only bug fixes, check the listing below for the specifics on which bugs have been fixed (1.355 is looking like it will contain a number of fixes as well). The release of 1.354 comes slightly later than usual given some of the logistics that needed to, or still need to be resolved.</p>
 
-<p><img src="http://agentdero.cachefly.net/continuousblog/garbageman.jpg" align="right" />Internal to Hudson, some more changes from Alan Harder (a.k.a <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a>, a.k.a The Garbage Man), deprecating or otherwise removing deprecated APIs. Alan's been doing some great work on Hudson's internals, if you're coming out to <a href="http://blog.hudson-ci.org/content/meet-and-hack-alongside-kohsuke-and-co">this weekend's hackathon</a>, but sure to pat him on the back for his tireless efforts.
+<p>One of the infrastructure issues that's half-way resolved is the question of Debian/Ubuntu packages. Kohuske has packages uploaded in an experimental <a href="http://hudson-labs.org/debian/">apt repository on hudson-labs.org</a> which you can try out. That said, it's not entirely clear whether this is going to be the preferred means of distributing native Debian/Ubuntu packages in the future (your mileage may vary).
 <!--break-->
-<br clear="all" />
-#### Bug fixes
+#### Bugs fixed
 &lt;ul class=image&gt;
-  &lt;li class=bug&gt;
-    Fix handling of relative paths in alternate settings.xml path for Maven projects.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4693">issue 4693</a>)
-  &lt;li class=bug&gt;
-    Alternate settings, private repository, profiles, etc were not used in embedded Maven for
-    deploy publisher.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4939">issue 4939</a>)
-  &lt;li class=bug&gt;
-    Make <tt>editableComboBox</tt> work in repeatable content, such as a build step.
-  &lt;li class=bug&gt;
-    If content is captured using <tt>&lt;j:set var=".."&gt;..content..&lt;/j:set&gt;</tt>,
-    fixed this to use proper HTML rendering when appropriate.
-  &lt;li class=bug&gt;
-    '&lt;' and '&amp;' in the console output was not escaped since 1.349
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5852">issue 5852</a>)</p>
-<li class="major bug">
-    Fixed an <tt>AbstractMethodError</tt> in SCM polling under some circumstances.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5756">issue 5756</a>)
-  <li class="major bug">
-    Fixed a <tt>ClassCastException</tt> in the Subversion plugin - now using Subversion plugin 1.13.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-5827">issue 5827</a>)
-  &lt;li class=bug&gt;
-    The Maven Integration plugin link in the Update Center was going to a dead location.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-4811">issue 4811</a>)
-  &lt;li class=bug&gt;
-    On RPM/DEB/etc installation, don't offer the self upgrade. It should be done by the native package manager.
-    (<a href="http://n4.nabble.com/RPM-for-Hudson-1-345-does-not-Upgrade-Automatically-tp1579580p1579580.html">report</a>)
-  &lt;li class=bug&gt;
-    Fixed a possible lock up of slaves.
+  &lt;li class=bug&gt; 
+    POM parsing was still using the module root as the base for relative paths for alternate settings files.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6080">issue 6080</a>)
+  &lt;li class=bug&gt; 
+    Fix dynamic updates of build history table when <a id="aptureLink_MAx8CeZUo3" href="http://en.wikipedia.org/wiki/Cross-site%20request%20forgery">CSRF</a> protection is turned on.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6072">issue 6072</a>)
+  &lt;li class=bug&gt; 
+    Improved the error reporting mechanism in LDAP setting.
+  &lt;li class=bug&gt; 
+    Raw console output contains garbage.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6034">issue 6034</a>)
+  &lt;li class=bug&gt; 
+    Fixed a file handle leak in the slave connection.
+    (<a href="http://issues.hudson-ci.org/browse/HUDSON-6137">issue 6137</a>)
+  &lt;li class=bug&gt; 
+    Quiet period wasn't taking effect properly when doing parameterized builds.
+&lt;/ul&gt;</p>
 
+<p><br clear="all" />
+### Contributors
+The release of 1.354 contains a total of 51 commits to the "core" part of the tree, from 9 different contributors</p>
 
-<br clear="all" />
-#### Enhancements
 <ul>
-  &lt;li class=rfe&gt;
-    Added advanced option to LogRotator to allow for removing artifacts from old builds
-    without removing the logs, history, etc.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-834">issue 834</a>)
-  &lt;li class=rfe&gt;
-    Authentication support in Hudson CLI.
-    (<a href="http://issues.hudson-ci.org/browse/HUDSON-3796">issue 3796</a>)
-  &lt;li class=rfe&gt;
-    Added console annotation support to SCM polling logs.
+  <li>abayer</li>
+  <li>drulli</li>
+  <li>kohsuke</li>
+  <li>manuel_carrasco</li>
+  <li>mindless</li>
+  <li>sogabe</li>
+  <li>swiest</li>
+  <li>vlatombe</li>
+  <li>wyukawa
+<br clear="all" /></li>
 </ul>
 
+<hr />
 
-<br clear="all" />
-#### Contributors
-The 1.350 release of Hudson contains 54 commits from 6 different contributors,
+<p>You can go grab the <a href="http://hudson-ci.org/latest/hudson.war">latest .war file</a> straight from <code>hudson-ci.org</code> or if you're using a native package, use your package manager to upgrade.</p>
 
-* <a id="aptureLink_AkeTULcLLb" href="http://twitter.com/abayer">abayer</a>
-* <a id="aptureLink_k1FSSV57Pl" href="http://blogs.sun.com/jglick/">jglick</a>
-* <a id="aptureLink_YaPunVjeFQ" href="http://twitter.com/kohsukekawa">kohsuke</a>
-* manuel_carrasco
-* [mfriedenhagen](http://bitbucket.org/mfriedenhagen)
-* <a id="aptureLink_XwoYyUAc5v" href="http://blogs.sun.com/mindless">mindless</a>
-
-----
-
-You can go grab the [latest .war file](http://hudson-ci.org/latest/hudson.war) straight from `hudson-ci.org` or if you're using a native package, use your package manager to upgrade.
-
-----
-</li></li>
+<hr />
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/38.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/38.html" class="page-link">38</a> <span class="current-page">39</span> <a href="/node/page/40.html" class="page-link">40</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/40.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/16/a-new-blog-for-kohsuke/'>
+A new blog for Kohsuke
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-04-16T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>Historically, our fearless leader Kohsuke has blogged <a href="http://www.java.net/blog/kohsuke">on Java.net</a>. The setup made a whole lot of sense when Kohsuke was employed by Sun, then Oracle, which sponsors and runs <a href="http://java.net">Java.net</a>. In a post earlier this week discussing <a href="http://www.java.net/blog/kohsuke/archive/2010/04/14/hudson-console-markups">console markups</a>, Kohsuke casually pointed out that he will be cross-posting to Java.net, and his personal blog located at <a href="http://kohsuke.org">kohsuke.org</a>. The <a href="http://kohsuke.org/2010/04/12/hello/">first post</a> over on Kohsuke.org welcomes us:</p>
 
-<div id='content-bottom'>
+<blockquote>
+  <p>For the longest time I haven’t really done anything about kohsuke.org, but as I left Sun/Oracle, I decided to put a bit more effort into it. So this is the new home.</p>
+
+  <p>For the time being, I plan to post my blogs both on java.net and here.</p>
+</blockquote>
+
+<p>If you're a reader of feeds, I recommend adding the <a href="http://kohsuke.org/feed/">rss feed</a> for the blog to your list of interesting continuous integration/hacker feeds.</p>
+
+<hr />
+
 </div>
 </div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/12/pre-tested-commits-with-git/'>
+Pre-tested commits with Git
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-04-12T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p>At the first <a href="http://wiki.hudson-ci.org/display/HUDSON/BayAreaMeetup">Bay Area Hackathon</a> in mid-2009, the topic du jour was "<a href="http://wiki.hudson-ci.org/display/HUDSON/Designing+pre-tested+commit">pre-tested commits</a>." As potential implementations of the concept were discussed over burgers from <a id="aptureLink_gLlt1i6v1p" href="http://www.brickhousesf.com/">Brickhouse</a> in downtown San Francisco, we realized as a group a few things: first, those burgers were <em>delicious</em>, but more importantly: pre-testing commits is very-SCM dependent and involves a lot of moving parts. One of the positive changes that came out shortly after the meet up was the support for "Concurrent Builds", allowing a job to be executed concurrently on different slaves, a precursor to pre-tested commit support. Fervor for the pre-tested commit feature lowered as time went on, the feature being too dependent on the SCM itself was generally accepted as the reasoning behind the feature languishing.</p>
 
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
+<p>Chances are the feature is in fact too large for Hudson to support alone. It requires Hudson, the SCM and likely a third tool to work in concert together to perform such a feat.</p>
+
+<p>With Git, and the phenomenal code review tool <a href="http://code.google.com/p/gerrit/">Gerrit</a>, and the <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">Gerrit plugin</a> by intrepid plugin developer, <a href="http://twitter.com/jyrkiputtonen">Jyrki Puttonen</a>, pre-tested commits with Hudson, Git and Gerrit <em>are</em> possible.
+<!--break-->
+For Git users more familiar with the distributed Git workflows, working with Gerrit should seem familiar. Gerrit has <a id="aptureLink_MoOPmIyV3m" href="http://www.eclipse.org/jgit/">JGit</a>, a Java implementation of Git embedded within it, along with an <code>sshd</code> stack, meaning Gerrit can masquerade as a "regular" Git remote repository. Developers can push and pull to the repository just as they can with any other Git repository (provided they have permissions of course). I won't delve too much into using Gerrit specifically here, but the pre-tested workflow with Gerrit and Hudson would look something like this:</p>
+
+<ul>
+  <li>Dev creates a topic branch to work on a change</li>
+  <li>Code is written (and hopefully tested) and committed locally</li>
+  <li>Dev pushes commit(s) to Gerrit</li>
+  <li>Hudson job (set to Poll SCM) picks up the patch, runs the job and marks it as "+1 Verified" or "-1 Fails"</li>
+  <li>If the job fails or is unstable, the change should be reworked or corrected (typically with <a id="aptureLink_YL8glbfS7G" href="http://www.kernel.org/pub/software/scm/git/docs/git-rebase.html">git-rebase(1)</a>)</li>
+  <li>If Hudson says the change is good to go, it can be cherry-picked or pulled directly from Gerrit.</li>
+</ul>
+
+<p>For example:</p>
+<center><a href="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png"><img src="http://agentdero.cachefly.net/continuousblog/gerrit_patch.png" width="520" /></a></center>
+
+<p>To learn more about Gerrit, check out the <a href="http://code.google.com/p/gerrit/">project page on Google Code</a>; information on the Gerrit plugin can be <a href="http://wiki.hudson-ci.org/display/HUDSON/Gerrit+Plugin">found on the wiki</a>.</p>
+
+<hr />
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2010/04/07/kohsuke-leaves-sun/'>
+Kohsuke leaves Sun
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2010-04-07T00:00:00+00:00
+by
+<a href="https://github.com/rtyler">R. Tyler Croy</a>
+</span>
+<div class='content'>
+<p><a href="http://www.flickr.com/photos/skrb/2504160293/"><img src="http://farm3.static.flickr.com/2040/2504160293_977ddbf22d_m_d.jpg" vspace="4" hspace="4" align="right" /></a>Those of you on the <code>users@</code> or <code>dev@</code> mailing lists have likely already read that Kohsuke (<em>left in the photo</em>), the founder of the Hudson project, <a href="http://weblogs.java.net/blog/kohsuke/archive/2010/04/05/good-bye-sunoracle">is leaving Sun</a>. I say that he is leaving Sun, instead of leaving Oracle as Kohsuke worked at Sun for nine years and Oracle only a few months. In those nine years at Sun, Kohsuke has worked on some great products, the most notable of them being Hudson.</p>
+
+<p>Per Kohsuke's post:</p>
+
+<blockquote>
+  <p>Where am I heading next? I'm actually starting my own company to take Hudson to the next stage.</p>
+</blockquote>
+
+<p>What this means for Hudson still isn't certain yet, fortunately it means that Hudson will continue to have at least one full-time developer. It remains to be seen where KohsukeCorp (the name has not yet been disclosed) will focus within the Hudson code-base. For the greater user-base of Hudson, this means that the schedule for releases may slow down during this transitional period, there are some logistics to work out with Oracle regarding some of the hardware Hudson has traditionally used to host <a id="aptureLink_K18yj8JkNK" href="http://www.crunchbase.com/product/atlassian">JIRA</a>, this blog, and a number of other machines helping support the Hudson project in one fashion or another.</p>
+
+<p>The next couple of months will be interesting for the Hudson community; as per usual you'll be able to get the latest updates from this blog or the <a id="aptureLink_oaxbhP0dAz" href="http://twitter.com/hudsonci">@hudsonci</a> twitter account. I'll let Kohsuke finish this post off:</p>
+
+<blockquote>
+  <p>And finally, big thank you to everyone in the Hudson community, and in a broader java.net community. I wouldn't be here without you guys, and I feel very proud that I'm a part of it.</p>
+</blockquote>
+
+<hr />
+
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/38.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/38.html" class="page-link">38</a> <span class="current-page">39</span> <a href="/node/page/40.html" class="page-link">40</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/40.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
 </div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 

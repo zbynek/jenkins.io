@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -5,664 +6,626 @@ Jenkins Blog
 </title>
 <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'>
 <meta content='Jenkins is an open source automation server' name='description'>
-<link href='/css/style.css' media='screen' rel='stylesheet'>
+<link href='/sites/default/files/jenkins_favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<!-- starting partial scriptlinks.html.haml -->
+<link href='/assets/bower/bootstrap/css/bootstrap.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/ekko-lightbox/ekko-lightbox.min.css' media='screen' rel='stylesheet'>
+<link href='/assets/bower/tether/css/tether.min.css' media='screen' rel='stylesheet'>
+<link href='/css/font-icons.css' media='screen' rel='stylesheet'>
+<link href='/css/jenkins.css' media='screen' rel='stylesheet'>
+<script src='/assets/bower/jquery/jquery.min.js'></script>
+<script src='/assets/bower/tether/js/tether.min.js'></script>
+<script src='/assets/bower/bootstrap/js/bootstrap.min.js'></script>
+<script src='/assets/bower/ekko-lightbox/ekko-lightbox.min.js'></script>
+
+<!-- ending partial scriptlinks.html.haml -->
 </head>
 <body>
-<a href='https://github.com/jenkinsci'>
-<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
-</a>
-<div class='clearfloat' id='head'>
-<div class='clearfloat'>
-<div id='logo'>
-<a href='/' title='Jenkins'>
-<img src='/images/header_logo.png'>
-</a>
-<div id='tagline'>
-An extendable open source automation server
-</div>
-</div>
-</div>
-<!-- starting partial navbar.html.haml -->
-<div class='clearfloat' id='navbar'>
-<div id='page-bar'>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/node' title='Blog landing page'>
-Blog
-</a>
-</li>
-<li class='expanded'>
-<a href='/' title=''>
-Connect
-</a>
-<ul class='menu'>
-<li class='leaf first'>
-<a href='/content/mailing-lists' title='Browse Jenkins mailing list archives and/or subscribe to lists'>
-Mailing Lists
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/chat' title='Chat with the rest of the Jenkins community on IRC'>
-Chat
-</a>
-</li>
-<li class='leaf'>
-<a href='http://twitter.com/jenkinsci' title='Check out @jenkinsci on Twitter'>
-Twitter
-</a>
-</li>
-<li class='leaf'>
-<a href='/content/event-calendar' title='Calendar for Jenkins events'>
-Event Calendar
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Office+Hours' title='WebEx-based online meeting'>
-Office Hours
-</a>
-</li>
-<li class='leaf last'>
-<a href='https://reddit.com/r/jenkinsci' title='Check out the latest links and news on jenkinsci.reddit.com!'>
-reddit
-</a>
-</li>
-</ul>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Issue+Tracking' title='JIRA for Jenkins'>
-Bug Tracker
-</a>
-</li>
-<li class='leaf'>
-<a href='http://wiki.jenkins-ci.org/' title='Main documentation of Jenkins'>
-Wiki
-</a>
-</li>
-<li class='leaf'>
-<a href='http://ci.jenkins-ci.org/' title='Jenkins and plugins built on Jenkins'>
-CI
-</a>
-</li>
-<li class='leaf'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/Donation' title=''>
-Donation
-</a>
-</li>
-</ul>
-</div>
-</div>
-
-<!-- ending partial navbar.html.haml -->
-</div>
-<div class='clearfloat' id='page'>
-<div class='clearfloat' id='top'>
-<div id='sidebar'>
-<!-- starting partial sidebar.html.haml -->
-<div class='block block-block even' id='block-block-5'>
-<h3>
-What is Jenkins?
-</h3>
-<div class='content'>
-<p>
-In a nutshell, Jenkins is the leading open source automation server.
-Built with Java, it provides
-<strong>
-hundreds
-</strong>
-of plugins to support building, testing, deploying and automation
-virtually any project
-</p>
-</div>
-</div>
-<!-- starting partial download.html.haml -->
-<link href='/css/download.css' media='screen' rel='stylesheet'>
-<link href='/assets/bower/jquery-ui/themes/base/all.css' media='screen' rel='stylesheet'>
-<script src='/assets/bower/jquery/jquery.min.js'></script>
-<script src='/assets/bower/jquery-ui/jquery-ui.min.js'></script>
-<div class='block block-block even' id='block-block-15'>
-<h3>
-Download
-</h3>
-<div class='content'>
-<div id='download-tabs'>
-<ul class='tab-bar'>
-<li>
-<a href='#release'>
-Release
-</a>
-</li>
-<li>
-<a href='#stable'>
-Long-Term Support Release
-</a>
-</li>
-</ul>
-<div class='tab' id='release'>
-<dl>
-<dt>
-Java Web Archive (.war)
-</dt>
-<dd>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
-<strong>
-Latest:
-1.642
-</strong>
-</a>
-</div>
-<div class='release-block-small'>
-<a href='/changelog'>
-changelog
-</a>
-|
-<a href='http://mirrors.jenkins-ci.org/war/'>
-past releases
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/images/os/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/devel'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
-<tt>docker pull jenkinsci/jenkins</tt>
-</a>
-</div>
-</dd>
-</dl>
-</div>
-<div class='tab' id='stable'>
-<dl>
-<dt>Java Web Archive (.war)</dt>
-<dd style='margin-bottom:1em'>
-<div>
-<a href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
-<strong>
-Older but stable:
-1.625.3
-</strong>
-</a>
-</div>
-<div class='release-block-small' style='text-align:right'>
-<a class='release-block-soft' href='/changelog-stable'>changelog</a>
-|
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/war-stable/'>past releases</a>
-|
-<a class='release-block-soft' href='/stable-rc'>RC</a>
-</div>
-<br>
-<div style='text-align:right'>
-<a href='https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line'>
-<strong>What is LTS?</strong>
-</a>
-</div>
-</dd>
-<dt>Native packages</dt>
-<dd class='release-block-platforms'>
-<div>
-<img src='/images/os/win_other.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/windows-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-windows-installer?releaseLine=-stable')">Windows</a>
-</img>
-</div>
-<div>
-<img src='/images/os/ubuntu.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/debian-stable/'>Ubuntu/Debian</a>
-</img>
-</div>
-<div>
-<img src='/images/os/redhat.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/redhat-stable/'>Red Hat/Fedora/CentOS</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_macosx.png'>
-<a class='release-block-soft' href='http://mirrors.jenkins-ci.org/osx-stable/latest' onclick="return download('http://jenkins-ci.org/content/thank-you-downloading-os-x-installer?releaseLine=-stable')">Mac OS X</a>
-</img>
-</div>
-<div>
-<img src='/images/os/opensuse.png'>
-<a class='release-block-soft' href='http://pkg.jenkins-ci.org/opensuse-stable/'>openSUSE</a>
-</img>
-</div>
-<div>
-<img src='/sites/default/files/images/freebsd.png'>
-<a class='release-block-soft' href='http://www.freshports.org/devel/jenkins-lts'>FreeBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_openbsd.png'>
-<a class='release-block-soft' href='http://openports.se/devel/jenkins/stable'>OpenBSD</a>
-</img>
-</div>
-<div>
-<img src='/images/os/os_gentoo.png'>
-<a class='release-block-soft' href='http://code.google.com/p/godin-gentoo-repository/wiki/Jenkins'>Gentoo</a>
-</img>
-</div>
-</dd>
-</dl>
-<dt>Docker</dt>
-<dd id='release-block-platforms'>
-<div>
-<a class='release-block-soft' href='https://registry.hub.docker.com/_/jenkins/'>
-<tt>docker pull jenkins</tt>
-</a>
-</div>
-</dd>
-</div>
-</div>
-</div>
-</div>
+<!-- starting partial toptoolbar.html.haml -->
 <script>
-  $(function(){
-    if (window.location.pathname == '/changelog-stable' || window.location.pathname == '/stable-rc') {
-      $("#download-tabs").tabs({ selected: 1 });
-    } else {
-      $("#download-tabs").tabs();
-    }
-    $("#download-tabs, #download-tabs .ui-tabs-nav, #download-tabs .ui-tabs-nav > *" )
-      .removeClass( "ui-corner-all ui-corner-top" );
-  });
-  
-  function download(href) {
-    window.location = href;
-    return false;
-  }
+  $(function () {
+    $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+  })
 </script>
-<style>
-  .ui-widget { font-family: inherit !important; }
-  .ui-widget-content { color:inherit !important; }
-  .ui-widget-content .tab a { color: #D24939 !important; }
-</style>
-
-<!-- ending partial download.html.haml -->
-<!-- starting partial book.html.haml -->
-<div class='block block-block even' id='block-block-15'>
-<div class='content'>
-<center>
-<a href='http://www.wakaleo.com/books/jenkins-the-definitive-guide'>
-<img alt='Jenkins: The Definitive Guide' border='0' src='http://agentdero.cachefly.net/continuousblog/images/jenkins-cover-small.png' width='220'>
+<div id='ji-hover-layer'></div>
+<nav class='navbar navbar-dark bg-inverse' id='ji-toolbar'>
+<a class='fixed navbar-brand' href='/' id='home-logo'>
+Jenkins
 </a>
-<br>
-<a href='http://oreilly.com/catalog/0636920010326'>
-<strong>
-Buy the book!
-</strong>
+<ul class='nav navbar-nav'>
+<li class='nav-item fixed'>
+<div class='btn-group' id='download-menu'>
+<a aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown'>
+Downloads
 </a>
-</center>
-</div>
-</div>
-
-<!-- ending partial book.html.haml -->
-<!-- starting partial resources.html.haml -->
-<div class='block block-block odd' id='block-block-8'>
+<!-- starting partial downloadlist.html.haml -->
+<div class='dropdown-menu'>
+<div class='row'>
+<div class='col-md-6 text-xs-center'>
 <h3>
-Resources
+LTS Release
 </h3>
-<div class='content'>
-<big>
 <p>
-<a href='/calendar'>
-Calendar
-</a>
+LTS (Long-Term Support) releases are chosen every 12 weeks from the
+stream of regular releases as the stable release for that time period.
 </p>
 <p>
-<a href='https://wiki.jenkins-ci.org/'>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war-stable/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.642.1
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins-lts'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/stable'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse-stable/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian-stable/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer#stable'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog-stable'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war-stable/'>Past Releases</a>
+</p>
+</div>
+<div class='col-md-6 text-xs-center'>
+<h3>
+Weekly Release
+</h3>
+<p>
+A new release is produced weekly to deliver bug fixes and features to
+users and plugin developers.
+</p>
+<p>
+<div class='btn-group'>
+<a class='btn btn-primary' href='http://mirrors.jenkins-ci.org/war/latest/jenkins.war'>
+<i class='icon-box-add'>
+1.647
+.war
+</i>
+</a>
+<button aria-expanded='false' aria-haspopup='true' class='btn btn-primary dropdown-toggle' data-toggle='dropdown' data-trigger='hover'></button>
+<div class='dropdown-menu'>
+<a class='dropdown-item' href='https://registry.hub.docker.com/u/jenkinsci/jenkins/'>
+<span class='icon'></span>
+<span class='title'>
+Docker
+</span>
+</a>
+<a class='dropdown-item' href='http://www.freshports.org/devel/jenkins'>
+<span class='icon'></span>
+<span class='title'>
+FreeBSD
+</span>
+</a>
+<a class='dropdown-item' href='https://packages.gentoo.org/packages/dev-util/jenkins-bin'>
+<span class='icon'></span>
+<span class='title'>
+Gentoo
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-os-x-installer'>
+<span class='icon'></span>
+<span class='title'>
+Mac OS X
+</span>
+</a>
+<a class='dropdown-item' href='http://openports.se/devel/jenkins/devel'>
+<span class='icon'></span>
+<span class='title'>
+OpenBSD
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/opensuse/'>
+<span class='icon'></span>
+<span class='title'>
+openSUSE
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/redhat/'>
+<span class='icon'></span>
+<span class='title'>
+Red Hat/Fedora/CentOS
+</span>
+</a>
+<a class='dropdown-item' href='http://pkg.jenkins-ci.org/debian/'>
+<span class='icon'></span>
+<span class='title'>
+Ubuntu/Debian
+</span>
+</a>
+<a class='dropdown-item' href='/content/thank-you-downloading-windows-installer'>
+<span class='icon'></span>
+<span class='title'>
+Windows
+</span>
+</a>
+</div>
+</div>
+</p>
+<p class='details'>
+<a class='item' href='/changelog'>Changelog</a>
+|
+<a class='item' href='http://mirrors.jenkins-ci.org/war/'>Past Releases</a>
+</p>
+</div>
+</div>
+</div>
+
+<!-- ending partial downloadlist.html.haml -->
+</div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/events'>
+Events
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://wiki.jenkins-ci.org/'>
 Wiki
 </a>
-</p>
-<p>
-<a href='https://issues.jenkins-ci.org/'>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='https://issues.jenkins-ci.org/'>
 Issues
 </a>
-</p>
-<p>
-<a href='http://ci.jenkins-ci.org/'>
-Jenkins-on-Jenkins
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/doc'>
+Documentation
 </a>
-</p>
-</big>
+</li>
+<li class='nav-item dropdown'>
+<a aria-expanded='false' aria-haspopup='true' class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button'>
+Use-cases
+</a>
+<div class='dropdown-menu'>
+<a class='dropdown-item feature' href='/solutions/android/' title='Jenkins and Android'>
+Android
+</a>
+<a class='dropdown-item feature' href='/solutions/c/' title='Jenkins and C/C++'>
+C/C++
+</a>
+<a class='dropdown-item feature' href='/solutions/pipeline/' title='Pipeline as Code with Jenkins'>
+Continuous Delivery
+</a>
+<a class='dropdown-item feature' href='/solutions/docker/' title='Jenkins and Docker'>
+Docker
+</a>
+<a class='dropdown-item feature' href='/solutions/embedded/' title='Jenkins in Embedded World'>
+Embedded
+</a>
+<a class='dropdown-item feature' href='/solutions/github/' title='Jenkins with GitHub'>
+GitHub
+</a>
+<a class='dropdown-item feature' href='/solutions/java/' title='Jenkins and Java'>
+Java
+</a>
+<a class='dropdown-item feature' href='/solutions/python/' title='Jenkins and Python'>
+Python
+</a>
+<a class='dropdown-item feature' href='/solutions/ruby/' title='Jenkins and Ruby'>
+Ruby
+</a>
 </div>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/press'>
+Press
+</a>
+</li>
+<li class='nav-item'>
+<a class='nav-link' href='/conduct'>
+Conduct
+</a>
+</li>
+</ul>
+<form action='/app/' class='search form-inline navbar-form pull-right text-xs-right'>
+<div class='form-group'>
+<div class='input-group'>
+<input class='form-control' name='q' placeholder='search' type='text'>
+<button class='input-group-addon btn btn-default' type='submit'>
+<i class='icon-search'></i>
+</button>
+</div>
+</div>
+</form>
+</nav>
+<div id='ji-toolbar-offset'></div>
+<div id='ji-top-peg'>
+<a href='https://github.com/jenkinsci' id='ji-fork-tag'>
+<img alt='Fork us on GitHub' src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style='position: absolute; top: 0; right: 0; border: 0;'>
+</a>
 </div>
 
-<!-- ending partial resources.html.haml -->
-
-<!-- ending partial sidebar.html.haml -->
-</div>
-<div class='main-content with-sidebar' id='content'>
-<div id='content-top'>
+<!-- ending partial toptoolbar.html.haml -->
 <div class='post'>
 <h1>
-<a href='/blog/2014/04/16/active-directory-plugin-improvements/'>
-Active Directory plugin improvements
+<a href='/blog/2014/06/16/get-together-at-beer-garden-for-juc-berlin/'>
+Get together at beer garden for JUC Berlin
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2014-06-16T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
 <div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Active_Directory"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Active-directory.svg/170px-Active-directory.svg.png"><br/>
-</a><br/>
+<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/-_Beer_garden_sign_-_Germany_-.jpg/160px--_Beer_garden_sign_-_Germany_-.jpg"><br/>
 </div><br/>
 <br/>
 <p><br/>
-One of the few plugins that I still personally maintain is <a href="https://wiki.jenkins-ci.org/display/JENKINS/Active+Directory+plugin">Active Directory plugin</a>. In the past few months, I've been making steady improvements in this plugin, thanks to various inputs and bug reports given to me from the ClodBees customers.<br/>
+There'll be a number of active community people in the event, so let's take advantages of that and meet up. And there's no better place to do it than a beer garden in summer!<br/>
 <br/>
 <p><br/>
-One of the recent fixes was to get <a href="http://issues.jenkins-ci.org/browse/JENKINS-9258">the "remember me" feature</a> finally working for Active Directory. This requires a relatively new Jenkins 1.556, but it eliminates the need to having to constantly type the password in. <br/>
+If you are coming to <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">JUC Berlin</a>, I've just set up <a href="http://www.meetup.com/jenkinsmeetup/events/189413622/">an RSVP page for a beer garden get together the day before</a>, and <a href="http://www.meetup.com/jenkinsmeetup/events/189405872/">another dinner afterward</a>.<br/>
 <br/>
 <p><br/>
-Then I've rebumped the version of <a href="http://github.com/kohsuke/com4j">COM4J</a>, which was <a href="http://issues.jenkins-ci.org/browse/JENKINS-16429">causing a thread leak</a> when Jenkins runs on Windows. If you are running a Windows deployment with lots of active users, this probably would have contributed to the instability of Jenkins.<br/>
-<br/>
-<p><br/>
-And then lastly, a small but crucial improvement was made to the way we search group membership, so that we can avoid recursively searching AD. This should result in a significant speed improvement when you are logging into Jenkins through AD.<br/>
-<br/>
-<p><br/>
-The latest version of the plugin as of writing is 1.37. I hope you'll have a chance to update the plugin soon.<br/>
+Looking forward to seeing you!
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/04/15/upcoming-jenkins-office-hours-acceptance-test-harness/'>
-Upcoming Jenkins Office Hours: Acceptance Test Harness
+<a href='/blog/2014/06/11/juc-speaker-sneakpeak-a-build-ecosystem-for-loosely-compiled-code/'>
+JUC speaker sneakpeak: A build ecosystem for loosely compiled code
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2014-06-11T00:00:00+00:00
+by
+lisawells
+</span>
+<div class='content'>
+<div class="content"><br/>
+    <div style="float:right; margin:1em"><br/>
+  <a href="http://www.cloudbees.com/jenkins/juc-2014/boston/speakers#ForestHandford"><br /><br/>
+    <img src="http://jenkins-ci.org/sites/default/files/images/Forest_Handford_0.preview.jpg" width=240 height=320 /><br /><br/>
+  </a><br/>
+</div><br/>
+<br/>
+<i>We're getting excited about the Boston and Berlin JUC's in the next two weeks! Here's a preview of Forest Handford's upcoming JUC-US East Lightning Talk on June 18...</i><br/>
+<br/>
+When <a href="http://home.meditech.com/en/d/home/">MEDITECH</a> migrated to Subversion from a home-grown first generation version control system we needed a way to get the code compiled and sent to the running server. We selected Jenkins as our build server, with the hope of eventually using it for CI.<br/>
+<br/>
+A MEDITECH application consists of hundreds of source files. Each source file translates to an object code file that the interpreter executes. This is one of the last major projects I worked on prior to leaving MEDITECH to work at Carbonite. In my Lightning Talk, "A Build Eco-System for Loosely Compiled Code," I'll discuss the toughest challenges my team had in getting Jenkins to work as our build server and how we eventually overcame them.<br/>
+<br/>
+Staff from both <a href="http://www.carbonite.com">Carbonite</a> and MEDITECH will be in attendance. Both companies are hiring!<br/>
+<br/>
+<i>You'll find more great talks in the full <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">JUC-US East</a> agenda and the <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">JUC-Europe</a> agenda. </i>
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/10/two-weeks-till-jenkins-user-conference-berlin/'>
+Two Weeks Till Jenkins User Conference Berlin
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-06-10T00:00:00+00:00
+by
+lisawells
+</span>
+<div class='content'>
+Following right on the heels of our <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">US-East Jenkins User Conference in Boston</a>, we have JUC Europe in Berlin on June 25. Like the East Coast conference, the Berlin one is almost full, so <a href="http://www.eventbrite.com/e/jenkins-user-conference-europe-berlin-june-25-2014-tickets-10557974185">sign up while you can.</a><br/>
+<br/>
+Our venue in Berlin is <a href="http://www.kosmos-berlin.de/en/home.html">KOSMOS</a>, a building with <a href="http://www.kosmos-berlin.de/en/history.html">a fascinating history</a>. The building was inaugurated as a cinema in 1961. With 1001 seats, it was the largest, most modern and most popular film theatre in the former GDR and has since been extensively modernized in line with the requirements of historically listed buildings. <br/>
+<br/>
+We have <a href="http://www.cloudbees.com/jenkins/juc-2014/berlin">an excellent line-up of speakers</a> filling up two conference tracks.<br/>
+<br/>
+Once again, we have some fabulous sponsors to thank. Without them, there would be no JUC.<br/>
+<br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/JUC-Berlin-Sponsors.png" /> <br/>
+<br/>
+This year we’ve introduced a new Community sponsorship level, which allows non-corporate groups like JUGSs to help support the conference as well. (Drop a note to juc-oc-ext AT cloudbees DOT com if your group is interested).<br/>
+<br/>
+We are very grateful to all of our sponsors – thank you! Hopefully see everyone at JUC.<br/>
+<br/>
+PS – if you are coming to Berlin for JUC, check out the <a href="http://www.cloudbees.com/cdsummit/berlin">CD Summit on June 24</a> at the same venue. There’s also <a href="http://www.cloudbees.com/cdsummit/nyc">one on June 19 in NYC</a>. The summit will focus on how continuous integration with Jenkins streamlines processes and automates testing and deployment, providing the foundation you need for continuous delivery.
+
+</div>
+</div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/09/thinking-about-moving-on-to-servlet-3-0/'>
+Thinking about moving on to Servlet 3.0
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-06-09T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
 <div style="float:right; margin:1em"><br/>
-<img src="http://clsdf.com/wp-content/uploads/2011/06/tumblr_lkzltkxTmF1qersu1.gif" style="width:100px"><br/>
-</div><br/>
-<p><br/>
-One of the new efforts in Jenkins this year is <a href="https://github.com/jenkinsci/acceptance-test-harness">the acceptance test harness</a> for Jenkins.<br/>
-<br/>
-<p><br/>
-We will be doing the Jenkins office hours next week to go over this and sync up and coordinate between people in the community that are trying to work on this. <br/>
-<br/>
-<p><br/>
-It'll be <b>April 23rd 11am PT</b> (<a href="http://www.timeanddate.com/worldclock/fixedtime.html?msg=Jenkins+Governance+Meeting&iso=20140423T11&p1=224&ah=1&sort=1">see what this time is in your time zone</a>) on Google Hangout at <a href="http://jenkins-ci.org/hangout">http://jenkins-ci.org/hangout</a>. If you are intereste in hacking Jenkins or if you are a large user of Jenkins who have acceptance tests, we are looking forward to seeing you there.<br/>
-<br/>
-<p><br/>
-For those of you who haven't looked, this test harness allows you to write blackbox tests of Jenkins and its plugins. It was originally used to test LTS releases, but over the time, it acquired a number of features, such as ...:<br/>
-<br/>
-<ul><br/>
-<li>Docker support for launching complex fixtures to test Jenkins with.<br/>
-<li>Pluggability to launch Jenkins under test (JUT) in many different environments<br/>
-<li>Pluggability to provision Jenkins and slaves from EC2 to test large deployments<br/>
-<li>Choice of cucumber or JUnit to write test scripts<br/>
-</ul><br/>
-<br/>
-<p><br/>
-We are working on porting over existing test cases, but we'd like to work with users to move their acceptance tests on top of this same harness. The idea is to pool those test cases in the community so that we can test Jenkins and its plugins as we develop them. For this to work, we want tests to have lots of metadata (such as what plugins it touches), and for the harness to have sufficient modularity that different people can run the same scenario against different deployments, including existing instance.<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/11/jenkins-1-532-3-lts-is-released/'>
-Jenkins 1.532.3 LTS is released
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-The final LTS release of the 1.532.x line is out today. You can download it from <a href="http://mirrors.jenkins-ci.org/">the usual location</a>. Changelog is <a href="http://jenkins-ci.org/changelog-stable">here</a>.<br/>
-<br/>
-<p><br/>
-Starting with the next 1.554.x LTS, the release model will <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">switch to the train model</a>, where we commit to dates and get whatever we can ship by that date. <br/>
-<br/>
-<p><br/>
-You can see <a href="http://jenkins-ci.org/content/event-calendar">the scheduled dates in our event calendar</a>. Backporting window for 1.554.1 is almost closing, so if you want to have your favorite issues nominated for it, please see <a href="https://wiki.jenkins-ci.org/display/JENKINS/LTS+Release+Line">the process</a> in the Wiki and hurry!
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/11/infoq-ci-survey-2014/'>
-InfoQ CI survey 2014
-</a>
-</h1>
-<div class='content'>
-<p><br/>
-InfoQ has been <a href="http://www.infoq.com/research/ci-server">running a CI server survey</a> for more than a month now, and here is the current result:<br/>
-<br/>
-<div><br/>
-<a href="http://www.infoq.com/research/ci-server"><br/>
-<img src="http://jenkins-ci.org/sites/default/files/images/infoq.preview.png"><br/>
-</a><br/>
+  <a href="http://en.wikipedia.org/wiki/Subaru_Legacy"><br/>
+    <img src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Subaru_Legacy_V_Kombi_rear_20100402.jpg/320px-Subaru_Legacy_V_Kombi_rear_20100402.jpg" width=240 height=156><br/>
+  </a><br/>
 </div><br/>
 <br/>
 <p><br/>
-Jenkins has gotten more than 70% of the votes, once again proving the wide adoption among developers. If you are one of those who picked Cruise Control into the "considering" section, I'd encourage you to look around a bit more.<br/>
+One of the current efforts under way in the dev list is driven by <a href="https://github.com/tfennelly">Tom Fennelly</a> et al, who is working on introducing a series of small ball improvements to the user interface in Jenkins. If this is something you are interested in (and who aren't?), you should see <a href="https://gist.github.com/kevinburke/9d4f127a7005eaa9d970">Kevin Burke's manifest</a> that sets out the plan of attack, and <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/zDaX4yiWLLw">This mega thread on the dev list</a> for the discussion.<br/>
 <br/>
 <p><br/>
-You can still <a href="http://www.infoq.com/research/ci-server">vote from their website or leave comments if you want</a>.<br/>
+There are numerous sub-conversations born out of this, and one of them is the minimum required servlet spec version for Jenkins.<br/>
 <br/>
 <p><br/>
-By the way, the design of two axes make no sense to me; for example, I'd order the adoption axis to "considering -> migrating to -> using now -> moving away from", and the circle seems to imply two axes are somehow interchangeable, when it should probably be just in a checkerboard to indicate those are independent axes.
+Jenkins devs are thinking about ways to update page contents post load, for example so that the list view will keep updating as stuff happens. <a href="http://en.wikipedia.org/wiki/Websocket">WebSocket</a> was discussed as an option, and then <a href="http://en.wikipedia.org/wiki/Server-sent_events">server-side events</a>, which seems to be the current favorite.<br/>
+<br/>
+<p><br/>
+To use any of those async HTTP features, we need servlet 3.0. Unfortunately, if we are to do it, Jenkins will not run on earlier versions of the container. There's no graceful fallback that works with servlet 2.5 containers due to the way servlet 3.0 is written.<br/>
+<br/>
+<p><br/>
+So I looked into <a href="https://docs.google.com/spreadsheets/d/14YzFgKBB6BvbRU_1OjChC3efECWPs77TEGTU09t3KGw/edit#gid=873989456">the impact of this change to the users</a>.<br/>
+<br/>
+It turns out that the most users run Jenkins through <tt>java -jar jenkins.war</tt>, which are already running servlet 3.0 compatible Winstone 2.x (based on Jetty 8.) And people running newer version of Jenkins tends to run newer version of containers. When I look at people who are running >=1.509 and later, 70% of them run on servlet 3 compatible container. The number for >=1.532 is 84%, then for >=1.554 it's 94%.<br/>
+<br/>
+<p><br/>
+When I look at which container is dragging us down as of >= 1.554, you see that there's a sizable Tomcat6 deployments (2.5%). If we start requiring Servlet 3.0 these people will be in a nasty surprise. Then there's about 1.8% who claims to be running on Winstone 0.9.10, which is really puzzling, but I'm assuming these people are getting OEM-ed Jenkins of a sort (multiple large companies are known to do this), so these people will likely be able to update to Winstone 2.x automatically by virtue of getting a new jenkins.war from their upstream. So all in all I'd say if we start requiring servlet 3.0 today, there'll be about 3% user base who will be impacted.<br/>
+<br/>
+<p><br/>
+This post is a trial balloon to see the community reaction to this idea. If you have reasons to argue against us moving to servlet 3.0, we'd like to hear from you &mdash; <a href="https://issues.jenkins-ci.org/browse/JENKINS-23378">please share your thoughts on our issue tracker</a>!<br/>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/04/09/more-scalable-slaves/'>
-More scalable slaves
+<a href='/blog/2014/06/06/other-events-for-juc-visitors-cd-seminar/'>
+Other events for JUC visitors: CD seminar
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2014-06-06T00:00:00+00:00
+by
+kohsuke
+</span>
 <div class='content'>
-<div style="float:right; margin:1em"><br/>
-<a href="http://en.wikipedia.org/wiki/Nio"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Nikko_Toshogu_Nio_M3043.jpg/160px-Nikko_Toshogu_Nio_M3043.jpg"><br/>
-</a><br/>
-<div align=center>Nio</div><br/>
-</div><br/>
-<br/>
-<p><br/>
-<a href="http://en.wikipedia.org/wiki/New_I/O">NIO</a>-based <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-LaunchslaveagentviaJavaWebStart">Java Web Start (JNLP) slave handling</a> is coming to 1.560. This will help you run a large number of JNLP slaves more efficiently. A connected JNLP slave used to occupy one thread on the master, but now it occupies none. Combined with the earlier change that eliminated threads from idle executors, now you can connect thousands of slaves.<br/>
-<br/>
-<p><br/>
-All you have to do is to use the latest <tt>slave.jar</tt> from Jenkins 1.560. No other changes are necessary on users' part.<br/>
-<br/>
-<p><br/>
-A bulk of this is implemented in <a href="https://github.com/jenkinsci/remoting">remoting 2.38</a>, and a good part of it was implemented about a year ago on the airplane on the way to Europe.<br/>
-<br/>
-<p><br/>
-We plan to make CLI connections take advantages of this too, which helps those who use that a lot. That's not in 1.560, but hopefully it'll be in the near future. This change also paves a way for multi-participant bus-topology communication, which I think would be an useful building block for <a href="https://github.com/jenkinsci/master-to-master-api-plugin/">the work-in-progress master-to-master API</a>.
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/04/maven-job-type-performance-improvements-in-maven-plugin-2-2/'>
-Maven job type performance improvements in Maven plugin 2.2
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em;"><br/>
-<a href="http://en.wikipedia.org/wiki/Grumman_F-14_Tomcat"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/US_Navy_040925-N-0295M-030_An_F-14D_Tomcat_conducts_a_high_speed_flyby_during_the_tactical_air_power_demonstration_at_the_2004_Naval_Air_Station_Oceana_Air_Show.jpg/300px-thumbnail.jpg"></a><br/>
-</div><br/>
-<br/>
-<p><br/>
-I recently had an opportunity to visit a big Jenkins user on site, and one of the things they've told me is that building projects in the Maven job type is substantially slower than doing the same with the freestyle project type.<br/>
-<br/>
-<p><br/>
-This is partly expected, because this job type does more for you. For example, it automatically archives your build artifacts, fingerprints all the relevant information, and so on. These are good things, and naturally, it cost time.<br/>
-<br/>
-<p><br/>
-But the slow down they are seeing was substantial, and this is a complaint I've heard from others as well. So I started looking into it.<br/>
-<br/>
-<p><br/>
-With a help of <a href="http://linux.die.net/man/8/tc">artificial delay</a> induced to my network interface and several custom scripts to probe into the running processes, I was able to understand what was going on and make some good improvements.<br/>
-<br/>
-<p><br/>
-First, in Maven plugin 2.0, we've made a change in the way we archive artifacts from Maven. Previously, the artifacts were copied between the master and the Maven JVM, and for a reason I'll mention later, this was very slow, especially in a network that has a large latency. With Maven plugin 2.0 and onward, artifacts are archived between the master and the slave JVM.<br/>
-<br/>
-<p><br/>
-The second problem that I discovered was that the spy program we put inside Maven is causing excessive amount of unnecessary classloading. Some classes have static initializers that too eagerly refer to other classes, which in turn brings in other classes, and so on. Despite <a href="http://jenkins-ci.org/content/faster-slave-classloading">the jar file caching that we do</a>, these classloading still sometimes requires precious roundtrips to the master, which costs in the order of 10s of ms. I was able to make various changes in Jenkins core to cut this down, and these fixes will land in Jenkins 1.559 (ETA is April 14th.) The classloading overhead is independent of the size of your Maven build, so this improvement is more for people who have lots of small Maven builds, like <a href="https://ci.jenkins-ci.org/">Jenkins building Jenkins plugins</a>.<br/>
-<br/>
-<p><br/>
-Now, on to the biggest fruit of this investigation I was able to discover and fix. Imagine the Maven JVM has a lot of data to send to the master, say you are archiving test reports or code coverage report. A good implementation would send these data as fast as ppossible to the master, paying respect to the limit of flow control to avoid overwhelming the master.<br/>
-<br/>
-<p><br/>
-It turns out that the way we set up this communication channel was far from optimal. Instead of having the Maven JVM push data with flow control, we were relying on the master to pull data. That is, master has to send out a request to the slave to fetch the next batch of data (8KB), then once it receives that data, it sends out another request to fetch the next batch of data, and so on. If your network latency is 10ms, this scheme only lets us send 500KB/sec, even if you have a gigabit ethernet. No wonder it was so slow!<br/>
-<br/>
-<p><br/>
-This fix is in in Maven plugin 2.2. See <a href="https://issues.jenkins-ci.org/browse/JENKINS-22354">JENKINS-22354</a> if you want to know more about the actual diffs and such.<br/>
-<br/>
-Unfortunately, none of these are available for those who are on 1.532.x LTS, but <a href="http://meetings.jenkins-ci.org/jenkins/2014/jenkins.2014-04-02-18.02.html">the next 1.554.1 LTS</a> will be able to run the newer Maven 2.2 plugin. So the help is on the way!<br/>
-<br/>
-
-</div>
-</div>
-<div class='post'>
-<h1>
-<a href='/blog/2014/04/01/your-java-web-start-slaves-will-be-always-clean/'>
-Your Java Web Start slaves will be always clean
-</a>
-</h1>
-<div class='content'>
-<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Mr._Clean"><br/>
-<img src="http://upload.wikimedia.org/wikipedia/en/thumb/7/73/Mr._Clean_logo.png/200px-Mr._Clean_logo.png"><br/>
+<div style="float:right; margin:1em"><a href="http://en.wikipedia.org/wiki/Circus"><br/>
+<img width=240 height=180 src="http://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/CircusTent02.jpg/320px-CircusTent02.jpg"><br/>
 </a></div><br/>
 <br/>
 <p><br/>
-If you have slaves that connect through <a href="https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds#Distributedbuilds-LaunchslaveagentviaJavaWebStart">Java Web Start</a> (such as <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">slaves installed as Windows services</a>), we have a good news for you.<br/>
+If you will be on the US East Coast or in Berlin for JUC, some of the JUC sponsors are organizing separate events called <a href="http://www.cloudbees.com/cdsummit">Continuous Delivery Seminar</a>, which might be of interest to you. These events focus more on higher-level business value questions as well as vendor solutions that are difficult in community-focused JUC.<br/>
+<br/>
+<ul><br/>
+<li><a href="http://www.cloudbees.com/cdsummit/nyc">New York City on June 19</a>, the day after JUC US East &mdash; headlined by Forrester Research analyst Kurt Bittner<br/>
+<br/>
+<li><a href="http://www.cloudbees.com/cdsummit/berlin">Berlin on June 24</a>, the day before JUC Europe &mdash; headlined by Jan Hagen, author of <i>Confronting Mistakes: Lessons from the Aviation Industry when Dealing with Errors</i><br/>
+<br/>
+</ul><br/>
 <br/>
 <p><br/>
-In case of a connection loss, this type of slaves has been designed to automatically attempt to reconnect to the master. This makes sense because you want these slaves to remain online all the time, even if your janitor trips over the ethernet cable. Unfortunately, it also means that over the time, these slaves accumulate gunk, such as mutated static states, any left-over threads or memory leaks, or <a href="https://issues.jenkins-ci.org/browse/JENKINS-20913">native libraries that are loaded into JVM</a>.<br/>
-<br/>
-<p><br/>
-To prevent that, a better approach is to <a href="https://issues.jenkins-ci.org/browse/JENKINS-19055">restart the slave JVM (JENKINS-19055)</a> and have the new JVM reconnect, instead of having the same JVM reconnect. That would ensure that the slave always stays clean. I've planned to make this change for a while now, and I'm happy to report that this change is finally landing to the upcoming 1.559.<br/>
-<br/>
-<p><br/>
-Restarting JVM is easy on Unix, where I could just <a href="http://man7.org/linux/man-pages/man3/exec.3.html">exec(3)</a> to itself. We've been doing this for ages on masters, for example when you update a plugin and tell Jenkins to restart.<br/>
-<br/>
-<p><br/>
-The hard part is to do this for Windows, where the most of the time was spent. I had to improve <a href="https://github.com/kohsuke/winsw">windows service wrapper</a> to support self-restarting services, which turned out to be trickier because Windows service control manager doesn't provide "restart" as an atomic operation. It also kills not just the service process itself but all the processes in the group. So I had to double-fork the service wrapper into a separate process group just to restart a service from within itself.<br/>
-<br/>
-<p><br/>
-In any case, the end result is that if <a href="https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins+as+a+Windows+service#InstallingJenkinsasaWindowsservice-InstallSlaveasaWindowsservice%28require.NET2.0framework%29">you have installed a service through GUI</a>, be it on Windows, Unix, or OS X, slaves will restart themselves every time it gets disconnected from the master.<br/>
-<br/>
-<p><br/>
-I've also taken the opportunity to make <tt>jenkins-slave.exe</tt> on the slave self-updating. Every time it connects to the master, it gets the latest version from the master.<br/>
-<br/>
-<p><br/>
-If you have installed Web Start slaves as services, make sure to update the local copy of <tt>slave.jar</tt> on these slaves to 2.37 or later. This "restart on reconnect" feature only kicks in when you are running this very recent version of <tt>slave.jar</tt>. And yes, we realize it'd be nice for <tt>slave.jar</tt> to update itself, which is tracked as <a href="https://issues.jenkins-ci.org/browse/JENKINS-22454">JENKINS-22454</a>. But that's a work for another day.<br/>
-<br/>
+Read more about the events <a href="http://blog.cloudbees.com/2014/06/cd-summit-learn-from-continuous.html">here</a>. The events are free and I've heard that there'll be some souveniors. I'm one of the speakers, and I'll be talking about Jenkins, as always!<br/>
 
 </div>
 </div>
 <div class='post'>
 <h1>
-<a href='/blog/2014/03/21/call-for-sponsors-2014-jenkins-user-conferences/'>
-Call for Sponsors: 2014 Jenkins User Conferences
+<a href='/blog/2014/06/05/get-drunk-on-the-code-in-juc-boston/'>
+Get drunk on the code in JUC-Boston
 </a>
 </h1>
+<span class='submitted'>
+Published on
+2014-06-05T00:00:00+00:00
+by
+christ66
+</span>
 <div class='content'>
-<div style="float:right; margin:1em">
-
-<img src="https://wiki.jenkins-ci.org/download/attachments/2916393/headshot.png?version=1&amp;modificationDate=1302753947000" />
-
-</div>
-
-<p>Jenkins User Conference (JUC) season is upon us! It’s a busy year for the Butler – he’s hosting conferences all over and looking for sponsors to help:</p>
-<ul>
-<li> <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Boston – June 18</a> </li>
-<li> Berlin – June 25</li>
-<li> Herzelia, Israel – July 16 </li>
-<li> Bay Area (California) – October (date TBD) </li>
-</ul>
-
-<p><b>Mr. Jenkins and the JUC Organizing Committee want to invite you and your company to sponsor a JUC this year.</b> Show your support for the Jenkins community and help keep costs low for attendees*. The funds go to are put to good use: conferences are two full tracks. Lunch, light breakfast, coffee and a coveted Jenkins t-shirt are also included.</p>
-
-<p>Sponsors get all sorts of thanks from the Jenkins community:</p>
-<ul>
-<li> Your logo on the conference t-shirt and all other conference communication (emails, website, signage, etc.)
-<li> A blog featuring sponsors
-<li> Free passes
-<li> Silver and Gold sponsors get a table to talk to folks and hand out swag
-<li> Gold sponsors get either a speaking slot, happy hour sponsorship or a dedicated room for demos
-<li> And more, but most especially, you get to support JenkinsCI.
-
-
-Just <a href="http://www.cloudbees.com/jenkins/juc-2014/sponsorships"> let us know if you’re interested</a> to get the details. We’d love to have you join us.
-
-Friendly reminder: We are looking for speakers for all four cities. Call for Papers ends March 30 for Boston, Berlin and Israel. <a href="http://www.cloudbees.com/jenkins/juc-2014">Submit your abstract now</a> and come share your expertise with the Jenkins community.
-
-We hope to see you at a JUC this year!
-
-<i> Lisa, Alyssa and the JUC Organizing Committee </i>
-
-*PS - <a href="http://www.eventbrite.com/e/jenkins-user-conference-boston-ma-june-17-2014-tickets-10558652213">Registration just opened for Boston </a> and early-bird tickets are only $59.
-</li></li></li></li></li></li></ul>
+<div style="float:right; margin:1em"><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/christou.jpg"><br/>
+</div><br/>
+<br/>
+<p><br/>
+Let me start by introducing myself, my name is Steven Christou. Many of you might know me on IRC as schristou, my github id as <a href="https://github.com/christ66">christ66</a>, or my twitter handle <a href="https://twitter.com/schristou88">@schristou88</a>. In Jenkins, I am currently working on some significant improvements to the subversion-plugin, along with various random bug fixes. I am also the current maintainer of <a href="http://cobertura.github.io/cobertura">Cobertura</a>, an open source code coverage tool for java. Prior to working on Jenkins, I was working on Hudson at the Eclipse Foundation.<br/>
+<br/>
+<p><br/>
+While working on Jenkins, I usually get requests (usually in IRC) about where to start when writing a plugin. Some examples are "Where do I start?" or "Do you have any examples?". Well at <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">JUC Boston</a>, I will be hosting a small lecture called Get Drunk on the Code! I will be giving the lecture in the rooms "Back Bay" (1 & 2) where people will be able to sit down, drink a beer, and learn how to write a Jenkins plugin! I will be teaching people everything from how to get started, to some advanced techniques like writing a new <a href="https://wiki.jenkins-ci.org/display/JENKINS/Jenkins+CLI">CLI Command</a>, and writing your own builder. I forgot to mention that I will be handing out beer while this is happening!<br/>
+<br/>
+<p><br/>
+This session will be happening after the exhibit break from 3:30pm to 6:00pm. It will be two hours where I will be walking around, and helping users if they encounter any issues while the session is happening. So grab your laptop, a beer and get drunk on the code! Don't get too drunk, but if you do at least you can improve the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Beer+Plugin">beer plugin</a>!"
 
 </div>
 </div>
-<div class="pagination-links"><a href="/node/page/15.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/15.html" class="page-link">15</a> <span class="current-page">16</span> <a href="/node/page/17.html" class="page-link">17</a> <span class="skip">...</span><a href="/node/page/43.html" class="page-link">43</a> <a href="/node/page/44.html" class="page-link">44</a> <a href="/node/page/17.html" class="next-link">Next</a> </div>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/03/jenkins-won-sdtimes-100-2014/'>
+Jenkins won SDTimes 100, 2014
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-06-03T00:00:00+00:00
+by
+kohsuke
+</span>
+<div class='content'>
+Jenkins won SDTimes 100, 2014<br/>
+<br/>
+<div style="float:right; margin:1em"><br/>
+<img src="http://www.sdtimes.com/images/sdt100/2014SDT100_logo_120x123.gif"><br/>
+</div><br/>
+<br/>
+<p><br/>
+For the 5th year in a row, Jenkins project won <a href="http://sdtimes.com/content/article.aspx?ArticleID=71295&page=4">SDTimes 100, 2014</a> this year under DevOps and SCM categories, along with other open-source projects like Chef, Docker, Git, LLVM, and Puppet.<br/>
+<br/>
+<p><br/>
+I'd like to take this opportunity to once again thank the community for keeing us going strong. There's <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/qrG7bAnZSHQ">a lot </a> of <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/zDaX4yiWLLw">interesting</a> efforts <a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/l5vrC8BqVJQ">going on</a> in <a href="https://github.com/jenkinsci/acceptance-test-harness">the project</a>, as always, so expect more stuff to come out from us in the coming days!<br/>
 
-<div id='content-bottom'>
 </div>
 </div>
-<!-- starting partial footer.html.haml -->
-<script>
-  !function(d,s,id) {
-    var js, fjs=d.getElementsByTagName(s)[0];
-    if (!d.getElementById(id)) {
-      js = d.createElement(s);
-      js.id=id;
-      js.src="//platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js,fjs);
-    }
-  }(document,"script","twitter-wjs");
-</script>
+<div class='post'>
+<h1>
+<a href='/blog/2014/06/03/jenkins-user-conference-boston-is-around-the-corner/'>
+Jenkins User Conference Boston is around the corner!
+</a>
+</h1>
+<span class='submitted'>
+Published on
+2014-06-03T00:00:00+00:00
+by
+kohsuke
+</span>
+<div class='content'>
+<p><br/>
+Only a few weeks until <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">our Jenkins User Conference US East</a> kicks off in Boston on June 18. Right now more than 300 people have registered and we’ve had to <a href="http://www.eventbrite.com/e/jenkins-user-conference-us-east-boston-june-18-2014-tickets-10558652213">release more tickets</a>! If you will be anywhere near New England on June 18, <a href="http://www.eventbrite.com/e/jenkins-user-conference-us-east-boston-june-18-2014-tickets-10558652213">sign up fast so you don’t miss the fun</a>.<br/>
+<br/>
+<div align=middle><a href="http://jenkins-ci.org/content/jenkins-user-conference-2013-palo-alto-wrap"><br/>
+<img src="http://2.bp.blogspot.com/-ugtg3_nOtfs/UnlKAL5B98I/AAAAAAAAA_Y/jedHyNI_ZSo/s1600/ButlerAtJUC.jpg" width=240 height=180><br/>
+</a></div><br/>
+<br/>
+<p><br/>
+This year marks the butler’s first conference tour to <a href="http://en.wikipedia.org/wiki/New_England">New England</a>. He has chosen <a href="http://www.seaportboston.com/">the fabulous Seaport hotel</a> on the waterfront for a venue &mdash; a hotel that's far better than what I usually stay in :-). You can even take a water taxi to <a href="http://en.wikivoyage.org/wiki/Boston">see the sites</a> or get to and from the airport. For airport transfers, you can also just hop on <a href="http://www.mbta.com/schedules_and_maps/subway/lines/?route=SILVER">the silver line bus</a> and arrive across the street from the hotel (the stop is called "<a href="http://www.mbta.com/schedules_and_maps/subway/lines/stations/?stopId=25092&lat=42.349098&lng=-71.04206">World Trade Center Station</a>".)<br/>
+<br/>
+<p><br/>
+This year we have <a href="http://www.cloudbees.com/jenkins/juc-2014/boston">an incredible line-up of speakers</a>. Attendees will be well fed, caffeinated, and even pickled if they choose... the afternoon break will feature BEvERages. And everyone gets this year’s Jenkins World Tour t-shirt.<br/>
+<br/>
+<p><br/>
+Nothing about conference-throwing is cheap, so we’d like to take a moment to thank our generous JUC US East sponsors. It speaks so well for the JUC community that so many companies have stepped up to support Jenkins and produce a first-class conference. So here is the shout-out for them:<br/>
+<br/>
+<div align=middle><br/>
+<img src="http://jenkins-ci.org/sites/default/files/images/JUC-boston-sponsors.preview.png"><br/>
+</div><br/>
+<br/>
 
-<!-- ending partial footer.html.haml -->
-<div id='github'>
-<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//node/index.html.haml' title='Edit /node/index.html.haml on GitHub'>
-Improve this page
+</div>
+</div>
+<div class="pagination-links"><a href="/node/page/15.html" class="previous-link">Previous</a> <a href="/node/" class="page-link">1</a> <a href="/node/page/2.html" class="page-link">2</a> <span class="skip">...</span><a href="/node/page/15.html" class="page-link">15</a> <span class="current-page">16</span> <a href="/node/page/17.html" class="page-link">17</a> <span class="skip">...</span><a href="/node/page/45.html" class="page-link">45</a> <a href="/node/page/46.html" class="page-link">46</a> <a href="/node/page/17.html" class="next-link">Next</a> </div>
+
+
+<!-- starting partial footermenu.html.haml -->
+<div class='brick-tops footer'></div>
+<footer id='footer'>
+<div class='license-box col-md-5'>
+<p>
+<div id='creativecommons'>
+<a href='https://creativecommons.org/licenses/by-sa/4.0/'>
+<img src='https://licensebuttons.net/l/by-sa/4.0/88x31.png'>
 </a>
 </div>
+Some about Jenkins text and links to terms and license.
+<div class='box'>
+<a href='https://github.com/jenkins-infra/jenkins.io/edit/master/content//_partials/footermenu.html.haml' title='Edit /_partials/footermenu.html.haml on GitHub'>
+Improove this page
+</a>
+|
+<a href='https://github.com/jenkins-infra/jenkins.io/commits/master/content//_partials/footermenu.html.haml' title='View /_partials/footermenu.html.haml history on GitHub'>
+Page history
+</a>
+</div>
+</p>
+</div>
+<div class='links col-md-7'>
+<ul class='major-areas'>
+<li class='area solo'>
+<h5>Resources</h5>
+<ul class='resources'>
+<li>Plugins</li>
+<li>Blog articles</li>
+<li>Events</li>
+<li>Documentation</li>
+<li>Blog articles</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Solutions</h5>
+<ul>
+<li>Jenkins features</li>
+<li>Docker</li>
+<li>Pipelines</li>
+<li>Security</li>
+<li>Scalability</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Project</h5>
+<ul class='project'>
+<li>Governance</li>
+<li>GitHub Repo</li>
+<li>Issue tracker</li>
+<li>Jenkins builds</li>
+</ul>
+</li>
+<li class='area multi'>
+<h5>Community</h5>
+<ul class='community'>
+<li>Developer newsgroup</li>
+<li>User newsgroup</li>
+<li>StackOverflow</li>
+<li>IRC chat</li>
+<li>Twitter</li>
+<li>Reddit</li>
+</ul>
+</li>
+</ul>
+</div>
+</footer>
+
+<!-- ending partial footermenu.html.haml -->
 <script>
  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 
