@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Multi-branch Pipeline Jobs Support for GitLab SCM
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Multi-branch Pipeline Jobs Support for GitLab SCM" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Multi-branch Pipeline Jobs Support for GitLab SCM" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Multi-branch Pipeline Jobs Support for GitLab SCM" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/blog/2019/06/29/phase-1-multibranch-pipeline-support-for-gitlab/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Multi-branch Pipeline Jobs Support for GitLab SCM" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('#content h' + i);
+    }
+  })
+</script>
+<div class="container blog-post">
+<div class="row body">
+<div class="col-md-11 col-md-offset-1 main-content" id="content">
+<div id="content-top">
+<h1>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/blog/2019/06/29/phase-1-multibranch-pipeline-support-for-gitlab/" title="Multi-branch Pipeline Jobs Support for GitLab SCM">
+Multi-branch Pipeline Jobs Support for GitLab SCM
+</a>
+</h1>
+<div style="float: right; clear: all;">
+<a class="twitter-share-button" data-lang="en" href="https://twitter.com/share">
+Tweet
+</a>
+</div>
+<div class="post-attrs">
+<span class="submitted">
+Published on
+2019-06-29
+by
+<a href="/blog/authors/baymac">Parichay Barpanda</a>
+</span>
+<ul class="list-inline tags">
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/gitlab">
+gitlab
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/plugins">
+plugins
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/pipeline">
+pipeline
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/credentials">
+credentials
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/developer">
+developer
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/gsoc">
+gsoc
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/gsoc2019">
+gsoc2019
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This is one of the Jenkins project in GSoC 2019. We are working on adding support
+for <a href="/projects/gsoc/2019/gitlab-support-for-multibranch-pipeline/">Multi-branch
+Pipeline Jobs and Folder Organisation in GitLab</a>. The plan is to create the following
+plugins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/jenkinsci/gitlab-api-plugin">GitLab API Plugin</a> - Wraps GitLab Java APIs.</p>
+</li>
+<li>
+<p><a href="https://github.com/baymac/gitlab-branch-source-plugin">GitLab Branch Source Plugin</a> - Contains two packages:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>io.jenkins.plugins.gitlabserverconfig</code> - Manages server configuration and web hooks management.
+Ideally should reside inside another plugin with name <code>GitLab Plugin</code>. In future, this package should
+be moved into a new plugin.</p>
+</li>
+<li>
+<p><code>io.jenkins.plugins.gitlabbranchsource</code> - Adds GitLab Branch Source for Multi-branch Pipeline Jobs (including
+Merge Requests) and Folder organisation.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="present-state"><a class="anchor" href="#present-state"></a>Present State</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>FreeStyle Job and Pipeline(Single Branch) Job are fully supported.</p>
+</li>
+<li>
+<p>Multi-branch Pipeline Job is partially supported (no MRs detection).</p>
+</li>
+<li>
+<p>GitLab Folder Organisation is not supported.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="goals-of-this-project"><a class="anchor" href="#goals-of-this-project"></a>Goals of this project</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Implement a lightweight GitLab Plugin that depends on GitLab API Plugin.</p>
+</li>
+<li>
+<p>Follow convention of 3 separate plugins i.e. <code>GitLab Plugin</code>, <code>GitLab API Plugin</code>, <code>GitLab Branch Source Plugin</code>.</p>
+</li>
+<li>
+<p>Implement GitLab Branch Source Plugin with support for Multi-branch Pipeline Jobs.</p>
+</li>
+<li>
+<p>Support new Jenkins features such as
+<a href="https://github.com/jenkinsci/configuration-as-code-plugin">Jenkins Code as Configuration</a> (JCasC),
+<a href="https://github.com/jenkinsci/incrementals-tools/">Incremental Tools</a>.</p>
+</li>
+<li>
+<p>Clear &amp; Efficient design.</p>
+</li>
+<li>
+<p>Support new SCM Trait APIs.</p>
+</li>
+<li>
+<p>Support Java 8 and above.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="building-the-plugin"><a class="anchor" href="#building-the-plugin"></a>Building the plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No binaries are available for this plugin as the plugin is in the very early alpha stage, and not ready for the general
+public quite yet.  If you want to jump in early, you can try building it yourself from source.</p>
+</div>
+<div class="sect2">
+<h3 id="installation"><a class="anchor" href="#installation"></a>Installation:</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Checkout source code to your local machine:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="bash">git clone https://github.com/baymac/gitlab-branch-source-plugin.git
+
+cd gitlab-branch-source-plugin</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install the plugin:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="bash">mvn clean install
+
+mvn clean install -DskipTests # to skip tests</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run the plugin:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="bash">mvn hpi:run # runs a Jenkins instance at localhost:8080
+
+mvn hpi:run -Djetty.port=&lt;port&gt; # to run on your desired port number</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to test it with your Jenkins server, after <code>mvn clean install</code> follow these steps in your Jenkins instance:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select <code>Manage Jenkins</code></p>
+</li>
+<li>
+<p>Select <code>Manage Plugins</code></p>
+</li>
+<li>
+<p>Select <code>Advanced</code> tab</p>
+</li>
+<li>
+<p>In <code>Upload Plugin</code> section, select <code>Choose file</code></p>
+</li>
+<li>
+<p>Select <code>$&lt;root_dir&gt;/target/gitlab-branch-source.hpi</code></p>
+</li>
+<li>
+<p>Select <code>Upload</code></p>
+</li>
+<li>
+<p>Select <code>Install without restart</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="usage"><a class="anchor" href="#usage"></a>Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Assuming plugin installation has done been already.</p>
+</div>
+<div class="sect2">
+<h3 id="setting-up-gitlab-server-configuration-on-jenkins"><a class="anchor" href="#setting-up-gitlab-server-configuration-on-jenkins"></a>Setting up GitLab Server Configuration on Jenkins</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On jenkins, select <code>Manage Jenkins</code></p>
+</li>
+<li>
+<p>Select <code>Configure System</code></p>
+</li>
+<li>
+<p>Scroll down to find the <code>GitLab</code> section</p>
+<div class="paragraph">
+<p><span class="image"><img src="/images/post-images/2019/06/2019-06-29-multibranch-pipeline-support-for-gitlab/gitlab-section.png" alt="gitlab-section"></span></p>
+</div>
+</li>
+<li>
+<p>Select <code>Add GitLab Server</code> | Select <code>GitLab Server</code></p>
+</li>
+<li>
+<p>Now you will now see the GitLab Server Configuration options.</p>
+<div class="paragraph">
+<p><span class="image"><img src="/images/post-images/2019/06/2019-06-29-multibranch-pipeline-support-for-gitlab/gitlab-server.png" alt="gitlab-server"></span></p>
+</div>
+<div class="paragraph">
+<p>There are 4 fields that needs to be configured:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Name</code> - Plugin automatically generates an unique server name for you. User may want to configure this field
+to suit their needs but should make sure it is sufficiently unique. We recommend to keep it as it is.</p>
+</li>
+<li>
+<p><code>Server URL</code> - Contains the URL to your GitLab Server. By default it is set to "https://gitlab.com". User can
+modify it to enter their GitLab Server URL e.g. <a href="https://gitlab.gnome.org/" class="bare">https://gitlab.gnome.org/</a>, <a href="http://gitlab.example.com:7990" class="bare">http://gitlab.example.com:7990</a>. etc.</p>
+</li>
+<li>
+<p><code>Credentials</code> - Contains a list of credentials entries that are of type GitLab Personal Access Token. When
+no credential has been added it shows "-none-". User can add a credential by clicking "Add" button.</p>
+</li>
+<li>
+<p><code>Web Hook</code> - This field is a checkbox. If you want the plugin to setup a webhook on your GitLab project(s)
+related jobs, check this box. The plugin listens to a URL for the concerned GitLab project(s) and when an event
+occurs in the GitLab Server, the server sends an event trigger to the URL where the web hook is setup. If you
+want continuous integration (or continuous delivery) on your GitLab project then you may want to automatically
+set it up.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Adding a Personal Access Token Credentials (To automatically generate Personal Access Token see
+<a href="#creating-personal-access-token-within-jenkins">next section</a>):</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>User is required to add a <code>GitLab Personal Access Token</code> type credentials entry to securely persist the token
+inside Jenkins.</p>
+</li>
+<li>
+<p>Generate a <code>Personal Access Token</code> on your GitLab Server:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Select profile dropdown menu from top-right corner</p>
+</li>
+<li>
+<p>Select <code>Settings</code></p>
+</li>
+<li>
+<p>Select <code>Access Token</code> from left column</p>
+</li>
+<li>
+<p>Enter a name | Set Scope to <code>api</code>,<code>read_user</code>, <code>read_repository</code></p>
+</li>
+<li>
+<p>Select <code>Create Personal Access Token</code></p>
+</li>
+<li>
+<p>Copy the token generated</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Return to Jenkins | Select <code>Add</code> in Credentials field | Select <code>Jenkins</code></p>
+</li>
+<li>
+<p>Set <code>Kind</code> to GitLab Personal Access Token</p>
+</li>
+<li>
+<p>Enter <code>Token</code></p>
+</li>
+<li>
+<p>Enter a unique id in <code>ID</code></p>
+</li>
+<li>
+<p>Enter a human readable description</p>
+</li>
+<li>
+<p>Select <code>Add</code></p>
+<div class="paragraph">
+<p><span class="image"><img src="/images/post-images/2019/06/2019-06-29-multibranch-pipeline-support-for-gitlab/gitlab-credentials.png" alt="gitlab-credentials"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Testing connection:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select your desired token in the <code>Credentials</code> dropdown</p>
+</li>
+<li>
+<p>Select <code>Test Connection</code></p>
+</li>
+<li>
+<p>It should return something like <code>Credentials verified for user &lt;username&gt;</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Select <code>Apply</code> (at the bottom)</p>
+</li>
+<li>
+<p>GitLab Server is now setup on Jenkins</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-personal-access-token-within-jenkins"><a class="anchor" href="#creating-personal-access-token-within-jenkins"></a>Creating Personal Access Token within Jenkins</h3>
+<div class="paragraph">
+<p>Alternatively, users can generate a GitLab Personal Access Token within Jenkins itself and automatically add the
+GitLab Personal Access Token credentials to Jenkins server credentials.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select <code>Advanced</code> at the bottom of <code>GitLab</code> Section</p>
+</li>
+<li>
+<p>Select <code>Manage Additional GitLab Actions</code></p>
+</li>
+<li>
+<p>Select <code>Convert login and password to token</code></p>
+</li>
+<li>
+<p>Set the <code>GitLab Server URL</code></p>
+</li>
+<li>
+<p>There are 2 options to generate token;</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>From credentials</code> - To select an already persisting Username Password Credentials or add an Username Password
+credential to persist it.</p>
+</li>
+<li>
+<p><code>From login and password</code> - If this is a one time thing then you can directly enter you credentials to the text boxes
+and the username/password credential is not persisted.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>After setting your username/password credential, select <code>Create token credentials</code>.</p>
+</li>
+<li>
+<p>The token creator will create a Personal Access Token in your GitLab Server for the given user with the
+required scope and also create a credentials for the same inside Jenkins server. You can go back to the GitLab Server
+Configuration to select the new credentials generated (select "-none-" first then new credentials will appear). For
+security reasons this token is not revealed as plain text rather returns an <code>id</code>. It is a 128-bit long UUID-4 string
+(36 characters).</p>
+<div class="paragraph">
+<p><span class="image"><img src="/images/post-images/2019/06/2019-06-29-multibranch-pipeline-support-for-gitlab/gitlab-token-creator.png" alt="gitlab-token-creator"></span></p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration-as-code"><a class="anchor" href="#configuration-as-code"></a>Configuration as Code</h3>
+<div class="paragraph">
+<p>No need for messing around in the UI. <code>Jenkins Configuration as Code (JCasC)</code> or simply <code>Configuration as Code</code> Plugin
+allows you to configure Jenkins via a <code>yaml</code> file. If you are a first time user, you can learn more about JCasC
+<a href="https://github.com/jenkinsci/configuration-as-code-plugin">here</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="add-configuration-yaml"><a class="anchor" href="#add-configuration-yaml"></a>Add configuration YAML:</h4>
+<div class="paragraph">
+<p>There are multiple ways to load JCasC yaml file to configure Jenkins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JCasC by default searches for a file with the name <code>jenkins.yaml</code> in <code>$JENKINS_ROOT</code>.</p>
+</li>
+<li>
+<p>The JCasC looks for an environment variable <code>CASC_JENKINS_CONFIG</code> which contains the path
+for the configuration <code>yaml</code> file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A path to a folder containing a set of config files e.g. <code>/var/jenkins_home/casc_configs</code>.</p>
+</li>
+<li>
+<p>A full path to a single file e.g. <code>/var/jenkins_home/casc_configs/jenkins.yaml</code>.</p>
+</li>
+<li>
+<p>A URL pointing to a file served on the web e.g. <code><a href="https://&lt;your-domain&gt;/jenkins.yaml" class="bare">https://&lt;your-domain&gt;/jenkins.yaml</a></code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>You can also set the configuration yaml path in the UI. Go to <code>&lt;your-jenkins-domain&gt;/configuration-as-code</code>.
+Enter path or URL to <code>jenkins.yaml</code> and select <code>Apply New Configuration</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An example of configuring GitLab server via <code>jenkins.yaml</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="yaml"><span style="color:#606">credentials</span>:
+  <span style="color:#606">system</span>:
+    <span style="color:#606">domainCredentials</span>:
+      - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">credentials:</span><span style="color:#D20">
+          - gitlabPersonalAccessToken:
+              scope: SYSTEM
+              id: &quot;i&lt;3GitLab&quot;
+              token: &quot;XfsqZvVtAx5YCph5bq3r&quot; # gitlab personal access token</span></span>
+
+<span style="color:#606">unclassified</span>:
+  <span style="color:#606">gitLabServers</span>:
+    <span style="color:#606">servers</span>:
+      - <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">credentialsId: &quot;i&lt;3GitLab&quot;</span></span>
+        <span style="color:#606">manageHooks</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#D20">true</span></span>
+        <span style="color:#606">name</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">gitlab.com</span><span style="color:#710">&quot;</span></span>
+        <span style="color:#606">serverUrl</span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">https://gitlab.com</span><span style="color:#710">&quot;</span></span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For better security, see handling secrets
+<a href="https://github.com/jenkinsci/configuration-as-code-plugin#handling-secrets">section</a> in JCasC
+documentation.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="future-scope-of-work"><a class="anchor" href="#future-scope-of-work"></a>Future Scope of work</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The second phase of GSoC will be utilized to develop GitLab Branch Source. The new feature is a work in progress, but
+the codebase is unstable and requires lot of bugfixes. Some features like Multibranch Pipeline Jobs are functioning
+properly. More about it at the end of second phase.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="issue-tracking"><a class="anchor" href="#issue-tracking"></a>Issue Tracking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project uses Jenkins <a href="https://issues.jenkins-ci.org/">JIRA</a> to track issues. You can file issues under
+<code>gitlab-branch-source-plugin</code> component.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="acknowledgements"><a class="anchor" href="#acknowledgements"></a>Acknowledgements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This plugin is built and maintained by the Google Summer of Code (GSoC) Team for
+<a href="https://jenkins.io/projects/gsoc/2019/gitlab-support-for-multibranch-pipeline/">Multi-branch Pipeline
+Support for GitLab</a>. A lot of inspiration was drawn from <code>GitLab Plugin</code>, <code>Gitea Plugin</code> and <code>GitHub Plugin</code>.</p>
+</div>
+<div class="paragraph">
+<p>Our team consists of: <a href="https://www.github.com/baymac">baymac</a>, <a href="https://github.com/LinuxSuRen">LinuxSuRen</a>,
+<a href="https://github.com/markyjackson-taulia">Marky</a>, <a href="https://github.com/casz">Joseph</a>,
+<a href="https://github.com/justinharringa">Justin</a>, <a href="https://github.com/jeffpearce">Jeff</a>.</p>
+</div>
+<div class="paragraph">
+<p>With support from: <a href="https://github.com/oleg-nenashev">Oleg</a>, <a href="https://github.com/gmessner">Greg</a>,
+<a href="https://github.com/omehegan">Owen</a>.</p>
+</div>
+<div class="paragraph">
+<p>Also thanks to entire Jenkins community for contributing with technical expertise and inspiration.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="links"><a class="anchor" href="#links"></a>Links</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=ij6ByZqI67o">Phase 1 demo</a></p>
+</li>
+<li>
+<p><a href="https://drive.google.com/open?id=1c3UWwEb5rDmO6YEn5fU3qVbVW-opuUXb">Presentation slides</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jenkinsci/gitlab-api-plugin">GitLab API Plugin</a></p>
+</li>
+<li>
+<p><a href="https://github.com/baymac/gitlab-branch-source-plugin">GitLab Branch Source Plugin</a></p>
+</li>
+<li>
+<p><a href="https://wiki.jenkins.io/display/JENKINS/GitLab+API+Plugin">GitLab API Plugin Wiki</a></p>
+</li>
+<li>
+<p><a href="https://issues.jenkins-ci.org/browse/JENKINS-57445">Issue Tracker for Phase 1</a></p>
+</li>
+<li>
+<p><a href="https://baymac.github.io">Blog</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<b class="author about-header">
+About the Author
+</b>
+<!-- starting partial author.html.haml -->
+<div id="about-the-author">
+<table class="author box">
+<tr>
+<td>
+<!-- starting partial avatar.html.haml -->
+<img alt="Parichay Barpanda" class="author logo" src="https://zbynek.github.io/jenkins.io/order-syntax/images/avatars/baymac.jpg" width="128px">
+
+<!-- ending partial avatar.html.haml -->
+</td>
+<td>
+<b class="author name">
+<a href="/blog/authors/baymac">
+Parichay Barpanda
+</a>
+</b>
+<p>
+<div class="paragraph">
+<p>GSoC 2019 student under Jenkins project. Maintainer of GitLab Branch Source Plugin. Software Developer at Udaan, India.</p>
+</div>
+</p>
+<!-- starting partial social-media-buttons.html.haml -->
+<ul class="author social-media-buttons">
+<li class="author">
+<a href="https://github.com/baymac" target="_blank">
+GitHub
+</a>
+</li>
+<li class="author">
+<a href="https://twitter.com/baymac04" target="_blank">
+Twitter
+</a>
+</li>
+</ul>
+
+<!-- ending partial social-media-buttons.html.haml -->
+</td>
+</tr>
+</table>
+</div>
+
+<!-- ending partial author.html.haml -->
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//blog/2019/06/2019-06-29-phase-1-multibranch-pipeline-support-for-gitlab.adoc" title="Edit /blog/2019/06/2019-06-29-phase-1-multibranch-pipeline-support-for-gitlab.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//blog/2019/06/2019-06-29-phase-1-multibranch-pipeline-support-for-gitlab.adoc" title="View /blog/2019/06/2019-06-29-phase-1-multibranch-pipeline-support-for-gitlab.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

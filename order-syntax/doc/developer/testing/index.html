@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Testing
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Testing" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Testing" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Testing" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/testing/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Testing" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  ol li i.icon-warning::before {
+    content: "\f071";
+    color: #bf6900;
+    font-family: FontAwesome !important;
+    font-size: 10px;
+    vertical-align: middle;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-lg-3">
+<div class="sidebar-nav tour">
+<h4>
+Topics
+</h4>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture" class="">Architecture</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture/model" class="">Model</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture/web" class="">Web Framework</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture/extensions" class="">Extensions</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture/remoting" class="">Remoting</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/architecture/security" class="">Security</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/initialization" class="">Initialization and Startup</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/initialization/embedded-container" class="">Embedded Winstone and <code>executable-war</code></a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/extensibility" class="">Extensibility</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/model" class="">Model</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/handling-requests" class="">Handling Requests</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/handling-requests/routing" class="">Routing Requests</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/handling-requests/actions" class="">Web Methods</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/handling-requests/responses" class="">Responding to Requests</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/security" class="">Security</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/security/secrets" class="">Storing Secrets</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/persistence" class="">Persistence</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/scheduling" class="">Scheduling</a>
+<i class="icon-warning" title="Early work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/views" class="">Views</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/forms" class="">Forms</a>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/forms/form-validation" class="">Form validation</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/forms/adding-tool-tips" class="">Adding tool tips</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/forms/jelly-form-controls" class="">Jelly form controls</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/forms/structured-form-submission" class="">Structured form submission</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/internationalization" class="">Internationalization and Localization</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/internationalization/i18n-source-code" class="">Internationalizing Messages in Java Source Code</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/internationalization/i18n-jelly-views" class="">Internationalizing Messages in Jelly Views</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/internationalization/i18n-groovy-views" class="">Internationalizing Messages in Groovy Views</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/internationalization/advanced-localization" class="">Advanced Localization</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/distributed-builds" class="">Distributed Builds</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/cli" class="">Jenkins CLI</a>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/testing" class="active">Testing</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development" class="">Plugin development</a>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/build-process" class="">Plugin Build Process</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/choosing-jenkins-baseline" class="">Choosing a Jenkins version to build against</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/dependency-management" class="">Dependency Management</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/dependencies-and-class-loading" class="">Dependencies and Class Loading</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/optional-dependencies" class="">Optional dependencies</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-development/plugin-release-tips" class="">Plugin Release Tips</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-governance" class="">Plugin governance</a>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/plugin-governance/adopt-a-plugin" class="">Adopt a Plugin</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing" class="">Publishing Plugins</a>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/style-guides" class="">Style Guides</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/source-code-hosting" class="">Source Code Hosting</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/artifact-repository" class="">Artifact Repository</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/documentation" class="">Plugin Documentation</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/wiki-page" class="">Plugin Wiki Pages</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/plugin-site" class="">Plugin Site</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/continuous-integration" class="">Continuous Integration</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/publishing/usage-statistics" class="">Usage Statistics</a>
+</li>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/blueocean-plugin-development" class="">Blue Ocean</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/building" class="">Building and Debugging</a>
+<i class="icon-warning" style="opacity: 0.5;" title="Partial work in progress">
+&nbsp;
+</i>
+<ol>
+</ol>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/development-environment" class="">Development Environment</a>
+<ol>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/development-environment/ide-configuration" class="">IDE Configuration</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/development-environment/taglibs" class="">Taglibs</a>
+</li>
+</ol>
+</li>
+</ol>
+<h4>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/guides" class="">How-To Guides</a>
+</h4>
+<h4>
+Resources
+</h4>
+<h5>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/extensions" class="">Extensions Index</a>
+</h5>
+<h5>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/javadoc" class="">Javadoc</a>
+</h5>
+<h5>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/development-environment/taglibs" class="">Tablibs</a>
+</h5>
+<h5>
+Tools
+</h5>
+<ul>
+<li>
+<a href="https://jenkinsci.github.io/maven-hpi-plugin/" target="_blank">
+Maven HPI Plugin
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-9">
+<h1>
+Testing
+</h1>
+<!-- starting partial wip.adoc -->
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This section is a work in progress.
+Want to help?
+Check out the <a href="https://groups.google.com/forum/#!forum/jenkinsci-docs">jenkinsci-docs mailing list</a>.
+For other ways to contribute to the Jenkins project, see <a href="/participate">this page about participating and contributing</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<!-- ending partial wip.adoc -->
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Writing automated tests for Jenkins and its plugins is important to ensure that everything works as expected — in various scenarios, with multiple Java versions, and on different operating systems — while helping to prevent regressions from being introduced in later releases.</p>
+</div>
+<div class="paragraph">
+<p>Whether you&#8217;re writing a new Jenkins plugin, or just looking to <a href="/participate/">participate in the Jenkins project</a>, this guide aims to cover everything you should need to get started writing various types of automated tests.
+Basic experience of writing Java-based tests with the <a href="https://junit.org/">JUnit test framework</a> is assumed.</p>
+</div>
+<div class="paragraph">
+<p>To make the development of tests simpler, Jenkins comes with a <a href="https://github.com/jenkinsci/jenkins-test-harness/">test harness</a>, based on the JUnit test framework.
+This provides the following features:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Automated setup and teardown of a Jenkins installation, allowing each test method to run in a clean, isolated environment.</p>
+</li>
+<li>
+<p>Helper classes and methods to simplify the creation of jobs, agents, security realms, SCM implementations and more.</p>
+</li>
+<li>
+<p>Declarative annotations to specify the environment a test method will use; for example, setting the <code>JENKINS_HOME</code> contents.</p>
+</li>
+<li>
+<p>Direct access to the Jenkins object model. This allows tests to assert directly against the internal state of Jenkins.</p>
+</li>
+<li>
+<p><a href="https://htmlunit.sourceforge.net/">HtmlUnit</a> support, making it simple to test interaction with the web UI and other HTTP calls.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="anchor" href="#setting-up"></a>Setting Up</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="dependencies"><a class="anchor" href="#dependencies"></a>Dependencies</h3>
+<div class="sect3">
+<h4 id="jenkins-test-harness"><a class="anchor" href="#jenkins-test-harness"></a>Jenkins Test Harness</h4>
+<div class="paragraph">
+<p>By default, you don&#8217;t need to do anything to set up the <a href="https://github.com/jenkinsci/jenkins-test-harness/">Jenkins Test Harness</a> for your plugin.
+All Jenkins plugins inherit from the <a href="https://github.com/jenkinsci/plugin-pom/">plugin parent POM</a> and therefore have the test harness dependency included automatically.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, JUnit is included as a dependency by the parent POM, so you don&#8217;t need to add it as a dependency.</p>
+</div>
+<div class="sect4">
+<h5 id="overriding-the-test-harness-version"><a class="anchor" href="#overriding-the-test-harness-version"></a>Overriding the Test Harness Version</h5>
+<div class="paragraph">
+<p>If you&#8217;re using version 2.3 or newer of the plugin parent POM, you can change the test harness version used by overriding the <code>jenkins-test-harness.version</code> property, if you need newer features.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;project&gt;</span>
+  …
+  <span style="color:#070;font-weight:bold">&lt;properties&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;jenkins-test-harness.version&gt;</span>2.34<span style="color:#070;font-weight:bold">&lt;/jenkins-test-harness.version&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/properties&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="working-with-pipeline"><a class="anchor" href="#working-with-pipeline"></a>Working with Pipeline</h4>
+<div class="paragraph">
+<p>You are encouraged to test that your plugin works with <a href="/doc/pipeline/">Pipeline</a>.
+You can do so without making your plugin itself dependent on various Pipeline-related plugins; instead you can include these as <code>test</code> dependencies, so that they are only used when compiling and running test cases.</p>
+</div>
+<div class="paragraph">
+<p>This is done by adding the minimum required Pipeline plugins to the <code>&lt;dependencies&gt;</code> section of your POM.
+The following list covers typical integration tests:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.jenkins-ci.plugins.workflow<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>workflow-basic-steps<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#070;font-weight:bold">&lt;/scope&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.jenkins-ci.plugins.workflow<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>workflow-cps<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#070;font-weight:bold">&lt;/scope&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.jenkins-ci.plugins.workflow<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>workflow-durable-task-step<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#070;font-weight:bold">&lt;/scope&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.jenkins-ci.plugins.workflow<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>workflow-job<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#070;font-weight:bold">&lt;/scope&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>(You will also need to specify <code>&lt;version&gt;</code>s, unless you are using the [BOM](<a href="https://github.com/jenkinsci/bom#introduction)." class="bare">https://github.com/jenkinsci/bom#introduction).</a>)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="depending-on-other-plugins"><a class="anchor" href="#depending-on-other-plugins"></a>Depending on Other Plugins</h4>
+<div class="paragraph">
+<p>Any Jenkins plugins that you add as dependencies to your POM with <code>&lt;scope&gt;test&lt;/scope&gt;</code> will be available in the Jenkins installations created while running test cases, or when using <a href="/doc/developer/tutorial/run/"><code>mvn hpi:run</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>You can also apply the <a href="https://javadoc.jenkins.io/component/jenkins-test-harness/?org/jvnet/hudson/test/recipes/WithPlugin.html"><code>@WithPlugin</code></a> annotation to individual test cases, but this is rarely required.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-code-location"><a class="anchor" href="#source-code-location"></a>Source Code Location</h3>
+<div class="paragraph">
+<p>The source code for your test cases should be placed in the standard location for Maven projects, i.e. under the <code>src/test/java/</code> directory.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To see some working examples of plugin development,
+including use of <code>JenkinsRule</code> to test plugin code in the context of temporary Jenkins installations,
+try using one of the official [archetypes](<a href="https://github.com/jenkinsci/archetypes#usage" class="bare">https://github.com/jenkinsci/archetypes#usage</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="running-tests"><a class="anchor" href="#running-tests"></a>Running Tests</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="from-the-command-line"><a class="anchor" href="#from-the-command-line"></a>From the Command Line</h3>
+<div class="paragraph">
+<p><code>mvn test</code> will run all test cases, report progress and results on the command line, and write those results to JUnit XML files following the pattern <code>target/surefire-reports/TEST-&lt;class name&gt;.xml</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="from-an-ide"><a class="anchor" href="#from-an-ide"></a>From an IDE</h3>
+<div class="paragraph">
+<p>Most Java IDEs should be able to run JUnit tests and report on the results.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-to-test"><a class="anchor" href="#what-to-test"></a>What to Test</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that we can write a basic test, we should discuss what you should be testing…</p>
+</div>
+<div class="paragraph">
+<p>TODO: Unit testing of your code, as much as possible. JenkinsRule testing: creating jobs that use your build steps, running them, asserting on the output</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="common-patterns"><a class="anchor" href="#common-patterns"></a>Common Patterns</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section covers patterns that you will commonly use in your test cases, plus scenarios that you should consider testing.</p>
+</div>
+<div class="sect2">
+<h3 id="configuration-round-trip-testing"><a class="anchor" href="#configuration-round-trip-testing"></a>Configuration Round-trip Testing</h3>
+<div class="paragraph">
+<p>For Freestyle jobs, where users have to configure projects via the web interface, if you&#8217;re writing a <a href="https://javadoc.jenkins.io/byShortName/Builder"><code>Builder</code></a>, <a href="https://javadoc.jenkins.io/byShortName/Publisher"><code>Publisher</code></a> or similar, it&#8217;s a good idea to test that your configuration form works properly.
+The process to follow is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start up a Jenkins installation and programmatically configure your plugin.</p>
+</li>
+<li>
+<p>Open the relevant configuration page in Jenkins via HtmlUnit.</p>
+</li>
+<li>
+<p>Submit the configuration page without making any changes.</p>
+</li>
+<li>
+<p>Verify that your plugin is still identically configured.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This can be done easily with the <a href="https://javadoc.jenkins.io/component/jenkins-test-harness/org/jvnet/hudson/test/JenkinsRule.html#configRoundtrip--"><code>configRoundtrip</code></a> convenience methods in <code>JenkinsRule</code>.
+Use [archetypes](<a href="https://github.com/jenkinsci/archetypes#usage" class="bare">https://github.com/jenkinsci/archetypes#usage</a>) to see examples.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="providing-environment-variables"><a class="anchor" href="#providing-environment-variables"></a>Providing Environment Variables</h3>
+<div class="paragraph">
+<p>In Jenkins, you can set environment variables on the Configure System page, which then become available during builds.
+To recreate the same configuration from a test method, you can do the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#007">@Rule</span> <span style="color:#088;font-weight:bold">public</span> JenkinsRule j = <span style="color:#080;font-weight:bold">new</span> JenkinsRule();
+
+<span style="color:#007">@Test</span> <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> someTest() {
+  EnvironmentVariablesNodeProperty prop = <span style="color:#080;font-weight:bold">new</span> EnvironmentVariablesNodeProperty();
+  EnvVars env = prop.getEnvVars();
+  env.put(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">DEPLOY_TARGET</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">staging</span><span style="color:#710">&quot;</span></span>);
+  j.jenkins.getGlobalNodeProperties().add(prop);
+  <span style="color:#777">// …</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="providing-test-data"><a class="anchor" href="#providing-test-data"></a>Providing Test Data</h3>
+<div class="paragraph">
+<p>In order to test parts of your plugin, you may want certain files to exist in the build workspace, or that Jenkins is configured in a certain way.
+This section covers various ways to achieve this using the Jenkins Test Harness.</p>
+</div>
+<div class="sect3">
+<h4 id="customizing-the-build-workspace"><a class="anchor" href="#customizing-the-build-workspace"></a>Customizing the Build Workspace</h4>
+<div class="sect4">
+<h5 id="using-a-dummy-scm"><a class="anchor" href="#using-a-dummy-scm"></a>Using a Dummy SCM</h5>
+<div class="paragraph">
+<p>Freestyle projects typically check out code from an SCM before running the build steps, and the test harness provides a few dummy SCM implementations which make it easy to "check out" files into the workspace.</p>
+</div>
+<div class="paragraph">
+<p>The simplest of these is the <a href="https://javadoc.jenkins.io/component/jenkins-test-harness/?org/jvnet/hudson/test/SingleFileSCM.html"><code>SingleFileSCM</code></a> which, as its name suggests, provides a single file during checkout.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#007">@Rule</span> <span style="color:#088;font-weight:bold">public</span> JenkinsRule j = <span style="color:#080;font-weight:bold">new</span> JenkinsRule();
+
+<span style="color:#007">@Test</span> <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> customizeWorkspaceWithFile() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+  <span style="color:#777">// Create a Freestyle project with a dummy SCM</span>
+  FreeStyleProject project = j.createFreeStyleProject();
+  project.setScm(<span style="color:#080;font-weight:bold">new</span> SingleFileSCM(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">greeting.txt</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">hello</span><span style="color:#710">&quot;</span></span>));
+  <span style="color:#777">// …</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once a build of this project starts, the file <code>greetings.txt</code> with the contents <code>hello</code> will be added to the workspace during the SCM checkout phase.</p>
+</div>
+<div class="paragraph">
+<p>There are additional variants of the <code>SingleFileSCM</code> constructor which let you create the file contents from a byte array, or by reading a file from the resources folder, or another <code>URL</code> source.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">io.jenkins.myplugin</span>;
+
+<span style="color:#777">// Reads the contents from `src/test/resources/io/jenkins/myplugin/test.json`</span>
+project.setScm(<span style="color:#080;font-weight:bold">new</span> SingleFileSCM(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">data.json</span><span style="color:#710">&quot;</span></span>, getClass().getResource(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">test.json</span><span style="color:#710">&quot;</span></span>)));
+
+<span style="color:#777">// Reads the contents from `src/test/resources/test.json` — note the slash prefix</span>
+project.setScm(<span style="color:#080;font-weight:bold">new</span> SingleFileSCM(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">data.json</span><span style="color:#710">&quot;</span></span>, getClass().getResource(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/test.json</span><span style="color:#710">&quot;</span></span>)));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to provide more than a single file, you can use <a href="https://javadoc.jenkins.io/component/jenkins-test-harness/?org/jvnet/hudson/test/ExtractResourceSCM.html"><code>ExtractResourceSCM</code></a>, which will extract the contents of a given zip file into the workspace:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">io.jenkins.myplugin</span>;
+
+<span style="color:#777">// Extracts `src/test/resources/io/jenkins/myplugin/files-and-folders.zip` into the workspace</span>
+project.setScm(<span style="color:#080;font-weight:bold">new</span> ExtractResourceSCM(getClass().getResource(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">files-and-folders.zip</span><span style="color:#710">&quot;</span></span>)));</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="within-a-pipeline"><a class="anchor" href="#within-a-pipeline"></a>Within a Pipeline</h5>
+<div class="paragraph">
+<p>Pipeline projects don&#8217;t have the concept of a single SCM, like Freestyle projects do, but offer a variety of ways to places files into a workspace.</p>
+</div>
+<div class="paragraph">
+<p>At its most simple, you can use the <a href="/doc/pipeline/steps/workflow-basic-steps/#code-writefile-code-write-file-to-workspace"><code>writeFile</code></a> step from the <a href="https://plugins.jenkins.io/workflow-basic-steps">Pipeline: Basic Steps plugin</a>. For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#007">@Rule</span> <span style="color:#088;font-weight:bold">public</span> JenkinsRule j = <span style="color:#080;font-weight:bold">new</span> JenkinsRule();
+
+<span style="color:#007">@Test</span> <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> customizeWorkspace() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    <span style="color:#777">// Create a new Pipeline with the given (Scripted Pipeline) definition</span>
+    WorkflowJob project = j.createProject(WorkflowJob.class);
+    project.setDefinition(<span style="color:#080;font-weight:bold">new</span> CpsFlowDefinition(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span> +
+        <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">node {</span><span style="color:#710">&quot;</span></span> + <i class="conum" data-value="1"></i><b>(1)</b>
+        <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">  writeFile text: 'hello', file: 'greeting.txt'</span><span style="color:#710">&quot;</span></span> +
+        <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">  // …</span><span style="color:#710">&quot;</span></span> +
+        <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">}</span><span style="color:#710">&quot;</span></span>, <span style="color:#069">true</span>));
+    <span style="color:#777">// …</span>
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>node</code> allocates a workspace on an agent, so that we have somewhere to write files to.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Alternatively, you can use the <a href="/doc/pipeline/steps/pipeline-utility-steps/#code-unzip-code-extract-zip-file"><code>unzip</code></a> step from the <a href="https://plugins.jenkins.io/pipeline-utility-steps">Pipeline Utility Steps plugin</a> to copy multiple files and folders into the workspace.</p>
+</div>
+<div class="paragraph">
+<p>First, add the plugin to your POM as a test dependency — you can find the <code>groupId</code> and <code>artifactId</code> values in the <a href="https://github.com/jenkinsci/pipeline-utility-steps-plugin/blob/master/pom.xml">plugin POM</a>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;dependency&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;groupId&gt;</span>org.jenkins-ci.plugins<span style="color:#070;font-weight:bold">&lt;/groupId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;artifactId&gt;</span>pipeline-utility-steps<span style="color:#070;font-weight:bold">&lt;/artifactId&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;version&gt;</span>1.5.1<span style="color:#070;font-weight:bold">&lt;/version&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;scope&gt;</span>test<span style="color:#070;font-weight:bold">&lt;/scope&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can then write a test which starts by extracting that zip file.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">io.jenkins.myplugin</span>;
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PipelineWorkspaceExampleTest</span> {
+  <span style="color:#007">@Rule</span> <span style="color:#088;font-weight:bold">public</span> JenkinsRule j = <span style="color:#080;font-weight:bold">new</span> JenkinsRule();
+
+  <span style="color:#007">@Test</span> <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> customizeWorkspaceFromZip() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+      <span style="color:#777">// Get a reference to the zip file from the `src/test/resources/io/jenkins/myplugin/files-and-folders.zip`</span>
+      <span style="color:#0a8;font-weight:bold">URL</span> zipFile = getClass().getResource(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">files-and-folders.zip</span><span style="color:#710">&quot;</span></span>);
+
+      <span style="color:#777">// Create a new Pipeline with the given (Scripted Pipeline) definition</span>
+      WorkflowJob project = j.createProject(WorkflowJob.class);
+      project.setDefinition(<span style="color:#080;font-weight:bold">new</span> CpsFlowDefinition(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span> +
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">node {</span><span style="color:#710">&quot;</span></span> + <i class="conum" data-value="1"></i><b>(1)</b>
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">  unzip '</span><span style="color:#710">&quot;</span></span> + zipFile.getPath() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">'</span><span style="color:#710">&quot;</span></span> + <i class="conum" data-value="1"></i><b>(1)</b>
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">  // …</span><span style="color:#710">&quot;</span></span> +
+          <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">}</span><span style="color:#710">&quot;</span></span>, <span style="color:#069">true</span>));
+      <span style="color:#777">// …</span>
+  }
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The path to the zip file is dynamic, so we pass it into the Pipeline definition.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="using-filepath"><a class="anchor" href="#using-filepath"></a>Using <code>FilePath</code></h5>
+<div class="paragraph">
+<p>TODO: Expand this section, and explain the below example.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java">FilePath workspace = j.jenkins.getWorkspaceFor(job);
+FilePath report = workspace.child(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">target</span><span style="color:#710">&quot;</span></span>).child(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">lint-results.xml</span><span style="color:#710">&quot;</span></span>);
+report.copyFrom(getClass().getResourceAsStream(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">lint-results_r20.xml</span><span style="color:#710">&quot;</span></span>));</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="customizing-the-jenkins_home-directory"><a class="anchor" href="#customizing-the-jenkins_home-directory"></a>Customizing the <code>JENKINS_HOME</code> Directory</h4>
+<div class="paragraph">
+<p>TODO: Write this section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-localdata"><a class="anchor" href="#using-localdata"></a>Using <code>@LocalData</code></h4>
+<div class="paragraph">
+<p>TODO: Properly write this section.</p>
+</div>
+<div class="paragraph">
+<p>Runs a test case with a data set local to test method or the test class.</p>
+</div>
+<div class="paragraph">
+<p>This recipe allows your test case to start with the preset HUDSON_HOME data loaded either from your test method or from the test class.
+For example, if the test method is org.acme.FooTest.bar(), then you can have your test data in one of the following places in resources folder (typically src/test/resources):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Under org/acme/FooTest/bar directory (that is, you&#8217;ll have org/acme/FooTest/bar/config.xml), in the same layout as in the real JENKINS_HOME directory.</p>
+</li>
+<li>
+<p>In org/acme/FooTest/bar.zip as a zip file.</p>
+</li>
+<li>
+<p>Under org/acme/FooTest directory (that is, you&#8217;ll have org/acme/FooTest/config.xml), in the same layout as in the real JENKINS_HOME directory.</p>
+</li>
+<li>
+<p>In org/acme/FooTest.zip as a zip file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Search is performed in this specific order. The fall back mechanism allows you to write one test class that interacts with different aspects of the same data set, by associating the dataset with a test class, or have a data set local to a specific test method.
+The choice of zip and directory depends on the nature of the test data, as well as the size of it.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuring-an-scm"><a class="anchor" href="#configuring-an-scm"></a>Configuring an SCM</h3>
+<div class="paragraph">
+<p>TODO: Write this section.
+You can create a Git repository during a test using <code>@GitSampleRepoRule</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="using-agents"><a class="anchor" href="#using-agents"></a>Using Agents</h3>
+<div class="paragraph">
+<p>TODO: Creating fake agents.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enabling-security"><a class="anchor" href="#enabling-security"></a>Enabling security</h3>
+<div class="paragraph">
+<p>TODO: Creating fake security realms. Using LocalData presets.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="verifying-logs"><a class="anchor" href="#verifying-logs"></a>Verifying Logs</h3>
+<div class="paragraph">
+<p>You can verify log messages using <code>@LoggerRule</code>.
+This can also be useful for temporarily enabling certain loggers during interactive testing.
+For example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">java.util.logging.Level</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.junit.Rule</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.junit.Test</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.jvnet.hudson.test.LoggerRule</span>;
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">static</span> <span style="color:#B44;font-weight:bold">org.hamcrest.Matchers.containsString</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">static</span> <span style="color:#B44;font-weight:bold">org.junit.Assert.assertThat</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">static</span> <span style="color:#B44;font-weight:bold">org.jvnet.hudson.test.LoggerRule.recorded</span>;
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">MyTest</span> {
+
+  <span style="color:#088;font-weight:bold">public</span> <span style="color:#007">@Rule</span> LoggerRule l = <span style="color:#080;font-weight:bold">new</span> LoggerRule();
+
+  <span style="color:#007">@Test</span>
+  <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> testLogs() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    l.capture(<span style="color:#00D">3</span>).record(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">my.logger.name</span><span style="color:#710">&quot;</span></span>, <span style="color:#0a8;font-weight:bold">Level</span>.ALL);
+    doThingThatLogs();
+    assertThat(l, recorded(<span style="color:#0a8;font-weight:bold">Level</span>.INFO, containsString(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Thing started successfully</span><span style="color:#710">&quot;</span></span>)));
+  }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="performance-testing"><a class="anchor" href="#performance-testing"></a>Performance Testing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Starting from <a href="https://github.com/jenkinsci/jenkins-test-harness/releases/tag/jenkins-test-harness-2.50">Jenkins Test Harness 2.50</a>, the framework provides ways to run microbenchmarks using
+<a href="https://openjdk.java.net/projects/code-tools/jmh/">Java Microbenchmark Harness</a>.</p>
+</div>
+<div class="paragraph">
+<p>To use them in your plugin, please find documentation here:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="/blog/2019/06/21/performance-testing-jenkins/">Blog post on running benchmarks</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jenkinsci/jenkins-test-harness/blob/master/docs/jmh-benchmarks.adoc">Creating Benchmarks</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jenkinsci/configuration-as-code-plugin/blob/master/docs/benchmarks/jmh-benchmarks.md">Using Configuration As Code to setup benchmarks</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jenkinsci/plugin-pom#running-benchmarks">Maven profile that runs benchmarks</a></p>
+</li>
+<li>
+<p><a href="https://github.com/jenkins-infra/pipeline-library#runbenchmarks">Running benchmark through Jenkinsfile</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="further-pipeline-testing"><a class="anchor" href="#further-pipeline-testing"></a>Further Pipeline Testing</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="testing-durable-pipeline-steps"><a class="anchor" href="#testing-durable-pipeline-steps"></a>Testing Durable Pipeline Steps</h3>
+<div class="paragraph">
+<p>TODO: RestartableJenkinsRule.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="further-patterns"><a class="anchor" href="#further-patterns"></a>Further Patterns</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="custom-builder"><a class="anchor" href="#custom-builder"></a>Custom builder</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="advanced-and-tips-etc"><a class="anchor" href="#advanced-and-tips-etc"></a>Advanced and Tips etc.</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+
+<h2>
+References
+</h2>
+<ul>
+<li><a href="https://wiki.jenkins.io/display/JENKINS/Mocking+in+Unit+Tests">Wiki: Mocking in Unit Tests</a></li>
+<li><a href="https://wiki.jenkins.io/display/JENKINS/Unit+Test+on+Windows">Wiki: Unit Testing on Windows</a></li>
+<li><a href="https://javadoc.jenkins.io/component/jenkins-test-harness/">Jenkins Test Harness Javadoc</a></li>
+<li><a href="https://github.com/jenkinsci/acceptance-test-harness">Acceptance Test Harness</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//doc/developer/testing/index.adoc" title="Edit /doc/developer/testing/index.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//doc/developer/testing/index.adoc" title="View /doc/developer/testing/index.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

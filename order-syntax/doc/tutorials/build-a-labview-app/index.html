@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Build a LabVIEW app
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Build a LabVIEW app" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Build a LabVIEW app" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Build a LabVIEW app" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-labview-app/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Build a LabVIEW app" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row .col-lg-9 h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-lg-3">
+<div class="sidebar-nav tour">
+<p>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc" class="">Jenkins User Documentation Home</a>
+</p>
+<h4>
+Guided Tour
+</h4>
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/getting-started" class="">Getting started</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/hello-world" class="">Creating your first Pipeline</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/running-multiple-steps" class="">Running multiple steps</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/agents" class="">Defining execution environments</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/environment" class="">Using environment variables</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/tests-and-artifacts" class="">Recording test results and artifacts</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/post" class="">Cleaning up and notifications</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/tour/deployment" class="">Deployment</a>
+</li>
+</ul>
+<h4>
+Tutorials
+</h4>
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials" class="">Overview</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-java-app-with-maven" class="">Build a Java app with Maven</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-node-js-and-react-app-with-npm" class="">Build a Node.js and React app with npm</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-python-app-with-pyinstaller" class="">Build a Python app with PyInstaller</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-labview-app" class="active">Build a LabVIEW app</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/create-a-pipeline-in-blue-ocean" class="">Create a Pipeline in Blue Ocean</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/tutorials/build-a-multibranch-pipeline-project" class="">End-to-End Multibranch Pipeline Project Creation</a>
+</li>
+</ul>
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/getting-started" class="">User Handbook overview</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/installing" class="">Installing Jenkins</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/using" class="">Using Jenkins</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/pipeline" class="">Pipeline</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/blueocean" class="">Blue Ocean</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/managing" class="">Managing Jenkins</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/system-administration" class="">System Administration</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/scaling" class="">Scaling Jenkins</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/appendix" class="">Appendix</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/glossary" class="">Glossary</a>
+</li>
+</ul>
+<h4>
+Resources
+</h4>
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/book/pipeline/syntax" class="">Pipeline Syntax reference</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/pipeline/steps" class="">Pipeline Steps reference</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc/upgrade-guide" class="">LTS Upgrade Guide</a>
+</li>
+</ul>
+<h5>
+Recent Tutorial Blog Posts
+</h5>
+<ul>
+<li>
+<a href="/blog/2017/11/27/tutorials-in-the-jenkins-user-documentation/">
+Introducing Tutorials in the Jenkins User Documentation
+</a>
+</li>
+<li>
+<a href="/blog/2017/05/18/pipeline-dev-tools/">
+Pipeline Development Tools
+</a>
+</li>
+<li>
+<a href="/blog/2017/04/12/welcome-to-blue-ocean-dashboard/">
+Getting Started with the Blue Ocean Dashboard
+</a>
+</li>
+</ul>
+<div class="small">
+<a href="/node/tags/tutorial">
+View all tutorial blog posts
+</a>
+</div>
+<p></p>
+</div>
+</div>
+<div class="col-lg-9">
+<h1>
+Build a LabVIEW app
+</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel2">
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#labview-cli-setup">LabVIEW CLI Setup</a></li>
+<li><a href="#python-setup">Python Setup</a></li>
+<li><a href="#github-setup">GitHub Setup</a>
+<ul class="sectlevel3">
+<li><a href="#repository-setup">Repository Setup</a></li>
+<li><a href="#personal-access-token">Personal Access Token</a></li>
+</ul>
+</li>
+<li><a href="#jenkins-setup">Jenkins Setup</a>
+<ul class="sectlevel3">
+<li><a href="#jenkins-initial-setup">Jenkins Initial Setup</a></li>
+<li><a href="#setting-up-environment-variables-and-credentials">Setting up Environment Variables and Credentials</a></li>
+<li><a href="#setting-up-the-global-library">Setting Up the Global Library</a></li>
+<li><a href="#setting-up-the-jenkins-pipeline">Setting up the Jenkins Pipeline</a></li>
+</ul>
+</li>
+<li><a href="#confirmation">Confirmation</a></li>
+<li><a href="#wrapping-up">Wrapping Up</a></li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This tutorial shows you how to use LabVIEW to orchestrate building a simple <a href="https://www.ni.com/en-us/shop/labview.html">LabVIEW</a> application.</p>
+</div>
+<div class="paragraph">
+<p>If you are a LabVIEW developer who is new to CI/CD concepts, or you might be familiar with these concepts but don&#8217;t know how to implement building your application using Jenkins, then this tutorial is for you.</p>
+</div>
+<div class="paragraph">
+<p>We’ll walk through setting up Jenkins as our CI server and using it to automate graphical diffing and testing of our project (which you&#8217;ll obtain from <a href="http://www.ni.com/example/lv-ci">this example page</a> on ni.com). Jenkins will monitor GitHub Pull Requests for changes and will comment and check if the LabVIEW project can build successfully. Unit test results will be saved to a JUnit XML report.</p>
+</div>
+<div class="paragraph">
+<p><strong>Duration:</strong> This tutorial takes 20-40 minutes to complete (assuming you&#8217;ve
+already met the <a href="#prerequisites">prerequisites</a> below). The exact duration will
+depend on the speed of your machine and whether or not you&#8217;ve already <a href="https://jenkins.io/doc/book/installing/">installed Jenkins</a> from <a href="..">another tutorial</a>.</p>
+</div>
+<div class="paragraph">
+<p>You can stop this tutorial at any point in time and continue from where you left off.</p>
+</div>
+<div class="sect2">
+<h3 id="prerequisites"><a class="anchor" href="#prerequisites"></a>Prerequisites</h3>
+<div class="paragraph">
+<p>For this tutorial, you will require:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A macOS, Linux or Windows machine with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>256 MB of RAM, although more than 512MB is recommended.</p>
+</li>
+<li>
+<p>10 GB of drive space for Jenkins and your Docker images and containers.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The following software installed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.ni.com/en-us/support/downloads/software-products/download.labview.html#305508">LabVIEW Professional Development System 2018+</a></p>
+</li>
+<li>
+<p><a href="https://www.ni.com/en-us/support/downloads/software-products/download.labview-unit-test-framework-toolkit.html#305485">LabVIEW Unit Test Framework Toolkit</a></p>
+</li>
+<li>
+<p><a href="https://forums.ni.com/t5/Reference-Design-Content/UTF-JUnit-Report-Library/ta-p/3630740?profile.language=en">UTF JUnit Report library (VI Package Manager)</a></p>
+</li>
+<li>
+<p><a href="https://www.python.org/downloads/">Python(Version 3.6.3 or later)</a>. For these examples to work, make sure Python is added to your System Path.</p>
+</li>
+<li>
+<p><a href="https://git-scm.com/downloads">Git</a> and optionally <a href="https://desktop.github.com/">GitHub Desktop</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note</strong>: This tutorial uses Jenkins on a Windows machine. This means that file paths may be Windows-specific. Please modify any file paths and/or commands to your specific Operating System.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="labview-cli-setup"><a class="anchor" href="#labview-cli-setup"></a>LabVIEW CLI Setup</h3>
+<div class="paragraph">
+<p>The <a href="https://zone.ni.com/reference/en-XX/help/371361R-01/lvhowto/cli_running_operations/">LabVIEW Command Line Interface (LabVIEWCLI)</a> is installed alongside LabVIEW 2018+ and is used to run LabVIEW commands, such as unit testing, through the Command Line. To use the LabVIEWCLI, you must enable VI Server: <strong>Tools &gt;&gt; Options &gt;&gt; VI Server</strong>. Make sure the TCP/IP checkbox is enabled and leave the Port as 3363.</p>
+</div>
+<div class="paragraph boxshadow">
+<p><span class="image"><img src="../../book/resources/tutorials/labview-01-labviewcli-setup.png" alt="LabVIEWCLI setup" width="100%"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="python-setup"><a class="anchor" href="#python-setup"></a>Python Setup</h3>
+<div class="paragraph">
+<p>The Python <a href="https://pypi.org/project/requests/">requests</a> library must be installed in order for Jenkins to post results to GitHub. One way to do this is by opening a command prompt and running the following command:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">pip install requests</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="github-setup"><a class="anchor" href="#github-setup"></a>GitHub Setup</h3>
+<div class="sect3">
+<h4 id="repository-setup"><a class="anchor" href="#repository-setup"></a>Repository Setup</h4>
+<div class="paragraph">
+<p>We’ll create three GitHub repositories. Each of these repositories will be used for one of the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Host the script files, library files, and  infrastructure items needed for the build server.</p>
+</li>
+<li>
+<p>Host the actual example application.</p>
+</li>
+<li>
+<p>Host images used during the VI diffing step.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To create these repositories:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create or log in to your <a href="https://github.com/">GitHub</a> account. Make sure your email is verified.</p>
+</li>
+<li>
+<p>Click on the <strong>New</strong> button next to Repositories:
+<span class="image"><img src="../../book/resources/tutorials/labview-02-new-repo.png" alt="GitHub New Repo" width="80%"></span></p>
+</li>
+<li>
+<p>On the <strong>Create a new repository</strong> screen, fill out the Repository name and Description:
+<span class="image"><img src="../../book/resources/tutorials/labview-03-create-repo-buildsystem.png" alt="GitHub Create myBuildsystem Repo" width="100%"></span></p>
+</li>
+<li>
+<p>Click Create repository to create the repository.</p>
+</li>
+<li>
+<p>Repeat steps 2-4 using the below information. This will be the repository for the actual example application.
+<span class="image"><img src="../../book/resources/tutorials/labview-04-create-repo-my-application.png" alt="GitHub Create myApplication Repo" width="100%"></span></p>
+</li>
+<li>
+<p>Repeat steps 2-4 with the following information. This will be used to host images for diffing.
+<span class="image"><img src="../../book/resources/tutorials/labview-05-create-repo-mypicrepo.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
+</li>
+<li>
+<p>Open a terminal with Git. If you installed Git Bash on Windows, open Git Bash:
+<span class="image"><img src="../../book/resources/tutorials/labview-06-gitbash-window.png" alt="GitHub Create myPicRepo" width="100%"></span></p>
+</li>
+<li>
+<p>Create a local directory to maintain your Jenkins files. For this example, we’ll be using the <code>C:/Users/&lt;User&gt;/Documents/GitHub</code> directory. To create and navigate to this directory, run the following commands:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">cd “C:/Users/&lt;User&gt;/Documents”</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">mkdir GitHub</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">cd GitHub</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the following command (using the URL copied from Step 5) to copy the Git repository and its contents onto your machine (You can also obtain the HTTPS URL of the repository by clicking on the Copy button on the GitHub repository page):</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">git clone https://github.com/&lt;Organization Name&gt;/&lt;Repository Name&gt;.git</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Repeat Step 9 for the myApplication repository.</p>
+</li>
+<li>
+<p>In Windows Explorer, place the contents of <code>../myBuildsystem</code> from the example files located <a href="http://www.ni.com/example/lv-ci">here</a> in the <code>../myBuildSystem</code> directory located on your machine:
+<span class="image"><img src="../../book/resources/tutorials/labview-08-myBuildSystem-directory.png" alt="myBuildSystem directory" width="80%"></span></p>
+</li>
+<li>
+<p>Navigate to the directory in the Git terminal, and run the following command to add all files within the directory to the Git repository:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">cd “C:/Users/&lt;User&gt;/Documents/GitHub/&lt;Repository Name&gt;”
+git add .</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <em>git commit</em> command to commit all changes and add a comment. If you can’t run the command because you’re missing credentials, you can set them:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">git config --global user.email &lt;&lt;Your GitHub Email&gt;&gt;
+git config --global user.name &lt;&lt;Your GitHub Username&gt;&gt;
+git commit -m “Added files”</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the <em>git push</em> command to push all committed changes to the remote repository (i.e. GitHub). After this step, the repository will contain all necessary components we will need for this example.</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">git push origin master</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Next, we’ll perform similar steps to set up the example application repository. In Windows Explorer, place the contents of <code>../myApplication</code> from the example files located <a href="http://www.ni.com/example/lv-ci">here</a> in the <code>../myApplication</code> directory located on your machine:
+<span class="image"><img src="../../book/resources/tutorials/labview-09-myApplication-directory.png" alt="myApplication directory" width="70%"></span></p>
+</li>
+<li>
+<p>Open up <code>Jenkinsfile</code> in the <code>../myApplication</code> directory. Change the lvVersion and lvBitness variables according to which version of LabVIEW you are using. For instance, with LabVIEW 2018 32-bit, your Jenkinsfile will look like this:
+<span class="image"><img src="../../book/resources/tutorials/labview-10-edit-jenkinsfile.png" alt="edit jenkinsfile" width="100%"></span></p>
+</li>
+<li>
+<p>Run the commands from steps 12-14, this time for the myApplication repository:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">cd &lt;&lt;myApplication directory&gt;&gt;
+git add .
+git commit -m "Added files"
+git push origin master</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now, your files are set up and in place for Jenkins to use.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="personal-access-token"><a class="anchor" href="#personal-access-token"></a>Personal Access Token</h4>
+<div class="paragraph">
+<p>For Jenkins to access your GitHub information, it will need a Personal Access Token. We will generate Personal Access token through GitHub:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the GitHub website, click on your <strong>Avatar &gt;&gt; Settings</strong></p>
+</li>
+<li>
+<p>On the left-hand side of the Settings page, click on <strong>Developer Settings</strong></p>
+</li>
+<li>
+<p>Click on <strong>Personal access tokens &gt;&gt; Generate new token</strong>.</p>
+</li>
+<li>
+<p>Enter a descriptive name for the token, such as ‘Jenkins LabVIEW Token’, and select the <em>repo</em> scope.
+<span class="image"><img src="../../book/resources/tutorials/labview-11-generate-access-token.png" alt="generate access token" width="100%"></span></p>
+</li>
+<li>
+<p>At the bottom of the page, click <strong>Generate token</strong>.</p>
+</li>
+<li>
+<p>Copy down your Personal access token. This is your only chance to copy the token. Keep your access token safe, so others can’t access your GitHub.
+<span class="image"><img src="../../book/resources/tutorials/labview-12-post-access-token-gen.png" alt="post access token" width="100%"></span></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Congrats! You’ve set up the GitHub repositories you’ll need for this example, and you have the personal access token so Jenkins can access your GitHub information. Next, we’ll configure Jenkins to use these items.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jenkins-setup"><a class="anchor" href="#jenkins-setup"></a>Jenkins Setup</h3>
+<div class="sect3">
+<h4 id="jenkins-initial-setup"><a class="anchor" href="#jenkins-initial-setup"></a>Jenkins Initial Setup</h4>
+<div class="paragraph">
+<p><strong>Note</strong>: This tutorial uses the classic Jenkins view, with minimal plugins to get the example running. You can use additional plugins such as <a href="https://jenkins.io/doc/book/blueocean/">Blue Ocean</a> for an enhanced UI experience.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Jenkins based on your Operating System using the <a href="https://jenkins.io/doc/book/installing/">help</a>, and navigate to the address of your Jenkins server in your browser. A few additional notes (all of which are already mentioned in the aforementioned Jenkins help):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The default Jenkins address is <a href="http://localhost:8080" class="bare">http://localhost:8080</a></p>
+</li>
+<li>
+<p>The first time you launch Jenkins, you will need to unlock it with the admin password from the Console log output
+<span class="image"><img src="../../book/resources/tutorials/labview-13-unlocking-jenkins.png" alt="unlocking jenkins" width="100%"></span></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>When prompted to Customize Jenkins, select the <strong>Select plugins to install</strong> option. Here, make sure the following Plugins are selected:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>GitHub Branch Source</p>
+</li>
+<li>
+<p>Folders Plugin</p>
+</li>
+<li>
+<p>Pipeline: GitHub Groovy Libraries</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Install</strong> at the bottom of the page to install the plugins.</p>
+</li>
+<li>
+<p>Once plugins are complete, you’ll be prompted to create a user. Enter your credentials and click Save and Continue.
+<span class="image"><img src="../../book/resources/tutorials/labview-14-create-first-user.png" alt="create first user" width="100%"></span></p>
+</li>
+<li>
+<p>On the following Instance Configuration page, leave the Jenkins URL as-is.</p>
+</li>
+<li>
+<p>Click <strong>Start using Jenkins</strong> to begin your Jenkins configuration.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-up-environment-variables-and-credentials"><a class="anchor" href="#setting-up-environment-variables-and-credentials"></a>Setting up Environment Variables and Credentials</h4>
+<div class="paragraph">
+<p>Environment variables can be accessed across Jenkins jobs. We will want certain values accessible when Jenkins tries to build, test and diff your application. Since the GitHub organization name, access token, and picture repository will likely be the same across Jenkins jobs, we will set them in our Jenkins configuration.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the Jenkins dashboard, navigate to the system configuration page: <strong>Manage Jenkins &gt;&gt; Configure System</strong></p>
+</li>
+<li>
+<p>Navigate to the <em>Global properties</em> section.</p>
+</li>
+<li>
+<p>Check the <strong>Environment</strong> variables box to display the List of variables.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> to add a new environment variable. Fill out the Name as shown below (BUILD_SYSTEM_REPO), and enter myBuildSystem in the Value field:
+<span class="image"><img src="../../book/resources/tutorials/labview-15-build-sys-repo-env-var.PNG" alt="build system repo environment variable" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>Add</strong> another time and add the LV_BUILD_OUTPUT_DIR environment variable. This should be an <em>empty local directory</em> anywhere on your computer, that LabVIEW will build and output files to. For instance, you may use something like <code>C:\Windows\Temp\jenkins</code>.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> two more times to add the ORG_NAME variable and the PIC_REPO variable. The value fields for these variables should be your organization’s name (instead of ‘branchNI’) and myPicRepo, respectively. These are the two repositories we created in the <strong>GitHub Setup</strong> section. Your Environment variables section should look like this: Your Environment variables section should look like this:
+<span class="image"><img src="../../book/resources/tutorials/labview-16-final-env-vars.PNG" alt="Final environment vars" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>Save</strong> at the bottom of the screen to save your changes.</p>
+</li>
+<li>
+<p>Now, navigate to the <strong>Credentials</strong> page: <strong>Jenkins Dashboard &gt;&gt; Credentials &gt;&gt; System &gt;&gt; Global credentials &gt;&gt; Add credentials</strong></p>
+</li>
+<li>
+<p>Use the following settings, entering your GitHub access token as the ‘Secret’ field.
+<span class="image"><img src="../../book/resources/tutorials/labview-17-github-secret-text.png" alt="add github secret text" width="100%"></span></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-up-the-global-library"><a class="anchor" href="#setting-up-the-global-library"></a>Setting Up the Global Library</h4>
+<div class="paragraph">
+<p>The Global Library contains the script files and other components that will be used each time Jenkins tries to build. In this example, we are hosting them in the myBuildSystem repository. We will link Jenkins to that repository so it can use those files for each job.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the main Jenkins dashboard: <strong>Manage Jenkins &gt;&gt; Configure System</strong></p>
+</li>
+<li>
+<p>Under the <em>Global Pipeline Libraries section</em>, click <strong>Add</strong> and fill out the credentials for the myBuildSystem repository. Make sure to check the <strong>Load implicitly</strong> checkbox. Your options should look like this:
+<span class="image"><img src="../../book/resources/tutorials/labview-18-set-load-implicitly.png" alt="set load implicitly" width="100%"></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Here, ‘master’ refers to the master branch of the repository. The steps we performed in the GitHub Setup section pushed all files to the ‘master’ branch. More info on GitHub flows <a href="https://guides.github.com/introduction/flow/">here</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Now, we’ll want to select the Retrieval method. For this example, we’ll use Modern SCM. Select the <strong>Modern SCM</strong> radio button, followed by the <strong>GitHub</strong> radio button under <em>Source Code Management</em>:
+<span class="image"><img src="../../book/resources/tutorials/labview-19-select-modern-scm.png" alt="set modern scm" width="100%"></span></p>
+</li>
+<li>
+<p>Start by adding Credentials. Click the <strong>Add</strong> dropdown next to the credentials field &gt;&gt; <strong>Jenkins</strong>.
+<span class="image"><img src="../../book/resources/tutorials/labview-20-click-add-credentials.png" alt="click add credentials" width="100%"></span></p>
+</li>
+<li>
+<p>On the Jenkins Credentials Provider screen, leave the default options, and enter your GitHub Username. The Password will be your GitHub Access Token. Click <strong>Add</strong> once the credentials are filled out.
+<span class="image"><img src="../../book/resources/tutorials/labview-21-enter-credentials.png" alt="enter credentials" width="100%"></span></p>
+</li>
+<li>
+<p>Once the credentials are created, select them from the Credentials dropdown.
+<span class="image"><img src="../../book/resources/tutorials/labview-22-select-creds-from-dropdown.png" alt="select credentials from dropdown" width="100%"></span></p>
+</li>
+<li>
+<p>Fill out the <em>Owner</em> field and select <em>myBuildSystem</em> from the <em>Repository</em> dropdown. Leave the other options as-is. Your fields should look like this:
+<span class="image"><img src="../../book/resources/tutorials/labview-23-final-global-pipeline-lib-settings.png" alt="final global pipeline lib settings" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>Save</strong> at the bottom of the screen to save your changes.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>We’ve successfully linked Jenkins to the global library – this means that the files hosted on the myBuildSystem repository can be accessed and used by Jenkins!</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-up-the-jenkins-pipeline"><a class="anchor" href="#setting-up-the-jenkins-pipeline"></a>Setting up the Jenkins Pipeline</h4>
+<div class="paragraph">
+<p>Finally, we’ll set up Jenkins to scan and automate testing and diffing of your myApplication repository.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the Jenkins dashboard, select <strong>New Item</strong>. Enter a name for the item and select <strong>GitHub Organization</strong>.
+<span class="image"><img src="../../book/resources/tutorials/labview-24-create-github-item.png" alt="create github item" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>OK</strong> to create the item. You will be redirected to the configuration page.</p>
+</li>
+<li>
+<p>Under the <em>Projects</em> section:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Select your <em>Credentials</em> from the dropdown menu and change the value of the <em>Owner</em> field to your GitHub organization name.</p>
+</li>
+<li>
+<p>In <em>Behaviors</em>, change the Discover branches option to Only branches that are also filed as PRs.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Make sure the <em>Script Path</em> value is Jenkinsfile. Your <em>Projects</em> section should look like this:
+<span class="image"><img src="../../book/resources/tutorials/labview-25-github-item-project-settings.png" alt="github item project settings" width="100%"></span></p>
+</li>
+<li>
+<p>Under the <em>Scan Organization Triggers</em> section, select the Interval that you want Jenkins to scan your repository for changes. If Jenkins detects a change, it will initiate the testing and diffing process. For this example, we will use 10 minutes.
+<span class="image"><img src="../../book/resources/tutorials/labview-26-scan-org-trigger-set.png" alt="set scan organization triggers" width="100%"></span></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Note</strong>: While the method used in this tutorial sets up Jenkins to scan GitHub for changes, there are methods for GitHub to trigger Jenkins builds whenever a change happens. This involves exposing your Jenkins server so that GitHub can communicate with it through <a href="https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin">WebHooks</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Save</strong> to save your changes. Through this pipeline, Jenkins will now scan your repository based on the interval you just configured.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="confirmation"><a class="anchor" href="#confirmation"></a>Confirmation</h3>
+<div class="paragraph">
+<p>Let’s confirm that everything works. We’ll do this by configuring our LabVIEW project, making changes to the VIs in our myApplication directory, and creating a Pull Request on GitHub.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We will create a <a href="https://help.github.com/en/articles/about-branches">branch</a> to the <em>myApplication</em> GitHub repository. Start by opening a Git terminal and navigating to the local <code>../myApplication</code> directory.</p>
+</li>
+<li>
+<p>To create and checkout or use a branch, enter the following commands:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">git branch myBranch
+git checkout myBranch</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Navigate to the <code>../myApplication/source</code> directory.</p>
+</li>
+<li>
+<p>Open the <code>Jenkins.lvproj</code> file.</p>
+</li>
+<li>
+<p>Expand the Build Specifications, and double click <em>myBuildSpec</em> to open its properties:
+<span class="image"><img src="../../book/resources/tutorials/labview-27-open-build-spec.png" alt="open LabVIEW project build spec" width="100%"></span></p>
+</li>
+<li>
+<p>Modify the <em>Destination directory</em> to be the specific directory you set for the LV_BUILD_OUTPUT_DIR environment variable value, in the <strong>Jenkins Setup</strong> section. This will be the output directory of the build specification.</p>
+</li>
+<li>
+<p>Next, we will modify the VIs. First, open <code>Add.vi</code>. This is a simple VI that adds two numbers together and returns a result.
+<span class="image"><img src="../../book/resources/tutorials/labview-28-add-vi-orig.png" alt="add.vi orig" width="100%"></span></p>
+</li>
+<li>
+<p>Make some cosmetic changes to <code>Add.vi</code> (don’t change anything that would alter the functionality of the VI), like so:
+<span class="image"><img src="../../book/resources/tutorials/labview-29-add-vi-changed.png" alt="add.vi changed" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>File &gt;&gt; Save</strong> to save the VI changes, and close <code>Add.vi</code>.</p>
+</li>
+<li>
+<p>Now, open <code>Subtract.vi</code>. This is a simple VI that subtracts two numbers and returns a result.
+<span class="image"><img src="../../book/resources/tutorials/labview-30-subtract-vi-orig.png" alt="subtract.vi orig" width="100%"></span></p>
+</li>
+<li>
+<p>Make cosmetic changes to <code>Subtract.vi</code>; for example:
+<span class="image"><img src="../../book/resources/tutorials/labview-31-subtract-vi-changed.png" alt="subtract.vi changed" width="100%"></span></p>
+</li>
+<li>
+<p>Click <strong>File &gt;&gt; Save</strong> to save changes, and close <code>Subtract.vi</code>.</p>
+</li>
+<li>
+<p>Close <code>Jenkins.lvproj</code>. Save files if prompted.</p>
+</li>
+<li>
+<p>With the Git terminal open, make sure we are still in the <code>../myApplication</code> directory. Run the following commands to push our changes to the <em>myBranch</em> branch on the <em>myApplication</em> repository:</p>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">git add .
+git commit -m “Cosmetic VI changes”
+git push origin myBranch</pre>
+</div>
+</div>
+</li>
+<li>
+<p>With our changes pushed to the Branch, we’ll go on GitHub to create a Pull Request. First, navigate to the <em>myApplication</em> repository on <a href="https://www.github.com">GitHub</a>.</p>
+</li>
+<li>
+<p>Navigate to the ‘myBranch’ Branch using the dropdown:
+<span class="image"><img src="../../book/resources/tutorials/labview-32-navigate-to-github-branch.png" alt="navigate to github branch" width="100%"></span></p>
+</li>
+<li>
+<p>On the <em>myBranch</em> page, click on <strong>New pull request</strong>.</p>
+</li>
+<li>
+<p>Fill out the pull request details as shown. Click <strong>Create pull request</strong> to create the request.
+<span class="image"><img src="../../book/resources/tutorials/labview-33-open-pr-details.png" alt="open PR details" width="100%"></span></p>
+</li>
+<li>
+<p>Wait for Jenkins to perform its check based on the interval you set, or navigate to your <strong>Jenkins dashboard &gt;&gt; GitHub Builder (or whatever you named your Jenkins pipeline) &gt;&gt; Scan Organization Now</strong>. Then, navigate to <strong>myApplication &gt;&gt; Scan Repository Now</strong>.</p>
+</li>
+<li>
+<p>To view the progress of your job, you can navigate to the <strong>Pull Requests</strong> tab.
+<span class="image"><img src="../../book/resources/tutorials/labview-34-jenkins-pr-tab.png" alt="jenkins pr tab" width="100%"></span></p>
+</li>
+<li>
+<p>Click on the pull request name (<em>PR-1</em> in this case). The progress of each step is displayed on the main page. The <em>Build History</em> section on the bottom left displays the jobs run.
+<span class="image"><img src="../../book/resources/tutorials/labview-35-jenkins-pr-detail.png" alt="jenkins pr detail" width="100%"></span></p>
+</li>
+<li>
+<p>If the job was successful, each stage should be Green, and the latest Build in the <em>Build History</em> section should have a blue dot next to it. Additionally, you’ll see the latest artifacts (files you can upload to Jenkins), and the unit test results:
+<span class="image"><img src="../../book/resources/tutorials/labview-36-jenkins-build-artifacts.png" alt="jenkins build artifacts" width="100%"></span></p>
+</li>
+<li>
+<p>If you navigate to your Pull Request on GitHub (<strong>Repository Page &gt;&gt; Pull requests tab &gt;&gt; Click on the Pull Request</strong>), you should also see the comment that Jenkins posted.
+<span class="image"><img src="../../book/resources/tutorials/labview-37-github-pr-with-comment.png" alt="github pr with comment" width="100%"></span></p>
+</li>
+<li>
+<p>If you’re satisfied with the results, you can scroll to the bottom of the Pull Request and click <strong>Merge pull request</strong> to merge the changes with the master branch.
+<span class="image"><img src="../../book/resources/tutorials/labview-38-github-merge-pr-button.png" alt="github merge pr button" width="100%"></span></p>
+</li>
+<li>
+<p>If the job was not successful, on the Pull Request page in Jenkins, click on the build number that failed, and click on Console Output on the left sidebar to view error information.
+<span class="image"><img src="../../book/resources/tutorials/labview-39-jenkins-pr-details.png" alt="jenkins pr details" width="100%"></span></p>
+</li>
+</ol>
+</div>
+<div class="paragraph boxshadow">
+<p><span class="image"><img src="../../book/resources/tutorials/labview-40-jenkins-console-output.png" alt="jenkins console output" width="100%"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wrapping-up"><a class="anchor" href="#wrapping-up"></a>Wrapping Up</h3>
+<div class="paragraph">
+<p>Congrats! You’ve just set up Jenkins to automate LabVIEW builds. The "Build", "Test" and "Deliver" stages you created above are the basis for
+building more complex LabVIEW in Jenkins, as well as LabVIEW applications that integrate with other technology stacks. When doing so, there are some <a href="https://knowledge.ni.com/KnowledgeArticleDetails?id=kA00Z000001De1JSAS&amp;l=en-US">Best Practices</a> you should follow. In case you would like additional command line functionality, we have examples on how to extend the LabVIEWCLI <a href="https://github.com/ni/niveristand-custom-device-build-tools/">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>Because Jenkins is extremely extensible, it can be modified and configured to handle practically any aspect of build orchestration and automation.</p>
+</div>
+<div class="paragraph">
+<p>To learn more about what Jenkins can do, check out:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <a href="/doc/tutorials">Tutorials overview</a> page for other introductory
+tutorials.</p>
+</li>
+<li>
+<p>The <a href="/doc/book">User Handbook</a> for more detailed information about using
+Jenkins, such as <a href="/doc/book/pipeline">Pipelines</a> (in particular
+<a href="/doc/book/pipeline/syntax">Pipeline syntax</a>) and the
+<a href="/doc/book/blueocean">Blue Ocean</a> interface.</p>
+</li>
+<li>
+<p>The <a href="/node">Jenkins blog</a> for the latest events, other tutorials and
+updates.</p>
+</li>
+</ul>
+</div>
+<hr>
+<!-- HTML inclusion for chapter and section layouts (i.e. as footers) as well as
+     for use in AsciiDoc file inclusions. -->
+
+<!--
+This feedback form was prepared from a Google Form, based on the techniques in
+the following documentation sources:
+https://codepen.io/learningcode/post/customize-a-google-form-for-your-website,
+https://mrhaki.blogspot.com.au/2014/06/awesome-asciidoc-include-raw-html.html,
+https://www.freshtechtips.com/2013/05/custom-google-drive-contact-form.html,
+https://stackoverflow.com/questions/24436165/set-value-of-hidden-input-inside-form
+-->
+
+<!-- Feedback form functionality in JavaScript - refer to comments in this file
+     for details on the functionality. -->
+<script>
+var feedbackForm = {
+    formKey : 'e/1FAIpQLSfCEexH09x_-ytEyE7wetizqOvE_-06WkK89dpBLEJcYnOp8w'
+};
+$(document).ready(function() {
+    window.onload = feedbackForm.start(window.location.href);
+});
+</script>
+<script src="/js/feedback-form-functionality.js"></script>
+
+<p><a href="#feedback" data-toggle="collapse">Was this page helpful?</a></p>
+
+<div id="feedback" class="collapse">
+
+<p>Please submit your feedback about this page through this
+<a href="/doc/feedback-form/">quick form</a>.</p>
+
+<p>Alternatively, if you don't wish to complete the quick form, you can simply
+indicate if you found this page helpful?</p>
+
+<!-- Redirects to custom "thank you" page once form is submitted. -->
+<script type="text/javascript">
+var submitted=false;
+</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"
+onload="if(submitted) {window.location='/doc/thank-you-for-your-feedback/';}">
+</iframe>
+<form action="https://docs.google.com/forms/d/e/1FAIpQLSfCEexH09x_-ytEyE7wetizqOvE_-06WkK89dpBLEJcYnOp8w/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="submitted=true;">
+
+<!-- Set the value of the current URL into the form. -->
+<input type="hidden" name="entry.1246830226" id="current-url" value=""/>
+
+<!-- The answer bit -->
+<p><input type="radio" name="entry.790002525" id="h1" value="Yes" required/>
+<label for="h1">Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="entry.790002525" id="h2" value="No"/>
+<label for="h2">No</label></p>
+
+<!-- The CAPTCHA bit -->
+
+<p><label id="ssTestLabel" for="ssTestValue"></label><br/>
+<input type="text" name="ssTestValue" value="" id="ssTestValue"/></p>
+
+<!-- Submit button -->
+
+<p><input class="button" type="submit" value="Submit"/></p>
+
+</form>
+
+<p>See existing feedback <a href="https://docs.google.com/spreadsheets/d/1IIdpVs39JDYKg0sLQIv-MNO928qcGApAIfdW5ohfD78" target="_blank">here</a>.</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//doc/tutorials/build-a-labview-app.adoc" title="Edit /doc/tutorials/build-a-labview-app.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//doc/tutorials/build-a-labview-app.adoc" title="View /doc/tutorials/build-a-labview-app.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

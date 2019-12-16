@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Securing a Jenkins instance on Azure
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Securing a Jenkins instance on Azure" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Securing a Jenkins instance on Azure" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Securing a Jenkins instance on Azure" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/blog/2017/04/20/secure-jenkins-on-azure/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Securing a Jenkins instance on Azure" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('#content h' + i);
+    }
+  })
+</script>
+<div class="container blog-post">
+<div class="row body">
+<div class="col-md-11 col-md-offset-1 main-content" id="content">
+<div id="content-top">
+<h1>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/blog/2017/04/20/secure-jenkins-on-azure/" title="Securing a Jenkins instance on Azure">
+Securing a Jenkins instance on Azure
+</a>
+</h1>
+<div style="float: right; clear: all;">
+<a class="twitter-share-button" data-lang="en" href="https://twitter.com/share">
+Tweet
+</a>
+</div>
+<div class="post-attrs">
+<span class="submitted">
+Published on
+2017-04-20
+by
+<a href="/blog/authors/clguiman">Claudiu Guiman</a>
+</span>
+<ul class="list-inline tags">
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/azure">
+azure
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/cloud">
+cloud
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This is a guest post by <a href="https://github.com/clguimanMSFT">Claudiu Guiman</a> and <a href="https://github.com/EricJizbaMSFT">Eric Jizba</a>,
+Software Engineers in the <a href="https://azure.microsoft.com/en-us/try/devops">Azure DevOps</a> team at <a href="https://www.microsoft.com">Microsoft</a>. If you have any questions, please email us at <a href="mailto:azdevopspub@microsoft.com">azdevopspub@microsoft.com</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>One of the most frequently asked questions for managing a Jenkins instance is
+"How do I make it secure?" Like any other web application, these issues must be
+solved:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How do I securely pass secrets between the browser and the server?</p>
+</li>
+<li>
+<p>How do I hide certain parts from unauthorized users and show other parts to anonymous users?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This blog post details how to securely connect to a Jenkins instance and how to
+setup a read-only public dashboard.  We&#8217;ll cover topics like: setting up a
+reverse proxy, blocking inbound requests to certain URLs and ports, enabling
+project-based authorization, and making the Jenkins agents accessible through
+the JNLP protocol.</p>
+</div>
+<div class="sect1">
+<h2 id="deploy-jenkins"><a class="anchor" href="#deploy-jenkins"></a>Deploy Jenkins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The simplest way to deploy a secure Jenkins instance is by using the <a href="https://aka.ms/jenkins-on-azure">Azure Marketplace offer</a>. If you have an existing Jenkins instance or want to setup your instance manually, follow the steps below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="securely-log-in-to-jenkins"><a class="anchor" href="#securely-log-in-to-jenkins"></a>Securely log in to Jenkins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you&#8217;ve deployed your new virtual machine with a hosted Jenkins instance, you will notice that by default the instance listens on port 8080 using 'HTTP'. If you want to set up 'HTTPS' communication, you will need to provide an SSL certificate. Unfortunately, most certificate authorities are not cheap and other free services like <a href="https://letsencrypt.org/">Let&#8217;s Encrypt</a> have a very small quota (about 20 certificates per week for the entire 'azure.com' subdomain). The only other option is to use a self-signed certificate, but then users must explicitly verify and mark your certificate as trusted, which is not recommended.</p>
+</div>
+<div class="paragraph">
+<p>If you do not setup 'HTTPS' communication, the best way to make sure the sign-in credentials are not leaked due to a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">Man-in-the-middle</a> attack is to only log in using SSH tunneling.
+An SSH tunnel is an encrypted tunnel created through an SSH protocol connection, which can be used to transfer unencrypted traffic over an unsecured network. Simply run this command:</p>
+</div>
+<div class="listingblock">
+<div class="title">Linux or Mac</div>
+<div class="content">
+<pre class="nowrap">    ssh -L 8080:localhost:8080 &lt;username&gt;@&lt;domain name&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Windows ( <a href="https://www.putty.org/">using PuTTY</a>)</div>
+<div class="content">
+<pre class="nowrap">    putty.exe -ssh -L 8080:localhost:8080 &lt;username&gt;@&lt;domain name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command will open an SSH connection to your remote host and bind remote port 8080 to listen to requests coming from your local machine. Navigate to <a href="http://localhost:8080" class="bare">http://localhost:8080</a> on your local machine to view your Jenkins dashboard and you&#8217;ll be able to log in securely.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setup-a-reverse-proxy"><a class="anchor" href="#setup-a-reverse-proxy"></a>Setup a reverse proxy</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now that you can securely log in to your Jenkins instance, you should prevent people from accidentally authenticating through the public (unsecured) interface. To achieve this, you can setup a reverse proxy on the Jenkins hosting machine that will listen on a different port (80 is the best candidate) and redirect only certain requests to port 8080.</p>
+</div>
+<div class="paragraph">
+<p>Specifically, it is recommended to block the login and the CLI requests. Some CLI versions fall back to unsecure HTTP connections if they have problems establishing the secured connection. In most cases, users don&#8217;t need the CLI and it should be enabled on an as-needed basis.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install Nginx:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">sudo apt-get update
+sudo apt-get install nginx</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Open the Nginx config file:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">sudo nano /etc/nginx/sites-enabled/default</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Modify the file to configure Nginx to work as a reverse proxy (you&#8217;ll need to update &lt;your domain name&gt;):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">server {
+    listen 80;
+    server_name &lt;your domain name&gt;;
+    # Uncomment the line bellow to change the default 403 error page
+    # error_page 403 /secure-jenkins;
+    location / {
+        proxy_set_header        Host \$host:\$server_port;
+        proxy_set_header        X-Real-IP \$remote_addr;
+        proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto \$scheme;
+        proxy_pass              http://localhost:8080;
+        proxy_redirect          http://localhost:8080 http://&lt;your domain name&gt;;
+        proxy_read_timeout      90;
+    }
+    #block requests to /cli
+    location /cli {
+        deny all;
+    }
+    #block requests to /login
+    location ~ /login* {
+        deny all;
+    }
+    # Uncomment the lines bellow to redirect /secure-jenkins
+    #location /secure-jenkins {
+    #  alias /usr/share/nginx/secure-jenkins;
+    #}
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first section tells the Nginx server to listen to any requests that come from port 80. It also contains a commented redirect of the 403 error to a custom location (we&#8217;ll get back to this later).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">    listen 80;
+    server_name &lt;your domain name&gt;;
+    # error_page 403 /secure-jenkins;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next section describes the reverse proxy configuration. This tells the Nginx server to take all incoming requests and proxy them to the Jenkins instance that is listening to port 8080 on the local network interface.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">    location / {
+        proxy_set_header        Host \$host:\$server_port;
+        proxy_set_header        X-Real-IP \$remote_addr;
+        proxy_set_header        X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header        X-Forwarded-Proto \$scheme;
+        proxy_pass              http://localhost:8080;
+        proxy_redirect          http://localhost:8080 http://&lt;your domain name&gt;;
+        proxy_read_timeout      90;
+    }</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The last section filters out specific URLs (login, cli) and denies access to them.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">    location /cli {
+        deny all;
+    }
+    location ~ /login* {
+        deny all;
+    }</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Restart Nginx:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">sudo service nginx restart</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Go to <code>http://&lt;your domain name&gt;</code> and verify you can access your Jenkins instance.</p>
+</li>
+<li>
+<p>Verify clicking 'login' returns a '403 Forbidden' page. If you want to customize that page, update the Nginx configuration and remove the comments around /secure-jenkins. This will redirect all 403 errors to the file <code>/usr/share/nginx/secure-jenkins</code>. You can add any content to that file, for example:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">sudo mkdir /usr/share/nginx/secure-jenkins
+echo "Access denied! Use SSH tunneling to log in to your Jenkins instance!" | sudo tee /usr/share/nginx/secure-jenkins/index.html</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If restart fails or you cannot access your instance, check the error log: <code>cat /var/log/nginx/error.log</code>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="secure-your-jenkins-dashboard"><a class="anchor" href="#secure-your-jenkins-dashboard"></a>Secure your Jenkins dashboard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you go to <code>http://&lt;your domain name&gt;:8080</code> you&#8217;ll notice you can still
+bypass the reverse proxy and access the Jenkins instance directly through an
+unsecure channel. You can easily block all inbound requests on port 8080 on
+Azure with a
+<a href="https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg">Network
+Security Group</a> (NSG).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create the NSG and add it to your existing network interface or to the subnet your Azure Virtual Machine is bound to.</p>
+</li>
+<li>
+<p>Add 2 inbound security rules:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow requests to port 22 so you can SSH into the machine.</p>
+<div class="imageblock center">
+<div class="content">
+<img src="/images/post-images/2017-04-20/nsg-ssh.png" alt="nsg ssh">
+</div>
+</div>
+</li>
+<li>
+<p>Allow requests to port 80 so the reverse proxy can be reached</p>
+<div class="imageblock center">
+<div class="content">
+<img src="/images/post-images/2017-04-20/nsg-http.png" alt="nsg http">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+By default, all other external traffic will be blocked
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock center">
+<div class="content">
+<img src="/images/post-images/2017-04-20/nsg-inbound.png" alt="nsg inbound">
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Navigate to <code>http://&lt;your domain name&gt;:8080</code> and verify you cannot connect.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you don&#8217;t want to deploy an Azure Network Security Group, you can block port 8080 using the <a href="https://help.ubuntu.com/stable/ubuntu-help/net-firewall-on-off.html">Uncomplicated Firewall (ufw)</a>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configure-read-only-access-to-your-dashboard"><a class="anchor" href="#configure-read-only-access-to-your-dashboard"></a>Configure read-only access to your dashboard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After installing Jenkins, the default security strategy is 'Logged-in users can do anything'. If you want to allow read-only access to anonymous users, you need to set up Matrix-based security. In this example, we&#8217;ll set up a project-based authorization matrix, so that you can make certain projects private and others public.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Install the <a href="https://plugins.jenkins.io/matrix-auth">Matrix Authorization Strategy Plugin</a> and restart Jenkins.</p>
+</li>
+<li>
+<p>Go to <a href="http://localhost:8080/configureSecurity/" class="bare">http://localhost:8080/configureSecurity/</a> ('Configure Global Security' page under 'Manage Jenkins') and select 'Project-base Matrix Authorization Strategy' from the 'Authorization' options.</p>
+</li>
+<li>
+<p>As an example, you can grant read-only access to anonymous users (Overall/Read, Job/Discover and Job/Read should be enough) and grant all logged in users full access in a  group called 'authenticated':</p>
+</li>
+</ol>
+</div>
+<div class="imageblock center">
+<div class="content">
+<img src="/images/post-images/2017-04-20/auth-matrix.png" alt="auth matrix" width="1000">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="connect-jnlp-based-agents"><a class="anchor" href="#connect-jnlp-based-agents"></a>Connect JNLP-based agents</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Since your Jenkins instance is only accessible through the reverse proxy on port 80, any Jenkins agents that use the JNLP protocol will not be able to register to the master anymore. To overcome this problem, all agents must be in the same virtual network as the Jenkins master and must connect using their private IP (by default, the NSG allows all internal traffic).</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Make sure that the Jenkins virtual machine will always be assigned the same private IP by going to the <a href="https://portal.azure.com/">Azure Portal</a>, opening the Network Interface of your virtual machine, opening 'IP configuration', and clicking on the configuration.</p>
+</li>
+<li>
+<p>Make sure the Private IP has a static assignment and restart the virtual machine if necessary.</p>
+<div class="imageblock center">
+<div class="content">
+<img src="/images/post-images/2017-04-20/private-ip.png" alt="private ip">
+</div>
+</div>
+</li>
+<li>
+<p>Copy the static IP Address and go to <a href="http://localhost:8080/configure" class="bare">http://localhost:8080/configure</a> ('Configure System' page under 'Manage Jenkins') and update the 'Jenkins URL' to point to that private IP (<code>https://10.0.0.5:8080/</code> in this example)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Now agents can communicate through JNLP. If you want to streamline the process,
+you can use the
+<a href="https://plugins.jenkins.io/azure-vm-agents">Azure VM Agents</a> plugin,
+which automatically deploys agents in the same virtual network
+and connects them to the master.</p>
+</div>
+</div>
+</div>
+<b class="author about-header">
+About the Author
+</b>
+<!-- starting partial author.html.haml -->
+<div id="about-the-author">
+<table class="author box">
+<tr>
+<td>
+<!-- starting partial avatar.html.haml -->
+<img alt="Claudiu Guiman" class="author logo" src="https://zbynek.github.io/jenkins.io/order-syntax/images/logos/transparent/transparent.svg" width="128px">
+
+<!-- ending partial avatar.html.haml -->
+</td>
+<td>
+<b class="author name">
+<a href="/blog/authors/clguiman">
+Claudiu Guiman
+</a>
+</b>
+<p>
+This author has no biography defined.
+See social media links referenced below.
+</p>
+<!-- starting partial social-media-buttons.html.haml -->
+<ul class="author social-media-buttons">
+<li class="author">
+<a href="https://github.com/clguimanMSFT" target="_blank">
+GitHub
+</a>
+</li>
+</ul>
+
+<!-- ending partial social-media-buttons.html.haml -->
+</td>
+</tr>
+</table>
+</div>
+
+<!-- ending partial author.html.haml -->
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//blog/2017/04/2017-04-20-secure-jenkins-on-azure.adoc" title="Edit /blog/2017/04/2017-04-20-secure-jenkins-on-azure.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//blog/2017/04/2017-04-20-secure-jenkins-on-azure.adoc" title="View /blog/2017/04/2017-04-20-secure-jenkins-on-azure.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

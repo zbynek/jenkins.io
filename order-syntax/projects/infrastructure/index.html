@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Infrastructure
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Infrastructure" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Infrastructure" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Infrastructure" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Infrastructure" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row .col-lg9 h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-lg-9">
+<h1>
+Infrastructure
+</h1>
+<div class="sect1">
+<h2 id="overview"><a class="anchor" href="#overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>As an independent open source project, the Jenkins project maintains most of its own
+infrastructure including services which help to keep the project running.
+The kind of things that fall into "infrastructure" can span from operating
+virtual machines, containers, configuring network or developing and maintaining project-specific applications to make the development of Jenkins core and plugins more efficient.</p>
+</div>
+<div class="paragraph">
+<p>Because we strongly believe in Open Source principles, we also apply them to our infrastructure. As such we consider ourself as an open infrastructure project where everybody is invited to learn, share, contribute.</p>
+</div>
+<div class="paragraph">
+<p><span class="image left center"><img src="/images/projects/infrastructure/infra_overview.png" alt="Overview"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="team"><a class="anchor" href="#team"></a>Team</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jenkins infrastructure is maintained by the Jenkins Infrastructure team.
+This team consists of Jenkins contributors and volunteers who provide a best-effort support depending on their availability and other commitments.
+We are always looking for contributors who are interested to improve Jenkins services and to help with maintaining them.</p>
+</div>
+<div class="sect2">
+<h3 id="team-structure"><a class="anchor" href="#team-structure"></a>Team structure</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This section is under development
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="meetings"><a class="anchor" href="#meetings"></a>Meetings</h3>
+<div class="paragraph">
+<p>Jenkins Infra team has a weekly meeting on Tuesdays, 3PM UTC.
+This event is a regularly scheduled meeting to sync on the various ongoing infrastructure initiatives within the Jenkins project.
+This meeting is open to everyone who is interested.
+See the <a href="/event-calendar/">Event Calendar</a> for meeting links.</p>
+</div>
+<div class="paragraph">
+<p>You can find Infra team meeting agenda and meeting notes in
+<a href="https://docs.google.com/document/d/1uNneXKcIYrpBtfkkfWvtSWYgZ-6rgf4YvCqxJqBU1yg/edit?usp=sharing">this Google Doc</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="infrastructure"><a class="anchor" href="#infrastructure"></a>Infrastructure</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="provisioning"><a class="anchor" href="#provisioning"></a>Provisioning</h3>
+<div class="paragraph">
+<p>The Jenkins project has a <a href="https://jenkins.io/blog/2016/05/18/announcing-azure-partnership/">partnership</a> with Microsoft to run the infrastructure on Azure. This infrastructure is provisioned from the repository <a href="https://github.org/jenkins-infra/azure">jenkins-infra/azure</a> using Terraform.</p>
+</div>
+<div class="paragraph">
+<p>While we try to stick to Azure, we still have machines sponsored by different organizations such as OSUOSL, Rackspace or CloudBees.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration-management"><a class="anchor" href="#configuration-management"></a>Configuration Management</h3>
+<div class="sect3">
+<h4 id="infrastructure-2"><a class="anchor" href="#infrastructure-2"></a>Infrastructure</h4>
+<div class="paragraph">
+<p>The Jenkins project&#8217;s infrastructure is managed and orchestrated via a git repository named
+<a href="https://github.com/jenkins-infra/jenkins-infra">jenkins-infra/jenkins-infra</a>  using Puppet and we are also experimenting Kubernetes cluster orchestration with <a href="https://github.com/jenkins-infra/jenkins-infra">jenkins-infra/charts</a> using Helm &amp; Helmfiles.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="monitoring"><a class="anchor" href="#monitoring"></a>Monitoring</h4>
+<div class="paragraph">
+<p>Infrastructure is monitored via Datadog.
+Datadog configuration is automated with Terraform on <a href="https://github.com/jenkins-infra/datadog">jenkins-infra/datadog</a></p>
+</div>
+<div class="paragraph">
+<p>We also provide different dashboard to share the health of our systems.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://p.datadoghq.com/sb/0Igb9a-dca9738dbb5048025c005182a8f240c0">Status Page</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://p.datadoghq.com/sb/0Igb9a-e3831323722f931efe38cb02026d1974">Jira&amp;Confluence</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="reporting"><a class="anchor" href="#reporting"></a>Reporting</h4>
+<div class="paragraph">
+<p>Pagerduty is used to report issues detected by Datadog,
+we have a follow the sun policy where we try to only be on call during our "available" hours.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="services"><a class="anchor" href="#services"></a>Services</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Another major aspect of the Jenkins Infrastructure project, is the maintenance of all services either provided by us or third parties.
+Here is a non-exhaustive list of services that we provide and maintain.</p>
+</div>
+<div class="sect2">
+<h3 id="self-hosted-services"><a class="anchor" href="#self-hosted-services"></a>Self-hosted services</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">JIRA component(s)</th>
+<th class="tableblock halign-left valign-top">Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://accounts.jenkins.io">Accounts</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>account</code>, <code>accountapp</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/account-app">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="./ircbot">IRC Bot</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ircbot</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/ircbot">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://javadoc.jenkins.io">Javadoc</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>javadoc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/javadoc">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://issues.jenkins-ci.org">Jira</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jira</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jira">Docker</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://ci.jenkins.io">Jenkins</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ci.jenkins.io</code>, <code>ci</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jenkins-infra">Deployment scripts</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LDAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ldap</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/ldap">Docker</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jenkins.io">Main Website</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jenkins.io</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jenkins.io">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">VPN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>vpn</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/openvpn">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://plugins.jenkins.io">Plugin Site</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>plugins.jenkins.io</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/plugin-site">Frontend</a>, <a href="https://github.com/jenkins-infra/plugin-site-api">Backend</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://stats.jenkins.io/jenkins-stats/svg/svgs.html">Stats</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/infra-statistics">Scripts</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://uplink.jenkins.io">UpLink</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uplink</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/uplink">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://wiki.jenkins.io">Wiki</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wiki</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/confluence">Docker</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jenkins-wiki-exporter.jenkins.io/">Jenkins Wiki Exporter</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jenkins-wiki-exporter/issues">GitHub Issues</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jenkins-wiki-exporter/">Code</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="saas"><a class="anchor" href="#saas"></a>SaaS</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Provided by</th>
+<th class="tableblock halign-left valign-top">JIRA component(s)</th>
+<th class="tableblock halign-left valign-top">Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://repo.jenkins-ci.org/webapp/#/home">Artifactory</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">JFrog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>artifactory</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra">GitHub</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>github</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://jenkins.datadoghq.com">Monitoring</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Datadog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>datadog</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/jenkins-infra-monitoring">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pagerduty.com">Pagerduty</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Pagerduty</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N/A</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="sub-projectsig-services"><a class="anchor" href="#sub-projectsig-services"></a>Sub-project/SIG services</h3>
+<div class="paragraph">
+<p>Jenkins infrastructure also hosts some services for sub-projects and special interest groups:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Service</th>
+<th class="tableblock halign-left valign-top">Owner Sub-project/SIG</th>
+<th class="tableblock halign-left valign-top">JIRA component(s)</th>
+<th class="tableblock halign-left valign-top">Repository</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://cn.jenkins.io">Website in Chinese</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/sigs/chinese-localization/">Chinese Localization</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cn.jenkins.io</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/cn.jenkins.io">Code</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://evergreen.jenkins.io">Evergreen</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="/projects/evergreen/">Evergreen</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>evergreen</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/jenkins-infra/evergreen">Repository</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributing"><a class="anchor" href="#contributing"></a>Contributing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our infrastructure is an open infrastructure project made by and for the Jenkins community in other words, it&#8217;s a contributors driven project.
+While we can&#8217;t share publicly everything like secrets, certificates,&#8230;&#8203; we still try to be as transparent as possible so everybody can read, understand, improve our infrastructure without having privileged accesses.
+If you have any idea that could help the infra or interest the community, feel free to make suggestions.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Before going further, we assume that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You already created a Jenkins account on <a href="https://accounts.jenkins.io">accounts.jenkins.io</a></p>
+</li>
+<li>
+<p>You registered to the Jenkins Infra mailing list <a href="http://lists.jenkins-ci.org/mailman/listinfo/jenkins-infra">infra@lists.jenkins-ci.org</a></p>
+</li>
+<li>
+<p>You have access to our ticket system [<a href="https://issues.jenkins-ci.org" class="bare">https://issues.jenkins-ci.org</a>]</p>
+</li>
+<li>
+<p>You already say "Hi" on IRC channel: <a href="https://jenkins.io/chat/#jenkins-infra">#jenkins-infra</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><span class="image left center"><img src="/images/projects/infrastructure/contribution_workflow.png" alt="Contribution Workflow"></span></p>
+</div>
+<div class="paragraph">
+<p>In order to contribute to infrastructure project, we ask people to follow the next steps</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">Pick up a task =&gt; Communicate =&gt; Implement =&gt; Deploy =&gt; Review</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pick-up-a-task"><a class="anchor" href="#pick-up-a-task"></a>Pick Up A Task</h3>
+<div class="paragraph">
+<p>In order to keep track of the work that need to be done on the Jenkins infrastructure project, we use the project "INFRA" on <a href="https://issues.jenkins-ci.org/issues/?jql=project%20%3D%20INFRA">Jira</a>.
+Therefor the first thing to do before any contribution is to find the right ticket, assign it to you, then communicate about it.</p>
+</div>
+<div class="paragraph">
+<p>If you can&#8217;t find an appropriate ticket, please create a new ticket with a clear description of what needs to be done and why.
+Some jenkins-infra git repository references can help to understand the context.
+You may also specify components and finally you can communicate about it, using the suggestions from the next section.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Remark</dt>
+<dd>
+<p>While a ticket can have different components assigned to it, we also use the label <a href="https://issues.jenkins-ci.org/issues/?jql=project%20%3D%20INFRA%20AND%20labels%20%3D%20">newbie-friendly</a> to identify task which can be done by a new contributor.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="communicate"><a class="anchor" href="#communicate"></a>Communicate</h3>
+<div class="paragraph">
+<p>Before any implementation, it&#8217;s important to verify that first, there is (still) a need for some implementation and then that no work has been done in the past.
+The best way for that is to either look after similar Jira tickets, ask on IRC or on the mailing list.
+You can also join our weekly meetings to discuss and coordinate the changes.</p>
+</div>
+<div class="paragraph">
+<p>When the subject is too broad or hard to explain in few lines, we write an <a href="https://github.com/jenkins-infra/iep/blob/master/README.adoc">IEP</a> document which stand for "Infrastructure Enhancement Proposal", the purpose of this document is to explain why we need something, how we want to solve it, and why we took a final decision.
+Finally, once you have your ticket id, you can start looking after knowledgeable people.</p>
+</div>
+<div class="paragraph">
+<p>Anyway keep in mind that it&#8217;s always better to have too more information than too few and in the end you&#8217;ll probably be the best person who can work on your case.</p>
+</div>
+<div class="listingblock">
+<div class="title">In short</div>
+<div class="content">
+<pre class="nowrap">+----------------------------------+
+|                                  |
+|  Pick up or Create INFRA Ticket  |
+|                                  |
++----+----+------------------------+
+     |    |   If no responses after few days
+     |    |   promote it on
+     |    |                    +------------------------------------------+
+     |    |                    |                                          |
+     |    +--------------------&gt; IRC: Freenode #jenkins-infra             &lt;----+
+     |    |                    |                                          |    |
+     |    |                    +------------------------------------------+    |
+     |    |                    +------------------------------------------+    |
+     |    |                    |                                          |    |
+     |    +--------------------&gt; Mail: jenkins-infra@lists.jenkins-ci.org &lt;----+
+     |                         |                                          |    |
+     |                         +------------------------------------------+    |
+     | If the topic is too big                                                 |
+     |                                                                         |
+     |                    +-------------------------------------------+        |
+     |                    |                                           |        |
+     +--------------------&gt; IEP: https://github.com/jenkins-infra/iep |--------+
+                          |                                           |
+                          +-------------------------------------------+</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/">Mails Archive</a>
+<a href="https://jenkins.io/chat/#jenkins-infra">IRC</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="implement"><a class="anchor" href="#implement"></a>Implement</h3>
+<div class="paragraph">
+<p>Once there is an agreement about the approach and before any changes, we ask contributors to respect the following rules.</p>
+</div>
+<div class="paragraph">
+<p>Those rules are just what we consider "best practices" for a contributors driven project and can be adapted depending on specific git repositories.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Rule #1: Everything is in a git repository under the <a href="https://github.com/jenkins-infra">jenkins-infra</a> organization.</dt>
+<dd>
+<p>So it&#8217;s easier for everybody to find/review/audit changes and suggest improvements.</p>
+</dd>
+<dt class="hdlist1">Rule #2: All changes are validated by at least one regular infra contributor via Pull Request.</dt>
+<dd>
+<p>So we always have different people who understand infrastructure changes.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Rem: Non regular contributors are more than welcome to share their expertise or just ask question which also help to spot incoherences.</p>
+</div>
+<div class="paragraph">
+<p>Code Reviews Purpose:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Educate author and the team about the changes in code being made</p>
+</li>
+<li>
+<p>Look after logic or security issues not covered by tests</p>
+</li>
+<li>
+<p>Gather improvement suggestion for code readability or efficiency</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Rule #3: All Changes are tested on <a href="https://ci.jenkins.io/job/Infra/">ci.jenkins.io</a></dt>
+<dd>
+<p>So we feel more comfortable when merging PRs and we avoid regression issues.</p>
+</dd>
+<dt class="hdlist1">Rule #4: Everything is automated.</dt>
+<dd>
+<p>So we only have one source of truth and we don&#8217;t break others people works.
+And if it can&#8217;t do that then it needs to be well communicated and documented cfr rule #1.</p>
+</dd>
+<dt class="hdlist1">Rule #5: All changes follow the <a href="https://guides.github.com/introduction/flow/">Github</a> workflow.</dt>
+</dl>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="nowrap">Fork project -&gt; Create Feature Branch -&gt; Open Pull Request -&gt; Ask Review -&gt; Merge Pull Request</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deployment"><a class="anchor" href="#deployment"></a>Deployment</h3>
+<div class="paragraph">
+<p>The deployment step is the only moment where we need approval from someone with elevated permission. As already mentioned, even if we try to be as open as possible, we don&#8217;t want to share privileged accesses with every contributors even if we trust them and that mainly for security reasons.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="link"><a class="anchor" href="#link"></a>Link</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Various link which can helpful when looking at the Jenkins infra project</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/orgs/jenkins-infra">Github Organization</a></p>
+</li>
+<li>
+<p><a href="https://github.com/orgs/jenkins-infra/teams">Github Teams</a></p>
+</li>
+<li>
+<p><a href="https://issues.jenkins.io/projects/INFRA/issues/INFRA-2059?filter=allopenissues">Jira Project</a></p>
+</li>
+<li>
+<p><a href="https://issues.jenkins-ci.org/issues/?jql=project%20%3D%20INFRA%20AND%20labels%20%3D%20newbie-friendly">Newbie-Friendly Tasks</a></p>
+</li>
+<li>
+<p><a href="http://lists.jenkins-ci.org/pipermail/jenkins-infra/">Mails Archive</a>
+<a href="https://jenkins.io/chat/#jenkins-infra">IRC</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-3">
+<div class="sidebar-nav">
+<h4>
+On this page
+</h4>
+<ul class="sectlevel1">
+<li><a href="#overview">Overview</a></li>
+<li><a href="#team">Team</a>
+<ul class="sectlevel2">
+<li><a href="#team-structure">Team structure</a></li>
+<li><a href="#meetings">Meetings</a></li>
+</ul>
+</li>
+<li><a href="#infrastructure">Infrastructure</a>
+<ul class="sectlevel2">
+<li><a href="#provisioning">Provisioning</a></li>
+<li><a href="#configuration-management">Configuration Management</a></li>
+</ul>
+</li>
+<li><a href="#services">Services</a>
+<ul class="sectlevel2">
+<li><a href="#self-hosted-services">Self-hosted services</a></li>
+<li><a href="#saas">SaaS</a></li>
+<li><a href="#sub-projectsig-services">Sub-project/SIG services</a></li>
+</ul>
+</li>
+<li><a href="#contributing">Contributing</a>
+<ul class="sectlevel2">
+<li><a href="#pick-up-a-task">Pick Up A Task</a></li>
+<li><a href="#communicate">Communicate</a></li>
+<li><a href="#implement">Implement</a></li>
+<li><a href="#deployment">Deployment</a></li>
+</ul>
+</li>
+<li><a href="#link">Link</a></li>
+</ul>
+<!-- starting partial connect-h4-div.html.haml -->
+<div>
+<h4>
+Connect
+</h4>
+</div>
+<ul>
+<!-- starting partial connect-links.html.haml -->
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists/#infralists-jenkins-ci-org" target="_blank">
+Mailing List
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat/#jenkins-infra" target="_blank">
+Chat
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/#meetings" target="_blank">
+Meetings
+</a>
+</li>
+
+<!-- ending partial connect-links.html.haml -->
+</ul>
+
+<!-- ending partial connect-h4-div.html.haml -->
+<div>
+<div class="block block-block even blog-posts" id="block-block-15">
+<h4 class="title">
+Recent Blog Posts
+</h4>
+<ul>
+<li>
+<a href="/blog/2018/09/14/speaker-blog-jenkins-builds-jenkins/">
+Want to know how Jenkins builds Jenkins? Catch this session at DevOps World | Jenkins World next week in San Francisco!
+</a>
+</li>
+<li>
+<a href="/blog/2018/07/23/javadoc-service-improvements/">
+Jenkins Javadoc: Service Improvements
+</a>
+</li>
+<li>
+<a href="/blog/2016/06/29/from-freestyle-to-pipeline/">
+Migrating from chained Freestyle jobs to Pipelines
+</a>
+</li>
+<li>
+<a href="/blog/2016/05/18/announcing-azure-partnership/">
+Partnering with Microsoft to run Jenkins infrastructure on Azure
+</a>
+</li>
+<li>
+<a href="/blog/2016/04/22/possible-infra-compromise/">
+Possible Jenkins Project Infrastructure Compromise
+</a>
+</li>
+<li>
+<a href="/blog/2015/08/13/update-wiki-and-issue-tracker-outage/">
+Update: Wiki and issue tracker outage
+</a>
+</li>
+<li>
+<a href="/blog/2015/08/04/wiki-and-issue-tracker-outage-over-the-weekend/">
+Wiki and issue tracker outage over the weekend
+</a>
+</li>
+<li>
+<a href="/blog/2015/04/24/jira-migration-this-weekend/">
+JIRA migration this weekend
+</a>
+</li>
+<li>
+<a href="/blog/2015/04/06/confluence-migration-this-weekend/">
+Confluence migration this weekend
+</a>
+</li>
+<li>
+<a href="/blog/2014/05/08/another-big-thank-you-to-rackspace/">
+Another big thank you to Rackspace
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//projects/infrastructure/index.adoc" title="Edit /projects/infrastructure/index.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//projects/infrastructure/index.adoc" title="View /projects/infrastructure/index.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,1097 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="https://purl.org/rss/1.0/modules/content/">
+<channel>
+<title>
+Jenkins Changelog
+</title>
+<link>
+https://jenkins.io/changelog
+</link>
+<atom:link href="https://zbynek.github.io/jenkins.io/order-syntax/changelog/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+<description>
+Changelog for Jenkins weekly releases
+</description>
+<lastBuildDate>
+Mon, 16 Dec 2019 00:00:00 +0000
+</lastBuildDate>
+<!-- starting partial changelog-changes.xml.haml -->
+<item>
+<title>Jenkins 2.208</title>
+<link>
+https://jenkins.io/changelog//#v2.208
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+Fix online example/documentation for File Access Rules.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent Oops when Whitelisted Commands input is empty in 'Agent to Master Access Control'.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent 'zombie' executors on master by removing one-off executors in Computer.removeExecutor.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.208
+</guid>
+<pubDate>
+Mon, 9 Dec 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.207</title>
+<link>
+https://jenkins.io/changelog//#v2.207
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Update bundled Script Security Plugin to 1.68.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Do not reload too early when Jenkins is behind a reverse proxy and is restarting.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.207
+</guid>
+<pubDate>
+Sun, 1 Dec 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.206</title>
+<link>
+https://jenkins.io/changelog//#v2.206
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Deprecate the macOS native installer packaging.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Open plugin and license links on a separate tab from Plugin Manager.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Set the HttpOnly flag for the page auto-refresh tokens.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Avoid exception when views are defined using job DSL.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix AtomicFileWriter performance issue on CephFS when creating an empty file.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Developer: ViewGroupMixIn#getPrimaryView() may return &lt;code&gt;null&lt;/code&gt;, and needs to be checked by plugins depending on this version of weekly and beyond.
+It is an intermediate state until a default view is implemented.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Use junit5 for CLI tests.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.206
+</guid>
+<pubDate>
+Sun, 24 Nov 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.205</title>
+<link>
+https://jenkins.io/changelog//#v2.205
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Move cloud configuration from Configure System into its own configuration form on the Manage Nodes page.
+&lt;/li&gt;
+&lt;li&gt;
+Major RFE:
+Redesign password fields to prevent password auto-fill except for the login form.
+Reduce browsers offering to update stored passwords.
+Revert by setting the system property &lt;code&gt;hudson.Functions.hidingPasswordFields&lt;/code&gt; to &lt;code&gt;false&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Show agent error status on the dashboard as mouse over text.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Show a tooltip with the full link name when hovering over sidebar links.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Reduce logging level of run completion and update center polling events from INFO to FINEST.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Try to always execute flyweight tasks, such as the main builds for Pipeline or Matrix jobs, on the master.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update Winstone from 5.3 to 5.4 to update Jetty from 9.4.18 to 9.4.22.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Make ProxyConfiguration compatible with configuration-as-code plugin.
+Workaround on the configuration-as-code plugin side is no longer required.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Remove unused &lt;code&gt;jenkins-slave.xml&lt;/code&gt; file template from core.
+Requires WMI Windows Agents plugin version 1.3.1 (Released Mar 14 2017) or newer.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix &lt;code&gt;Uninstall&lt;/code&gt; column sorting in the Plugin Manager Install pane.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix build history table styling.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent faulty subtask contributors from leaving builds running forever.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Remove unused remoting library from &lt;code&gt;jenkins-cli.jar&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Switch from maven-jenkins-dev-plugin to upstream jetty-maven-plugin.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Disable HTTP TRACE to prevent security scanner complaints.
+The risk was significant with web browsers in 2003.
+Modern browsers forbid TRACE requests to prevent cross-site tracing (XST) attacks, so there is no real risk.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.205
+</guid>
+<pubDate>
+Sun, 17 Nov 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.204</title>
+<link>
+https://jenkins.io/changelog//#v2.204
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Plugin manager descriptions always link to the plugins site instead of the Jenkins wiki.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Increase the number of datapoints recorded for multistage time series graphs such as those used for load statistics.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update Remoting from 3.35 to 3.36 to add new command line options "-help" and "-version".
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent coding errors in canTake() and canRun() implementations in NodeProperty and QueueTaskDispatcher extensions from hanging the queue.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.204
+</guid>
+<pubDate>
+Sun, 10 Nov 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.203</title>
+<link>
+https://jenkins.io/changelog//#v2.203
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Allow time zone to be set on a per-user basis.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Logging UI: Reorder sidepanel entries, add a note that "all log messages" will only include entries on level INFO and up.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update the Plugin Manager Updates tab with more information about incompatible dependencies.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Build status balls on the build trend page now link to the respective build's console output.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent permission problems when dynamically loading a plugin by making &lt;code&gt;PluginManager#start()&lt;/code&gt; run as SYSTEM.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Properly handle user names containing &lt;code&gt;:&lt;/code&gt; characters in resource root URL tokens.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent &lt;code&gt;NullPointerException&lt;/code&gt; when accessing the &lt;code&gt;/logout&lt;/code&gt; without sending cookies.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Make some methods in &lt;code&gt;ResourceDomainConfiguration&lt;/code&gt; accessible from plugins.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.203
+</guid>
+<pubDate>
+Tue, 5 Nov 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.202</title>
+<link>
+https://jenkins.io/changelog//#v2.202
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+Revert changes in forms submission in Jenkins classic UI with Firefox have caused a regression on forms with "file" inputs.
+These were made to anticipate a bugfix in Firefox which has been backed out since.
+(regression in 2.173)
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Add telemetry on the use of the 'auto refresh' feature.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Add &lt;code&gt;java.util.concurrent.ConcurrentLinkedDeque&lt;/code&gt; to the JEP-200 deserialization whitelist.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Introduce &lt;code&gt;Run#getBuildsOverThreshold()&lt;/code&gt; method for getting runs above the desired execution result.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.202
+</guid>
+<pubDate>
+Sun, 27 Oct 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.201</title>
+<link>
+https://jenkins.io/changelog//#v2.201
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+Resource URLs failed to serve files with nontrivial names due to encoding problems.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix presentation when localized headers span multiple lines in the setup wizard.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.201
+</guid>
+<pubDate>
+Sun, 20 Oct 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.200</title>
+<link>
+https://jenkins.io/changelog//#v2.200
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Add an option for a Resource Root URL through which Jenkins will serve user-generated static resources like workspace files or archived artifacts without the need for Content-Security-Policy headers.
+&lt;/li&gt;
+&lt;li&gt;
+Major RFE:
+Remove the ability to download update center metadata using the user's browser (deprecated since 2015).
+Jenkins will no longer inform about available updates without a connection to update sites.
+We recommend the use of a local mirror of our update sites, or a self-hosted update center like &lt;a href="https://github.com/jenkinsci/juseppe"&gt;Juseppe&lt;/a&gt; in these situations.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix style of administrative monitors showing informational messages in the popup.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Add a missing "pressed" style for the Create Item button.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix labels to Atom feed links.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Add &lt;code&gt;Functions#urlEncode(String)&lt;/code&gt; to ease encoding of URL query parameters from Jelly views.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: &lt;code&gt;TarOutputStream&lt;/code&gt; is now marked restricted so it is not used from plugins.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Various code cleanups.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.200
+</guid>
+<pubDate>
+Mon, 14 Oct 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.199</title>
+<link>
+https://jenkins.io/changelog//#v2.199
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Prevent calls to &lt;code&gt;Jenkins#save&lt;/code&gt; persisting data before we have finished loading the in-memory model.
+This prevents possible corruption of the main Jenkins configuration.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Increase client-side keep-alive ping frequency on the HTTP-based CLI to prevent timeouts.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Reduce default soft-kill timeout from two minutes to five seconds so that builds that spawned other processes can finish more quickly.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Stop bundling Maven Plugin and Subversion Plugin with Jenkins.
+In very rare cases, this could result in problems when attempting to install plugins compatible with Jenkins before 1.310.
+The Jenkins project is currently not publishing any such plugins.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Remove plugins bundled only to promote their use, as they are not needed for compatibility with old plugins.
+Since Jenkins 2.0, the concept of plugins installed by default is replaced with the setup wizard.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update bundled version of Script Security Plugin to 1.65.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Developer: &lt;code&gt;ProcessTree#killAll&lt;/code&gt; no longer fails with NPE if &lt;code&gt;proc&lt;/code&gt; argument is &lt;code&gt;null&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Internal: &lt;code&gt;hudson.util.ProcessTree.OSProcess#getEnvironmentVariables&lt;/code&gt; returned &lt;code&gt;null&lt;/code&gt; when an error occurred even though it shouldn't.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.199
+</guid>
+<pubDate>
+Sun, 6 Oct 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.198</title>
+<link>
+https://jenkins.io/changelog//#v2.198
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Remove 100 character length limitation of build description in build history widget.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update the minimum required Remoting client version to 3.14 to simplify the implementation.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Use different computer icon for temporary offline state.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Robustness: Do not allow users to resubmit requests using POST on URLs requiring a form submission, as that will fail anyway.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Better diagnostics in a failure message from &lt;code&gt;Computer.getLogDir&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update bundled versions of Ant, PAM Authentication, Mailer, and Script Security plugins for the rare cases they're installed from bundled versions.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update commons-compress from 1.10 to 1.19.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update jfreechart from 1.0.9 to 1.0.19 to pick-up recent improvements and bugfixes.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+The &lt;code&gt;lastCompletedBuild&lt;/code&gt; permalink was not being cached in the &lt;code&gt;…/builds/permalinks&lt;/code&gt; file.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Add &lt;code&gt;TcpSlaveAgentListener#getAdvertisedHost()&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.198
+</guid>
+<pubDate>
+Sun, 29 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.197</title>
+<link>
+https://jenkins.io/changelog//#v2.197
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Security:
+Security fixes.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.197
+</guid>
+<pubDate>
+Wed, 25 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.196</title>
+<link>
+https://jenkins.io/changelog//#v2.196
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Gzip compression when transferring artifacts being archived from agents to the master can now be disabled by setting the system property &lt;code&gt;jenkins.model.StandardArtifactManager.disableTrafficCompression=true&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Make log rotation more robust.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix malformed XML in Atom and RSS 2.0 feeds. (regression in 2.194)
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+URLs of some projects with emojis in their name were inaccessible.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.196
+</guid>
+<pubDate>
+Sun, 22 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.195</title>
+<link>
+https://jenkins.io/changelog//#v2.195
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+The setup wizard sometimes was removed improperly, and Jenkins would only show a blank screen.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.195
+</guid>
+<pubDate>
+Mon, 16 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.194</title>
+<link>
+https://jenkins.io/changelog//#v2.194
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+Fix missing absolute URL in the RSS / Atom feeds. (regression in 2.190)
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update Remoting from 3.33 to 3.35 to allow inbound TCP agents to connect directly without querying Jenkins via HTTP for connection parameters first.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update Windows Service Wrapper from 2.2.0 to 2.3.0 to pick up fixes and improvements.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Update dom4j library from Jenkins project fork to upstream release 2.1.1.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Replaced different base64 implementations with &lt;code&gt;java.util.Base64&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.194
+</guid>
+<pubDate>
+Sun, 8 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.193</title>
+<link>
+https://jenkins.io/changelog//#v2.193
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major Bug:
+Downgrade Remoting from 3.34 to 3.33 due to problems involving tunneled connections. (regression in 2.191)
+&lt;/li&gt;
+&lt;li&gt;
+Major Bug:
+Jenkins UI broke when a slow trigger administrative warning would be shown. (regression in 2.189).
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.193
+</guid>
+<pubDate>
+Sun, 1 Sep 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.192</title>
+<link>
+https://jenkins.io/changelog//#v2.192
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Security:
+Important security fixes.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.192
+</guid>
+<pubDate>
+Wed, 28 Aug 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.191</title>
+<link>
+https://jenkins.io/changelog//#v2.191
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Update Remoting from 3.33 to 3.34 to allow inbound TCP agents to connect directly without querying Jenkins via HTTP for connection parameters first.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Multiple minor code cleanups and internal fixes.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Update Mockito from 2.22.0 to 3.0.0.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.191
+</guid>
+<pubDate>
+Sun, 25 Aug 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.190</title>
+<link>
+https://jenkins.io/changelog//#v2.190
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+Add support of emojis and other non-UTF-8 characters in job names. 🎉
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+RSS and Atom feeds did not contain all necessary metadata. (regression in 2.186)
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Expose real environment variables from an agent on the UI.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Use SHA-256 instead of MD5 for generating crumbs/CSRF tokens.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Truncate long build names on the UI to prevent alignment issues.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: &lt;code&gt;AbstractItem#renameTo&lt;/code&gt; now checks &lt;code&gt;#isNameEditable&lt;/code&gt; before renaming.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.190
+</guid>
+<pubDate>
+Sun, 18 Aug 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.189</title>
+<link>
+https://jenkins.io/changelog//#v2.189
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+A file handle leak in &lt;code&gt;$JENKINS_HOME/jobs/*/builds/permalinks&lt;/code&gt; could prevent jobs from being deleted on Windows. (regression in 2.185)
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Remove extra whitespace output from &lt;code&gt;/scriptText&lt;/code&gt; endpoint. (regression in 2.186)
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+The &lt;code&gt;install-plugin&lt;/code&gt; CLI command allowed files that aren't plugins to be installed, potentially breaking some functionality.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Add a warning when cron trigger spends a long time in its execution.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Batch up plugin installations in setup wizard to improve performance.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Stop using the &lt;code&gt;name&lt;/code&gt; argument in the &lt;code&gt;install-plugin&lt;/code&gt; CLI command.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update versions of some detached plugins.
+These are typically installed when upgrading Jenkins from much older releases, or when implied dependencies are not specified for manually managed plugins.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Add support running JMH benchmarks for Jenkins core.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Update Jenkins Test Harness from 2.49 to 2.54 to add support for JMH benchmarks.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Omit &lt;code&gt;WEB-INF/lib/jquery-detached-1.2.jar&lt;/code&gt; from &lt;code&gt;jenkins.war&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.189
+</guid>
+<pubDate>
+Wed, 7 Aug 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.188</title>
+<link>
+https://jenkins.io/changelog//#v2.188
+</link>
+<description>
+&lt;ul&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.188
+</guid>
+<pubDate>
+Wed, 7 Aug 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.187</title>
+<link>
+https://jenkins.io/changelog//#v2.187
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+The default interval for node monitors (e.g. free disk space) can now be changed by setting the system property &lt;code&gt;hudson.node_monitors.AbstractNodeMonitorDescriptor.periodMinutes&lt;/code&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Robustness: Do not fail to render views when &lt;code&gt;AdministrativeMonitor#isActivated&lt;/code&gt; fails.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Update slf4j version from 1.7.25 to 1.7.26.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.187
+</guid>
+<pubDate>
+Sun, 21 Jul 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.186</title>
+<link>
+https://jenkins.io/changelog//#v2.186
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Security:
+Important security fixes.
+&lt;/li&gt;
+&lt;li&gt;
+Major Bug:
+Remove Trilead SSH dependencies from the Jenkins core. These dependencies caused SSH build agent connection issues in 2.185.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Upgrade SSH CLI Auth Module from 1.5 to 1.7 to remove Trilead SSH references.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.186
+</guid>
+<pubDate>
+Wed, 17 Jul 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.185</title>
+<link>
+https://jenkins.io/changelog//#v2.185
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major RFE:
+Jenkins no longer creates symbolic links inside project or build directories.
+The &lt;a href="https://plugins.jenkins.io/build-symlink" target="_blank"&gt;Build Symlink&lt;/a&gt; plugin may be installed to restore this functionality if desired.
+URLs such as &lt;code&gt;/job/…/lastStableBuild/&lt;/code&gt; are not affected, only tools which directly access the &lt;code&gt;$JENKINS_HOME&lt;/code&gt; filesystem.
+&lt;/li&gt;
+&lt;li&gt;
+Major RFE:
+Remove Trilead SSH library from Jenkins core and make it available in a new &lt;a href="https://plugins.jenkins.io/trilead-api" target="_blank"&gt;detached plugin&lt;/a&gt;.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Do not throw exception when testing proxy configuration. (regression in 2.168)
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Prevent occasional &lt;code&gt;IllegalStateException&lt;/code&gt; on Jenkins restart and invalidate the user session.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Avoid duplicate &lt;code&gt;screenResolution&lt;/code&gt; cookie for views.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Due to a mixture of old and new “detached” plugins, under certain circumstances it was possible to have two versions of an extension point used by the command launcher option for agents.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Add a warning to the Installed tab of the plugin manager alerting administrators to possible problems from disabling detached plugins, which became possible as of 2.181.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Remove unnecessary delay during cloud agent provisioning if the agent is available very quickly.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update commons-codec library from 1.9 to 1.12.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Developer: Plugin Compatibility Tester did not skip bundled plugin installation even if a &lt;code&gt;*.jpl&lt;/code&gt; file exists.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.185
+</guid>
+<pubDate>
+Sun, 14 Jul 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.184</title>
+<link>
+https://jenkins.io/changelog//#v2.184
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Remove obsolete session cookies when logging out, preventing errors related to headers being too large.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Add telemetry trial related to missing classes when running on Java 11.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+Fix performance issue when using "Remember me". (regression in 2.160)
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Clean up constructors of &lt;code&gt;AbstractCloudSlave&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.184
+</guid>
+<pubDate>
+Sun, 7 Jul 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.183</title>
+<link>
+https://jenkins.io/changelog//#v2.183
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Add support for IPv6 addresses in the Jenkins URL configuration.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update args4j from 2.0.31 to 2.33.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Allow plugins to provide &lt;code&gt;onBlur()&lt;/code&gt; handlers for CodeMirror textarea controls.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Make &lt;code&gt;WindowsUtil&lt;/code&gt; available to plugins.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: update maven-war-plugin from 3.0.0 to 3.2.3.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.183
+</guid>
+<pubDate>
+Sun, 30 Jun 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.182</title>
+<link>
+https://jenkins.io/changelog//#v2.182
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+When deleting directories, remove the read-only flag on Windows.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update Remoting from 3.29 to 3.33.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.182
+</guid>
+<pubDate>
+Sun, 23 Jun 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.181</title>
+<link>
+https://jenkins.io/changelog//#v2.181
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Bug:
+The plugin manager UI no longer prevents disabling a plugin when other plugins only have optional dependencies to it.
+&lt;/li&gt;
+&lt;li&gt;
+Bug:
+A thread pool used to wait for external processes to complete could leak class loaders.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Robustness: Exceptions thrown while scheduling jobs in the queue could prevent other jobs from being scheduled.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Replace some exception stack traces related to agent channels with simpler messages.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Update JNA from 4.5.2 to 5.3.1 to fix issue with shared library loading on AIX when using OpenJDK.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Update ant dependency from 1.9.2 to 1.9.14.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Switch from FindBugs to SpotBugs for static analysis.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Internal: Mark &lt;code&gt;hudson.model.UpdateSite#isDue&lt;/code&gt; as synchronized.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.181
+</guid>
+<pubDate>
+Sun, 16 Jun 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.180</title>
+<link>
+https://jenkins.io/changelog//#v2.180
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+Major Bug:
+Remoting reverted to 3.29 because JNLP agents failed to connect cloud agents in certain situations.
+(regression in 2.176)
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Improve Configuration-as-Code compatibility of &lt;code&gt;ListView&lt;/code&gt;.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.180
+</guid>
+<pubDate>
+Sun, 9 Jun 2019 00:00:00 +0000
+</pubDate>
+</item>
+<item>
+<title>Jenkins 2.179</title>
+<link>
+https://jenkins.io/changelog//#v2.179
+</link>
+<description>
+&lt;ul&gt;
+&lt;li&gt;
+RFE:
+Detached plugin handling changes in 2.178 could cause problems for some custom Jenkins home packaging schemes that use improper filenames.
+These cases are now at least warned about, and in some cases transparently handled.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Change the presentation of boolean (checkbox) options for most options on configuration forms.
+&lt;/li&gt;
+&lt;li&gt;
+RFE:
+Developer: Make the &lt;code&gt;XMLUtils&lt;/code&gt; class with utility methods related to safe XML processing available to plugins.
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+<guid isPermaLink="false">
+jenkins-2.179
+</guid>
+<pubDate>
+Sun, 26 May 2019 00:00:00 +0000
+</pubDate>
+</item>
+
+<!-- ending partial changelog-changes.xml.haml -->
+</channel>
+</rss>

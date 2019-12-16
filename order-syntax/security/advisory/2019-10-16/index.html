@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Jenkins Security Advisory 2019-10-16
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Jenkins Security Advisory 2019-10-16" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Jenkins Security Advisory 2019-10-16" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Jenkins Security Advisory 2019-10-16" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-10-16/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Jenkins Security Advisory 2019-10-16" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<p>
+<a href="../../advisories">
+Security Advisories
+</a>
+&raquo;
+Jenkins Security Advisory 2019-10-16
+</p>
+<h1>
+Jenkins Security Advisory 2019-10-16
+</h1>
+<p>
+This advisory announces vulnerabilities in the following Jenkins deliverables:
+</p>
+<p>
+<ul>
+<li>
+<a href="https://plugins.jenkins.io/bumblebee">
+Bumblebee HP ALM
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/vmanager-plugin">
+Cadence vManager
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/crx-content-package-deployer">
+CRX Content Package Deployer
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/delphix">
+Delphix
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/elasticbox">
+ElasticBox CI
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/extensivetesting">
+Extensive Testing
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/fortify-on-demand-uploader">
+Fortify on Demand
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/google-kubernetes-engine">
+Google Kubernetes Engine
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/google-oauth-plugin">
+Google OAuth Credentials
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/icescrum">
+iceScrum
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/neoload-jenkins-plugin">
+NeoLoad
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/oracle-cloud-infrastructure-compute-classic">
+Oracle Cloud Infrastructure Compute Classic
+Plugin
+</a>
+</li>
+<li>
+Puppet Enterprise Pipeline
+
+Plugin
+</li>
+<li>
+<a href="https://plugins.jenkins.io/rundeck">
+Rundeck
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/cloudtest">
+SOASTA CloudTest
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/sofy-ai">
+Sofy.AI
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/view26">
+View26 Test-Reporting
+Plugin
+</a>
+</li>
+</ul>
+</p>
+<h2>
+Descriptions
+</h2>
+<h3 id="SECURITY-1583">
+Arbitrary file read vulnerability in Google OAuth Credentials Plugin
+</h3>
+<strong>
+SECURITY-1583
+/
+CVE-2019-10436
+</strong>
+<div class="paragraph">
+<p>Google OAuth Credentials Plugin allowed the creation of credentials based on the content of files on the Jenkins master through a feature retaining backwards compatibility with earlier plugin releases.
+This allowed users with the permission to configure jobs and credentials to read arbitrary files on the Jenkins master by creating a credential referencing an arbitrary file on the Jenkins master.</p>
+</div>
+<div class="paragraph">
+<p>Google OAuth Credentials Plugin no longer allows a regular user to create credentials in the legacy format.</p>
+</div>
+<h3 id="SECURITY-1006 (1)">
+CSRF vulnerability and missing permission check in CRX Content Package Deployer Plugin allowed capturing credentials
+</h3>
+<strong>
+SECURITY-1006 (1)
+/
+CVE-2019-10437 (CSRF), CVE-2019-10438 (permission check)
+</strong>
+<div class="paragraph">
+<p>CRX Content Package Deployer Plugin did not perform permission checks on a method implementing form validation.
+This allowed users with Overall/Read access to Jenkins to connect to an attacker-specified URL using attacker-specified credentials IDs obtained through another method, capturing credentials stored in Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the form validation method did not require POST requests, resulting in a CSRF vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>CRX Content Package Deployer Plugin now requires POST requests and Item/Configure permission.</p>
+</div>
+<h3 id="SECURITY-1006 (2)">
+Users with Overall/Read access could enumerate credential IDs in CRX Content Package Deployer Plugin
+</h3>
+<strong>
+SECURITY-1006 (2)
+/
+CVE-2019-10439
+</strong>
+<div class="paragraph">
+<p>CRX Content Package Deployer Plugin provides a list of applicable credential IDs to allow users configuring the plugin to select the one to use.</p>
+</div>
+<div class="paragraph">
+<p>This functionality did not correctly check permissions, allowing any user with Overall/Read permission to get a list of valid credentials IDs.
+Those could be used as part of an attack to capture the credentials using another vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>An enumeration of credentials IDs in CRX Content Package Deployer Plugin now requires the appropriate permission.</p>
+</div>
+<h3 id="SECURITY-1427">
+NeoLoad Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1427
+/
+CVE-2019-10440
+</strong>
+<div class="paragraph">
+<p>NeoLoad Plugin stored credentials unencrypted in its global configuration file <code>org.jenkinsci.plugins.neoload.integration.NeoGlobalConfig.xml</code> and in job <code>config.xml</code> files on the Jenkins master.
+These credentials could be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>NeoLoad Plugin now stores these credentials encrypted.</p>
+</div>
+<h3 id="SECURITY-1484">
+CSRF vulnerability and missing permission check in iceScrum Plugin
+</h3>
+<strong>
+SECURITY-1484
+/
+CVE-2019-10441 (CSRF), CVE-2019-10442 (permission check)
+</strong>
+<div class="paragraph">
+<p>iceScrum Plugin did not perform permission checks on a method implementing form validation.
+This allowed users with Overall/Read access to Jenkins to initiate a connection test to an attacker-specified server with attacker-specified access token or username and password.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the form validation method did not require POST requests, resulting in a CSRF vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>iceScrum Plugin now requires POST requests and Overall/Administer permission.</p>
+</div>
+<h3 id="SECURITY-1436">
+iceScrum Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1436
+/
+CVE-2019-10443
+</strong>
+<div class="paragraph">
+<p>iceScrum Plugin stored credentials unencrypted in job <code>config.xml</code> files on the Jenkins master.
+These credentials could be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>iceScrum Plugin 1.1.5 and newer now stores these credentials encrypted.</p>
+</div>
+<h3 id="SECURITY-1481">
+Bumblebee HP ALM Plugin unconditionally disabled SSL/TLS certificate validation
+</h3>
+<strong>
+SECURITY-1481
+/
+CVE-2019-10444
+</strong>
+<div class="paragraph">
+<p>Bumblebee HP ALM Plugin unconditionally disabled SSL/TLS certificate validation for connections to the HP ALM service.</p>
+</div>
+<div class="paragraph">
+<p>Bumblebee HP ALM Plugin no longer does that.
+Instead, it now allows users to opt out of certificate validation.</p>
+</div>
+<h3 id="SECURITY-1607">
+Missing permission checks in Google Kubernetes Engine Plugin allowed validating and obtaining data
+</h3>
+<strong>
+SECURITY-1607
+/
+CVE-2019-10445
+</strong>
+<div class="paragraph">
+<p>Missing permission checks in Google Kubernetes Engine Plugin allowed users with Overall/Read permission to obtain limited information about the scope and access of a credential with an attacker-specified credential ID obtained through another method.</p>
+</div>
+<div class="paragraph">
+<p>Google Kubernetes Engine Plugin now requires Job/Configure permission for these operations.</p>
+</div>
+<h3 id="SECURITY-1615">
+Cadence vManager Plugin globally and unconditionally disabled SSL/TLS certificate validation
+</h3>
+<strong>
+SECURITY-1615
+/
+CVE-2019-10446
+</strong>
+<div class="paragraph">
+<p>Cadence vManager Plugin unconditionally disabled SSL/TLS certificate validation for the entire Jenkins master JVM.</p>
+</div>
+<div class="paragraph">
+<p>Cadence vManager Plugin no longer does that.
+Instead, it now has an opt-in option to ignore SSL/TLS errors for its connections.</p>
+</div>
+<h3 id="SECURITY-918">
+Script sandbox bypass vulnerability in Puppet Enterprise Pipeline
+ Plugin
+</h3>
+<strong>
+SECURITY-918
+/
+CVE-2019-10458
+</strong>
+<div class="paragraph">
+<p>Puppet Enterprise Pipeline
+ Plugin defines a custom whitelist for all scripts protected by the Script Security sandbox.</p>
+</div>
+<div class="paragraph">
+<p>This custom whitelist allows the use of methods that can be used to bypass Script Security sandbox protection.
+This results in arbitrary code execution on any Jenkins instance with this plugin installed.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1431">
+Sofy.AI Plugin stores API token in plain text
+</h3>
+<strong>
+SECURITY-1431
+/
+CVE-2019-10447
+</strong>
+<div class="paragraph">
+<p>Sofy.AI Plugin stores an API token unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This token can be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1432">
+Extensive Testing Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1432
+/
+CVE-2019-10448
+</strong>
+<div class="paragraph">
+<p>Extensive Testing Plugin stores credentials unencrypted in job <code>config.xml</code> files on the Jenkins master.
+These credentials can be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1433">
+Fortify on Demand Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1433
+/
+CVE-2019-10449
+</strong>
+<div class="paragraph">
+<p>Fortify on Demand Plugin stores credentials unencrypted in job <code>config.xml</code> files on the Jenkins master.
+These credentials can be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1434">
+ElasticBox CI Plugin stores access token in plain text
+</h3>
+<strong>
+SECURITY-1434
+/
+CVE-2019-10450
+</strong>
+<div class="paragraph">
+<p>ElasticBox CI Plugin stores an access token unencrypted in the global <code>config.xml</code> configuration file on the Jenkins master.
+This token can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1439">
+SOASTA CloudTest Plugin stores API token in plain text
+</h3>
+<strong>
+SECURITY-1439
+/
+CVE-2019-10451
+</strong>
+<div class="paragraph">
+<p>SOASTA CloudTest Plugin stores credentials unencrypted in its global configuration file <code>com.soasta.jenkins.CloudTestServer.xml</code> on the Jenkins master.
+These credentials could be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1440">
+View26 Test-Reporting Plugin stores access token in plain text
+</h3>
+<strong>
+SECURITY-1440
+/
+CVE-2019-10452
+</strong>
+<div class="paragraph">
+<p>View26 Test-Reporting Plugin stores an access token unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This token can be viewed by users with Extended Read permission or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1450">
+Delphix Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1450
+/
+CVE-2019-10453
+</strong>
+<div class="paragraph">
+<p>Delphix Plugin stores credentials unencrypted in its global configuration file <code>io.jenkins.plugins.delphix.GlobalConfiguration.xml</code> on the Jenkins master.
+These credentials could be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1460">
+CSRF vulnerability and missing permission check in Rundeck Plugin
+</h3>
+<strong>
+SECURITY-1460
+/
+CVE-2019-10454 (CSRF), CVE-2019-10455 (permission check)
+</strong>
+<div class="paragraph">
+<p>Rundeck Plugin does not perform permission checks on a method implementing form validation.
+This allows users with Overall/Read access to Jenkins to initiate a connection test to an attacker-specified server with attacker-specified username and password.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h3 id="SECURITY-1462">
+CSRF vulnerability and missing permission check in Oracle Cloud Infrastructure Compute Classic Plugin
+</h3>
+<strong>
+SECURITY-1462
+/
+CVE-2019-10456 (CSRF), CVE-2019-10457 (permission check)
+</strong>
+<div class="paragraph">
+<p>Oracle Cloud Infrastructure Compute Classic Plugin does not perform permission checks on a method implementing form validation.
+This allows users with Overall/Read access to Jenkins to initiate a connection test to an attacker-specified server with attacker-specified username and password.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the form validation method does not require POST requests, resulting in a CSRF vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory there is no fix.</p>
+</div>
+<h2>
+Severity
+</h2>
+<ul>
+<li>
+SECURITY-918:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H">
+High
+</a>
+</li>
+<li>
+SECURITY-1006 (1):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:N">
+High
+</a>
+</li>
+<li>
+SECURITY-1006 (2):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1427:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1431:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1432:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1433:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1434:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1436:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1439:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1440:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1450:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1460:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1462:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1481:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1484:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1583:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1607:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1615:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:L/A:N">
+Medium
+</a>
+</li>
+</ul>
+<h2>
+Affected Versions
+</h2>
+<ul>
+<li>
+<strong>
+Bumblebee HP ALM
+Plugin
+</strong>
+up to and including
+4.1.3
+</li>
+<li>
+<strong>
+Cadence vManager
+Plugin
+</strong>
+up to and including
+2.7.0
+</li>
+<li>
+<strong>
+CRX Content Package Deployer
+Plugin
+</strong>
+up to and including
+1.8.1
+</li>
+<li>
+<strong>
+Delphix
+Plugin
+</strong>
+up to and including
+2.0.4
+</li>
+<li>
+<strong>
+ElasticBox CI
+Plugin
+</strong>
+up to and including
+5.0.1
+</li>
+<li>
+<strong>
+Extensive Testing
+Plugin
+</strong>
+up to and including
+1.4.4b
+</li>
+<li>
+<strong>
+Fortify on Demand
+Plugin
+</strong>
+up to and including
+4.0.0
+</li>
+<li>
+<strong>
+Google Kubernetes Engine
+Plugin
+</strong>
+up to and including
+0.7.0
+</li>
+<li>
+<strong>
+Google OAuth Credentials
+Plugin
+</strong>
+up to and including
+0.9
+</li>
+<li>
+<strong>
+iceScrum
+Plugin
+</strong>
+up to and including
+1.1.5
+</li>
+<li>
+<strong>
+NeoLoad
+Plugin
+</strong>
+up to and including
+2.2.5
+</li>
+<li>
+<strong>
+Oracle Cloud Infrastructure Compute Classic
+Plugin
+</strong>
+up to and including
+1.0.0
+</li>
+<li>
+<strong>
+Puppet Enterprise Pipeline
+
+Plugin
+</strong>
+up to and including
+1.3.1
+</li>
+<li>
+<strong>
+Rundeck
+Plugin
+</strong>
+up to and including
+3.6.5
+</li>
+<li>
+<strong>
+SOASTA CloudTest
+Plugin
+</strong>
+up to and including
+2.25
+</li>
+<li>
+<strong>
+Sofy.AI
+Plugin
+</strong>
+up to and including
+1.0.3
+</li>
+<li>
+<strong>
+View26 Test-Reporting
+Plugin
+</strong>
+up to and including
+1.0.7
+</li>
+</ul>
+<h2>
+Fix
+</h2>
+<ul>
+<li>
+<strong>
+Bumblebee HP ALM
+Plugin
+</strong>
+should be updated to version
+4.1.4
+</li>
+<li>
+<strong>
+Cadence vManager
+Plugin
+</strong>
+should be updated to version
+2.7.1
+</li>
+<li>
+<strong>
+CRX Content Package Deployer
+Plugin
+</strong>
+should be updated to version
+1.9
+</li>
+<li>
+<strong>
+Google Kubernetes Engine
+Plugin
+</strong>
+should be updated to version
+0.7.1
+</li>
+<li>
+<strong>
+Google OAuth Credentials
+Plugin
+</strong>
+should be updated to version
+0.10
+</li>
+<li>
+<strong>
+iceScrum
+Plugin
+</strong>
+should be updated to version
+1.1.6
+</li>
+<li>
+<strong>
+NeoLoad
+Plugin
+</strong>
+should be updated to version
+2.2.6
+</li>
+</ul>
+<p>
+These versions include fixes to the vulnerabilities described above. All prior versions are considered to be affected by these vulnerabilities unless otherwise indicated.
+</p>
+<p>
+As of publication of this advisory, no fixes are available for the following plugins:
+</p>
+<ul>
+<li>
+Delphix
+Plugin
+</li>
+<li>
+ElasticBox CI
+Plugin
+</li>
+<li>
+Extensive Testing
+Plugin
+</li>
+<li>
+Fortify on Demand
+Plugin
+</li>
+<li>
+Oracle Cloud Infrastructure Compute Classic
+Plugin
+</li>
+<li>
+Puppet Enterprise Pipeline
+
+Plugin
+</li>
+<li>
+Rundeck
+Plugin
+</li>
+<li>
+SOASTA CloudTest
+Plugin
+</li>
+<li>
+Sofy.AI
+Plugin
+</li>
+<li>
+View26 Test-Reporting
+Plugin
+</li>
+</ul>
+<h2>
+Credit
+</h2>
+<p>
+The Jenkins project would like to thank the reporters for discovering and
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/#reporting-vulnerabilities">
+reporting
+</a>
+these vulnerabilities:
+<ul>
+<li>
+<strong>
+Daniel Beck, CloudBees, Inc.
+</strong>
+for
+SECURITY-1615
+</li>
+<li>
+<strong>
+David Fiser of Trend Micro Nebula working with Trend Micro's Zero Day Initiative
+</strong>
+for
+SECURITY-1427, SECURITY-1431, SECURITY-1432, SECURITY-1433, SECURITY-1434, SECURITY-1436, SECURITY-1439, SECURITY-1440, SECURITY-1450
+</li>
+<li>
+<strong>
+Jesse Glick, CloudBees, Inc.
+</strong>
+for
+SECURITY-918
+</li>
+<li>
+<strong>
+Matt Sicker, CloudBees Inc.
+</strong>
+for
+SECURITY-1607
+</li>
+<li>
+<strong>
+Oleg Nenashev, CloudBees, Inc.
+</strong>
+for
+SECURITY-1006 (1), SECURITY-1006 (2)
+</li>
+<li>
+<strong>
+Viktor Gazdag NCC Group
+</strong>
+for
+SECURITY-1460, SECURITY-1462, SECURITY-1481, SECURITY-1484
+</li>
+<li>
+<strong>
+Wadeck Follonier, Jesse Glick, and Daniel Beck, CloudBees, Inc.
+</strong>
+for
+SECURITY-1583
+</li>
+</ul>
+</p>
+
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//security/advisory/2019-10-16.adoc" title="Edit /security/advisory/2019-10-16.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//security/advisory/2019-10-16.adoc" title="View /security/advisory/2019-10-16.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Changelog
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Changelog" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Changelog" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Changelog" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/changelog/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Changelog" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<h1>
+Changelog
+</h1>
+<link href="/css/changelog.css" rel="stylesheet" type="text/css">
+<div id="head"></div>
+<script src="/files/rate.js" type="text/javascript"></script>
+<div id="ratings"></div>
+<div class="w-100 text-right">
+<div class="iconlegend">
+Legend:
+<ul class="image">
+<li class="security">security fix</li>
+<li class="major bug">major bug fix</li>
+<li class="bug">bug fix</li>
+<li class="major rfe">major enhancement</li>
+<li class="rfe">enhancement</li>
+</ul>
+</div>
+</div>
+<div class="w-100 text-right" style="margin: 10px 0;">
+<div class="iconlegend">
+Community feedback:
+<ul class="feedback">
+<li class="sunny">no major issues</li>
+<li class="cloudy">notable issues</li>
+<li class="storm">required rollback</li>
+</ul>
+</div>
+</div>
+<div class="w-100 text-right" style="margin: 10px 0;">
+<a href="rss.xml">
+<img src="/images/changelog/feed-icon.png">
+RSS
+</a>
+</div>
+<script>
+  $(document).ready(function() {
+      loaddata(this);
+  });
+</script>
+<div class="ratings">
+<h3 id="v2.208">
+What's new in 2.208
+(2019-12-09)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+Fix online example/documentation for File Access Rules.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4383">pull 4383</a>)
+</li>
+<li class="bug">
+Prevent Oops when Whitelisted Commands input is empty in 'Agent to Master Access Control'.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60278">issue 60278</a>)
+</li>
+<li class="bug">
+Prevent 'zombie' executors on master by removing one-off executors in Computer.removeExecutor.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57304">issue 57304</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.207">
+What's new in 2.207
+(2019-12-01)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Update bundled Script Security Plugin to 1.68.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4367">pull 4367</a>)
+</li>
+<li class="bug">
+Do not reload too early when Jenkins is behind a reverse proxy and is restarting.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-6798">issue 6798</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.206">
+What's new in 2.206
+(2019-11-24)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Deprecate the macOS native installer packaging.
+(<a href="https://jenkins.io/blog/2019/11/25/macos-native-installer-deprecation/">Jenkins macOS native installer deprecation</a>)
+</li>
+<li class="rfe">
+Open plugin and license links on a separate tab from Plugin Manager.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60189">issue 60189</a>)
+</li>
+<li class="rfe">
+Set the HttpOnly flag for the page auto-refresh tokens.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4363">pull 4363</a>)
+</li>
+<li class="bug">
+Avoid exception when views are defined using job DSL.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60092">issue 60092</a>)
+</li>
+<li class="bug">
+Fix AtomicFileWriter performance issue on CephFS when creating an empty file.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60167">issue 60167</a>)
+</li>
+<li class="bug">
+Developer: ViewGroupMixIn#getPrimaryView() may return <code>null</code>, and needs to be checked by plugins depending on this version of weekly and beyond.
+It is an intermediate state until a default view is implemented.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60092">issue 60092</a>)
+</li>
+<li class="rfe">
+Developer: Use junit5 for CLI tests.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4220">pull 4220</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.205">
+What's new in 2.205
+(2019-11-17)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Move cloud configuration from Configure System into its own configuration form on the Manage Nodes page.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4339">pull 4339</a>)
+</li>
+<li class="major rfe">
+Redesign password fields to prevent password auto-fill except for the login form.
+Reduce browsers offering to update stored passwords.
+Revert by setting the system property <code>hudson.Functions.hidingPasswordFields</code> to <code>false</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/3991">pull 3991</a>)
+</li>
+<li class="rfe">
+Show agent error status on the dashboard as mouse over text.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-6722">issue 6722</a>)
+</li>
+<li class="rfe">
+Show a tooltip with the full link name when hovering over sidebar links.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59508">issue 59508</a>)
+</li>
+<li class="rfe">
+Reduce logging level of run completion and update center polling events from INFO to FINEST.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4345">pull 4345</a>)
+</li>
+<li class="rfe">
+Try to always execute flyweight tasks, such as the main builds for Pipeline or Matrix jobs, on the master.
+(<a href="https://github.com/jenkinsci/jenkins/pull/3983">pull 3983</a>)
+</li>
+<li class="rfe">
+Update Winstone from 5.3 to 5.4 to update Jetty from 9.4.18 to 9.4.22.
+(<a href="https://github.com/jenkinsci/winstone/blob/master/CHANGELOG.md#54">full Winstone 5.4 changelog</a>,&nbsp;<a href="https://github.com/eclipse/jetty.project/releases/tag/jetty-9.4.22.v20191022">Jetty 9.4.22 changelog</a>,&nbsp;<a href="https://github.com/eclipse/jetty.project/releases/tag/jetty-9.4.21.v20190926">Jetty 9.4.21 changelog</a>,&nbsp;<a href="https://github.com/eclipse/jetty.project/releases/tag/jetty-9.4.20.v20190813">Jetty 9.4.20 changelog</a>,&nbsp;<a href="https://github.com/eclipse/jetty.project/releases/tag/jetty-9.4.19.v20190610">Jetty 9.4.19 changelog</a>)
+</li>
+<li class="rfe">
+Internal: Make ProxyConfiguration compatible with configuration-as-code plugin.
+Workaround on the configuration-as-code plugin side is no longer required.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-56553">issue 56553</a>)
+</li>
+<li class="rfe">
+Internal: Remove unused <code>jenkins-slave.xml</code> file template from core.
+Requires WMI Windows Agents plugin version 1.3.1 (Released Mar 14 2017) or newer.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4330">pull 4330</a>)
+</li>
+<li class="bug">
+Fix <code>Uninstall</code> column sorting in the Plugin Manager Install pane.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59665">issue 59665</a>)
+</li>
+<li class="bug">
+Fix build history table styling.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59631">issue 59631</a>)
+</li>
+<li class="bug">
+Prevent faulty subtask contributors from leaving builds running forever.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59793">issue 59793</a>)
+</li>
+<li class="rfe">
+Internal: Remove unused remoting library from <code>jenkins-cli.jar</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4350">pull 4350</a>)
+</li>
+<li class="rfe">
+Developer: Switch from maven-jenkins-dev-plugin to upstream jetty-maven-plugin.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4351">pull 4351</a>)
+</li>
+<li class="rfe">
+Disable HTTP TRACE to prevent security scanner complaints.
+The risk was significant with web browsers in 2003.
+Modern browsers forbid TRACE requests to prevent cross-site tracing (XST) attacks, so there is no real risk.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-60180">issue 60180</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.204">
+What's new in 2.204
+(2019-11-10)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Plugin manager descriptions always link to the plugins site instead of the Jenkins wiki.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59679">issue 59679</a>)
+</li>
+<li class="rfe">
+Increase the number of datapoints recorded for multistage time series graphs such as those used for load statistics.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4341">pull 4341</a>)
+</li>
+<li class="rfe">
+Update Remoting from 3.35 to 3.36 to add new command line options "-help" and "-version".
+(<a href="https://github.com/jenkinsci/remoting/releases/tag/remoting-3.36">Remoting release notes</a>)
+</li>
+<li class="bug">
+Prevent coding errors in canTake() and canRun() implementations in NodeProperty and QueueTaskDispatcher extensions from hanging the queue.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59886">issue 59886</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.203">
+What's new in 2.203
+(2019-11-05)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Allow time zone to be set on a per-user basis.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-19887">issue 19887</a>)
+</li>
+<li class="rfe">
+Logging UI: Reorder sidepanel entries, add a note that "all log messages" will only include entries on level INFO and up.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4305">pull 4305</a>)
+</li>
+<li class="rfe">
+Update the Plugin Manager Updates tab with more information about incompatible dependencies.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4299">pull 4299</a>)
+</li>
+<li class="rfe">
+Build status balls on the build trend page now link to the respective build's console output.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-17459">issue 17459</a>)
+</li>
+<li class="bug">
+Prevent permission problems when dynamically loading a plugin by making <code>PluginManager#start()</code> run as SYSTEM.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59775">issue 59775</a>)
+</li>
+<li class="bug">
+Properly handle user names containing <code>:</code> characters in resource root URL tokens.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59859">issue 59859</a>)
+</li>
+<li class="bug">
+Prevent <code>NullPointerException</code> when accessing the <code>/logout</code> without sending cookies.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59904">issue 59904</a>)
+</li>
+<li class="rfe">
+Developer: Make some methods in <code>ResourceDomainConfiguration</code> accessible from plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4335">pull 4335</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.202">
+What's new in 2.202
+(2019-10-27)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+Revert changes in forms submission in Jenkins classic UI with Firefox have caused a regression on forms with "file" inputs.
+These were made to anticipate a bugfix in Firefox which has been backed out since.
+(regression in 2.173)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58296">issue 58296</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-53462">issue 53462</a><a></a>,&nbsp;<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1370630">Firefox issue 1370630</a>)
+</li>
+<li class="rfe">
+Add telemetry on the use of the 'auto refresh' feature.
+(<a href="https://github.com/jenkinsci/jenkins/pull/3894">pull 3894</a>)
+</li>
+<li class="rfe">
+Add <code>java.util.concurrent.ConcurrentLinkedDeque</code> to the JEP-200 deserialization whitelist.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4300">pull 4300</a>)
+</li>
+<li class="rfe">
+Developer: Introduce <code>Run#getBuildsOverThreshold()</code> method for getting runs above the desired execution result.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4259">pull 4259</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.201">
+What's new in 2.201
+(2019-10-20)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+Resource URLs failed to serve files with nontrivial names due to encoding problems.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59849">issue 59849</a>)
+</li>
+<li class="bug">
+Fix presentation when localized headers span multiple lines in the setup wizard.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59800">issue 59800</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.200">
+What's new in 2.200
+(2019-10-14)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Add an option for a Resource Root URL through which Jenkins will serve user-generated static resources like workspace files or archived artifacts without the need for Content-Security-Policy headers.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-41891">issue 41891</a>)
+</li>
+<li class="major rfe">
+Remove the ability to download update center metadata using the user's browser (deprecated since 2015).
+Jenkins will no longer inform about available updates without a connection to update sites.
+We recommend the use of a local mirror of our update sites, or a self-hosted update center like <a href="https://github.com/jenkinsci/juseppe">Juseppe</a> in these situations.
+(<a href="https://github.com/jenkinsci/jenkins/pull/3970">pull 3970</a>)
+</li>
+<li class="bug">
+Fix style of administrative monitors showing informational messages in the popup.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59684">issue 59684</a>)
+</li>
+<li class="bug">
+Add a missing "pressed" style for the Create Item button.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-34226">issue 34226</a>)
+</li>
+<li class="bug">
+Fix labels to Atom feed links.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-48375">issue 48375</a>)
+</li>
+<li class="rfe">
+Developer: Add <code>Functions#urlEncode(String)</code> to ease encoding of URL query parameters from Jelly views.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4278">pull 4278</a>)
+</li>
+<li class="rfe">
+Developer: <code>TarOutputStream</code> is now marked restricted so it is not used from plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4272">pull 4272</a>)
+</li>
+<li class="rfe">
+Internal: Various code cleanups.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-36720">issue 36720</a><a></a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4248">pull 4248</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4258">pull 4258</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4260">pull 4260</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4256">pull 4256</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4257">pull 4257</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4261">pull 4261</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4267">pull 4267</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.199">
+What's new in 2.199
+(2019-10-06)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Prevent calls to <code>Jenkins#save</code> persisting data before we have finished loading the in-memory model.
+This prevents possible corruption of the main Jenkins configuration.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58993">issue 58993</a>)
+</li>
+<li class="bug">
+Increase client-side keep-alive ping frequency on the HTTP-based CLI to prevent timeouts.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59267">issue 59267</a>)
+</li>
+<li class="rfe">
+Reduce default soft-kill timeout from two minutes to five seconds so that builds that spawned other processes can finish more quickly.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59152">issue 59152</a>)
+</li>
+<li class="rfe">
+Stop bundling Maven Plugin and Subversion Plugin with Jenkins.
+In very rare cases, this could result in problems when attempting to install plugins compatible with Jenkins before 1.310.
+The Jenkins project is currently not publishing any such plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4242">pull 4242</a>)
+</li>
+<li class="rfe">
+Remove plugins bundled only to promote their use, as they are not needed for compatibility with old plugins.
+Since Jenkins 2.0, the concept of plugins installed by default is replaced with the setup wizard.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4040">pull 4040</a>)
+</li>
+<li class="rfe">
+Update bundled version of Script Security Plugin to 1.65.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4245">pull 4245</a>)
+</li>
+<li class="bug">
+Developer: <code>ProcessTree#killAll</code> no longer fails with NPE if <code>proc</code> argument is <code>null</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4232">pull 4232</a>)
+</li>
+<li class="bug">
+Internal: <code>hudson.util.ProcessTree.OSProcess#getEnvironmentVariables</code> returned <code>null</code> when an error occurred even though it shouldn't.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59580">issue 59580</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.198">
+What's new in 2.198
+(2019-09-29)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Remove 100 character length limitation of build description in build history widget.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-19760">issue 19760</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-31209">issue 31209</a><a></a>)
+</li>
+<li class="rfe">
+Update the minimum required Remoting client version to 3.14 to simplify the implementation.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4208">pull 4208</a>)
+</li>
+<li class="rfe">
+Use different computer icon for temporary offline state.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59283">issue 59283</a>)
+</li>
+<li class="rfe">
+Robustness: Do not allow users to resubmit requests using POST on URLs requiring a form submission, as that will fail anyway.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59514">issue 59514</a>)
+</li>
+<li class="rfe">
+Better diagnostics in a failure message from <code>Computer.getLogDir</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4226">pull 4226</a>)
+</li>
+<li class="rfe">
+Update bundled versions of Ant, PAM Authentication, Mailer, and Script Security plugins for the rare cases they're installed from bundled versions.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4230">pull 4230</a>)
+</li>
+<li class="rfe">
+Update commons-compress from 1.10 to 1.19.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4221">pull 4221</a>,&nbsp;<a href="https://commons.apache.org/proper/commons-compress/changes-report.html">changelog</a>)
+</li>
+<li class="rfe">
+Update jfreechart from 1.0.9 to 1.0.19 to pick-up recent improvements and bugfixes.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4229">pull 4229</a>,&nbsp;<a href="https://github.com/jfree/jfreechart#history">changelog</a>)
+</li>
+<li class="bug">
+The <code>lastCompletedBuild</code> permalink was not being cached in the <code>…/builds/permalinks</code> file.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-56809">issue 56809</a>)
+</li>
+<li class="rfe">
+Developer: Add <code>TcpSlaveAgentListener#getAdvertisedHost()</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4227">pull 4227</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.197">
+What's new in 2.197
+(2019-09-25)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="security">
+Security fixes.
+(<a href="https://jenkins.io/security/advisory/2019-09-25/">security advisory</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.196">
+What's new in 2.196
+(2019-09-22)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Gzip compression when transferring artifacts being archived from agents to the master can now be disabled by setting the system property <code>jenkins.model.StandardArtifactManager.disableTrafficCompression=true</code>.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-26008">issue 26008</a><a></a>,&nbsp;<a href="https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties">Jenkins features controlled by system properties</a>)
+</li>
+<li class="rfe">
+Make log rotation more robust.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58779">issue 58779</a>)
+</li>
+<li class="bug">
+Fix malformed XML in Atom and RSS 2.0 feeds. (regression in 2.194)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59231">issue 59231</a>)
+</li>
+<li class="bug">
+URLs of some projects with emojis in their name were inaccessible.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59406">issue 59406</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.195">
+What's new in 2.195
+(2019-09-16)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+The setup wizard sometimes was removed improperly, and Jenkins would only show a blank screen.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59017">issue 59017</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.194">
+What's new in 2.194
+(2019-09-08)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+Fix missing absolute URL in the RSS / Atom feeds. (regression in 2.190)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59167">issue 59167</a>)
+</li>
+<li class="rfe">
+Update Remoting from 3.33 to 3.35 to allow inbound TCP agents to connect directly without querying Jenkins via HTTP for connection parameters first.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59094">issue 59094</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-53461">issue 53461</a><a></a>,&nbsp;<a href="https://github.com/jenkinsci/remoting/releases/tag/remoting-3.35">full changelog</a>)
+</li>
+<li class="rfe">
+Update Windows Service Wrapper from 2.2.0 to 2.3.0 to pick up fixes and improvements.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4167">pull 4167</a>,&nbsp;<a href="https://github.com/kohsuke/winsw/blob/master/CHANGELOG.md#230">WinSW changelog</a>,&nbsp;<a href="https://github.com/jenkinsci/windows-slave-installer-module/releases/tag/windows-slave-installer-1.12">Windows Agent Installer module 1.12 changelog</a>)
+</li>
+<li class="rfe">
+Internal: Update dom4j library from Jenkins project fork to upstream release 2.1.1.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-53322">issue 53322</a>)
+</li>
+<li class="rfe">
+Internal: Replaced different base64 implementations with <code>java.util.Base64</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4169">pull 4169</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.193">
+What's new in 2.193
+(2019-09-01)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major bug">
+Downgrade Remoting from 3.34 to 3.33 due to problems involving tunneled connections. (regression in 2.191)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-59094">issue 59094</a>)
+</li>
+<li class="major bug">
+Jenkins UI broke when a slow trigger administrative warning would be shown. (regression in 2.189).
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58938">issue 58938</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.192">
+What's new in 2.192
+(2019-08-28)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="security">
+Important security fixes.
+(<a href="https://jenkins.io/security/advisory/2019-08-28/">security advisory</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.191">
+What's new in 2.191
+(2019-08-25)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Update Remoting from 3.33 to 3.34 to allow inbound TCP agents to connect directly without querying Jenkins via HTTP for connection parameters first.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-53461">issue 53461</a><a></a>,&nbsp;<a href="https://github.com/jenkinsci/remoting/releases/tag/remoting-3.34">full changelog</a>)
+</li>
+<li class="rfe">
+Multiple minor code cleanups and internal fixes.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4131">pull 4131</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4162">pull 4162</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins/pull/4163">pull 4163</a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-36720">issue 36720</a><a></a>)
+</li>
+<li class="rfe">
+Internal: Update Mockito from 2.22.0 to 3.0.0.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4154">pull 4154</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.190">
+What's new in 2.190
+(2019-08-18)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+Add support of emojis and other non-UTF-8 characters in job names. 🎉
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-23349">issue 23349</a>)
+</li>
+<li class="bug">
+RSS and Atom feeds did not contain all necessary metadata. (regression in 2.186)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58595">issue 58595</a>)
+</li>
+<li class="rfe">
+Expose real environment variables from an agent on the UI.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-54772">issue 54772</a>)
+</li>
+<li class="rfe">
+Use SHA-256 instead of MD5 for generating crumbs/CSRF tokens.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58734">issue 58734</a>)
+</li>
+<li class="rfe">
+Truncate long build names on the UI to prevent alignment issues.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58157">issue 58157</a>)
+</li>
+<li class="rfe">
+Developer: <code>AbstractItem#renameTo</code> now checks <code>#isNameEditable</code> before renaming.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58571">issue 58571</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.189">
+What's new in 2.189
+(2019-08-07)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+A file handle leak in <code>$JENKINS_HOME/jobs/*/builds/permalinks</code> could prevent jobs from being deleted on Windows. (regression in 2.185)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58733">issue 58733</a>)
+</li>
+<li class="bug">
+Remove extra whitespace output from <code>/scriptText</code> endpoint. (regression in 2.186)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58548">issue 58548</a>)
+</li>
+<li class="bug">
+The <code>install-plugin</code> CLI command allowed files that aren't plugins to be installed, potentially breaking some functionality.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-29065">issue 29065</a>)
+</li>
+<li class="rfe">
+Add a warning when cron trigger spends a long time in its execution.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-54854">issue 54854</a>)
+</li>
+<li class="rfe">
+Batch up plugin installations in setup wizard to improve performance.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4124">pull 4124</a>)
+</li>
+<li class="rfe">
+Stop using the <code>name</code> argument in the <code>install-plugin</code> CLI command.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4123">pull 4123</a>)
+</li>
+<li class="rfe">
+Update versions of some detached plugins.
+These are typically installed when upgrading Jenkins from much older releases, or when implied dependencies are not specified for manually managed plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4125">pull 4125</a>)
+</li>
+<li class="rfe">
+Internal: Add support running JMH benchmarks for Jenkins core.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4135">pull 4135</a>)
+</li>
+<li class="rfe">
+Internal: Update Jenkins Test Harness from 2.49 to 2.54 to add support for JMH benchmarks.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4135">pull 4135</a>,&nbsp;<a href="https://github.com/jenkinsci/jenkins-test-harness/releases">changelog</a>)
+</li>
+<li class="rfe">
+Internal: Omit <code>WEB-INF/lib/jquery-detached-1.2.jar</code> from <code>jenkins.war</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4120">pull 4120</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.188">
+What's new in 2.188
+(2019-08-07)
+</h3>
+<div style="margin: 10px; padding: 10px; background-color: #FFFFCE;">
+This release failed. No artifact or Git tag exists.
+
+</div>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<em>
+No notable changes in this release.
+</em>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.187">
+What's new in 2.187
+(2019-07-21)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+The default interval for node monitors (e.g. free disk space) can now be changed by setting the system property <code>hudson.node_monitors.AbstractNodeMonitorDescriptor.periodMinutes</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4105">pull 4105</a>,&nbsp;<a href="https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties">Jenkins features controlled by system properties</a>)
+</li>
+<li class="rfe">
+Robustness: Do not fail to render views when <code>AdministrativeMonitor#isActivated</code> fails.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4114">pull 4114</a>)
+</li>
+<li class="rfe">
+Internal: Update slf4j version from 1.7.25 to 1.7.26.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4118">pull 4118</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.186">
+What's new in 2.186
+(2019-07-17)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="security">
+Important security fixes.
+(<a href="https://jenkins.io/security/advisory/2019-07-17/">security advisory</a>)
+</li>
+<li class="major bug">
+Remove Trilead SSH dependencies from the Jenkins core. These dependencies caused SSH build agent connection issues in 2.185.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58483">issue 58483</a>)
+</li>
+<li class="rfe">
+Upgrade SSH CLI Auth Module from 1.5 to 1.7 to remove Trilead SSH references.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4111">pull 4111</a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-43669">issue 43669</a><a></a>,&nbsp;<a href="https://github.com/jenkinsci/ssh-cli-auth-module/releases/tag/ssh-cli-auth-1.7">changelog for 1.7</a>,&nbsp;<a href="https://github.com/jenkinsci/ssh-cli-auth-module/releases/tag/ssh-cli-auth-1.6">changelog for 1.6</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.185">
+What's new in 2.185
+(2019-07-14)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major rfe">
+Jenkins no longer creates symbolic links inside project or build directories.
+The <a href="https://plugins.jenkins.io/build-symlink" target="_blank">Build Symlink</a> plugin may be installed to restore this functionality if desired.
+URLs such as <code>/job/…/lastStableBuild/</code> are not affected, only tools which directly access the <code>$JENKINS_HOME</code> filesystem.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-37862">issue 37862</a>)
+</li>
+<li class="major rfe">
+Remove Trilead SSH library from Jenkins core and make it available in a new <a href="https://plugins.jenkins.io/trilead-api" target="_blank">detached plugin</a>.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-43610">issue 43610</a>)
+</li>
+<li class="bug">
+Do not throw exception when testing proxy configuration. (regression in 2.168)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57383">issue 57383</a>)
+</li>
+<li class="bug">
+Prevent occasional <code>IllegalStateException</code> on Jenkins restart and invalidate the user session.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-55945">issue 55945</a>)
+</li>
+<li class="bug">
+Avoid duplicate <code>screenResolution</code> cookie for views.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4103">pull 4103</a>)
+</li>
+<li class="bug">
+Due to a mixture of old and new “detached” plugins, under certain circumstances it was possible to have two versions of an extension point used by the command launcher option for agents.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58362">issue 58362</a>)
+</li>
+<li class="rfe">
+Add a warning to the Installed tab of the plugin manager alerting administrators to possible problems from disabling detached plugins, which became possible as of 2.181.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4098">pull 4098</a>)
+</li>
+<li class="rfe">
+Remove unnecessary delay during cloud agent provisioning if the agent is available very quickly.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-24752">issue 24752</a>)
+</li>
+<li class="rfe">
+Update commons-codec library from 1.9 to 1.12.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4052">pull 4052</a>,&nbsp;<a href="https://commons.apache.org/proper/commons-codec/changes-report.html">changelog</a>)
+</li>
+<li class="bug">
+Developer: Plugin Compatibility Tester did not skip bundled plugin installation even if a <code>*.jpl</code> file exists.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58362">issue 58362</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.184">
+What's new in 2.184
+(2019-07-07)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Remove obsolete session cookies when logging out, preventing errors related to headers being too large.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-25046">issue 25046</a>)
+</li>
+<li class="rfe">
+Add telemetry trial related to missing classes when running on Java 11.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57223">issue 57223</a>)
+</li>
+<li class="bug">
+Fix performance issue when using "Remember me". (regression in 2.160)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-56243">issue 56243</a>)
+</li>
+<li class="rfe">
+Developer: Clean up constructors of <code>AbstractCloudSlave</code>.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4086">pull 4086</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.183">
+What's new in 2.183
+(2019-06-30)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Add support for IPv6 addresses in the Jenkins URL configuration.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58041">issue 58041</a>)
+</li>
+<li class="rfe">
+Update args4j from 2.0.31 to 2.33.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57959">issue 57959</a>)
+</li>
+<li class="rfe">
+Developer: Allow plugins to provide <code>onBlur()</code> handlers for CodeMirror textarea controls.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-58240">issue 58240</a>)
+</li>
+<li class="rfe">
+Developer: Make <code>WindowsUtil</code> available to plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4038">pull 4038</a>)
+</li>
+<li class="rfe">
+Internal: update maven-war-plugin from 3.0.0 to 3.2.3.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-47127">issue 47127</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.182">
+What's new in 2.182
+(2019-06-23)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+When deleting directories, remove the read-only flag on Windows.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57855">issue 57855</a>)
+</li>
+<li class="rfe">
+Update Remoting from 3.29 to 3.33.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57959">issue 57959</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-50095">issue 50095</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-57713">issue 57713</a><a></a>,&nbsp;<a href="https://github.com/jenkinsci/remoting/blob/master/CHANGELOG.md#333">full changelog</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.181">
+What's new in 2.181
+(2019-06-16)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="bug">
+The plugin manager UI no longer prevents disabling a plugin when other plugins only have optional dependencies to it.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-33843">issue 33843</a>)
+</li>
+<li class="bug">
+A thread pool used to wait for external processes to complete could leak class loaders.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57725">issue 57725</a>)
+</li>
+<li class="rfe">
+Robustness: Exceptions thrown while scheduling jobs in the queue could prevent other jobs from being scheduled.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57805">issue 57805</a>)
+</li>
+<li class="rfe">
+Replace some exception stack traces related to agent channels with simpler messages.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57993">issue 57993</a>)
+</li>
+<li class="rfe">
+Update JNA from 4.5.2 to 5.3.1 to fix issue with shared library loading on AIX when using OpenJDK.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57515">issue 57515</a>)
+</li>
+<li class="rfe">
+Developer: Update ant dependency from 1.9.2 to 1.9.14.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4053">pull 4053</a>)
+</li>
+<li class="rfe">
+Internal: Switch from FindBugs to SpotBugs for static analysis.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4062">pull 4062</a>)
+</li>
+<li class="rfe">
+Internal: Mark <code>hudson.model.UpdateSite#isDue</code> as synchronized.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57466">issue 57466</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.180">
+What's new in 2.180
+(2019-06-09)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="major bug">
+Remoting reverted to 3.29 because JNLP agents failed to connect cloud agents in certain situations.
+(regression in 2.176)
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57759">issue 57759</a><a></a>,&nbsp;<a href="https://issues.jenkins-ci.org/browse/JENKINS-57713">issue 57713</a><a></a>)
+</li>
+<li class="rfe">
+Improve Configuration-as-Code compatibility of <code>ListView</code>.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-57121">issue 57121</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+<h3 id="v2.179">
+What's new in 2.179
+(2019-05-26)
+</h3>
+<ul class="image">
+<!-- starting partial changelog-changes.html.haml -->
+<li class="rfe">
+Detached plugin handling changes in 2.178 could cause problems for some custom Jenkins home packaging schemes that use improper filenames.
+These cases are now at least warned about, and in some cases transparently handled.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-55582">issue 55582</a>)
+</li>
+<li class="rfe">
+Change the presentation of boolean (checkbox) options for most options on configuration forms.
+(<a href="https://issues.jenkins-ci.org/browse/JENKINS-55787">issue 55787</a>)
+</li>
+<li class="rfe">
+Developer: Make the <code>XMLUtils</code> class with utility methods related to safe XML processing available to plugins.
+(<a href="https://github.com/jenkinsci/jenkins/pull/4032">pull 4032</a>)
+</li>
+
+<!-- ending partial changelog-changes.html.haml -->
+</ul>
+</div>
+<p>
+<b>
+Changelogs of historical releases can be found
+<a href="/changelog-old/">
+in the changelog archive.
+</a>
+</b>
+</p>
+
+
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//changelog/index.html.haml" title="Edit /changelog/index.html.haml on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//changelog/index.html.haml" title="View /changelog/index.html.haml history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

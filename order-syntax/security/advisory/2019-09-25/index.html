@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Jenkins Security Advisory 2019-09-25
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Jenkins Security Advisory 2019-09-25" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Jenkins Security Advisory 2019-09-25" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Jenkins Security Advisory 2019-09-25" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-09-25/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Jenkins Security Advisory 2019-09-25" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<p>
+<a href="../../advisories">
+Security Advisories
+</a>
+&raquo;
+Jenkins Security Advisory 2019-09-25
+</p>
+<h1>
+Jenkins Security Advisory 2019-09-25
+</h1>
+<p>
+This advisory announces vulnerabilities in the following Jenkins deliverables:
+</p>
+<p>
+<ul>
+<li>
+Jenkins (core)
+</li>
+<li>
+<a href="https://plugins.jenkins.io/aqua-microscanner">
+Aqua MicroScanner
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/aqua-security-scanner">
+Aqua Security Scanner
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/assembla">
+Assembla
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/azure-event-grid-notifier">
+Azure Event Grid Build Notifier
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/call-remote-job-plugin">
+Call Remote Job
+Plugin
+</a>
+</li>
+<li>
+CodeScan
+Plugin
+</li>
+<li>
+<a href="https://plugins.jenkins.io/datatheorem-mobile-app-security">
+Data Theorem: CI/CD
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/elOyente">
+elOyente
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/gem-publisher">
+Gem Publisher
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/git-changelog">
+Git Changelog
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/gitlab-logo">
+GitLab Logo
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/gcal">
+Google Calendar
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/inedo-buildmaster">
+Inedo BuildMaster Plugin
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/inedo-proget">
+Inedo ProGet Plugin
+Plugin
+</a>
+</li>
+<li>
+Kubernetes Pipeline - Arquillian Steps
+
+Plugin
+</li>
+<li>
+Kubernetes Pipeline - Kubernetes Steps
+
+Plugin
+</li>
+<li>
+<a href="https://plugins.jenkins.io/log-parser">
+Log Parser
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/neuvector-vulnerability-scanner">
+NeuVector Vulnerability Scanner
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/project-inheritance">
+Project Inheritance
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/application-director-plugin">
+vFabric Application Director
+Plugin
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/violation-comments-to-gitlab">
+Violation Comments to GitLab
+Plugin
+</a>
+</li>
+</ul>
+</p>
+<h2>
+Descriptions
+</h2>
+<h3 id="SECURITY-1498">
+Stored XSS vulnerability in expandable textbox form control
+</h3>
+<strong>
+SECURITY-1498
+/
+CVE-2019-10401
+</strong>
+<div class="paragraph">
+<p>Jenkins form controls include an expandable textbox that can transform from a single-line text box to a multi-line text area.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of this transformation interpreted the text content of the form field as HTML.
+This resulted in a cross-site scripting vulnerability exploitable by attackers able to control the contents of such <code>f:expandableTextbox</code> form controls.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins no longer interprets <code>f:expandableTextbox</code> text content as HTML when transforming it.</p>
+</div>
+<h3 id="SECURITY-1525">
+XSS vulnerability in combobox form control
+</h3>
+<strong>
+SECURITY-1525
+/
+CVE-2019-10402
+</strong>
+<div class="paragraph">
+<p>Jenkins interpreted items added to <code>f:combobox</code> form controls as HTML.
+This resulted in a cross-site scripting vulnerability exploitable by attackers able to control the contents of <code>f:combobox</code> form controls.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins no longer interprets items added to a combobox as HTML.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>This might be a breaking change for plugins that relied on the previous, undocumented behavior to add formatting to <code>f:combobox</code> elements.
+This has been removed without replacement.
+Plugin developers are advised to only add plain text entries to <code>f:combobox</code> controls.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3 id="SECURITY-1537 (1)">
+Stored XSS vulnerability in SCM tag action tooltip
+</h3>
+<strong>
+SECURITY-1537 (1)
+/
+CVE-2019-10403
+</strong>
+<div class="paragraph">
+<p>Jenkins did not escape the tag name on the tooltip for tag actions shown in the build history.
+This resulted in a cross-site scripting vulnerability exploitable by attackers able to control the SCM tag name for these actions.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins now escapes the SCM tag action.</p>
+</div>
+<h3 id="SECURITY-1537 (2)">
+Stored XSS vulnerability in queue item tooltip
+</h3>
+<strong>
+SECURITY-1537 (2)
+/
+CVE-2019-10404
+</strong>
+<div class="paragraph">
+<p>Jenkins did not escape the reason a queue item is blocked in tooltips.
+This resulted in a cross-site scripting vulnerability exploitable by attackers able to control the reason a queue item is blocked, for example a label expression that does not match idle executors.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins now escapes the reason a queue item is blocked in tooltips.</p>
+</div>
+<h3 id="SECURITY-1505">
+Diagnostic web page exposed Cookie HTTP header
+</h3>
+<strong>
+SECURITY-1505
+/
+CVE-2019-10405
+</strong>
+<div class="paragraph">
+<p>Jenkins shows various technical information about the current user on the <code>/whoAmI</code> URL.
+The information shown includes HTTP request headers.</p>
+</div>
+<div class="paragraph">
+<p>This allowed attackers able to exploit another cross-site scripting vulnerability to obtain the <code>Cookie</code> header&#8217;s value even if the <code>HttpOnly</code> flag would prevent direct access via JavaScript.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins no longer shows the value of the <code>Cookie</code> HTTP header on the <code>/whoAmI</code> URL.</p>
+</div>
+<h3 id="SECURITY-1471">
+XSS vulnerability in Jenkins URL setting
+</h3>
+<strong>
+SECURITY-1471
+/
+CVE-2019-10406
+</strong>
+<div class="paragraph">
+<p>Jenkins did not validate or otherwise limit the possible values administrators could specify as Jenkins root URL.</p>
+</div>
+<div class="paragraph">
+<p>This resulted in a cross-site scripting vulnerability exploitable by users with Overall/Administer permission.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins now prevents values other than HTTP/HTTPS URLs from being set as Jenkins root URL.
+Existing instances with invalid root URLs will behave as if no root URL was set.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In case this results in problems, e.g. a valid URL unexpectedly being rejected, set the system property <code>jenkins.model.JenkinsLocationConfiguration.disableUrlValidation</code> to <code>true</code> to disable this restriction.
+<a href="https://wiki.jenkins.io/display/JENKINS/Features+controlled+by+system+properties">Learn more about system properties in Jenkins</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<h3 id="SECURITY-351">
+Project Inheritance Plugin showed secret environment variables defined in Mask Passwords Plugin
+
+</h3>
+<strong>
+SECURITY-351
+/
+CVE-2019-10407
+</strong>
+<div class="paragraph">
+<p>Mask Passwords Plugin allows users to define secret environment variables (typically passwords) to be passed to builds, both globally, and for specific jobs.
+These environment variables are expected to not be shown.</p>
+</div>
+<div class="paragraph">
+<p>Project Inheritance Plugin showed the variable values on its <em>Full Build Flow</em> view and included them in the metadata download without masking.</p>
+</div>
+<div class="paragraph">
+<p>Project Inheritance Plugin no longer shows variables contributed from Mask Password Plugin without masking.</p>
+</div>
+<h3 id="SECURITY-401">
+CSRF vulnerability and missing permission check in Project Inheritance Plugin
+
+</h3>
+<strong>
+SECURITY-401
+/
+CVE-2019-10408 (CSRF), CVE-2019-10409 (permission check)
+</strong>
+<div class="paragraph">
+<p>Project Inheritance Plugin allows the creation of projects based on templates defined in the plugin configuration.</p>
+</div>
+<div class="paragraph">
+<p>A missing permission check in the HTTP endpoint triggering project creation allowed users with Overall/Read permission to create these projects.
+Additionally, the HTTP endpoint did not require POST requests, resulting in a CSRF vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>The HTTP endpoint triggering project creation now requires Item/Create permission and submission of requests via POST.</p>
+</div>
+<h3 id="SECURITY-732">
+Stored XSS vulnerability in Log Parser Plugin
+</h3>
+<strong>
+SECURITY-732
+/
+CVE-2019-10410
+</strong>
+<div class="paragraph">
+<p>Log Parser Plugin did not escape an error message shown when log parsing patterns are invalid.
+This resulted in a persisted cross-site scripting vulnerability exploitable by attackers able to control the log parsing rules configuration, typically users with Job/Configure permission.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins applies the missing escaping by default since 2.146 and LTS 2.138.2, so newer Jenkins releases are not affected by this vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>Log Parser Plugin now escapes all variables displayed in its views.</p>
+</div>
+<h3 id="SECURITY-1504">
+NeuVector Vulnerability Scanner Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1504
+/
+CVE-2019-10430
+</strong>
+<div class="paragraph">
+<p>NeuVector Vulnerability Scanner Plugin stored registry credentials unencrypted in its global configuration file <code>io.jenkins.plugins.neuvector.NeuVectorBuilder.xml</code> on the Jenkins master.
+These credentials could be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>NeuVector Vulnerability Scanner Plugin now stores these credentials encrypted.</p>
+</div>
+<h3 id="SECURITY-1507">
+Aqua MicroScanner Plugin showed plain text credential in configuration form
+</h3>
+<strong>
+SECURITY-1507
+/
+CVE-2019-10427
+</strong>
+<div class="paragraph">
+<p>Aqua MicroScanner Plugin stores a token credential in its global Jenkins configuration.</p>
+</div>
+<div class="paragraph">
+<p>While the token is stored encrypted on disk, it was transmitted in plain text as part of the configuration form.
+This could result in exposure of the token through browser extensions, cross-site scripting vulnerabilities, and similar situations.</p>
+</div>
+<div class="paragraph">
+<p>Aqua MicroScanner Plugin now encrypts the token transmitted to administrators viewing the global configuration form.</p>
+</div>
+<h3 id="SECURITY-1508">
+Aqua Security Scanner Plugin showed plain text password in configuration form
+</h3>
+<strong>
+SECURITY-1508
+/
+CVE-2019-10428
+</strong>
+<div class="paragraph">
+<p>Aqua Security Scanner Plugin stores a password in its global Jenkins configuration.</p>
+</div>
+<div class="paragraph">
+<p>While the password is stored encrypted on disk, it was transmitted in plain text as part of the configuration form.
+This could result in exposure of the password through browser extensions, cross-site scripting vulnerabilities, and similar situations.</p>
+</div>
+<div class="paragraph">
+<p>Aqua Security Scanner Plugin now encrypts the password transmitted to administrators viewing the global configuration form.</p>
+</div>
+<h3 id="SECURITY-1513">
+Inedo BuildMaster Plugin Plugin showed plain text password in configuration form
+</h3>
+<strong>
+SECURITY-1513
+/
+CVE-2019-10411
+</strong>
+<div class="paragraph">
+<p>Inedo BuildMaster Plugin Plugin stores a service password in its global Jenkins configuration.</p>
+</div>
+<div class="paragraph">
+<p>While the password is stored encrypted on disk, it was transmitted in plain text as part of the configuration form.
+This could result in exposure of the password through browser extensions, cross-site scripting vulnerabilities, and similar situations.</p>
+</div>
+<div class="paragraph">
+<p>Inedo BuildMaster Plugin Plugin now encrypts the password transmitted to administrators viewing the global configuration form.</p>
+</div>
+<h3 id="SECURITY-1514">
+Inedo ProGet Plugin Plugin showed plain text password in configuration form
+</h3>
+<strong>
+SECURITY-1514
+/
+CVE-2019-10412
+</strong>
+<div class="paragraph">
+<p>Inedo ProGet Plugin Plugin stores a service password in its global Jenkins configuration.</p>
+</div>
+<div class="paragraph">
+<p>While the password is stored encrypted on disk, it was transmitted in plain text as part of the configuration form.
+This could result in exposure of the password through browser extensions, cross-site scripting vulnerabilities, and similar situations.</p>
+</div>
+<div class="paragraph">
+<p>Inedo ProGet Plugin Plugin now encrypts the password transmitted to administrators viewing the global configuration form.</p>
+</div>
+<h3 id="SECURITY-1557">
+Data Theorem: CI/CD Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1557
+/
+CVE-2019-10413
+</strong>
+<div class="paragraph">
+<p>Data Theorem: CI/CD Plugin stored a proxy password unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This password could be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>Data Theorem: CI/CD Plugin now stores the proxy password encrypted.
+Existing jobs need to have their configuration saved for existing plain text proxy passwords to be overwritten.</p>
+</div>
+<h3 id="SECURITY-1574">
+Git Changelog Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1574
+/
+CVE-2019-10414
+</strong>
+<div class="paragraph">
+<p>Git Changelog Plugin stored MediaWiki and Jira passwords unencrypted in job <code>config.xml</code> files on the Jenkins master.
+These passwords could be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>Git Changelog Plugin now stores these passwords encrypted.
+Existing jobs need to have their configuration saved for existing plain text passwords to be overwritten.</p>
+</div>
+<h3 id="SECURITY-1575">
+GitLab Logo Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1575
+/
+CVE-2019-10429
+</strong>
+<div class="paragraph">
+<p>GitLab Logo Plugin stored a private token unencrypted in its global configuration file <code>org.jenkinsci.plugins.gitlablogo.GitlabLogoProperty.xml</code> on the Jenkins master.
+This token could be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>GitLab Logo Plugin now stores the token encrypted.</p>
+</div>
+<h3 id="SECURITY-1577">
+Violation Comments to GitLab Plugin stored credentials in plain text
+</h3>
+<strong>
+SECURITY-1577
+/
+CVE-2019-10415 (global password), CVE-2019-10416 (job password)
+</strong>
+<div class="paragraph">
+<p>Violation Comments to GitLab Plugin stored API tokens unencrypted in  job <code>config.xml</code> files and its global configuration file <code>org.jenkinsci.plugins.jvctgl.ViolationsToGitLabGlobalConfiguration.xml</code> on the Jenkins master.
+These credentials could be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>Violation Comments to GitLab Plugin now stores these credentials encrypted.
+Existing jobs need to have their configuration saved for existing plain text credentials to be overwritten.</p>
+</div>
+<h3 id="SECURITY-920 (1)">
+Script sandbox bypass vulnerability in Kubernetes Pipeline - Kubernetes Steps Plugin
+</h3>
+<strong>
+SECURITY-920 (1)
+/
+CVE-2019-10417
+</strong>
+<div class="paragraph">
+<p>Kubernetes Pipeline - Kubernetes Steps Plugin defines a custom whitelist for all scripts protected by the Script Security sandbox.</p>
+</div>
+<div class="paragraph">
+<p>This custom whitelist allows the use of methods that can be used to bypass Script Security sandbox protection.
+This results in arbitrary code execution on any Jenkins instance with this plugin installed.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-920 (2)">
+Script sandbox bypass vulnerability in Kubernetes Pipeline - Arquillian Steps Plugin
+</h3>
+<strong>
+SECURITY-920 (2)
+/
+CVE-2019-10418
+</strong>
+<div class="paragraph">
+<p>Kubernetes Pipeline - Arquillian Steps Plugin defines a custom whitelist for all scripts protected by the Script Security sandbox.</p>
+</div>
+<div class="paragraph">
+<p>This custom whitelist allows the use of methods that can be used to bypass Script Security sandbox protection.
+This results in arbitrary code execution on any Jenkins instance with this plugin installed.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1541">
+vFabric Application Director Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1541
+/
+CVE-2019-10419
+</strong>
+<div class="paragraph">
+<p>vFabric Application Director Plugin stores the Application Director password unencrypted in its global configuration file <code>jfullam.vfabric.jenkins.plugin.ApplicationDirectorPostBuildDeployer.xml</code> on the Jenkins master.
+This password can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1543">
+Assembla Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1543
+/
+CVE-2019-10420
+</strong>
+<div class="paragraph">
+<p>Assembla Plugin stores the Assembla password unencrypted in its global configuration file <code>jenkins.plugin.assembla.AssemblaProjectProperty.xml</code> on the Jenkins master.
+This password can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1544">
+Azure Event Grid Build Notifier Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1544
+/
+CVE-2019-10421
+</strong>
+<div class="paragraph">
+<p>Azure Event Grid Build Notifier Plugin stores the Azure Event Grid secret key unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This key can be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1548">
+Call Remote Job Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1548
+/
+CVE-2019-10422
+</strong>
+<div class="paragraph">
+<p>Call Remote Job Plugin stores a password unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This password can be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1551">
+CodeScan Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1551
+/
+CVE-2019-10423
+</strong>
+<div class="paragraph">
+<p>CodeScan Plugin stores an API key unencrypted in its global configuration file <code>com.villagechief.codescan.jenkins.CodeScanBuilder.xml</code> on the Jenkins master.
+This API key can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1561">
+elOyente Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1561
+/
+CVE-2019-10424
+</strong>
+<div class="paragraph">
+<p>elOyente Plugin stores a password unencrypted in its global configuration file <code>com.technicolor.eloyente.ElOyente.xml</code> on the Jenkins master.
+This password can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1572">
+Google Calendar Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1572
+/
+CVE-2019-10425
+</strong>
+<div class="paragraph">
+<p>Google Calendar Plugin stores a calendar password unencrypted in job <code>config.xml</code> files on the Jenkins master.
+This password can be viewed by users with Extended Read permission, or access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h3 id="SECURITY-1573">
+Gem Publisher Plugin stores credentials in plain text
+</h3>
+<strong>
+SECURITY-1573
+/
+CVE-2019-10426
+</strong>
+<div class="paragraph">
+<p>Gem Publisher Plugin stores an API key unencrypted in its global configuration file <code>net.arangamani.jenkins.gempublisher.GemPublisher.xml</code> on the Jenkins master.
+This API key can be viewed by users with access to the master file system.</p>
+</div>
+<div class="paragraph">
+<p>As of publication of this advisory, there is no fix.</p>
+</div>
+<h2>
+Severity
+</h2>
+<ul>
+<li>
+SECURITY-351:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-401:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-732:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-920 (1):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H">
+High
+</a>
+</li>
+<li>
+SECURITY-920 (2):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H">
+High
+</a>
+</li>
+<li>
+SECURITY-1471:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:H/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1498:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1504:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1505:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1507:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1508:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1513:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1514:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1525:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1537 (1):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1537 (2):
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1541:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1543:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1544:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1548:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1551:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1557:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1561:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1572:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1573:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1574:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+<li>
+SECURITY-1575:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Low
+</a>
+</li>
+<li>
+SECURITY-1577:
+<a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">
+Medium
+</a>
+</li>
+</ul>
+<h2>
+Affected Versions
+</h2>
+<ul>
+<li>
+Jenkins weekly up to and including
+2.196
+</li>
+<li>
+Jenkins LTS up to and including
+2.176.3
+</li>
+<li>
+<strong>
+Aqua MicroScanner
+Plugin
+</strong>
+up to and including
+1.0.7
+</li>
+<li>
+<strong>
+Aqua Security Scanner
+Plugin
+</strong>
+up to and including
+3.0.17
+</li>
+<li>
+<strong>
+Assembla
+Plugin
+</strong>
+up to and including
+1.4
+</li>
+<li>
+<strong>
+Azure Event Grid Build Notifier
+Plugin
+</strong>
+up to and including
+0.1
+</li>
+<li>
+<strong>
+Call Remote Job
+Plugin
+</strong>
+up to and including
+1.0.21
+</li>
+<li>
+<strong>
+CodeScan
+Plugin
+</strong>
+up to and including
+0.11
+</li>
+<li>
+<strong>
+Data Theorem: CI/CD
+Plugin
+</strong>
+up to and including
+1.3
+</li>
+<li>
+<strong>
+elOyente
+Plugin
+</strong>
+up to and including
+1.3
+</li>
+<li>
+<strong>
+Gem Publisher
+Plugin
+</strong>
+up to and including
+1.0
+</li>
+<li>
+<strong>
+Git Changelog
+Plugin
+</strong>
+up to and including
+2.17
+</li>
+<li>
+<strong>
+GitLab Logo
+Plugin
+</strong>
+up to and including
+1.0.3
+</li>
+<li>
+<strong>
+Google Calendar
+Plugin
+</strong>
+up to and including
+0.4
+</li>
+<li>
+<strong>
+Inedo BuildMaster Plugin
+Plugin
+</strong>
+up to and including
+2.4.0
+</li>
+<li>
+<strong>
+Inedo ProGet Plugin
+Plugin
+</strong>
+up to and including
+1.2
+</li>
+<li>
+<strong>
+Kubernetes Pipeline - Arquillian Steps
+
+Plugin
+</strong>
+up to and including
+1.6
+</li>
+<li>
+<strong>
+Kubernetes Pipeline - Kubernetes Steps
+
+Plugin
+</strong>
+up to and including
+1.6
+</li>
+<li>
+<strong>
+Log Parser
+Plugin
+</strong>
+up to and including
+2.0
+</li>
+<li>
+<strong>
+NeuVector Vulnerability Scanner
+Plugin
+</strong>
+up to and including
+1.5
+</li>
+<li>
+<strong>
+Project Inheritance
+Plugin
+</strong>
+up to and including
+19.08.01
+</li>
+<li>
+<strong>
+vFabric Application Director
+Plugin
+</strong>
+up to and including
+1.3
+</li>
+<li>
+<strong>
+Violation Comments to GitLab
+Plugin
+</strong>
+up to and including
+2.28
+</li>
+</ul>
+<h2>
+Fix
+</h2>
+<ul>
+<li>
+Jenkins weekly should be updated to version
+2.197
+</li>
+<li>
+Jenkins LTS should be updated to version
+2.176.4 or 2.190.1
+</li>
+<li>
+<strong>
+Aqua MicroScanner
+Plugin
+</strong>
+should be updated to version
+1.0.8
+</li>
+<li>
+<strong>
+Aqua Security Scanner
+Plugin
+</strong>
+should be updated to version
+3.0.18
+</li>
+<li>
+<strong>
+Data Theorem: CI/CD
+Plugin
+</strong>
+should be updated to version
+1.4.0
+</li>
+<li>
+<strong>
+Git Changelog
+Plugin
+</strong>
+should be updated to version
+2.18
+</li>
+<li>
+<strong>
+GitLab Logo
+Plugin
+</strong>
+should be updated to version
+1.0.4
+</li>
+<li>
+<strong>
+Inedo BuildMaster Plugin
+Plugin
+</strong>
+should be updated to version
+2.5.0
+</li>
+<li>
+<strong>
+Inedo ProGet Plugin
+Plugin
+</strong>
+should be updated to version
+1.3
+</li>
+<li>
+<strong>
+Log Parser
+Plugin
+</strong>
+should be updated to version
+2.1
+</li>
+<li>
+<strong>
+NeuVector Vulnerability Scanner
+Plugin
+</strong>
+should be updated to version
+1.6
+</li>
+<li>
+<strong>
+Project Inheritance
+Plugin
+</strong>
+should be updated to version
+19.08.02
+</li>
+<li>
+<strong>
+Violation Comments to GitLab
+Plugin
+</strong>
+should be updated to version
+2.29
+</li>
+</ul>
+<p>
+These versions include fixes to the vulnerabilities described above. All prior versions are considered to be affected by these vulnerabilities unless otherwise indicated.
+</p>
+<p>
+As of publication of this advisory, no fixes are available for the following plugins:
+</p>
+<ul>
+<li>
+Assembla
+Plugin
+</li>
+<li>
+Azure Event Grid Build Notifier
+Plugin
+</li>
+<li>
+Call Remote Job
+Plugin
+</li>
+<li>
+CodeScan
+Plugin
+</li>
+<li>
+elOyente
+Plugin
+</li>
+<li>
+Gem Publisher
+Plugin
+</li>
+<li>
+Google Calendar
+Plugin
+</li>
+<li>
+Kubernetes Pipeline - Arquillian Steps
+
+Plugin
+</li>
+<li>
+Kubernetes Pipeline - Kubernetes Steps
+
+Plugin
+</li>
+<li>
+vFabric Application Director
+Plugin
+</li>
+</ul>
+<h2>
+Credit
+</h2>
+<p>
+The Jenkins project would like to thank the reporters for discovering and
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/#reporting-vulnerabilities">
+reporting
+</a>
+these vulnerabilities:
+<ul>
+<li>
+<strong>
+Daniel Beck, CloudBees, Inc.
+</strong>
+for
+SECURITY-401
+</li>
+<li>
+<strong>
+James Holderness, IB Boost
+</strong>
+for
+SECURITY-1507, SECURITY-1508, SECURITY-1513, SECURITY-1514, SECURITY-1541, SECURITY-1543, SECURITY-1544, SECURITY-1548, SECURITY-1551, SECURITY-1557, SECURITY-1561, SECURITY-1572, SECURITY-1573, SECURITY-1574, SECURITY-1575, SECURITY-1577
+</li>
+<li>
+<strong>
+Jesse Glick, CloudBees, Inc.
+</strong>
+for
+SECURITY-920 (1), SECURITY-920 (2)
+</li>
+<li>
+<strong>
+Jonathan Leitschuh
+</strong>
+for
+SECURITY-1505
+</li>
+<li>
+<strong>
+Katherine Hough &lt;khough2@gmu.edu&gt; and Jonathan Bell &lt;bellj@gmu.edu&gt;
+</strong>
+for
+SECURITY-1471
+</li>
+<li>
+<strong>
+Matt Sicker, CloudBees Inc. and Wadeck Follonier, CloudBees Inc.
+</strong>
+for
+SECURITY-1498, SECURITY-1525
+</li>
+<li>
+<strong>
+Oleg Nenashev, CloudBees, Inc.
+</strong>
+for
+SECURITY-732
+</li>
+<li>
+<strong>
+Wadeck Follonier, CloudBees, Inc.
+</strong>
+for
+SECURITY-1537 (1), SECURITY-1537 (2)
+</li>
+</ul>
+</p>
+
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//security/advisory/2019-09-25.adoc" title="Edit /security/advisory/2019-09-25.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//security/advisory/2019-09-25.adoc" title="View /security/advisory/2019-09-25.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

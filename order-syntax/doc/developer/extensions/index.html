@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Extensions Index
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Extensions Index" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Extensions Index" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Extensions Index" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer/extensions/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Extensions Index" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .container .row.body {
+    margin-right: 5em;
+    margin-left: 5em;
+  }
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-12">
+<h1>
+Extensions Index
+</h1>
+<div class="paragraph">
+<p>Jenkins defines extension points, which are interfaces or abstract classes that model an aspect of its behavior.
+Those interfaces define contracts of what need to be implemented, and Jenkins allows plugins to contribute those implementations.
+In general, all you need to do to register an implementation is to mark it with <code>@Extension</code>.
+Creating a new extension point is quite easy too, see <a href="https://wiki.jenkins-ci.org/display/JENKINS/Defining+a+new+extension+point">defining a new extension point</a> for details.</p>
+</div>
+<div class="paragraph">
+<p>This index has been generated automatically. Javadoc excerpts are taken from core and plugin source code, and may have been improperly converted to HTML, so some may appear broken.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="jenkins-core">Extension points defined in Jenkins Core</a></p>
+</li>
+<li>
+<p><a href="alauda-devops-credentials-provider">Extension points defined in Alauda DevOps Credentials Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-devops-pipeline">Extension points defined in Alauda DevOps Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-devops-sync">Extension points defined in Alauda DevOps Sync Plugin</a></p>
+</li>
+<li>
+<p><a href="alauda-kubernetes-support">Extension points defined in Alauda Kubernetes Suport Plugin</a></p>
+</li>
+<li>
+<p><a href="all-changes">Extension points defined in All changes Plugin</a></p>
+</li>
+<li>
+<p><a href="ec2">Extension points defined in Amazon EC2 Plugin</a></p>
+</li>
+<li>
+<p><a href="amazon-ecs">Extension points defined in Amazon Elastic Container Service Plugin</a></p>
+</li>
+<li>
+<p><a href="android-signing">Extension points defined in Android Signing Plugin</a></p>
+</li>
+<li>
+<p><a href="ApicaLoadtest">Extension points defined in Apica Loadtest Plugin</a></p>
+</li>
+<li>
+<p><a href="artifact-manager-s3">Extension points defined in Artifact Manager on S3 Plugin</a></p>
+</li>
+<li>
+<p><a href="attention">Extension points defined in Attention Plugin</a></p>
+</li>
+<li>
+<p><a href="audit2db">Extension points defined in Audit to Database Plugin</a></p>
+</li>
+<li>
+<p><a href="audit-trail">Extension points defined in Audit Trail Plugin</a></p>
+</li>
+<li>
+<p><a href="authentication-tokens">Extension points defined in Authentication Tokens API Plugin</a></p>
+</li>
+<li>
+<p><a href="authorize-project">Extension points defined in Authorize Project Plugin</a></p>
+</li>
+<li>
+<p><a href="autocomplete-parameter">Extension points defined in Autocomplete Parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="azure-artifact-manager">Extension points defined in Azure Artifact Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-bitbucket-branch-source">Extension points defined in Bitbucket Branch Source Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-bitbucket-pipeline">Extension points defined in Bitbucket Pipeline for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="block-queued-job">Extension points defined in Block Queued Job Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-pipeline-editor">Extension points defined in Blue Ocean Pipeline Editor Plugin</a></p>
+</li>
+<li>
+<p><a href="branch-api">Extension points defined in Branch API Plugin</a></p>
+</li>
+<li>
+<p><a href="build-alias-setter">Extension points defined in Build Alias Setter Plugin</a></p>
+</li>
+<li>
+<p><a href="build-cause-run-condition">Extension points defined in Build Cause Run Condition Plugin</a></p>
+</li>
+<li>
+<p><a href="build-failure-analyzer">Extension points defined in Build Failure Analyzer Plugin</a></p>
+</li>
+<li>
+<p><a href="build-keeper-plugin">Extension points defined in Build Keeper Plugin</a></p>
+</li>
+<li>
+<p><a href="build-pipeline-plugin">Extension points defined in Build Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="build-timeout">Extension points defined in Build Timeout Plugin</a></p>
+</li>
+<li>
+<p><a href="buildtriggerbadge">Extension points defined in Build Trigger Badge Plugin</a></p>
+</li>
+<li>
+<p><a href="build-view-column">Extension points defined in Build View Column Plugin</a></p>
+</li>
+<li>
+<p><a href="buildcontext-capture">Extension points defined in BuildContext Capture Plugin</a></p>
+</li>
+<li>
+<p><a href="buildgraph-view">Extension points defined in buildgraph-view Plugin</a></p>
+</li>
+<li>
+<p><a href="cas-plugin">Extension points defined in CAS Plugin</a></p>
+</li>
+<li>
+<p><a href="categorized-view">Extension points defined in categorized-view Plugin</a></p>
+</li>
+<li>
+<p><a href="chroot">Extension points defined in Chroot Plugin</a></p>
+</li>
+<li>
+<p><a href="clearcase">Extension points defined in ClearCase Plugin</a></p>
+</li>
+<li>
+<p><a href="clearcase-ucm-plugin">Extension points defined in ClearCase UCM Plugin! Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-custom-build-environment">Extension points defined in CloudBees Docker Custom Build Environment Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-traceability">Extension points defined in CloudBees Docker Traceability Plugin</a></p>
+</li>
+<li>
+<p><a href="code-coverage-api">Extension points defined in Code Coverage API Plugin</a></p>
+</li>
+<li>
+<p><a href="codecover">Extension points defined in CodeCover Plugin</a></p>
+</li>
+<li>
+<p><a href="codesonar">Extension points defined in CodeSonar Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-commons">Extension points defined in Common API for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="conditional-buildstep">Extension points defined in Conditional BuildStep Plugin</a></p>
+</li>
+<li>
+<p><a href="config-file-provider">Extension points defined in Config File Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="configuration-as-code">Extension points defined in Configuration as Code Plugin</a></p>
+</li>
+<li>
+<p><a href="configuration-as-code-groovy">Extension points defined in Configuration as Code Plugin - Groovy Scripting Extension Plugin</a></p>
+</li>
+<li>
+<p><a href="configurationslicing">Extension points defined in Configuration Slicing Plugin</a></p>
+</li>
+<li>
+<p><a href="confluence-publisher">Extension points defined in Confluence Publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="consul">Extension points defined in Consul Plugin</a></p>
+</li>
+<li>
+<p><a href="copyartifact">Extension points defined in Copy Artifact Plugin</a></p>
+</li>
+<li>
+<p><a href="credentials-binding">Extension points defined in Credentials Binding Plugin</a></p>
+</li>
+<li>
+<p><a href="credentials">Extension points defined in Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="CustomHistory">Extension points defined in CustomHistory Plugin</a></p>
+</li>
+<li>
+<p><a href="cvs">Extension points defined in CVS Plugin</a></p>
+</li>
+<li>
+<p><a href="dashboard-view">Extension points defined in Dashboard View Plugin</a></p>
+</li>
+<li>
+<p><a href="database">Extension points defined in database Plugin</a></p>
+</li>
+<li>
+<p><a href="declarative-pipeline-migration-assistant-api">Extension points defined in Declarative Pipeline Migration Assistant API Plugin</a></p>
+</li>
+<li>
+<p><a href="delivery-pipeline-plugin">Extension points defined in Delivery Pipeline Plugin</a></p>
+</li>
+<li>
+<p><a href="depgraph-view">Extension points defined in Dependency Graph Viewer Plugin</a></p>
+</li>
+<li>
+<p><a href="deploy">Extension points defined in Deploy to container Plugin</a></p>
+</li>
+<li>
+<p><a href="deployer-framework">Extension points defined in Deployer Framework Plugin</a></p>
+</li>
+<li>
+<p><a href="deployhub">Extension points defined in DeployHub Plugin</a></p>
+</li>
+<li>
+<p><a href="deployment-notification">Extension points defined in deployment-notification Plugin</a></p>
+</li>
+<li>
+<p><a href="diagnostics">Extension points defined in Diagnostics Plugin</a></p>
+</li>
+<li>
+<p><a href="display-url-api">Extension points defined in Display URL API Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-commons">Extension points defined in Docker Commons Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-slaves">Extension points defined in Docker Slaves Plugin</a></p>
+</li>
+<li>
+<p><a href="docker-build-step">Extension points defined in docker-build-step Plugin</a></p>
+</li>
+<li>
+<p><a href="DotCi">Extension points defined in DotCi Plugin</a></p>
+</li>
+<li>
+<p><a href="DotCiInstallPackages">Extension points defined in DotCiInstallPackages Plugin</a></p>
+</li>
+<li>
+<p><a href="durable-task">Extension points defined in Durable Task Plugin</a></p>
+</li>
+<li>
+<p><a href="elasticbox">Extension points defined in ElasticBox CI Plugin</a></p>
+</li>
+<li>
+<p><a href="email-ext">Extension points defined in Email Extension Plugin</a></p>
+</li>
+<li>
+<p><a href="embeddable-build-status">Extension points defined in Embeddable Build Status Plugin</a></p>
+</li>
+<li>
+<p><a href="envinject">Extension points defined in Environment Injector Plugin</a></p>
+</li>
+<li>
+<p><a href="Exclusion">Extension points defined in Exclusion Plugin</a></p>
+</li>
+<li>
+<p><a href="extensible-choice-parameter">Extension points defined in Extensible Choice Parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="external-workspace-manager">Extension points defined in External Workspace Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="extreme-notification">Extension points defined in Extreme Notification Plugin</a></p>
+</li>
+<li>
+<p><a href="favorite">Extension points defined in Favorite Plugin</a></p>
+</li>
+<li>
+<p><a href="fstrigger">Extension points defined in Filesystem Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="flexible-publish">Extension points defined in Flexible Publish Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-folder">Extension points defined in Folders Plugin</a></p>
+</li>
+<li>
+<p><a href="forensics-api">Extension points defined in Forensics API Plugin</a></p>
+</li>
+<li>
+<p><a href="GatekeeperPlugin">Extension points defined in Gatekeeper Plugin</a></p>
+</li>
+<li>
+<p><a href="gerrit-trigger">Extension points defined in Gerrit Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="git">Extension points defined in Git Plugin</a></p>
+</li>
+<li>
+<p><a href="git-server">Extension points defined in GIT server Plugin</a></p>
+</li>
+<li>
+<p><a href="gitea">Extension points defined in Gitea Plugin</a></p>
+</li>
+<li>
+<p><a href="gitee">Extension points defined in Gitee Plugin</a></p>
+</li>
+<li>
+<p><a href="github-oauth">Extension points defined in GitHub Authentication Plugin</a></p>
+</li>
+<li>
+<p><a href="github-branch-source">Extension points defined in GitHub Branch Source Plugin</a></p>
+</li>
+<li>
+<p><a href="github-pullrequest">Extension points defined in GitHub Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="github">Extension points defined in GitHub Plugin</a></p>
+</li>
+<li>
+<p><a href="gitlab-oauth">Extension points defined in Gitlab Authentication Plugin</a></p>
+</li>
+<li>
+<p><a href="gitlab-plugin">Extension points defined in GitLab Plugin</a></p>
+</li>
+<li>
+<p><a href="gnat">Extension points defined in GNAT Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloud-backup">Extension points defined in Google Cloud Backup Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloudbuild">Extension points defined in Google Cloud Build Plugin</a></p>
+</li>
+<li>
+<p><a href="google-storage-plugin">Extension points defined in Google Cloud Storage Plugin</a></p>
+</li>
+<li>
+<p><a href="google-deployment-manager">Extension points defined in Google Deployment Manager Jenkins Plugin</a></p>
+</li>
+<li>
+<p><a href="google-cloud-health-check">Extension points defined in Google Health Check Plugin</a></p>
+</li>
+<li>
+<p><a href="hashicorp-vault-plugin">Extension points defined in HashiCorp Vault Plugin</a></p>
+</li>
+<li>
+<p><a href="cloudbees-jenkins-advisor">Extension points defined in Health Advisor by CloudBees Plugin</a></p>
+</li>
+<li>
+<p><a href="hipchat">Extension points defined in HipChat Plugin</a></p>
+</li>
+<li>
+<p><a href="hockeyapp">Extension points defined in HockeyApp Plugin</a></p>
+</li>
+<li>
+<p><a href="hubot-steps">Extension points defined in Hubot Pipeline Steps Plugin</a></p>
+</li>
+<li>
+<p><a href="hyper-slaves">Extension points defined in Hyper.sh Slaves Plugin</a></p>
+</li>
+<li>
+<p><a href="instant-messaging">Extension points defined in instant-messaging Plugin</a></p>
+</li>
+<li>
+<p><a href="jira">Extension points defined in JIRA Plugin</a></p>
+</li>
+<li>
+<p><a href="jira-ext">Extension points defined in jira-ext Plugin</a></p>
+</li>
+<li>
+<p><a href="JiraTestResultReporter">Extension points defined in JiraTestResultReporter Plugin</a></p>
+</li>
+<li>
+<p><a href="ownership">Extension points defined in Job and Node ownership Plugin</a></p>
+</li>
+<li>
+<p><a href="github-autostatus">Extension points defined in Job and Stage monitoring Plugin</a></p>
+</li>
+<li>
+<p><a href="jobcacher">Extension points defined in Job Cacher Plugin</a></p>
+</li>
+<li>
+<p><a href="jobConfigHistory">Extension points defined in Job Configuration History Plugin</a></p>
+</li>
+<li>
+<p><a href="job-restrictions">Extension points defined in Job Restrictions Plugin</a></p>
+</li>
+<li>
+<p><a href="jobcopy-builder">Extension points defined in Jobcopy Builder Plugin</a></p>
+</li>
+<li>
+<p><a href="junit">Extension points defined in JUnit Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-jwt">Extension points defined in JWT for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="jwt-support">Extension points defined in JWT Support Plugin</a></p>
+</li>
+<li>
+<p><a href="kpp-management-plugin">Extension points defined in Keychains and Provisioning Profiles Management Plugin</a></p>
+</li>
+<li>
+<p><a href="kubernetes-credentials-provider">Extension points defined in Kubernetes Credentials Provider Plugin</a></p>
+</li>
+<li>
+<p><a href="kubernetes">Extension points defined in Kubernetes Plugin</a></p>
+</li>
+<li>
+<p><a href="label-verifier">Extension points defined in Label Verifier Plugin</a></p>
+</li>
+<li>
+<p><a href="literate">Extension points defined in Literate Plugin</a></p>
+</li>
+<li>
+<p><a href="localization-support">Extension points defined in Localization Support Plugin</a></p>
+</li>
+<li>
+<p><a href="logstash">Extension points defined in Logstash Plugin</a></p>
+</li>
+<li>
+<p><a href="lucene-search">Extension points defined in Lucene-Search Plugin</a></p>
+</li>
+<li>
+<p><a href="mailer">Extension points defined in Mailer Plugin</a></p>
+</li>
+<li>
+<p><a href="matlab">Extension points defined in MATLAB Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-auth">Extension points defined in Matrix Authorization Strategy Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-combinations-parameter">Extension points defined in Matrix Configuration Parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="matrix-project">Extension points defined in Matrix Project Plugin</a></p>
+</li>
+<li>
+<p><a href="maven-artifact-choicelistprovider">Extension points defined in Maven Artifact ChoiceListProvider (Nexus) Plugin</a></p>
+</li>
+<li>
+<p><a href="maven-plugin">Extension points defined in Maven Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="mercurial">Extension points defined in Mercurial Plugin</a></p>
+</li>
+<li>
+<p><a href="metrics">Extension points defined in Metrics Plugin</a></p>
+</li>
+<li>
+<p><a href="misra-compliance-report-generator">Extension points defined in MISRA Compliance Report Plugin</a></p>
+</li>
+<li>
+<p><a href="mock-load-builder">Extension points defined in Mock Load Builder Plugin</a></p>
+</li>
+<li>
+<p><a href="mq-notifier">Extension points defined in MQ Notifier Plugin</a></p>
+</li>
+<li>
+<p><a href="multi-module-tests-publisher">Extension points defined in multi-module-tests-publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="nirmata">Extension points defined in Nirmata Plugin</a></p>
+</li>
+<li>
+<p><a href="nodelabelparameter">Extension points defined in Node and Label parameter Plugin</a></p>
+</li>
+<li>
+<p><a href="node-iterator-api">Extension points defined in Node Iterator API Plugin</a></p>
+</li>
+<li>
+<p><a href="node-sharing-executor">Extension points defined in Node sharing executor Plugin</a></p>
+</li>
+<li>
+<p><a href="nodejs">Extension points defined in NodeJS Plugin</a></p>
+</li>
+<li>
+<p><a href="oauth-credentials">Extension points defined in OAuth Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="octoperf">Extension points defined in OctoPerf Load Testing Plugin. Plugin</a></p>
+</li>
+<li>
+<p><a href="oki-docki">Extension points defined in oki-docki Plugin</a></p>
+</li>
+<li>
+<p><a href="one-shot-executor">Extension points defined in One-Shot Executor Plugin</a></p>
+</li>
+<li>
+<p><a href="openid">Extension points defined in openid Plugin</a></p>
+</li>
+<li>
+<p><a href="openstack-cloud">Extension points defined in OpenStack Cloud Plugin</a></p>
+</li>
+<li>
+<p><a href="openstack-heat">Extension points defined in Openstack Heat Plugin</a></p>
+</li>
+<li>
+<p><a href="p4">Extension points defined in P4 Plugin</a></p>
+</li>
+<li>
+<p><a href="parameterized-trigger">Extension points defined in Parameterized Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="pending-changes">Extension points defined in Pending Changes Plugin</a></p>
+</li>
+<li>
+<p><a href="perfectomobile">Extension points defined in Perfecto Mobile Plugin</a></p>
+</li>
+<li>
+<p><a href="performance">Extension points defined in Performance Plugin</a></p>
+</li>
+<li>
+<p><a href="periodicbackup">Extension points defined in Periodic Backup Plugin</a></p>
+</li>
+<li>
+<p><a href="persona">Extension points defined in Persona Plugin</a></p>
+</li>
+<li>
+<p><a href="hudson-pview-plugin">Extension points defined in Personal View Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-pipeline-api-impl">Extension points defined in Pipeline implementation for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-maven">Extension points defined in Pipeline Maven Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-api">Extension points defined in Pipeline: API Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-model-extensions">Extension points defined in Pipeline: Declarative Extension Points API Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-model-definition">Extension points defined in Pipeline: Declarative Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-cps">Extension points defined in Pipeline: Groovy Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-rest-api">Extension points defined in Pipeline: REST API Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-cps-global-lib">Extension points defined in Pipeline: Shared Groovy Libraries Plugin</a></p>
+</li>
+<li>
+<p><a href="pipeline-stage-tags-metadata">Extension points defined in Pipeline: Stage Tags Metadata Plugin</a></p>
+</li>
+<li>
+<p><a href="workflow-step-api">Extension points defined in Pipeline: Step API Plugin</a></p>
+</li>
+<li>
+<p><a href="pom2config">Extension points defined in pom2config Plugin</a></p>
+</li>
+<li>
+<p><a href="port-allocator">Extension points defined in Port Allocator Plugin</a></p>
+</li>
+<li>
+<p><a href="pretested-integration">Extension points defined in Pretested Integration Plugin</a></p>
+</li>
+<li>
+<p><a href="PrioritySorter">Extension points defined in Priority Sorter Plugin</a></p>
+</li>
+<li>
+<p><a href="promoted-builds">Extension points defined in promoted builds Plugin</a></p>
+</li>
+<li>
+<p><a href="protecode-sc">Extension points defined in Protecode SC Plugin</a></p>
+</li>
+<li>
+<p><a href="prqa-plugin">Extension points defined in PRQA Plugin</a></p>
+</li>
+<li>
+<p><a href="pubsub-light">Extension points defined in Pub-Sub "light" Bus Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-cifs">Extension points defined in Publish Over CIFS Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-ftp">Extension points defined in Publish Over FTP Plugin</a></p>
+</li>
+<li>
+<p><a href="publish-over-ssh">Extension points defined in Publish Over SSH Plugin</a></p>
+</li>
+<li>
+<p><a href="puppet">Extension points defined in Puppet Plugin</a></p>
+</li>
+<li>
+<p><a href="rabbitmq-consumer">Extension points defined in RabbitMQ Consumer Plugin</a></p>
+</li>
+<li>
+<p><a href="rebuild">Extension points defined in Rebuilder Plugin</a></p>
+</li>
+<li>
+<p><a href="recipe">Extension points defined in Recipe Plugin</a></p>
+</li>
+<li>
+<p><a href="remote-jobs-view-plugin">Extension points defined in remote-jobs-view-plugin Plugin</a></p>
+</li>
+<li>
+<p><a href="repository-connector">Extension points defined in Repository Connector Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-rest">Extension points defined in REST API for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-rest-impl">Extension points defined in REST Implementation for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="role-strategy">Extension points defined in Role-based Authorization Strategy Plugin</a></p>
+</li>
+<li>
+<p><a href="run-condition">Extension points defined in Run Condition Plugin</a></p>
+</li>
+<li>
+<p><a href="run-selector">Extension points defined in Run Selector Plugin</a></p>
+</li>
+<li>
+<p><a href="saltstack">Extension points defined in SaltStack Plugin</a></p>
+</li>
+<li>
+<p><a href="scm-api">Extension points defined in SCM API Plugin</a></p>
+</li>
+<li>
+<p><a href="scoring-load-balancer">Extension points defined in Scoring Load Balancer Plugin</a></p>
+</li>
+<li>
+<p><a href="script-security">Extension points defined in Script Security Plugin</a></p>
+</li>
+<li>
+<p><a href="sectioned-view">Extension points defined in Sectioned View Plugin</a></p>
+</li>
+<li>
+<p><a href="security-inspector">Extension points defined in Security Inspector Plugin</a></p>
+</li>
+<li>
+<p><a href="shared-objects">Extension points defined in Shared Objects Plugin</a></p>
+</li>
+<li>
+<p><a href="simple-theme-plugin">Extension points defined in Simple Theme Plugin</a></p>
+</li>
+<li>
+<p><a href="skytap">Extension points defined in Skytap Cloud CI Plugin</a></p>
+</li>
+<li>
+<p><a href="slack">Extension points defined in Slack Notification Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-agent">Extension points defined in SSH Agent Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-credentials">Extension points defined in SSH Credentials Plugin</a></p>
+</li>
+<li>
+<p><a href="ssh-slaves">Extension points defined in SSH Slaves Plugin</a></p>
+</li>
+<li>
+<p><a href="subversion">Extension points defined in Subversion Plugin</a></p>
+</li>
+<li>
+<p><a href="suite-test-groups-publisher">Extension points defined in suite-test-groups-publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="sumologic-publisher">Extension points defined in Sumologic Publisher Plugin</a></p>
+</li>
+<li>
+<p><a href="support-core">Extension points defined in Support Core Plugin</a></p>
+</li>
+<li>
+<p><a href="team-views">Extension points defined in Team Views Plugin</a></p>
+</li>
+<li>
+<p><a href="thycotic-vault">Extension points defined in Thycotic DevOps Secrets Vault Plugin</a></p>
+</li>
+<li>
+<p><a href="token-macro">Extension points defined in Token Macro Plugin</a></p>
+</li>
+<li>
+<p><a href="ui-samples-plugin">Extension points defined in UI sample Plugin</a></p>
+</li>
+<li>
+<p><a href="unique-id">Extension points defined in Unique ID Library Plugin</a></p>
+</li>
+<li>
+<p><a href="update-sites-manager">Extension points defined in UpdateSites Manager Plugin</a></p>
+</li>
+<li>
+<p><a href="urltrigger">Extension points defined in URLTrigger Plugin</a></p>
+</li>
+<li>
+<p><a href="vectorcast-coverage">Extension points defined in VectorCAST Coverage Plugin</a></p>
+</li>
+<li>
+<p><a href="vectorcast-execution">Extension points defined in VectorCAST Execution Plugin</a></p>
+</li>
+<li>
+<p><a href="vsphere-cloud">Extension points defined in vSphere Plugin</a></p>
+</li>
+<li>
+<p><a href="warnings-ng">Extension points defined in Warnings Next Generation Plugin</a></p>
+</li>
+<li>
+<p><a href="warnings">Extension points defined in Warnings Plugin</a></p>
+</li>
+<li>
+<p><a href="blueocean-web">Extension points defined in Web for Blue Ocean Plugin</a></p>
+</li>
+<li>
+<p><a href="windows-slaves">Extension points defined in WMI Windows Agents Plugin</a></p>
+</li>
+<li>
+<p><a href="xunit">Extension points defined in xUnit Plugin</a></p>
+</li>
+<li>
+<p><a href="yaml-project">Extension points defined in YAML Project support Plugin</a></p>
+</li>
+<li>
+<p><a href="yet-another-docker-plugin">Extension points defined in Yet Another Docker Plugin</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

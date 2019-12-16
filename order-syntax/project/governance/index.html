@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Project Governance Document
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Project Governance Document" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Project Governance Document" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Project Governance Document" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/project/governance/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Project Governance Document" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<h1>
+Project Governance Document
+</h1>
+<div class="sect1">
+<h2 id="who-we-are"><a class="anchor" href="#who-we-are"></a>Who we are</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jenkins project as a community revolves around Jenkins as a piece of software. We are a group of open-source developers and users who develop, use, promote Jenkins, software around Jenkins, and other related activities for our mutual benefit.</p>
+</div>
+<div class="paragraph">
+<p>The project is affiliated with <a href="https://www.spi-inc.org/">Software in the Public Interest</a> (SPI), a non-profit organization that provides legal representation and other necessities for running an open-source software project. SPI also acts as our treasury, and legally owns the project assets.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="our-philosophy"><a class="anchor" href="#our-philosophy"></a>Our Philosophy</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="lower-barrier-of-entry"><a class="anchor" href="#lower-barrier-of-entry"></a>Lower barrier of entry</h3>
+<div class="paragraph">
+<p>We strive for lower barrier of entry to the project. This is partly achieved by not requiring new contributors to “prove themselves” before they are admitted to the committership. Instead, we assume they are good until proven otherwise, and this principle applies to anybody without arbitrary discrimination. We recognize that every contribution is precious, and we recognize that every added process turn away some potential contributors.</p>
+</div>
+<div class="paragraph">
+<p>The lower barrier of entry is partly achieved by structuring the project to core, plugins, modules, and other independent pieces, thereby reducing the need for collaboration and communication. We try to let everyone have their own turf where they can work efficiently without bogged down by discussions and compromises. We believe everyone has the right to express their idea in their own plugins.</p>
+</div>
+<div class="paragraph">
+<p>The lower barrier of entry is also partly achieved by recognizing that people move on. Lots of code in the project is maintained by people other than the original author. We encourage new contributors to take over existing projects that aren’t actively maintained. We believe that “old” contributors deserve respect from “new” contributors, but the inaction on the part of the original contributors shall not block new contributors from making changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="meritocracy"><a class="anchor" href="#meritocracy"></a>Meritocracy</h3>
+<div class="paragraph">
+<p>Our striving to lower barrier of entry doesn’t mean everyone has the equal voice. We value those who contribute more to the project, namely <a href="https://en.wikipedia.org/wiki/Meritocracy">Meritocracy</a>. Contribution shouldn’t be narrowly interpreted just to code changes, but rather it includes such activities as helping others in the community, doing PR, running infrastructure, and so on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transparency"><a class="anchor" href="#transparency"></a>Transparency</h3>
+<div class="paragraph">
+<p>We believe in running the project transparently. This includes everything from decision-making to defects in the code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="compatibility-matters"><a class="anchor" href="#compatibility-matters"></a>Compatibility matters</h3>
+<div class="paragraph">
+<p>We recognize that users expect their existing data, accumulated under past versions (including Hudson up to 1.395) to continue working under future versions of Jenkins. This includes jobs configurations, build records, and plugin binaries that they are using. The Jenkins project places high value on maintaining this compatibility, and will be very careful in removing functionality.</p>
+</div>
+<div class="paragraph">
+<p>To enable the above goal, we also recognize that plugin developers expect APIs and other code that they depend on to remain available in future versions of Jenkins. This is not to say we don’t ever remove anything, but we do it very carefully.</p>
+</div>
+<div class="paragraph">
+<p>Because one plugin can depend on another, we expect the same principle from plugins that many other plugins depend on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automation"><a class="anchor" href="#automation"></a>Automation</h3>
+<div class="paragraph">
+<p>One of the goals of the Jenkins project is to enable more automation, and we apply the same principle in developing Jenkins. Accordingly, we develop and use a number of daemons, bots, and scripts to perform house-keeping activities and day-to-day operations, we use Jenkins ourselves to run many of those.</p>
+</div>
+<div class="paragraph">
+<p>This not only frees our time to do more creative work, but it also helps reduce the barrier to entry by reducing the blockage of one developer by another. Plus it has the added benefit of eating our own dogfood.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="license"><a class="anchor" href="#license"></a>License</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jenkins project uses the <a href="https://opensource.org/licenses/MIT">MIT License</a> as the primary license of choice, for the code that we develop. Unless otherwise stated, all the code is under the MIT license.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="https://github.com/jenkinsci/jenkins">core of Jenkins</a> is entirely under the MIT license, as is the majority of our <a href="https://github.com/jenkins-infra">infrastructure code</a> (that runs the project itself), as well as many plugins. We encourage hosted plugins to use the same MIT license, to simplify the story for users, but plugins are free to choose their own licenses, so long as it’s an OSI-approved open-source license.</p>
+</div>
+<div class="paragraph">
+<p>This is not to be confused with proprietary plugins --- we recognize and encourage plugins that people write on their own for their internal use, without necessarily making the source code available. But no such plugins will be hosted by the Jenkins project.</p>
+</div>
+<div class="sect2">
+<h3 id="cla"><a class="anchor" href="#cla"></a>Contributor License Agreement (CLA)</h3>
+<div class="paragraph">
+<p>To further clarify the intellectual property rights around the project, we require that core committers sign a contributor agreement. This CLA is the same as Apache&#8217;s CLA with "Apache" replaced by "SPI". This agreement explicitly assigns a set of rights to SPI, such as the effective joint copyright ownership, patent grant, as well as acknowledging that you have the necessary rights to contribute changes.</p>
+</div>
+<div class="paragraph">
+<p>The assignment of these rights to SPI helps Jenkins being neutral to any particular vendor, and it&#8217;ll also make legal departments happy especially in large organizations who want to use Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>CLAs come in two flavors. Every core contributor needs to sign an Individual CLA (ICLA), and in cases where you as an individual do not own the work you are contributing (such as when your company assigns you to work on Jenkins and therefore your company owns the hard work you produced), the corporation also needs to sign a Corporate CLA (CCLA). See <a href="https://www.apache.org/licenses/#clas">the discussion in Apache for more details</a>. The CLA forms can be obtained from the following URLs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://raw.github.com/jenkinsci/infra-cla/approved/icla.txt">ICLA</a></p>
+</li>
+<li>
+<p><a href="https://raw.github.com/jenkinsci/infra-cla/approved/ccla.txt">CCLA</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To balance the additional overhead with the lower barrier to entry, this policy only applies to the core, although we welcome anyone who&#8217;s willing to submit a CLA for their work on plugins.</p>
+</div>
+<div class="paragraph">
+<p>Details to submit CLAs are documented in <a href="https://github.com/jenkinsci/infra-cla/blob/master/README.md">infra-cla README</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3rd-party-library-licenses-in-the-core"><a class="anchor" href="#3rd-party-library-licenses-in-the-core"></a>3rd party library licenses in the core</h3>
+<div class="paragraph">
+<p>The Jenkins project depends heavily on 3rd party libraries. We believe it&#8217;s better to reuse what we can than to reinvent, so that our precious resources can be spent elsewhere.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins as a whole needs to be an open-source project, so we&#8217;ve been restricting ourselves to only use 3rd party libraries that are <a href="https://www.opensource.org/">OSI-approved open-source licenses</a> (such as Apache Software License, BSD license, MIT license, Eclipse Public License, and Lesser GNU Public License.) In addition, to keep the core reusable for the widest possible use cases, we refuse so-called <a href="https://en.wikipedia.org/wiki/Copyleft">copyleft licenses</a> that restrict the overall license to a specific license (such as GNU Public License.) To that end, we designated the following licenses as approved licenses that we can depend on. Additional licenses are subject to the approval by the board:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.apache.org/licenses/">Apache Software License</a></p>
+</li>
+<li>
+<p><a href="https://opensource.org/licenses/bsd-license.php">BSD license</a>, <a href="https://opensource.org/licenses/mit-license.php">MIT license</a></p>
+</li>
+<li>
+<p><a href="https://opensource.org/licenses/W3C.php">W3C software license</a></p>
+</li>
+<li>
+<p><a href="https://opensource.org/licenses/cddl1.php">CDDL</a>, <a href="https://opensource.org/licenses/cpl1.0.php">CPL</a>, <a href="https://opensource.org/licenses/eclipse-1.0.php">EPL</a>, and <a href="https://opensource.org/licenses/mozilla1.0.php">MPL</a>, and <a href="https://opensource.org/licenses/lgpl-license.php">LGPL</a> (these licenses require that derivative works to be under the same license as the original license, so the source code needs to be separated into its own repository, but binaries can be used as dependencies to the core.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In core, the build process ensure that all the licenses of the dependency libraries are accounted for. In other words, we require that dependency POMs declare their own licenses in the Maven way, or use <a href="https://github.com/jenkinsci/jenkins/blob/master/licenseCompleter.groovy">the license completion script</a> to supply one where the POM is missing that information. The completion script is also used in case the library is dual-licensed to pick a specific license. This is done so that the summary list of the 3rd party library licenses do not include copy-left licenses.</p>
+</div>
+<div class="paragraph">
+<p>The result is packaged into the core and is visible from <a href="https://ci.jenkins-ci.org/about">within the application itself</a>. It is also available in the XML format inside the war file.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="3rd-party-library-licenses-in-the-plugins"><a class="anchor" href="#3rd-party-library-licenses-in-the-plugins"></a>3rd party library licenses in the plugins</h3>
+<div class="paragraph">
+<p>Plugins do not necessarily follow the same formality when it comes to the 3rd party license policy. They obviously need to honor the licenses of the libraries they use, but for example they need not run the same license completion scheme that the core uses.</p>
+</div>
+<div class="paragraph">
+<p>We encourage plugins to follow the same 3rd party license policy as the core. You may vary from it at your own risk. For example, see <a href="https://www.gnu.org/licenses/gpl-faq.html#NFUseGPLPlugins">FSF&#8217;s opinion about GPL plugins with a non-GPL core</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="trademark"><a class="anchor" href="#trademark"></a>Trademark</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The name "Jenkins" is a registered trademark in the USA
+(<a href="https://trademarks.justia.com/854/47/jenkins-85447465.html">#4664929</a>,
+held by
+<a href="https://spi-inc.org">Software in the Public Interest, Inc.</a>)
+in order to protect the project and users from confusing use of the term. To
+reduce the process overhead and uphold our open-source spirit, we adopt the
+Linux kernel policy on trademark usage.</p>
+</div>
+<div class="paragraph">
+<p>You need to apply for a <a href="https://wiki.jenkins.io/display/JENKINS/Trademark+Sublicense">sublicense</a> if you are using the term "Jenkins" as part of your own trademark or brand identifier for Jenkins-based software goods or services. It doesn’t matter if your trademark is unregistered, or if you do not plan to make any money using the mark.</p>
+</div>
+<div class="paragraph">
+<p>Answering the following questions (which break out each of the key issues) may help you determine if you need a sublicense. If you are still in doubt, please contact the board and we will work with you to determine whether you need to apply for a sublicense.</p>
+</div>
+<div class="paragraph">
+<p>If the answer to all three of the following questions is "yes," then you need to apply for a sublicense. If the answer to any of these questions is "no," then you do not need to apply for a sublicense.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Is my mark a trademark (see how Linux Foundation define "trademark" in <a href="https://www.linuxfoundation.org/programs/legal/trademark/faq">FAQ</a>)?</p>
+</li>
+<li>
+<p>Does my mark contain the following string of adjacent letters, in this order: "Jenkins"? These letters may or may not be capitalized, and in the case of foreign characters, phonetic translations also apply.</p>
+</li>
+<li>
+<p>Do I use my mark to identify software-related goods or services (see how that phrase is <a href="https://www.linuxfoundation.org/programs/legal/trademark/faq">defined</a> again in LF)?</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A list of trademark usages approved by the project can be found on the <a href="https://wiki.jenkins.io/display/JENKINS/Approved+Trademark+Usage">Approved Trademark Usage</a> page.</p>
+</div>
+<div class="sect2">
+<h3 id="trademark-attribution"><a class="anchor" href="#trademark-attribution"></a>Trademark Attribution</h3>
+<div class="paragraph">
+<p>These trademark attribution guidelines are largely derived from the Linux
+Foundation&#8217;s
+<a href="https://lmi.linuxfoundation.org/programs/legal/trademark/attribution">trademark attribution</a>
+guidelines.</p>
+</div>
+<div class="sect3">
+<h4 id="attribution-is-for-everyone"><a class="anchor" href="#attribution-is-for-everyone"></a>Attribution is For Everyone</h4>
+<div class="paragraph">
+<p>Even if your use of the Jenkins trademark doesn&#8217;t fall under the scope of the
+Jenkins Sublicense Agreement, you should still attribute ownership of the mark to
+Software in the Public Interest, Inc. in two ways:</p>
+</div>
+<div class="paragraph">
+<p>For each web page, advertisement, or publication, the first prominent
+appearance of "Jenkins" should feature the "circle R" character adjacent to the "s",
+as follows:</p>
+</div>
+<div class="paragraph">
+<p>Jenkins&#174;</p>
+</div>
+<div class="paragraph">
+<p>At the end of your web page, advertisement, publication or media broadcast,
+include the following text in a legible font and size:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Jenkins&#174; is a registered trademark of Software in the Public Interest, Inc.</p>
+</div>
+</blockquote>
+</div>
+</div>
+<div class="sect3">
+<h4 id="attribution-for-sublicensees"><a class="anchor" href="#attribution-for-sublicensees"></a>Attribution for Sublicensees</h4>
+<div class="paragraph">
+<p>The Jenkins Sublicense Agreement sets forth how the mark should be attributed by
+sublicensees. Sublicensees are required to place the following legend
+conspicuously on each piece of authorized goods, and at least once in the area
+of the title page of any documentation or sales literature accompanying each
+authorized good or service:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The registered trademark Jenkins&#174; is used pursuant to a sublicense from the
+Jenkins project and Software in the Public Interest, Inc.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>The Jenkins project understands that space limitations can make including these
+attributions difficult. When made necessary by space limitations, any
+reasonable facsimile of these attributions may be used. In case of doubt as to
+the proper shortened form, examples may be submitted to the Jenkins project for
+approval.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-rolesstakeholders"><a class="anchor" href="#project-rolesstakeholders"></a>Project roles/stakeholders</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="governance-board"><a class="anchor" href="#governance-board"></a>Governance board</h3>
+<div class="paragraph">
+<p>The governance board consists of three people who act as public representatives of the project, when such representation is necessary, for example to interface external entities such as SPI or CDF.</p>
+</div>
+<div class="paragraph">
+<p>The board also acts as the ultimate decision-making authority in case disputes cannot be resolved via the regular project community meeting. The decision-making ability of the board is more symbolic and honorific, and it “rules” like British queens rather than a dictatorship.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="/project/board">Governance Board</a> page provides further information, including a list of current board members, and how to contact the board.</p>
+</div>
+<div class="paragraph">
+<p>The process by which the Governance Board is elected can be reviewed in the <a href="/project/board-election-process">Board Election Process</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="infrastructure-admins"><a class="anchor" href="#infrastructure-admins"></a>Infrastructure admins</h3>
+<div class="paragraph">
+<p>Infrastructure administrators have root access to the various servers and build slaves that run <code>jenkins-ci.org</code> and other sub-domains. They keep those servers up and running, installing new software, coordinating mirrors, handling keys and certificates, and making sure that we can keep churning out code.</p>
+</div>
+<div class="paragraph">
+<p>Because of the sensitive nature of this work, infrastructure admins are by invitation only, and some of the activity happen behind closed doors. Infrastructure admins often appoint others to delegate some partial access to the system to complete some tasks.</p>
+</div>
+<div class="paragraph">
+<p>A list of admins of some of the public infrastructure components can be found here: <a href="https://wiki.jenkins.io/display/JENKINS/Infrastructure+Admins">Infrastructure Admins</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="core-committers"><a class="anchor" href="#core-committers"></a>Core committers</h3>
+<div class="paragraph">
+<p>Core committers are those who have push access to <a href="https://github.com/jenkinsci/jenkins">the main Jenkins repository</a> that produces <code>jenkins.war</code>. To become a core committer, one needs to sign the <a href="#cla">contributor license agreement</a>. One is not required to have a proven history of contributions before being granted commit access, but that doesn’t mean other core committers will never revert your changes.</p>
+</div>
+<div class="paragraph">
+<p>The list of CLA signers is be maintained here: <a href="https://github.com/jenkinsci/infra-cla" class="bare">https://github.com/jenkinsci/infra-cla</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="plugin-committers"><a class="anchor" href="#plugin-committers"></a>Plugin committers</h3>
+<div class="paragraph">
+<p>Plugin committers are those who have push access to specific plugin repositories hosted under the jenkinsci GitHub organization. One is not required to have a proven history of contributions before being granted commit access. All you have to do is to ask. But that doesn’t mean other existing committers will never revert your changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="localization-contributors"><a class="anchor" href="#localization-contributors"></a>Localization contributors</h3>
+<div class="paragraph">
+<p>Localization contributors have push access to both the core and hosted plugins. They make localization/internationalization related changes to the code and resources, and they push those changes without seeking approval from the core/plugin committers.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="users"><a class="anchor" href="#users"></a>Users</h3>
+<div class="paragraph">
+<p>Users use Jenkins and its plugins. They contribute to the project by providing feedback, filing bug reports, prioritizing features and fixes for developers, helping other users, and making committers feel like their work is worth while.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="communication"><a class="anchor" href="#communication"></a>Communication</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The communication among people in the community is crucial to the oneness of the project. People in the Jenkins project communicates with each other in several different places.</p>
+</div>
+<div class="sect2">
+<h3 id="mailing-lists"><a class="anchor" href="#mailing-lists"></a>Mailing lists</h3>
+<div class="paragraph">
+<p>We encourage mailing lists as the primary means of developer &amp; user discussion, because of their asynchrony and ability to search the archive. The project website lists <a href="/mailing-lists">the active mailing lists and their purposes</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="irc"><a class="anchor" href="#irc"></a>IRC</h3>
+<div class="paragraph">
+<p>Jenkins project uses <a href="/chat">an IRC channel</a> for real time interactive communications. This is also the place where active members bond with each other.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="twitter"><a class="anchor" href="#twitter"></a>Twitter</h3>
+<div class="paragraph">
+<p><a href="https://twitter.com/jenkinsci">@jenkinsci</a> is the official Twitter account of the Jenkins project, run by the infrastructure admins.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="infrastructure"><a class="anchor" href="#infrastructure"></a>Infrastructure</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="source-code"><a class="anchor" href="#source-code"></a>Source code</h3>
+<div class="paragraph">
+<p>The <a href="https://github.com/jenkinsci/">GitHub JenkinsCI organization</a> is where we host most of our code (see <a href="https://wiki.jenkins.io/display/JENKINS/GitHub+Repositories">the list of repositories</a> for easier navigation.) Because we previously used Subversion as the primary source code repository, we also have <a href="https://svn.jenkins-ci.org/">the subversion repository</a> that contains all the original project history. Some plugins are still actively maintained inside the Subversion repository.</p>
+</div>
+<div class="paragraph">
+<p>To aid classifying our 1000+ Git repositories, some naming conventions have been adopted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>plugins are named "*-plugin"</p>
+</li>
+<li>
+<p>libraries are named "lib-*"</p>
+</li>
+<li>
+<p>backend infrastructure programs are named "backend-*"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To encourage migration of plugins from Subversion to Git, a daemon is used to mirror plugins individually to GitHub. See <a href="https://wiki.jenkins.io/display/JENKINS/Moving+from+Subversion+%28svn%29+to+Github">this page</a> for more about how to migrate your plugin to GitHub.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-accounts"><a class="anchor" href="#user-accounts"></a>User Accounts</h3>
+<div class="paragraph">
+<p>The infrastructure admins run an LDAP server and <a href="https://accounts.jenkins.io/">a small frontend program</a> to let users create accounts on jenkins-ci.org. This account is used for all the software that we run ourselves.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="wiki"><a class="anchor" href="#wiki"></a>Wiki</h3>
+<div class="paragraph">
+<p>This wiki that you are reading is our primary collaboration mechanism for documentation. This uses the LDAP server described above for access.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="bug-tracker"><a class="anchor" href="#bug-tracker"></a>Bug tracker</h3>
+<div class="paragraph">
+<p><a href="https://issues.jenkins-ci.org/">Our primary bug tracker</a> is maintained by the infra admins. This uses the LDAP server described above for access.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jenkins-on-jenkins"><a class="anchor" href="#jenkins-on-jenkins"></a>Jenkins on Jenkins</h3>
+<div class="paragraph">
+<p>We <a href="https://ci.jenkins-ci.org/">run Jenkins for our own development</a> and to automate various infrastructure tasks. Because of the sensitive nature of setting up jobs, only the infra admins have full write access.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="meeting"><a class="anchor" href="#meeting"></a>Decision making</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jenkins project uses biweekly project meetings as the primary forum of decision making for matters that need consensus.
+The meeting is <a href="/chat/#meeting">conducted on IRC</a> and open to anyone.
+Agenda items can be added by anyone by simply adding your topic to <a href="https://wiki.jenkins.io/display/JENKINS/Governance+Meeting+Agenda">the Governance Meeting Agenda wiki page</a>.
+Be sure to include your user name (so we know who proposed a topic).</p>
+</div>
+<div class="paragraph">
+<p>The meeting minutes are public:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://meetings.jenkins-ci.org/jenkins/">2011 to September 2015</a></p>
+</li>
+<li>
+<p><a href="https://meetings.jenkins-ci.org/jenkins-meeting/">September 2015 to today</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The board serves as the ultimate decision-making body in case the project meeting fails to reach a consensus on a particular topic.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-we-develop-code"><a class="anchor" href="#how-we-develop-code"></a>How we develop code</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="core"><a class="anchor" href="#core"></a>Core</h3>
+<div class="paragraph">
+<p>The core refers to a set of code and libraries that result in the <code>jenkins.war</code> binary. <a href="https://github.com/jenkinsci/jenkins">The official core repository</a> is hosted on GitHub.</p>
+</div>
+<div class="paragraph">
+<p>Long time committers push changes directly into this repository, although other core committers can still revert their changes and discuss them when they feel that is necessary. New committers can also do the same when they feel good about their changes, or if the changes are trivial.</p>
+</div>
+<div class="paragraph">
+<p>Committers old and new who feel their changes need review use <a href="https://github.com/jenkinsci/jenkins/pulls">GitHub pull requests</a> as a way to solicit feedback. People without commit access also use pull requests to get their changes into the core. Core committers are expected to be attentive to pending pull requests, and try to act on them quickly.</p>
+</div>
+<div class="paragraph">
+<p>Core committers generally use their own judgement to decide what to work on.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="releases"><a class="anchor" href="#releases"></a>Releases</h3>
+<div class="paragraph">
+<p>Every weekend a new release is built from the master branch and released, in various forms, including <code>jenkins.war</code> and native packages. This allows us to get new features and bug fixes into the hands of users relatively quickly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lts-releases"><a class="anchor" href="#lts-releases"></a>LTS Releases</h3>
+<div class="paragraph">
+<p>Every three months or so we pick a prior release as the new long-term support (LTS) release and then create the ‘stable’ branch, from that release point. This branch gets important bug fixes backported from the master branch, and further patch releases are built roughly every two weeks until the next LTS baseline is chosen. See <a href="https://wiki.jenkins.io/JENKINS/LTS+Release+Line">LTS Release Line</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="core-coding-convention"><a class="anchor" href="#core-coding-convention"></a>Core Coding Convention</h3>
+<div class="paragraph">
+<p>We roughly follow <a href="https://www.oracle.com/technetwork/java/codeconvtoc-136057.html">Sun coding convention</a> in the source code, and we use 4 space indentation and don’t use tabs. It&#8217;s generally more practical and appreciated if you submit changes that don&#8217;t change the code format too much as it eases the coding review job. Try submitting formatting changes and functional changes in separate commits.</p>
+</div>
+<div class="paragraph">
+<p>With that said, we do not believe in rigorously enforcing coding convention, and we don’t want to turn down contributions because their code format doesn’t match what we use. So consider this informational.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="plugins"><a class="anchor" href="#plugins"></a>Plugins</h3>
+<div class="paragraph">
+<p>Plugins are developed autonomously by the people working on the plugin. Each gets its own repository, its own Jenkins-on-Jenkins job, its own bug tracker component, and maintain their own release schedules.</p>
+</div>
+<div class="paragraph">
+<p>Some plugins are actively maintained by a small number of people and they may have their own local culture, such as different coding convention, additional commit policies. We do this so that people can feel ownership and attachment to their effort, and so that they won’t feel like they have to follow externally decided rules.</p>
+</div>
+<div class="paragraph">
+<p>Since much of such local culture is implicit, it&#8217;s often difficult to tell from outside the operating culture of a given plugin. The safe rule of thumb is to contact existing developers upfront before doing any commit (but if there&#8217;s no timely response in a week so, you should feel free to commit.) Less actively maintained plugins tend not to have such local culture, so in those cases, if you feel lucky you can commit changes ahead and send a heads-up simultaneously, (and accept the possibility that the changes get reverted.)</p>
+</div>
+<div class="paragraph">
+<p>Maintainer information should be listed in the info box of the plugin&#8217;s wiki page. If you have trouble figuring out who to contact, the good fallback option is the developers' mailing list.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="plugin-wiki-page"><a class="anchor" href="#plugin-wiki-page"></a>Plugin Wiki Page</h3>
+<div class="paragraph">
+<p>Each plugin has its own Wiki page in <a href="https://wiki.jenkins.io/" class="bare">https://wiki.jenkins.io/</a>, such as <a href="https://wiki.jenkins.io/display/JENKINS/Git+Plugin">this</a>. Plugin wiki pages should the macro that produces the stock header table, describing what the plugin does, along with the release history / changelog. Take a look at some plugin wiki pages as a guideline of what you should do.</p>
+</div>
+<div class="paragraph">
+<p>These wiki pages are referenced from the update center built in to Jenkins, and they are the primary means through which users discover information about plugins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="modules"><a class="anchor" href="#modules"></a>Modules</h3>
+<div class="paragraph">
+<p>Modules are libraries that are built separately from the core (much like plugins are), but are bundled into the WAR file as a JAR file in <code>WEB-INF/lib</code> and therefore it behaves as if it&#8217;s a part of the core from the users' point of view. Modules can be thought of as something in between a library and a plugin. It has its own POM, a set of source code, and built separately, like a library, but it gets the same compile-time processing as plugins do.</p>
+</div>
+<div class="paragraph">
+<p>This assists splitting a big hair ball (that is the core) into more manageable smaller pieces, and allow OEMs to add/remove functionalities separately.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="commit-guidelines"><a class="anchor" href="#commit-guidelines"></a>Commit guidelines</h3>
+<div class="paragraph">
+<p>See <a href="#pull-request">the pull request checklist</a> for guidelines on submitting code to Jenkins.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="copying-code-from-elsewhere"><a class="anchor" href="#copying-code-from-elsewhere"></a>Copying code from elsewhere</h3>
+<div class="paragraph">
+<p>When you have a license to do so, and when that license is compatible with the MIT license, you can copy the code from elsewhere into Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>The most typical case of this is that the original code is licensed under a certain subset of the open-source licenses, such as ASL, BSD, and MIT license. Copyleft licenses, even though they are open-sourced, cannot be copied, such as EPL and GPL.</p>
+</div>
+<div class="paragraph">
+<p>The code to be copied must be clearly marked with the license it is under, and when copying, you need to maintain the copyright/license attribution in the header. Please also indicate the origin of the copy as a part of the commit message.</p>
+</div>
+<div class="paragraph">
+<p>In particular, this means we can copy Oracle Hudson&#8217;s source code under the MIT license, but not Eclipse Hudson&#8217;s source code under EPL.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locally-patching-dependencies"><a class="anchor" href="#locally-patching-dependencies"></a>Locally patching dependencies</h3>
+<div class="paragraph">
+<p>Sometimes, it is necessary to make bug fixes and changes in the libraries that we use. Where the library is significant to Jenkins and the impact is considerable to our users, we choose to maintain local patch sets to upstream libraries, just like Linux distributions maintain such patches for its packages.</p>
+</div>
+<div class="paragraph">
+<p>We normally intend such local patches to be integrated into upstream, so we file tickets upstream and provide our diff. When this works, this allows us to go back to the pristine upstream release at some point in the future. Those patch sets are maintained in our git repositories as a parallel branch.</p>
+</div>
+<div class="paragraph">
+<p>In some cases, the supposed "temporary" patch sets became more permanent for various reasons beyond our control, such as the ceased development in the upstream, but that&#8217;s only because that&#8217;s how it turned out, not because we intended it at the outset. With the distributed version control system, maintaining parallel patch release for Jenkins isn&#8217;t as hard as it used to be.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-to-join-the-project"><a class="anchor" href="#how-to-join-the-project"></a>How to join the project</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="bringing-in-new-pluginstoolslibraries"><a class="anchor" href="#bringing-in-new-pluginstoolslibraries"></a>Bringing in new plugins/tools/libraries</h3>
+<div class="paragraph">
+<p>If you develop a plugin, we encourage you to co-host that with the Jenkins project so that other people in the community can participate. See <a href="https://wiki.jenkins.io/display/JENKINS/Hosting+Plugins">Hosting Plugins</a> for more details.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-changes-to-existing-plugins"><a class="anchor" href="#making-changes-to-existing-plugins"></a>Making changes to existing plugins</h3>
+<div class="paragraph">
+<p>If you are interested in just making a small number of changes without an intent to stay. It’s the easiest to send in pull requests through GitHub. See <a href="#pull-request">using pull requests</a> for more details. If your pull requests are not getting timely attention, please ping us via the developers' mailing list, so that we can resolve that.</p>
+</div>
+<div class="paragraph">
+<p>If you’d like to be involved more seriously, in addition to the pull request, we encourage you to consider becoming a committer. Drop us a note in the IRC channel or the dev list, and we’ll set you up with commit access. Try to be courteous to existing developers by sending them heads-up and coordinating with them, but if they aren’t responding, don’t let that block your progress. The seniority of the developers are earned through on-going participation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="helping-and-taking-over-dormant-plugins"><a class="anchor" href="#helping-and-taking-over-dormant-plugins"></a>Helping and taking over dormant plugins</h3>
+<div class="paragraph">
+<p>It is often the case that the original developer moves onto other things once the plugin becomes good enough for them (or if the original author changes the job and no longer has incentive to work on the technology.) So we encourage new developers or developers of different plugin to pitch in on other plugins’ pending pull requests or work on issues filed against them.</p>
+</div>
+<div class="paragraph">
+<p>To that end, we also encourage people to pick up dormant plugins and consider them theirs. To do this, drop us a note at the dev list, and try to contact the previous maintainer to find out if they are still interested in driving the plugin. Trying insistently to contact the latest apparently inactive maintainer(s) before taking over is is an important practice to us. The practice is generally to add them in CC on your maintainership requests to the dev ML.</p>
+</div>
+<div class="paragraph">
+<p>Many less active plugins do not really have any obvious owner, and they are collaboratively maintained by people making small changes and releasing them whenever the need arises. If in doubt, ask on the dev list.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="making-changes-to-core"><a class="anchor" href="#making-changes-to-core"></a>Making changes to core</h3>
+<div class="paragraph">
+<p>If you are interested in just making small changes without an intent to stay, the same process applies as plugins, described above. However, because core changes affect larger number of people, we’d be grateful if you’d try to go extra distance on the notes described in <a href="#pull-request">using pull requests</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you’d like to be involved more seriously, consider getting commit access. See the section about becoming a plugin developer for how to get this. In addition, we need to ask you to <a href="#cla">sign the contributor license agreement</a> (CLA).</p>
+</div>
+<div class="paragraph">
+<p>When making changes, use your common sense. For example, if you are thinking about making a big change, it is recommended that you discuss your changes with the developers upfront. Or if you see that the part you’d like to work on has been actively modified by others, give them a heads-up.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contributing-localizations"><a class="anchor" href="#contributing-localizations"></a>Contributing localizations</h3>
+<div class="paragraph">
+<p>We are always looking for people who can help localize Jenkins to different languages. If you are interested in helping, drop us a note in the dev list to get commit access, and see <a href="https://wiki.jenkins.io/display/JENKINS/Internationalization">Internationalization</a> for the details of how to make changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="pull-request"><a class="anchor" href="#pull-request"></a>Using pull requests</h3>
+<div class="paragraph">
+<p>As discussed above, Jenkins project uses pull requests as one of the main workflow to get the changes in. When you prepare your pull request, consider the following checklist as the best practice.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>See <a href="https://help.github.com/articles/creating-a-pull-request/">the github online help</a> for how to create a pull request</p>
+</li>
+<li>
+<p>We encourage you to file a ticket in <a href="https://issues.jenkins-ci.org/">the issue tracker</a> to describe the bug that you are fixing or the feature you are implementing. This creates a permanent record on our system that allows future developers to understand how the code came into the current shape. This is not a requirement (especially for small changes), but we appreciate if you do that.</p>
+</li>
+<li>
+<p>Refer to the ticket in your commit message by using the notation <code>[JENKINS-1234]</code> where <em>JENKINS-1234</em> is the ticket ID. This allows our scripts to understand the history and generate changelogs without human help. If you use the notation <code>[FIX JENKINS-1234]</code>, our bot will close the ticket automatically when the change is merged into the repository, and when the change is tested in our CI server. These notations create useful cross-references across systems, and are therefore highly recommended.</p>
+</li>
+<li>
+<p>We encourage you to have a test case for the code you added to avoid future regressions. See <a href="https://wiki.jenkins.io/display/JENKINS/Unit+Test">Unit Test</a> for more details about how to write tests.</p>
+</li>
+<li>
+<p>Try to describe your changes so that other people understand what you did.</p>
+</li>
+<li>
+<p>Make sure you didn’t modify portions that aren’t related to your changes (most often caused by IDE auto-fixing import statements and other code formats.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We do try to be attentive to inbound pull requests, but as you can see <a href="https://wiki.jenkins.io/display/JENKINS/Pending+Pull+Requests">here</a>, unfortunately we can fail to resolve some of them in a timely fashion. If you notice that your pull requests aren’t getting attended to within a week or two, please drop us a note at the dev list, and please consider becoming a committer and push the changes directly. See <a href="https://wiki.jenkins.io/display/JENKINS/Pull+Request+to+Repositories">Pull Request to Repositories</a> for more.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="this-document"><a class="anchor" href="#this-document"></a>This document</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document is owned by the community and substantial changes are approved via the project meeting. Send your questions to the dev list, or add an item to the <a href="https://wiki.jenkins.io/display/JENKINS/Governance+Meeting+Agenda">next meeting&#8217;s agenda</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//project/governance.adoc" title="Edit /project/governance.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//project/governance.adoc" title="View /project/governance.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

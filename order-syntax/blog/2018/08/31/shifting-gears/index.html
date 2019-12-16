@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Jenkins: Shifting Gears
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Jenkins: Shifting Gears" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Jenkins: Shifting Gears" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Jenkins: Shifting Gears" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/blog/2018/08/31/shifting-gears/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Jenkins: Shifting Gears" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('#content h' + i);
+    }
+  })
+</script>
+<div class="container blog-post">
+<div class="row body">
+<div class="col-md-11 col-md-offset-1 main-content" id="content">
+<div id="content-top">
+<h1>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/blog/2018/08/31/shifting-gears/" title="Jenkins: Shifting Gears">
+Jenkins: Shifting Gears
+</a>
+</h1>
+<div style="float: right; clear: all;">
+<a class="twitter-share-button" data-lang="en" href="https://twitter.com/share">
+Tweet
+</a>
+</div>
+<div class="post-attrs">
+<span class="submitted">
+Published on
+2018-08-31
+by
+<a href="/blog/authors/kohsuke">Kohsuke Kawaguchi</a>
+</span>
+<ul class="list-inline tags">
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/development">
+development
+</a>
+</li>
+<li>
+<a class="tag-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node/tags/core">
+core
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="paragraph">
+<p>Kohsuke here. This is a message for my fellow Jenkins developers.</p>
+</div>
+<div class="paragraph">
+<p>Jenkins has been on an amazing run, but I believe we are trapped in a local optimum, and losing appeal to people who fall outside of our traditional sweet spot.
+We need to take on new efforts to solve this. One is “cloud native Jenkins” that creates a flavor of Jenkins that runs well on Kubernetes.
+The other is “gear shift”, where we take an evolutionary line from the current Jenkins 2, but with breaking changes in order to gain higher development speed.</p>
+</div>
+<div class="paragraph">
+<p>I say it&#8217;s time we tackle these problems head on. I&#8217;ve been talking to various folks, and I think we need to take on two initiatives.
+One is what I call "Cloud Native Jenkins," and the other is to insert a jolt in Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>Some of you have already seen the presentation I posted on the Jenkins YouTube channel.  In this post, I&#8217;ll expand on that with some additional details.</p>
+</div>
+<div class="videoblock">
+<div class="title">Jenkins: Shifting Gears Presentation (<a href="https://drive.google.com/open?id=160LjRKw42XXuXT2n4j8BLCzsSL5z2m2_">Slides</a>)</div>
+<div class="content">
+<iframe width="640" height="360" src="https://www.youtube.com/embed/CgasN3icZp0?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Come hear more in Kohsuke&#8217;s keynote at
+<a href="https://www.cloudbees.com/devops-world">Jenkins World</a> on September 16-19th,
+register with the code <code>JWFOSS</code> for a 30% discount off your pass.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="our-amazing-success"><a class="anchor" href="#our-amazing-success"></a>Our Amazing Success</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Our project has been an amazing success over the past 10+ years, thanks to you all. What started as my hobby project became a huge community that boasts thousands of contributors and millions of users.
+When I think about what enabled this amazing journey, I can think of several magic sauces:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Extensible:</strong>
+the ability to take the system, or a portion of the system, then build on top of it to achieve what you need, without anyone else’s permission.
+Here, I’m not talking about the specific technical mechanism of Guice, extension point, etc, but rather I’m talking more broadly about the governance, culture, distribution mechanism, and so on.</p>
+</li>
+<li>
+<p><strong>General purpose:</strong>
+At the base level, Jenkins can be used for any kind of automation around the area of software development.
+This matched the reality of the software engineering world well.
+Combined with extensibility, this general purpose system that is Jenkins can specialize into any domain, much like Linux and JetBrains IDEs.</p>
+</li>
+<li>
+<p><strong>Community:</strong>
+Together we created a community where different people push envelopes in different directions and share the fruits with others.
+This meant everyone can benefit from somebody else’s work, and great ideas and best practices spread more quickly.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock right">
+<div class="content">
+<a class="image" href="https://www.cloudbees.com/devops-world"><img src="/images/conferences/devops-world-2018.jpg" alt="DevOps World | Jenkins World 2018"></a>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="our-challenges"><a class="anchor" href="#our-challenges"></a>Our Challenges</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The way we set up our community meant that collectively we were able to work toward solving certain kinds of problems locally and organically, such as Android application development, new UX, more expressive pipeline description language, &#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>But at the same time, the incremental, autonomous nature of our community made us demonstrably unable to solve certain kinds of problems.
+And after 10+ years, these unsolved problems are getting more pronounced, and they are taking a toll — segments of users correctly feel that the community doesn’t get them, because we have shown an inability to address some of their greatest difficulties in using Jenkins.
+And I know some of those problems, such as service instability, matter to all of us.</p>
+</div>
+<div class="paragraph">
+<p>In a way, we are stuck in a local optimum, and that is a dangerous place to be when there is growing competition from all sides.
+So we must solve these problems to ensure our continued relevance and popularity in the space.</p>
+</div>
+<div class="paragraph">
+<p>Solving those problems starts with correctly understanding them, so let’s look at those.</p>
+</div>
+<div class="sect2">
+<h3 id="service-instability"><a class="anchor" href="#service-instability"></a>Service Instability</h3>
+<div class="paragraph">
+<p>CI/CD service was once a novelty and a nice-to-have.
+Today, it is very much a mission critical service, in no small part because of us!
+Increasingly, people are running bigger and bigger workloads, loading up more and more plugins, and expect higher and higher availability.</p>
+</div>
+<div class="paragraph">
+<p>Admins today are unable to meet that heightened expectation using Jenkins easily enough.
+A Jenkins instance, especially a large one, requires too much overhead just to keep it running.
+It’s not unheard of that somebody restarts Jenkins every day.</p>
+</div>
+<div class="paragraph">
+<p>Admins expect errors to be contained and not impact the entire service.
+They expect Jenkins to defend itself better from issues such as pipeline execution problems, run-away processes, over resource consumption so that they don’t have to constantly babysit the service.</p>
+</div>
+<div class="paragraph">
+<p>Every restart implies degraded service for the software delivery teams where they have to wait longer for their builds to start or complete.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="brittle-configuration"><a class="anchor" href="#brittle-configuration"></a>Brittle Configuration</h3>
+<div class="paragraph">
+<p>Every Jenkins admin must have been burnt at least once in the past by making changes that have caused unintended side effects.
+By “changes,” I’m talking about installing/upgrading plugins, tweaking job settings, etc.</p>
+</div>
+<div class="paragraph">
+<p>As a result, too many admins today aren’t confident that they can make changes safely.
+They fear that their changes might cause issues for their software delivery teams, that those teams will notice regressions before they do, and that they may not be able to back out somes changes easily.
+It feels like touching a Jenga tower for them, even when a change is small.</p>
+</div>
+<div class="paragraph">
+<p>Upgrading Jenkins and plugins is an important sub case of this, where admins often do not have understanding of the impact.
+This decreases the willingness to upgrade, which in turn makes it difficult for the project to move forward more rapidly, and instead we get trapped with the long tail of compatibility burden.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="assembly-required"><a class="anchor" href="#assembly-required"></a>Assembly Required</h3>
+<div class="paragraph">
+<p>I’ve often described Jenkins as a bucket full of LEGO blocks — you can build any car you want, but everyone first has to assemble their own car in order to drive one.</p>
+</div>
+<div class="paragraph">
+<p>As CI/CD has gone mainstream, this is no longer OK.
+People want something that works out of the box, something that gets people to productivity within 5 clicks in 5 minutes.
+Too many choices are confusing users, and we are not helping them toward “the lit path.”
+Everyone feels uncertain if they are doing the right thing, contributors are spread thin, and the whole thing feels a bit like a Frankenstein.</p>
+</div>
+<div class="paragraph">
+<p>This is yet another problem we can’t solve by “writing more plugins.”</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reduced-development-velocity"><a class="anchor" href="#reduced-development-velocity"></a>Reduced Development Velocity</h3>
+<div class="paragraph">
+<p>This one is a little different from others that our users face, but nonetheless a very important one, because it impacts our ability to expand and sustain the developer community, and influences how fast we can solve challenges that our users face.</p>
+</div>
+<div class="paragraph">
+<p>Some of these problems are not structural and rather just a matter of doing it (for example, Java 11 upgrade), but there are some problems here that are structural.</p>
+</div>
+<div class="paragraph">
+<p>I think the following ones are the key ones:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As a contributor, a change that spans across multiple plugins is difficult.
+Tooling gets in the way, users might not always upgrade a group of changes together, reviewing changes is hard.</p>
+</li>
+<li>
+<p>As a contributor, the tests that we have do not give me enough confidence to ship code.
+Not enough of them run automatically, coverage is shallow, and there just isn’t anything like production workload of real users/customers.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These core problems create other downstream problems, for example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As a non-regular contributor, what I think of as a small and reasonable change takes forever and a 100 comments going back &amp; forth to get in. I get discouraged from ever doing it again.</p>
+</li>
+<li>
+<p>As a regular contributor, I feel people are throwing crap over the wall, and if they cause problems after a release, I’m on the hook to clean up that mess.</p>
+</li>
+<li>
+<p>As a user, I get a half-baked change that wreaks havoc, which results in loss of their confidence to Jenkins, an even slower pace of change, etc. This is a vicious cycle as it makes us even more conservative, and slow down the development velocity.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="path-forward"><a class="anchor" href="#path-forward"></a>Path Forward</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the past, my frustration and regret is that we couldn’t take on an effort of this magnitude.
+But that is NO MORE!
+As CTO of CloudBees, I’m excited that these challenges are important enough for CloudBees now that we want to solve these efforts within the Jenkins project.</p>
+</div>
+<div class="paragraph">
+<p>I’ve been talking to many of you, and there are a number of existing efforts going on that touch this space already.
+From there, the vision emerged is that we organize around two key efforts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Native Jenkins: a general purpose CI/CD engine that runs on Kubernetes, and embraces a fundamentally different architecture and extensibility mechanism.</p>
+</li>
+<li>
+<p>Jolt in Jenkins: continue the incremental trajectory of Jenkins 2 today, but with renegotiated “contract” with users to gain what we really need, such as faster pace of development and better stability.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="cloud-native-jenkins"><a class="anchor" href="#cloud-native-jenkins"></a>Cloud Native Jenkins</h3>
+<div class="paragraph">
+<p>In order to solve these problems that we can’t solve incrementally,
+I’m proposing the “Cloud Native Jenkins” sub-project in the context of the
+<a href="https://jenkins.io/sigs/cloud-native/">Cloud Native SIG</a>
+with Carlos, who is the leader of this SIG.</p>
+</div>
+<div class="paragraph">
+<p>We don’t have all the answers, that’s something we’ll discuss and figure out collectively, but based on numerous conversations with various folks, I think there are many clear pieces of puzzles.</p>
+</div>
+<div class="sect3">
+<h4 id="kubernetes-as-the-runtime"><a class="anchor" href="#kubernetes-as-the-runtime"></a>Kubernetes as the Runtime</h4>
+<div class="paragraph">
+<p>Just like Java was the winning server application platform in the early 2000s, today, Kubernetes is the dominant, winning platform.
+Cloud Native Jenkins should embrace the paradigm this new platform encourages. For example,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Serverless / function-as-a-service build execution (ala
+<a href="https://groups.google.com/forum/#!topic/jenkinsci-dev/gjz3CDhi-kk">Jenkinsfile runner</a>)
+that are isolated.</p>
+</li>
+<li>
+<p>Various pieces of functionalities deployed as separate microservices.</p>
+</li>
+<li>
+<p>Services interacting through
+<a href="https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/">Kubernetes CRDs</a>
+in order to promote better reuse and composability.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These are the design principles that enable highly desirable properties like infinite scalability, pay-as-you-go cost model, immutability, zero down time operability, etc.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="new-extensibility-mechanism"><a class="anchor" href="#new-extensibility-mechanism"></a>New Extensibility Mechanism</h4>
+<div class="paragraph">
+<p>We need to introduce a new mechanism of extensibility in order to retain the magic sauces, and continue our incredible ecosystem.</p>
+</div>
+<div class="paragraph">
+<p>For example, microservice or container-based extensibility avoids the service instability problem (ala
+<a href="https://github.com/knative/docs/blob/master/docs/build/builder-contract.md">Knative builder</a>
+and the
+<a href="https://github.com/jglick/jk--">userspace-scm</a> work.)
+Pipeline shared libraries is another example that concretely shows how extensibility mechanism can go beyond plugin, though it hasn’t fully flourished as one just yet.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="data-on-cloud-managed-data-services"><a class="anchor" href="#data-on-cloud-managed-data-services"></a>Data on Cloud Managed Data Services</h4>
+<div class="paragraph">
+<p>The long-term data storage must be moved from the file system to data services backed by cloud managed services, in order to achieve high availability and horizontal scalability, without burdening admins with additional operational responsibilities.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="configuration-as-code"><a class="anchor" href="#configuration-as-code"></a>Configuration as Code</h4>
+<div class="paragraph">
+<p><a href="https://jenkins.io/projects/jcasc/">Jenkins Configuration as Code</a>
+has been incredibly well received, in part because it helps to solve some of the brittle configuration problems.
+In Cloud Native Jenkins, JCasC must play a more central role, which in turn also helps us reduce the surface area for Blue Ocean to cover by eliminating many configuration screens.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="evergreen"><a class="anchor" href="#evergreen"></a>Evergreen</h4>
+<div class="paragraph">
+<p><a href="https://github.com/jenkinsci/jep/blob/master/jep/300/README.adoc">Jenkins Evergreen</a>
+is another well received effort that’s already underway, which aims to solve the brittleness problem and developer velocity problem. This is a key piece of the puzzle that allows us to move faster without throwing users under the bus.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="secure-by-default-design"><a class="anchor" href="#secure-by-default-design"></a>Secure by Default Design</h4>
+<div class="paragraph">
+<p>Over the past years, we’ve learned that several different areas of Jenkins codebase, such as Remoting, are inherently prone to security vulnerabilities because of their design. Cloud Native Jenkins must address those problems by flipping those to “secure by design.”</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="following-footsteps-of-jenkins-x"><a class="anchor" href="#following-footsteps-of-jenkins-x"></a>Following Footsteps of Jenkins X</h4>
+<div class="paragraph">
+<p><a href="https://jenkins-x.io">Jenkins X</a>
+has been pioneering the use of Jenkins on Kubernetes for a while now, and it has been very well received, too.
+So naturally, part of the aim of Cloud Native Jenkins is to grow and morph Jenkins into a shape that really works well for Jenkins X.
+Cloud Native Jenkins will be the general purpose CI/CD engine that runs on Kubernetes, which Jenkins X uses to create an opinionated CD experience for developing cloud native apps.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="all-the-same-good-things-with-new-foundation"><a class="anchor" href="#all-the-same-good-things-with-new-foundation"></a>All The Same Good Things, with New Foundation</h4>
+<div class="paragraph">
+<p>And then on top of these foundations, we need to rebuild or transplant all the good things that people love about Jenkins today, and all the good things people expect, such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Great “batteries included” onboarding experience</strong>  for new users, where we are present in all the marketplaces, 5 clicks to get going and easy integration with key services.</p>
+</li>
+<li>
+<p><strong>Modern lovable UX</strong> in the direction of front-end web apps that Blue Ocean pioneered.</p>
+</li>
+<li>
+<p><strong>General purpose software</strong> that is useful for all sorts of software development.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="cloud-native-jenkins-mvp"><a class="anchor" href="#cloud-native-jenkins-mvp"></a>Cloud Native Jenkins MVP</h4>
+<div class="paragraph">
+<p>As I wrote, a number of good efforts are already ongoing today. Thus in order to get this effort off the ground, I believe the first MVP that we aim toward is pretty clear, which is to build a function-as-a-service style Jenkins build engine  that can be used underneath Jenkins X.</p>
+</div>
+<div class="paragraph">
+<p>Cloud Native Jenkins MVP combines the spirits of Jenkins Pipeline, Jenkins Evergreen, Jenkinsfile Runner, and Jenkins Configuration as Code.
+It consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Webhook receiver:</strong>
+a service that receives webhooks from GitHub and triggers a build engine.</p>
+</li>
+<li>
+<p><strong>Build Engine:</strong>
+take Jenkinsfile Runner and evolve it so that it can run as a “function” that carries out a pipeline execution, with some CasC sprinkled together in order to control Jenkins configuration and plugins  used.
+This way, Jenkinsfile works as-is for the most part.</p>
+</li>
+<li>
+<p><strong>Continuously delivered through Evergreen:</strong>
+It allows us to solve the combinatorial version explosion problem, allow us to develop changes that span multiple plugins faster, and develop changes more confidently.
+Of all the projects out there, ours should be the community that believes in the value of Continuous Delivery and Evergreen is how we bring continuous delivery to the development of Cloud Native Jenkins itself.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This solves some of the key challenges listed above that are really hard to achieve today, so it’s already incredibly useful.</p>
+</div>
+<div class="paragraph">
+<p>The catch is that this MVP has no GUI. There’s no Blue Ocean UI to look at. No parsing of test reports, no build history. It uses no persistent volumes, it keeps no record of builds. The only thing permanent at the end of a build is whatever data is pushed out from Jenkins Pipeline, such as images pushed to a Docker registry, email notifications, and GitHub commit status updates.  Load of other features in Jenkins will not be available here.</p>
+</div>
+<div class="paragraph">
+<p>This is not that far from how some sophisticated users are deploying Jenkins today. All in all, I think this is the right trade off for the first MVP. As you can see, we have most of the pieces already.</p>
+</div>
+<div class="paragraph">
+<p>From here, the build engine will get continuously more polished and more cloud native, other services will get added to regain features that were  lost, new extensibility will get introduced to reduce the role of current in-VM plugins, and so on.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jolt-in-jenkins"><a class="anchor" href="#jolt-in-jenkins"></a>Jolt in Jenkins</h3>
+<div class="paragraph">
+<p>Cloud Native Jenkins is a major effort and in particular initially it’s not usable for everyone; it only targets a subset of Jenkins functionalities, and it requires a platform whose adoption is still limited today.
+So in parallel, we need to continue the incremental evolution of Jenkins 2, but in an accelerated speed. Said differently, we need to continue to serve the majority of production workload on Jenkins 2 today, but we are willing to break some stuff to gain what we really need, such as faster pace of development and better stability, in ways that were previously not possible. This requires us injecting a jolt in Jenkins.</p>
+</div>
+<div class="sect3">
+<h4 id="release-model-change"><a class="anchor" href="#release-model-change"></a>Release Model Change</h4>
+<div class="paragraph">
+<p>The kind of jolts that we need will almost certainly means we need to renegotiate the expectation around new releases with our users.
+My inspiration source is what happened to the development of Java SE. It changed the release model and started moving faster, by shedding off more pieces faster, in ways that they haven’t done before.
+Again, Jenkins Evergreen is the key piece that achieves this without throwing users under a bus, for the reasons I described in the Cloud Native MVP above.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="compatibility"><a class="anchor" href="#compatibility"></a>Compatibility</h4>
+<div class="paragraph">
+<p>This jolt is aimed to put us on a different footing, one where our current “forever compatibility” expectation does not hold. If that requires us to use a new major version number, such as Jenkins 3, or new major version number every N months, I’m open to that.</p>
+</div>
+<div class="paragraph">
+<p>Of course, whatever move we do has to make sense to users. The accelerated pace of value delivery needs to justify any inconvenience we put on users, such as migration, breaking changes, and so on.</p>
+</div>
+<div class="paragraph">
+<p>In practice, what that means is that we need to be largely compatible. We have to protect users’ investment into their existing job definitions as much as possible. We continue to run freestyle jobs, etc&#8230;&#8203;</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ingredients"><a class="anchor" href="#ingredients"></a>Ingredients</h4>
+<div class="paragraph">
+<p>Other proposals CloudBees is putting forward with the intent to staff the effort are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Configuration as Code:</strong> accelerate that and make it a more central  part of Jenkins.</p>
+</li>
+<li>
+<p><strong>Developer experience improvements</strong> through buildpack style auto-detection of project types.</p>
+</li>
+<li>
+<p><strong>Continued evolution of Jenkins Pipeline</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>There’s an effort going on to remove CPS execution of Pipeline and isolate any failures during pipeline execution.</p>
+</li>
+<li>
+<p>Continue to evolve Jenkins Pipeline toward the sweet spot that works well with the Cloud Native Jenkins effort.</p>
+</li>
+<li>
+<p>Continued tactical bug-by-bug improvements of Pipeline.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Evergreen:</strong> I already talked about this above.</p>
+</li>
+<li>
+<p><strong>Plugin spring cleaning:</strong> let’s actively guide users more toward the sweet spot of Jenkins and reduce our feature surface area, so that we can focus our contributors’ effort to important parts of Jenkins. I expect this to be a combination of governance and technical efforts.</p>
+</li>
+<li>
+<p><strong>Table stakes service integration:</strong> let’s look at what kind of tablestake tool/service integrations today’s user need, and
+<a href="https://www.dropbox.com/s/uvrx79d4wqbbv9i/JW%20contributor%20summit%20vision%20pitch.pptx?dl=0">see if we are meeting/exceeding the competition</a>.
+Where we fall short, let’s add/reimplement what are needed.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ui-effort"><a class="anchor" href="#ui-effort"></a>UI Effort</h4>
+<div class="paragraph">
+<p>The Web UI will be likely done differently in Cloud Native Jenkins, as its own app and not a plugin in Jenkins. JCasC will also play a bigger role in Cloud Native Jenkins, reducing UI surface area from Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>Given that, CloudBees will reconsider where to spend its effort in Blue Ocean. The current work where parts of Blue Ocean are made reusable as NPM modules is one example that aligns well with this new vision.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="conclusion"><a class="anchor" href="#conclusion"></a>Conclusion</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document lays out the key directions and approaches in a broad stroke, which I discussed with a number of you in the past. Hopefully, this gives you the big picture of how I envision where to move Jenkins forward, not just as the creator of Jenkins but as the CTO of CloudBees, who employs a number of key contributors to the Jenkins project.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Come meet Kohsuke and chat with him about the direction of Jenkins at
+<a href="https://www.cloudbees.com/devops-world">Jenkins World</a> on September 16-19th,
+register with the code <code>JWFOSS</code> for a 30% discount off your pass.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<b class="author about-header">
+About the Author
+</b>
+<!-- starting partial author.html.haml -->
+<div id="about-the-author">
+<table class="author box">
+<tr>
+<td>
+<!-- starting partial avatar.html.haml -->
+<img alt="Kohsuke Kawaguchi" class="author logo" src="https://zbynek.github.io/jenkins.io/order-syntax/images/avatars/kohsuke.jpeg" width="128px">
+
+<!-- ending partial avatar.html.haml -->
+</td>
+<td>
+<b class="author name">
+<a href="/blog/authors/kohsuke">
+Kohsuke Kawaguchi
+</a>
+</b>
+<p>
+<div class="paragraph">
+<p>Kohsuke is the creator of Jenkins.</p>
+</div>
+</p>
+<!-- starting partial social-media-buttons.html.haml -->
+<ul class="author social-media-buttons">
+<li class="author">
+<a href="https://github.com/kohsuke" target="_blank">
+GitHub
+</a>
+</li>
+<li class="author">
+<a href="https://twitter.com/kohsukekawa" target="_blank">
+Twitter
+</a>
+</li>
+</ul>
+
+<!-- ending partial social-media-buttons.html.haml -->
+</td>
+</tr>
+</table>
+</div>
+
+<!-- ending partial author.html.haml -->
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//blog/2018/08/2018-08-31-shifting-gears.adoc" title="Edit /blog/2018/08/2018-08-31-shifting-gears.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//blog/2018/08/2018-08-31-shifting-gears.adoc" title="View /blog/2018/08/2018-08-31-shifting-gears.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

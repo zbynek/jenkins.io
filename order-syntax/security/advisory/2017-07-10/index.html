@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Jenkins Security Advisory 2017-07-10
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Jenkins Security Advisory 2017-07-10" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Jenkins Security Advisory 2017-07-10" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Jenkins Security Advisory 2017-07-10" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-07-10/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Jenkins Security Advisory 2017-07-10" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<h1>
+Jenkins Security Advisory 2017-07-10
+</h1>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This advisory originally recommended upgrading Poll SCM plugin to version 1.4. This was incorrect. Version 1.3.1 contains the fix.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>This advisory announces vulnerabilities in these Jenkins plugins:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://plugins.jenkins.io/docker-commons">Docker Commons Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/git">Git Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/github-branch-source">GitHub Branch Source Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/parameterized-trigger">Parameterized Trigger Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/periodicbackup">Periodic Backup Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/pipeline-build-step">Pipeline: Build Step Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/workflow-cps">Pipeline: Groovy Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/pollscm">Poll SCM Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/role-strategy">Role-based Authorization Strategy Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/script-security">Script Security Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/sidebar-link">Sidebar Link Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/ssh">SSH Plugin</a></p>
+</li>
+<li>
+<p><a href="https://plugins.jenkins.io/subversion">Subversion Plugin</a></p>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="description"><a class="anchor" href="#description"></a>Description</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="parameterized-trigger-plugin-fails-to-check-itembuild-permission"><a class="anchor" href="#parameterized-trigger-plugin-fails-to-check-itembuild-permission"></a>Parameterized Trigger Plugin fails to check Item/Build permission</h3>
+<div class="paragraph">
+<p><strong>SECURITY-201 / CVE-2017-1000084</strong></p>
+</div>
+<div class="paragraph">
+<p>Builds in Jenkins are associated with an authentication that controls the permissions that the build has to interact with other elements in Jenkins.
+By default, builds run as SYSTEM and are unconstrained unless plugins implement specific additional permission checks.</p>
+</div>
+<div class="paragraph">
+<p>Plugins like <a href="https://plugins.jenkins.io/authorize-project">Authorize Project Plugin</a> allow changing the authentication associated with a build.</p>
+</div>
+<div class="paragraph">
+<p>The Parameterized Trigger Plugin did not check the build authentication it was running as and allowed triggering any other project in Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>The plugin has been adapted to now check for Item/Build permission before triggering a downstream build.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csrf-vulnerability-and-insufficient-permission-checks-allow-capturing-credentials-in-subversion-plugin"><a class="anchor" href="#csrf-vulnerability-and-insufficient-permission-checks-allow-capturing-credentials-in-subversion-plugin"></a>CSRF vulnerability and insufficient permission checks allow capturing credentials in Subversion Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-303 / CVE-2017-1000085</strong></p>
+</div>
+<div class="paragraph">
+<p>Subversion Plugin connects to a user-specified Subversion repository as part of form validation (e.g. to retrieve a list of tags).</p>
+</div>
+<div class="paragraph">
+<p>This functionality improperly checked permissions, allowing any user with Item/Build permission (but not Item/Configure) to connect to any web server or Subversion server and send credentials with a known ID, thereby possibly capturing them.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, this functionality did not require POST requests be used, thereby allowing the above to be performed without direct access to Jenkins via Cross-Site Request Forgery attacks.</p>
+</div>
+<div class="paragraph">
+<p>This functionality now properly checks permissions and is only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="missing-permission-checks-in-periodic-backup-plugin-allow-every-user-to-change-settings"><a class="anchor" href="#missing-permission-checks-in-periodic-backup-plugin-allow-every-user-to-change-settings"></a>Missing permission checks in Periodic Backup Plugin allow every user to change settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-335 / CVE-2017-1000086</strong></p>
+</div>
+<div class="paragraph">
+<p>The Periodic Backup Plugin did not perform any permission checks, allowing any user with Overall/Read access to change its settings, trigger backups, restore backups, and also delete all previous backups via log rotation.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the plugin was not requiring requests to its API be sent via POST, thereby opening itself to Cross-Site Request Forgery attacks.</p>
+</div>
+<div class="paragraph">
+<p>The plugin configuration now properly checks permissions and is only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="unprivileged-users-with-overallread-access-are-able-to-enumerate-credential-ids-in-github-branch-source-plugin"><a class="anchor" href="#unprivileged-users-with-overallread-access-are-able-to-enumerate-credential-ids-in-github-branch-source-plugin"></a>Unprivileged users with Overall/Read access are able to enumerate credential IDs in GitHub Branch Source Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-342 / CVE-2017-1000087</strong></p>
+</div>
+<div class="paragraph">
+<p>GitHub Branch Source provides a list of applicable credential IDs to allow users configuring a job to select the one they&#8217;d like to use.</p>
+</div>
+<div class="paragraph">
+<p>This functionality did not check permissions, allowing any user with Overall/Read permission to get a list of valid credentials IDs.
+Those could be used as part of an attack to capture the credentials using another vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>An enumeration of credentials IDs in this plugin now requires the permission to have Extended Read permission (when that permission is enabled; otherwise Configure permission) to the job in whose context credentials are being accessed.
+If no job context exists, Overall/Administer permission is required.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="persisted-xss-vulnerability-in-sidebar-link-plugin"><a class="anchor" href="#persisted-xss-vulnerability-in-sidebar-link-plugin"></a>Persisted XSS Vulnerability in Sidebar Link Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-352 / CVE-2017-1000088</strong></p>
+</div>
+<div class="paragraph">
+<p>The Sidebar Link plugin allows users able to configure jobs, views, and agents to add entries to the sidebar of these objects.</p>
+</div>
+<div class="paragraph">
+<p>There was no input validation, which meant users were able to use <code>javascript:</code> schemes for these links, a persisted XSS vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>Now, only a set of whitelisted schemes are allowed by default: <code>http</code>, <code>https</code>, <code>ftp</code>, <code>ftps</code>, <code>mailto</code>, <code>news</code>, <code>irc, gopher</code>, <code>nntp</code>, <code>feed</code>, <code>telnet</code>, <code>mms</code>, <code>rtsp</code>, <code>svn</code>, <code>tel</code>, <code>fax</code>, <code>xmpp</code>, as well as relative links.
+Sidebar entries configured with prohibited schemes instead redirect to an error page in Jenkins explaining that it&#8217;s prohibited.</p>
+</div>
+<div class="paragraph">
+<p>To add or remove from this list of schemes, provide the Java system property <code>hudson.plugins.sidebar_link.LinkProtection.whitelistedSchemes</code> with the complete comma-separated list of schemes to allow.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pipeline-build-step-plugin-fails-to-check-itembuild-permission"><a class="anchor" href="#pipeline-build-step-plugin-fails-to-check-itembuild-permission"></a>Pipeline: Build Step Plugin fails to check Item/Build permission</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-433 / CVE-2017-1000089</strong></p>
+</div>
+<div class="paragraph">
+<p>Builds in Jenkins are associated with an authentication that controls the permissions that the build has to interact with other elements in Jenkins.
+By default, builds run as SYSTEM and are unconstrained unless plugins implement specific additional permission checks.</p>
+</div>
+<div class="paragraph">
+<p>Plugins like <a href="https://plugins.jenkins.io/authorize-project">Authorize Project Plugin</a> allow changing the authentication associated with a build.</p>
+</div>
+<div class="paragraph">
+<p>The Pipeline: Build Step Plugin did not check the build authentication it was running as and allowed triggering any other project in Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>The plugin has been adapted to now check for Item/Build permission before triggering a downstream build.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csrf-vulnerability-in-role-based-authorization-strategy-plugin-configuration"><a class="anchor" href="#csrf-vulnerability-in-role-based-authorization-strategy-plugin-configuration"></a>CSRF vulnerability in Role-based Authorization Strategy Plugin configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-516 / CVE-2017-1000090</strong></p>
+</div>
+<div class="paragraph">
+<p>Role-based Authorization Strategy Plugin was not requiring requests to its API be sent via POST, thereby opening itself to Cross-Site Request Forgery attacks. This allowed attackers to add administrator role to any user, or to remove the authorization configuration, preventing legitimate access to Jenkins.</p>
+</div>
+<div class="paragraph">
+<p>This functionality is now only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csrf-vulnerability-and-insufficient-permission-checks-allow-capturing-credentials-in-github-branch-source-plugin"><a class="anchor" href="#csrf-vulnerability-and-insufficient-permission-checks-allow-capturing-credentials-in-github-branch-source-plugin"></a>CSRF vulnerability and insufficient permission checks allow capturing credentials in GitHub Branch Source Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-527 / CVE-2017-1000091</strong></p>
+</div>
+<div class="paragraph">
+<p>GitHub Branch Source Plugin connects to a user-specified GitHub API URL (e.g. GitHub Enterprise) as part of form validation and completion (e.g. to verify Scan Credentials are correct).</p>
+</div>
+<div class="paragraph">
+<p>This functionality improperly checked permissions, allowing any user with Overall/Read access to Jenkins to connect to any web server and send credentials with a known ID, thereby possibly capturing them.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, this functionality did not require POST requests be used, thereby allowing the above to be performed without direct access to Jenkins via Cross-Site Request Forgery.</p>
+</div>
+<div class="paragraph">
+<p>This functionality now properly checks permissions and is only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csrf-vulnerability-in-git-plugin-allows-capturing-credentials"><a class="anchor" href="#csrf-vulnerability-in-git-plugin-allows-capturing-credentials"></a>CSRF vulnerability in Git plugin allows capturing credentials</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-528 / CVE-2017-1000092</strong></p>
+</div>
+<div class="paragraph">
+<p>Git Plugin connects to a user-specified Git repository as part of form validation.</p>
+</div>
+<div class="paragraph">
+<p>An attacker with no direct access to Jenkins but able to guess at a username/password credentials ID could trick a developer with job configuration permissions into following a link with a maliciously crafted Jenkins URL which would result in the Jenkins Git client sending the username and password to an attacker-controlled server.</p>
+</div>
+<div class="paragraph">
+<p>This functionality now is only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="csrf-vulnerability-in-poll-scm-plugin-allowed-unauthorized-polling"><a class="anchor" href="#csrf-vulnerability-in-poll-scm-plugin-allowed-unauthorized-polling"></a>CSRF vulnerability in Poll SCM Plugin allowed unauthorized polling</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-529 / CVE-2017-1000093</strong></p>
+</div>
+<div class="paragraph">
+<p>Poll SCM Plugin was not requiring requests to its API be sent via POST, thereby opening itself to Cross-Site Request Forgery attacks. This allowed attackers to initiate polling of projects with a known name.</p>
+</div>
+<div class="paragraph">
+<p>While Jenkins in general does not consider polling to be a protection-worthy action as it&#8217;s similar to cache invalidation, the plugin specifically adds a permission to be able to use this functionality, and this issue undermines that permission.</p>
+</div>
+<div class="paragraph">
+<p>This functionality now is only available via POST.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="unprivileged-users-with-overallread-access-are-able-to-enumerate-credential-ids-in-docker-commons-plugin"><a class="anchor" href="#unprivileged-users-with-overallread-access-are-able-to-enumerate-credential-ids-in-docker-commons-plugin"></a>Unprivileged users with Overall/Read access are able to enumerate credential IDs in Docker Commons Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-533 / CVE-2017-1000094</strong></p>
+</div>
+<div class="paragraph">
+<p>Docker Commons Plugin provides a list of applicable credential IDs to allow users configuring a job to select the one they&#8217;d like to use to authenticate with a Docker Registry.</p>
+</div>
+<div class="paragraph">
+<p>This functionality did not check permissions, allowing any user with Overall/Read permission to get a list of valid credentials IDs.
+Those could be used as part of an attack to capture the credentials using another vulnerability.</p>
+</div>
+<div class="paragraph">
+<p>An enumeration of credentials IDs in this plugin now requires the permission to have Extended Read permission (when that permission is enabled; otherwise Configure permission) to the job in whose context credentials are being accessed.
+If no job context exists, Overall/Administer permission is required.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="unsafe-methods-in-the-default-whitelist-in-script-security-plugin"><a class="anchor" href="#unsafe-methods-in-the-default-whitelist-in-script-security-plugin"></a>Unsafe methods in the default whitelist in Script Security Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-538 / CVE-2017-1000095</strong></p>
+</div>
+<div class="paragraph">
+<p>The default whitelist included the entries:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">DefaultGroovyMethods.putAt(Object, String, Object)
+DefaultGroovyMethods.getAt(Object, String)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These allowed circumventing many of the access restrictions implemented in the script sandbox by using e.g. <code>currentBuild['rawBuild']</code> rather than <code>currentBuild.rawBuild</code>.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, the following entries allowed accessing private data that would not be accessible otherwise due to script security:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre class="nowrap">groovy.json.JsonOutput.toJson(Closure)
+groovy.json.JsonOutput.toJson(Object)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These have now been removed from the whitelist and added to the blacklist.</p>
+</div>
+<div class="paragraph">
+<p>Scripts, such as Pipeline jobs, that integrate with Script Security and use these methods will now fail.
+Use of these methods will appear on the In-Process Script Approval page, and it warns administrators that they are unsafe to approve.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="arbitrary-code-execution-due-to-incomplete-sandbox-protection-in-pipeline-groovy-plugin"><a class="anchor" href="#arbitrary-code-execution-due-to-incomplete-sandbox-protection-in-pipeline-groovy-plugin"></a>Arbitrary code execution due to incomplete sandbox protection in Pipeline: Groovy Plugin</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>SECURITY-551 / CVE-2017-1000096</strong></p>
+</div>
+<div class="paragraph">
+<p>Pipelines are subject to <em>script security</em>: Either the entire Pipeline needs to be approved, or it runs in a sandbox, with only whitelisted methods etc. allowed to be called.</p>
+</div>
+<div class="paragraph">
+<p>Constructors, instance variable initializers, and instance initializers in Pipeline scripts were not subject to sandbox protection, and could therefore execute arbitrary code.</p>
+</div>
+<div class="paragraph">
+<p>This could be exploited e.g. by regular Jenkins users with the permission to configure Pipelines in Jenkins, or by trusted committers to repositories containing Jenkinsfiles.</p>
+</div>
+<div class="paragraph">
+<p>These language elements are now subject to sandbox protection.</p>
+</div>
+<div class="paragraph">
+<p>This change may cause existing scripts relying on the incomplete sandbox protection to start failing, and requiring additional script approval.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The fix for this introduced a regression that results in constructors and instance initializers of classes defined in pipeline scripts no longer being able to set <code>final</code> fields. Static initializers are no longer able to set <code>static final</code> fields. The workaround is to make fields non-final.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ssh-plugin-stored-credentials-in-plain-text-configuration-files"><a class="anchor" href="#ssh-plugin-stored-credentials-in-plain-text-configuration-files"></a>SSH Plugin stored credentials in plain text configuration files</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>JENKINS-21436 / CVE-2017-1000245</strong></p>
+</div>
+<div class="paragraph">
+<p>The SSH Plugin stores credentials which allow jobs to access remote servers via the SSH protocol.
+User passwords and passphrases for encrypted SSH keys are stored in plaintext in a configuration file.</p>
+</div>
+<div class="paragraph">
+<p>SSH Plugin now integrates with the <a href="https://plugins.jenkins.io/credentials">Credentials Plugin</a> and existing credentials are migrated.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="severity"><a class="anchor" href="#severity"></a>Severity</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>SECURITY-201: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:L/A:N">medium</a></p>
+</li>
+<li>
+<p>SECURITY-303: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N">low</a></p>
+</li>
+<li>
+<p>SECURITY-335: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L">high</a></p>
+</li>
+<li>
+<p>SECURITY-342: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">medium</a></p>
+</li>
+<li>
+<p>SECURITY-352: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:R/S:C/C:L/I:L/A:N">medium</a></p>
+</li>
+<li>
+<p>SECURITY-433: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:N">low</a></p>
+</li>
+<li>
+<p>SECURITY-516: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:H/A:N">medium</a></p>
+</li>
+<li>
+<p>SECURITY-527: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:N">low</a></p>
+</li>
+<li>
+<p>SECURITY-528: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:N/A:N">low</a></p>
+</li>
+<li>
+<p>SECURITY-529: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:L/A:N">low</a></p>
+</li>
+<li>
+<p>SECURITY-533: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:N/A:N">medium</a></p>
+</li>
+<li>
+<p>SECURITY-538: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H">high</a></p>
+</li>
+<li>
+<p>SECURITY-551: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H">high</a></p>
+</li>
+<li>
+<p>JENKINS-21436: <a href="https://www.first.org/cvss/calculator/3.0#CVSS:3.0/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N">medium</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="affected-versions"><a class="anchor" href="#affected-versions"></a>Affected versions</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Docker Commons Plugin up to and including version 1.7</p>
+</li>
+<li>
+<p>Git Plugin up to and including version 3.3.1 and 2.4.0-beta-1</p>
+</li>
+<li>
+<p>GitHub Branch Source Plugin up to and including version 2.0.7 and 2.2.0-beta-1</p>
+</li>
+<li>
+<p>Parameterized Trigger Plugin up to and including version 2.34</p>
+</li>
+<li>
+<p>Periodic Backup Plugin up to and including version 1.4</p>
+</li>
+<li>
+<p>Pipeline: Build Step Plugin up to and including version 2.5</p>
+</li>
+<li>
+<p>Pipeline: Groovy Plugin up to and including version 2.36</p>
+</li>
+<li>
+<p>Poll SCM Plugin up to and including version 1.3</p>
+</li>
+<li>
+<p>Role-based Authorization Strategy Plugin up to and including version 2.5.0</p>
+</li>
+<li>
+<p>Script Security Plugin up to and including version 1.29</p>
+</li>
+<li>
+<p>Sidebar Link Plugin up to and including version 1.8</p>
+</li>
+<li>
+<p>SSH Plugin up to and including version 2.4</p>
+</li>
+<li>
+<p>Subversion Plugin up to and including version 2.8</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fix"><a class="anchor" href="#fix"></a>Fix</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Docker Commons Plugin should be updated to version 1.8</p>
+</li>
+<li>
+<p>Git Plugin should be updated to version 3.3.2 or 3.4.0-beta-2</p>
+</li>
+<li>
+<p>GitHub Branch Source Plugin should be updated to version 2.0.8 or 2.2.0-beta-2</p>
+</li>
+<li>
+<p>Parameterized Trigger Plugin should be updated to version 2.35</p>
+</li>
+<li>
+<p>Periodic Backup Plugin should be updated to version 1.5</p>
+</li>
+<li>
+<p>Pipeline: Build Step Plugin should be updated to version 2.5.1</p>
+</li>
+<li>
+<p>Pipeline: Groovy Plugin should be updated to version 2.36.1</p>
+</li>
+<li>
+<p>Poll SCM Plugin should be updated to version 1.3.1</p>
+</li>
+<li>
+<p>Role-based Authorization Strategy Plugin should be updated to version 2.5.1</p>
+</li>
+<li>
+<p>Script Security Plugin should be updated to version 1.29.1</p>
+</li>
+<li>
+<p>Sidebar Link Plugin should be updated to version 1.9</p>
+</li>
+<li>
+<p>SSH Plugin should be updated to version 2.5</p>
+</li>
+<li>
+<p>Subversion Plugin should be updated to version 2.9</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These versions include fixes to the vulnerabilities described above.
+All prior versions are affected by these vulnerabilities unless otherwise indicated.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="credit"><a class="anchor" href="#credit"></a>Credit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Jenkins project would like to thank the reporters for discovering and <a href="/security/#reporting-vulnerabilities">reporting</a> these vulnerabilities:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Daniel Beck, CloudBees, Inc.</strong> for SECURITY-529</p>
+</li>
+<li>
+<p><strong>Jesse Glick, CloudBees, Inc.</strong> for SECURITY-303, SECURITY-342, SECURITY-527, SECURITY-528</p>
+</li>
+<li>
+<p><strong>Karl Shultz, CloudBees, Inc.</strong> for SECURITY-533</p>
+</li>
+<li>
+<p><strong>Nathan Rennie-Waldock</strong> for SECURITY-335</p>
+</li>
+<li>
+<p><strong>Simon St John-Green</strong> for SECURITY-551</p>
+</li>
+<li>
+<p><strong>Steven Christou, CloudBees, Inc.</strong> for SECURITY-201</p>
+</li>
+<li>
+<p><strong>Suhas Sunil Gaikwad @IamSuhasGaikwad</strong> for SECURITY-352</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//security/advisory/2017-07-10.adoc" title="Edit /security/advisory/2017-07-10.adoc on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//security/advisory/2017-07-10.adoc" title="View /security/advisory/2017-07-10.adoc history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>

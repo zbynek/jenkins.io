@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>
+Security Advisories
+</title>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="description">
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<meta content="ie=edge" http-equiv="x-ua-compatible">
+<!-- Favicons -->
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="/site.webmanifest" rel="manifest">
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon">
+<meta content="#2b5797" name="msapplication-TileColor">
+<meta content="#ffffff" name="theme-color">
+<meta content="Security Advisories" name="apple-mobile-web-app-title">
+<!-- Twitter Card data -->
+<meta content="summary_large_image" name="twitter:card">
+<meta content="@JenkinsCI" name="twitter:site">
+<meta content="Security Advisories" name="twitter:title">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="twitter:description">
+<meta content="@JenkinsCI" name="twitter:creator">
+<!-- Twitter Summary card images must be at least 120x120px -->
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="twitter:image">
+<!-- Open Graph data -->
+<meta content="Security Advisories" property="og:title">
+<meta content="article" property="og:type">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/security/advisories/index.html" property="og:url">
+<meta content="Jenkins – an open source automation server which enables developers around the world to reliably build, test, and deploy their software" name="og:description">
+<meta content="Security Advisories" property="og:site_name">
+<meta content="https://zbynek.github.io/jenkins.io/order-syntax/images/logo-title-opengraph.png" name="og:image">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/css/bootstrap.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/css/tether.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-icons.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/jenkins.css" media="screen" rel="stylesheet">
+<!-- Non-obtrusive CSS styles -->
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/ionicons/css/ionicons.min.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/footer.css" media="screen" rel="stylesheet">
+<link href="https://zbynek.github.io/jenkins.io/order-syntax/css/font-awesome.min.css" media="screen" rel="stylesheet">
+</head>
+<body>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/jquery/jquery.min.js"></script>
+<!-- starting partial toptoolbar.html.haml -->
+<nav class="navbar navbar-expand-lg navbar-dark top bg-dark fixed-top" id="ji-toolbar">
+<a class="navbar-brand" href="https://zbynek.github.io/jenkins.io/order-syntax">
+Jenkins
+</a>
+<button class="navbar-toggler" data-target="#CollapsingNavbar" data-toggle="collapse" type="button">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="CollapsingNavbar">
+<ul class="nav navbar-nav mr-auto">
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+<!-- starting partial cdf_logo.html.haml -->
+<svg width="36" height="18" xmlns="http://www.w3.org/2000/svg" role="img" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-3.23 44.77 362.70 271.95"><defs><linearGradient id="a" x1="359.765" x2="104.082" y1="134.295" y2="124.577" gradientTransform="matrix(1 0 0 -1 0 439.068)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ed1c24"/><stop offset="1" stop-color="#f7941d"/></linearGradient><linearGradient id="b" x1="355.202" x2="99.519" y1="254.467" y2="244.749" xlink:href="#a"/><linearGradient id="c" x1="183.903" x2="10.612" y1="227.598" y2="221.023" xlink:href="#a"/><linearGradient id="d" x1="367.119" x2="157.995" y1="265.311" y2="257.091" xlink:href="#a"/></defs><path fill="#c49a6c" d="M231.52 309.278c2.483-.332 4.895-.77 7.255-1.329s4.649-1.206 6.991-1.957c13.494-4.58 25.187-12.952 36.374-24.593l-.14-.175c-14.944 15.486-30.693 25.344-50.48 28.054z"/><path fill="url(#a)" d="M224.232 309.96h.332c1.084 0 2.15-.14 3.216-.228a93.844 93.844 0 0 1-3.233.227z"/><path fill="url(#b)" d="M284.692 187.187l-.122.192.122-.192z"/><path fill="url(#c)" d="M146.145 231.847a150.844 150.844 0 0 1-12.97 15.862c-7.582 7.889-15.507 13.563-24.652 16.667a47.832 47.832 0 0 1-4.738 1.326 56.959 56.959 0 0 1-4.916.9 38.32 38.32 0 0 1-1.682.214l-.912.083c-.723.059-1.445.118-2.18.154h-3.068a42.325 42.325 0 0 1-9.192-1.043 49.977 49.977 0 0 1-6.764-2.002 43.097 43.097 0 0 1-4.525-1.954c-1.493-.77-2.961-1.516-4.407-2.37a59.5 59.5 0 0 1-17.105-15.399 59.714 59.714 0 0 1-2.914-4.311 53.09 53.09 0 0 1-1.291-2.263 51.985 51.985 0 0 1-2.263-4.738 46.72 46.72 0 0 1 0-36.426 51.986 51.986 0 0 1 2.263-4.738 54.14 54.14 0 0 1 1.291-2.263 59.742 59.742 0 0 1 2.914-4.311 59.714 59.714 0 0 1 17.105-15.4 60.828 60.828 0 0 1 4.407-2.369q2.217-1 4.525-1.777a49.976 49.976 0 0 1 6.906-2.073 42.325 42.325 0 0 1 9.192-1.042h3.128c.722 0 1.445.094 2.155.154l1.043.106 1.019.119c1.8.237 3.553.557 5.271.96.853.2 1.694.426 2.523.663a51.186 51.186 0 0 1 11.846 5.176 59.645 59.645 0 0 1 4.395 2.89 74.485 74.485 0 0 1 8.386 7.108q2.038 1.99 4.063 4.193l.083-.13a159.395 159.395 0 0 1 11.064 13.942c5.437-8.576 13.658-21.464 16.584-25.74 1.185-1.718 2.37-3.46 3.66-5.212-13.54-16.513-29.827-30.23-51.587-36.082h-.154a89.397 89.397 0 0 0-3.187-.794l-.45-.107a92.565 92.565 0 0 0-3.151-.627l-.628-.119a80.578 80.578 0 0 0-3.743-.569h-.142a58.29 58.29 0 0 0-2.073-.236h-.391l-1.872-.166h-.568l-1.754-.119h-.675l-1.777-.07h-3.115c-46.447-.25-87.125 40.476-87.125 86.911s40.725 87.173 87.172 87.173h3.14l1.729-.071h.734l1.67-.095h.676l1.706-.154h.568l1.813-.213.414-.06 1.967-.272h.213a125.91 125.91 0 0 0 3.553-.628l.652-.142c.96-.201 1.907-.415 2.855-.64l.58-.142a86.66 86.66 0 0 0 3.009-.817l.237-.071c20.73-6.077 36.425-19.392 49.55-35.277-2.037-3.068-3.4-5.366-4.039-6.48z"/><path fill="url(#d)" d="M318.05 51.733v94.66a85.514 85.514 0 0 0-52.595-18.729h-3.115l-1.777.072-.7.047-1.752.118h-.569l-1.871.166h-.391c-.7.071-1.386.142-2.073.237h-.154c-1.256.154-2.5.355-3.732.569l-.628.118c-1.066.19-2.108.403-3.15.628l-.45.107c-30.35 6.858-50.333 28.808-66.822 52.82-.7 1.018-1.35 2.049-2.038 3.068-2.25 3.423-5.46 8.422-8.635 13.397-4.17 6.527-8.292 13.03-9.939 15.66l20.624 32.137s21.997 40.465 61.68 51.482l.237.07c.995.297 2.002.558 3.009.818l.58.142c.936.237 1.896.439 2.855.64l.652.142c1.184.225 2.369.439 3.553.628h.214l1.966.273.415.059 1.812.213h.569l1.705.154h.676l1.67.095h.734l1.73.07h3.139c54.703 0 86.355-30.964 87.149-85.063V51.733zm-52.595 215.403h-3.068c-.734 0-1.457-.095-2.18-.154l-.912-.083c-.568-.06-1.125-.13-1.682-.213a49.077 49.077 0 0 1-9.571-2.275 49.612 49.612 0 0 1-6.634-2.83 55.792 55.792 0 0 1-6.254-3.768 63.068 63.068 0 0 1-3.009-2.215 82.399 82.399 0 0 1-8.683-7.925l-.095.119c-1.255-1.303-2.487-2.69-3.731-4.11-.154-.167-.296-.356-.45-.534-.628-.722-1.256-1.445-1.884-2.215s-1.125-1.398-1.682-2.097-.888-1.101-1.338-1.682a184.467 184.467 0 0 1-6.053-8.292c-.7-.995-1.398-2.025-2.109-3.056-.379-.569-.77-1.184-1.185-1.73-.675-1.018-1.362-2.013-2.049-3.056l-.355-.545c-1.185-1.812-2.37-3.684-3.649-5.603q2.95-4.608 5.817-8.86c1.907-2.831 3.79-5.556 5.662-8.138s3.72-5.046 5.591-7.38 3.72-4.525 5.603-6.586q2.026-2.203 4.063-4.194c1.374-1.338 2.748-2.594 4.158-3.778s2.807-2.287 4.252-3.329a57.594 57.594 0 0 1 7.748-4.62c.331-.166.663-.367 1.006-.533l.226-.118c1.41-.652 2.843-1.185 4.3-1.73l.485-.201c.273-.083.557-.142.83-.237a44.943 44.943 0 0 1 3.34-.948l1.374-.343a60.798 60.798 0 0 1 4.738-.841l1.019-.119 1.042-.106c.711 0 1.434-.119 2.156-.154h3.128a42.431 42.431 0 0 1 4.572.26 48.011 48.011 0 0 1 6.93 1.35c1.54.427 3.08.925 4.596 1.505a48.724 48.724 0 0 1 4.525 1.955c1.493.722 2.961 1.516 4.407 2.369s2.866 1.8 4.24 2.784 2.725 2.049 4.028 3.174a58.459 58.459 0 0 1 8.837 9.477 59.73 59.73 0 0 1 2.914 4.312 51.067 51.067 0 0 1 5.318 11.916 47.38 47.38 0 0 1 1.185 5.165 45.567 45.567 0 0 1 .71 8.09c.072 35.964-16.062 52.122-52.227 52.122z"/></svg>
+
+<!-- ending partial cdf_logo.html.haml -->
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://cd.foundation/">
+What is CDF?
+</a>
+<a class="dropdown-item feature" href="https://jenkins-x.io/">
+Jenkins X
+</a>
+<a class="dropdown-item feature" href="https://cloud.google.com/tekton/">
+Tekton
+</a>
+<a class="dropdown-item feature" href="https://www.spinnaker.io/">
+Spinnaker
+</a>
+</div>
+</li>
+</ul>
+<ul class="nav navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Documentation
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Use Jenkins
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/doc/developer">
+Extend Jenkins
+</a>
+<span class="dropdown-item">
+<strong>
+Use-cases
+</strong>
+</span>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/android">
+&nbsp;-&nbsp;Android
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/c">
+&nbsp;-&nbsp;C/C++
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/docker">
+&nbsp;-&nbsp;Docker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/embedded">
+&nbsp;-&nbsp;Embedded
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/github">
+&nbsp;-&nbsp;GitHub
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/java">
+&nbsp;-&nbsp;Java
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/php">
+&nbsp;-&nbsp;PHP
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/pipeline">
+&nbsp;-&nbsp;Continuous Delivery
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/python">
+&nbsp;-&nbsp;Python
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/solutions/ruby">
+&nbsp;-&nbsp;Ruby
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Community
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/chat" title="Chat with the rest of the Jenkins community on IRC">
+Chat
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam">
+Meet
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+<a class="dropdown-item feature" href="https://issues.jenkins-ci.org/">
+Issue Tracker
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists" title="Browse Jenkins mailing list archives and/or subscribe to lists">
+Mailing Lists
+</a>
+<a class="dropdown-item feature" href="https://wiki.jenkins.io/">
+Wiki
+</a>
+<a class="dropdown-item feature" href="https://accounts.jenkins.io/" title="Create/manage your account for accessing wiki, issue tracker, etc">
+Account Management
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/">
+<strong>
+Special Interest Groups
+</strong>
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/advocacy-and-outreach/">
+&nbsp;-&nbsp;Advocacy and Outreach
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/chinese-localization/">
+&nbsp;-&nbsp;Chinese Localization
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/cloud-native/">
+&nbsp;-&nbsp;Cloud Native
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/docs/">
+&nbsp;-&nbsp;Documentation
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/gsoc/">
+&nbsp;-&nbsp;Google Summer of Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/hw-and-eda/">
+&nbsp;-&nbsp;Hardware and EDA
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/pipeline-authoring/">
+&nbsp;-&nbsp;Pipeline Authoring
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/sigs/platform/">
+&nbsp;-&nbsp;Platform
+</a>
+</div>
+</li>
+<li class="dropdown nav-item">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+Subprojects
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/">
+Overview
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/blueocean/">
+Blue Ocean
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/evergreen/">
+Evergreen
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/gsoc/">
+Google Summer of Code in Jenkins
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/infrastructure/">
+Infrastructure
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jam/">
+Jenkins Area Meetups
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/jcasc/">
+Jenkins Configuration as Code
+</a>
+<a class="dropdown-item feature" href="https://zbynek.github.io/jenkins.io/order-syntax/projects/remoting/">
+Jenkins Remoting
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+About
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/project/conduct">
+Conduct
+</a>
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</div>
+</li>
+<li class="nav-item dropdown">
+<!-- starting partial dropdown.html.haml -->
+<button aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle" data-toggle="dropdown">
+English
+</button>
+
+<!-- ending partial dropdown.html.haml -->
+<div class="dropdown-menu">
+<a class="dropdown-item" href="https://zbynek.github.io/jenkins.io/order-syntax/zh">
+中文 Chinese
+</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link btn btn-outline-secondary" href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Download
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<!-- Spacing to make the fixed-top sticky navbar not occlude any content below it -->
+<div class="pt-4">
+&nbsp;
+</div>
+
+<!-- ending partial toptoolbar.html.haml -->
+<style>
+  .toc {
+      float: right;
+  }
+</style>
+<script>
+  $(function () {
+    for (var i = 1 ; i <= 6 ; i ++) {
+      anchors.add('.container .row.body h' + i);
+    }
+  })
+</script>
+<div class="container">
+<div class="row body">
+<div class="col-md-12">
+<h1>
+Security Advisories
+</h1>
+<div class="container">
+<div class="row">
+<p>
+This page lists all security advisories that have been published so far.
+</p>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2019
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-11-21/">
+Jenkins Security Advisory 2019-11-21
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/anchore-container-scanner" style="white-space: nowrap; padding: 2px;">
+Anchore Container Image Scanner
+</a>
+<a href="https://plugins.jenkins.io/google-compute-engine" style="white-space: nowrap; padding: 2px;">
+Google Compute Engine
+</a>
+<a href="https://plugins.jenkins.io/jira" style="white-space: nowrap; padding: 2px;">
+JIRA
+</a>
+<a href="https://plugins.jenkins.io/qmetry-for-jira-test-management" style="white-space: nowrap; padding: 2px;">
+QMetry for JIRA - Test Management
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+<a href="https://plugins.jenkins.io/inflectra-spira-integration" style="white-space: nowrap; padding: 2px;">
+Spira Importer
+</a>
+<a href="https://plugins.jenkins.io/support-core" style="white-space: nowrap; padding: 2px;">
+Support Core
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-10-23/">
+Jenkins Security Advisory 2019-10-23
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/fireline" style="white-space: nowrap; padding: 2px;">
+360 FireLine
+</a>
+<a href="https://plugins.jenkins.io/bitbucket-oauth" style="white-space: nowrap; padding: 2px;">
+Bitbucket OAuth
+</a>
+<a href="https://plugins.jenkins.io/build-metrics" style="white-space: nowrap; padding: 2px;">
+build-metrics
+</a>
+<a href="https://plugins.jenkins.io/weblogic-deployer-plugin" style="white-space: nowrap; padding: 2px;">
+Deploy WebLogic
+</a>
+<a href="https://plugins.jenkins.io/dynatrace-dashboard" style="white-space: nowrap; padding: 2px;">
+Dynatrace Application Monitoring
+</a>
+<a href="https://plugins.jenkins.io/kubernetes-ci" style="white-space: nowrap; padding: 2px;">
+ElasticBox Jenkins Kubernetes CI/CD
+</a>
+<a href="https://plugins.jenkins.io/global-post-script" style="white-space: nowrap; padding: 2px;">
+Global Post Script
+</a>
+<a href="https://plugins.jenkins.io/libvirt-slave" style="white-space: nowrap; padding: 2px;">
+Libvirt Slaves
+</a>
+<a href="https://plugins.jenkins.io/mattermost" style="white-space: nowrap; padding: 2px;">
+Mattermost Notification
+</a>
+<a href="https://plugins.jenkins.io/sonar-gerrit" style="white-space: nowrap; padding: 2px;">
+Sonar Gerrit
+</a>
+<a href="https://plugins.jenkins.io/zulip" style="white-space: nowrap; padding: 2px;">
+Zulip
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-10-16/">
+Jenkins Security Advisory 2019-10-16
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/bumblebee" style="white-space: nowrap; padding: 2px;">
+Bumblebee HP ALM
+</a>
+<a href="https://plugins.jenkins.io/vmanager-plugin" style="white-space: nowrap; padding: 2px;">
+Cadence vManager
+</a>
+<a href="https://plugins.jenkins.io/crx-content-package-deployer" style="white-space: nowrap; padding: 2px;">
+CRX Content Package Deployer
+</a>
+<a href="https://plugins.jenkins.io/delphix" style="white-space: nowrap; padding: 2px;">
+Delphix
+</a>
+<a href="https://plugins.jenkins.io/elasticbox" style="white-space: nowrap; padding: 2px;">
+ElasticBox CI
+</a>
+<a href="https://plugins.jenkins.io/extensivetesting" style="white-space: nowrap; padding: 2px;">
+Extensive Testing
+</a>
+<a href="https://plugins.jenkins.io/fortify-on-demand-uploader" style="white-space: nowrap; padding: 2px;">
+Fortify on Demand
+</a>
+<a href="https://plugins.jenkins.io/google-kubernetes-engine" style="white-space: nowrap; padding: 2px;">
+Google Kubernetes Engine
+</a>
+<a href="https://plugins.jenkins.io/google-oauth-plugin" style="white-space: nowrap; padding: 2px;">
+Google OAuth Credentials
+</a>
+<a href="https://plugins.jenkins.io/icescrum" style="white-space: nowrap; padding: 2px;">
+iceScrum
+</a>
+<a href="https://plugins.jenkins.io/neoload-jenkins-plugin" style="white-space: nowrap; padding: 2px;">
+NeoLoad
+</a>
+<a href="https://plugins.jenkins.io/oracle-cloud-infrastructure-compute-classic" style="white-space: nowrap; padding: 2px;">
+Oracle Cloud Infrastructure Compute Classic
+</a>
+Puppet Enterprise Pipeline
+
+<a href="https://plugins.jenkins.io/rundeck" style="white-space: nowrap; padding: 2px;">
+Rundeck
+</a>
+<a href="https://plugins.jenkins.io/cloudtest" style="white-space: nowrap; padding: 2px;">
+SOASTA CloudTest
+</a>
+<a href="https://plugins.jenkins.io/sofy-ai" style="white-space: nowrap; padding: 2px;">
+Sofy.AI
+</a>
+<a href="https://plugins.jenkins.io/view26" style="white-space: nowrap; padding: 2px;">
+View26 Test-Reporting
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-10-01/">
+Jenkins Security Advisory 2019-10-01
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/dingding-notifications" style="white-space: nowrap; padding: 2px;">
+Dingding[钉钉]
+</a>
+<a href="https://plugins.jenkins.io/htmlpublisher" style="white-space: nowrap; padding: 2px;">
+HTML Publisher
+</a>
+<a href="https://plugins.jenkins.io/ldapemail" style="white-space: nowrap; padding: 2px;">
+LDAP Email
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+<a href="https://plugins.jenkins.io/vault-scm-plugin" style="white-space: nowrap; padding: 2px;">
+SourceGear Vault
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-09-25/">
+Jenkins Security Advisory 2019-09-25
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/aqua-microscanner" style="white-space: nowrap; padding: 2px;">
+Aqua MicroScanner
+</a>
+<a href="https://plugins.jenkins.io/aqua-security-scanner" style="white-space: nowrap; padding: 2px;">
+Aqua Security Scanner
+</a>
+<a href="https://plugins.jenkins.io/assembla" style="white-space: nowrap; padding: 2px;">
+Assembla
+</a>
+<a href="https://plugins.jenkins.io/azure-event-grid-notifier" style="white-space: nowrap; padding: 2px;">
+Azure Event Grid Build Notifier
+</a>
+<a href="https://plugins.jenkins.io/call-remote-job-plugin" style="white-space: nowrap; padding: 2px;">
+Call Remote Job
+</a>
+CodeScan
+<a href="https://plugins.jenkins.io/datatheorem-mobile-app-security" style="white-space: nowrap; padding: 2px;">
+Data Theorem: CI/CD
+</a>
+<a href="https://plugins.jenkins.io/elOyente" style="white-space: nowrap; padding: 2px;">
+elOyente
+</a>
+<a href="https://plugins.jenkins.io/gem-publisher" style="white-space: nowrap; padding: 2px;">
+Gem Publisher
+</a>
+<a href="https://plugins.jenkins.io/git-changelog" style="white-space: nowrap; padding: 2px;">
+Git Changelog
+</a>
+<a href="https://plugins.jenkins.io/gitlab-logo" style="white-space: nowrap; padding: 2px;">
+GitLab Logo
+</a>
+<a href="https://plugins.jenkins.io/gcal" style="white-space: nowrap; padding: 2px;">
+Google Calendar
+</a>
+<a href="https://plugins.jenkins.io/inedo-buildmaster" style="white-space: nowrap; padding: 2px;">
+Inedo BuildMaster Plugin
+</a>
+<a href="https://plugins.jenkins.io/inedo-proget" style="white-space: nowrap; padding: 2px;">
+Inedo ProGet Plugin
+</a>
+Kubernetes Pipeline - Arquillian Steps
+
+Kubernetes Pipeline - Kubernetes Steps
+
+<a href="https://plugins.jenkins.io/log-parser" style="white-space: nowrap; padding: 2px;">
+Log Parser
+</a>
+<a href="https://plugins.jenkins.io/neuvector-vulnerability-scanner" style="white-space: nowrap; padding: 2px;">
+NeuVector Vulnerability Scanner
+</a>
+<a href="https://plugins.jenkins.io/project-inheritance" style="white-space: nowrap; padding: 2px;">
+Project Inheritance
+</a>
+<a href="https://plugins.jenkins.io/application-director-plugin" style="white-space: nowrap; padding: 2px;">
+vFabric Application Director
+</a>
+<a href="https://plugins.jenkins.io/violation-comments-to-gitlab" style="white-space: nowrap; padding: 2px;">
+Violation Comments to GitLab
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-09-12/">
+Jenkins Security Advisory 2019-09-12
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/aqua-serverless" style="white-space: nowrap; padding: 2px;">
+Aqua Security Serverless Scanner
+</a>
+<a href="https://plugins.jenkins.io/beaker-builder" style="white-space: nowrap; padding: 2px;">
+Beaker builder
+</a>
+<a href="https://plugins.jenkins.io/build-environment" style="white-space: nowrap; padding: 2px;">
+Build Environment
+</a>
+<a href="https://plugins.jenkins.io/dashboard-view" style="white-space: nowrap; padding: 2px;">
+Dashboard View
+</a>
+<a href="https://plugins.jenkins.io/git-client" style="white-space: nowrap; padding: 2px;">
+Git client
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-08-28/">
+Jenkins Security Advisory 2019-08-28
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ibm-application-security" style="white-space: nowrap; padding: 2px;">
+IBM Application Security on Cloud
+</a>
+<a href="https://plugins.jenkins.io/splunk-devops" style="white-space: nowrap; padding: 2px;">
+Splunk
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-08-07/">
+Jenkins Security Advisory 2019-08-07
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/avatar" style="white-space: nowrap; padding: 2px;">
+Avatar
+</a>
+<a href="https://plugins.jenkins.io/build-pipeline-plugin" style="white-space: nowrap; padding: 2px;">
+Build Pipeline
+</a>
+<a href="https://plugins.jenkins.io/codefresh" style="white-space: nowrap; padding: 2px;">
+Codefresh Integration
+</a>
+<a href="https://plugins.jenkins.io/configuration-as-code" style="white-space: nowrap; padding: 2px;">
+Configuration as Code
+</a>
+<a href="https://plugins.jenkins.io/eggplant-plugin" style="white-space: nowrap; padding: 2px;">
+eggPlant
+</a>
+<a href="https://plugins.jenkins.io/filesystem_scm" style="white-space: nowrap; padding: 2px;">
+File System SCM
+</a>
+Google Cloud Messaging Notification
+<a href="https://plugins.jenkins.io/gitlab-oauth" style="white-space: nowrap; padding: 2px;">
+Gitlab Authentication
+</a>
+<a href="https://plugins.jenkins.io/jclouds-jenkins" style="white-space: nowrap; padding: 2px;">
+JClouds
+</a>
+<a href="https://plugins.jenkins.io/mask-passwords" style="white-space: nowrap; padding: 2px;">
+Mask Passwords
+</a>
+<a href="https://plugins.jenkins.io/pegdown-formatter" style="white-space: nowrap; padding: 2px;">
+PegDown Formatter
+</a>
+<a href="https://plugins.jenkins.io/relution-publisher" style="white-space: nowrap; padding: 2px;">
+Relution Enterprise Appstore Publisher
+</a>
+Simple Travis Pipeline Runner
+<a href="https://plugins.jenkins.io/testlink" style="white-space: nowrap; padding: 2px;">
+TestLink
+</a>
+<a href="https://plugins.jenkins.io/labmanager" style="white-space: nowrap; padding: 2px;">
+VMware Lab Manager Slaves
+</a>
+<a href="https://plugins.jenkins.io/jenkinswalldisplay" style="white-space: nowrap; padding: 2px;">
+Wall Display Master Project
+</a>
+XL TestView
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-07-31/">
+Jenkins Security Advisory 2019-07-31
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ec2" style="white-space: nowrap; padding: 2px;">
+Amazon EC2
+</a>
+<a href="https://plugins.jenkins.io/configuration-as-code" style="white-space: nowrap; padding: 2px;">
+Configuration as Code
+</a>
+<a href="https://plugins.jenkins.io/google-kubernetes-engine" style="white-space: nowrap; padding: 2px;">
+Google Kubernetes Engine
+</a>
+<a href="https://plugins.jenkins.io/maven-plugin" style="white-space: nowrap; padding: 2px;">
+Maven Integration
+</a>
+<a href="https://plugins.jenkins.io/m2release" style="white-space: nowrap; padding: 2px;">
+Maven Release Plug-in
+</a>
+<a href="https://plugins.jenkins.io/workflow-cps-global-lib" style="white-space: nowrap; padding: 2px;">
+Pipeline: Shared Groovy Libraries
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+<a href="https://plugins.jenkins.io/skytap" style="white-space: nowrap; padding: 2px;">
+Skytap Cloud CI
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-07-17/">
+Jenkins Security Advisory 2019-07-17
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-07-11/">
+Jenkins Security Advisory 2019-07-11
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/caliper-ci" style="white-space: nowrap; padding: 2px;">
+Caliper CI
+</a>
+<a href="https://plugins.jenkins.io/depgraph-view" style="white-space: nowrap; padding: 2px;">
+Dependency Graph Viewer
+</a>
+<a href="https://plugins.jenkins.io/docker-plugin" style="white-space: nowrap; padding: 2px;">
+Docker
+</a>
+<a href="https://plugins.jenkins.io/embeddable-build-status" style="white-space: nowrap; padding: 2px;">
+Embeddable Build Status
+</a>
+<a href="https://plugins.jenkins.io/gogs-webhook" style="white-space: nowrap; padding: 2px;">
+Gogs
+</a>
+<a href="https://plugins.jenkins.io/mashup-portlets-plugin" style="white-space: nowrap; padding: 2px;">
+Mashup Portlets
+</a>
+<a href="https://plugins.jenkins.io/port-allocator" style="white-space: nowrap; padding: 2px;">
+Port Allocator
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-06-11/">
+Jenkins Security Advisory 2019-06-11
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/electricflow" style="white-space: nowrap; padding: 2px;">
+CloudBees Flow
+</a>
+<a href="https://plugins.jenkins.io/jx-resources" style="white-space: nowrap; padding: 2px;">
+JX Resources
+</a>
+<a href="https://plugins.jenkins.io/token-macro" style="white-space: nowrap; padding: 2px;">
+Token Macro
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-05-31/">
+Jenkins Security Advisory 2019-05-31
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/artifactory" style="white-space: nowrap; padding: 2px;">
+Artifactory
+</a>
+<a href="https://plugins.jenkins.io/gitea" style="white-space: nowrap; padding: 2px;">
+Gitea
+</a>
+<a href="https://plugins.jenkins.io/influxdb" style="white-space: nowrap; padding: 2px;">
+InfluxDB
+</a>
+<a href="https://plugins.jenkins.io/pipeline-maven" style="white-space: nowrap; padding: 2px;">
+Pipeline Maven Integration
+</a>
+<a href="https://plugins.jenkins.io/workflow-remote-loader" style="white-space: nowrap; padding: 2px;">
+Pipeline Remote Loader
+</a>
+<a href="https://plugins.jenkins.io/warnings-ng" style="white-space: nowrap; padding: 2px;">
+Warnings Next Generation
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-05-21/">
+Jenkins Security Advisory 2019-05-21
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/credentials" style="white-space: nowrap; padding: 2px;">
+Credentials
+</a>
+<a href="https://plugins.jenkins.io/pam-auth" style="white-space: nowrap; padding: 2px;">
+PAM Authentication
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-04-30/">
+Jenkins Security Advisory 2019-04-30
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ansible-tower" style="white-space: nowrap; padding: 2px;">
+Ansible Tower
+</a>
+<a href="https://plugins.jenkins.io/aqua-microscanner" style="white-space: nowrap; padding: 2px;">
+Aqua MicroScanner
+</a>
+<a href="https://plugins.jenkins.io/azure-ad" style="white-space: nowrap; padding: 2px;">
+Azure AD
+</a>
+<a href="https://plugins.jenkins.io/github-oauth" style="white-space: nowrap; padding: 2px;">
+GitHub Authentication
+</a>
+<a href="https://plugins.jenkins.io/koji" style="white-space: nowrap; padding: 2px;">
+Koji
+</a>
+<a href="https://plugins.jenkins.io/swarm" style="white-space: nowrap; padding: 2px;">
+Self-Organizing Swarm Plug-in Modules
+</a>
+<a href="https://plugins.jenkins.io/sitemonitor" style="white-space: nowrap; padding: 2px;">
+SiteMonitor
+</a>
+<a href="https://plugins.jenkins.io/analysis-core" style="white-space: nowrap; padding: 2px;">
+Static Analysis Utilities
+</a>
+<a href="https://plugins.jenkins.io/twitter" style="white-space: nowrap; padding: 2px;">
+Twitter
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-04-17/">
+Jenkins Security Advisory 2019-04-17
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/azure-publishersettings-credentials" style="white-space: nowrap; padding: 2px;">
+Azure PublisherSettings Credentials
+</a>
+<a href="https://plugins.jenkins.io/gitlab-plugin" style="white-space: nowrap; padding: 2px;">
+GitLab
+</a>
+<a href="https://plugins.jenkins.io/jira-ext" style="white-space: nowrap; padding: 2px;">
+jira-ext
+</a>
+<a href="https://plugins.jenkins.io/ontrack" style="white-space: nowrap; padding: 2px;">
+ontrack Jenkins
+</a>
+<a href="https://plugins.jenkins.io/deployit-plugin" style="white-space: nowrap; padding: 2px;">
+XebiaLabs XL Deploy
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-04-10/">
+Jenkins Security Advisory 2019-04-10
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-04-03/">
+Jenkins Security Advisory 2019-04-03
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/snsnotify" style="white-space: nowrap; padding: 2px;">
+Amazon SNS Build Notifier
+</a>
+<a href="https://plugins.jenkins.io/aqua-security-scanner" style="white-space: nowrap; padding: 2px;">
+Aqua Security Scanner
+</a>
+<a href="https://plugins.jenkins.io/assembla-auth" style="white-space: nowrap; padding: 2px;">
+Assembla Auth
+</a>
+<a href="https://plugins.jenkins.io/audit2db" style="white-space: nowrap; padding: 2px;">
+Audit to Database
+</a>
+<a href="https://plugins.jenkins.io/aws-cloudwatch-logs-publisher" style="white-space: nowrap; padding: 2px;">
+AWS CloudWatch Logs Publisher
+</a>
+<a href="https://plugins.jenkins.io/aws-beanstalk-publisher-plugin" style="white-space: nowrap; padding: 2px;">
+AWS Elastic Beanstalk Publisher
+</a>
+<a href="https://plugins.jenkins.io/aws-device-farm" style="white-space: nowrap; padding: 2px;">
+aws-device-farm
+</a>
+<a href="https://plugins.jenkins.io/bitbucket-approve" style="white-space: nowrap; padding: 2px;">
+Bitbucket Approve
+</a>
+<a href="https://plugins.jenkins.io/bugzilla" style="white-space: nowrap; padding: 2px;">
+Bugzilla
+</a>
+<a href="https://plugins.jenkins.io/sinatra-chef-builder" style="white-space: nowrap; padding: 2px;">
+Chef Sinatra
+</a>
+<a href="https://plugins.jenkins.io/cloudcoreo-deploytime" style="white-space: nowrap; padding: 2px;">
+CloudCoreo DeployTime
+</a>
+<a href="https://plugins.jenkins.io/cloudshare-docker" style="white-space: nowrap; padding: 2px;">
+CloudShare Docker-Machine
+</a>
+<a href="https://plugins.jenkins.io/crittercism-dsym" style="white-space: nowrap; padding: 2px;">
+crittercism-dsym
+</a>
+<a href="https://plugins.jenkins.io/crowd" style="white-space: nowrap; padding: 2px;">
+Crowd Integration
+</a>
+<a href="https://plugins.jenkins.io/deployhub" style="white-space: nowrap; padding: 2px;">
+DeployHub
+</a>
+<a href="https://plugins.jenkins.io/diawi-upload" style="white-space: nowrap; padding: 2px;">
+Diawi Upload
+</a>
+<a href="https://plugins.jenkins.io/fabric-beta-publisher" style="white-space: nowrap; padding: 2px;">
+Fabric Beta Publisher
+</a>
+<a href="https://plugins.jenkins.io/ftppublisher" style="white-space: nowrap; padding: 2px;">
+FTP publisher
+</a>
+<a href="https://plugins.jenkins.io/gearman-plugin" style="white-space: nowrap; padding: 2px;">
+Gearman
+</a>
+hockeyapp
+<a href="https://plugins.jenkins.io/hyper-commons" style="white-space: nowrap; padding: 2px;">
+Hyper.sh Commons
+</a>
+<a href="https://plugins.jenkins.io/ircbot" style="white-space: nowrap; padding: 2px;">
+IRC
+</a>
+<a href="https://plugins.jenkins.io/jabber-server-plugin" style="white-space: nowrap; padding: 2px;">
+Jabber Server
+</a>
+<a href="https://plugins.jenkins.io/jenkins-cloudformation-plugin" style="white-space: nowrap; padding: 2px;">
+jenkins-cloudformation-plugin
+</a>
+<a href="https://plugins.jenkins.io/jenkins-reviewbot" style="white-space: nowrap; padding: 2px;">
+jenkins-reviewbot
+</a>
+<a href="https://plugins.jenkins.io/jenkins-jira-issue-updater" style="white-space: nowrap; padding: 2px;">
+Jira Issue Updater
+</a>
+<a href="https://plugins.jenkins.io/klaros-testmanagement" style="white-space: nowrap; padding: 2px;">
+Klaros-Testmanagement
+</a>
+<a href="https://plugins.jenkins.io/kmap-jenkins" style="white-space: nowrap; padding: 2px;">
+Kmap
+</a>
+<a href="https://plugins.jenkins.io/koji" style="white-space: nowrap; padding: 2px;">
+Koji
+</a>
+<a href="https://plugins.jenkins.io/mabl-integration" style="white-space: nowrap; padding: 2px;">
+mabl
+</a>
+<a href="https://plugins.jenkins.io/minio-storage" style="white-space: nowrap; padding: 2px;">
+Minio Storage
+</a>
+<a href="https://plugins.jenkins.io/netsparker-cloud-scan" style="white-space: nowrap; padding: 2px;">
+Netsparker Cloud Scan
+</a>
+<a href="https://plugins.jenkins.io/nomad" style="white-space: nowrap; padding: 2px;">
+Nomad
+</a>
+<a href="https://plugins.jenkins.io/octopusdeploy" style="white-space: nowrap; padding: 2px;">
+Octopus Deploy
+</a>
+<a href="https://plugins.jenkins.io/zap" style="white-space: nowrap; padding: 2px;">
+Official OWASP ZAP
+</a>
+<a href="https://plugins.jenkins.io/open-stf" style="white-space: nowrap; padding: 2px;">
+Open STF
+</a>
+<a href="https://plugins.jenkins.io/openid" style="white-space: nowrap; padding: 2px;">
+openid
+</a>
+<a href="https://plugins.jenkins.io/openshift-deployer" style="white-space: nowrap; padding: 2px;">
+OpenShift Deployer
+</a>
+<a href="https://plugins.jenkins.io/perfectomobile" style="white-space: nowrap; padding: 2px;">
+Perfecto Mobile
+</a>
+<a href="https://plugins.jenkins.io/relution-publisher" style="white-space: nowrap; padding: 2px;">
+Relution Enterprise Appstore Publisher
+</a>
+<a href="https://plugins.jenkins.io/sametime" style="white-space: nowrap; padding: 2px;">
+Sametime
+</a>
+<a href="https://plugins.jenkins.io/sra-deploy" style="white-space: nowrap; padding: 2px;">
+Serena SRA Deploy
+</a>
+<a href="https://plugins.jenkins.io/cloudtest" style="white-space: nowrap; padding: 2px;">
+SOASTA CloudTest
+</a>
+<a href="https://plugins.jenkins.io/starteam" style="white-space: nowrap; padding: 2px;">
+StarTeam
+</a>
+<a href="https://plugins.jenkins.io/TestFairy" style="white-space: nowrap; padding: 2px;">
+TestFairy
+</a>
+<a href="https://plugins.jenkins.io/trac-publisher-plugin" style="white-space: nowrap; padding: 2px;">
+Trac Publisher
+</a>
+<a href="https://plugins.jenkins.io/upload-pgyer" style="white-space: nowrap; padding: 2px;">
+Upload to pgyer
+</a>
+veracode-scanner
+<a href="https://plugins.jenkins.io/labmanager" style="white-space: nowrap; padding: 2px;">
+VMware Lab Manager Slaves
+</a>
+<a href="https://plugins.jenkins.io/vmware-vrealize-automation-plugin" style="white-space: nowrap; padding: 2px;">
+VMware vRealize Automation
+</a>
+<a href="https://plugins.jenkins.io/vsts-cd" style="white-space: nowrap; padding: 2px;">
+VS Team Services Continuous Deployment
+</a>
+<a href="https://plugins.jenkins.io/websphere-deployer" style="white-space: nowrap; padding: 2px;">
+WebSphere Deployer
+</a>
+<a href="https://plugins.jenkins.io/wildfly-deployer" style="white-space: nowrap; padding: 2px;">
+WildFly Deployer
+</a>
+<a href="https://plugins.jenkins.io/youtrack-plugin" style="white-space: nowrap; padding: 2px;">
+youtrack-plugin
+</a>
+<a href="https://plugins.jenkins.io/zephyr-enterprise-test-management" style="white-space: nowrap; padding: 2px;">
+Zephyr Enterprise Test Management
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-03-25/">
+Jenkins Security Advisory 2019-03-25
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ease-plugin" style="white-space: nowrap; padding: 2px;">
+Arxan MAM Publisher
+</a>
+<a href="https://plugins.jenkins.io/codebeamer-result-trend-updater" style="white-space: nowrap; padding: 2px;">
+Codebeamer Test Results Trend Updater
+</a>
+<a href="https://plugins.jenkins.io/ecs-publisher" style="white-space: nowrap; padding: 2px;">
+ECS publisher
+</a>
+<a href="https://plugins.jenkins.io/fortify-on-demand-uploader" style="white-space: nowrap; padding: 2px;">
+Fortify on Demand
+</a>
+<a href="https://plugins.jenkins.io/lockable-resources" style="white-space: nowrap; padding: 2px;">
+Lockable Resources
+</a>
+<a href="https://plugins.jenkins.io/workflow-cps" style="white-space: nowrap; padding: 2px;">
+Pipeline: Groovy
+</a>
+<a href="https://plugins.jenkins.io/prqa-plugin" style="white-space: nowrap; padding: 2px;">
+PRQA
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+<a href="https://plugins.jenkins.io/slack" style="white-space: nowrap; padding: 2px;">
+Slack Notification
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-03-06/">
+Jenkins Security Advisory 2019-03-06
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/appdynamics-dashboard" style="white-space: nowrap; padding: 2px;">
+AppDynamics Dashboard
+</a>
+<a href="https://plugins.jenkins.io/azure-vm-agents" style="white-space: nowrap; padding: 2px;">
+Azure VM Agents
+</a>
+<a href="https://plugins.jenkins.io/testdroid-run-in-cloud" style="white-space: nowrap; padding: 2px;">
+Bitbar Run-in-Cloud
+</a>
+<a href="https://plugins.jenkins.io/email-ext" style="white-space: nowrap; padding: 2px;">
+Email Extension
+</a>
+<a href="https://plugins.jenkins.io/groovy" style="white-space: nowrap; padding: 2px;">
+Groovy
+</a>
+<a href="https://plugins.jenkins.io/job-dsl" style="white-space: nowrap; padding: 2px;">
+Job DSL
+</a>
+<a href="https://plugins.jenkins.io/matrix-project" style="white-space: nowrap; padding: 2px;">
+Matrix Project
+</a>
+<a href="https://plugins.jenkins.io/osf-builder-suite-for-sfcc-deploy" style="white-space: nowrap; padding: 2px;">
+OSF Builder Suite For Salesforce Commerce Cloud :: Deploy
+</a>
+<a href="https://plugins.jenkins.io/workflow-cps" style="white-space: nowrap; padding: 2px;">
+Pipeline: Groovy
+</a>
+<a href="https://plugins.jenkins.io/rabbitmq-publisher" style="white-space: nowrap; padding: 2px;">
+Rabbit-MQ Publisher
+</a>
+<a href="https://plugins.jenkins.io/repository-connector" style="white-space: nowrap; padding: 2px;">
+Repository Connector
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-02-19/">
+Jenkins Security Advisory 2019-02-19
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/acunetix" style="white-space: nowrap; padding: 2px;">
+Acunetix
+</a>
+<a href="https://plugins.jenkins.io/ease-plugin" style="white-space: nowrap; padding: 2px;">
+Arxan MAM Publisher
+</a>
+<a href="https://plugins.jenkins.io/cloudfoundry" style="white-space: nowrap; padding: 2px;">
+Cloud Foundry
+</a>
+<a href="https://plugins.jenkins.io/electricflow" style="white-space: nowrap; padding: 2px;">
+CloudBees Flow
+</a>
+<a href="https://plugins.jenkins.io/jms-messaging" style="white-space: nowrap; padding: 2px;">
+JMS Messaging
+</a>
+<a href="https://plugins.jenkins.io/mattermost" style="white-space: nowrap; padding: 2px;">
+Mattermost Notification
+</a>
+<a href="https://plugins.jenkins.io/octopusdeploy" style="white-space: nowrap; padding: 2px;">
+Octopus Deploy
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-01-28/">
+Jenkins Security Advisory 2019-01-28
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/active-directory" style="white-space: nowrap; padding: 2px;">
+Active Directory
+</a>
+<a href="https://plugins.jenkins.io/blueocean" style="white-space: nowrap; padding: 2px;">
+Blue Ocean
+</a>
+<a href="https://plugins.jenkins.io/config-file-provider" style="white-space: nowrap; padding: 2px;">
+Config File Provider
+</a>
+<a href="https://plugins.jenkins.io/git" style="white-space: nowrap; padding: 2px;">
+Git
+</a>
+<a href="https://plugins.jenkins.io/github-oauth" style="white-space: nowrap; padding: 2px;">
+GitHub Authentication
+</a>
+<a href="https://plugins.jenkins.io/groovy" style="white-space: nowrap; padding: 2px;">
+Groovy
+</a>
+<a href="https://plugins.jenkins.io/job-import-plugin" style="white-space: nowrap; padding: 2px;">
+Job Import
+</a>
+<a href="https://plugins.jenkins.io/kanboard" style="white-space: nowrap; padding: 2px;">
+Kanboard
+</a>
+<a href="https://plugins.jenkins.io/monitoring" style="white-space: nowrap; padding: 2px;">
+Monitoring
+</a>
+<a href="https://plugins.jenkins.io/oic-auth" style="white-space: nowrap; padding: 2px;">
+OpenId Connect Authentication
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+<a href="https://plugins.jenkins.io/token-macro" style="white-space: nowrap; padding: 2px;">
+Token Macro
+</a>
+<a href="https://plugins.jenkins.io/warnings" style="white-space: nowrap; padding: 2px;">
+Warnings
+</a>
+<a href="https://plugins.jenkins.io/warnings-ng" style="white-space: nowrap; padding: 2px;">
+Warnings Next Generation
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-01-16/">
+Jenkins Security Advisory 2019-01-16
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2019-01-08/">
+Jenkins Security Advisory 2019-01-08
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/pipeline-model-definition" style="white-space: nowrap; padding: 2px;">
+Pipeline: Declarative
+</a>
+<a href="https://plugins.jenkins.io/workflow-cps" style="white-space: nowrap; padding: 2px;">
+Pipeline: Groovy
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+</li>
+</ul>
+</small>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2018
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-12-05/">
+Jenkins Security Advisory 2018-12-05
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-10-29/">
+Jenkins Security Advisory 2018-10-29
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/workflow-cps" style="white-space: nowrap; padding: 2px;">
+Pipeline: Groovy
+</a>
+<a href="https://plugins.jenkins.io/script-security" style="white-space: nowrap; padding: 2px;">
+Script Security
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-10-10/">
+Jenkins Security Advisory 2018-10-10
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-09-25/">
+Jenkins Security Advisory 2018-09-25
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/arachni-scanner" style="white-space: nowrap; padding: 2px;">
+Arachni Scanner
+</a>
+<a href="https://plugins.jenkins.io/argus-notifier" style="white-space: nowrap; padding: 2px;">
+Argus Notifier
+</a>
+<a href="https://plugins.jenkins.io/artifactory" style="white-space: nowrap; padding: 2px;">
+Artifactory
+</a>
+<a href="https://plugins.jenkins.io/chatter-notifier" style="white-space: nowrap; padding: 2px;">
+Chatter Notifier
+</a>
+<a href="https://plugins.jenkins.io/config-file-provider" style="white-space: nowrap; padding: 2px;">
+Config File Provider
+</a>
+<a href="https://plugins.jenkins.io/crowd2" style="white-space: nowrap; padding: 2px;">
+Crowd 2 Integration
+</a>
+<a href="https://plugins.jenkins.io/dimensionsscm" style="white-space: nowrap; padding: 2px;">
+Dimensions
+</a>
+<a href="https://plugins.jenkins.io/emailext-template" style="white-space: nowrap; padding: 2px;">
+Email Extension Template
+</a>
+<a href="https://plugins.jenkins.io/git-changelog" style="white-space: nowrap; padding: 2px;">
+Git Changelog
+</a>
+<a href="https://plugins.jenkins.io/hipchat" style="white-space: nowrap; padding: 2px;">
+HipChat
+</a>
+<a href="https://plugins.jenkins.io/jira" style="white-space: nowrap; padding: 2px;">
+JIRA
+</a>
+<a href="https://plugins.jenkins.io/jobConfigHistory" style="white-space: nowrap; padding: 2px;">
+Job Configuration History
+</a>
+<a href="https://plugins.jenkins.io/junit" style="white-space: nowrap; padding: 2px;">
+JUnit
+</a>
+<a href="https://plugins.jenkins.io/mesos" style="white-space: nowrap; padding: 2px;">
+mesos
+</a>
+<a href="https://plugins.jenkins.io/metadata" style="white-space: nowrap; padding: 2px;">
+Metadata
+</a>
+<a href="https://plugins.jenkins.io/monitoring" style="white-space: nowrap; padding: 2px;">
+Monitoring
+</a>
+<a href="https://plugins.jenkins.io/mq-notifier" style="white-space: nowrap; padding: 2px;">
+MQ Notifier
+</a>
+<a href="https://plugins.jenkins.io/pam-auth" style="white-space: nowrap; padding: 2px;">
+PAM Authentication
+</a>
+<a href="https://plugins.jenkins.io/publish-over-dropbox" style="white-space: nowrap; padding: 2px;">
+Publish Over Dropbox
+</a>
+<a href="https://plugins.jenkins.io/rebuild" style="white-space: nowrap; padding: 2px;">
+Rebuilder
+</a>
+<a href="https://plugins.jenkins.io/sonar" style="white-space: nowrap; padding: 2px;">
+SonarQube Scanner
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-08-15/">
+Jenkins Security Advisory 2018-08-15
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-07-30/">
+Jenkins Security Advisory 2018-07-30
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/accurev" style="white-space: nowrap; padding: 2px;">
+AccuRev
+</a>
+<a href="https://plugins.jenkins.io/pangolin-testrail-connector" style="white-space: nowrap; padding: 2px;">
+Agiletestware Pangolin Connector for TestRail
+</a>
+<a href="https://plugins.jenkins.io/anchore-container-scanner" style="white-space: nowrap; padding: 2px;">
+Anchore Container Image Scanner
+</a>
+<a href="https://plugins.jenkins.io/confluence-publisher" style="white-space: nowrap; padding: 2px;">
+Confluence Publisher
+</a>
+<a href="https://plugins.jenkins.io/inedo-buildmaster" style="white-space: nowrap; padding: 2px;">
+Inedo BuildMaster Plugin
+</a>
+<a href="https://plugins.jenkins.io/inedo-proget" style="white-space: nowrap; padding: 2px;">
+Inedo ProGet Plugin
+</a>
+<a href="https://plugins.jenkins.io/kubernetes" style="white-space: nowrap; padding: 2px;">
+Kubernetes
+</a>
+<a href="https://plugins.jenkins.io/maven-artifact-choicelistprovider" style="white-space: nowrap; padding: 2px;">
+Maven Artifact ChoiceListProvider (Nexus)
+</a>
+<a href="https://plugins.jenkins.io/meliora-testlab" style="white-space: nowrap; padding: 2px;">
+meliora-testlab
+</a>
+<a href="https://plugins.jenkins.io/publish-over-cifs" style="white-space: nowrap; padding: 2px;">
+Publish Over CIFS
+</a>
+<a href="https://plugins.jenkins.io/resource-disposer" style="white-space: nowrap; padding: 2px;">
+Resource Disposer
+</a>
+<a href="https://plugins.jenkins.io/saltstack" style="white-space: nowrap; padding: 2px;">
+SaltStack
+</a>
+<a href="https://plugins.jenkins.io/shelve-project-plugin" style="white-space: nowrap; padding: 2px;">
+Shelve Project
+</a>
+<a href="https://plugins.jenkins.io/ssh-agent" style="white-space: nowrap; padding: 2px;">
+SSH Agent
+</a>
+<a href="https://plugins.jenkins.io/tinfoil-scan" style="white-space: nowrap; padding: 2px;">
+Tinfoil Security
+</a>
+<a href="https://plugins.jenkins.io/ecutest" style="white-space: nowrap; padding: 2px;">
+TraceTronic ECU-TEST
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-07-18/">
+Jenkins Security Advisory 2018-07-18
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-06-25/">
+Jenkins Security Advisory 2018-06-25
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/aws-codebuild" style="white-space: nowrap; padding: 2px;">
+AWS CodeBuild
+</a>
+<a href="https://plugins.jenkins.io/codedeploy" style="white-space: nowrap; padding: 2px;">
+AWS CodeDeploy
+</a>
+<a href="https://plugins.jenkins.io/aws-codepipeline" style="white-space: nowrap; padding: 2px;">
+AWS CodePipeline
+</a>
+<a href="https://plugins.jenkins.io/badge" style="white-space: nowrap; padding: 2px;">
+Badge
+</a>
+<a href="https://plugins.jenkins.io/collabnet" style="white-space: nowrap; padding: 2px;">
+CollabNet Plugins
+</a>
+<a href="https://plugins.jenkins.io/configuration-as-code" style="white-space: nowrap; padding: 2px;">
+Configuration as Code
+</a>
+<a href="https://plugins.jenkins.io/fortify-cloudscan-jenkins-plugin" style="white-space: nowrap; padding: 2px;">
+Fortify CloudScan
+</a>
+<a href="https://plugins.jenkins.io/github" style="white-space: nowrap; padding: 2px;">
+GitHub
+</a>
+<a href="https://plugins.jenkins.io/zos-connector" style="white-space: nowrap; padding: 2px;">
+IBM z/OS Connector
+</a>
+<a href="https://plugins.jenkins.io/openstack-cloud" style="white-space: nowrap; padding: 2px;">
+OpenStack Cloud
+</a>
+<a href="https://plugins.jenkins.io/saml" style="white-space: nowrap; padding: 2px;">
+SAML
+</a>
+<a href="https://plugins.jenkins.io/ssh-credentials" style="white-space: nowrap; padding: 2px;">
+SSH Credentials
+</a>
+<a href="https://plugins.jenkins.io/urltrigger" style="white-space: nowrap; padding: 2px;">
+URLTrigger
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-06-04/">
+Jenkins Security Advisory 2018-06-04
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/absint-astree" style="white-space: nowrap; padding: 2px;">
+AbsInt Astrée
+</a>
+blackduck-hub
+<a href="https://plugins.jenkins.io/cas-plugin" style="white-space: nowrap; padding: 2px;">
+CAS
+</a>
+<a href="https://plugins.jenkins.io/git" style="white-space: nowrap; padding: 2px;">
+Git
+</a>
+<a href="https://plugins.jenkins.io/github" style="white-space: nowrap; padding: 2px;">
+GitHub
+</a>
+<a href="https://plugins.jenkins.io/github-branch-source" style="white-space: nowrap; padding: 2px;">
+GitHub Branch Source
+</a>
+<a href="https://plugins.jenkins.io/ghprb" style="white-space: nowrap; padding: 2px;">
+GitHub Pull Request Builder
+</a>
+<a href="https://plugins.jenkins.io/kubernetes" style="white-space: nowrap; padding: 2px;">
+Kubernetes
+</a>
+<a href="https://plugins.jenkins.io/blackduck-detect" style="white-space: nowrap; padding: 2px;">
+Synopsys Detect
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-05-09/">
+Jenkins Security Advisory 2018-05-09
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+blackduck-hub
+<a href="https://plugins.jenkins.io/gitlab-hook" style="white-space: nowrap; padding: 2px;">
+Gitlab Hook
+</a>
+<a href="https://plugins.jenkins.io/groovy-postbuild" style="white-space: nowrap; padding: 2px;">
+Groovy Postbuild
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-04-16/">
+Jenkins Security Advisory 2018-04-16
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/email-ext" style="white-space: nowrap; padding: 2px;">
+Email Extension
+</a>
+<a href="https://plugins.jenkins.io/google-login" style="white-space: nowrap; padding: 2px;">
+Google Login
+</a>
+<a href="https://plugins.jenkins.io/htmlpublisher" style="white-space: nowrap; padding: 2px;">
+HTML Publisher
+</a>
+<a href="https://plugins.jenkins.io/s3" style="white-space: nowrap; padding: 2px;">
+S3 publisher
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-04-11/">
+Jenkins Security Advisory 2018-04-11
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-03-26/">
+Jenkins Security Advisory 2018-03-26
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ansible" style="white-space: nowrap; padding: 2px;">
+Ansible
+</a>
+Copy To Slave
+<a href="https://plugins.jenkins.io/cucumber-living-documentation" style="white-space: nowrap; padding: 2px;">
+Cucumber Living Documentation
+</a>
+<a href="https://plugins.jenkins.io/ghprb" style="white-space: nowrap; padding: 2px;">
+GitHub Pull Request Builder
+</a>
+Liquibase Runner
+<a href="https://plugins.jenkins.io/mailer" style="white-space: nowrap; padding: 2px;">
+Mailer
+</a>
+Perforce
+<a href="https://plugins.jenkins.io/reverse-proxy-auth-plugin" style="white-space: nowrap; padding: 2px;">
+Reverse Proxy Auth
+</a>
+<a href="https://plugins.jenkins.io/vsphere-cloud" style="white-space: nowrap; padding: 2px;">
+vSphere
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-02-26/">
+Jenkins Security Advisory 2018-02-26
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+Azure Slave
+<a href="https://plugins.jenkins.io/coverity" style="white-space: nowrap; padding: 2px;">
+Coverity
+</a>
+<a href="https://plugins.jenkins.io/cppncss" style="white-space: nowrap; padding: 2px;">
+CppNCSS
+</a>
+<a href="https://plugins.jenkins.io/envinject" style="white-space: nowrap; padding: 2px;">
+Environment Injector
+</a>
+<a href="https://plugins.jenkins.io/gerrit-trigger" style="white-space: nowrap; padding: 2px;">
+Gerrit Trigger
+</a>
+<a href="https://plugins.jenkins.io/git" style="white-space: nowrap; padding: 2px;">
+Git
+</a>
+<a href="https://plugins.jenkins.io/google-play-android-publisher" style="white-space: nowrap; padding: 2px;">
+Google Play Android Publisher
+</a>
+<a href="https://plugins.jenkins.io/ownership" style="white-space: nowrap; padding: 2px;">
+Job and Node ownership
+</a>
+<a href="https://plugins.jenkins.io/mercurial" style="white-space: nowrap; padding: 2px;">
+Mercurial
+</a>
+<a href="https://plugins.jenkins.io/promoted-builds" style="white-space: nowrap; padding: 2px;">
+promoted builds
+</a>
+<a href="https://plugins.jenkins.io/subversion" style="white-space: nowrap; padding: 2px;">
+Subversion
+</a>
+<a href="https://plugins.jenkins.io/testlink" style="white-space: nowrap; padding: 2px;">
+TestLink
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-02-14/">
+Jenkins Security Advisory 2018-02-14
+</a>
+<br>
+<small>
+<ul>
+<li>
+Affects Jenkins Core
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-02-05/">
+Jenkins Security Advisory 2018-02-05
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/android-lint" style="white-space: nowrap; padding: 2px;">
+Android Lint
+</a>
+<a href="https://plugins.jenkins.io/ccm" style="white-space: nowrap; padding: 2px;">
+CCM
+</a>
+<a href="https://plugins.jenkins.io/credentials-binding" style="white-space: nowrap; padding: 2px;">
+Credentials Binding
+</a>
+<a href="https://plugins.jenkins.io/junit" style="white-space: nowrap; padding: 2px;">
+JUnit
+</a>
+<a href="https://plugins.jenkins.io/workflow-support" style="white-space: nowrap; padding: 2px;">
+Pipeline: Supporting APIs
+</a>
+</li>
+</ul>
+</small>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2018-01-22/">
+Jenkins Security Advisory 2018-01-22
+</a>
+<br>
+<small>
+<ul>
+<li>
+<span style="white-space: nowrap;">
+Affects Plugins:
+</span>
+<a href="https://plugins.jenkins.io/ant" style="white-space: nowrap; padding: 2px;">
+Ant
+</a>
+<a href="https://plugins.jenkins.io/checkstyle" style="white-space: nowrap; padding: 2px;">
+Checkstyle
+</a>
+<a href="https://plugins.jenkins.io/dry" style="white-space: nowrap; padding: 2px;">
+DRY
+</a>
+<a href="https://plugins.jenkins.io/findbugs" style="white-space: nowrap; padding: 2px;">
+FindBugs
+</a>
+<a href="https://plugins.jenkins.io/workflow-durable-task-step" style="white-space: nowrap; padding: 2px;">
+Pipeline: Nodes and Processes
+</a>
+<a href="https://plugins.jenkins.io/pmd" style="white-space: nowrap; padding: 2px;">
+PMD
+</a>
+<a href="https://plugins.jenkins.io/release" style="white-space: nowrap; padding: 2px;">
+Release
+</a>
+<a href="https://plugins.jenkins.io/translation" style="white-space: nowrap; padding: 2px;">
+Translation Assistance
+</a>
+<a href="https://plugins.jenkins.io/warnings" style="white-space: nowrap; padding: 2px;">
+Warnings
+</a>
+</li>
+</ul>
+</small>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2017
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-12-14/">
+Jenkins Security Advisory 2017-12-14
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-12-11/">
+Jenkins Security Advisory 2017-12-11
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-12-06/">
+Jenkins Security Advisory 2017-12-06
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-12-05/">
+Jenkins Security Advisory 2017-12-05
+(core and plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-11-16/">
+Jenkins Security Advisory 2017-11-16
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-11-08/">
+Jenkins Security Advisory 2017-11-08
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-10-23/">
+Jenkins Security Advisory 2017-10-23
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-10-11/">
+Jenkins Security Advisory 2017-10-11
+(core and plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-09-27/">
+Jenkins Security Advisory 2017-09-27
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-08-08/">
+Jenkins Security Advisory 2017-08-08
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-08-07/">
+Jenkins Security Advisory 2017-08-07
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-07-10/">
+Jenkins Security Advisory 2017-07-10
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-06-06/">
+Jenkins Security Advisory 2017-06-06
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-04-27/">
+Jenkins Security Advisory 2017-04-27
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-04-26/">
+Jenkins Security Advisory 2017-04-26
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-04-10/">
+Jenkins Security Advisory 2017-04-10
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-03-20/">
+Jenkins Security Advisory 2017-03-20
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-03-09/">
+Jenkins Security Advisory 2017-03-09
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-03-07/">
+Jenkins Security Advisory 2017-03-07
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2017-02-01/">
+Jenkins Security Advisory 2017-02-01
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2016
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-11-16/">
+Jenkins Security Advisory 2016-11-16
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-07-27/">
+Jenkins Security Advisory 2016-07-27
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-06-20/">
+Jenkins Security Advisory 2016-06-20
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-05-11/">
+Jenkins Security Advisory 2016-05-11
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-04-11/">
+Jenkins Security Advisory 2016-04-11
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2016-02-24/">
+Jenkins Security Advisory 2016-02-24
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2015
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-12-09/">
+Jenkins Security Advisory 2015-12-09
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-11-11/">
+Jenkins Security Advisory 2015-11-11
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-10-12/">
+Jenkins Security Advisory 2015-10-12
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-10-01/">
+Jenkins Security Advisory 2015-10-01
+(other)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-03-23/">
+Jenkins Security Advisory 2015-03-23
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2015-02-27/">
+Jenkins Security Advisory 2015-02-27
+(core and plugins)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2014
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2014-10-30/">
+Jenkins Security Advisory 2014-10-30
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2014-10-15/">
+Jenkins Security Advisory 2014-10-15
+(other)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2014-10-01/">
+Jenkins Security Advisory 2014-10-01
+(core and plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2014-02-14/">
+Jenkins Security Advisory 2014-02-14
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2013
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2013-11-20/">
+Jenkins Security Advisory 2013-11-20
+(plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2013-05-02/">
+Jenkins Security Advisory 2013-05-02
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2013-02-16/">
+Jenkins Security Advisory 2013-02-16
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2013-01-04/">
+Jenkins Security Advisory 2013-01-04
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2012
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2012-11-20/">
+Jenkins Security Advisory 2012-11-20
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2012-09-17/">
+Jenkins Security Advisory 2012-09-17
+(core and plugins)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2012-03-05/">
+Jenkins Security Advisory 2012-03-05
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2012-01-24/">
+Jenkins Security Advisory 2012-01-24
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2012-01-12/">
+Jenkins Security Advisory 2012-01-12
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2011
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2011-11-08/">
+Jenkins Security Advisory 2011-11-08
+(core)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2011-10-28/">
+Jenkins Security Advisory 2011-10-28
+(plugin)
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2011-10-20/">
+Jenkins Security Advisory 2011-10-20
+(plugin)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="container">
+<div class="row">
+<h3>
+2010
+</h3>
+</div>
+<div class="row">
+<ul>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security/advisory/2010-07-05/">
+Hudson Security Advisory 2010-07-05
+(core)
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/anchor-js/anchor.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/tether/js/tether.min.js"></script>
+<script src="https://zbynek.github.io/jenkins.io/order-syntax/assets/bower/bootstrap/js/bootstrap.min.js"></script>
+<footer id="footer">
+<div class="container">
+<div class="row">
+<div class="col-md-4">
+<p class="box">
+<a href="https://github.com/jenkins-infra/jenkins.io/edit/master/content//security/advisories.html.haml" title="Edit /security/advisories.html.haml on GitHub">Improve this page</a>
+|
+<a href="https://github.com/jenkins-infra/jenkins.io/commits/master/content//security/advisories.html.haml" title="View /security/advisories.html.haml history on GitHub">Page history</a>
+</p>
+<div class="license-box">
+<div id="creativecommons">
+<a href="https://creativecommons.org/licenses/by-sa/4.0/">
+<p>
+<img alt="Creative Commons Attribution-ShareAlike license" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png">
+</p>
+</a>
+<p>
+The content driving this site is licensed under the Creative
+Commons Attribution-ShareAlike 4.0 license.
+</p>
+</div>
+</div>
+</div>
+<div class="links col-md-8">
+<div class="container">
+<div class="row">
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Resources</h5>
+<ul class="resources">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/download">
+Downloads
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/node">
+Blog
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/doc">
+Documentation
+</a>
+</li>
+<li>
+<a href="https://plugins.jenkins.io/">
+Plugins
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/security">
+Security
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/participate">
+Contributing
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Project</h5>
+<ul class="project">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/project">
+Structure and governance
+</a>
+</li>
+<li>
+<a href="https://issues.jenkins-ci.org">
+Issue tracker
+</a>
+</li>
+<li>
+<a href="https://wiki.jenkins.io">
+Wiki
+</a>
+</li>
+<li>
+<a href="https://github.com/jenkinsci">
+GitHub
+</a>
+</li>
+<li>
+<a href="https://ci.jenkins.io">
+Jenkins on Jenkins
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Community</h5>
+<ul class="community">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/events">
+Events
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/mailing-lists">
+Mailing lists
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/chat">
+Chats
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/sigs">
+Special Interest Groups
+</a>
+</li>
+<li>
+<a href="https://twitter.com/jenkinsci">
+Twitter
+</a>
+</li>
+<li>
+<a href="https://reddit.com/r/jenkinsci">
+Reddit
+</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="area col-md-3">
+<div class="div-mar">
+<h5>Other</h5>
+<ul class="other">
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/conduct">
+Code of Conduct
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/press">
+Press information
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/merchandise">
+Merchandise
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/artwork">
+Artwork
+</a>
+</li>
+<li>
+<a href="https://zbynek.github.io/jenkins.io/order-syntax/awards">
+Awards
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-000000-0', 'auto');
+ga('send', 'pageview');
+ga('set', 'anonymizeIp', true);
+
+</script>
+
+<script>
+  !function(d,s,id) {
+    var js, fjs=d.getElementsByTagName(s)[0];
+    if (!d.getElementById(id)) {
+      js = d.createElement(s);
+      js.id=id;
+      js.src="//platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,"script","twitter-wjs");
+  
+  $(function(){
+    var $body = $(document.body);
+    $(".nav-link.dropdown-toggle").on("mousedown", function(){
+      $body.addClass("no-outline");
+    })
+    $body.on("keydown", function(){
+      $body.removeClass("no-outline");
+    })
+  })
+</script>
+</body>
+</html>
