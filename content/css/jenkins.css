@@ -1547,7 +1547,6 @@ ion-icon.report {
 }
 
 /* Algolia searchbox "No results" text */
-.DocSearch-NoResults p.DocSearch-Title {
-  color: rgba(0, 0, 0, 0.528);
-  font-weight: bold;
+.DocSearch-Dropdown {
+  color: rgba(0, 0, 0, 0.6);
 }
